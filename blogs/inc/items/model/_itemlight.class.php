@@ -478,6 +478,7 @@ class ItemLight extends DataObject
 
 			$categoryNames[] = $cat_name;
 		}
+		sort($categoryNames);
 
 		echo $params['before'];
 		echo format_to_output( implode( $params['separator'], $categoryNames ), $params['format'] );
