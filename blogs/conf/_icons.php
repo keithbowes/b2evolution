@@ -410,7 +410,7 @@ function get_icon_info($name)
 			'xy' => array( 96, 176 )
 		);
 		case 'bullet_empty': return array(
-			'alt'  => '&nbsp;',
+			'alt'  => '&#160;',
 			'size' => array( 9, 9 ),
 			'xy' => array( 112, 176 )
 		);

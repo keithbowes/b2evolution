@@ -93,7 +93,7 @@ $Form->hidden( 'comment_ID', $edited_Comment->ID );
 		$Form->switch_layout( 'none' );
 
 		// Move to another post
-		echo '<td width="1%">&nbsp;&nbsp;<strong>'.T_('Move to post ID').':</strong></td>';
+		echo '<td width="1%">&#160;&#160;<strong>'.T_('Move to post ID').':</strong></td>';
 		echo '<td class="input">';
 		$Form->text_input( 'moveto_post', $comment_Item->ID, 20, '', '', array('maxlength'=>100, 'style'=>'width:25%;') );
 		echo '</td>';
@@ -111,7 +111,7 @@ $Form->hidden( 'comment_ID', $edited_Comment->ID );
 		$Form->switch_layout( 'none' );
 		$Form->text_input( 'in_reply_to_cmt_ID', $edited_Comment->in_reply_to_cmt_ID, 10, '' );
 		$Form->switch_layout( NULL );
-		echo '&nbsp;<span class="note">'.T_('(leave blank for normal comments)').'</span>';
+		echo '&#160;<span class="note">'.T_('(leave blank for normal comments)').'</span>';
 		echo '</td>';
 		echo '</tr></table>';
 	}

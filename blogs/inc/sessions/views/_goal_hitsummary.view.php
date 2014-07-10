@@ -218,7 +218,7 @@ foreach( $hitgroup_array as $day => $hitday_array )
 		}
 		else
 		{
-			echo '&nbsp;';
+			echo '&#160;';
 		}
 		$Table->display_col_end();
 	}
@@ -248,7 +248,7 @@ foreach( $goal_rows as $goal_row )
 	}
 	else
 	{
-		echo '&nbsp;';
+		echo '&#160;';
 	}
 	echo $Table->params['total_col_end'];
 }

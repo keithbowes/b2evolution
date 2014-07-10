@@ -85,7 +85,7 @@ function bytesreadable( $bytes, $htmlabbr = true, $display_size_type = true )
 	$precision = max( 0, ( 1 -floor(log($bytes)/log(10))) );
 	$r = sprintf( '%.'.$precision.'f', $bytes );
 
-	$r .= $htmlabbr ? ( '&nbsp;<abbr title="'.$types[$i]['text'].'">' ) : ' ';
+	$r .= $htmlabbr ? ( '&#160;<abbr title="'.$types[$i]['text'].'">' ) : ' ';
 	$r .= $types[$i]['abbr'];
 	$r .= $htmlabbr ? '</abbr>' : ( $display_size_type ? ' ('.$types[$i]['text'].')' : '' );
 
@@ -853,7 +853,7 @@ function get_directory_tree( $Root = NULL, $ads_full_path = NULL, $ads_selected_
 			}
 
 			//.( ! $has_sub_dirs ? ' style="margin-right:'.get_icon( 'collapse', 'size', array( 'size' => 'width' ) ).'px"' : '' )
-			$r['string'] .= ' /> &nbsp; &nbsp;';
+			$r['string'] .= ' /> &#160; &#160;';
 		}
 
 		// Folder Icon + Name:
@@ -867,7 +867,7 @@ function get_directory_tree( $Root = NULL, $ads_full_path = NULL, $ads_selected_
 		// Handle potential subdir:
 		if( ! $has_sub_dirs )
 		{	// No subdirs
-			$r['string'] .= get_icon( 'expand', 'noimg', array( 'class'=>'' ) ).'&nbsp;'.$label.'</span>';
+			$r['string'] .= get_icon( 'expand', 'noimg', array( 'class'=>'' ) ).'&#160;'.$label.'</span>';
 		}
 		else
 		{ // Process subdirs
@@ -875,7 +875,7 @@ function get_directory_tree( $Root = NULL, $ads_full_path = NULL, $ads_selected_
 						'id' => 'clickimg_'.$id_path,
 						'style'=>'margin:0 2px'
 					) )
-				.'&nbsp;'.$label.'</span>'
+				.'&#160;'.$label.'</span>'
 				.'<ul class="clicktree" id="clickdiv_'.$id_path.'">'."\n";
 
 			while( $l_File = & $Nodelist->get_next( 'dir' ) )

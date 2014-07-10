@@ -90,5 +90,5 @@ if( isset( $_COOKIE[ $cookie_skin_width_name ] ) )
 		// ----------------------------- END OF "Menu" CONTAINER -----------------------------
 	?>
 	</ul>
-	&nbsp;
+	&#160;
 </div>

@@ -1220,7 +1220,7 @@ function cat_select_before_each( $cat_ID, $level, $total_count )
 		}
 		else
 		{ // Don't allow to select this cat as a main cat
-			$r .= '<td class="selector catsel_main">&nbsp;</td>';
+			$r .= '<td class="selector catsel_main">&#160;</td>';
 		}
 	}
 
@@ -1250,7 +1250,7 @@ function cat_select_before_each( $cat_ID, $level, $total_count )
 		}
 		else
 		{ // Don't allow to select this cat as an extra cat
-			$r .= '<td class="selector catsel_main">&nbsp;</td>';
+			$r .= '<td class="selector catsel_main">&#160;</td>';
 		}
 	}
 
@@ -1276,7 +1276,7 @@ function cat_select_before_each( $cat_ID, $level, $total_count )
 				.$thisChapter->name.'</label>'
 				.$chapter_lock_status
 				.' <a href="'.evo_htmlspecialchars($thisChapter->get_permanent_url()).'" title="'.evo_htmlspecialchars(T_('View category in blog.')).'">'
-				.'&nbsp;&raquo;&nbsp;' // TODO: dh> provide an icon instead? // fp> maybe the A(dmin)/B(log) icon from the toolbar? And also use it for permalinks to posts?
+				.'&#160;&raquo;&#160;' // TODO: dh> provide an icon instead? // fp> maybe the A(dmin)/B(log) icon from the toolbar? And also use it for permalinks to posts?
 				.'</a></td>'
 			.'</tr>'."\n";
 
@@ -3450,7 +3450,7 @@ function items_list_block_by_page( $params = array() )
 			'block_start'  => '<div class="navigation ajax">',
 			'block_end'    => '</div>',
 			'links_format' => '$next$',
-			'next_text'    => T_('Load more entries').'&hellip;',
+			'next_text'    => T_('Load more entries').'…',
 		), $params );
 
 	if( !skin_init_ajax( $params['skin_name'], 'posts' ) )
@@ -3680,7 +3680,7 @@ function item_visibility( $Item )
 
 	if( empty( $r ) )
 	{	// for IE
-		$r = '&nbsp;';
+		$r = '&#160;';
 	}
 
 	return $r;
@@ -4163,7 +4163,7 @@ function manual_display_chapter_row( $Chapter, $level, $is_opened = false )
 	}
 	else
 	{
-		$r .= '&nbsp;';
+		$r .= '&#160;';
 	}
 	$r .= '</td>';
 

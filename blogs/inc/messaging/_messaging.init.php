@@ -315,7 +315,7 @@ class messaging_Module extends Module
 				$topleft_Menu->_menus['entries']['tools']['disabled'] = false;
 
 				$left_entries['messaging'] = array(
-						'text' => T_('Messages').'&hellip;',
+						'text' => T_('Messages').'…',
 						'href' => $admin_url.'?ctrl=threads',
 					);
 			}

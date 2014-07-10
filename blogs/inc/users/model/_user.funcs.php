@@ -3441,7 +3441,7 @@ function display_voting_form( $params = array() )
 
 	if( $params['display_inappropriate'] || $params['display_spam'] )
 	{	// Display separator between icons and checkboxes
-		echo '<span class="separator">&nbsp;</span>';
+		echo '<span class="separator">&#160;</span>';
 	}
 
 	if( $params['display_inappropriate'] )

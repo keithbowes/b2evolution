@@ -426,7 +426,7 @@ class GenericCategoryCache extends GenericCache
 			$indent = '';
 			for($i = 0; $i < $level; $i++)
 			{
-				$indent .='&nbsp;&nbsp;';
+				$indent .='&#160;&#160;';
 			}
 			// Set category option:
 			$r .= '<option value="'.$GenericCategory->ID.'" ';

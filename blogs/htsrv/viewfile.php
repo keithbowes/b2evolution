@@ -185,7 +185,7 @@ switch( $viewtype )
 		{
 			echo 'error';
 		}
-		echo '&nbsp;</div>';
+		echo '&#160;</div>';
 		break;
 
 	case 'text':

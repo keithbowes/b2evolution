@@ -134,7 +134,7 @@ if( ! empty( $import_files ) )
 
 	$BlogCache = & get_BlogCache();
 	$BlogCache->load_all( 'shortname,name', 'ASC' );
-	$BlogCache->none_option_text = '&nbsp;';
+	$BlogCache->none_option_text = '&#160;';
 
 	$Form->select_input_object( 'wp_blog_ID', param( 'wp_blog_ID', 'integer', 0 ), $BlogCache, T_('Blog for import'), array(
 			'note' => T_('This blog will be used for import.').' <a href="'.$admin_url.'?ctrl=collections&action=new">'.T_('Create new blog').' &raquo;</a>',

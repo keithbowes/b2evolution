@@ -561,14 +561,14 @@ class collections_Module extends Module
 		if( $current_User->check_perm( 'options', 'view' ) )
 		{ // Menu to edit site settings
 			$entries['structure'] = array(
-					'text' => T_('Site structure').'&hellip;',
+					'text' => T_('Site structure').'…',
 					'href' => $admin_url.'?ctrl=collections',
 				);
 		}
 
 		// Menu to view blogs list
 		$entries['blogs'] = array(
-				'text' => T_('Blogs').'&hellip;',
+				'text' => T_('Blogs').'…',
 				'href' => $admin_url.'?ctrl=collections&amp;tab=list',
 			);
 

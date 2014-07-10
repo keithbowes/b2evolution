@@ -404,17 +404,17 @@ function excerpt( $str, $maxlen = 200 )
 
 
 /**
- * Crop string to maxlen with &hellip; (default tail) at the end if needed.
+ * Crop string to maxlen with … (default tail) at the end if needed.
  *
  * If $format is not "raw", we make sure to not cut in the middle of an
  * HTML entity, so that strmaxlen('1&amp;2', 3, NULL, 'formvalue') will not
- * become/stay '1&amp;&hellip;'.
+ * become/stay '1&amp;…'.
  *
  * @param string
  * @param int Maximum length
  * @param string Tail to use, when string gets cropped. Its length gets
  *               substracted from the total length (with HTML entities
- *               being decoded). Default is "&hellip;" (HTML entity)
+ *               being decoded). Default is "…" (HTML entity)
  * @param string Format, see {@link format_to_output()}
  * @param boolean Crop at whitespace, if possible?
  *        (any word split at the end will get its head removed)
@@ -426,7 +426,7 @@ function strmaxlen( $str, $maxlen = 50, $tail = NULL, $format = 'raw', $cut_at_w
 
 	if( is_null($tail) )
 	{
-		$tail = '&hellip;';
+		$tail = '…';
 	}
 
 	$str = rtrim($str);
@@ -434,7 +434,7 @@ function strmaxlen( $str, $maxlen = 50, $tail = NULL, $format = 'raw', $cut_at_w
 	if( evo_strlen( $str ) > $maxlen )
 	{
 		// Replace all HTML entities by a single char. html_entity_decode for example
-		// would not handle &hellip;.
+		// would not handle ….
 		$tail_for_length = preg_replace('~&\w+?;~', '.', $tail);
 		$tail_length = evo_strlen( evo_html_entity_decode($tail_for_length) );
 		$len = $maxlen-$tail_length;
@@ -505,7 +505,7 @@ function strmaxwords( $str, $maxwords = 50, $params = array() )
 {
 	$params = array_merge( array(
 			'continued_link' => '',
-			'continued_text' => '&hellip;',
+			'continued_text' => '…',
 			'always_continue' => false,
 		), $params );
 	$open = false;
@@ -2926,7 +2926,7 @@ function debug_info( $force = false, $force_clean = false )
 			echo $DB->num_queries.' SQL queries executed in '.$Timer->get_duration( 'SQL QUERIES' )." seconds\n";
 			if( ! $clean )
 			{
-				echo ' &nbsp; <a href="'.$ReqHostPathQuery.'#evo_debug_queries">scroll down to details</a><p>';
+				echo ' &#160; <a href="'.$ReqHostPathQuery.'#evo_debug_queries">scroll down to details</a><p>';
 			}
 			echo '</div></div>';
 		}
@@ -4190,7 +4190,7 @@ function get_icon( $iconKey, $what = 'imgtag', $params = NULL, $include_in_legen
 				// Add all the attributes:
 				$params = get_field_attribs_as_string( $params, false );
 
-				$r = '<span'.$params.'>&nbsp;</span>';
+				$r = '<span'.$params.'>&#160;</span>';
 			}
 			elseif( ! isset( $icon['file'] ) )
 			{ // Use span tag with sprite instead of img
@@ -4257,7 +4257,7 @@ function get_icon( $iconKey, $what = 'imgtag', $params = NULL, $include_in_legen
 				// Add all the attributes:
 				$params = get_field_attribs_as_string( $params, false );
 
-				$r = '<span'.$params.'>&nbsp;</span>';
+				$r = '<span'.$params.'>&#160;</span>';
 			}
 			else
 			{ // Use img tag

@@ -633,7 +633,7 @@ class code_highlight_plugin extends Plugin
 	 */
 	function do_numbering( $code, $offset = 0, $type = 'code' )
 	{
-		$temp = str_replace( array( '&nbsp;&nbsp;', '  ', "\t", '[x', '[/x' ),  array( '&#160;&#160;', '&#160;&#160;', '&#160;&#160;', '[', '[/' ), $code );
+		$temp = str_replace( array( '&#160;&#160;', '  ', "\t", '[x', '[/x' ),  array( '&#160;&#160;', '&#160;&#160;', '&#160;&#160;', '[', '[/' ), $code );
 		$temp = explode( "\n", $temp );
 		$count = 0;
 		$output = '';
@@ -642,8 +642,8 @@ class code_highlight_plugin extends Plugin
 		{
 			$output .= '<tr class="amc_code_'.( ( $odd_line = !$odd_line ) ? 'odd' : 'even' ).'"><td class="amc_line">'
 									.$this->create_number( ++$count + $offset ).'</td><td><code>'.$line
-									// add an &nbsp; to empty lines to stop them "collapsing"
-									.( empty( $line ) ? '&nbsp;' : '' )
+									// add an &#160; to empty lines to stop them "collapsing"
+									.( empty( $line ) ? '&#160;' : '' )
 									.'</code></td></tr>';//."\n"; yura: I commented this because Auto-P plugin creates the tags <p></p> from this symbol
 		}
 		// make "long" value a setting ? - yabs

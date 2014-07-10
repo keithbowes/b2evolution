@@ -419,7 +419,7 @@ function stats_hit_percent(
 {
 	global $row_stats, $stats_total_hits;
 	$percent = $row_stats['totalHits'] * 100 / $stats_total_hits;
-	echo number_format( $percent, $decimals, $dec_point, '' ).'&nbsp;%';
+	echo number_format( $percent, $decimals, $dec_point, '' ).'&#160;%';
 }
 
 

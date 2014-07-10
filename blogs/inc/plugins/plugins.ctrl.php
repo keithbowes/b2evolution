@@ -984,7 +984,7 @@ switch( $action )
 		// Close button:
 		$Form->global_icon( T_('Close info!'), 'close', regenerate_url() );
 
-		$Form->begin_form( 'fform', '&nbsp;' );
+		$Form->begin_form( 'fform', '&#160;' );
 		$Form->hidden( 'ctrl', 'plugins' );
 		$Form->begin_fieldset('Plugin info', array('class' => 'fieldset'));
 		$Form->info_field( T_('Name'), $edit_Plugin->name );

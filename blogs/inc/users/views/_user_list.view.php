@@ -212,7 +212,7 @@ function user_mailto( $email )
 {
 	if( empty( $email ) )
 	{
-		return '&nbsp;';
+		return '&#160;';
 	}
 	return action_icon( T_('Email').': '.$email, 'email', 'mailto:'.$email, T_('Email') );
 }
@@ -223,7 +223,7 @@ function user_pm ( $user_ID, $user_login )
 
 	if( $user_ID == $current_User->ID )
 	{
-		return '&nbsp;';
+		return '&#160;';
 	}
 
 	$UserCache = & get_UserCache();
@@ -258,7 +258,7 @@ if( isset($collections_Module) )
 							'order' => 'nb_blogs',
 							'th_class' => 'shrinkwrap small',
 							'td_class' => 'center small',
-							'td' => '~conditional( (#nb_blogs# > 0), \'<a href="admin.php?ctrl=user&amp;user_tab=activity&amp;user_ID=$user_ID$" title="'.format_to_output( T_('View personal blogs'), 'htmlattr' ).'">$nb_blogs$</a>\', \'&nbsp;\' )~',
+							'td' => '~conditional( (#nb_blogs# > 0), \'<a href="admin.php?ctrl=user&amp;user_tab=activity&amp;user_ID=$user_ID$" title="'.format_to_output( T_('View personal blogs'), 'htmlattr' ).'">$nb_blogs$</a>\', \'&#160;\' )~',
 						);
 }
 
@@ -341,7 +341,7 @@ $UserList->cols[] = array(
 					'td' => '%user_mailto( #user_email# )%
 					%user_pm( #user_ID#, #user_login# )%'.
 					('~conditional( (#user_url# != \'http://\') && (#user_url# != \'\'), \' <a href="$user_url$" target="_blank" title="'.format_to_output( T_('Website'), 'htmlattr' ).': $user_url$">'
-							.get_icon( 'www', 'imgtag', array( 'class' => 'middle', 'title' => format_to_output( T_('Website'), 'htmlattr' ).': $user_url$' ) ).'</a>\', \'&nbsp;\' )~'),
+							.get_icon( 'www', 'imgtag', array( 'class' => 'middle', 'title' => format_to_output( T_('Website'), 'htmlattr' ).': $user_url$' ) ).'</a>\', \'&#160;\' )~'),
 				);
 
 $filter_reported = param( 'reported', 'integer' );

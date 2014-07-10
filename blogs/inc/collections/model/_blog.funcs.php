@@ -1603,7 +1603,7 @@ function blog_row_actions( $curr_blog_ID )
 
 	if( empty($r) )
 	{ // for IE
-		$r = '&nbsp;';
+		$r = '&#160;';
 	}
 
 	return $r;

@@ -256,7 +256,7 @@ function selection_checkbox( $item_ID, $param_prefix )
 
 	if( in_array( $item_ID, $item_ID_array ) )
 	{	// We have already displayed a checkbox for this ID
-		return '&nbsp;';	// nbsp is for IE...
+		return '&#160;';	// nbsp is for IE...
 	}
 
 	$item_ID_array[] = $item_ID; //construction of the ID list
@@ -280,7 +280,7 @@ function selection_checkbox( $item_ID, $param_prefix )
 		}
 		else
 		{
-			$r .= '&nbsp;';
+			$r .= '&#160;';
 		}
 	}
 

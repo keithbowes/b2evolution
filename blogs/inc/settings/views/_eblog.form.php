@@ -39,8 +39,8 @@ $Form->begin_fieldset( T_('Test saved settings') );
 
 	$url = '?ctrl=remotepublish&amp;tab=eblog&amp;'.url_crumb('globalsettings').'&amp;action=';
 	$Form->info_field( T_('Perform tests'),
-				'<a href="'.$url.'test_1">['.T_('server connection').']</a>&nbsp;&nbsp;
-				<a href="'.$url.'test_2">['.T_('simulate posting').']</a>&nbsp;&nbsp;
+				'<a href="'.$url.'test_1">['.T_('server connection').']</a>&#160;&#160;
+				<a href="'.$url.'test_2">['.T_('simulate posting').']</a>&#160;&#160;
 				<a href="'.$url.'test_3">['.T_('create one post').']</a>' );
 
 	if( !empty($eblog_test_output) )

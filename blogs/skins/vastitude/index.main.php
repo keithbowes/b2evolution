@@ -77,9 +77,9 @@ siteskin_include( '_site_body_header.inc.php' );
 				'list_start' => '',
 				'list_end' => '',
 				'item_start'		=>	'<li>',
-				'item_end'		=>	' &nbsp; / </li>',
+				'item_end'		=>	' &#160; / </li>',
 				'item_selected_start'	=>	'<li class="selected">',
-				'item_selected_end'	=>	' &nbsp; / </li>',
+				'item_selected_end'	=>	' &#160; / </li>',
 				'link_selected_class'	=>	'selected',
 			) );
 		// ----------------------------- END OF "Menu" CONTAINER -----------------------------

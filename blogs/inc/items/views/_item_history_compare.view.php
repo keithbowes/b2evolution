@@ -79,7 +79,7 @@ $Form->begin_form( 'fform', sprintf( T_('Difference between revisions for: %s'),
 	<?php
 	}
 ?>
-	<tr><td colspan="4">&nbsp;</td></tr>
+	<tr><td colspan="4">&#160;</td></tr>
 <?php
 if( !empty( $revisions_difference_content ) )
 {	// Dispay content difference

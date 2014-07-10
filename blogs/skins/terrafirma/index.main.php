@@ -99,7 +99,7 @@ siteskin_include( '_site_body_header.inc.php' );
 				<div id="search">
 				Find<br />
 				<form action="<?php $Blog->gen_blogurl() ?>" method="get" class="search">
-				<input name="s" size="15" value="" class="form_text_input" type="text" />&nbsp;<input name="submit" class="searchsubmit" value="Go" type="submit" /></form></div>
+				<input name="s" size="15" value="" class="form_text_input" type="text" />&#160;<input name="submit" class="searchsubmit" value="Go" type="submit" /></form></div>
 				<?php } ?>
 				<div class="clear"></div>
 			</div>

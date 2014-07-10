@@ -42,8 +42,8 @@ foreach( $params['fields'] as $field_key => $field_data )
 		$highlighted = ' class="row_red"';
 	}
 	echo '<tr'.$highlighted.'><th>'.T_( $field_data['title'] ).'</th>'
-			.'<td>'.( $field_data['old'] == '' ? '&nbsp;' : $field_data['old'] ).'</td>'
-			.'<td>'.( $field_data['new'] == '' ? '&nbsp;' : $field_data['new'] ).'</td></tr>'."\n";
+			.'<td>'.( $field_data['old'] == '' ? '&#160;' : $field_data['old'] ).'</td>'
+			.'<td>'.( $field_data['new'] == '' ? '&#160;' : $field_data['new'] ).'</td></tr>'."\n";
 }
 
 echo '</table>'."\n";

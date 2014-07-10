@@ -485,7 +485,7 @@ if( count( $Results->rows ) > 0 )
 				'value' => T_('Rename'),
 				'class' => 'SaveButton'
 			) );
-		echo ' &nbsp; <b class="nowrap" style="padding-top:1em;line-height:32px">'.T_('or').' &nbsp; ';
+		echo ' &#160; <b class="nowrap" style="padding-top:1em;line-height:32px">'.T_('or').' &#160; ';
 		$Form->button_input( array(
 				'name' => 'actionArray[delete_group]',
 				'value' => T_('Delete this group'),

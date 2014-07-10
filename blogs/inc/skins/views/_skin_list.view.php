@@ -61,7 +61,7 @@ $Results->cols[] = array(
 						'order' => 'nb_blogs',
 						'th_class' => 'shrinkwrap',
 						'td_class' => 'center',
-						'td' => '~conditional( (#nb_blogs# > 0), #nb_blogs#, \'&nbsp;\' )~',
+						'td' => '~conditional( (#nb_blogs# > 0), #nb_blogs#, \'&#160;\' )~',
 					);
 
 $Results->cols[] = array(

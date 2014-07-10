@@ -305,7 +305,7 @@ class Form extends Widget
 					$this->fieldstart = '<tr$ID$>'."\n";
 					$this->labelstart = '<td class="label">';
 					$this->labelend = "</td>\n";
-					$this->labelempty = '<td class="label">&nbsp;</td>'."\n";
+					$this->labelempty = '<td class="label">&#160;</td>'."\n";
 					$this->inputstart = '<td class="input">';
 					$this->infostart = '<td class="info">';
 					$this->inputend = "</td>\n";
@@ -367,7 +367,7 @@ class Form extends Widget
 				case 'linespan':
 					$this->formstart = '';
 					$this->title_fmt = '<span style="float:right">$global_icons$</span><h2>$title$</h2>'."\n";
-					$this->no_title_fmt = '<span style="float:right">$global_icons$</span>&nbsp;'."\n";
+					$this->no_title_fmt = '<span style="float:right">$global_icons$</span>&#160;'."\n";
 					$this->fieldset_begin = '<fieldset $fieldset_attribs$>'."\n"
 															.'<legend $title_attribs$>$fieldset_title$</legend>'."\n";
 					$this->fieldset_end = '</fieldset>'."\n";
@@ -1492,7 +1492,7 @@ class Form extends Widget
 				.get_icon( 'check_all', 'imgtag', NULL, true )
 				.'</a> | <a name="uncheck_all_nocheckchanges" href="'.regenerate_url().'">'
 				//.T_('Uncheck all').' '
-				.get_icon( 'uncheck_all', 'imgtag', NULL, true ).'</a> '.'&nbsp;';
+				.get_icon( 'uncheck_all', 'imgtag', NULL, true ).'</a> '.'&#160;';
 	}
 
 

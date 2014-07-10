@@ -90,7 +90,7 @@ headers_content_mightcache( 'text/html' );		// In most situations, you do NOT wa
 
 		<div class="menu_top"><!-- InstanceBeginEditable name="MenuTop" -->
 			<span class="floatright"><a href="<?php echo $baseurl ?>">Home</a> &bull; <a href="<?php echo $admin_url ?>">Admin</a> </span>
-			&nbsp;
+			&#160;
 		<!-- InstanceEndEditable --></div>
 
 		<!-- InstanceBeginEditable name="Main" -->
@@ -185,16 +185,16 @@ headers_content_mightcache( 'text/html' );		// In most situations, you do NOT wa
 			if( !empty( $first_Blog ) )
 			{
 			?>
-				<li><strong><a href="a_noskin.php"><?php echo T_('Blog #1 called through a custom template (not a skin)') ?></a></strong> &nbsp; <span class="note">(a_noskin.php)</span></li>
-				<li><strong><a href="multiblogs.php"><?php echo T_('Multiple blogs displayed on the same page') ?></a></strong> &nbsp; <span class="note">(multiblogs.php)</span></li>
-				<li><strong><a href="sitemap_a.php"><?php echo T_('Blog #1 XML sitemap (called through a stub)') ?></a></strong> &nbsp; <span class="note">(sitemap_a.php)</span></li>
-				<li><strong><a href="sitemap_blogs.php"><?php echo T_('Blog #1 aggregated XML sitemap (called through a stub)') ?></a></strong> &nbsp; <span class="note">(sitemap_blogs.php)</span></li>
+				<li><strong><a href="a_noskin.php"><?php echo T_('Blog #1 called through a custom template (not a skin)') ?></a></strong> &#160; <span class="note">(a_noskin.php)</span></li>
+				<li><strong><a href="multiblogs.php"><?php echo T_('Multiple blogs displayed on the same page') ?></a></strong> &#160; <span class="note">(multiblogs.php)</span></li>
+				<li><strong><a href="sitemap_a.php"><?php echo T_('Blog #1 XML sitemap (called through a stub)') ?></a></strong> &#160; <span class="note">(sitemap_a.php)</span></li>
+				<li><strong><a href="sitemap_blogs.php"><?php echo T_('Blog #1 aggregated XML sitemap (called through a stub)') ?></a></strong> &#160; <span class="note">(sitemap_blogs.php)</span></li>
 			<?php
 			}
 		?>
-		<li><strong><a href="summary.php"><?php echo T_('Summary of latest posts in all blogs') ?></a></strong> &nbsp; <span class="note">(summary.php)</span></li>
-		<li><strong><a href="default.php"><?php echo T_('The page you\'re looking at') ?></a></strong> &nbsp; <span class="note">(default.php)</span></li>
-		<li><strong><a href="contact.php"><?php echo T_('A standalone admin-contact page for your site') ?></a></strong> &nbsp; <span class="note">(contact.php)</span></li>
+		<li><strong><a href="summary.php"><?php echo T_('Summary of latest posts in all blogs') ?></a></strong> &#160; <span class="note">(summary.php)</span></li>
+		<li><strong><a href="default.php"><?php echo T_('The page you\'re looking at') ?></a></strong> &#160; <span class="note">(default.php)</span></li>
+		<li><strong><a href="contact.php"><?php echo T_('A standalone admin-contact page for your site') ?></a></strong> &#160; <span class="note">(contact.php)</span></li>
 	</ul>
 
 	</div>

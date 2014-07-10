@@ -477,7 +477,7 @@ class Calendar
 
 		$this->emptycellstart = '<td class="bCalendarEmptyCell">';
 		$this->emptycellend = "</td>\n";
-		$this->emptycellcontent = '&nbsp;';
+		$this->emptycellcontent = '&#160;';
 
 		$this->linkpostcellstart = '<td class="bCalendarLinkPost">';
 		$this->linkposttodaycellstart = '<td class="bCalendarLinkPostToday">';
@@ -637,7 +637,7 @@ class Calendar
 
 			if( $this->navigation == 'caption' )
 			{
-				echo implode( '&nbsp;', $this->getNavLinks( 'prev' ) ).'&nbsp;';
+				echo implode( '&#160;', $this->getNavLinks( 'prev' ) ).'&#160;';
 			}
 
 			if( $this->mode == 'month' )
@@ -660,7 +660,7 @@ class Calendar
 
 			if( $this->navigation == 'caption' )
 			{
-				echo '&nbsp;'.implode( '&nbsp;', $this->getNavLinks( 'next' ) );
+				echo '&#160;'.implode( '&#160;', $this->getNavLinks( 'next' ) );
 			}
 
 			echo $this->monthend;
@@ -705,14 +705,14 @@ class Calendar
 			echo "<tfoot>\n";
 			echo "<tr>\n";
 			echo '<td colspan="'.( ( $this->mode == 'month' ? 2 : 1 ) + (int)$this->today_is_visible ).'" id="prev">';
-			echo implode( '&nbsp;', $this->getNavLinks( 'prev' ) );
+			echo implode( '&#160;', $this->getNavLinks( 'prev' ) );
 			echo "</td>\n";
 
 			if( $this->today_is_visible )
 			{
 				if( $this->mode == 'month' )
 				{
-					echo '<td class="pad">&nbsp;</td>'."\n";
+					echo '<td class="pad">&#160;</td>'."\n";
 				}
 			}
 			else
@@ -722,7 +722,7 @@ class Calendar
 							.'</td>';
 			}
 			echo '<td colspan="'.( ( $this->mode == 'month' ? 2 : 1 ) + (int)$this->today_is_visible ).'" id="next">';
-			echo implode( '&nbsp;', $this->getNavLinks( 'next' ) );
+			echo implode( '&#160;', $this->getNavLinks( 'next' ) );
 			echo "</td>\n";
 			echo "</tr>\n";
 			echo "</tfoot>\n";

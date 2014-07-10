@@ -86,8 +86,8 @@ $Comment = & $params['Comment'];
 
 	<?php
 		$comment_Item = & $Comment->get_Item();
-		$Comment->edit_link( ' &nbsp; ', ' ', '#', '#', '', '&amp;', true, rawurlencode( $Comment->get_permanent_url() ) ); /* Link for editing */
-		$Comment->delete_link( ' &nbsp; ', ' ', '#', '#', '', false, '&amp;', true, false, '#', rawurlencode( $comment_Item->get_permanent_url() ) ); /* Link for deleting */
+		$Comment->edit_link( ' &#160; ', ' ', '#', '#', '', '&amp;', true, rawurlencode( $Comment->get_permanent_url() ) ); /* Link for editing */
+		$Comment->delete_link( ' &#160; ', ' ', '#', '#', '', false, '&amp;', true, false, '#', rawurlencode( $comment_Item->get_permanent_url() ) ); /* Link for deleting */
 	?>
 	</em>
 

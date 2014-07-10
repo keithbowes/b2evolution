@@ -259,7 +259,7 @@ function perm_check_all( $row, $prefix )
 
 	if( ! $permission_to_change_admin && $row->{$prefix.'perm_admin'} )
 	{
-	 	return '&nbsp;';
+	 	return '&#160;';
 	}
 
 	$row_id_value = $row->{$row_id_coll};

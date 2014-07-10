@@ -178,7 +178,7 @@ $Form->begin_form( '', '', $params );
 		echo '<td width="1%">';
 		if( $display_title_field )
 		{
-			echo '&nbsp;&nbsp;';
+			echo '&#160;&#160;';
 		}
 		echo '<strong>'.T_('Language').':</strong></td>';
 		echo '<td width="1%" class="select">';
@@ -193,7 +193,7 @@ $Form->begin_form( '', '', $params );
 	echo '<td class="input">';
 	$Form->text_input( 'post_url', $edited_Item->get( 'url' ), 20, '', '', array('maxlength'=>255, 'style'=>'width: 100%;') );
 	echo '</td>';
-	echo '<td width="1%">&nbsp;&nbsp;<strong>'.T_('Type').':</strong></td>';
+	echo '<td width="1%">&#160;&#160;<strong>'.T_('Type').':</strong></td>';
 	echo '<td width="1%" class="select">';
 	$ItemTypeCache = & get_ItemTypeCache();
 	$Form->select_object( 'item_typ_ID', $edited_Item->ptyp_ID, $ItemTypeCache,
@@ -274,7 +274,7 @@ $Form->begin_form( '', '', $params );
 	$edit_slug_link = '';
 	if( $edited_Item->ID > 0 && $current_User->check_perm( 'slugs', 'view' ) )
 	{	// user has permission to view slugs:
-		$edit_slug_link = '&nbsp;'.action_icon( T_('Edit slugs...'), 'edit', $admin_url.'?ctrl=slugs&amp;slug_item_ID='.$edited_Item->ID );
+		$edit_slug_link = '&#160;'.action_icon( T_('Edit slugs...'), 'edit', $admin_url.'?ctrl=slugs&amp;slug_item_ID='.$edited_Item->ID );
 	}
 
 	if( empty( $edited_Item->tiny_slug_ID ) )

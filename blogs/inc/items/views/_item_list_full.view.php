@@ -143,7 +143,7 @@ while( $Item = & $ItemList->get_item() )
 				global $admin_url;
 				if( $current_User->check_perm( 'slugs', 'view' ) )
 				{ // user has permission to view slugs:
-					echo '&nbsp;'.action_icon( T_('Edit slugs...'), 'edit', $admin_url.'?ctrl=slugs&amp;slug_item_ID='.$Item->ID,
+					echo '&#160;'.action_icon( T_('Edit slugs...'), 'edit', $admin_url.'?ctrl=slugs&amp;slug_item_ID='.$Item->ID,
 						NULL, NULL, NULL, array( 'class' => 'small' ) );
 				}
 				If( !empty( $Item->order ) )
@@ -170,13 +170,13 @@ while( $Item = & $ItemList->get_item() )
 				echo $Item->get_history_link( array( 'before' => ' ' ) );
 
 				echo '<br />';
-				$Item->type( T_('Type').': <span class="bType">', '</span> &nbsp; ' );
+				$Item->type( T_('Type').': <span class="bType">', '</span> &#160; ' );
 
 				if( $Blog->get_setting( 'use_workflow' ) )
 				{ // Only display workflow properties, if activated for this blog.
-					$Item->priority( T_('Priority').': <span class="bPriority">', '</span> &nbsp; ' );
-					$Item->assigned_to( T_('Assigned to').': <span class="bAssignee">', '</span> &nbsp; ' );
-					$Item->extra_status( T_('Task Status').': <span class="bExtStatus">', '</span> &nbsp; ' );
+					$Item->priority( T_('Priority').': <span class="bPriority">', '</span> &#160; ' );
+					$Item->assigned_to( T_('Assigned to').': <span class="bAssignee">', '</span> &#160; ' );
+					$Item->extra_status( T_('Task Status').': <span class="bExtStatus">', '</span> &#160; ' );
 					if( ! empty( $Item->datedeadline ) )
 					{ // Display deadline date
 						echo T_('Deadline').': <span class="bDate">';
@@ -184,7 +184,7 @@ while( $Item = & $ItemList->get_item() )
 						echo '</span>';
 					}
 				}
-				echo '&nbsp;';
+				echo '&#160;';
 
 				echo '<br />';
 
@@ -434,7 +434,7 @@ while( $Item = & $ItemList->get_item() )
 			{ // A filter to display even the expired comments
 			?>
 			<div class="tile">
-				&nbsp; | &nbsp;
+				&#160; | &#160;
 				<input type="radio" name="show_comments_expiry" value="expiry" id="show_expiry_delay" class="radio" <?php if( $show_comments_expiry == 'active' ) echo 'checked="checked" '?> />
 				<label for="show_expiry_delay"><?php echo get_duration_title( $expiry_delay ); ?></label>
 			</div>

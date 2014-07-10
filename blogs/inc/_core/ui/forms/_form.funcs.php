@@ -226,7 +226,7 @@ function form_info( $field_label, $field_info, $field_note = '' )
 	echo '  <div class="info">', $field_info;
 	if( !empty($field_note) )
 	{
-		echo '&nbsp; <small class="notes">', $field_note, '</small>';
+		echo '&#160; <small class="notes">', $field_note, '</small>';
 	}
 	echo '</div>';
 	echo "</fieldset>\n\n";

@@ -221,9 +221,9 @@ $Results->cols[] = array(
 						'th_class' => 'checkright',
 						'order' => 'bloguser_perm_delcmts',
 						'default_dir' => 'D',
-						'td' => '%coll_perm_checkbox( {row}, \'bloguser_\', \'perm_delcmts\', \''.format_to_output( TS_('Permission to delete comments on this blog'), 'htmlattr' ).'\' )%&nbsp;'.
-								'%coll_perm_checkbox( {row}, \'bloguser_\', \'perm_recycle_owncmts\', \''.format_to_output( TS_('Permission to recycle comments on their own posts'), 'htmlattr' ).'\' )%&nbsp;'.
-								'%coll_perm_checkbox( {row}, \'bloguser_\', \'perm_vote_spam_cmts\', \''.format_to_output( TS_('Permission to give a spam vote on any comment'), 'htmlattr' ).'\' )%&nbsp;',
+						'td' => '%coll_perm_checkbox( {row}, \'bloguser_\', \'perm_delcmts\', \''.format_to_output( TS_('Permission to delete comments on this blog'), 'htmlattr' ).'\' )%&#160;'.
+								'%coll_perm_checkbox( {row}, \'bloguser_\', \'perm_recycle_owncmts\', \''.format_to_output( TS_('Permission to recycle comments on their own posts'), 'htmlattr' ).'\' )%&#160;'.
+								'%coll_perm_checkbox( {row}, \'bloguser_\', \'perm_vote_spam_cmts\', \''.format_to_output( TS_('Permission to give a spam vote on any comment'), 'htmlattr' ).'\' )%&#160;',
 						'td_class' => 'center',
 					);
 
@@ -273,7 +273,7 @@ $Results->cols[] = array(
 					);
 
 $Results->cols[] = array(
-						'th' => '&nbsp;',
+						'th' => '&#160;',
 						'td' => '%perm_check_all( {row}, \'bloguser_\' )%',
 						'td_class' => 'center',
 					);

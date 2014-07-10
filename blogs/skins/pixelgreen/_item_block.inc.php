@@ -97,7 +97,7 @@ $params = array_merge( array(
 		echo ' '.T_('words');*/
 
 		/*$Item->locale_flag( array(
-				'before'    => ' &nbsp; ',
+				'before'    => ' &#160; ',
 				'after'     => '',
 			) );*/
 

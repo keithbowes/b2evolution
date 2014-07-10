@@ -112,7 +112,7 @@ $Item->title( array(
 					{	// We want to display the post date:
 						$Item->issue_time( array(
 								'before'      => /* TRANS: date */ T_('Posted: '),
-								'after'       => ' &nbsp; &nbsp; ',
+								'after'       => ' &#160; &#160; ',
 								'time_format' => 'D M j, Y H:i',
 							) );
 					}

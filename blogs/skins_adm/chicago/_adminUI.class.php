@@ -309,7 +309,7 @@ class AdminUI extends AdminUI_general
 					'formstart' => '<div class="fieldset_title"><div class="fieldset_title_right">',
 
 					'title_fmt' => '<div class="fieldset_title_bg" $title_attribs$><span style="float:right">$global_icons$</span>$title$</div></div></div><fieldset>'."\n",
-					'no_title_fmt' => '<div class="fieldset_title_bg" $title_attribs$><span style="float:right">$global_icons$</span>&nbsp;</div></div></div><fieldset>'."\n",
+					'no_title_fmt' => '<div class="fieldset_title_bg" $title_attribs$><span style="float:right">$global_icons$</span>&#160;</div></div></div><fieldset>'."\n",
 					'fieldset_begin' => '<div class="fieldset_wrapper $class$" id="$id$"><h2 $title_attribs$>$fieldset_title$</h2>',
 					'fieldset_end' => '</div>',
 					'fieldstart' => '<fieldset $ID$>'."\n",

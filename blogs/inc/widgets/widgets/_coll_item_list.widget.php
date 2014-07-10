@@ -506,7 +506,7 @@ class coll_item_list_Widget extends ComponentWidget
 			{ // limit number of words
 				$content = strmaxwords( $content, $words, array(
 						'continued_link' => $disp_Item->get_permanent_url(),
-						'continued_text' => '&hellip;',
+						'continued_text' => '…',
 					 ) );
 			}
 			echo '<div class="item_content">'.$content.'</div>';

@@ -319,7 +319,7 @@ echo $Widget->replace_vars( $template['block_start'] );
 		if( $ItemList->is_filtered() )
 		{
 			// TODO: style this better:
-			echo '&nbsp; <a href="?ctrl=items&amp;blog='.$Blog->ID.'&amp;filter=reset">'.T_('Reset all filters!').'</a>';
+			echo '&#160; <a href="?ctrl=items&amp;blog='.$Blog->ID.'&amp;filter=reset">'.T_('Reset all filters!').'</a>';
 		}
 
 	$Form->end_form();

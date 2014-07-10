@@ -74,7 +74,7 @@ if( count( $chapters ) > 0 )
 ?>
 		<tr class="meta_category">
 			<th colspan="2"><a href="<?php echo $Chapter->get_permanent_url(); ?>" class="forumlink"><?php echo $Chapter->dget( 'name' ); ?></a></th>
-			<td colspan="2">&nbsp;</td>
+			<td colspan="2">&#160;</td>
 		</tr>
 <?php
 		}

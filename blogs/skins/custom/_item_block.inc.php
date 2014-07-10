@@ -64,7 +64,7 @@ echo '<div id="styled_content_block">'; // Beginning of post display
 		echo ' '.T_('words');
 
 		$Item->locale_flag( array(
-				'before'    => ' &nbsp; ',
+				'before'    => ' &#160; ',
 				'after'     => '',
 			) );
 	?>

@@ -53,7 +53,7 @@ mainlist_page_links( array(
 ?>
 <table class="bForums bPosts" width="100%" cellspacing="1" cellpadding="2" border="0">
 	<tr>
-		<th>&nbsp;</th>
+		<th>&#160;</th>
 		<th><?php echo T_('Forum'); ?></th>
 		<th><?php echo T_('Topics'); ?></th>
 		<th width="70"><?php echo T_('Replies'); ?></th>

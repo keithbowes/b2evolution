@@ -627,7 +627,7 @@ switch( $action )
 			?>
 
 			<p>
-			<input type="submit" value="&nbsp; <?php echo T_('GO!')?> &nbsp;"
+			<input type="submit" value="&#160; <?php echo T_('GO!')?> &#160;"
 				onclick="var dc = document.getElementById( 'deletedb' ); if( dc && dc.checked ) { if ( confirm( '<?php
 					printf( /* TRANS: %s gets replaced by app name, usually "b2evolution" */ TS_( 'Are you sure you want to delete your existing %s tables?\nDo you have a backup?' ), $app_name );
 					?>' ) ) { this.form.confirmed.value = 1; return true; } else return false; }" />
@@ -819,12 +819,12 @@ switch( $action )
 				<input type="hidden" name="action" value="deletedb" />
 				<input type="hidden" name="confirmed" value="1" />
 				<input type="hidden" name="locale" value="<?php echo $default_locale; ?>" />
-				<input type="submit" value="&nbsp; <?php echo T_('I am sure!')?> &nbsp;" />
+				<input type="submit" value="&#160; <?php echo T_('I am sure!')?> &#160;" />
 			</form>
 
 			<form class="inline" name="form" action="index.php" method="get">
 				<input type="hidden" name="locale" value="<?php echo $default_locale; ?>" />
-				<input type="submit" value="&nbsp; <?php echo T_('CANCEL')?> &nbsp;" />
+				<input type="submit" value="&#160; <?php echo T_('CANCEL')?> &#160;" />
 			</form>
 			</p>
 			<?php

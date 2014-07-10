@@ -1617,12 +1617,12 @@ function user_prevnext_links( $params = array() )
 			'block_start'  => '<table class="prevnext_user"><tr>',
 			'prev_start'   => '<td width="33%">',
 			'prev_end'     => '</td>',
-			'prev_no_user' => '<td width="33%">&nbsp;</td>',
+			'prev_no_user' => '<td width="33%">&#160;</td>',
 			'back_start'   => '<td width="33%" class="back_users_list">',
 			'back_end'     => '</td>',
 			'next_start'   => '<td width="33%" class="right">',
 			'next_end'     => '</td>',
-			'next_no_user' => '<td width="33%">&nbsp;</td>',
+			'next_no_user' => '<td width="33%">&#160;</td>',
 			'block_end'    => '</tr></table>',
 			'user_tab'     => 'profile',
 		), $params );
@@ -1884,7 +1884,7 @@ function link_pages()
 function percentage( $hit_count, $hit_total, $decimals = 1, $dec_point = '.' )
 {
 	$percentage = $hit_total > 0 ? $hit_count * 100 / $hit_total : 0;
-	return number_format( $percentage, $decimals, $dec_point, '' ).'&nbsp;%';
+	return number_format( $percentage, $decimals, $dec_point, '' ).'&#160;%';
 }
 
 function addup_percentage( $hit_count, $hit_total, $decimals = 1, $dec_point = '.' )
@@ -1892,7 +1892,7 @@ function addup_percentage( $hit_count, $hit_total, $decimals = 1, $dec_point = '
 	static $addup = 0;
 
 	$addup += $hit_count;
-	return number_format( $addup * 100 / $hit_total, $decimals, $dec_point, '' ).'&nbsp;%';
+	return number_format( $addup * 100 / $hit_total, $decimals, $dec_point, '' ).'&#160;%';
 }
 
 

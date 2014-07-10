@@ -12,7 +12,7 @@
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 ?>
-			<div style="clear: both;">&nbsp;</div>
+			<div style="clear: both;">&#160;</div>
 		</div>
 		<!-- end #page -->
 	</div>

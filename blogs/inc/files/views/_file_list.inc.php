@@ -99,7 +99,7 @@ $Form->begin_form();
 		echo '<th class="firstcol">';
 		if( empty($fm_Filelist->_rds_list_path) )
 		{ // cannot go higher
-			echo '&nbsp;';	// for IE
+			echo '&#160;';	// for IE
 		}
 		else
 		{
@@ -480,7 +480,7 @@ $Form->begin_form();
 		?>
 
 		<tr>
-			<td class="firstcol">&nbsp;</td> <?php /* blueyed> This empty column is needed so that the defaut width:100% style of the main column below makes the column go over the whole screen */ ?>
+			<td class="firstcol">&#160;</td> <?php /* blueyed> This empty column is needed so that the defaut width:100% style of the main column below makes the column go over the whole screen */ ?>
 			<td class="lastcol" colspan="<?php echo $filetable_cols - 1 ?>" id="fileman_error">
 				<?php
 					if( ! $Messages->has_errors() )
@@ -529,33 +529,33 @@ $Form->begin_form();
 			}
 
 			$template_filerow = '<table><tr>'
-				.'<td class="checkbox firstcol">&nbsp;</td>'
-				.'<td class="icon_type qq-upload-image"><span class="qq-upload-spinner">&nbsp;</span></td>';
+				.'<td class="checkbox firstcol">&#160;</td>'
+				.'<td class="icon_type qq-upload-image"><span class="qq-upload-spinner">&#160;</span></td>';
 			if( $fm_flatmode )
 			{
 				$template_filerow .= '<td class="filepath">'.( empty( $path ) ? './' : $path ).'</td>';
 			}
-			$template_filerow .= '<td class="fm_filename qq-upload-file">&nbsp;</td>';
+			$template_filerow .= '<td class="fm_filename qq-upload-file">&#160;</td>';
 			if( $UserSettings->get('fm_showtypes') )
 			{
-				$template_filerow .= '<td class="type">&nbsp;</td>';
+				$template_filerow .= '<td class="type">&#160;</td>';
 			}
-			$template_filerow .= '<td class="size"><span class="qq-upload-size">&nbsp;</span><span class="qq-upload-spinner">&nbsp;</span></td>';
+			$template_filerow .= '<td class="size"><span class="qq-upload-size">&#160;</span><span class="qq-upload-spinner">&#160;</span></td>';
 			if( $UserSettings->get('fm_showdate') != 'no' )
 			{
 				$template_filerow .= '<td class="qq-upload-status timestamp">'.TS_('Uploading...').'</td>';
 			}
 			if( $UserSettings->get('fm_showfsperms') )
 			{
-				$template_filerow .= '<td class="perms">&nbsp;</td>';
+				$template_filerow .= '<td class="perms">&#160;</td>';
 			}
 			if( $UserSettings->get('fm_showfsowner') )
 			{
-				$template_filerow .= '<td class="fsowner">&nbsp;</td>';
+				$template_filerow .= '<td class="fsowner">&#160;</td>';
 			}
 			if( $UserSettings->get('fm_showfsgroup') )
 			{
-				$template_filerow .= '<td class="fsgroup">&nbsp;</td>';
+				$template_filerow .= '<td class="fsgroup">&#160;</td>';
 			}
 			$template_filerow .= '<td class="actions lastcol">';
 			if( $UserSettings->get('fm_showdate') == 'no' )

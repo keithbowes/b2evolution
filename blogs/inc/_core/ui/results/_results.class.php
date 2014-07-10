@@ -1197,7 +1197,7 @@ class Results extends Table
 
 				$out = eval( "return '$output';" );
 				// fp> <input> is needed for checkboxes in the Blog User/Group permissions table > advanced
-				echo ( trim(strip_tags($out,'<img><input>')) === '' ? '&nbsp;' : $out );
+				echo ( trim(strip_tags($out,'<img><input>')) === '' ? '&#160;' : $out );
 
 				// COL START:
 				$this->display_col_end();
@@ -1281,7 +1281,7 @@ class Results extends Table
 				}
 				else
 				{	// The column has no total
-					echo '&nbsp;';
+					echo '&#160;';
 				}
 				// </td>
 				echo  $this->params['total_col_end'];

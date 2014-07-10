@@ -106,7 +106,7 @@ function fcpf_categories_select( $parent_category_ID = -1, $level = 0 )
 		{
 			$result_Array[] = array(
 					'value' => $category->cat_ID,
-					'label' => str_repeat( '&nbsp;&nbsp;&nbsp;', $level ).$category->cat_name
+					'label' => str_repeat( '&#160;&#160;&#160;', $level ).$category->cat_name
 				);
 
 			$child_Categories_opts = fcpf_categories_select( $category->cat_ID, $level + 1 );

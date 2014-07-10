@@ -1747,7 +1747,7 @@ class Comment extends DataObject
 			$class = ' class="'.$params['class'].'"';
 		}
 
-		echo '<span id="vote_helpful_'.$this->ID.'"'.$class.'> &nbsp; ';
+		echo '<span id="vote_helpful_'.$this->ID.'"'.$class.'> &#160; ';
 
 		if( $current_User->ID == $this->author_user_ID )
 		{ // Display only vote summary for users on their own comments

@@ -483,7 +483,7 @@ class test_plugin extends Plugin
 						'separator' => true,
 					),
 				'urls' => array(
-						'text' => 'Test plugin&hellip;',
+						'text' => 'Test plugin…',
 						'href' => $this->get_tools_tab_url(),
 					),
 			) );

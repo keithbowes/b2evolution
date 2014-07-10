@@ -1217,7 +1217,7 @@ function get_contacts_groups_list( $user_ID, $params = array() )
 	}
 	else
 	{
-		$groups_list .= '&nbsp;';
+		$groups_list .= '&#160;';
 	}
 	$groups_list .= $params['col1_end'];
 
@@ -1228,7 +1228,7 @@ function get_contacts_groups_list( $user_ID, $params = array() )
 	}
 	else
 	{
-		$groups_list .= '&nbsp;';
+		$groups_list .= '&#160;';
 	}
 	$groups_list .= $params['col2_end'];
 

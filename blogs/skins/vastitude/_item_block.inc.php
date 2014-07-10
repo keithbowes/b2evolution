@@ -117,7 +117,7 @@ $params = array_merge( array(
 				'use_popup'	=>	false,
 				) );
 			$Item->edit_link( array( // Link to backoffice for editing
-				'before'	=>	' &nbsp; ',
+				'before'	=>	' &#160; ',
 				'after'		=>	'',
 				) );
 		?>

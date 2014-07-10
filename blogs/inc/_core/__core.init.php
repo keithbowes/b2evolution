@@ -958,7 +958,7 @@ class _core_Module extends Module
 				if( $Blog->get_setting( 'use_workflow' ) )
 				{ // Workflow view
 					$entries['blog']['entries']['workflow'] = array(
-									'text' => T_('Workflow view').'&hellip;',
+									'text' => T_('Workflow view').'…',
 									'href' => $items_url.'&amp;tab=tracker',
 								);
 				}
@@ -966,13 +966,13 @@ class _core_Module extends Module
 				if( $Blog->get( 'type' ) == 'manual' )
 				{ // Manual view
 					$entries['blog']['entries']['manual'] = array(
-									'text' => T_('Manual view').'&hellip;',
+									'text' => T_('Manual view').'…',
 									'href' => $items_url.'&amp;tab=manual',
 								);
 				}
 
 				$entries['blog']['entries']['posts'] = array(
-								'text' => T_('Posts').'&hellip;',
+								'text' => T_('Posts').'…',
 								'href' => $items_url,
 							);
 
@@ -980,7 +980,7 @@ class _core_Module extends Module
 				if( $current_User->check_perm( 'blog_comments', 'edit', false, $Blog->ID ) )
 				{	// Comments:
 					$entries['blog']['entries']['comments'] = array(
-							'text' => T_('Comments').'&hellip;',
+							'text' => T_('Comments').'…',
 							'href' => $admin_url.'?ctrl=comments&amp;blog='.$Blog->ID.'&amp;filter=restore',
 						);
 				}
@@ -989,7 +989,7 @@ class _core_Module extends Module
 				if( $current_User->check_perm( 'blog_cats', 'edit', false, $Blog->ID ) )
 				{	// Either permission for a specific blog or the global permission:
 					$entries['blog']['entries']['chapters'] = array(
-							'text' => T_('Categories').'&hellip;',
+							'text' => T_('Categories').'…',
 							'href' => $admin_url.'?ctrl=chapters&amp;blog='.$Blog->ID,
 						);
 				}
@@ -1013,35 +1013,35 @@ class _core_Module extends Module
 								'href' => $admin_url.'?ctrl=coll_settings'.$blog_param,
 								'entries' => array(
 									'general' => array(
-										'text' => T_('General').'&hellip;',
+										'text' => T_('General').'…',
 										'href' => $admin_url.'?ctrl=coll_settings&amp;tab=general'.$blog_param,
 									),
 									'features' => array(
-										'text' => T_('Features').'&hellip;',
+										'text' => T_('Features').'…',
 										'href' => $admin_url.'?ctrl=coll_settings&amp;tab=home'.$blog_param,
 									),
 									'skin' => array(
-										'text' => T_('Skin').'&hellip;',
+										'text' => T_('Skin').'…',
 										'href' => $admin_url.'?ctrl=coll_settings&amp;tab=skin'.$blog_param,
 									),
 									'plugin_settings' => array(
-										'text' => T_('Plugins').'&hellip;',
+										'text' => T_('Plugins').'…',
 										'href' => $admin_url.'?ctrl=coll_settings&amp;tab=plugin_settings'.$blog_param,
 									),
 									'widgets' => array(
-										'text' => T_('Widgets').'&hellip;',
+										'text' => T_('Widgets').'…',
 										'href' => $admin_url.'?ctrl=widgets'.$blog_param,
 									),
 									'urls' => array(
-										'text' => T_('URLs').'&hellip;',
+										'text' => T_('URLs').'…',
 										'href' => $admin_url.'?ctrl=coll_settings&amp;tab=urls'.$blog_param,
 									),
 									'seo' => array(
-										'text' => T_('SEO').'&hellip;',
+										'text' => T_('SEO').'…',
 										'href' => $admin_url.'?ctrl=coll_settings&amp;tab=seo'.$blog_param,
 									),
 									'advanced' => array(
-										'text' => T_('Advanced').'&hellip;',
+										'text' => T_('Advanced').'…',
 										'href' => $admin_url.'?ctrl=coll_settings&amp;tab=advanced'.$blog_param,
 									),
 								)
@@ -1050,11 +1050,11 @@ class _core_Module extends Module
 						if( $Blog && $Blog->advanced_perms )
 						{
 							$entries['blog']['entries']['general']['entries']['userperms'] = array(
-								'text' => T_('User perms').'&hellip;',
+								'text' => T_('User perms').'…',
 								'href' => $admin_url.'?ctrl=coll_settings&amp;tab=perm'.$blog_param,
 							);
 							$entries['blog']['entries']['general']['entries']['groupperms'] = array(
-								'text' => T_('Group perms').'&hellip;',
+								'text' => T_('Group perms').'…',
 								'href' => $admin_url.'?ctrl=coll_settings&amp;tab=permgroup'.$blog_param,
 							);
 						}
@@ -1114,7 +1114,7 @@ class _core_Module extends Module
 			{	// Users:
 				$entries['tools']['disabled'] = false;
 				$entries['tools']['entries']['users'] = array(
-						'text' => T_('Users').'&hellip;',
+						'text' => T_('Users').'…',
 						'href' => $admin_url.'?ctrl=users',
 					);
 			}
@@ -1140,19 +1140,19 @@ class _core_Module extends Module
 							'href' => $admin_url.'?ctrl=campaigns',
 							'entries' => array(
 								'campaigns' => array(
-									'text' => T_('Campaigns').'&hellip;',
+									'text' => T_('Campaigns').'…',
 									'href' => $admin_url.'?ctrl=campaigns' ),
 								'blocked' => array(
-									'text' => T_('Addresses').'&hellip;',
+									'text' => T_('Addresses').'…',
 									'href' => $admin_url.'?ctrl=email' ),
 								'sent' => array(
-									'text' => T_('Sent').'&hellip;',
+									'text' => T_('Sent').'…',
 									'href' => $admin_url.'?ctrl=email&amp;tab=sent' ),
 								'return' => array(
-									'text' => T_('Returned').'&hellip;',
+									'text' => T_('Returned').'…',
 									'href' => $admin_url.'?ctrl=email&amp;tab=return' ),
 								'settings' => array(
-									'text' => T_('Settings').'&hellip;',
+									'text' => T_('Settings').'…',
 									'href' => $admin_url.'?ctrl=email&amp;tab=settings' ),
 								)
 						);
@@ -1166,7 +1166,7 @@ class _core_Module extends Module
 				if( $perm_options )
 				{
 					$entries['tools']['entries']['status'] = array(
-							'text' => T_('System status').'&hellip;',
+							'text' => T_('System status').'…',
 							'href' => $admin_url.'?ctrl=system',
 						);
 				}
@@ -1174,7 +1174,7 @@ class _core_Module extends Module
 				if( $perm_options )
 				{
 						$entries['tools']['entries']['crontab'] = array(
-									'text' => T_('Scheduler').'&hellip;',
+									'text' => T_('Scheduler').'…',
 									'href' => $admin_url.'?ctrl=crontab',
 								);
 				}
@@ -1186,7 +1186,7 @@ class _core_Module extends Module
 							'href' => $admin_url.'?ctrl=antispam',
 							'entries' => array(
 									'blacklist' => array(
-										'text' => T_('Blacklist').'&hellip;',
+										'text' => T_('Blacklist').'…',
 										'href' => $admin_url.'?ctrl=antispam' )
 								)
 						);
@@ -1194,27 +1194,27 @@ class _core_Module extends Module
 					if( $perm_options )
 					{	// If we have access to options, then we add a submenu:
 						$entries['tools']['entries']['antispam']['entries']['ipranges'] = array(
-								'text' => T_('IP Ranges').'&hellip;',
+								'text' => T_('IP Ranges').'…',
 								'href' => $admin_url.'?ctrl=antispam&amp;tab3=ipranges' );
 						$entries['tools']['entries']['antispam']['entries']['countries'] = array(
-								'text' => T_('Countries').'&hellip;',
+								'text' => T_('Countries').'…',
 								'href' => $admin_url.'?ctrl=antispam&amp;tab3=countries' );
 
 						if( $current_User->check_perm( 'stats', 'list' ) )
 						{
 							$entries['tools']['entries']['antispam']['entries']['domains'] = array(
-									'text' => T_('Referring domains').'&hellip;',
+									'text' => T_('Referring domains').'…',
 									'href' => $admin_url.'?ctrl=antispam&amp;tab3=domains' );
 						}
 
 						$entries['tools']['entries']['antispam']['entries']['settings'] = array(
-								'text' => T_('Settings').'&hellip;',
+								'text' => T_('Settings').'…',
 								'href' => $admin_url.'?ctrl=antispam&amp;tab3=settings' );
 
 						if( $current_User->check_perm( 'options', 'edit' ) )
 						{
 							$entries['tools']['entries']['antispam']['entries']['tools'] = array(
-									'text' => T_('Tools').'&hellip;',
+									'text' => T_('Tools').'…',
 									'href' => $admin_url.'?ctrl=antispam&amp;tab3=tools' );
 						}
 					}
@@ -1223,7 +1223,7 @@ class _core_Module extends Module
 				if( $perm_slugs )
 				{
 					$entries['tools']['entries']['slugs'] = array(
-							'text' => T_('Slugs').'&hellip;',
+							'text' => T_('Slugs').'…',
 							'href' => $admin_url.'?ctrl=slugs'
 						);
 				}
@@ -1233,7 +1233,7 @@ class _core_Module extends Module
 			if( $perm_options )
 			{	// Global settings:
 				$entries['tools']['entries']['general'] = array(
-						'text' => T_('General').'&hellip;',
+						'text' => T_('General').'…',
 						'href' => $admin_url.'?ctrl=gensettings',
 					);
 				$entries['tools']['entries']['regional'] = array(
@@ -1241,34 +1241,34 @@ class _core_Module extends Module
 						'href' => $admin_url.'?ctrl=regional',
 						'entries' => array(
 							'locales' => array(
-								'text' => T_('Locales').'&hellip;',
+								'text' => T_('Locales').'…',
 								'href' => $admin_url.'?ctrl=locales' ),
 							'time' => array(
-								'text' => T_('Time').'&hellip;',
+								'text' => T_('Time').'…',
 								'href' => $admin_url.'?ctrl=time' ),
 							'countries' => array(
-								'text' => T_('Countries').'&hellip;',
+								'text' => T_('Countries').'…',
 								'href' => $admin_url.'?ctrl=countries' ),
 							'regions' => array(
-								'text' => T_('Regions').'&hellip;',
+								'text' => T_('Regions').'…',
 								'href' => $admin_url.'?ctrl=regions' ),
 							'subregions' => array(
-								'text' => T_('Sub-regions').'&hellip;',
+								'text' => T_('Sub-regions').'…',
 								'href' => $admin_url.'?ctrl=subregions' ),
 							'cities' => array(
-								'text' => T_('Cities').'&hellip;',
+								'text' => T_('Cities').'…',
 								'href' => $admin_url.'?ctrl=cities' ),
 							'currencies' => array(
-								'text' => T_('Currencies').'&hellip;',
+								'text' => T_('Currencies').'…',
 								'href' => $admin_url.'?ctrl=currencies' ),
 						)
 					);
 				$entries['tools']['entries']['plugins'] = array(
-						'text' => T_('Plugins').'&hellip;',
+						'text' => T_('Plugins').'…',
 						'href' => $admin_url.'?ctrl=plugins',
 					);
 				$entries['tools']['entries']['remote'] = array(
-						'text' => T_('Remote publishing').'&hellip;',
+						'text' => T_('Remote publishing').'…',
 						'href' => $admin_url.'?ctrl=remotepublish',
 					);
 				$entries['tools']['entries']['maintenance'] = array(
@@ -1276,19 +1276,19 @@ class _core_Module extends Module
 						'href' => $admin_url.'?ctrl=tools',
 						'entries' => array(
 							'tools' => array(
-								'text' => T_('Tools').'&hellip;',
+								'text' => T_('Tools').'…',
 								'href' => $admin_url.'?ctrl=tools' ),
 							'import' => array(
-								'text' => T_('Import').'&hellip;',
+								'text' => T_('Import').'…',
 								'href' => $admin_url.'?ctrl=tools&amp;tab3=import' ),
 							'test' => array(
-								'text' => T_('Testing').'&hellip;',
+								'text' => T_('Testing').'…',
 								'href' => $admin_url.'?ctrl=tools&amp;tab3=test' ),
 							'backup' => array(
-								'text' => T_('Backup').'&hellip;',
+								'text' => T_('Backup').'…',
 								'href' => $admin_url.'?ctrl=backup' ),
 							'upgrade' => array(
-								'text' => T_('Check for updates').'&hellip;',
+								'text' => T_('Check for updates').'…',
 								'href' => $admin_url.'?ctrl=upgrade' ),
 							)
 					);
@@ -1326,23 +1326,23 @@ class _core_Module extends Module
 					'href' => get_user_profile_url(),
 					'entries' => array(
 						'profile' => array(
-								'text' => T_('Edit your profile').'&hellip;',
+								'text' => T_('Edit your profile').'…',
 								'href' => get_user_profile_url(),
 							),
 						'avatar' => array(
-								'text' => T_('Your profile picture').'&hellip;',
+								'text' => T_('Your profile picture').'…',
 								'href' => get_user_avatar_url(),
 							),
 						'pwdchange' => array(
-								'text' => T_('Change password').'&hellip;',
+								'text' => T_('Change password').'…',
 								'href' => get_user_pwdchange_url(),
 							),
 						'userprefs' => array(
-								'text' => T_('Preferences').'&hellip;',
+								'text' => T_('Preferences').'…',
 								'href' => get_user_preferences_url(),
 							),
 						'subs' => array(
-								'text' => T_('Notifications').'&hellip;',
+								'text' => T_('Notifications').'…',
 								'href' => get_user_subs_url(),
 							),
 						),

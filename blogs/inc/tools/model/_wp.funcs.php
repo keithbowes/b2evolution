@@ -1232,7 +1232,7 @@ function wp_unique_urlname( $source, $table, $field )
 function wp_generate_excerpt( $content )
 {
 	$content = trim( strip_tags( $content ) );
-	return strmaxlen( $content, 254, '&hellip;' );
+	return strmaxlen( $content, 254, '…' );
 }
 
 

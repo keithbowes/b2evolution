@@ -719,7 +719,7 @@ function country_flag( $country_code, $country_name, $collection = 'w16px', $cla
 
 	if( $display_empty || isset( $country_flags_bg[ $country_code ] ) )
 	{	// Init a country flag
-		$r = '<span'.get_field_attribs_as_string( $flag_attribs ).'>&nbsp;</span>';
+		$r = '<span'.get_field_attribs_as_string( $flag_attribs ).'>&#160;</span>';
 	}
 	else
 	{	// Don't display empty flag when bg-position is not defined in config by country code
