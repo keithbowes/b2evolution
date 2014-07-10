@@ -198,7 +198,21 @@ if( $action == 'extract' )
 		# find *.php files, but not in "build" directory:
 		$cmd = 'find '.escapeshellarg($dir_root).' -wholename "*/build/*" -prune -o \( -iname "*.php" -print \) | xargs ';
 	}
-	$cmd .= 'xgettext -o '.escapeshellarg($file_pot).' --from-code=iso-8859-15 --no-wrap --add-comments=TRANS --copyright-holder="Francois PLANQUE" --msgid-bugs-address=http://fplanque.net/ --keyword=T_ --keyword=NT_ --keyword=TS_ -F';
+
+	/* Filter out files that already have translations */
+	$file_array = explode(' ', `$cmd`);
+	for ($i = 0; $i < count($file_array); $i++)
+	{
+		$dir_name = dirname($file_array[$i]) . '/';
+		$file_name = glob($dir_name . 'locales/*/_global.php')[0];
+		if (@file_exists($file_name) && $dir_name != $dir_root)
+		{
+			unset($file_array[$i]);
+		}
+	}
+	$cmd = implode(' ', $file_array);
+
+	$cmd = 'xgettext -o '.escapeshellarg($file_pot).' --from-code=iso-8859-15 --no-wrap --add-comments=TRANS --copyright-holder="Francois PLANQUE" --msgid-bugs-address=http://fplanque.net/ --keyword=T_ --keyword=NT_ --keyword=TS_ -F ' . $cmd;
 
 	// Append filenames, if specified:
 	if( isset($argv[3]) )
