@@ -1,0 +1,15 @@
+/* Allow printing everything, instead of just the first page */
+#content {
+  position: static;
+  width: 100%;
+}
+
+/* Gold on white paper: not a good idea */
+.credit, .meta a, h2 {
+  color: maroon;
+}
+
+/* So we don't get maroon-on-black in browsers that print backgrounds */
+.meta a {
+  background: silver;
+}

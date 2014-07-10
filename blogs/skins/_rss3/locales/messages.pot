@@ -1,0 +1,5 @@
+msgid "More info about RSS feeds:\n"
+msgstr ""
+
+msgid "Self-promotion: To read RSS feeds, you can download my feed\n# reader:\n"
+msgstr ""

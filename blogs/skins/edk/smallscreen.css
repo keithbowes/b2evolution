@@ -1,0 +1,32 @@
+body, html {
+  border: none;
+  margin: 0;
+  overflow: auto;
+  overflow-x: hidden;
+  padding: 0;
+}
+
+/* Use more display for content in devices with limited screen space
+ * to minimize scrolling. */
+#content, #menu {
+  position: static;
+  width: 100%;
+}
+
+.allowed-tags {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  width: 100%;
+}
+
+.bCalendarTable {
+    max-width: 25em !important;
+    margin: 1em 2em;
+}
+
+.input, .label {
+  clear: both;
+  display: block;
+  float: none;
+}

@@ -1,0 +1,13 @@
+abbr {
+  speak: normal;
+  speak-as: normal;
+}
+
+abbr.initialism {
+  speak-as: spell-out;
+  speech-rate: x-slow;
+}
+
+abbr:not(.initialism) {
+  speech-rate: slow;
+}
