@@ -4583,7 +4583,7 @@ function upgrade_b2evo_tables( $upgrade_action = 'evoupgrade' )
 			DROP INDEX file,
 			ADD COLUMN file_path_hash char(32) default NULL' );
 		// Change file path length to the max allowed value
-		$DB->query( "ALTER TABLE T_files CHANGE COLUMN file_path file_path VARCHAR(767) NOT NULL DEFAULT ''" );
+		$DB->query( "ALTER TABLE T_files CHANGE COLUMN file_path file_path VARCHAR(255) NOT NULL DEFAULT ''" );
 		$DB->query( 'UPDATE T_files SET file_path_hash = MD5( CONCAT( file_root_type, file_root_ID, file_path ) )');
 		$DB->query( 'ALTER TABLE T_files ADD UNIQUE file_path (file_path_hash)' );
 		task_end();

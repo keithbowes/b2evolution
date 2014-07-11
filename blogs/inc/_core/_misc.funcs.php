@@ -6301,7 +6301,8 @@ function get_file_permissions_message()
  */
 function evo_flush()
 {
-	@ob_end_flush(); // This function helps to turn off output buffering on PHP 5.4.x
+	if (version_compare(PHP_VERSION, '5.4') === 0)
+		@ob_end_flush(); // This function helps to turn off output buffering on PHP 5.4.x
 	flush();
 }
 
