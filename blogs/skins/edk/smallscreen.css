@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
   border: none;
   margin: 0;
   overflow: auto;
@@ -8,7 +9,8 @@ body, html {
 
 /* Use more display for content in devices with limited screen space
  * to minimize scrolling. */
-#content, #menu {
+#content,
+#menu {
   position: static;
   width: 100%;
 }
@@ -25,7 +27,8 @@ body, html {
     margin: 1em 2em;
 }
 
-.input, .label {
+.input,
+.label {
   clear: both;
   display: block;
   float: none;

@@ -40,9 +40,6 @@ a:hover {
 abbr { 
 	border-bottom: thin dashed aqua;
 	cursor: help;
-}
-
-abbr, span.caps {
 	font-size: 90%;
 	letter-spacing: .07em;
 }
@@ -61,7 +58,8 @@ body {
 	padding: 0;
 }
 
-body #menu, body #content {
+body #menu,
+body #content {
 	top: 0;
 }
 
@@ -90,7 +88,8 @@ h3 {
 	text-align: left;
 }
 
-h3:not(.storytitle) + div a, h3 + p a {
+h3:not(.storytitle) + div a,
+h3 + p a {
 	display: inline-block;
 	margin: 0.5em 0.1em !important;
 }
@@ -99,11 +98,14 @@ html {
 	overflow: hidden;
 }
 
-iframe {
+/*iframe {
 	display: none;
-}
+}*/
 
-li, p, .credit, .feedback, .postmetadata {
+li, p,
+.credit,
+.feedback,
+.postmetadata {
 	font-size: 110%;
 	line-height: 160%;
 	letter-spacing: -0.05em;
@@ -191,7 +193,9 @@ li, p, .credit, .feedback, .postmetadata {
 	margin: 0 0 0 1em;
 }
 
-#menu, #menu div.search, #menu ul li h2 a {
+#menu,
+#menu div.search,
+#menu ul li h2 a {
 	color: gold;
 	list-style-type: none;
 	margin: 0;
@@ -216,10 +220,6 @@ li, p, .credit, .feedback, .postmetadata {
 	padding-left: 1em;
 }
 
-#menu .SearchField, .SearchField {
-	width: 70%;
-}
-
 #page-links {
 	font-weight: 600;
     padding-bottom: 1em;
@@ -234,6 +234,7 @@ li, p, .credit, .feedback, .postmetadata {
 	background-color: orange;
 	border: thin solid #999;
 	color: navy;
+    width: 70%;
 }
 
 .SearchField:focus {
@@ -306,10 +307,21 @@ li, p, .credit, .feedback, .postmetadata {
 	text-align: center;
 }
 
+.bCalendarTable td#next,
+.bCalendarTable td#prev {
+    padding: 0;
+}
+
+.bCalendarTable td#next a,
+.bCalendarTable td#prev a {
+    color: maroon;
+    padding: 0;
+}
+
 .bCalendarTable tfoot * {
 	font-size: 12pt;
 	font-weight:  normal;
-	letter-spacing: -0.4em;
+	letter-spacing: normal;
 }
 
 .bCalendarTable tfoot td {
@@ -335,7 +347,9 @@ li, p, .credit, .feedback, .postmetadata {
 	border-right: none;
 }
 
-.bText, .storycontent, .sub {
+.bText,
+.storycontent/*,
+.sub*/ {
 	clear: both;
 	overflow: auto !important;
 	padding-top: 0.2em;
@@ -350,6 +364,12 @@ li, p, .credit, .feedback, .postmetadata {
 
 .credit a {
 	color: lime !important;
+}
+
+.flag {
+    position: relative;
+    top: 0.1em;
+    vertical-align: text-top;
 }
 
 .meta {
@@ -500,22 +520,9 @@ form.bComment legend {
     float: right;
 }
 
-#next {
-	margin: 0;
-	text-align: right;
-}
-
-#next a, #prev a {
-    color: maroon !important;
-}
-
 #nextitem {
     clear: right;
     float: right;
-}
-
-#prev {
-	text-align: left;
 }
 
 #previtem {
@@ -574,7 +581,8 @@ form.bComment legend {
 	color: silver;
 }
 
-.author-comment .bComment, .user-comment .bComment {
+.author-comment .bComment,
+.user-comment .bComment {
 	margin: 0.5em;
 }
 
@@ -629,7 +637,8 @@ form.bComment legend {
 	width: 48%;
 }
 
-.note, .notes {
+.note,
+.notes {
 	background-color: transparent;
 	color: orange;
 	display: block;
@@ -687,7 +696,9 @@ form.bComment legend {
         background-color: inherit;
     }
 
-    #menu, #menu div.search, #menu ul li h2 a {
+    #menu,
+    #menu div.search,
+    #menu ul li h2 a {
         color: navy;
         list-style-type: none;
         margin: 0;

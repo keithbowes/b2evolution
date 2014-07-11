@@ -19,16 +19,19 @@
     overflow: auto;
 }
 
-#menu li, #menu ul {
+#menu li,
+#menu ul {
     margin-top: -0.4em;
 }
 
-#menu h2[tabindex], #menu li ul > li {
+#menu h2[tabindex],
+#menu li ul > li {
     display: inline-block;
     vertical-align: top;
 }
 
-#menu h2[tabindex] + *:not(a):not(cite):not(span), #menu h2[tabindex] + * *:not(a):not(cite):not(span) {
+#menu h2[tabindex] + *:not(a):not(cite):not(span),
+#menu h2[tabindex] + * *:not(a):not(cite):not(span) {
     display: block;
     max-width: 5em;
     overflow: auto;

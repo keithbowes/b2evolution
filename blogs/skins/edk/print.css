@@ -5,7 +5,9 @@
 }
 
 /* Gold on white paper: not a good idea */
-.credit, .meta a, h2 {
+.credit,
+.meta a,
+h2 {
   color: maroon;
 }
 
