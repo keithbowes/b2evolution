@@ -3651,7 +3651,7 @@ class Comment extends DataObject
 	{
 		if( ! is_logged_in( false ) )
 		{
-			return false;
+			//return false;
 		}
 
 		if( empty( $this->ID ) )
