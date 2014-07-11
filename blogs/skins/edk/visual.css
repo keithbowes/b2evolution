@@ -268,7 +268,6 @@ li, p, .credit, .feedback, .postmetadata {
 .bCalendarTable {
 	background-color: #dc9;
 	border: thin solid #ddd;
-    border-spacing: 0;
 	margin: auto;
 	width: 90%;
 }
@@ -310,7 +309,7 @@ li, p, .credit, .feedback, .postmetadata {
 .bCalendarTable tfoot * {
 	font-size: 12pt;
 	font-weight:  normal;
-	letter-spacing: normal;
+	letter-spacing: -0.4em;
 }
 
 .bCalendarTable tfoot td {

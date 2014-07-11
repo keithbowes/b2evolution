@@ -454,7 +454,7 @@ class Calendar
 		$this->monthformat = 'F Y';
 		$this->linktomontharchive = true;  // month displayed as link to month' archive
 
-		$this->tablestart = '<table class="bCalendarTable" cellspacing="0" summary="Monthly calendar with links to each day\'s posts">'."\n";
+		$this->tablestart = '<table class="bCalendarTable">'."\n";
 		$this->tableend = '</table>';
 
 		$this->monthstart = '<caption>';
@@ -469,7 +469,7 @@ class Calendar
 
 		$this->headerrowstart = '<thead><tr class="bCalendarRow">' . "\n";
 		$this->headerrowend = "</tr></thead>\n";
-		$this->headercellstart = '<th class="bCalendarHeaderCell" abbr="[abbr]" scope="col" title="[abbr]">';	// please leave [abbr] there !
+		$this->headercellstart = '<th class="bCalendarHeaderCell" scope="col" title="[abbr]">';	// please leave [abbr] there !
 		$this->headercellend = "</th>\n";
 
 		$this->cellstart = '<td class="bCalendarCell">';
@@ -704,8 +704,8 @@ class Calendar
 		{ // We want to display navigation in the table footer:
 			echo "<tfoot>\n";
 			echo "<tr>\n";
-			echo '<td colspan="'.( ( $this->mode == 'month' ? 2 : 1 ) + (int)$this->today_is_visible ).'" id="prev">';
-			echo implode( '&#160;', $this->getNavLinks( 'prev' ) );
+			echo '<td colspan="'.( ( $this->mode == 'month' ? 3 : 2 ) + (int)$this->today_is_visible ).'" id="prev">';
+			echo preg_replace('/^&#160;/', '', implode( '&#160;', $this->getNavLinks( 'prev' ) ));
 			echo "</td>\n";
 
 			if( $this->today_is_visible )
@@ -717,11 +717,12 @@ class Calendar
 			}
 			else
 			{
-				echo '<td colspan="'.( $this->mode == 'month' ? '3' : '2' ).'" class="center">'
+				echo '<td colspan="'.( $this->mode == 'month' ? '1' : '0' ).'" class="center">'
 							.$this->archive_link( T_('Current'), '', date('Y'), ( $this->mode == 'month' ? date('m') : NULL ) )
 							.'</td>';
 			}
 			echo '<td colspan="'.( ( $this->mode == 'month' ? 2 : 1 ) + (int)$this->today_is_visible ).'" id="next">';
+			echo '&#160;&#160;&#160;&#160;';
 			echo implode( '&#160;', $this->getNavLinks( 'next' ) );
 			echo "</td>\n";
 			echo "</tr>\n";
@@ -989,7 +990,7 @@ class Calendar
 
 				if( !empty($prev_year_year) )
 				{	// We have a link to display:
-					$r[] = $this->archive_link( '&lt;&lt;', sprintf(
+					$r[] = $this->archive_link( '↓', sprintf(
 												( $this->mode == 'month'
 														? /* Calendar link title to a month in a previous year */ T_('Previous year (%04d-%02d)')
 														: /* Calendar link title to a previous year */ T_('Previous year (%04d)') ),
@@ -1042,7 +1043,7 @@ class Calendar
 
 				if( !empty($prev_month_year) )
 				{	// We have a link to display:
-					$r[] = $this->archive_link( '&lt;', sprintf( T_('Previous month (%04d-%02d)'), $prev_month_year, $prev_month_month ), $prev_month_year, $prev_month_month );
+					$r[] = $this->archive_link( '←', sprintf( T_('Previous month (%04d-%02d)'), $prev_month_year, $prev_month_month ), $prev_month_year, $prev_month_month );
 				}
 				break;
 
@@ -1095,7 +1096,7 @@ class Calendar
 
 				if( !empty($next_month_year) )
 				{	// We have a link to display:
-					$r[] = $this->archive_link( '&gt;', sprintf( T_('Next month (%04d-%02d)'), $next_month_year, $next_month_month ), $next_month_year, $next_month_month );
+					$r[] = $this->archive_link( '→', sprintf( T_('Next month (%04d-%02d)'), $next_month_year, $next_month_month ), $next_month_year, $next_month_month );
 				}
 
 
@@ -1145,7 +1146,7 @@ class Calendar
 
 				if( !empty($next_year_year) )
 				{	// We have a link to display:
-						$r[] = $this->archive_link( '&gt;&gt;', sprintf(
+						$r[] = $this->archive_link( '↑', sprintf(
 																	( $this->mode == 'month'
 																			? /* Calendar link title to a month in a following year */ T_('Next year (%04d-%02d)')
 																			: /* Calendar link title to a following year */ T_('Next year (%04d)') ),
