@@ -504,6 +504,7 @@ function locale_dialing_code( $locale = '' )
 function locale_flag( $locale = '', $collection = 'deprecated_param', $class = 'flag', $align = '', $disp = true, $absoluteurl = true )
 {
 	global $locales, $current_locale, $country_flags_bg;
+	global $Skin;
 
 	if( empty( $locale ) )
 	{
@@ -515,7 +516,7 @@ function locale_flag( $locale = '', $collection = 'deprecated_param', $class = '
 
 	$flag_attribs = array(
 		'class' => 'flag',
-		'title' => isset($locales[$locale]['name']) ? $locales[$locale]['name'] : $locale,
+		'title' => isset($locales[$locale]['name']) && isset($Skin) ? $Skin->T_($locales[$locale]['name']) : $locale,
 	);
 
 	if( isset( $country_flags_bg[ $country_code ] ) )
