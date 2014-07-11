@@ -716,6 +716,15 @@ function echo_comment_reply_js( $Item )
 
 ?>
 <script type="text/javascript">
+	/*<![CDATA[*/
+function getTopNode(node)
+{
+	if (node && 'static' != node.ownerDocument.defaultView.getComputedStyle(node, null).getPropertyValue('position'))
+		return node;
+	else
+		return window;
+}
+
 jQuery( 'a.comment_reply' ).click( function()
 {	// The click action for the links "Reply to this comment"
 	var comment_ID = jQuery( this ).attr( 'rel' );
@@ -734,7 +743,8 @@ jQuery( 'a.comment_reply' ).click( function()
 	jQuery( this ).addClass( 'active' )
 		.html( '<?php echo TS_('You are currently replying to this comment') ?>' );
 	// Scroll to the comment form
-	jQuery( window ).scrollTop( jQuery( '#bComment_form_id_<?php echo $Item->ID ?>' ).offset().top - 30 );
+	jQuery( getTopNode (document.getElementById( 'content' ) ) ).scrollTop( 0 );
+	jQuery( getTopNode (document.getElementById( 'content' ) ) ).scrollTop( jQuery( '#bComment_form_id_<?php echo $Item->ID ?>' ).offset().top - 30 );
 
 	return false;
 } );
@@ -744,10 +754,12 @@ jQuery( document ).on( 'click', 'a.comment_reply_current', function()
 	var comment_ID = jQuery( this ).attr( 'rel' );
 
 	// Scroll to the comment
-	jQuery( window ).scrollTop( jQuery( 'a#c' + comment_ID ).offset().top - 10 );
+	jQuery( getTopNode (document.getElementById( 'content' ) ) ).scrollTop( 0 );
+	jQuery( getTopNode (document.getElementById( 'content' ) ) ).scrollTop( jQuery( '#c' + comment_ID ).offset().top - 10 );
 
 	return false;
 } );
+/*]]>*/
 </script>
 <?php
 
