@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
 "POT-Creation-Date: 2014-07-11 00:08-0400\n"
-"PO-Revision-Date: 2014-07-11 00:11-0400\n"
+"PO-Revision-Date: 2014-07-11 19:36-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -3591,7 +3591,7 @@ msgstr "Kolumnoj"
 
 #: ../../../inc/_core/ui/_uiwidget.class.php:531
 msgid "Filter list"
-msgstr "Listo de filtriloj"
+msgstr "Filtri la liston"
 
 #: ../../../inc/_core/ui/_uiwidget.class.php:533
 #: ../../../inc/comments/views/_comments_sidebar.view.php:64
