@@ -512,11 +512,19 @@ function locale_flag( $locale = '', $collection = 'deprecated_param', $class = '
 	}
 
 	// extract flag name:
-	$country_code = strtolower( substr( $locale, 3, 2 ) );
+	preg_match('/-(\w{2})$/', $locale, $matches);
+	$country_code = strtolower($matches[1]);
+
+	if (isset($locales[$locale]['name']) && isset($Skin))
+		$title = $Skin->T_($locales[$locale]['name']);
+	elseif (isset($locales[$locale]['name']))
+		$title = $locales[$locale]['name'];
+	else
+		$title = $locale;
 
 	$flag_attribs = array(
-		'class' => 'flag',
-		'title' => isset($locales[$locale]['name']) && isset($Skin) ? $Skin->T_($locales[$locale]['name']) : $locale,
+		'class' => $class,
+		'title' => $title,
 	);
 
 	if( isset( $country_flags_bg[ $country_code ] ) )
