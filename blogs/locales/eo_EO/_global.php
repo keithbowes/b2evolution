@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo_EO'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net/\nPOT-Creation-Date: 2014-07-14 16:47-0400\nPO-Revision-Date: 2014-07-14 16:54-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net/\nPOT-Creation-Date: 2014-07-14 16:47-0400\nPO-Revision-Date: 2014-07-14 18:22-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 'Categories' => 'Kategorioj',
 'Tags' => 'Etikedoj',
 'Previous' => 'Antaŭa',
@@ -2777,7 +2777,7 @@ $trans['eo_EO'] = array(
 'g - hour, 12-hour format without leading zeros; i.e. "1" to "12"' => 'g - horo, 12-hora formato sen antaŭaj nuloj; ekz-e: "1" ĝis "12"',
 'G - hour, 24-hour format without leading zeros; i.e. "0" to "23"' => 'G - horo, 24-hora formato sen antaŭaj nuloj; ekz-e: "0" ĝis "23"',
 'h - hour, 12-hour format; i.e. "01" to "12"' => 'h - horo, 12-hora formato; ekz-e.: "01" ĝis "12"',
-'H - hour, 24-hour format; i.e. "00" to "23"' => 'H - horo, 12-hora formato; ekz-e: "00" ĝis "23"',
+'H - hour, 24-hour format; i.e. "00" to "23"' => 'H - horo, 24-hora formato; ekz-e: "00" ĝis "23"',
 'i - minutes; i.e. "00" to "59"' => 'i - minutoj; ekz-e: "00" ĝis "59"',
 'I (capital i) - "1" if Daylight Savings Time, "0" otherwise.' => 'I (i majuskla) - "1" se somera tempo, "0" aliokaze',
 'j - day of the month without leading zeros; i.e. "1" to "31"' => 'j - tago de la monato sen nuloj; ekz-e: "1" ĝis "31"',

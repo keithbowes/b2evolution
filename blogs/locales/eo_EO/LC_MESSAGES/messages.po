@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
 "POT-Creation-Date: 2014-07-14 16:47-0400\n"
-"PO-Revision-Date: 2014-07-14 16:54-0400\n"
+"PO-Revision-Date: 2014-07-14 18:22-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -14438,7 +14438,7 @@ msgstr "h - horo, 12-hora formato; ekz-e.: \"01\" ĝis \"12\""
 
 #: ../../../inc/locales/_locale_settings.form.php:162
 msgid "H - hour, 24-hour format; i.e. \"00\" to \"23\""
-msgstr "H - horo, 12-hora formato; ekz-e: \"00\" ĝis \"23\""
+msgstr "H - horo, 24-hora formato; ekz-e: \"00\" ĝis \"23\""
 
 #: ../../../inc/locales/_locale_settings.form.php:163
 msgid "i - minutes; i.e. \"00\" to \"59\""
