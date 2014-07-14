@@ -158,7 +158,7 @@ class ItemLight extends DataObject
 		else
 		{
 			$this->ID = $db_row->$dbIDname;
-			$this->issue_date = $db_row->post_datestart;			// Publication date of a post/item
+			$this->issue_date = $db_row->post_datecreated;			// Publication date of a post/item
 			$this->datestart = $db_row->post_datestart;			// This is the same as issue_date, but unfortunatly both of them are used, One of them should be removed
 			$this->datemodified = $db_row->post_datemodified;			// Date of last edit of post/item
 			$this->main_cat_ID = $db_row->post_main_cat_ID;
