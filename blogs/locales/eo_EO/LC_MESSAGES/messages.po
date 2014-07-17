@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
 "POT-Creation-Date: 2014-07-14 16:47-0400\n"
-"PO-Revision-Date: 2014-07-14 18:22-0400\n"
+"PO-Revision-Date: 2014-07-16 01:59-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -6719,7 +6719,7 @@ msgstr "Komentoj en fluoj"
 
 #: ../../../inc/collections/views/_coll_comments.form.php:221
 msgid "How many of the latest comments do you want to include in RSS & Atom feeds?"
-msgstr "Kiom da freŝaj afiŝoj vi volas inkluzivi en la XML-fluoj RSS kaj Atom?"
+msgstr "Kiom da freŝaj afiŝoj vi volas inkluziviĝi en la XML-fluoj RSS kaj Atom?"
 
 #: ../../../inc/collections/views/_coll_comments.form.php:225
 #: ../../../inc/collections/views/_coll_other.form.php:46
@@ -7140,7 +7140,7 @@ msgstr "Afiŝi fluan enhavon"
 
 #: ../../../inc/collections/views/_coll_features.form.php:143
 msgid "How many of the latest posts do you want to include in RSS & Atom feeds?"
-msgstr "Kiom da freŝaj afiŝoj vi volas inkluzivi en la XML-fluoj?"
+msgstr "Kiom da freŝaj afiŝoj vi volas inkluziviĝi en la XML-fluoj?"
 
 #: ../../../inc/collections/views/_coll_features.form.php:143
 msgid "Posts in feeds"
@@ -8242,7 +8242,7 @@ msgstr "Elŝaltita"
 #: ../../../inc/collections/views/_coll_settings.form.php:109
 #: ../../../inc/collections/views/_coll_settings_blog.form.php:97
 msgid "Immediate"
-msgstr "Meznivela"
+msgstr "Tuja"
 
 #: ../../../inc/collections/views/_coll_settings.form.php:109
 #: ../../../inc/collections/views/_coll_settings_blog.form.php:97
@@ -8259,7 +8259,7 @@ msgstr "Malsamtempa"
 #: ../../../inc/sessions/views/_stats_settings.form.php:79
 #: ../../../inc/settings/views/_general.form.php:103
 msgid "Recommended if you have your scheduled jobs properly set up."
-msgstr "Rekomendita se vi havas laborojn ĝuste agordatajn."
+msgstr "Rekomendita se vi havas laborojn ĝuste agorditajn."
 
 #: ../../../inc/collections/views/_coll_settings.form.php:112
 #: ../../../inc/collections/views/_coll_settings_blog.form.php:100
@@ -8304,7 +8304,7 @@ msgstr "(Ĉefa kategorio estas movebla al alia blogo)"
 #: ../../../inc/collections/views/_coll_settings.form.php:131
 #: ../../../inc/collections/views/_coll_settings_blog.form.php:119
 msgid "Allow moving posts between different blogs"
-msgstr "Permesi movi afiŝajn inter diversaj blogoj"
+msgstr "Permesi movi afiŝojn inter diversaj blogoj"
 
 #: ../../../inc/collections/views/_coll_settings.form.php:132
 #: ../../../inc/collections/views/_coll_settings_blog.form.php:120
@@ -9664,7 +9664,7 @@ msgstr "Resumo pri retpoŝtaj afiŝoj"
 
 #: ../../../inc/cron/jobs/_post_notifications.job.php:18
 msgid "Post notifications are not set to run as a scheduled task."
-msgstr "Afiŝaj sciigo ne agordiĝis plenumiĝi kiel enhorarigita laboro."
+msgstr "Afiŝaj sciigoj ne agordiĝis plenumiĝi kiel enhorarigita laboro."
 
 #: ../../../inc/cron/jobs/_post_notifications.job.php:40
 #, php-format
@@ -11916,7 +11916,7 @@ msgstr "Alŝutado…"
 
 #: ../../../inc/files/views/_file_list.inc.php:616
 msgid "Make one post (including all images)"
-msgstr "Fari unu afiŝon (inkluzive ĉiujn bildojn)"
+msgstr "Fari unu afiŝon (inkluzive de ĉiuj bildoj)"
 
 #: ../../../inc/files/views/_file_list.inc.php:617
 msgid "Make multiple posts (1 per image)"
@@ -16165,7 +16165,7 @@ msgstr "La maksimuma longo de kromprograma kodo estas 32 signoj."
 
 #: ../../../inc/plugins/model/_plugins_admin.class.php:933
 msgid "The plugin code cannot include a dot!"
-msgstr "La kromprograma kodo ne rajtas inkluzivi punkton."
+msgstr "La kromprograma kodo ne rajtas havi punkton."
 
 #: ../../../inc/plugins/model/_plugins_admin.class.php:944
 msgid "The plugin code is already in use by another plugin."
@@ -18392,7 +18392,7 @@ msgstr "Korpa finigilo"
 
 #: ../../../inc/settings/views/_eblog.form.php:124
 msgid "Starting from this string, everything will be ignored, including this string."
-msgstr "Komencante per ĉi tiu ĉeno, ĉio ignoriĝos, inkluzive ĉi tiun ĉenon."
+msgstr "Komencante per ĉi tiu ĉeno, ĉio ignoriĝos, inkluzive de ĉi tiu ĉeno."
 
 #: ../../../inc/settings/views/_eblog.form.php:125
 msgid "You can use this to remove signature from message body."
@@ -23075,7 +23075,7 @@ msgstr "Montri agajn vortojn"
 
 #: ../../../inc/users/views/_user_advanced.form.php:147
 msgid "Display a legend at the bottom of every page including all action icons used on that page."
-msgstr "Montri ŝlosilon sube de ĉiu paĝo inkluzive de ĉiuj agaj piktogramoj uzitaj en tiu paĝo."
+msgstr "Montri ŝlosilon sube de ĉiu paĝo inkluzive de ĉiuj ago-piktogramoj uzitaj en tiu paĝo."
 
 #: ../../../inc/users/views/_user_advanced.form.php:147
 msgid "Display icon legend"
@@ -27235,7 +27235,7 @@ msgstr "Eĥi al la TTT-ejo de b2evolution.net"
 
 #: ../../../plugins/_ping_b2evonet.plugin.php:68
 msgid "Pings the b2evolution.net site to include your post in the list of recently updated blogs."
-msgstr "Eĥas al b2evolution.net por inkluzivi vian afiŝon en la liston de freŝe aktualigitaj blogoj."
+msgstr "Eĥas al b2evolution.net por inkluzivigi vian afiŝon en la liston de freŝe aktualigitaj blogoj."
 
 #: ../../../plugins/_ping_pingomatic.plugin.php:66
 msgid "Ping-O-Matic plugin"
