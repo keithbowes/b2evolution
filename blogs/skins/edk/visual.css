@@ -74,6 +74,7 @@ h1 {
 
 h2 {
   border-bottom: thin dotted #ccc;
+  color: inherit;
   font: 95% Arial, Helvetica, serif;
   letter-spacing: 0.2em;
   margin: 1.2em 0 0.1em 0;
@@ -280,7 +281,7 @@ li, p,
 
 .bCalendarTable caption {
   border: thin black inset;
-  margin: 0.2em 0 0.3em 0;
+  margin: 0.2em 0 0.3em 0 !important;
 }
 
 .bCalendarTable caption * {
