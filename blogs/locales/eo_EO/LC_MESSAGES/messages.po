@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
-"POT-Creation-Date: 2014-07-14 16:47-0400\n"
-"PO-Revision-Date: 2014-07-16 01:59-0400\n"
+"POT-Creation-Date: 2014-07-18 00:13-0400\n"
+"PO-Revision-Date: 2014-07-18 00:54-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -2784,23 +2784,23 @@ msgstr "Troviĝis nevalida enhavo (ĉu spamo?)"
 msgid "Illegal content found: blacklisted word &laquo;%s&raquo;."
 msgstr "Troviĝas nevalida enhavo: vorto «%s» el la nigrolisto."
 
-#: ../../../inc/_core/_param.funcs.php:2323
+#: ../../../inc/_core/_param.funcs.php:2313
 msgid "Illegal CSS markup found: "
 msgstr "Nevalida CSS-kodo: "
 
-#: ../../../inc/_core/_param.funcs.php:2334
+#: ../../../inc/_core/_param.funcs.php:2324
 msgid "Illegal javascript markup found: "
 msgstr "Nevalida kodo javaskripta: "
 
-#: ../../../inc/_core/_param.funcs.php:2341
+#: ../../../inc/_core/_param.funcs.php:2331
 msgid "Illegal frame markup found: "
 msgstr "Nevalidaj kradoj markoj: "
 
-#: ../../../inc/_core/_param.funcs.php:2348
+#: ../../../inc/_core/_param.funcs.php:2338
 msgid "Illegal object markup found: "
 msgstr "Nevalidaj objektaj markoj: "
 
-#: ../../../inc/_core/_param.funcs.php:2361
+#: ../../../inc/_core/_param.funcs.php:2351
 #, php-format
 msgid "(Note: To get rid of the above validation warnings, you can deactivate unwanted validation rules in your <a %s>Group settings</a>.)"
 msgstr "(Noti: Por forigi la suprajn erarojn pri validigo vi povas malaktivigi nevolajn regulojn en via <a %s>Grupa agordo</a>)"
@@ -11960,8 +11960,8 @@ msgid "Default permissions"
 msgstr "Atingopermesoj aprioraj"
 
 #: ../../../inc/files/views/_file_permissions.form.php:69
-#: ../../../skins_adm/_html_header.inc.php:170
-#: ../../../skins_adm/bootstrap/_html_header.inc.php:167
+#: ../../../skins_adm/_html_header.inc.php:169
+#: ../../../skins_adm/bootstrap/_html_header.inc.php:166
 msgid "check all"
 msgstr "marki ĉiujn"
 
@@ -13425,15 +13425,6 @@ msgstr "%d eraj abonoj"
 #: ../../../inc/items/model/_itemlight.class.php:435
 msgid "Browse category"
 msgstr "Foliumi kategorion"
-
-#: ../../../inc/items/model/_itemlight.class.php:704
-#, php-format
-msgid "Item with ID <a %s>%s</a> has an invalid main category ID %s."
-msgstr "Ero kun identigilo <a %s>%s</a> havas nevalidan ĉefkategorian identigilon %s."
-
-#: ../../../inc/items/model/_itemlight.class.php:711
-msgid "In addition we cannot fallback to the default category because no valid blog ID has been specified."
-msgstr "Aldone ne eblas anstataŭe uzi la aprioran kategorion, ĉar neniu valida bloga identigilo specifiĝis."
 
 #: ../../../inc/items/model/_itemlist.class.php:243
 msgid "Invalid post, please correct these errors:"
@@ -26173,24 +26164,24 @@ msgstr "Vi povas nun <a %s>ensaluti</a> per la sekvaj atestoj:"
 msgid "Note that password carefully! It is a <em>random</em> password that is given to you when you install b2evolution. If you lose it, you will have to delete the database tables and re-install anew."
 msgstr "Zorge noti tiun pasvorton. Ĝi estas <em>hazarda</em> pasvorto, kiu doniĝas al vi kiam instaliĝas b2evolution. Se vi perdos ĝin, vi devos forigi la datumbazajn tabelojn kaj reinstali refoje."
 
-#: ../../../install/_functions_install.php:948
+#: ../../../install/_functions_install.php:949
 msgid "Continue installation &raquo;"
 msgstr "Daŭrigi instaladon →"
 
-#: ../../../install/_functions_install.php:973
-#: ../../../install/_functions_install.php:992
+#: ../../../install/_functions_install.php:974
+#: ../../../install/_functions_install.php:993
 msgid "Already installed."
 msgstr "Jam instalita."
 
-#: ../../../install/_functions_install.php:984
+#: ../../../install/_functions_install.php:985
 msgid "There is already a file called .htaccess at the blog root. If you don't specifically need this file, it is recommended that you delete it or rename it to old.htaccess before you continue. This will allow b2evolution to create a new .htaccess file that is optimized for best results."
 msgstr "Jam ekzistas dosiero nomata .htaccess en la bloga radiko. Se vi ne bezonas tiun dosieron, estas rekomendinde ke vi forigi aŭ alinomi ĝin kaj poste daŭri. Tio permesos al b2evolution krei novan dosieron .htaccess, kiu maksimumiĝos por la plej bona TTT-eja funkciado."
 
-#: ../../../install/_functions_install.php:985
+#: ../../../install/_functions_install.php:986
 msgid "Here are the contents of the current .htaccess file:"
 msgstr "Jen la enhavo de la aktuala .htaccess-dosiero:"
 
-#: ../../../install/_functions_install.php:987
+#: ../../../install/_functions_install.php:988
 #, php-format
 msgid "Again, we recommend you remove this file before continuing. If you chose to keep it, b2evolution will probably still work, but for optimization you should follow <a %s>these instructions</a>."
 msgstr "b2evolution funkcios kun tiu dosiero, sed por maksimumigo vi sekvu <a %s>ĉi tiujn instrukciojn</a>."
@@ -27079,6 +27070,14 @@ msgstr "Validigi min"
 msgid "Not Enabled: You should create at least one question!"
 msgstr "Ne aktivigita: Vi devas krei minimume unu demandon."
 
+#: ../../../plugins/_escapecode.plugin.php:33
+msgid "Escapes html entities in code tags"
+msgstr "Kodas HTML-entojn en &lt;code&gt;-etikedoj"
+
+#: ../../../plugins/_escapecode.plugin.php:34
+msgid "Escapes tags and entities in &lt;code&gt; tags"
+msgstr "Kodas etikedojn kaj entojn en &lt;code&gt;-etikedoj"
+
 #: ../../../plugins/_facebook.plugin.php:42
 msgid "Facebook Like Widget"
 msgstr "Umaĵo por la Facebook-a butono \"Ŝati\""
@@ -27580,8 +27579,15 @@ msgid "Your comment was rejected because it appeared to be spam."
 msgstr "Via komento rifuziĝis ĉar ĝi ŝajnas esti spama."
 
 #: ../../../plugins/code_highlight_plugin/_code_highlight.plugin.php:126
+#: ../../../plugins/code_highlight_plugin/_code_highlight.plugin.php:127
+#: ../../../plugins/prism_plugin/_prism.plugin.php:33
+#: ../../../plugins/prism_plugin/_prism.plugin.php:34
+msgid "(Plugin not available in WYSIWYG mode)"
+msgstr "(Kromprogramo ne disponebla en faksimila reĝimo)"
+
+#: ../../../plugins/code_highlight_plugin/_code_highlight.plugin.php:126
 msgid "Display computer code in a post."
-msgstr "Montri komputilan kodon en afiŝo."
+msgstr "Montri fontotekston en afiŝo."
 
 #: ../../../plugins/code_highlight_plugin/_code_highlight.plugin.php:127
 msgid "Display computer code easily with syntax coloring and allowing for easy copy/paste."
@@ -27982,11 +27988,11 @@ msgstr "Markdown"
 
 #: ../../../plugins/prism_plugin/_prism.plugin.php:33
 msgid "Display computer code."
-msgstr "Montri komputilan kodon."
+msgstr "Montri fontotekston."
 
 #: ../../../plugins/prism_plugin/_prism.plugin.php:34
 msgid "Display computer code rendered by JavaScript plugin Prism."
-msgstr "Montri komputilan kodon farita de la javaskripta kromprogramo Prism."
+msgstr "Montri fontotekston farita de la javaskripta kromprogramo Prism."
 
 #: ../../../plugins/prism_plugin/_prism.plugin.php:337
 msgid "Codespan"
@@ -28174,22 +28180,22 @@ msgstr "Aktivigi por aldoni direktajn piktogramojn al TinyMC, aktivigante, ke Ti
 msgid "Toggle between WYSIWYG and plain HTML editor"
 msgstr "Baskuli inter vida kaj ordinara redaktilo"
 
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:392
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:394
 #, php-format
 msgid "Compressed TinyMCE javascript could not be loaded. Check the \"%s\" plugin setting."
 msgstr "Kunpremita javaskriptaĵo de TinyMCE ne eblis ŝarĝiĝi. Kontroli la kromprograman agordaĵon \"%s\"."
 
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:393
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:431
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:395
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:433
 msgid "URL to TinyMCE"
 msgstr "URL al TinyMCE"
 
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:430
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:432
 #, php-format
 msgid "TinyMCE javascript could not be loaded. Check the \"%s\" plugin setting."
 msgstr "Javaskriptaĵo de TinyMC ne eblis ŝargiĝi. Kontroli la kromprograman agordaĵon \"%s\"."
 
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:1113
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:1093
 #, php-format
 msgid "TinyMCE plugin cannot uses the compressor because folder %s is not writable"
 msgstr "La kromprogramo TinyMCE ne povas uzi kunpremilon ĉar la dosierujo %s ne estas skribebla"
@@ -30061,8 +30067,8 @@ msgstr "Elekti blogon"
 msgid "WARNING: Old versions of Internet Explorer may not able to display this admin skin properly. We strongly recommend you upgrade to IE 11, Firefox or Chrome."
 msgstr "AVERTO: Malnovaj eldonoj de Internet Explorer eble ne povos ĝuste montri ĉi tiun stirilan etoson. Ege rekomendindas, ke vi promociu al Internet Explorer 11, Firefox aŭ Chrome."
 
-#: ../../../skins_adm/_html_header.inc.php:166
-#: ../../../skins_adm/bootstrap/_html_header.inc.php:163
+#: ../../../skins_adm/_html_header.inc.php:165
+#: ../../../skins_adm/bootstrap/_html_header.inc.php:162
 msgid "uncheck all"
 msgstr "Malmarki ĉiujn"
 
@@ -30832,110 +30838,116 @@ msgstr "Ĉi tiu demonstra ŝablono montras resumon de la plej freŝaj afiŝoj en
 msgid "More posts..."
 msgstr "Pliaj afiŝoj…"
 
-#~ msgid "Link has been deleted from &laquo;user;."
-#~ msgstr "Ligilo foriĝis disde «uzanto»."
-
-#~ msgid "All files will be moved from old blog media directory to new. Are you sure?"
-#~ msgstr "Ĉiuj dosieroj moviĝos de la malnova blogo media dosierujo al la nova. Ĉu vi certas?"
-
-#~ msgid "The blog's current media directory is not empty. It is your responsibility to move the files to the new media directory, otherwise the files will not be available in the file browser. Are you sure you want to proceed with the new setting?"
-#~ msgstr "La aktuala media dosierujo de la blogo ne vakas. Vi devas movi la dosierojn al la nova media dosierujo; alie la dosieroj ne disponeblos en la dosiera foliumilo. Ĉu vi certas, ke vi volas uzi la novan agordaĵon."
-
-#~ msgid "Your profile & subscriptions have been updated."
-#~ msgstr "Via profilo kaj abonoj aktualiĝis."
-
-#~ msgid "Cannot update profile. Please correct the following errors:"
-#~ msgstr "Ne eblas ĝisdatigi profilon. Bonvolu korekti la jenajn erarojn:"
-
-#~ msgid "The file is too large: %s byte but the maximum allowed is %s byte."
-#~ msgstr "La dosiero tro grandas: %s bajta. La maksimumo permesita estas %s bajta."
-
-#~ msgid "Could not subscribe to attend this event."
-#~ msgstr "Ne eblis ekaboni ĉeesti tiun eventon."
-
-#~ msgid "User was successfully subscribed."
-#~ msgstr "Vi sukcese malaboniĝis."
-
-#~ msgid "User was successfully unsubscribed."
-#~ msgstr "Vi sukcese malaboniĝis."
-
-#~ msgid "You have successfully subscribed on the \"Also attended\" list."
-#~ msgstr "Vi sukcese ekabonis la liston \"Ankaŭ ĉeestis\"."
-
-#~ msgid "You have successfully subscribed on the waiting list."
-#~ msgstr "Vi sukcese ekabonis la atendoliston."
-
-#~ msgid "You have successfully subscribed to attend this event."
-#~ msgstr "Vi sukcese ekabonis ĉeesti tiun eventon."
-
-#~ msgid "Please select a user."
-#~ msgstr "Bonvolu elekti uzanton."
-
-#~ msgid "User %s not found."
-#~ msgstr "Uzanto %s ne trovita."
-
-#~ msgid "Back to blog"
-#~ msgstr "Reen al la blogo"
-
-#~ msgid "Your profile picture has been set."
-#~ msgstr "Via profilbildo estas elektita."
-
-#~ msgid "You don't have permission to upload!"
-#~ msgstr "Vi ne rajtas alŝuti!"
-
-#~ msgid "&laquo;%s&raquo;.from the blog's <a %s>general settings</a>."
-#~ msgstr "«%s» el la <a %s>ĝenerala agordo</a> de la blogo."
-
-#~ msgid "Change "
-#~ msgstr "Ŝanĝi →"
-
-#~ msgid "Delete this internal search!"
-#~ msgstr "Forigi ĉi tiun enan serĉon."
-
-#~ msgid "Duplicate this internal search..."
-#~ msgstr "Kopii ĉi tiun enan serĉon…"
-
-#~ msgid "Edit this internal search..."
-#~ msgstr "Redakti ĉi tiun enan serĉon…"
-
-#~ msgid "Go to users list"
-#~ msgstr "Iri uzanto-liston"
-
-#~ msgid "Send !"
-#~ msgstr "Sendi."
-
-#~ msgid "Plain text format"
-#~ msgstr "platteksta formato"
-
-#~ msgid "HTML format"
-#~ msgstr "HTML-formato"
-
-#~ msgid "The following newsletter email will be sent to %s users."
-#~ msgstr "La novaĵletera retpoŝtmesaĝo sendiĝos al %s uzantoj."
-
-#~ msgid "Preview !"
-#~ msgstr "Antaŭvido "
-
-#~ msgid "You can use the following patterns to auto insert the user's data:"
-#~ msgstr "Vi povas uzi la jenajn ŝablonojn en la aŭtomata enmetado de la uzanto-datumoj:"
-
-#~ msgid "Users info"
-#~ msgstr "Uzanto-informoj"
-
-#~ msgid "Newsletter is sending now, please see a report below..."
-#~ msgstr "Novaĵletero sendiĝas. Bonvolu rigardi la raporton sube…"
-
-#~ msgid "Please enter a message."
-#~ msgstr "Bonvolu enmeti mesaĝon."
-
-#~ msgid "Please enter a title."
-#~ msgstr "Bonvolu enmeti titolon."
-
-#~ msgid "%d contacts have been added to the &laquo;%s&raquo;.group."
-#~ msgstr "%d kontaktitoj aldoniĝis en la grupo «%s»."
+#~ msgid "Forums Home"
+#~ msgstr "Foruma ĉefpaĝo"
 
 #~ msgid "Requested &laquo;%s&raquo;.object does not exist any longer."
 #~ msgstr "La petita objekto «%s» ne plu ekzistas."
 
-#~ msgid "Forums Home"
-#~ msgstr "Foruma ĉefpaĝo"
+#~ msgid "%d contacts have been added to the &laquo;%s&raquo;.group."
+#~ msgstr "%d kontaktitoj aldoniĝis en la grupo «%s»."
+
+#~ msgid "Please enter a title."
+#~ msgstr "Bonvolu enmeti titolon."
+
+#~ msgid "Please enter a message."
+#~ msgstr "Bonvolu enmeti mesaĝon."
+
+#~ msgid "Newsletter is sending now, please see a report below..."
+#~ msgstr "Novaĵletero sendiĝas. Bonvolu rigardi la raporton sube…"
+
+#~ msgid "Users info"
+#~ msgstr "Uzanto-informoj"
+
+#~ msgid "You can use the following patterns to auto insert the user's data:"
+#~ msgstr "Vi povas uzi la jenajn ŝablonojn en la aŭtomata enmetado de la uzanto-datumoj:"
+
+#~ msgid "Preview !"
+#~ msgstr "Antaŭvido "
+
+#~ msgid "The following newsletter email will be sent to %s users."
+#~ msgstr "La novaĵletera retpoŝtmesaĝo sendiĝos al %s uzantoj."
+
+#~ msgid "HTML format"
+#~ msgstr "HTML-formato"
+
+#~ msgid "Plain text format"
+#~ msgstr "platteksta formato"
+
+#~ msgid "Send !"
+#~ msgstr "Sendi."
+
+#~ msgid "Go to users list"
+#~ msgstr "Iri uzanto-liston"
+
+#~ msgid "Edit this internal search..."
+#~ msgstr "Redakti ĉi tiun enan serĉon…"
+
+#~ msgid "Duplicate this internal search..."
+#~ msgstr "Kopii ĉi tiun enan serĉon…"
+
+#~ msgid "Delete this internal search!"
+#~ msgstr "Forigi ĉi tiun enan serĉon."
+
+#~ msgid "Change "
+#~ msgstr "Ŝanĝi →"
+
+#~ msgid "&laquo;%s&raquo;.from the blog's <a %s>general settings</a>."
+#~ msgstr "«%s» el la <a %s>ĝenerala agordo</a> de la blogo."
+
+#~ msgid "You don't have permission to upload!"
+#~ msgstr "Vi ne rajtas alŝuti!"
+
+#~ msgid "Your profile picture has been set."
+#~ msgstr "Via profilbildo estas elektita."
+
+#~ msgid "Back to blog"
+#~ msgstr "Reen al la blogo"
+
+#~ msgid "User %s not found."
+#~ msgstr "Uzanto %s ne trovita."
+
+#~ msgid "Please select a user."
+#~ msgstr "Bonvolu elekti uzanton."
+
+#~ msgid "You have successfully subscribed to attend this event."
+#~ msgstr "Vi sukcese ekabonis ĉeesti tiun eventon."
+
+#~ msgid "You have successfully subscribed on the waiting list."
+#~ msgstr "Vi sukcese ekabonis la atendoliston."
+
+#~ msgid "You have successfully subscribed on the \"Also attended\" list."
+#~ msgstr "Vi sukcese ekabonis la liston \"Ankaŭ ĉeestis\"."
+
+#~ msgid "User was successfully unsubscribed."
+#~ msgstr "Vi sukcese malaboniĝis."
+
+#~ msgid "User was successfully subscribed."
+#~ msgstr "Vi sukcese malaboniĝis."
+
+#~ msgid "Could not subscribe to attend this event."
+#~ msgstr "Ne eblis ekaboni ĉeesti tiun eventon."
+
+#~ msgid "The file is too large: %s byte but the maximum allowed is %s byte."
+#~ msgstr "La dosiero tro grandas: %s bajta. La maksimumo permesita estas %s bajta."
+
+#~ msgid "Cannot update profile. Please correct the following errors:"
+#~ msgstr "Ne eblas ĝisdatigi profilon. Bonvolu korekti la jenajn erarojn:"
+
+#~ msgid "Your profile & subscriptions have been updated."
+#~ msgstr "Via profilo kaj abonoj aktualiĝis."
+
+#~ msgid "The blog's current media directory is not empty. It is your responsibility to move the files to the new media directory, otherwise the files will not be available in the file browser. Are you sure you want to proceed with the new setting?"
+#~ msgstr "La aktuala media dosierujo de la blogo ne vakas. Vi devas movi la dosierojn al la nova media dosierujo; alie la dosieroj ne disponeblos en la dosiera foliumilo. Ĉu vi certas, ke vi volas uzi la novan agordaĵon."
+
+#~ msgid "All files will be moved from old blog media directory to new. Are you sure?"
+#~ msgstr "Ĉiuj dosieroj moviĝos de la malnova blogo media dosierujo al la nova. Ĉu vi certas?"
+
+#~ msgid "Link has been deleted from &laquo;user;."
+#~ msgstr "Ligilo foriĝis disde «uzanto»."
+
+#~ msgid "In addition we cannot fallback to the default category because no valid blog ID has been specified."
+#~ msgstr "Aldone ne eblas anstataŭe uzi la aprioran kategorion, ĉar neniu valida bloga identigilo specifiĝis."
+
+#~ msgid "Item with ID <a %s>%s</a> has an invalid main category ID %s."
+#~ msgstr "Ero kun identigilo <a %s>%s</a> havas nevalidan ĉefkategorian identigilon %s."
