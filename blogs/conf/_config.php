@@ -16,7 +16,19 @@ if( defined('EVO_CONFIG_LOADED') )
 }
 
 // HARD MAINTENANCE !
-if( file_exists(dirname(__FILE__).'/maintenance.html') )
+if( file_exists(dirname(__FILE__).'/prizorgo.xhtml') )
+{ // Stop execution as soon as possible. This is useful while uploading new app files via FTP.
+	header('HTTP/1.0 503 Servo Nedisponebla');
+	readfile(dirname(__FILE__).'/prizorgo.xhtml');
+	die();
+}
+elseif( file_exists(dirname(__FILE__).'/maintenance.xhtml') )
+{ // Stop execution as soon as possible. This is useful while uploading new app files via FTP.
+	header('HTTP/1.0 503 Service Unavailable');
+	readfile(dirname(__FILE__).'/maintenance.xhtml');
+	die();
+}
+elseif( file_exists(dirname(__FILE__).'/maintenance.html') )
 { // Stop execution as soon as possible. This is useful while uploading new app files via FTP.
 	header('HTTP/1.0 503 Service Unavailable');
 	readfile(dirname(__FILE__).'/maintenance.html');
