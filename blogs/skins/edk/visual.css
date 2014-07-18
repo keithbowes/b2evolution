@@ -221,6 +221,13 @@ li, p,
   padding-left: 1em;
 }
 
+#menu .SearchField {
+  background-color: orange;
+  border: thin solid #999;
+  color: navy;
+  width: 70%;
+}
+
 #page-links {
   font-weight: 600;
   padding-bottom: 1em;
@@ -229,13 +236,6 @@ li, p,
 
 #page-links a:visited {
   color: red;
-}
-
-#menu .SearchField {
-  background-color: orange;
-  border: thin solid #999;
-  color: navy;
-  width: 70%;
 }
 
 .SearchField:focus {
