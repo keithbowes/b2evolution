@@ -16,21 +16,9 @@ if( defined('EVO_CONFIG_LOADED') )
 }
 
 // HARD MAINTENANCE !
-if( file_exists(dirname(__FILE__).'/prizorgo.xhtml') )
+if( file_exists(dirname(__FILE__).'/maintenance.html') )
 { // Stop execution as soon as possible. This is useful while uploading new app files via FTP.
 	header('HTTP/1.0 503 Servo Nedisponebla');
-	readfile(dirname(__FILE__).'/prizorgo.xhtml');
-	die();
-}
-elseif( file_exists(dirname(__FILE__).'/maintenance.xhtml') )
-{ // Stop execution as soon as possible. This is useful while uploading new app files via FTP.
-	header('HTTP/1.0 503 Service Unavailable');
-	readfile(dirname(__FILE__).'/maintenance.xhtml');
-	die();
-}
-elseif( file_exists(dirname(__FILE__).'/maintenance.html') )
-{ // Stop execution as soon as possible. This is useful while uploading new app files via FTP.
-	header('HTTP/1.0 503 Service Unavailable');
 	readfile(dirname(__FILE__).'/maintenance.html');
 	die();
 }
@@ -42,7 +30,7 @@ elseif( file_exists(dirname(__FILE__).'/umaintenance.html') )
 				&& isset( $_GET['action'] ) && ( $_GET['action'] == 'svn_upgrade' || $_GET['action'] == 'auto_upgrade' ) ) ); // The request action is 'svn_upgrade' or 'auto_upgrade'
 	if( ! $is_upgrade )
 	{ // NOT an upgrade
-		header('HTTP/1.0 503 Service Unavailable');
+		header('HTTP/1.0 503 Servo Nedisponebla');
 		readfile(dirname(__FILE__).'/umaintenance.html');
 		die();
 	}
