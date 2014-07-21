@@ -2363,7 +2363,9 @@ class Comment extends DataObject
 	{
 		global $CommentList, $Plugins, $DB;
 
-		$use_cache = $this->ID && in_array( $format, array('htmlbody', 'entityencoded', 'xml', 'text') );
+		//$use_cache = $this->ID && in_array( $format, array('htmlbody', 'entityencoded', 'xml', 'text') );
+		$use_cache = FALSE;
+
 		if( $use_cache )
 		{ // the format/comment can be cached:
 			if( empty( $CommentList ) )
