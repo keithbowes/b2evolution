@@ -469,6 +469,11 @@ class DB
 		}
 	}
 
+	function __destruct()
+	{
+		@mysql_close($this->dbhandle);
+	}
+
 
 	/**
 	 * Select a DB (if another one needs to be selected)
