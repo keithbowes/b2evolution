@@ -61,7 +61,6 @@ class ItemLight extends DataObject
 	 * @var integer
 	 */
 	var $datemodified;
-	var $created_date;
 
 	var $title;
 
@@ -160,7 +159,6 @@ class ItemLight extends DataObject
 		{
 			$this->ID = $db_row->$dbIDname;
 			$this->issue_date = $db_row->post_datestart;			// Publication date of a post/item
-			$this->created_date = $db_row->post_datecreated;
 			$this->datestart = $db_row->post_datestart;			// This is the same as issue_date, but unfortunatly both of them are used, One of them should be removed
 			$this->datemodified = $db_row->post_datemodified;			// Date of last edit of post/item
 			$this->main_cat_ID = $db_row->post_main_cat_ID;
@@ -775,7 +773,7 @@ class ItemLight extends DataObject
 			$params['date_format'] = locale_datefmt();
 		}
 
-		return $params['before'].mysql2date( $params['date_format'], $this->created_date, $params['use_GMT'] ).$params['after'];
+		return $params['before'].mysql2date( $params['date_format'], $this->issue_date, $params['use_GMT'] ).$params['after'];
 	}
 
 

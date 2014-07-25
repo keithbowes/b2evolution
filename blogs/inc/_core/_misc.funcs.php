@@ -1619,7 +1619,10 @@ function get_weekstartend( $date, $startOfWeek )
  */
 function remove_seconds($timestamp, $format = 'Y-m-d H:i')
 {
-	return date($format, floor($timestamp/60)*60);
+	global $evo_timestamp_round;
+	if ($evo_timestamp_round)
+		$timestamp = floor($timestamp/60)*60;
+	return date($format, $timestamp);
 }
 
 
