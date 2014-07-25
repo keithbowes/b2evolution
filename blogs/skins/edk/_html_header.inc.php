@@ -211,8 +211,6 @@ if (!supports_xhtml())
 else
 {
 	global $use_strict;
-	$htmlelem = "<html xmlns=\"http://www.w3.org/1999/xhtml\" $langattrs>";
-
 	if ($use_strict)
 	{
 		for ($i = 0; $i < 23; $i++)
@@ -231,6 +229,8 @@ else
 
 		$langattrs="xml:lang=\"$locale\"";
 	}
+
+	$htmlelem = "<html xmlns=\"http://www.w3.org/1999/xhtml\" $langattrs>";
 }
 
 
