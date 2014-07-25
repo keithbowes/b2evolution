@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo_EO'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net/\nPOT-Creation-Date: 2014-07-24 00:56-0400\nPO-Revision-Date: 2014-07-24 01:04-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net/\nPOT-Creation-Date: 2014-07-24 00:56-0400\nPO-Revision-Date: 2014-07-25 14:23-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 'Categories' => 'Kategorioj',
 'Tags' => 'Etikedoj',
 'Previous' => 'Antaŭa',
@@ -5707,7 +5707,7 @@ $trans['eo_EO'] = array(
 'Insert SQL codeblock' => 'Enmeti SQL-kodblokon',
 'Short description' => 'Mallonga priskribo',
 'Longer description. You may also remove this.' => 'Pli longa priskribo. Vi povas ankaŭ forigi ĉi tion.',
-'Star formatting e-g [stars:2.3/5]' => 'Stela formatado ekz-e [stars:2.3/5',
+'Star formatting e-g [stars:2.3/5]' => 'Stela formatado ekz-e [stars:2.3/5]',
 'This plugin allows to render star ratings inside blog posts and comments by using the syntax [stars:2.3/5] for example' => 'Ĉi tiu kromprogramo permesas stelajn taksojn en blogeroj kaj komentoj per la sintakso [stars:2.3/5]',
 'Test plugin' => 'Prova kromprogramo',
 'This plugin responds to virtually all possible plugin events :P' => 'La kromprogramo respondas preskaŭ ĉiujn eblajn kromprogramajn eventojn.',

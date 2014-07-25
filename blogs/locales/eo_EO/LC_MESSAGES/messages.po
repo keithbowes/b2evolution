@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
 "POT-Creation-Date: 2014-07-24 00:56-0400\n"
-"PO-Revision-Date: 2014-07-24 01:04-0400\n"
+"PO-Revision-Date: 2014-07-25 14:23-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -28077,7 +28077,7 @@ msgstr "Pli longa priskribo. Vi povas ankaŭ forigi ĉi tion."
 
 #: ../../../plugins/star_plugin/_star.plugin.php:45
 msgid "Star formatting e-g [stars:2.3/5]"
-msgstr "Stela formatado ekz-e [stars:2.3/5"
+msgstr "Stela formatado ekz-e [stars:2.3/5]"
 
 #: ../../../plugins/star_plugin/_star.plugin.php:46
 msgid "This plugin allows to render star ratings inside blog posts and comments by using the syntax [stars:2.3/5] for example"
