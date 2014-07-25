@@ -8,7 +8,7 @@ if (param('diaspora-pod'))
 }
 
 $last_date = '';
-$hl = is_default_page() ? 'h3' : 'h2';
+$hl = 'single' != $disp ? 'h3' : 'h2';
 
 skin_init( $disp );
 skin_include( '_html_header.inc.php' );
@@ -18,14 +18,14 @@ display_if_empty();
 while( $Item = & mainlist_get_item() ):
 
 global $use_strict;
-$_item_title = (!is_default_page()) ? $Item->get_title() : '';
+$_item_title = ($disp == 'single') ? $Item->get_title() : '';
 $_item_lang = preg_replace('/^(\w{2,3})-.+$/', '$1', $Item->dget('locale', 'raw'));
 $_item_langattrs = (supports_xhtml() == FALSE) ? "lang=\"$_item_lang\"" : ($use_strict ? "xml:lang=\"$_item_lang\" lang=\"$_item_lang\"" : "xml:lang=\"$_item_lang\"");
 $_item_country = strtolower(preg_replace('/^\w{2,3}-([^-]+).*$/', '$1', $Item->dget('locale', 'raw')));
 
 preg_match('/^(\S*)\s*(\S*)$/', $Item->issue_date, $matches);
 list($match, $date, $time) = $matches;
-if ($last_date != $date && is_default_page())
+if ($last_date != $date && 'single' != $disp)
 {
   echo '<h2>';
   $Item->issue_date();
@@ -43,11 +43,7 @@ $last_date = $date;
  <?php echo T_('by'); ?>
 	<a href="<?php $Item->get_creator_User()->url(); ?>"><?php echo $Item->get_creator_User()->firstname; ?></a>
  <?php
-if (!is_default_page())
-{
 printf($Skin->T_('on %s '), $Item->get_issue_date());
-}
-
 echo $Skin->T_('at');
 $Item->issue_time();
 $Item->locale_flag();
