@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
 "POT-Creation-Date: 2014-07-24 00:56-0400\n"
-"PO-Revision-Date: 2014-07-25 14:23-0400\n"
+"PO-Revision-Date: 2014-07-25 18:46-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -3051,7 +3051,7 @@ msgstr "junio"
 #: ../../../inc/_core/_template.funcs.php:1334
 #: ../../../inc/_init_base.inc.php:235
 msgid "May"
-msgstr "maj"
+msgstr "majo"
 
 #: ../../../inc/_core/_template.funcs.php:1335
 #: ../../../inc/_init_base.inc.php:219
