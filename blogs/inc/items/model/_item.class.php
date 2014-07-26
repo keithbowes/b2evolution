@@ -4278,8 +4278,8 @@ class Item extends ItemLight
 				'after' =>            '</div>',
 				'separator' =>        ', ',
 				'links' =>            true,
-				'before_tag' =>       '',
-				'after_tag' =>        '',
+				'tag_before' =>       '',
+				'tag_after' =>        '',
 			), $params );
 
 		$tags = $this->get_tags();
@@ -4303,11 +4303,11 @@ class Item extends ItemLight
 
 				if( $links )
 				{	// We want links
-					echo $params['before_tag'] . $this->Blog->get_tag_link( $tag ) . $params['after_tag'];
+					echo $params['tag_before'] . $this->Blog->get_tag_link( $tag ) . $params['tag_after'];
 				}
 				else
 				{
-					echo $params['before_tag'] . evo_htmlspecialchars( $tag, NULL, $evo_charset ) . $params['after_tag'];
+					echo $params['tag_before'] . evo_htmlspecialchars( $tag, NULL, $evo_charset ) . $params['tag_after'];
 				}
 			}
 
