@@ -394,13 +394,13 @@ li, p,
   background-color: azure;
   border: medium lightblue dotted;
   margin-bottom: 0.7em !important;
+  padding-bottom: 0.2em;
 }
 
 .postmetadata {
   background-color: transparent;
   color: #ccc;
   margin-right: 1em;
-  margin-top: -1em;
   text-align: right;
 }
 
@@ -535,28 +535,6 @@ form.bComment legend {
   padding: 0.5em;
 }
 
-#tag-list {
-  display: inline;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-#tag-list li {
-  display: inline-block;
-  text-transform: capitalize;
-}
-
-#tag-list-header {
-  border-bottom-style: none;
-  display: inline;
-  font-weight: inherit;
-}
-
-#tag-list-header:after {
-  content: ": ";
-}
-
 #twitter {
   background-color: #777 !important;
   border-color: WindowText;
@@ -677,6 +655,32 @@ form.bComment legend {
   bottom: 0.2em;
   display: inline-block;
   position: relative;
+}
+
+.tag-list {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tag-list li {
+  display: inline-block;
+  text-transform: capitalize;
+}
+
+.tag-list li:not(:last-child):after {
+  content: ",";
+}
+
+.tag-list-header {
+  border-bottom-style: none;
+  display: inline;
+  font-weight: inherit;
+}
+
+.tag-list-header:after {
+  content: ": ";
 }
 
 /* For browsers that support CSS 3 media queries */

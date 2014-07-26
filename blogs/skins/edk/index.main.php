@@ -102,24 +102,17 @@ echo preg_replace('/(\s*alt=)"[^"]*"/', '$1""', $Item->get_edit_link(array('titl
 	</div>
 
 <?php
-		$tags = $Item->get_tags();
+		$hl[1] = $hl[1] + 1;
+		$Item->tags(
+			array(
+				'after' => "\n</ul>\n</div>\n",
+				'after_tag' => '</li>',
+				'before' => "<div class=\"meta\">\n<$hl class=\"tag-list-header\">" . $Skin->T_('Tags') . "</$hl>\n<ul class=\"tag-list\">",
+				'before_tag' => "\n<li>",
+				'separator' => '',
+			)
+		);
 
-		if ($tags)
-		{
-			$hl[1] = $hl[1] + 1;
-			echo "<$hl id=\"tag-list-header\">" . $Skin->T_('Tags') . "</$hl>";
-			echo '<ul id="tag-list">';
-
-			foreach ($tags as $tag)
-			{
-				echo "\n<li>" . $Item->Blog->get_tag_link($tag) . '</li>';
-			}
-
-			echo "\n</ul>";
-		}
-?>
-	
-<?php
 		$Item->feedback_link(
 			array(
 				'link_after' => '</div>',
