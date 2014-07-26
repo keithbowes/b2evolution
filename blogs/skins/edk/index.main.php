@@ -106,10 +106,10 @@ echo preg_replace('/(\s*alt=)"[^"]*"/', '$1""', $Item->get_edit_link(array('titl
 		$Item->tags(
 			array(
 				'after' => "\n</ul>\n</div>\n",
-				'after_tag' => '</li>',
 				'before' => "<div class=\"meta\">\n<$hl class=\"tag-list-header\">" . $Skin->T_('Tags') . "</$hl>\n<ul class=\"tag-list\">",
-				'before_tag' => "\n<li>",
 				'separator' => '',
+				'tag_after' => '</li>',
+				'tag_before' => "\n<li>",
 			)
 		);
 
