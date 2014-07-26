@@ -49,8 +49,7 @@ $Item->issue_time();
 $Item->locale_flag();
 echo preg_replace('/(\s*alt=)"[^"]*"/', '$1""', $Item->get_edit_link(array('title' => '#')));
 ?></div>
-	
-<div class="storycontent">
+
 <?php
 	global $first_item, $last_item, $next_item, $prev_item;
 	if ((!supports_xhtml() && !supports_link_toolbar()) &&
@@ -93,9 +92,12 @@ echo preg_replace('/(\s*alt=)"[^"]*"/', '$1""', $Item->get_edit_link(array('titl
 		}
 ?>
 </div>
+
 <?php
 	}
 ?>
+
+<div class="storycontent">
 		<?php $Item->content(); ?>
 	</div>
 

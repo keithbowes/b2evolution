@@ -147,13 +147,6 @@ li, p,
   text-align: left;
 }
 
-#link-toolbar {
-  /*appearance: menubar;
-  overflow: hidden;*/
-  margin-bottom: 1em;
-  white-space: nowrap;
-}
-
 #menu {
   background-color: navy;
   bottom: 0;
