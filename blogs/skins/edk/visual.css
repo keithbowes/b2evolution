@@ -406,6 +406,8 @@ li, p,
 .postmetadata {
   background-color: transparent;
   color: #ccc;
+  margin-right: 1em;
+  margin-top: -1em;
   text-align: right;
 }
 
@@ -540,6 +542,28 @@ form.bComment legend {
   padding: 0.5em;
 }
 
+#tag-list {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#tag-list li {
+  display: inline-block;
+  text-transform: capitalize;
+}
+
+#tag-list-header {
+  border-bottom-style: none;
+  display: inline;
+  font-weight: inherit;
+}
+
+#tag-list-header:after {
+  content: ": ";
+}
+
 #twitter {
   background-color: #777 !important;
   border-color: WindowText;
@@ -654,11 +678,6 @@ form.bComment legend {
   clear: both;
   float: left;
   padding: 0 1em 1em 0;
-}
-
-.postmetadata {
-  margin-right: 1em;
-  margin-top: -1em;
 }
 
 .sago {
