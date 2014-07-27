@@ -126,7 +126,7 @@ function get_item($dir)
 	while (true) {
 		/* I do feel dirty about direct DB access (not exactly future-proof),
 		 * but I see no alternative. */
-		$item_data = $DB->get_row("SELECT post_ID, post_datecreated, post_main_cat_ID, post_title, post_urltitle FROM $itemtablename ORDER BY post_ID $dir", ARRAY_A, $row);
+		$item_data = $DB->get_row("SELECT post_datestart, post_ID, post_main_cat_ID, post_title, post_urltitle FROM $itemtablename ORDER BY UNIX_TIMESTAMP(post_datestart) $dir", ARRAY_A, $row);
 		if (!is_valid_query($item_data))
 			return NULL;
 
@@ -138,7 +138,7 @@ function get_item($dir)
 			if ($item_data['post_urltitle'] != $Item->urltitle)
 			{
 				$pathinfo = $DB->get_row('SELECT cset_value from T_coll_settings WHERE cset_coll_ID = ' . $Item->blog_ID . ' AND cset_name = \'single_links\'', ARRAY_A, 0);
-				$item_data['post_datecreated'] = strtotime($item_data['post_datecreated']);
+				$item_data['post_datestart'] = strtotime($item_data['post_datestart']);
 				$cat_data['cat_name'] = strtolower($cat_data['cat_name']);
 
 				switch ($pathinfo['cset_value'])
@@ -152,13 +152,13 @@ function get_item($dir)
 						// Do nothing
 						break;
 					case 'y':
-						$item_data['post_urltitle'] = strftime('%Y/', $item_data['post_datecreated']) . $item_data['post_urltitle'];
+						$item_data['post_urltitle'] = strftime('%Y/', $item_data['post_datestart']) . $item_data['post_urltitle'];
 						break;
 					case 'ym':
-						$item_data['post_urltitle'] = strftime('%Y/%m/', $item_data['post_datecreated']) . $item_data['post_urltitle'];
+						$item_data['post_urltitle'] = strftime('%Y/%m/', $item_data['post_datestart']) . $item_data['post_urltitle'];
 						break;
 					case 'ymd':
-						$item_data['post_urltitle'] = strftime('%Y/%m/%d/', $item_data['post_datecreated']) . $item_data['post_urltitle'];
+						$item_data['post_urltitle'] = strftime('%Y/%m/%d/', $item_data['post_datestart']) . $item_data['post_urltitle'];
 						break;
 					case 'subchap':
 						$item_data['post_urltitle'] = $cat_data['cat_name'] . '/' . $item_data['post_urltitle']; 
