@@ -218,6 +218,7 @@ li, p,
   background-color: orange;
   border: thin solid #999;
   color: navy;
+  height: 1em;
   width: 70%;
 }
 
@@ -666,6 +667,7 @@ form.bComment legend {
 
 .tag-list li {
   display: inline-block;
+  font-size: inherit;
   text-transform: capitalize;
 }
 
@@ -676,6 +678,7 @@ form.bComment legend {
 .tag-list-header {
   border-bottom-style: none;
   display: inline;
+  font-size: inherit;
   font-weight: inherit;
 }
 
