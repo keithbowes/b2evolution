@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
 "POT-Creation-Date: 2014-07-24 00:56-0400\n"
-"PO-Revision-Date: 2014-07-25 18:46-0400\n"
+"PO-Revision-Date: 2014-07-27 14:46-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -13861,7 +13861,7 @@ msgstr "Labora stato"
 
 #: ../../../inc/items/views/_item_list_full.view.php:280
 msgid "no comment"
-msgstr "neniu komento"
+msgstr "Neniuj komentoj"
 
 #: ../../../inc/items/views/_item_list_full.view.php:282
 #, php-format
@@ -13875,7 +13875,7 @@ msgstr "1 spuro"
 #: ../../../inc/items/views/_item_list_full.view.php:403
 #: ../../../skins/basic/_item_feedback.inc.php:91
 msgid "Pingbacks"
-msgstr "mencioj"
+msgstr "Mencioj"
 
 #: ../../../inc/items/views/_item_list_full.view.php:418
 msgid "Show"
@@ -24761,7 +24761,7 @@ msgstr "serĉa paĝo"
 
 #: ../../../inc/widgets/widgets/_menu_link.widget.php:42
 msgid "Blog owner contact form"
-msgstr "blogestra kontaktilo"
+msgstr "Blogestra kontaktilo"
 
 #: ../../../inc/widgets/widgets/_menu_link.widget.php:43
 msgid "Blog owner profile"
@@ -24790,7 +24790,7 @@ msgstr "Iu ajn URL"
 
 #: ../../../inc/widgets/widgets/_menu_link.widget.php:88
 msgid "Menu link"
-msgstr "menua ligilo"
+msgstr "Menua ligilo"
 
 # TRANS: %s is the link type, e. g. "Blog home" or "Log in form"
 #: ../../../inc/widgets/widgets/_menu_link.widget.php:109

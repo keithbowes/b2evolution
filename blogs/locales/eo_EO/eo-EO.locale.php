@@ -47,9 +47,6 @@ $locale_defs['eo-EO'] = array(
 		'transliteration_map' => array(
 			'ĉ' => 'cx', 'ĝ' => 'gx', 'ĥ' => 'hx', 'ĵ' => 'jx', 'ŝ' => 'sx', 'ŭ' => 'ux',
 			'Ĉ' => 'Cx', 'Ĝ' => 'Gx', 'Ĥ' => 'Hx', 'Ĵ' => 'Jx', 'Ŝ' => 'Sx', 'Ŭ' => 'Ux',
-			/* Different from iconv but more similar to the use
-			 * instead of aspect of the characters */
-			'«' => '"', '»' => '"', '„' => '"', '”' => '"', '‚' => "'", '’' => "'",
 		),
 	);
 
