@@ -25,20 +25,8 @@ xsistemo: all
 	sed -i -f xsistemo.sed _global.php
 
 clean distclean purigi:
-	rm -f _global.php ../eo-EO.{tar.{bz2,gz,xz},zip}
+	rm -f _global.php ../eo-EO.tar.xz
 	rm -f LC_MESSAGES/{messages,static}.po~
 
-deprecated:
-	@echo "AVERTO: Ĉi tiu celo estas malaperonta"
-
-zip: all deprecated
-	cd .. && zip -9 -r eo-EO.zip eo_EO
-
-gz: all deprecated
-	cd .. && tar c eo_EO | gzip -f9 > eo-EO.tar.gz
-
-bz bz2: all deprecated
-	cd .. && tar c eo_EO | bzip2 -f9 > eo-EO.tar.bz2
-
-xz: all
+xz zip: all
 	cd .. && tar c eo_EO | xz -f9 > eo-EO.tar.xz
