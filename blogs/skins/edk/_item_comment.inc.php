@@ -61,7 +61,7 @@ else $author_class = ' class="user-comment"';
 
 					if (0 != $refcomment)
 					{
-						$DB->query('SELECT comment_author, comment_author_ID FROM T_comments WHERE comment_ID=' . $refcomment);
+						$DB->query('SELECT comment_author, comment_author_user_ID FROM T_comments WHERE comment_ID=' . $refcomment);
 						$refname = $DB->get_row(NULL, ARRAY_N)[0];
 						if (!$refname)
 						{
