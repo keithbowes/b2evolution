@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
 "POT-Creation-Date: 2014-07-24 00:56-0400\n"
-"PO-Revision-Date: 2014-07-27 14:46-0400\n"
+"PO-Revision-Date: 2014-07-27 16:23-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -23950,7 +23950,7 @@ msgstr "Kategoria listo"
 
 #: ../../../inc/widgets/widgets/_coll_category_list.widget.php:74
 msgid "List of all categories; click filters blog on selected category."
-msgstr "Listigi ĉiujn kategoriojn; alklaki blogon filtriloj en elektita kategorio."
+msgstr "Listigi ĉiujn kategoriojn; alklako filtras blogon en elektita kategorio."
 
 #: ../../../inc/widgets/widgets/_coll_category_list.widget.php:94
 #: ../../../inc/widgets/widgets/_coll_comment_list.widget.php:60

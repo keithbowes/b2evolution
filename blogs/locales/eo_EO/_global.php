@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo_EO'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net/\nPOT-Creation-Date: 2014-07-24 00:56-0400\nPO-Revision-Date: 2014-07-27 14:46-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net/\nPOT-Creation-Date: 2014-07-24 00:56-0400\nPO-Revision-Date: 2014-07-27 16:23-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 'Categories' => 'Kategorioj',
 'Tags' => 'Etikedoj',
 'Previous' => 'Antaŭa',
@@ -4848,7 +4848,7 @@ $trans['eo_EO'] = array(
 'Display the profile picture of the blog owner.' => 'Montri la profilbildon de la blogestro.',
 'List of available image sizes is defined in %s.' => 'Listo de ĉiuj haveblaj bildaj grandoj estas difinata en %s.',
 'Category list' => 'Kategoria listo',
-'List of all categories; click filters blog on selected category.' => 'Listigi ĉiujn kategoriojn; alklaki blogon filtriloj en elektita kategorio.',
+'List of all categories; click filters blog on selected category.' => 'Listigi ĉiujn kategoriojn; alklako filtras blogon en elektita kategorio.',
 'Block title' => 'Bloka titolo',
 'Option "All"' => 'Elekto "Ĉiuj"',
 'The "All categories" link allows to reset the filter. Leave blank if you want no such option.' => 'La ligilo "Ĉiuj kategorioj" permesas restarigi la filtrilon. Restigi vaka se vi ne volas tia elekto.',
