@@ -132,7 +132,7 @@ else $author_class = ' class="user-comment"';
 	<div class="bCommentSmallPrint">
 		<?php
 $Comment->date();
-echo ' ' . $Skin->T_('at') . ' ';
+echo $Skin->T_(' at ');
 $Comment->time();
 
 		$Comment->reply_link(' <span style="display: none">|</span> '); /* Link for replying to the Comment */

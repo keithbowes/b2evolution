@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
 "POT-Creation-Date: 2014-07-24 00:56-0400\n"
-"PO-Revision-Date: 2014-07-27 16:23-0400\n"
+"PO-Revision-Date: 2014-07-27 21:33-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -1445,7 +1445,7 @@ msgstr "Bonvolu ne sendi vakan komenton"
 #: ../../../skins/pureforums/_item_comment_form.inc.php:413
 #: ../../../skins/touch/_item_comment_form.inc.php:338
 msgid "Preview"
-msgstr "Antaŭvido"
+msgstr "Antaŭvidi"
 
 #: ../../../htsrv/viewfile.php:205
 #: ../../../inc/files/views/_file_links.view.php:78

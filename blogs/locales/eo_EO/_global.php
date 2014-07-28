@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo_EO'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net/\nPOT-Creation-Date: 2014-07-24 00:56-0400\nPO-Revision-Date: 2014-07-27 16:23-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net/\nPOT-Creation-Date: 2014-07-24 00:56-0400\nPO-Revision-Date: 2014-07-27 21:33-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 'Categories' => 'Kategorioj',
 'Tags' => 'Etikedoj',
 'Previous' => 'Antaŭa',
@@ -250,7 +250,7 @@ $trans['eo_EO'] = array(
 'Sorry, the email with the link to activate your account could not be sent.' => 'Bedaŭre la retpoŝtmesaĝon kun la ligilo por aktivigi vian konton estis nesendebla.',
 'Supplied URL is invalid: ' => 'La URL nevalidas: ',
 'Please do not send empty comment' => 'Bonvolu ne sendi vakan komenton',
-'Preview' => 'Antaŭvido',
+'Preview' => 'Antaŭvidi',
 'File' => 'Dosiero',
 'Title' => 'Titolo',
 'Description' => 'Priskribo',

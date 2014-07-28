@@ -48,7 +48,7 @@ msgstr ""
 
 #: ../../../_item_comment.inc.php:111
 #: ../../../index.main.php:39
-msgid "at"
+msgid " at "
 msgstr ""
 
 #: ../../../_sidebar.inc.php:42
@@ -103,7 +103,7 @@ msgstr ""
 
 #: ../../../index.main.php:36
 #, php-format
-msgid "on %s "
+msgid "on %s"
 msgstr ""
 
 #: ../../../404_not_found.inc.php:20

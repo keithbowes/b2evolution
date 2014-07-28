@@ -43,8 +43,8 @@ $last_date = $date;
  <?php echo T_('by'); ?>
 	<a href="<?php $Item->get_creator_User()->url(); ?>"><?php echo $Item->get_creator_User()->firstname; ?></a>
  <?php
-printf($Skin->T_('on %s '), $Item->get_issue_date());
-echo $Skin->T_('at');
+printf($Skin->T_('on %s'), $Item->get_issue_date());
+echo $Skin->T_(' at ');
 $Item->issue_time();
 $Item->locale_flag();
 echo preg_replace('/(\s*alt=)"[^"]*"/', '$1""', $Item->get_edit_link(array('title' => '#')));

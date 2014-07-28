@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: b 2e\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
 "POT-Creation-Date: 2013-12-23 03:15-0500\n"
-"PO-Revision-Date: 2014-06-15 03:13-0400\n"
+"PO-Revision-Date: 2014-07-27 17:42-0400\n"
 "Last-Translator: Keith <keith@localhost>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -52,8 +52,8 @@ msgid " (in response to <a href=\"%s\">%s</a>)"
 msgstr " (eine Antwort an <a href=\"%s\">%s</a>)"
 
 #: ../../../_item_comment.inc.php:111 ../../../index.main.php:39
-msgid "at"
-msgstr "an"
+msgid " at "
+msgstr " an "
 
 #: ../../../_item_comment_form.inc.php:276
 msgid "<a href=\"http://en.wikipedia.org/wiki/Markdown\">Markdown</a> is enabled."
@@ -113,5 +113,5 @@ msgstr "<div>Präsentiert von <cite><a href=\"http://www.duckduckgo.com/?q=!+%s\
 
 #: ../../../index.main.php:36
 #, php-format
-msgid "on %s "
-msgstr "an %s "
+msgid "on %s"
+msgstr "an %s"
