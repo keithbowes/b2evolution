@@ -823,6 +823,8 @@ $library_cdn_urls = array(
 		//'#mediaelement_css#' => array( '//cdnjs.cloudflare.com/ajax/libs/mediaelement/2.13.2/css/mediaelementplayer.min.css', '//cdnjs.cloudflare.com/ajax/libs/mediaelement/2.13.2/css/mediaelementplayer.css' ),
 	);
 
+$library_cdn_urls = NULL; // Maybe if they'd work…
+
 /**
  * The aliases for all local JS and CSS files that are used when CDN url is not defined in $library_cdn_urls
  *
