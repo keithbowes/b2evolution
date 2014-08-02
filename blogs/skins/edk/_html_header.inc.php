@@ -54,7 +54,7 @@ function parse_accept()
 
 function supports_xhtml()
 {
-	if (strstr($_SERVER['HTTP_USER_AGENT'], 'W3C_Validator') !== FALSE)
+	if (strpos($_SERVER['HTTP_USER_AGENT'], 'W3C_Validator') !== FALSE)
 	{
 		global $use_strict;
 		$use_strict = FALSE;
