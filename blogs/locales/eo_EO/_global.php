@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo_EO'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net/\nPOT-Creation-Date: 2014-07-24 00:56-0400\nPO-Revision-Date: 2014-07-27 21:33-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net/\nPOT-Creation-Date: 2014-08-05 22:46-0400\nPO-Revision-Date: 2014-08-05 22:47-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 'Categories' => 'Kategorioj',
 'Tags' => 'Etikedoj',
 'Previous' => 'Antaŭa',
@@ -3669,6 +3669,7 @@ $trans['eo_EO'] = array(
 '%d blogs using this skin' => '%d blogoj uzantaj ĉi tiun etoson',
 'This skin is set as default skin.' => 'Ĉi tiu etoso estas agordata kiel apriora.',
 '%d linked containers' => '%d ligitaj ujoj',
+'Cannot open skin directory.' => 'Ne eblas malfermi la etosan dosierujon.',
 'Cannot read skin file &laquo;%s&raquo;!' => 'Ne povas legi etosan dosieron «%s».',
 '%d containers have been found in skin template &laquo;%s&raquo;.' => '%d ujoj estis trovitaj en etosa ŝablono «%s».',
 'No containers found in this skin!' => 'Neniuj ujoj trovitaj en ĉi tiu etoso.',
