@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo_EO'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net/\nPOT-Creation-Date: 2014-08-05 22:46-0400\nPO-Revision-Date: 2014-08-05 22:47-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net/\nPOT-Creation-Date: 2014-08-31 22:48-0400\nPO-Revision-Date: 2014-08-31 22:50-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 'Categories' => 'Kategorioj',
 'Tags' => 'Etikedoj',
 'Previous' => 'Antaŭa',
@@ -4988,6 +4988,8 @@ $trans['eo_EO'] = array(
 'Display radio buttons for "All Words", "Some Word" and "Entire Phrase"' => 'Montri radiobutonojn por  "Ĉiuj vortoj", "Iu vorto" kaj "Tuta frazo"',
 'Results on search page' => 'Rezultoj en la serĉa paĝo',
 'Use advanced search page to display results (disp=search)' => 'Uzi altnivelan serĉilan paĝon por montri rezultojn',
+'Collection ID' => 'Kolekta identigilo',
+'Leave empty for current collection.' => 'Restigi vaka por aktuala kolekto.',
 'All words' => 'Ĉiuj vortoj',
 'Some word' => 'Iu vorto',
 'Enter text to search for' => 'Enmetu serĉotan tekston',

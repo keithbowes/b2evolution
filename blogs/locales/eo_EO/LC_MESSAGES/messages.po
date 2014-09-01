@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
-"POT-Creation-Date: 2014-08-05 22:46-0400\n"
-"PO-Revision-Date: 2014-08-05 22:47-0400\n"
+"POT-Creation-Date: 2014-08-31 22:48-0400\n"
+"PO-Revision-Date: 2014-08-31 22:50-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -45,7 +45,7 @@ msgstr ""
 msgid "Categories"
 msgstr "Kategorioj"
 
-#: ../../../a_noskin.php:269 ../../../inc/items/model/_item.class.php:4277
+#: ../../../a_noskin.php:269 ../../../inc/items/model/_item.class.php:4278
 #: ../../../inc/items/model/_itemlistlight.class.php:883
 #: ../../../inc/items/views/_item_expert.form.php:312
 #: ../../../inc/items/views/_item_list_full.view.php:253
@@ -281,7 +281,7 @@ msgid "Info"
 msgstr "Informoj"
 
 #: ../../../conf/_icons.php:346
-#: ../../../inc/comments/model/_comment.funcs.php:1372
+#: ../../../inc/comments/model/_comment.funcs.php:1408
 #: ../../../inc/comments/views/_comment.form.php:130
 #: ../../../inc/messaging/views/_contact_list.view.php:341
 #: ../../../inc/sessions/views/_stats_refdomains.view.php:147
@@ -684,7 +684,7 @@ msgid "Decrease width"
 msgstr "Malpliigi larĝon"
 
 #: ../../../conf/_icons.php:1031
-#: ../../../inc/comments/model/_comment.funcs.php:1305
+#: ../../../inc/comments/model/_comment.funcs.php:1341
 #: ../../../inc/links/model/_link.funcs.php:308
 #: ../../../skins/forums/_item_comment.inc.php:105
 #: ../../../skins_email/comment_new.txt.php:44
@@ -2643,7 +2643,7 @@ msgstr "Devizo"
 msgid "(Please check UNIX file permissions on the parent folder. %s)"
 msgstr "(Bonvolu kontroli la uniksajn atingopermesojn de la patra dosierujo. %s)"
 
-#: ../../../inc/_core/_misc.funcs.php:6532
+#: ../../../inc/_core/_misc.funcs.php:6545
 msgid "Click to edit"
 msgstr "Alklaki por redakti"
 
@@ -3692,7 +3692,7 @@ msgstr "Apriora (%s linioj)"
 msgid "Lines per page:"
 msgstr "Linioj je ĉiu paĝo"
 
-#: ../../../inc/_core/ui/results/_results.class.php:2158
+#: ../../../inc/_core/ui/results/_results.class.php:2170
 #: ../../../inc/items/items.ctrl.php:1235
 #: ../../../inc/items/model/_item.funcs.php:1406
 #: ../../../inc/items/model/_item.funcs.php:2567
@@ -3711,14 +3711,14 @@ msgid "Pages"
 msgstr "Paĝoj"
 
 # TRANS: Pages x _to_ y
-#: ../../../inc/_core/ui/results/_results.class.php:2158
+#: ../../../inc/_core/ui/results/_results.class.php:2170
 #: ../../../inc/sessions/views/_stats_goalhits.view.php:128
 #: ../../../inc/sessions/views/_stats_search_keywords.view.php:191
 #: ../../../inc/users/views/_user_identity.form.php:361
 msgid "to"
 msgstr "al"
 
-#: ../../../inc/_core/ui/results/_results.class.php:2207
+#: ../../../inc/_core/ui/results/_results.class.php:2219
 msgid "Sorry, there is nothing to display..."
 msgstr "Bedaŭre ekzistas nenio por montriĝo…"
 
@@ -4096,7 +4096,7 @@ msgstr "La freŝa tempindiko pri aktualigado"
 #: ../../../inc/antispam/model/_antispam.funcs.php:281
 #: ../../../inc/cron/jobs/_comment_notifications.job.php:63
 #: ../../../inc/cron/jobs/_post_notifications.job.php:70
-#: ../../../inc/items/model/_item.class.php:5672
+#: ../../../inc/items/model/_item.class.php:5673
 msgid "Done."
 msgstr "Finite."
 
@@ -4121,7 +4121,7 @@ msgstr "Forigi la sekvajn %s %s komentojn:"
 
 #: ../../../inc/antispam/model/_antispam.funcs.php:423
 #: ../../../inc/antispam/views/_antispam_ban.form.php:74
-#: ../../../inc/comments/model/_comment.funcs.php:1316
+#: ../../../inc/comments/model/_comment.funcs.php:1352
 #: ../../../inc/email_campaigns/views/_campaigns.view.php:59
 #: ../../../inc/email_campaigns/views/_campaigns_html.form.php:49
 #: ../../../inc/email_campaigns/views/_campaigns_info.form.php:49
@@ -4144,7 +4144,7 @@ msgid "Auth. IP"
 msgstr "IP de verkisto"
 
 #: ../../../inc/antispam/model/_antispam.funcs.php:425
-#: ../../../inc/comments/model/_comment.funcs.php:1352
+#: ../../../inc/comments/model/_comment.funcs.php:1388
 #: ../../../inc/comments/views/_comment.form.php:125
 #: ../../../inc/comments/views/_comment.form.php:144
 #: ../../../inc/items/model/_item.funcs.php:3545
@@ -4327,7 +4327,7 @@ msgstr "Kaŝnomo"
 
 #: ../../../inc/antispam/views/_antispam_ban.form.php:178
 #: ../../../inc/collections/views/_coll_advanced.form.php:154
-#: ../../../inc/comments/model/_comment.funcs.php:1362
+#: ../../../inc/comments/model/_comment.funcs.php:1398
 #: ../../../inc/maintenance/views/_upgrade.form.php:56
 #: ../../../inc/users/model/_userfield.class.php:107
 #: ../../../inc/users/views/_user_identity.form.php:312
@@ -4631,7 +4631,7 @@ msgstr "Forigi ĉi tiun IP-adresa grupon."
 #: ../../../inc/antispam/views/_antispam_list.view.php:173
 #: ../../../inc/chapters/views/_chapter_list.view.php:278
 #: ../../../inc/collections/model/_blog.funcs.php:1445
-#: ../../../inc/comments/model/_comment.funcs.php:1426
+#: ../../../inc/comments/model/_comment.funcs.php:1462
 #: ../../../inc/comments/views/_trash_comments.view.php:69
 #: ../../../inc/cron/views/_cronjob_list.view.php:167
 #: ../../../inc/email_campaigns/views/_campaigns.view.php:91
@@ -6067,7 +6067,7 @@ msgstr "Nefinita afiŝo"
 
 #: ../../../inc/collections/model/_blog.funcs.php:961
 #: ../../../inc/comments/model/_comment.class.php:1482
-#: ../../../inc/items/model/_item.class.php:4036
+#: ../../../inc/items/model/_item.class.php:4037
 msgid "Deprecate!"
 msgstr "Malaprobi."
 
@@ -6108,7 +6108,7 @@ msgid "User does not own any blogs"
 msgstr "Uzanto ne estras blogon"
 
 #: ../../../inc/collections/model/_blog.funcs.php:1193
-#: ../../../inc/comments/model/_comment.funcs.php:1246
+#: ../../../inc/comments/model/_comment.funcs.php:1282
 #: ../../../inc/items/model/_item.funcs.php:3307
 #: ../../../inc/items/model/_item.funcs.php:3407
 #: ../../../inc/messaging/model/_messaging.funcs.php:1771
@@ -6569,7 +6569,7 @@ msgid "Check to enable viewing of the latest comments"
 msgstr "Marki por aktivigi rigardadon de la plej freŝaj komentoj."
 
 #: ../../../inc/collections/views/_coll_comments.form.php:88
-#: ../../../inc/comments/_comments.ctrl.php:594
+#: ../../../inc/comments/_comments.ctrl.php:598
 #: ../../../inc/widgets/widgets/_coll_common_links.widget.php:245
 #: ../../../inc/widgets/widgets/_menu_link.widget.php:40
 #: ../../../inc/widgets/widgets/_menu_link.widget.php:327
@@ -8811,7 +8811,7 @@ msgid "Recycle!"
 msgstr "Elĵeti"
 
 #: ../../../inc/comments/model/_comment.class.php:1407
-#: ../../../inc/comments/model/_comment.funcs.php:1647
+#: ../../../inc/comments/model/_comment.funcs.php:1683
 #: ../../../inc/comments/views/_comment.form.php:50
 msgid "You are about to delete this comment!\\nThis cannot be undone!"
 msgstr "Vi estos foriginta la komenton.\\nTio ne malfareblas."
@@ -9090,36 +9090,36 @@ msgstr "Vi nun respondas specifan komenton"
 msgid "Mass deleting log"
 msgstr "Protokolo pri amasa forigado"
 
-#: ../../../inc/comments/model/_comment.funcs.php:1197
+#: ../../../inc/comments/model/_comment.funcs.php:1233
 msgid "Comments posted by the user"
 msgstr "Komentoj afiŝitaj de la uzanto"
 
-#: ../../../inc/comments/model/_comment.funcs.php:1198
+#: ../../../inc/comments/model/_comment.funcs.php:1234
 #: ../../../skins/_usercomments.disp.php:21
 msgid "User has not posted any comment yet"
 msgstr "La uzanto ankoraŭ ne afiŝis komenton"
 
-#: ../../../inc/comments/model/_comment.funcs.php:1246
+#: ../../../inc/comments/model/_comment.funcs.php:1282
 #, php-format
 msgid "Delete all comments posted by %s"
 msgstr "Forigi ĉiujn komentojn afiŝitajn de %s"
 
-#: ../../../inc/comments/model/_comment.funcs.php:1342
+#: ../../../inc/comments/model/_comment.funcs.php:1378
 msgid "Kind"
 msgstr "Speco"
 
-#: ../../../inc/comments/model/_comment.funcs.php:1383
+#: ../../../inc/comments/model/_comment.funcs.php:1419
 #: ../../../inc/comments/views/_comments_sidebar.view.php:195
 #: ../../../inc/comments/views/_comments_sidebar.view.php:198
 #: ../../../inc/sessions/views/_stats_topips.view.php:54
 msgid "IP"
 msgstr "Adreso de Interreta Protokolo"
 
-#: ../../../inc/comments/model/_comment.funcs.php:1404
+#: ../../../inc/comments/model/_comment.funcs.php:1440
 msgid "Spam karma"
 msgstr "Spama karmo"
 
-#: ../../../inc/comments/model/_comment.funcs.php:1415
+#: ../../../inc/comments/model/_comment.funcs.php:1451
 #: ../../../inc/comments/model/_commentlist.class.php:596
 #: ../../../inc/comments/views/_comment.form.php:277
 #: ../../../inc/items/model/_item.funcs.php:2501
@@ -9130,16 +9130,16 @@ msgstr "Spama karmo"
 msgid "Visibility"
 msgstr "Videbleco"
 
-#: ../../../inc/comments/model/_comment.funcs.php:1638
+#: ../../../inc/comments/model/_comment.funcs.php:1674
 #: ../../../inc/links/model/_linkcomment.class.php:45
 msgid "Edit this comment..."
 msgstr "Redakti ĉi tiun komenton…"
 
-#: ../../../inc/comments/model/_comment.funcs.php:1646
+#: ../../../inc/comments/model/_comment.funcs.php:1682
 msgid "Delete this comment!"
 msgstr "Forigi ĉi tiun komenton."
 
-#: ../../../inc/comments/model/_comment.funcs.php:1651
+#: ../../../inc/comments/model/_comment.funcs.php:1687
 msgid "Recycle this comment!"
 msgstr "Sendi al rubujo."
 
@@ -9377,7 +9377,7 @@ msgstr "AŬ"
 
 #: ../../../inc/comments/views/_comments_sidebar.view.php:118
 #: ../../../inc/items/views/_item_list_sidebar.view.php:147
-#: ../../../inc/widgets/widgets/_coll_search_form.widget.php:149
+#: ../../../inc/widgets/widgets/_coll_search_form.widget.php:166
 msgid "Entire phrase"
 msgstr "Tuta frazo"
 
@@ -10963,17 +10963,17 @@ msgstr "&lt;dujo&gt;"
 msgid "Open in a new window"
 msgstr "Malfermi en nova fenestro"
 
-#: ../../../inc/files/model/_file.class.php:2449
+#: ../../../inc/files/model/_file.class.php:2452
 msgid "Comment "
 msgstr "Komento "
 
-#: ../../../inc/files/model/_file.class.php:2508
+#: ../../../inc/files/model/_file.class.php:2511
 #: ../../../inc/links/model/_link.funcs.php:227
 #: ../../../inc/links/views/_link_list.inc.php:146
 msgid "Locate this directory!"
 msgstr "Lokalizi ĉi tiun dosierujon."
 
-#: ../../../inc/files/model/_file.class.php:2512
+#: ../../../inc/files/model/_file.class.php:2515
 #: ../../../inc/links/model/_link.funcs.php:229
 #: ../../../inc/links/views/_link_list.inc.php:148
 msgid "Locate this file!"
@@ -11096,6 +11096,7 @@ msgstr "Permesata dosiera grando maksimuma"
 msgid "Open this directory in the file manager"
 msgstr "Malfermi ĉi tiun dosierujon en la dosieradminstrilo"
 
+# TRANS: verb
 # TRANS: noun
 # TRANS: verb
 #: ../../../inc/files/model/_file.funcs.php:1100
@@ -12979,96 +12980,96 @@ msgstr "Kontroli…"
 msgid "Duplicate this post..."
 msgstr "Duobligi ĉi tiun afiŝon…"
 
-#: ../../../inc/items/model/_item.class.php:3663
+#: ../../../inc/items/model/_item.class.php:3664
 msgid "Edit this post..."
 msgstr "Redakti ĉi tiun afiŝon…"
 
-#: ../../../inc/items/model/_item.class.php:3801
+#: ../../../inc/items/model/_item.class.php:3802
 msgid "Publish NOW!"
 msgstr "Eldoni nun"
 
-#: ../../../inc/items/model/_item.class.php:3802
+#: ../../../inc/items/model/_item.class.php:3803
 msgid "Publish now using current date and time."
 msgstr "Eldoni nun uzante aktualan daton kaj tempon."
 
-#: ../../../inc/items/model/_item.class.php:4037
+#: ../../../inc/items/model/_item.class.php:4038
 msgid "Deprecate this post!"
 msgstr "Malaprobi ĉi tiun afiŝon."
 
-#: ../../../inc/items/model/_item.class.php:5206
+#: ../../../inc/items/model/_item.class.php:5207
 msgid "Could not set the selected categories!"
 msgstr "Ne eblis elekti la elektitajn kategoriojn."
 
-#: ../../../inc/items/model/_item.class.php:5387
+#: ../../../inc/items/model/_item.class.php:5388
 msgid "Post had already pinged: skipping notifications..."
 msgstr "Afiŝo jam eĥis: ignorante sciigojn…"
 
-#: ../../../inc/items/model/_item.class.php:5398
+#: ../../../inc/items/model/_item.class.php:5399
 msgid "Post processing already pending..."
 msgstr "Afiŝa traktado jam atendante…"
 
-#: ../../../inc/items/model/_item.class.php:5408
+#: ../../../inc/items/model/_item.class.php:5409
 msgid "Post not publicly published: skipping notifications..."
 msgstr "Afiŝo ne publike eldonita: ignorante sciigojn…"
 
-#: ../../../inc/items/model/_item.class.php:5418
+#: ../../../inc/items/model/_item.class.php:5419
 msgid "This post type doesn't need notifications..."
 msgstr "La afiŝa tipo ne bezonas sciigojn…"
 
-#: ../../../inc/items/model/_item.class.php:5436
+#: ../../../inc/items/model/_item.class.php:5437
 msgid "Scheduling asynchronous notifications..."
 msgstr "Enhorigante sensamtempaj sciigoj…"
 
-#: ../../../inc/items/model/_item.class.php:5448
+#: ../../../inc/items/model/_item.class.php:5449
 #, php-format
 msgid "Send notifications for &laquo;%s&raquo;"
 msgstr "Sendi sciigojn por «%s»"
 
-#: ../../../inc/items/model/_item.class.php:5549
+#: ../../../inc/items/model/_item.class.php:5550
 #, php-format
 msgid "%s created a new post on \"%s\""
 msgstr "%s kreis novan afiŝon en blogo \"%s\""
 
-#: ../../../inc/items/model/_item.class.php:5549
+#: ../../../inc/items/model/_item.class.php:5550
 msgid "New post may need moderation:"
 msgstr "Nova afiŝo eble bezonas kontrolon: "
 
-#: ../../../inc/items/model/_item.class.php:5584
+#: ../../../inc/items/model/_item.class.php:5585
 msgid "Notifying subscribed users..."
 msgstr "Sciigi abonitajn uzantojn…"
 
-#: ../../../inc/items/model/_item.class.php:5602
+#: ../../../inc/items/model/_item.class.php:5603
 msgid "No-one to notify."
 msgstr "Neniu sciigi."
 
-#: ../../../inc/items/model/_item.class.php:5642
+#: ../../../inc/items/model/_item.class.php:5643
 #, php-format
 msgid "%s created a new post in blog \"%s\""
 msgstr "%s kreis novan afiŝon en blogo \"%s\""
 
-#: ../../../inc/items/model/_item.class.php:5644
+#: ../../../inc/items/model/_item.class.php:5645
 #, php-format
 msgid "[%s] New post: \"%s\""
 msgstr "[%s] Nova afiŝo: \"%s\""
 
-#: ../../../inc/items/model/_item.class.php:5657
+#: ../../../inc/items/model/_item.class.php:5658
 msgid "Notifying:"
 msgstr "Sciiganta:"
 
-#: ../../../inc/items/model/_item.class.php:5701
+#: ../../../inc/items/model/_item.class.php:5702
 msgid "Skipping pings (Running on localhost)."
 msgstr "Saltanta eĥoj (plenumiĝis en localhost)."
 
-#: ../../../inc/items/model/_item.class.php:5711
+#: ../../../inc/items/model/_item.class.php:5712
 #, php-format
 msgid "Pinging %s..."
 msgstr "Eĥante servon %s…"
 
-#: ../../../inc/items/model/_item.class.php:6082
+#: ../../../inc/items/model/_item.class.php:6083
 msgid "This is a tinyurl you can copy/paste into twitter, emails and other places where you need a short link to this post"
 msgstr "Ĉi tiu estas mallonga URL, kiu vi povas enmeti en mesaĝojn (Twitter, retpoŝtmesaĝoj ktp), kiuj necesigas mallongan ligilon al ĉi tiu afiŝo"
 
-#: ../../../inc/items/model/_item.class.php:6673
+#: ../../../inc/items/model/_item.class.php:6674
 #, php-format
 msgid "This file is not image: %s"
 msgstr "Tiu dosiero ne estas bildo: %s"
@@ -16126,7 +16127,7 @@ msgid "The database has been updated."
 msgstr "La datumbazo aktualiĝis."
 
 #: ../../../inc/plugins/_plugin.funcs.php:1115
-#: ../../../install/_functions_evoupgrade.php:5205
+#: ../../../install/_functions_evoupgrade.php:5206
 msgid "The DB schema has been changed since confirmation."
 msgstr "La datumbaza skemo ŝanĝiĝis ekde konfirmado."
 
@@ -16389,7 +16390,7 @@ msgid "The plugin needs the following database changes."
 msgstr "La kromprogramo bezonas la jenajn datumbazajn ŝanĝojn."
 
 #: ../../../inc/plugins/plugins.ctrl.php:894
-#: ../../../install/_functions_evoupgrade.php:5239
+#: ../../../install/_functions_evoupgrade.php:5240
 msgid "The following database changes will be carried out. If you are not sure what this means, it will probably be alright."
 msgstr "La sekvaj datumbazaj ŝanĝoj plenumiĝos. Se vi ne certas pri tio, kion tio signifas, tio probable estos aprobinda."
 
@@ -24578,15 +24579,23 @@ msgstr "Rezultoj en la serĉa paĝo"
 msgid "Use advanced search page to display results (disp=search)"
 msgstr "Uzi altnivelan serĉilan paĝon por montri rezultojn"
 
-#: ../../../inc/widgets/widgets/_coll_search_form.widget.php:147
+#: ../../../inc/widgets/widgets/_coll_search_form.widget.php:110
+msgid "Collection ID"
+msgstr "Kolekta identigilo"
+
+#: ../../../inc/widgets/widgets/_coll_search_form.widget.php:111
+msgid "Leave empty for current collection."
+msgstr "Restigi vaka por aktuala kolekto."
+
+#: ../../../inc/widgets/widgets/_coll_search_form.widget.php:164
 msgid "All words"
 msgstr "Ĉiuj vortoj"
 
-#: ../../../inc/widgets/widgets/_coll_search_form.widget.php:148
+#: ../../../inc/widgets/widgets/_coll_search_form.widget.php:165
 msgid "Some word"
 msgstr "Iu vorto"
 
-#: ../../../inc/widgets/widgets/_coll_search_form.widget.php:154
+#: ../../../inc/widgets/widgets/_coll_search_form.widget.php:171
 msgid "Enter text to search for"
 msgstr "Enmetu serĉotan tekston"
 
@@ -26057,7 +26066,7 @@ msgid "Hi, this is my comment."
 msgstr "Ha, jen komento mia."
 
 #: ../../../install/_functions_create.php:2299
-#: ../../../install/_functions_evoupgrade.php:5064
+#: ../../../install/_functions_evoupgrade.php:5065
 msgid "The /cache folder could not be created/written to. b2evolution will still work but without caching, which will make it operate slower than optimal."
 msgstr "La dosiero /cache ne eblis kreiĝi/enskribiĝi. b2evolution malgraŭe funkcios sed sen tenjo, kiuj malrapidigi ĝin."
 
@@ -26083,19 +26092,19 @@ msgstr "Ŝajne la jenaj nomoj de blogaj ĝermoj estas uzataj pli ol unufoje: ['%
 msgid "I can't upgrade until you make them unique. DB field: [%s]"
 msgstr "Mi ne eblas promocii ĝis vi unikigi ilin. Datumbaza kampo: [%s]"
 
-#: ../../../install/_functions_evoupgrade.php:5190
+#: ../../../install/_functions_evoupgrade.php:5191
 msgid "The database schema is up to date."
 msgstr "La datumbaza skemo estas ĝisdata."
 
-#: ../../../install/_functions_evoupgrade.php:5229
+#: ../../../install/_functions_evoupgrade.php:5230
 msgid "Upgrade database"
 msgstr "Promocii datumbazon"
 
-#: ../../../install/_functions_evoupgrade.php:5237
+#: ../../../install/_functions_evoupgrade.php:5238
 msgid "The version number is correct, but we have detected changes in the database schema. This can happen with CVS versions..."
 msgstr "La eldona numero estas ĝusta, sed ni malkovris ŝanĝojn en la datumbaza skemo. Tio povas okazi kun CVS-eldonoj…"
 
-#: ../../../install/_functions_evoupgrade.php:5248
+#: ../../../install/_functions_evoupgrade.php:5249
 msgid "Upgrade database!"
 msgstr "Promocii datumbazon"
 
@@ -28709,11 +28718,11 @@ msgstr "Malaboni"
 msgid "You are already logged in"
 msgstr "Vi jam estas ensalutita"
 
-#: ../../../skins/_login.disp.php:64
+#: ../../../skins/_login.disp.php:70
 msgid "Use standard login form instead"
 msgstr "Anstataŭe uzi la ordinaran ensalutilon"
 
-#: ../../../skins/_login.disp.php:66 ../../../skins/_register.disp.php:129
+#: ../../../skins/_login.disp.php:72 ../../../skins/_register.disp.php:129
 #: ../../../skins_adm/login/_html_footer.inc.php:31
 #, php-format
 msgid "Your IP address: %s"
@@ -30864,125 +30873,125 @@ msgstr "Ĉi tiu demonstra ŝablono montras resumon de la plej freŝaj afiŝoj en
 msgid "More posts..."
 msgstr "Pliaj afiŝoj…"
 
-#~ msgid "Bubble tips in front-office for logged in users"
-#~ msgstr "Vezikaj konsiletoj publikaj por ensalutitaj uzantoj"
-
-#~ msgid "Bubble tips for anonymous users"
-#~ msgstr "Vezikaj konsiletoj por anonimaj uzantoj"
-
-#~ msgid "Escapes tags and entities in &lt;code&gt; tags"
-#~ msgstr "Kodas etikedojn kaj entojn en &lt;code&gt;-etikedoj"
-
-#~ msgid "Forums Home"
-#~ msgstr "Foruma ĉefpaĝo"
-
-#~ msgid "Requested &laquo;%s&raquo;.object does not exist any longer."
-#~ msgstr "La petita objekto «%s» ne plu ekzistas."
-
-#~ msgid "%d contacts have been added to the &laquo;%s&raquo;.group."
-#~ msgstr "%d kontaktitoj aldoniĝis en la grupo «%s»."
-
-#~ msgid "Please enter a title."
-#~ msgstr "Bonvolu enmeti titolon."
-
-#~ msgid "Please enter a message."
-#~ msgstr "Bonvolu enmeti mesaĝon."
-
-#~ msgid "Newsletter is sending now, please see a report below..."
-#~ msgstr "Novaĵletero sendiĝas. Bonvolu rigardi la raporton sube…"
-
-#~ msgid "Users info"
-#~ msgstr "Uzanto-informoj"
-
-#~ msgid "You can use the following patterns to auto insert the user's data:"
-#~ msgstr "Vi povas uzi la jenajn ŝablonojn en la aŭtomata enmetado de la uzanto-datumoj:"
-
-#~ msgid "Preview !"
-#~ msgstr "Antaŭvido "
-
-#~ msgid "The following newsletter email will be sent to %s users."
-#~ msgstr "La novaĵletera retpoŝtmesaĝo sendiĝos al %s uzantoj."
-
-#~ msgid "HTML format"
-#~ msgstr "HTML-formato"
-
-#~ msgid "Plain text format"
-#~ msgstr "platteksta formato"
-
-#~ msgid "Send !"
-#~ msgstr "Sendi."
-
-#~ msgid "Go to users list"
-#~ msgstr "Iri uzanto-liston"
-
-#~ msgid "Edit this internal search..."
-#~ msgstr "Redakti ĉi tiun enan serĉon…"
-
-#~ msgid "Duplicate this internal search..."
-#~ msgstr "Kopii ĉi tiun enan serĉon…"
-
-#~ msgid "Delete this internal search!"
-#~ msgstr "Forigi ĉi tiun enan serĉon."
-
-#~ msgid "Change "
-#~ msgstr "Ŝanĝi →"
-
-#~ msgid "&laquo;%s&raquo;.from the blog's <a %s>general settings</a>."
-#~ msgstr "«%s» el la <a %s>ĝenerala agordo</a> de la blogo."
-
-#~ msgid "You don't have permission to upload!"
-#~ msgstr "Vi ne rajtas alŝuti!"
-
-#~ msgid "Your profile picture has been set."
-#~ msgstr "Via profilbildo estas elektita."
-
-#~ msgid "Back to blog"
-#~ msgstr "Reen al la blogo"
-
-#~ msgid "User %s not found."
-#~ msgstr "Uzanto %s ne trovita."
-
-#~ msgid "Please select a user."
-#~ msgstr "Bonvolu elekti uzanton."
-
-#~ msgid "You have successfully subscribed to attend this event."
-#~ msgstr "Vi sukcese ekabonis ĉeesti tiun eventon."
-
-#~ msgid "You have successfully subscribed on the waiting list."
-#~ msgstr "Vi sukcese ekabonis la atendoliston."
-
-#~ msgid "You have successfully subscribed on the \"Also attended\" list."
-#~ msgstr "Vi sukcese ekabonis la liston \"Ankaŭ ĉeestis\"."
-
-#~ msgid "User was successfully unsubscribed."
-#~ msgstr "Vi sukcese malaboniĝis."
-
-#~ msgid "User was successfully subscribed."
-#~ msgstr "Vi sukcese malaboniĝis."
-
-#~ msgid "Could not subscribe to attend this event."
-#~ msgstr "Ne eblis ekaboni ĉeesti tiun eventon."
-
-#~ msgid "The file is too large: %s byte but the maximum allowed is %s byte."
-#~ msgstr "La dosiero tro grandas: %s bajta. La maksimumo permesita estas %s bajta."
-
-#~ msgid "Cannot update profile. Please correct the following errors:"
-#~ msgstr "Ne eblas ĝisdatigi profilon. Bonvolu korekti la jenajn erarojn:"
-
-#~ msgid "Your profile & subscriptions have been updated."
-#~ msgstr "Via profilo kaj abonoj aktualiĝis."
-
-#~ msgid "The blog's current media directory is not empty. It is your responsibility to move the files to the new media directory, otherwise the files will not be available in the file browser. Are you sure you want to proceed with the new setting?"
-#~ msgstr "La aktuala media dosierujo de la blogo ne vakas. Vi devas movi la dosierojn al la nova media dosierujo; alie la dosieroj ne disponeblos en la dosiera foliumilo. Ĉu vi certas, ke vi volas uzi la novan agordaĵon."
-
-#~ msgid "All files will be moved from old blog media directory to new. Are you sure?"
-#~ msgstr "Ĉiuj dosieroj moviĝos de la malnova blogo media dosierujo al la nova. Ĉu vi certas?"
-
-#~ msgid "Link has been deleted from &laquo;user;."
-#~ msgstr "Ligilo foriĝis disde «uzanto»."
+#~ msgid "Item with ID <a %s>%s</a> has an invalid main category ID %s."
+#~ msgstr "Ero kun identigilo <a %s>%s</a> havas nevalidan ĉefkategorian identigilon %s."
 
 #~ msgid "In addition we cannot fallback to the default category because no valid blog ID has been specified."
 #~ msgstr "Aldone ne eblas anstataŭe uzi la aprioran kategorion, ĉar neniu valida bloga identigilo specifiĝis."
 
-#~ msgid "Item with ID <a %s>%s</a> has an invalid main category ID %s."
-#~ msgstr "Ero kun identigilo <a %s>%s</a> havas nevalidan ĉefkategorian identigilon %s."
+#~ msgid "Link has been deleted from &laquo;user;."
+#~ msgstr "Ligilo foriĝis disde «uzanto»."
+
+#~ msgid "All files will be moved from old blog media directory to new. Are you sure?"
+#~ msgstr "Ĉiuj dosieroj moviĝos de la malnova blogo media dosierujo al la nova. Ĉu vi certas?"
+
+#~ msgid "The blog's current media directory is not empty. It is your responsibility to move the files to the new media directory, otherwise the files will not be available in the file browser. Are you sure you want to proceed with the new setting?"
+#~ msgstr "La aktuala media dosierujo de la blogo ne vakas. Vi devas movi la dosierojn al la nova media dosierujo; alie la dosieroj ne disponeblos en la dosiera foliumilo. Ĉu vi certas, ke vi volas uzi la novan agordaĵon."
+
+#~ msgid "Your profile & subscriptions have been updated."
+#~ msgstr "Via profilo kaj abonoj aktualiĝis."
+
+#~ msgid "Cannot update profile. Please correct the following errors:"
+#~ msgstr "Ne eblas ĝisdatigi profilon. Bonvolu korekti la jenajn erarojn:"
+
+#~ msgid "The file is too large: %s byte but the maximum allowed is %s byte."
+#~ msgstr "La dosiero tro grandas: %s bajta. La maksimumo permesita estas %s bajta."
+
+#~ msgid "Could not subscribe to attend this event."
+#~ msgstr "Ne eblis ekaboni ĉeesti tiun eventon."
+
+#~ msgid "User was successfully subscribed."
+#~ msgstr "Vi sukcese malaboniĝis."
+
+#~ msgid "User was successfully unsubscribed."
+#~ msgstr "Vi sukcese malaboniĝis."
+
+#~ msgid "You have successfully subscribed on the \"Also attended\" list."
+#~ msgstr "Vi sukcese ekabonis la liston \"Ankaŭ ĉeestis\"."
+
+#~ msgid "You have successfully subscribed on the waiting list."
+#~ msgstr "Vi sukcese ekabonis la atendoliston."
+
+#~ msgid "You have successfully subscribed to attend this event."
+#~ msgstr "Vi sukcese ekabonis ĉeesti tiun eventon."
+
+#~ msgid "Please select a user."
+#~ msgstr "Bonvolu elekti uzanton."
+
+#~ msgid "User %s not found."
+#~ msgstr "Uzanto %s ne trovita."
+
+#~ msgid "Back to blog"
+#~ msgstr "Reen al la blogo"
+
+#~ msgid "Your profile picture has been set."
+#~ msgstr "Via profilbildo estas elektita."
+
+#~ msgid "You don't have permission to upload!"
+#~ msgstr "Vi ne rajtas alŝuti!"
+
+#~ msgid "&laquo;%s&raquo;.from the blog's <a %s>general settings</a>."
+#~ msgstr "«%s» el la <a %s>ĝenerala agordo</a> de la blogo."
+
+#~ msgid "Change "
+#~ msgstr "Ŝanĝi →"
+
+#~ msgid "Delete this internal search!"
+#~ msgstr "Forigi ĉi tiun enan serĉon."
+
+#~ msgid "Duplicate this internal search..."
+#~ msgstr "Kopii ĉi tiun enan serĉon…"
+
+#~ msgid "Edit this internal search..."
+#~ msgstr "Redakti ĉi tiun enan serĉon…"
+
+#~ msgid "Go to users list"
+#~ msgstr "Iri uzanto-liston"
+
+#~ msgid "Send !"
+#~ msgstr "Sendi."
+
+#~ msgid "Plain text format"
+#~ msgstr "platteksta formato"
+
+#~ msgid "HTML format"
+#~ msgstr "HTML-formato"
+
+#~ msgid "The following newsletter email will be sent to %s users."
+#~ msgstr "La novaĵletera retpoŝtmesaĝo sendiĝos al %s uzantoj."
+
+#~ msgid "Preview !"
+#~ msgstr "Antaŭvido "
+
+#~ msgid "You can use the following patterns to auto insert the user's data:"
+#~ msgstr "Vi povas uzi la jenajn ŝablonojn en la aŭtomata enmetado de la uzanto-datumoj:"
+
+#~ msgid "Users info"
+#~ msgstr "Uzanto-informoj"
+
+#~ msgid "Newsletter is sending now, please see a report below..."
+#~ msgstr "Novaĵletero sendiĝas. Bonvolu rigardi la raporton sube…"
+
+#~ msgid "Please enter a message."
+#~ msgstr "Bonvolu enmeti mesaĝon."
+
+#~ msgid "Please enter a title."
+#~ msgstr "Bonvolu enmeti titolon."
+
+#~ msgid "%d contacts have been added to the &laquo;%s&raquo;.group."
+#~ msgstr "%d kontaktitoj aldoniĝis en la grupo «%s»."
+
+#~ msgid "Requested &laquo;%s&raquo;.object does not exist any longer."
+#~ msgstr "La petita objekto «%s» ne plu ekzistas."
+
+#~ msgid "Forums Home"
+#~ msgstr "Foruma ĉefpaĝo"
+
+#~ msgid "Escapes tags and entities in &lt;code&gt; tags"
+#~ msgstr "Kodas etikedojn kaj entojn en &lt;code&gt;-etikedoj"
+
+#~ msgid "Bubble tips for anonymous users"
+#~ msgstr "Vezikaj konsiletoj por anonimaj uzantoj"
+
+#~ msgid "Bubble tips in front-office for logged in users"
+#~ msgstr "Vezikaj konsiletoj publikaj por ensalutitaj uzantoj"
