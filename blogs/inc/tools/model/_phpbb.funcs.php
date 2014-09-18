@@ -1316,7 +1316,7 @@ function phpbb_import_topics()
 function phpbb_generate_excerpt( $content )
 {
 	$content = trim( strip_tags( $content ) );
-	return strmaxlen( $content, 254, 'â€¦' );
+	return strmaxlen( $content, 254, '¿' );
 }
 
 
