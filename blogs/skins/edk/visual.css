@@ -302,14 +302,12 @@ li, p,
   text-align: center;
 }
 
-.bCalendarTable td#next,
-.bCalendarTable td#prev {
+.bCalendarTable tfoot td {
   padding: 0;
 }
 
-.bCalendarTable td#next a,
-.bCalendarTable td#prev a {
-  color: maroon;
+.bCalendarTable tfoot td a {
+  color: maroon !important;
   padding: 0;
 }
 
