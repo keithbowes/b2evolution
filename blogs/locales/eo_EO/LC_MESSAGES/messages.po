@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
 "POT-Creation-Date: 2014-10-26 19:33-0400\n"
-"PO-Revision-Date: 2014-10-26 19:39-0400\n"
+"PO-Revision-Date: 2014-11-08 20:13-0500\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -4369,7 +4369,7 @@ msgstr "<strong>Raporti</strong> la ŝlosilvorton [%s] kiel misuzon al b2evoluti
 #: ../../../inc/antispam/views/_antispam_list.view.php:63
 #: ../../../inc/antispam/views/_antispam_settings.form.php:65
 msgid "Terms of service"
-msgstr "Kondiĉoj de servo"
+msgstr "Uzkondiĉoj"
 
 #: ../../../inc/antispam/views/_antispam_ban.form.php:250
 msgid "Perform selected operations"
@@ -13091,7 +13091,7 @@ msgstr "Saltanta eĥoj (plenumiĝis en localhost)."
 #: ../../../inc/items/model/_item.class.php:5717
 #, php-format
 msgid "Pinging %s..."
-msgstr "Eĥante servon %s…"
+msgstr "Eĥante al %s…"
 
 #: ../../../inc/items/model/_item.class.php:6088
 msgid "This is a tinyurl you can copy/paste into twitter, emails and other places where you need a short link to this post"
@@ -17278,7 +17278,7 @@ msgstr "Tempa agordo"
 
 #: ../../../inc/regional/views/_time.form.php:125
 msgid "If you're not on the timezone of your server."
-msgstr "Se vi ne estas en la horzono de via servo."
+msgstr "Se vi ne estas en la horzono de via servilo."
 
 #: ../../../inc/regional/views/_time.form.php:125
 msgid "Time difference"
@@ -27181,11 +27181,11 @@ msgstr "Uzi ĉi tiun kromprogramon por aldoni komunan eĥan servon al via instal
 
 #: ../../../plugins/_generic_ping.plugin.php:91
 msgid "Ping service URL"
-msgstr "URL de la eĥa servo"
+msgstr "URL de la eĥo-servo"
 
 #: ../../../plugins/_generic_ping.plugin.php:95
 msgid "The URL of the ping service."
-msgstr "La URL de la eĥa servo."
+msgstr "La URL de la eĥo-servo."
 
 #: ../../../plugins/_generic_ping.plugin.php:98
 msgid "Extended ping?"
@@ -27197,19 +27197,19 @@ msgstr "Ĉu uzi la metodon weblogUpdates.extendedPing anstataŭ weblogUpdates.pi
 
 #: ../../../plugins/_generic_ping.plugin.php:104
 msgid "Ping service name"
-msgstr "Nomo de la eĥa servo"
+msgstr "Nomo de la eĥo-servo"
 
 #: ../../../plugins/_generic_ping.plugin.php:108
 msgid "The name of the ping service, used for displaying only."
-msgstr "La nomo de la eĥa servo, uzata nur por elmontriĝo."
+msgstr "La nomo de la eĥo-servo, uzata nur por elmontriĝo."
 
 #: ../../../plugins/_generic_ping.plugin.php:111
 msgid "Ping service note"
-msgstr "Noto pri eĥa servo"
+msgstr "Noto pri eĥo-servo"
 
 #: ../../../plugins/_generic_ping.plugin.php:115
 msgid "Notes about the ping service, used for displaying only."
-msgstr "Notoj pri la eĥa servo, uzata nur por elmontriĝo."
+msgstr "Notoj pri la eĥo-servo, uzata nur por elmontriĝo."
 
 #: ../../../plugins/_generic_ping.plugin.php:129
 msgid "You must configure a ping service URL before the plugin can be enabled."
@@ -27221,7 +27221,7 @@ msgstr "La eĥa kromprogramo bezonas ne vakan kodon."
 
 #: ../../../plugins/_generic_ping.plugin.php:150
 msgid "The ping service URL is invalid."
-msgstr "La URL de la eĥa servo estas nevalida."
+msgstr "La URL de la eĥo-servo estas nevalida."
 
 #: ../../../plugins/_gmcode.plugin.php:74
 msgid "GreyMatter style formatting"
@@ -27327,7 +27327,7 @@ msgstr "Eĥas al la servo Ping-O-Matic, kiu resendas vian eĥon al la plej komun
 
 #: ../../../plugins/_ping_pingomatic.plugin.php:70
 msgid "Pings a service that relays the ping to the most common services."
-msgstr "Eĥas servon, kiu resendas la eĥon al la plej komunaj servoj."
+msgstr "Eĥas al servon, kiu resendas la eĥon al la plej komunaj servoj."
 
 #: ../../../plugins/_quicktags.plugin.php:34
 msgid "Easy HTML tags inserting"
