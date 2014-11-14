@@ -21,7 +21,7 @@
  *
  * @package evocore
  *
- * @version $Id: anon_async.php 1121 2012-03-29 09:59:02Z yura $
+ * @version $Id$
  */
 
 /**

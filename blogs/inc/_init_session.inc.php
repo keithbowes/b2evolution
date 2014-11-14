@@ -33,7 +33,7 @@
  *
  * @package evocore
  *
- * @version $Id: _init_session.inc.php 6239 2014-03-17 15:51:10Z yura $
+ * @version $Id$
  */
 if( !defined('EVO_CONFIG_LOADED') ) die( 'Please, do not access this page directly.' );
 

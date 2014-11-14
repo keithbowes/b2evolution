@@ -9,7 +9,7 @@
  * PHP/SWF Charts is a shareware. See http://www.maani.us/charts/ for
  * more information.
  * ------------------------------------------------------------------------
- * @version $Id: _swfcharts.php 3328 2013-03-26 11:44:11Z yura $
+ * @version $Id$
  * @package libs
  */
 if( ! defined( 'EVO_MAIN_INIT' ) ) die( 'Please, do not access this page directly.' );

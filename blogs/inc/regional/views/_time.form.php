@@ -29,7 +29,7 @@
  * @author fplanque: Francois PLANQUE.
  * @author blueyed: Daniel HAHLER.
  *
- * @version $Id: _time.form.php 17 2011-10-25 04:22:09Z sam2kb $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

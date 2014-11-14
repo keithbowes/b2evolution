@@ -29,7 +29,7 @@
  * @author blueyed: Daniel HAHLER.
  * @author fplanque: Francois PLANQUE.
  *
- * @version $Id: _charset.funcs.php 6225 2014-03-16 10:01:05Z attila $
+ * @version $Id$
  *
  * @todo dh> Move this to some other directory?
  */

@@ -10,7 +10,7 @@
  * @package evoskins
  * @subpackage dating_mood
  *
- * @version $Id: index.main.php 6473 2014-04-15 11:33:37Z yura $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

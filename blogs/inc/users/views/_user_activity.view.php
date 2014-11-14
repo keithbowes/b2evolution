@@ -1,5 +1,4 @@
-<?php
-/**
+<?php /**
  * This file implements the UI view for the user's activity on user profile page.
  *
  * b2evolution - {@link http://b2evolution.net/}
@@ -8,7 +7,7 @@
  *
  * @package admin
  *
- * @version $Id: _user_activity.view.php 849 2012-02-16 09:09:09Z yura $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

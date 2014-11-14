@@ -12,7 +12,7 @@
  *
  * @package admin
  *
- * @version $Id: _decode_returned_emails.funcs.php 815 2012-02-11 08:25:32Z yura $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

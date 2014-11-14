@@ -22,7 +22,7 @@
  * @author blueyed: Daniel HAHLER.
  * @author fplanque: Francois PLANQUE
  *
- * @version $Id: _comment.class.php 6806 2014-05-29 12:01:27Z yura $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 
@@ -2365,7 +2365,6 @@ class Comment extends DataObject
 
 		//$use_cache = $this->ID && in_array( $format, array('htmlbody', 'entityencoded', 'xml', 'text') );
 		$use_cache = FALSE;
-
 		if( $use_cache )
 		{ // the format/comment can be cached:
 			if( empty( $CommentList ) )

@@ -1,6 +1,6 @@
 <?php
 /**
- * $Id: JSON.php 835 2012-02-15 09:24:39Z attila $
+ * $Id$
  *
  * @package MCManager.utils
  * @author Moxiecode

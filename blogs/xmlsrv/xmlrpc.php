@@ -10,7 +10,7 @@
  *
  * @package xmlsrv
  *
- * @version $Id: xmlrpc.php 6135 2014-03-08 07:54:05Z manuel $
+ * @version $Id$
  */
 
 // use xmlrpc_debugmsg() to add debug messages to responses or logIO() to

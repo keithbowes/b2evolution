@@ -9,7 +9,7 @@
  * @package admin
  * @author fplanque: Francois PLANQUE.
  *
- * @version $Id: phpbbimport.ctrl.php 74 2011-10-26 13:49:38Z fplanque $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

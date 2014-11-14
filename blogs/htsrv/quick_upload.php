@@ -14,7 +14,7 @@
  * {@internal Below is a list of authors who have contributed to design/coding of this file: }}
  * @author efy-asimo: Attila Simo.
  *
- * @version $Id: quick_upload.php 6334 2014-03-25 13:11:30Z yura $
+ * @version $Id$
  */
 
 

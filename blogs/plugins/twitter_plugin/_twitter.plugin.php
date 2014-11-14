@@ -19,7 +19,7 @@
  *
  * @todo dh> use OAuth instead of username/password: http://apiwiki.twitter.com/Authentication
  *
- * @version $Id: _twitter.plugin.php 6225 2014-03-16 10:01:05Z attila $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

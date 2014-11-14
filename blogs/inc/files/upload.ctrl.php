@@ -27,7 +27,7 @@
  * @author fplanque: Francois PLANQUE.
  * (dh please re-add)
  *
- * @version $Id: upload.ctrl.php 6334 2014-03-25 13:11:30Z yura $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

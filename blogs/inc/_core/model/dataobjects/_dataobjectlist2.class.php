@@ -24,8 +24,8 @@
  * {@internal Below is a list of authors who have contributed to design/coding of this file: }}
  * @author fplanque: Francois PLANQUE
  *
- * @version $Id: _dataobjectlist2.class.php 6135 2014-03-08 07:54:05Z manuel $
- */
+ * @version $Id$
+ 
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 
 load_class('_core/ui/results/_results.class.php', 'Results' );

@@ -32,7 +32,7 @@
  *
  * @todo integrate it into the skins to avoid ugly die() on error and confusing redirect on success.
  *
- * @version $Id: profile_update.php 6334 2014-03-25 13:11:30Z yura $
+ * @version $Id$
  */
 
 /**

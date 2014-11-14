@@ -2,7 +2,7 @@
 /*
  * rfc822_addresses.php
  *
- * @(#) $Id: rfc822_addresses.php 1180 2012-04-05 00:48:28Z sam2kb $
+ * @(#) $Id$
  *
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
@@ -13,7 +13,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 	<package>net.manuellemos.mimeparser</package>
 
-	<version>@(#) $Id: rfc822_addresses.php 1180 2012-04-05 00:48:28Z sam2kb $</version>
+	<version>@(#) $Id$</version>
 	<copyright>Copyright © (C) Manuel Lemos 2006 - 2008</copyright>
 	<title>RFC 822 e-mail addresses parser</title>
 	<author>Manuel Lemos</author>

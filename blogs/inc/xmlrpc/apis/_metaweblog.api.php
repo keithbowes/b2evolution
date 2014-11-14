@@ -13,7 +13,7 @@
  *
  * @package xmlsrv
  *
- * @version $Id: _metaweblog.api.php 6650 2014-05-09 09:22:38Z yura $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

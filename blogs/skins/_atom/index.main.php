@@ -12,7 +12,7 @@
  *
  * @todo dh> isn't this missing a call to skin_init()!? - if so, other feeds are missing it, too. fp> no this is very much on purpose. there is a comment somewhere (don't know exactly)
  *
- * @version $Id: index.main.php 3157 2013-03-06 04:34:44Z fplanque $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

@@ -5,7 +5,7 @@
 
 // by Edd Dumbill (C) 1999-2002
 // <edd@usefulinc.com>
-// $Id: _xmlrpc.inc.php 6225 2014-03-16 10:01:05Z attila $
+// $Id$
 
 // Copyright (c) 1999,2000,2002 Edd Dumbill.
 // All rights reserved.

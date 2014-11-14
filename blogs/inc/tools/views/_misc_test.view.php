@@ -16,7 +16,7 @@
  * @author blueyed: Daniel HAHLER
  * @author efy-asimo: Attila Simo.
  *
- * @version $Id: _misc_test.view.php 1487 2012-07-03 13:54:54Z yura $
+ * @version $Id$
  */
 
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );

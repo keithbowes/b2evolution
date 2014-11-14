@@ -9,7 +9,7 @@
  *
  * @package admin
  *
- * @version $Id: _eblog.form.php 6455 2014-04-13 10:51:51Z manuel $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

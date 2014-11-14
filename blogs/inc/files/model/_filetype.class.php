@@ -29,7 +29,7 @@
  * @author fplanque: Francois PLANQUE.
  * @author mbruneau: Marc BRUNEAU / PROGIDISTRI
  *
- * @version $Id: _filetype.class.php 6344 2014-03-26 11:28:02Z attila $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

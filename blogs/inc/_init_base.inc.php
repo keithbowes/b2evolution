@@ -39,7 +39,7 @@
  * @author mfollett: Matt FOLLETT
  * @author mbruneau: Marc BRUNEAU / PROGIDISTRI
  *
- * @version $Id: _init_base.inc.php 6135 2014-03-08 07:54:05Z manuel $
+ * @version $Id$
  */
 if( !defined('EVO_CONFIG_LOADED') ) die( 'Please, do not access this page directly.' );
 

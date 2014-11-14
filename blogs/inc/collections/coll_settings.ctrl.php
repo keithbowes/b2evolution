@@ -31,7 +31,7 @@
  * @todo (sessions) When creating a blog, provide "edit options" (3 tabs) instead of a single long "New" form (storing the new Blog object with the session data).
  * @todo Currently if you change the name of a blog it gets not reflected in the blog list buttons!
  *
- * @version $Id: coll_settings.ctrl.php 6426 2014-04-08 16:26:27Z yura $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

@@ -7,7 +7,7 @@
  * @todo dh> Should this also handle feedback notifications (according to the "outbound_notifications_mode" setting)?
  * fp> No. The feedback notifications should have their own job.
  *
- * @version $Id: _post_notifications.job.php 5557 2014-01-03 04:13:43Z manuel $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

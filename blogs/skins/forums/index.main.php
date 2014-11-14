@@ -14,7 +14,7 @@
  * @package evoskins
  * @subpackage forums
  *
- * @version $Id: index.main.php 9 2011-10-24 22:32:00Z fplanque $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

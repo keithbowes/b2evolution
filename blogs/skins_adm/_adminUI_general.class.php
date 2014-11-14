@@ -26,7 +26,7 @@
  *
  * @todo dh> Refactor to allow easier contributions!
  *
- * @version $Id: _adminUI_general.class.php 6429 2014-04-09 04:11:21Z yura $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

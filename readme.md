@@ -1,20 +1,22 @@
 # b2evolution blog/CMS
 
-## Complex websites made easy.
+## More than a blog !
 
-One blog. Multiple blogs. Photo albums. User community. Discussion forums. Online manuals.
+Why restrain yourself to a single blog when your website could be so much more?
 
-b2evolution can run them all on a single installation. Right out of the box — plugins fully optional.
+b2evolution includes everything you need. Right out of the box. Plugins optional.
 
 More info: http://b2evolution.net
 
 ## Status of this Repository on GitHub
 
-The master branch is the current state of the (previously called) “i6” branch from which the 5.1 releases have been drawn. 
+We maintain this GitHub repo ahead of public releases.
 
-This branch currently contains updates ahead of the 5.1.1-beta release and we plan to maintain this GitHub repo ahead of public releases.
+Note we have moved the previous "master" branch to "old-master".
 
-We are planing to transition the development branches to GitHub also but haven't decided on a branching model and workflow yet.
+The current "master" branch (this branch) includes an import on the CVS history from SoureForge as well as a sync to the latest developement version located on our developement SVN repository.
+
+We are planing to transition the SVN development branches to GitHub also but haven't decided on a branching model and workflow yet.
 
 ## Usage info
 

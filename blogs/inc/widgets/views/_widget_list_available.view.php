@@ -11,7 +11,7 @@
  *
  * @package admin
  *
- * @version $Id: _widget_list_available.view.php 6426 2014-04-08 16:26:27Z yura $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

@@ -12,7 +12,7 @@
  *
  * @package admin
  *
- * @version $Id: _create_users.form.php 849 2012-02-16 09:09:09Z attila $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

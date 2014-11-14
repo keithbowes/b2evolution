@@ -12,7 +12,7 @@
  * @package evoskins
  * @subpackage bootstrap
  *
- * @version $Id: _item_block.inc.php 6134 2014-03-08 07:48:07Z manuel $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

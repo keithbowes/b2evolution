@@ -22,7 +22,7 @@
  * @author fplanque: Francois PLANQUE.
  * @author Yabba	- {@link http://www.astonishme.co.uk/}
  *
- * @version $Id: _user_avatars.widget.php 17 2011-10-25 04:22:09Z sam2kb $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

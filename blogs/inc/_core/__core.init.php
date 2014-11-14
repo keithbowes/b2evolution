@@ -1224,7 +1224,6 @@ class _core_Module extends Module
 				{
 					$entries['tools']['entries']['slugs'] = array(
 							'text' => T_('Slugs').'…',
-							'href' => $admin_url.'?ctrl=slugs'
 						);
 				}
 			}

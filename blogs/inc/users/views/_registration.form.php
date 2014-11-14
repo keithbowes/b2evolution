@@ -27,7 +27,7 @@
  * @author efy-bogdan: Evo Factory / Bogdan.
  * @author fplanque: Francois PLANQUE.
  *
- * @version $Id: _registration.form.php 6405 2014-04-07 03:01:41Z manuel $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

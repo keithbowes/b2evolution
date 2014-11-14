@@ -40,7 +40,7 @@
  * @author jeffbearer: Jeff BEARER - {@link http://www.jeffbearer.com/}.
  * @author mfollett:  Matt FOLLETT - {@link http://www.mfollett.com/}.
  *
- * @version $Id: _session.class.php 6135 2014-03-08 07:54:05Z manuel $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

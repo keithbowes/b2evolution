@@ -18,7 +18,7 @@
  *
  * @package evocore
  *
- * @version $Id: _init_hit.inc.php 7289 2014-09-08 10:34:16Z yura $
+ * @version $Id$
  */
 if( !defined('EVO_CONFIG_LOADED') ) die( 'Please, do not access this page directly.' );
 

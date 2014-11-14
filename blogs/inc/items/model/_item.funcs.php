@@ -32,7 +32,7 @@
  * @author tswicegood: Travis SWICEGOOD.
  * @author vegarg: Vegar BERG GULDAL.
  *
- * @version $Id: _item.funcs.php 6956 2014-06-24 06:13:28Z yura $
+ * @version $Id: _item.funcs.php 7582 2014-11-06 11:52:51Z yura $
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 
@@ -1276,7 +1276,7 @@ function cat_select_before_each( $cat_ID, $level, $total_count )
 				.$thisChapter->name.'</label>'
 				.$chapter_lock_status
 				.' <a href="'.evo_htmlspecialchars($thisChapter->get_permanent_url()).'" title="'.evo_htmlspecialchars(T_('View category in blog.')).'">'
-				.'&#160;&raquo;&#160;' // TODO: dh> provide an icon instead? // fp> maybe the A(dmin)/B(log) icon from the toolbar? And also use it for permalinks to posts?
+				.'&#160;→&#160;' // TODO: dh> provide an icon instead? // fp> maybe the A(dmin)/B(log) icon from the toolbar? And also use it for permalinks to posts?
 				.'</a></td>'
 			.'</tr>'."\n";
 

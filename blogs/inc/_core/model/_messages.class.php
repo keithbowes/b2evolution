@@ -32,7 +32,7 @@
  * @author blueyed: Daniel HAHLER
  * @author fplanque: Francois PLANQUE
  *
- * @version $Id: _messages.class.php 6135 2014-03-08 07:54:05Z manuel $ }}}
+ * @version $Id$ }}}
  *
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );

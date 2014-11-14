@@ -4,7 +4,7 @@
  *
  * @author fplanque: Francois PLANQUE
  *
- * @version $Id: _test.job.php 5557 2014-01-03 04:13:43Z manuel $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

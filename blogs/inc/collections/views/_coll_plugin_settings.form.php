@@ -23,7 +23,7 @@
  *
  * @author fplanque: Francois PLANQUE.
  *
- * @version $Id: _coll_plugin_settings.form.php 6297 2014-03-23 07:51:14Z manuel $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

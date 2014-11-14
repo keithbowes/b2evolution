@@ -171,7 +171,7 @@ if( ( $current_User->ID == $edited_User->ID ) || ( $current_User->check_perm( 'u
 						'before_image_legend' => '',
 						'after_image_legend'  => '',
 						'after_image'         => '',
-						'image_size'          => 'crop-top-80x80',
+						'image_size'          => is_admin_page() ? 'crop-top-160x160' : 'crop-top-80x80',
 						'image_link_title'    => $edited_User->login,
 						'image_link_rel'      => 'lightbox[user_pictures]',
 					) );

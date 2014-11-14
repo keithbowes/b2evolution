@@ -4,7 +4,7 @@
  *
  * @author yura: Yura Bakhtin
  *
- * @version $Id: _post_moderation_reminder.job.php 7347 2014-10-01 11:52:15Z yura $
+ * @version $Id: _post_moderation_reminder.job.php 7434 2014-10-15 07:18:30Z yura $
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

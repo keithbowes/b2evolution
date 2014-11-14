@@ -13,7 +13,7 @@
  * @package evoskins
  * @subpackage rss
  *
- * @version $Id: index.main.php 3157 2013-03-06 04:34:44Z fplanque $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * $Id: Logger.php 9 2011-10-24 22:32:00Z fplanque $
+ * $Id$
  *
  * @package MCFileManager.filesystems
  * @author Moxiecode

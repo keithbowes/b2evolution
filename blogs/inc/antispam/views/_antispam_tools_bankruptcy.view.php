@@ -14,7 +14,7 @@
  *
  * @package admin
  *
- * @version $Id: _antispam_tools_bankruptcy.view.php 2803 2013-01-22 17:01:38Z yura $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

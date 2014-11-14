@@ -1,6 +1,6 @@
 <?php
 /**
- * $Id: EnchantSpell.php 835 2012-02-15 09:24:39Z attila $
+ * $Id$
  *
  * This class was contributed by Michel Weimerskirch.
  *

@@ -14,7 +14,7 @@
  * @package evoskins
  * @subpackage bootstrap
  *
- * @version $Id: index.main.php 4716 2013-09-12 08:07:40Z yura $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

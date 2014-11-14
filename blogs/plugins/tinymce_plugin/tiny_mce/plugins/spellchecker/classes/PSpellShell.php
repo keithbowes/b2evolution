@@ -1,6 +1,6 @@
 <?php
 /**
- * $Id: PSpellShell.php 1175 2012-04-04 18:22:18Z sam2kb $
+ * $Id$
  *
  * @package MCManager.includes
  * @author Moxiecode

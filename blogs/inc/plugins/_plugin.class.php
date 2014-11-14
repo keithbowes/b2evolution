@@ -31,7 +31,7 @@
  * @author fplanque: Francois PLANQUE - {@link http://fplanque.net/}
  * @author blueyed: Daniel HAHLER
  *
- * @version $Id: _plugin.class.php 6796 2014-05-28 16:03:16Z yura $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

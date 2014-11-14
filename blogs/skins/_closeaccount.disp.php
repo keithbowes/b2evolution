@@ -12,7 +12,7 @@
  *
  * @license http://b2evolution.net/about/license.html GNU General Public License (GPL)
  *
- * @version $Id: $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

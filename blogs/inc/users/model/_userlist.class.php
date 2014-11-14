@@ -18,7 +18,7 @@
  *
  * @package evocore
  *
- * @version $Id: _userlist.class.php 236 2011-11-08 16:08:22Z yura $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

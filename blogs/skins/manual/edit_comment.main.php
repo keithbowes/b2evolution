@@ -14,7 +14,7 @@
  * @package evoskins
  * @subpackage manual
  *
- * @version $Id: edit_comment.main.php 7043 2014-07-02 08:35:45Z yura $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

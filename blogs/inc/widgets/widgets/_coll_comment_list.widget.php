@@ -22,7 +22,7 @@
  * @author fplanque: Francois PLANQUE.
  * @author Yabba	- {@link http://www.astonishme.co.uk/}
  *
- * @version $Id: _coll_comment_list.widget.php 6426 2014-04-08 16:26:27Z yura $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

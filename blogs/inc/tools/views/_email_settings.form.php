@@ -29,7 +29,7 @@
  *
  * @package admin
  *
- * @version $Id: _email_settings.form.php 396 2011-11-22 21:46:10Z fplanque $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

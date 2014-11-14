@@ -29,7 +29,7 @@
  * @author blueyed: Daniel HAHLER
  * @author fplanque: Francois PLANQUE
  *
- * @version $Id: register.php 6264 2014-03-19 12:23:26Z yura $
+ * @version $Id$
  */
 
 /**

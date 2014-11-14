@@ -26,7 +26,7 @@
  * {@internal Below is a list of authors who have contributed to design/coding of this file: }}
  * @author blueyed: Daniel HAHLER.
  *
- * @version $Id: xg.php 9 2011-10-24 22:32:00Z fplanque $
+ * @version $Id$
  */
 
 echo "** gettext helper tool for b2evolution **\n";

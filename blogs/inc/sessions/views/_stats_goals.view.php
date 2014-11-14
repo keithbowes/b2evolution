@@ -9,7 +9,7 @@
  *
  * @package admin
  *
- * @version $Id: _stats_goals.view.php 6398 2014-04-04 04:43:31Z yura $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

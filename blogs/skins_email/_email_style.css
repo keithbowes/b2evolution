@@ -34,10 +34,9 @@ div.email_header {
 div.email_payload {
 	background-color: #fff;
 	border: 1px solid #ddd;
-	margin: 8px 2em;
+	margin: 8px 0;
 	padding: 1px 1em;
 	border-radius: 5px;
-	overflow: auto;
 }
 div.email_ugc {
 	margin: 1em 1em;
@@ -121,16 +120,16 @@ a.button_green {
 a.button_yellow {
 	color: #554;
 	border: 1px solid #e8b463;
-	background: linear-gradient(#fff5bd, #ffcf09);
-	background: -webkit-linear-gradient(#fff5bd, #ffcf09);
-	background: -moz-linear-gradient(#fff5bd, #ffcf09);
+	background: #ffcf09 linear-gradient(#fff5bd, #ffcf09);
+	background: #ffcf09 -webkit-linear-gradient(#fff5bd, #ffcf09);
+	background: #ffcf09 -moz-linear-gradient(#fff5bd, #ffcf09);
 }
 a.button_gray {
 	color: #555;
 	border: 1px solid #ccc;
-	background: linear-gradient(#f9f9f9, #ebebeb);
-	background: -webkit-linear-gradient(#f9f9f9, #ebebeb);
-	background: -moz-linear-gradient(#f9f9f9, #ebebeb);
+	background: #ebebeb linear-gradient(#f9f9f9, #ebebeb);
+	background: #ebebeb -webkit-linear-gradient(#f9f9f9, #ebebeb);
+	background: #ebebeb -moz-linear-gradient(#f9f9f9, #ebebeb);
 }
 
 @media (max-width: 640px) {

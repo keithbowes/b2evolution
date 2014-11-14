@@ -17,7 +17,7 @@
  *
  * @todo add 5 plugin hooks. Will be widgetized later (same as SkinTag became Widgets)
  *
- * @version $Id: dashboard.ctrl.php 7283 2014-09-05 12:58:59Z yura $
+ * @version $Id: dashboard.ctrl.php 7434 2014-10-15 07:18:30Z yura $
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

@@ -14,7 +14,7 @@
  *
  * @package admin
  *
- * @version $Id: _post_by_mail.funcs.php 6470 2014-04-15 09:14:13Z yura $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

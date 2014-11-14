@@ -2,7 +2,7 @@
 /**
  * This file implements the unread messages email reminder cron job
  *
- * @version $Id: $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

@@ -407,13 +407,6 @@ class DB
 
 		if( ! $this->dbhandle )
 		{
-			define('ER_TOO_MANY_USER_CONNECTIONS', 1203);
-			if (ER_TOO_MANY_USER_CONNECTIONS == mysql_errno())
-			{
-				global $conf_path;
-				copy("$conf_path/_prizorgo.xhtml", "$conf_path/maintenance.html");
-			}
-
 			$this->print_error( 'Error establishing a database connection!',
 				( $mysql_error ? '<p>('.$mysql_error.')</p>' : '' ).'
 				<ol>

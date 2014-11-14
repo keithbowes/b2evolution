@@ -33,7 +33,7 @@
  * @author sakichan: Nobuo SAKIYAMA.
  * @author Simon Willison.
  *
- * @version $Id: _xhtml_validator.class.php 6274 2014-03-20 11:23:11Z attila $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

@@ -21,7 +21,7 @@
  *
  * @package admin
  *
- * @version $Id: _email_sent_details.view.php 349 2011-11-18 11:18:14Z yura $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

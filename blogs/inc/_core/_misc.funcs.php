@@ -30,7 +30,7 @@
  *
  * @package evocore
  *
- * @version $Id: _misc.funcs.php 7344 2014-09-30 11:45:19Z yura $
+ * @version $Id: _misc.funcs.php 7578 2014-11-06 10:48:01Z yura $
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 
@@ -434,7 +434,7 @@ function strmaxlen( $str, $maxlen = 50, $tail = NULL, $format = 'raw', $cut_at_w
 	if( evo_strlen( $str ) > $maxlen )
 	{
 		// Replace all HTML entities by a single char. html_entity_decode for example
-		// would not handle ….
+		// would not handle &hellip;.
 		$tail_for_length = preg_replace('~&\w+?;~', '.', $tail);
 		$tail_length = evo_strlen( evo_html_entity_decode($tail_for_length) );
 		$len = $maxlen-$tail_length;
@@ -5799,33 +5799,40 @@ if ( !function_exists( 'json_encode' ) )
  */
 function evo_json_encode( $a = false )
 {
-	if( is_string($a) )
-	{	// Convert to UTF-8
-		$a = current_charset_to_utf8($a);
+	if( is_string( $a ) )
+	{ // Convert to UTF-8
+		$a = current_charset_to_utf8( $a );
 	}
-	elseif( is_array($a) )
-	{	// Recursively convert to UTF-8
+	elseif( is_array( $a ) )
+	{ // Recursively convert to UTF-8
 		array_walk_recursive( $a, 'current_charset_to_utf8' );
 	}
 
-	return json_encode($a);
+	$result = json_encode( $a );
+	if( $result === false )
+	{ // If json_encode returns FALSE because of some error we should set correct json empty value as '[]' instead of false
+		$result = '[]';
+	}
+
+	return $result;
 }
 
 
 /**
  * A helper function to conditionally convert a string from current charset to UTF-8
  *
- * @param mixed
- * @return mixed
+ * @param string
+ * @return string
  */
-function current_charset_to_utf8( $a )
+function current_charset_to_utf8( & $a )
 {
 	global $current_charset;
 
-	if( is_string($a) && $current_charset != '' && $current_charset != 'utf-8' )
-	{
-		return convert_charset( $a, 'utf-8', $current_charset );
+	if( is_string( $a ) && $current_charset != '' && $current_charset != 'utf-8' )
+	{ // Convert string to utf-8 if it has another charset
+		$a = convert_charset( $a, 'utf-8', $current_charset );
 	}
+
 	return $a;
 }
 
@@ -6307,8 +6314,13 @@ function get_file_permissions_message()
  */
 function evo_flush()
 {
-	if (version_compare(sprintf("%d.%d", PHP_MAJOR_VERSION, PHP_MINOR_VERSION), '5.4') === 0)
-		@ob_end_flush(); // This function helps to turn off output buffering on PHP 5.4.x
+	$zlib_output_compression = ini_get( 'zlib.output_compression' );
+	if( empty( $zlib_output_compression ) || $zlib_output_compression == 'Off' )
+	{ // This function helps to turn off output buffering
+		// But do NOT use it when zlib.output_compression is ON, because it creates the die errors
+		if (version_compare(sprintf("%d.%d", PHP_MAJOR_VERSION, PHP_MINOR_VERSION), '5.4') === 0)
+			@ob_end_flush(); // This function helps to turn off output buffering on PHP 5.4.x
+	}
 	flush();
 }
 

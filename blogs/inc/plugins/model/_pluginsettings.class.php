@@ -28,7 +28,7 @@
  * {@internal Below is a list of authors who have contributed to design/coding of this file: }}
  * @author blueyed: Daniel HAHLER.
  *
- * @version $Id: _pluginsettings.class.php 6135 2014-03-08 07:54:05Z manuel $
+ * @version $Id$
  *
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );

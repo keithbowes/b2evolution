@@ -6,7 +6,7 @@
  *
  * @package admin
  *
- * @version $Id: _files.init.php 6135 2014-03-08 07:54:05Z manuel $
+ * @version $Id$
  */
 if( !defined('EVO_CONFIG_LOADED') ) die( 'Please, do not access this page directly.' );
 

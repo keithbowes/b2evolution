@@ -30,7 +30,7 @@
  * @author fplanque: Francois PLANQUE
  * @author blueyed: Daniel HAHLER
  *
- * @version $Id: call_plugin.php 6135 2014-03-08 07:54:05Z manuel $
+ * @version $Id$
  */
 
 

@@ -11,7 +11,7 @@
  *
  * @package admin
  *
- * @version $Id: _coll_sel_skin.view.php 6493 2014-04-17 05:45:28Z yura $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

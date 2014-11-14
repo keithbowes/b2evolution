@@ -29,7 +29,7 @@
  *
  * @package htsrv
  *
- * @version $Id: login.php 6487 2014-04-16 11:11:57Z yura $
+ * @version $Id$
  */
 
 /**

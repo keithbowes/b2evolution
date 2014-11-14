@@ -34,7 +34,7 @@
  * @author fplanque: Francois PLANQUE
  * @author blueyed: Daniel HAHLER
  *
- * @version $Id: _user_password.form.php 6411 2014-04-07 15:17:33Z yura $
+ * @version $Id$
  */
 
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );

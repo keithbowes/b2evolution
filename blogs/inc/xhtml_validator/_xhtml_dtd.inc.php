@@ -13,7 +13,7 @@
  *
  * @package evocore
  *
- * @version $Id: _xhtml_dtd.inc.php 6135 2014-03-08 07:54:05Z manuel $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

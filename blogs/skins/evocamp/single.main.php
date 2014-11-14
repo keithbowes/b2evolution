@@ -11,7 +11,7 @@
  * @package evoskins
  * @subpackage evocamp
  *
- * @version $Id: single.main.php 4276 2013-07-17 11:05:10Z yura $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

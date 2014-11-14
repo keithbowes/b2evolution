@@ -21,7 +21,7 @@
  *
  * @package admin
  *
- * @version $Id: _stats_search_engines.view.php 6411 2014-04-07 15:17:33Z yura $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

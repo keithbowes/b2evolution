@@ -26,7 +26,7 @@
  *
  * @author fplanque: Francois PLANQUE
  *
- * @version $Id: _captcha_qstn.plugin.php 72 2012-03-05 23:35:41Z yura $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

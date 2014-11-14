@@ -9,7 +9,7 @@
  *
  * @package htsrv
  *
- * @version $Id: comment_review.php 6806 2014-05-29 12:01:27Z yura $
+ * @version $Id$
  */
 
 /**

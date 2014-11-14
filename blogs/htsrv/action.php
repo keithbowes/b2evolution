@@ -21,7 +21,7 @@
  *
  * @package evocore
  *
- * @version $Id: action.php 6135 2014-03-08 07:54:05Z manuel $
+ * @version $Id$
  */
 
 /**

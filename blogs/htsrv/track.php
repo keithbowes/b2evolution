@@ -12,7 +12,7 @@
  *
  * @author fplanque: Francois PLANQUE.
  *
- * @version $Id: track.php 6602 2014-05-05 04:52:31Z yura $
+ * @version $Id$
  */
 
 /**

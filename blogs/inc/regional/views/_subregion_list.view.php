@@ -27,7 +27,7 @@
  * @author efy-maxim: Evo Factory / Maxim.
  * @author fplanque: Francois Planque.
  *
- * @version $Id: _subregion_list.view.php 13 2011-10-24 23:42:53Z fplanque $
+ * @version $Id$
  */
 
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );

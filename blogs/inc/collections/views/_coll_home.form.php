@@ -16,7 +16,7 @@
  *
  * @package admin
  *
- * @version $Id: _coll_home.form.php 2392 2012-11-09 13:00:52Z yura $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 

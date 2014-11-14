@@ -1,6 +1,6 @@
 <?php
 /**
- * $Id: GoogleSpell.php 835 2012-02-15 09:24:39Z attila $
+ * $Id$
  *
  * @package MCManager.includes
  * @author Moxiecode

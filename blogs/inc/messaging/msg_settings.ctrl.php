@@ -19,7 +19,7 @@
  * {@internal Below is a list of authors who have contributed to design/coding of this file: }}
  * @author efy-asimo: Attila Simo.
  *
- * @version $Id: msg_settings.ctrl.php 6411 2014-04-07 15:17:33Z yura $
+ * @version $Id$
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 
