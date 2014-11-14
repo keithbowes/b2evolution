@@ -308,7 +308,6 @@ switch( $action )
 			{
 				$Messages->add( sprintf( T_('The locale %s has been reloaded.'), '<b>'.$edit_locale.'</b>' ), 'success' );
 			}
->>>>>>> upstream/master
 		}
 
 		// Redirect so that a reload doesn't write to the DB twice:
