@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
-"POT-Creation-Date: 2014-11-14 03:04-0500\n"
-"PO-Revision-Date: 2014-11-14 03:09-0500\n"
+"POT-Creation-Date: 2014-11-14 03:21-0500\n"
+"PO-Revision-Date: 2014-11-14 03:23-0500\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -506,7 +506,9 @@ msgstr "Blokita"
 #: ../../../inc/items/views/_item_mass.form.php:188
 #: ../../../inc/items/views/_item_simple.form.php:281
 #: ../../../inc/users/views/_user_admin.form.php:242
+#: ../../../inc/users/views/_user_admin.form.php:276
 #: ../../../inc/widgets/widgets/_coll_xml_feeds.widget.php:157
+#: ../../../skins/_user.disp.php:316
 #: ../../../skins/basic/_item_feedback.inc.php:75
 msgid "Comments"
 msgstr "Komentoj"
@@ -605,13 +607,13 @@ msgstr "Favori"
 msgid "Thumb Down"
 msgstr "Malfavori"
 
-#: ../../../conf/_icons.php:951 ../../../inc/_core/_template.funcs.php:2166
-#: ../../../inc/_core/_template.funcs.php:2331
+#: ../../../conf/_icons.php:951 ../../../inc/_core/_template.funcs.php:2168
+#: ../../../inc/_core/_template.funcs.php:2333
 #: ../../../inc/antispam/views/_antispam_ban.form.php:174
 #: ../../../inc/collections/views/_coll_user_perm.form.php:128
 #: ../../../inc/maintenance/views/_upgrade_svn.form.php:37
 #: ../../../inc/messaging/views/_contact_list.view.php:293
-#: ../../../inc/users/model/_user.class.php:5138
+#: ../../../inc/users/model/_user.class.php:5121
 #: ../../../inc/users/views/_user_identity.form.php:219
 #: ../../../inc/users/views/_user_identity.form.php:323
 #: ../../../inc/users/views/_user_list.view.php:168
@@ -1320,7 +1322,7 @@ msgid "You have no email address with your profile, therefore we cannot validate
 msgstr "Vi havas neniun retpoŝtadreson kun via profilo; tiel ni ne eblas validigi ĝin. Bonvolu tajpi vian retpoŝtadreson sube."
 
 #: ../../../htsrv/login.php:585 ../../../inc/_core/_template.funcs.php:399
-#: ../../../inc/_core/_template.funcs.php:2188
+#: ../../../inc/_core/_template.funcs.php:2190
 msgid "Lost your password?"
 msgstr "Ĉu vi forgesis la pasvorton?"
 
@@ -2016,7 +2018,7 @@ msgstr "Regiona"
 
 #: ../../../inc/_core/__core.init.php:1243
 #: ../../../inc/_core/__core.init.php:1632
-#: ../../../inc/locales/locales.ctrl.php:445
+#: ../../../inc/locales/locales.ctrl.php:444
 #: ../../../inc/locales/translation.ctrl.php:162
 msgid "Locales"
 msgstr "Lokaĵaroj"
@@ -2249,7 +2251,7 @@ msgstr "Konta fermado"
 #: ../../../inc/_core/__core.init.php:1544
 #: ../../../inc/antispam/antispam.ctrl.php:473
 #: ../../../inc/cron/cronjobs.ctrl.php:344
-#: ../../../inc/locales/locales.ctrl.php:442
+#: ../../../inc/locales/locales.ctrl.php:441
 #: ../../../inc/locales/translation.ctrl.php:159
 #: ../../../inc/maintenance/backup.ctrl.php:58
 #: ../../../inc/maintenance/upgrade.ctrl.php:57
@@ -3009,155 +3011,155 @@ msgstr "Al la altnivela redaktado-ekrano"
 msgid "Cancel editing"
 msgstr "Nuligi redaktadon"
 
-#: ../../../inc/_core/_template.funcs.php:1070
+#: ../../../inc/_core/_template.funcs.php:1072
 #: ../../../inc/widgets/widgets.ctrl.php:492
 msgid "Update cancelled"
 msgstr "Aktualigo nuligita"
 
-#: ../../../inc/_core/_template.funcs.php:1071
+#: ../../../inc/_core/_template.funcs.php:1073
 msgid "Update paused"
 msgstr "Aktualigo paŭzita"
 
-#: ../../../inc/_core/_template.funcs.php:1072
+#: ../../../inc/_core/_template.funcs.php:1074
 #: ../../../inc/widgets/widgets.ctrl.php:489
 msgid "Changes pending"
 msgstr "Atendanta ŝanĝojn."
 
-#: ../../../inc/_core/_template.funcs.php:1073
+#: ../../../inc/_core/_template.funcs.php:1075
 #: ../../../inc/widgets/widgets.ctrl.php:490
 msgid "Saving changes"
 msgstr "Konservi ŝanĝojn"
 
-#: ../../../inc/_core/_template.funcs.php:1333
+#: ../../../inc/_core/_template.funcs.php:1335
 #: ../../../inc/_init_base.inc.php:212
 msgid "February"
 msgstr "februaro"
 
-#: ../../../inc/_core/_template.funcs.php:1333
+#: ../../../inc/_core/_template.funcs.php:1335
 #: ../../../inc/_init_base.inc.php:211
 msgid "January"
 msgstr "januaro"
 
-#: ../../../inc/_core/_template.funcs.php:1333
+#: ../../../inc/_core/_template.funcs.php:1335
 #: ../../../inc/_init_base.inc.php:213
 msgid "March"
 msgstr "marto"
 
-#: ../../../inc/_core/_template.funcs.php:1334
+#: ../../../inc/_core/_template.funcs.php:1336
 #: ../../../inc/_init_base.inc.php:214
 msgid "April"
 msgstr "aprilo"
 
-#: ../../../inc/_core/_template.funcs.php:1334
+#: ../../../inc/_core/_template.funcs.php:1336
 #: ../../../inc/_init_base.inc.php:217
 msgid "June"
 msgstr "junio"
 
 # TRANS: abbrev. for May
-#: ../../../inc/_core/_template.funcs.php:1334
+#: ../../../inc/_core/_template.funcs.php:1336
 #: ../../../inc/_init_base.inc.php:235
 msgid "May"
 msgstr "majo"
 
-#: ../../../inc/_core/_template.funcs.php:1335
+#: ../../../inc/_core/_template.funcs.php:1337
 #: ../../../inc/_init_base.inc.php:219
 msgid "August"
 msgstr "aŭgusto"
 
-#: ../../../inc/_core/_template.funcs.php:1335
+#: ../../../inc/_core/_template.funcs.php:1337
 #: ../../../inc/_init_base.inc.php:218
 msgid "July"
 msgstr "julio"
 
-#: ../../../inc/_core/_template.funcs.php:1335
+#: ../../../inc/_core/_template.funcs.php:1337
 #: ../../../inc/_init_base.inc.php:220
 msgid "September"
 msgstr "septembro"
 
-#: ../../../inc/_core/_template.funcs.php:1336
+#: ../../../inc/_core/_template.funcs.php:1338
 #: ../../../inc/_init_base.inc.php:223
 msgid "December"
 msgstr "decembro"
 
-#: ../../../inc/_core/_template.funcs.php:1336
+#: ../../../inc/_core/_template.funcs.php:1338
 #: ../../../inc/_init_base.inc.php:222
 msgid "November"
 msgstr "novembro"
 
-#: ../../../inc/_core/_template.funcs.php:1336
+#: ../../../inc/_core/_template.funcs.php:1338
 #: ../../../inc/_init_base.inc.php:221
 msgid "October"
 msgstr "oktobro"
 
 # TRANS: abbrev. for Monday
-#: ../../../inc/_core/_template.funcs.php:1338
+#: ../../../inc/_core/_template.funcs.php:1340
 #: ../../../inc/_init_base.inc.php:181
 msgid "Mon"
 msgstr "lun"
 
 # TRANS: abbrev. for Sunday
-#: ../../../inc/_core/_template.funcs.php:1338
+#: ../../../inc/_core/_template.funcs.php:1340
 #: ../../../inc/_init_base.inc.php:179
 msgid "Sun"
 msgstr "dim"
 
 # TRANS: abbrev. for Tuesday
-#: ../../../inc/_core/_template.funcs.php:1338
+#: ../../../inc/_core/_template.funcs.php:1340
 #: ../../../inc/_init_base.inc.php:183
 msgid "Tue"
 msgstr "mar"
 
 # TRANS: abbrev. for Friday
-#: ../../../inc/_core/_template.funcs.php:1339
+#: ../../../inc/_core/_template.funcs.php:1341
 #: ../../../inc/_init_base.inc.php:189
 msgid "Fri"
 msgstr "ven"
 
 # TRANS: abbrev. for Saturday
-#: ../../../inc/_core/_template.funcs.php:1339
+#: ../../../inc/_core/_template.funcs.php:1341
 #: ../../../inc/_init_base.inc.php:191
 msgid "Sat"
 msgstr "sab"
 
 # TRANS: abbrev. for Thursday
-#: ../../../inc/_core/_template.funcs.php:1339
+#: ../../../inc/_core/_template.funcs.php:1341
 #: ../../../inc/_init_base.inc.php:187
 msgid "Thu"
 msgstr "ĵaŭ"
 
 # TRANS: abbrev. for Wednesday
-#: ../../../inc/_core/_template.funcs.php:1339
+#: ../../../inc/_core/_template.funcs.php:1341
 #: ../../../inc/_init_base.inc.php:185
 msgid "Wed"
 msgstr "mer"
 
-#: ../../../inc/_core/_template.funcs.php:1960
+#: ../../../inc/_core/_template.funcs.php:1962
 msgid "This section can't be displayed because wrong params were created by the skin."
 msgstr "Ĉi tiu sekcio ne povas montriĝi ĉar malpravaj parametroj kreiĝis de la etoso."
 
-#: ../../../inc/_core/_template.funcs.php:1974
+#: ../../../inc/_core/_template.funcs.php:1976
 msgid "Form is loading..."
 msgstr "Formulario ŝargiĝas…"
 
-#: ../../../inc/_core/_template.funcs.php:2025
+#: ../../../inc/_core/_template.funcs.php:2027
 msgid "This section can only be displayed by javascript enabled browsers."
 msgstr "Ĉi tiu sekcio povas nur montriĝi de TTT-legiloj kun Javaskripto aktivigita."
 
-#: ../../../inc/_core/_template.funcs.php:2097
+#: ../../../inc/_core/_template.funcs.php:2099
 msgid "Abort login!"
 msgstr "Nuligi ensalutadon."
 
-#: ../../../inc/_core/_template.funcs.php:2166
+#: ../../../inc/_core/_template.funcs.php:2168
 msgid "Enter your username (or email address)."
 msgstr "Tajpu vian salutnomon (aŭ retpoŝtadreson)."
 
-#: ../../../inc/_core/_template.funcs.php:2173
-#: ../../../inc/_core/_template.funcs.php:2335
+#: ../../../inc/_core/_template.funcs.php:2175
+#: ../../../inc/_core/_template.funcs.php:2337
 msgid "Username (or email address)"
 msgstr "Salutnomon (aŭ retpoŝtadreson)"
 
-#: ../../../inc/_core/_template.funcs.php:2193
-#: ../../../inc/_core/_template.funcs.php:2198
+#: ../../../inc/_core/_template.funcs.php:2195
+#: ../../../inc/_core/_template.funcs.php:2200
 #: ../../../inc/maintenance/views/_upgrade_svn.form.php:38
 #: ../../../inc/settings/views/_eblog.form.php:99
 #: ../../../inc/tools/views/_email_settings.form.php:122
@@ -3173,133 +3175,133 @@ msgstr "Salutnomon (aŭ retpoŝtadreson)"
 msgid "Password"
 msgstr "Pasvorto"
 
-#: ../../../inc/_core/_template.funcs.php:2205
+#: ../../../inc/_core/_template.funcs.php:2207
 #: ../../../skins/_widget_login.form.php:49
 msgid "Log in!"
 msgstr "Ensaluti"
 
-#: ../../../inc/_core/_template.funcs.php:2210
+#: ../../../inc/_core/_template.funcs.php:2212
 msgid "Log into backoffice!"
 msgstr "Ensaluti en la stirilon"
 
-#: ../../../inc/_core/_template.funcs.php:2219
+#: ../../../inc/_core/_template.funcs.php:2221
 msgid "No account yet? Register here"
 msgstr "Ĉu ankoraŭ neniu konto? Registriĝu!"
 
-#: ../../../inc/_core/_template.funcs.php:2236
+#: ../../../inc/_core/_template.funcs.php:2238
 msgid "Forgot your password?"
 msgstr "Ĉu vi forgesis la pasvorton?"
 
-#: ../../../inc/_core/_template.funcs.php:2237
+#: ../../../inc/_core/_template.funcs.php:2239
 msgid "Create an account"
 msgstr "Krei novan landon"
 
-#: ../../../inc/_core/_template.funcs.php:2322
+#: ../../../inc/_core/_template.funcs.php:2324
 msgid "Please enter your login (or email address) below."
 msgstr "Bonvolu enmeti vian salutnomon (retpoŝtadreson) sube."
 
-#: ../../../inc/_core/_template.funcs.php:2323
+#: ../../../inc/_core/_template.funcs.php:2325
 msgid "An email will be sent to your registered email address immediately."
 msgstr "Retpoŝtmesaĝo tuj sendiĝos al via registrita retpoŝtadreso."
 
-#: ../../../inc/_core/_template.funcs.php:2324
+#: ../../../inc/_core/_template.funcs.php:2326
 msgid "As soon as you receive the email, click on the link therein to change your password."
 msgstr "Tuj kiam vi ricevas la retpoŝtmesaĝon alklaki la ligilon en tio por ŝanĝi vian pasvorton."
 
-#: ../../../inc/_core/_template.funcs.php:2325
+#: ../../../inc/_core/_template.funcs.php:2327
 msgid "Your browser will open a page where you can chose a new password."
 msgstr "Via TTT-legilo malfermos paĝon en kiu vi povas restarigi la pasvorton."
 
-#: ../../../inc/_core/_template.funcs.php:2327
+#: ../../../inc/_core/_template.funcs.php:2329
 msgid "Important: for security reasons, you must do steps 1 and 4 on the same computer and same web browser. Do not close your browser in between."
 msgstr "Grava: Pro sekureco vi devas fari paŝojn 1 kaj 4 en la sama komputilo kaj per la sama TTT-legilo. Ne fermu vian TTT-legilon inter la paŝoj."
 
 # TRANS: Text for submit button to request an activation link by email
-#: ../../../inc/_core/_template.funcs.php:2338
+#: ../../../inc/_core/_template.funcs.php:2340
 msgid "Send me an email now!"
 msgstr "Sendi al mi retpoŝtmesaĝon nun"
 
-#: ../../../inc/_core/_template.funcs.php:2348
+#: ../../../inc/_core/_template.funcs.php:2350
 msgid "Back to login form"
 msgstr "Reen al ensaluta formulario"
 
-#: ../../../inc/_core/_template.funcs.php:2436
+#: ../../../inc/_core/_template.funcs.php:2438
 msgid "Please confirm your email address below:"
 msgstr "Bonvolu konfirmi vian retpoŝtadreson sube:"
 
-#: ../../../inc/_core/_template.funcs.php:2442 ../../../install/index.php:515
+#: ../../../inc/_core/_template.funcs.php:2444 ../../../install/index.php:515
 msgid "Your email"
 msgstr "Via retpoŝtadreso"
 
-#: ../../../inc/_core/_template.funcs.php:2446
+#: ../../../inc/_core/_template.funcs.php:2448
 msgid "Send me a new activation email now!"
 msgstr "Tuj sendi al mi retpoŝtmesaĝon pri aktivigado."
 
-#: ../../../inc/_core/_template.funcs.php:2481
+#: ../../../inc/_core/_template.funcs.php:2483
 #, php-format
 msgid "Open your email account for %s and find a message we sent you on %s at %s with the following title:"
 msgstr "Malfermu vian retpoŝtan konton por %s kaj trovu mesaĝon, kiun vi sendis al vi je %s je %s kun la sekva titolo:"
 
-#: ../../../inc/_core/_template.funcs.php:2482
+#: ../../../inc/_core/_template.funcs.php:2484
 #, php-format
 msgid "Activate your account: %s"
 msgstr "Aktivigi vian konton: %s"
 
-#: ../../../inc/_core/_template.funcs.php:2484
+#: ../../../inc/_core/_template.funcs.php:2486
 #, php-format
 msgid "NOTE: If you don't find it, check your \"Junk\", \"Spam\" or \"Unsolicited email\" folders. If you really can't find it, <a %s>request a new activation email</a>."
 msgstr "NOTO: Se vi ne trovas ĝin, kontroli en spammesaĝojn. Se vi post tio ne povas trovi ĝin, <a %s>petu novan aktivigadon retpoŝtmesaĝon</a>."
 
-#: ../../../inc/_core/_template.funcs.php:2485
+#: ../../../inc/_core/_template.funcs.php:2487
 #, php-format
 msgid "Add us (%s) to your contacts to make sure you receive future email notifications, especially when someone sends you a private message."
 msgstr "Aldoni nin (%s) al viaj kontaktatoj por certigi, ke vi ricevos estontajn retpoŝtajn sciigojn, precipe kiam iu sendas al vi privatan mesaĝon.."
 
-#: ../../../inc/_core/_template.funcs.php:2486
+#: ../../../inc/_core/_template.funcs.php:2488
 msgid "Click on the activation link in the email."
 msgstr "Alklaku la aktivigan ligilon en la retpoŝtmesaĝo."
 
-#: ../../../inc/_core/_template.funcs.php:2487
+#: ../../../inc/_core/_template.funcs.php:2489
 #: ../../../skins_email/account_activate.html.php:93
 #: ../../../skins_email/account_activate.txt.php:93
 msgid "If this does not work, please copy/paste that link into the address bar of your browser."
 msgstr "Se tio ne funkcios, bonvolu enmeti tiun ligilon en la retadresan kampon de via TTT-legilo."
 
-#: ../../../inc/_core/_template.funcs.php:2488
+#: ../../../inc/_core/_template.funcs.php:2490
 #, php-format
 msgid "If you need assistance, please send an email to %s"
 msgstr "Se vi bezonas helpon, bonvolu sendi retpoŝtmesaĝon al %s"
 
-#: ../../../inc/_core/_template.funcs.php:2584
+#: ../../../inc/_core/_template.funcs.php:2586
 msgid "Very weak"
 msgstr "Tre malforta"
 
-#: ../../../inc/_core/_template.funcs.php:2599
+#: ../../../inc/_core/_template.funcs.php:2601
 msgid "Weak"
 msgstr "Malforta"
 
-#: ../../../inc/_core/_template.funcs.php:2603
+#: ../../../inc/_core/_template.funcs.php:2605
 msgid "So-so"
 msgstr "Mezkvalita"
 
-#: ../../../inc/_core/_template.funcs.php:2607
+#: ../../../inc/_core/_template.funcs.php:2609
 #: ../../../inc/comments/model/_comment.class.php:2901
 msgid "Good"
 msgstr "Bona"
 
-#: ../../../inc/_core/_template.funcs.php:2611
+#: ../../../inc/_core/_template.funcs.php:2613
 msgid "Great!"
 msgstr "Bonege!"
 
-#: ../../../inc/_core/_template.funcs.php:2622
+#: ../../../inc/_core/_template.funcs.php:2624
 msgid "Estimated crack time"
 msgstr "Divenata tempo por rompiĝo"
 
-#: ../../../inc/_core/_template.funcs.php:2630
+#: ../../../inc/_core/_template.funcs.php:2632
 msgid "The second password is different from the first."
 msgstr "La pasvorto estas malsama de la unua."
 
-#: ../../../inc/_core/_template.funcs.php:2655
+#: ../../../inc/_core/_template.funcs.php:2657
 #: ../../../inc/comments/model/_comment_js.funcs.php:241
 #: ../../../inc/dashboard/dashboard.ctrl.php:346
 #: ../../../inc/items/model/_item.funcs.php:2855
@@ -3309,22 +3311,22 @@ msgstr "La pasvorto estas malsama de la unua."
 msgid "Loading..."
 msgstr "Ŝarganta…"
 
-#: ../../../inc/_core/_template.funcs.php:2656
-#: ../../../inc/_core/_template.funcs.php:2660
+#: ../../../inc/_core/_template.funcs.php:2658
+#: ../../../inc/_core/_template.funcs.php:2662
 msgid "This username is available."
 msgstr "Tiu salutnomo ne haveblas."
 
-#: ../../../inc/_core/_template.funcs.php:2657
-#: ../../../inc/_core/_template.funcs.php:2661
+#: ../../../inc/_core/_template.funcs.php:2659
+#: ../../../inc/_core/_template.funcs.php:2663
 msgid "This username is already in use. Please choose another one."
 msgstr "Tiu salutnomo jam uziĝis. Bonvolu elekti alian."
 
-#: ../../../inc/_core/_template.funcs.php:2659
+#: ../../../inc/_core/_template.funcs.php:2661
 #: ../../../skins/_register.disp.php:78
 msgid "Choose an username."
 msgstr "Elekti salutnomon."
 
-#: ../../../inc/_core/_template.funcs.php:2711
+#: ../../../inc/_core/_template.funcs.php:2713
 msgid "Do you want discard your changes for this order field?"
 msgstr "Ĉu vi volas forviŝi viajn ŝanĝojn por tiu ordona kampo?"
 
@@ -3583,6 +3585,7 @@ msgid "Upgrading all tables in b2evolution MySQL database to UTF-8..."
 msgstr "Promocianta ĉiujn tablojn en la b2evolution-a MySQL-datumbazo laŭ UTF-8…"
 
 #: ../../../inc/_core/model/db/_upgrade.funcs.php:1780
+#, php-format
 msgid "Converting %s..."
 msgstr "Konvertante je %s…"
 
@@ -4318,7 +4321,7 @@ msgid "Affected users"
 msgstr "Afekciaj uzantoj:"
 
 #: ../../../inc/antispam/views/_antispam_ban.form.php:175
-#: ../../../inc/users/model/_user.class.php:5141
+#: ../../../inc/users/model/_user.class.php:5124
 #: ../../../inc/users/views/_user_identity.form.php:224
 #: ../../../inc/users/views/_user_identity.form.php:324
 #: ../../../skins/_register.disp.php:98
@@ -4331,7 +4334,7 @@ msgid "First name"
 msgstr "Personnomo"
 
 #: ../../../inc/antispam/views/_antispam_ban.form.php:176
-#: ../../../inc/users/model/_user.class.php:5142
+#: ../../../inc/users/model/_user.class.php:5125
 #: ../../../inc/users/views/_user_identity.form.php:230
 #: ../../../inc/users/views/_user_identity.form.php:325
 msgid "Last name"
@@ -4339,7 +4342,7 @@ msgstr "Familinomo"
 
 #: ../../../inc/antispam/views/_antispam_ban.form.php:177
 #: ../../../inc/messaging/views/_contact_list.view.php:311
-#: ../../../inc/users/model/_user.class.php:5140
+#: ../../../inc/users/model/_user.class.php:5123
 #: ../../../inc/users/views/_settings.form.php:52
 #: ../../../inc/users/views/_user_identity.form.php:236
 #: ../../../inc/users/views/_user_identity.form.php:326
@@ -4546,7 +4549,7 @@ msgstr "Registri"
 #: ../../../inc/users/views/_group.form.php:256
 #: ../../../inc/users/views/_registration.form.php:196
 #: ../../../inc/users/views/_settings.form.php:93
-#: ../../../inc/users/views/_user_admin.form.php:402
+#: ../../../inc/users/views/_user_admin.form.php:412
 #: ../../../inc/users/views/_user_advanced.form.php:242
 #: ../../../inc/users/views/_user_identity.form.php:482
 #: ../../../inc/users/views/_user_preferences.form.php:232
@@ -5607,7 +5610,7 @@ msgstr "Nia blogo"
 #: ../../../inc/files/views/_file_list.inc.php:153
 #: ../../../inc/messaging/views/_contact_list.view.php:128
 #: ../../../inc/users/groups.ctrl.php:84
-#: ../../../inc/users/model/_user.class.php:5139
+#: ../../../inc/users/model/_user.class.php:5122
 #: ../../../inc/users/views/_user_list.view.php:363
 #: ../../../inc/users/views/_userfield.form.php:57
 msgid "Group"
@@ -7040,7 +7043,7 @@ msgstr "Kaŝita"
 #: ../../../inc/regional/views/_subregion_list.view.php:169
 #: ../../../inc/regional/views/_subregion_list.view.php:182
 #: ../../../inc/sessions/views/_stats_topips.view.php:86
-#: ../../../inc/users/model/_user.class.php:5144
+#: ../../../inc/users/model/_user.class.php:5127
 #: ../../../inc/users/model/_user.funcs.php:2738
 #: ../../../inc/users/views/_settings.form.php:64
 #: ../../../inc/users/views/_user_identity.form.php:253
@@ -7069,7 +7072,7 @@ msgstr "Lando"
 #: ../../../inc/regional/views/_subregion_list.view.php:153
 #: ../../../inc/regional/views/_subregion_list.view.php:174
 #: ../../../inc/regional/views/_subregion_list.view.php:187
-#: ../../../inc/users/model/_user.class.php:5145
+#: ../../../inc/users/model/_user.class.php:5128
 #: ../../../inc/users/model/_user.funcs.php:2747
 #: ../../../inc/users/views/_settings.form.php:66
 #: ../../../inc/users/views/_user_identity.form.php:269
@@ -7085,7 +7088,7 @@ msgstr "Regiono"
 #: ../../../inc/regional/views/_city_list.view.php:188
 #: ../../../inc/regional/views/_city_list.view.php:206
 #: ../../../inc/regional/views/_subregion.form.php:51
-#: ../../../inc/users/model/_user.class.php:5146
+#: ../../../inc/users/model/_user.class.php:5129
 #: ../../../inc/users/model/_user.funcs.php:2755
 #: ../../../inc/users/views/_settings.form.php:68
 #: ../../../inc/users/views/_user_identity.form.php:282
@@ -7098,7 +7101,7 @@ msgstr "Subregiono"
 #: ../../../inc/items/model/_item.funcs.php:2877
 #: ../../../inc/regional/cities.ctrl.php:63
 #: ../../../inc/regional/views/_city.form.php:51
-#: ../../../inc/users/model/_user.class.php:5147
+#: ../../../inc/users/model/_user.class.php:5130
 #: ../../../inc/users/model/_user.funcs.php:2762
 #: ../../../inc/users/views/_settings.form.php:70
 #: ../../../inc/users/views/_user_identity.form.php:295
@@ -14593,7 +14596,7 @@ msgid "Abort"
 msgstr "Nuligi"
 
 #: ../../../inc/locales/_locale_settings.form.php:226
-#: ../../../inc/locales/locales.ctrl.php:444
+#: ../../../inc/locales/locales.ctrl.php:443
 #: ../../../inc/locales/translation.ctrl.php:161
 #: ../../../inc/regional/cities.ctrl.php:328
 #: ../../../inc/regional/countries.ctrl.php:323
@@ -14774,31 +14777,31 @@ msgstr "Dosiero <code>%s</code> ne trovita."
 msgid "The locale %s has been reloaded."
 msgstr "La lokaĵaro %s reŝargiĝis.."
 
-#: ../../../inc/locales/locales.ctrl.php:348
+#: ../../../inc/locales/locales.ctrl.php:347
 #, php-format
 msgid "The locale %s is currently enabled."
 msgstr "La lokaĵaro %s nune estas aktiva."
 
-#: ../../../inc/locales/locales.ctrl.php:352
+#: ../../../inc/locales/locales.ctrl.php:351
 #, php-format
 msgid "The locale %s cannot be deleted."
 msgstr "La dosieron %s ne eblas forigi."
 
-#: ../../../inc/locales/locales.ctrl.php:359
+#: ../../../inc/locales/locales.ctrl.php:358
 #, php-format
 msgid "The locale %s has been deleted from database."
 msgstr "La dosiero %s ne plu estas en la datumbazo."
 
-#: ../../../inc/locales/locales.ctrl.php:366
+#: ../../../inc/locales/locales.ctrl.php:365
 #, php-format
 msgid "To completely delete it, you should also delete the file %s from the server hard disk."
 msgstr "Por tute forigi ĝin vi devas ankaŭ forigi la dosieron %s de la servilkomputila diskaparato."
 
-#: ../../../inc/locales/locales.ctrl.php:428
+#: ../../../inc/locales/locales.ctrl.php:427
 msgid "Switched priorities."
 msgstr "Ŝanĝis prioritatojn."
 
-#: ../../../inc/locales/locales.ctrl.php:443
+#: ../../../inc/locales/locales.ctrl.php:442
 #: ../../../inc/locales/translation.ctrl.php:160
 #: ../../../inc/plugins/plugins.ctrl.php:841
 #: ../../../inc/regional/cities.ctrl.php:327
@@ -21223,7 +21226,7 @@ msgid "Send message to user"
 msgstr "Sendi retpoŝtmesaĝon al uzanto"
 
 #: ../../../inc/users/model/_user.class.php:3457
-#: ../../../inc/users/model/_user.class.php:5172
+#: ../../../inc/users/model/_user.class.php:5155
 #: ../../../inc/users/views/_user_identity.form.php:240
 #: ../../../skins/_register.disp.php:105
 #: ../../../skins_adm/login/_reg_form.main.php:91
@@ -21235,7 +21238,7 @@ msgid "A man"
 msgstr "Viro"
 
 #: ../../../inc/users/model/_user.class.php:3460
-#: ../../../inc/users/model/_user.class.php:5172
+#: ../../../inc/users/model/_user.class.php:5155
 #: ../../../inc/users/views/_user_identity.form.php:241
 #: ../../../skins/_register.disp.php:106
 #: ../../../skins_adm/login/_reg_form.main.php:92
@@ -21335,22 +21338,21 @@ msgid "The file you uploaded does not seem to be an image."
 msgstr "La dosiero, kiun vi alŝutis, ŝajnas ne esti bildo."
 
 #: ../../../inc/users/model/_user.class.php:4964
-#: ../../../inc/users/model/_user.class.php:5001
 #, php-format
 msgid "%s (%s%% are public)"
 msgstr "%s (%s%% estas publikaj)"
 
-#: ../../../inc/users/model/_user.class.php:5038
+#: ../../../inc/users/model/_user.class.php:5001
 #, php-format
-msgid "%s different users found %s posted %s helpful replies."
-msgstr "%s diversaj uzantoj opiniis el ĉiuj respondoj de %s %s helpajn."
+msgid "%s has posted %s comments (%s%% of which are public). %s of these comments have been found useful by %s different users."
+msgstr "%s afiŝis %s komentojn (%s%% inter ili publikaj). %s el tiuj komentoj estas opiniitaj utilaj de %s diversaj uzantoj."
 
-#: ../../../inc/users/model/_user.class.php:5076
+#: ../../../inc/users/model/_user.class.php:5059
 #, php-format
 msgid "%s successfully reported %s spams!"
 msgstr "%s sukcese raportis %s spamaĵojn."
 
-#: ../../../inc/users/model/_user.class.php:5143
+#: ../../../inc/users/model/_user.class.php:5126
 #: ../../../inc/users/views/_registration.form.php:171
 #: ../../../inc/users/views/_user_identity.form.php:332
 #: ../../../inc/users/views/_user_list.view.php:196
@@ -21358,7 +21360,7 @@ msgstr "%s sukcese raportis %s spamaĵojn."
 msgid "Gender"
 msgstr "Sekso"
 
-#: ../../../inc/users/model/_user.class.php:5192
+#: ../../../inc/users/model/_user.class.php:5175
 msgid "User profile changed"
 msgstr "Uzanto-profilo ŝanĝiĝis."
 
@@ -23082,61 +23084,76 @@ msgstr "Laste vidita je"
 msgid "On IP"
 msgstr "Je IP"
 
-#: ../../../inc/users/views/_user_admin.form.php:290
+#: ../../../inc/users/views/_user_admin.form.php:272
+#: ../../../skins/_user.disp.php:312
+msgid "Reputation"
+msgstr "Reputacio"
+
+#: ../../../inc/users/views/_user_admin.form.php:274
+#: ../../../skins/_user.disp.php:314
+msgid "Number of posts"
+msgstr "Nombro da afiŝoj"
+
+#: ../../../inc/users/views/_user_admin.form.php:278
+#: ../../../skins/_user.disp.php:318
+msgid "Spam fighter score"
+msgstr "Spamo-luktanta poentaro"
+
+#: ../../../inc/users/views/_user_admin.form.php:300
 msgid "Registration info"
 msgstr "Registriĝo-informoj"
 
-#: ../../../inc/users/views/_user_admin.form.php:291
+#: ../../../inc/users/views/_user_admin.form.php:301
 msgid "Account registered on"
 msgstr "Konto registrita je"
 
-#: ../../../inc/users/views/_user_admin.form.php:292
+#: ../../../inc/users/views/_user_admin.form.php:302
 msgid "From IP"
 msgstr "Ekde IP"
 
-#: ../../../inc/users/views/_user_admin.form.php:308
+#: ../../../inc/users/views/_user_admin.form.php:318
 msgid "IP range"
 msgstr "IP-adresa grupo"
 
-#: ../../../inc/users/views/_user_admin.form.php:312
-#: ../../../inc/users/views/_user_admin.form.php:316
+#: ../../../inc/users/views/_user_admin.form.php:322
+#: ../../../inc/users/views/_user_admin.form.php:326
 msgid "IP range status"
 msgstr "IP-adresa grupa stato"
 
-#: ../../../inc/users/views/_user_admin.form.php:320
+#: ../../../inc/users/views/_user_admin.form.php:330
 msgid "From Country"
 msgstr "El lando"
 
-#: ../../../inc/users/views/_user_admin.form.php:323
+#: ../../../inc/users/views/_user_admin.form.php:333
 msgid "From Domain"
 msgstr "Disde Domajno"
 
-#: ../../../inc/users/views/_user_admin.form.php:333
-#: ../../../inc/users/views/_user_admin.form.php:337
+#: ../../../inc/users/views/_user_admin.form.php:343
+#: ../../../inc/users/views/_user_admin.form.php:347
 msgid "Domain status"
 msgstr "Domajna stato"
 
-#: ../../../inc/users/views/_user_admin.form.php:341
+#: ../../../inc/users/views/_user_admin.form.php:351
 msgid "With Browser"
 msgstr "Per TTT-legilo"
 
-#: ../../../inc/users/views/_user_admin.form.php:343
+#: ../../../inc/users/views/_user_admin.form.php:353
 msgid "Source link/code"
 msgstr "Fonta ligilo/kodo"
 
-#: ../../../inc/users/views/_user_admin.form.php:345
+#: ../../../inc/users/views/_user_admin.form.php:355
 msgid "Registration trigger Page"
 msgstr "Registriĝo-instigila paĝo"
 
-#: ../../../inc/users/views/_user_admin.form.php:347
+#: ../../../inc/users/views/_user_admin.form.php:357
 msgid "Initial Blog ID"
 msgstr "komenca bloga identigilo"
 
-#: ../../../inc/users/views/_user_admin.form.php:348
+#: ../../../inc/users/views/_user_admin.form.php:358
 msgid "Initial URI"
 msgstr "Komenca retadreso"
 
-#: ../../../inc/users/views/_user_admin.form.php:351
+#: ../../../inc/users/views/_user_admin.form.php:361
 #: ../../../skins_email/account_activated.html.php:86
 #: ../../../skins_email/account_activated.txt.php:83
 #: ../../../skins_email/account_new.html.php:83
@@ -23144,30 +23161,30 @@ msgstr "Komenca retadreso"
 msgid "Initial referer"
 msgstr "Komenca aldirektinto"
 
-#: ../../../inc/users/views/_user_admin.form.php:364
+#: ../../../inc/users/views/_user_admin.form.php:374
 #, php-format
 msgid "Add domain %s"
 msgstr "Aldoni domajnon %s"
 
-#: ../../../inc/users/views/_user_admin.form.php:368
+#: ../../../inc/users/views/_user_admin.form.php:378
 #, php-format
 msgid "Edit domain %s"
 msgstr "Redakti domajnon %s"
 
-#: ../../../inc/users/views/_user_admin.form.php:370
-#: ../../../inc/users/views/_user_admin.form.php:374
+#: ../../../inc/users/views/_user_admin.form.php:380
+#: ../../../inc/users/views/_user_admin.form.php:384
 msgid "Initial referer status"
 msgstr "Komenca aldirekta stato"
 
-#: ../../../inc/users/views/_user_admin.form.php:382
+#: ../../../inc/users/views/_user_admin.form.php:392
 msgid "Unknown date"
 msgstr "Nekonata dato"
 
-#: ../../../inc/users/views/_user_admin.form.php:391
+#: ../../../inc/users/views/_user_admin.form.php:401
 msgid "Account closed on"
 msgstr "Konta fermiĝis je"
 
-#: ../../../inc/users/views/_user_admin.form.php:397
+#: ../../../inc/users/views/_user_admin.form.php:407
 #: ../../../skins_email/account_closed.html.php:43
 #: ../../../skins_email/account_closed.txt.php:43
 msgid "Account close reason"
@@ -28952,26 +28969,6 @@ msgstr "Krei novan grupon"
 msgid "Add this user to a group"
 msgstr "Aldoni la uzanton en grupon"
 
-#: ../../../skins/_user.disp.php:312
-msgid "Reputation"
-msgstr "Reputacio"
-
-#: ../../../skins/_user.disp.php:314
-msgid "Number of posts"
-msgstr "Nombro da afiŝoj"
-
-#: ../../../skins/_user.disp.php:316
-msgid "Number of comments"
-msgstr "Nombro da komentoj"
-
-#: ../../../skins/_user.disp.php:318
-msgid "Number of helpful votes"
-msgstr "Nombro de voĉdonoj montrantaj helpecon"
-
-#: ../../../skins/_user.disp.php:320
-msgid "Spam fighter score"
-msgstr "Spamo-luktanta poentaro"
-
 #: ../../../skins/_usercomments.disp.php:20
 #, php-format
 msgid "Comments posted by %s"
@@ -30973,137 +30970,146 @@ msgstr "Ĉi tiu demonstra ŝablono montras resumon de la plej freŝaj afiŝoj en
 msgid "More posts..."
 msgstr "Pliaj afiŝoj…"
 
-#~ msgid "This 32 character code uniquely identifies the functionality of this plugin. It is only necessary to call the plugin by code (SkinTag) or when using it as a Renderer."
-#~ msgstr "Ĉi tiu 32-signa kodo unike identigas la funkciadon de ĉi tiu kromprogramo. Ĝi nur necesas voki la kromprogramon per kodo (SkinTag) aŭ kiam uzi ĝin kiel montrilon."
-
-#~ msgid "German (DE) utf8"
-#~ msgstr "Germana (DE) laŭ UTF-8"
-
-#~ msgid "Spanish (ES) utf8"
-#~ msgstr "Hispana (ES) laŭ UTF-8"
-
-#~ msgid "Bubble tips in front-office for logged in users"
-#~ msgstr "Vezikaj konsiletoj publikaj por ensalutitaj uzantoj"
-
-#~ msgid "Bubble tips for anonymous users"
-#~ msgstr "Vezikaj konsiletoj por anonimaj uzantoj"
-
-#~ msgid "Escapes tags and entities in &lt;code&gt; tags"
-#~ msgstr "Kodas etikedojn kaj entojn en &lt;code&gt;-etikedoj"
-
-#~ msgid "Forums Home"
-#~ msgstr "Foruma ĉefpaĝo"
-
-#~ msgid "Requested &laquo;%s&raquo;.object does not exist any longer."
-#~ msgstr "La petita objekto «%s» ne plu ekzistas."
-
-#~ msgid "%d contacts have been added to the &laquo;%s&raquo;.group."
-#~ msgstr "%d kontaktitoj aldoniĝis en la grupo «%s»."
-
-#~ msgid "Please enter a title."
-#~ msgstr "Bonvolu enmeti titolon."
-
-#~ msgid "Please enter a message."
-#~ msgstr "Bonvolu enmeti mesaĝon."
-
-#~ msgid "Newsletter is sending now, please see a report below..."
-#~ msgstr "Novaĵletero sendiĝas. Bonvolu rigardi la raporton sube…"
-
-#~ msgid "Users info"
-#~ msgstr "Uzanto-informoj"
-
-#~ msgid "You can use the following patterns to auto insert the user's data:"
-#~ msgstr "Vi povas uzi la jenajn ŝablonojn en la aŭtomata enmetado de la uzanto-datumoj:"
-
-#~ msgid "Preview !"
-#~ msgstr "Antaŭvido "
-
-#~ msgid "The following newsletter email will be sent to %s users."
-#~ msgstr "La novaĵletera retpoŝtmesaĝo sendiĝos al %s uzantoj."
-
-#~ msgid "HTML format"
-#~ msgstr "HTML-formato"
-
-#~ msgid "Plain text format"
-#~ msgstr "platteksta formato"
-
-#~ msgid "Send !"
-#~ msgstr "Sendi."
-
-#~ msgid "Go to users list"
-#~ msgstr "Iri uzanto-liston"
-
-#~ msgid "Edit this internal search..."
-#~ msgstr "Redakti ĉi tiun enan serĉon…"
-
-#~ msgid "Duplicate this internal search..."
-#~ msgstr "Kopii ĉi tiun enan serĉon…"
-
-#~ msgid "Delete this internal search!"
-#~ msgstr "Forigi ĉi tiun enan serĉon."
-
-#~ msgid "Change "
-#~ msgstr "Ŝanĝi →"
-
-#~ msgid "&laquo;%s&raquo;.from the blog's <a %s>general settings</a>."
-#~ msgstr "«%s» el la <a %s>ĝenerala agordo</a> de la blogo."
-
-#~ msgid "You don't have permission to upload!"
-#~ msgstr "Vi ne rajtas alŝuti!"
-
-#~ msgid "Your profile picture has been set."
-#~ msgstr "Via profilbildo estas elektita."
-
-#~ msgid "Back to blog"
-#~ msgstr "Reen al la blogo"
-
-#~ msgid "User %s not found."
-#~ msgstr "Uzanto %s ne trovita."
-
-#~ msgid "Please select a user."
-#~ msgstr "Bonvolu elekti uzanton."
-
-#~ msgid "You have successfully subscribed to attend this event."
-#~ msgstr "Vi sukcese ekabonis ĉeesti tiun eventon."
-
-#~ msgid "You have successfully subscribed on the waiting list."
-#~ msgstr "Vi sukcese ekabonis la atendoliston."
-
-#~ msgid "You have successfully subscribed on the \"Also attended\" list."
-#~ msgstr "Vi sukcese ekabonis la liston \"Ankaŭ ĉeestis\"."
-
-#~ msgid "User was successfully unsubscribed."
-#~ msgstr "Vi sukcese malaboniĝis."
-
-#~ msgid "User was successfully subscribed."
-#~ msgstr "Vi sukcese malaboniĝis."
-
-#~ msgid "Could not subscribe to attend this event."
-#~ msgstr "Ne eblis ekaboni ĉeesti tiun eventon."
-
-#~ msgid "The file is too large: %s byte but the maximum allowed is %s byte."
-#~ msgstr "La dosiero tro grandas: %s bajta. La maksimumo permesita estas %s bajta."
-
-#~ msgid "Cannot update profile. Please correct the following errors:"
-#~ msgstr "Ne eblas ĝisdatigi profilon. Bonvolu korekti la jenajn erarojn:"
-
-#~ msgid "Your profile & subscriptions have been updated."
-#~ msgstr "Via profilo kaj abonoj aktualiĝis."
-
-#~ msgid "The blog's current media directory is not empty. It is your responsibility to move the files to the new media directory, otherwise the files will not be available in the file browser. Are you sure you want to proceed with the new setting?"
-#~ msgstr "La aktuala media dosierujo de la blogo ne vakas. Vi devas movi la dosierojn al la nova media dosierujo; alie la dosieroj ne disponeblos en la dosiera foliumilo. Ĉu vi certas, ke vi volas uzi la novan agordaĵon."
-
-#~ msgid "All files will be moved from old blog media directory to new. Are you sure?"
-#~ msgstr "Ĉiuj dosieroj moviĝos de la malnova blogo media dosierujo al la nova. Ĉu vi certas?"
-
-#~ msgid "Link has been deleted from &laquo;user;."
-#~ msgstr "Ligilo foriĝis disde «uzanto»."
-
-#~ msgid "In addition we cannot fallback to the default category because no valid blog ID has been specified."
-#~ msgstr "Aldone ne eblas anstataŭe uzi la aprioran kategorion, ĉar neniu valida bloga identigilo specifiĝis."
+#~ msgid "Deleted locale &laquo;%s&raquo; from database."
+#~ msgstr "Forigis la lokaĵaron «%s» el la datumbazo."
 
 #~ msgid "Item with ID <a %s>%s</a> has an invalid main category ID %s."
 #~ msgstr "Ero kun identigilo <a %s>%s</a> havas nevalidan ĉefkategorian identigilon %s."
 
-#~ msgid "Deleted locale &laquo;%s&raquo; from database."
-#~ msgstr "Forigis la lokaĵaron «%s» el la datumbazo."
+#~ msgid "In addition we cannot fallback to the default category because no valid blog ID has been specified."
+#~ msgstr "Aldone ne eblas anstataŭe uzi la aprioran kategorion, ĉar neniu valida bloga identigilo specifiĝis."
+
+#~ msgid "Link has been deleted from &laquo;user;."
+#~ msgstr "Ligilo foriĝis disde «uzanto»."
+
+#~ msgid "All files will be moved from old blog media directory to new. Are you sure?"
+#~ msgstr "Ĉiuj dosieroj moviĝos de la malnova blogo media dosierujo al la nova. Ĉu vi certas?"
+
+#~ msgid "The blog's current media directory is not empty. It is your responsibility to move the files to the new media directory, otherwise the files will not be available in the file browser. Are you sure you want to proceed with the new setting?"
+#~ msgstr "La aktuala media dosierujo de la blogo ne vakas. Vi devas movi la dosierojn al la nova media dosierujo; alie la dosieroj ne disponeblos en la dosiera foliumilo. Ĉu vi certas, ke vi volas uzi la novan agordaĵon."
+
+#~ msgid "Your profile & subscriptions have been updated."
+#~ msgstr "Via profilo kaj abonoj aktualiĝis."
+
+#~ msgid "Cannot update profile. Please correct the following errors:"
+#~ msgstr "Ne eblas ĝisdatigi profilon. Bonvolu korekti la jenajn erarojn:"
+
+#~ msgid "The file is too large: %s byte but the maximum allowed is %s byte."
+#~ msgstr "La dosiero tro grandas: %s bajta. La maksimumo permesita estas %s bajta."
+
+#~ msgid "Could not subscribe to attend this event."
+#~ msgstr "Ne eblis ekaboni ĉeesti tiun eventon."
+
+#~ msgid "User was successfully subscribed."
+#~ msgstr "Vi sukcese malaboniĝis."
+
+#~ msgid "User was successfully unsubscribed."
+#~ msgstr "Vi sukcese malaboniĝis."
+
+#~ msgid "You have successfully subscribed on the \"Also attended\" list."
+#~ msgstr "Vi sukcese ekabonis la liston \"Ankaŭ ĉeestis\"."
+
+#~ msgid "You have successfully subscribed on the waiting list."
+#~ msgstr "Vi sukcese ekabonis la atendoliston."
+
+#~ msgid "You have successfully subscribed to attend this event."
+#~ msgstr "Vi sukcese ekabonis ĉeesti tiun eventon."
+
+#~ msgid "Please select a user."
+#~ msgstr "Bonvolu elekti uzanton."
+
+#~ msgid "User %s not found."
+#~ msgstr "Uzanto %s ne trovita."
+
+#~ msgid "Back to blog"
+#~ msgstr "Reen al la blogo"
+
+#~ msgid "Your profile picture has been set."
+#~ msgstr "Via profilbildo estas elektita."
+
+#~ msgid "You don't have permission to upload!"
+#~ msgstr "Vi ne rajtas alŝuti!"
+
+#~ msgid "&laquo;%s&raquo;.from the blog's <a %s>general settings</a>."
+#~ msgstr "«%s» el la <a %s>ĝenerala agordo</a> de la blogo."
+
+#~ msgid "Change "
+#~ msgstr "Ŝanĝi →"
+
+#~ msgid "Delete this internal search!"
+#~ msgstr "Forigi ĉi tiun enan serĉon."
+
+#~ msgid "Duplicate this internal search..."
+#~ msgstr "Kopii ĉi tiun enan serĉon…"
+
+#~ msgid "Edit this internal search..."
+#~ msgstr "Redakti ĉi tiun enan serĉon…"
+
+#~ msgid "Go to users list"
+#~ msgstr "Iri uzanto-liston"
+
+#~ msgid "Send !"
+#~ msgstr "Sendi."
+
+#~ msgid "Plain text format"
+#~ msgstr "platteksta formato"
+
+#~ msgid "HTML format"
+#~ msgstr "HTML-formato"
+
+#~ msgid "The following newsletter email will be sent to %s users."
+#~ msgstr "La novaĵletera retpoŝtmesaĝo sendiĝos al %s uzantoj."
+
+#~ msgid "Preview !"
+#~ msgstr "Antaŭvido "
+
+#~ msgid "You can use the following patterns to auto insert the user's data:"
+#~ msgstr "Vi povas uzi la jenajn ŝablonojn en la aŭtomata enmetado de la uzanto-datumoj:"
+
+#~ msgid "Users info"
+#~ msgstr "Uzanto-informoj"
+
+#~ msgid "Newsletter is sending now, please see a report below..."
+#~ msgstr "Novaĵletero sendiĝas. Bonvolu rigardi la raporton sube…"
+
+#~ msgid "Please enter a message."
+#~ msgstr "Bonvolu enmeti mesaĝon."
+
+#~ msgid "Please enter a title."
+#~ msgstr "Bonvolu enmeti titolon."
+
+#~ msgid "%d contacts have been added to the &laquo;%s&raquo;.group."
+#~ msgstr "%d kontaktitoj aldoniĝis en la grupo «%s»."
+
+#~ msgid "Requested &laquo;%s&raquo;.object does not exist any longer."
+#~ msgstr "La petita objekto «%s» ne plu ekzistas."
+
+#~ msgid "Forums Home"
+#~ msgstr "Foruma ĉefpaĝo"
+
+#~ msgid "Escapes tags and entities in &lt;code&gt; tags"
+#~ msgstr "Kodas etikedojn kaj entojn en &lt;code&gt;-etikedoj"
+
+#~ msgid "Bubble tips for anonymous users"
+#~ msgstr "Vezikaj konsiletoj por anonimaj uzantoj"
+
+#~ msgid "Bubble tips in front-office for logged in users"
+#~ msgstr "Vezikaj konsiletoj publikaj por ensalutitaj uzantoj"
+
+#~ msgid "Spanish (ES) utf8"
+#~ msgstr "Hispana (ES) laŭ UTF-8"
+
+#~ msgid "German (DE) utf8"
+#~ msgstr "Germana (DE) laŭ UTF-8"
+
+#~ msgid "This 32 character code uniquely identifies the functionality of this plugin. It is only necessary to call the plugin by code (SkinTag) or when using it as a Renderer."
+#~ msgstr "Ĉi tiu 32-signa kodo unike identigas la funkciadon de ĉi tiu kromprogramo. Ĝi nur necesas voki la kromprogramon per kodo (SkinTag) aŭ kiam uzi ĝin kiel montrilon."
+
+#~ msgid "Number of helpful votes"
+#~ msgstr "Nombro de voĉdonoj montrantaj helpecon"
+
+#~ msgid "Number of comments"
+#~ msgstr "Nombro da komentoj"
+
+#~ msgid "%s different users found %s posted %s helpful replies."
+#~ msgstr "%s diversaj uzantoj opiniis el ĉiuj respondoj de %s %s helpajn."
