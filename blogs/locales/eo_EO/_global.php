@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo_EO'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net/\nPOT-Creation-Date: 2014-11-14 03:21-0500\nPO-Revision-Date: 2014-11-14 03:23-0500\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net/\nPOT-Creation-Date: 2014-12-07 20:03-0500\nPO-Revision-Date: 2014-12-07 20:05-0500\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 'Categories' => 'Kategorioj',
 'Tags' => 'Etikedoj',
 'Previous' => 'Antaŭa',
@@ -3542,6 +3542,8 @@ $trans['eo_EO'] = array(
 'New Domain' => 'Nova domajno',
 'Referrer type' => 'Aldirektanto-tipo',
 'Spam status' => 'Spama stato',
+'All referring domains' => 'Ĉiuj menciantaj domajnoj',
+'Referring domains for collection %s' => 'Menciantaj domajnoj por la kolekto %s',
 'Domain name' => 'Domajnnomo',
 'Regular sites' => 'Ordinaraj TTT-legiloj',
 'Search engines' => 'Serĉiloj',
@@ -5662,7 +5664,7 @@ $trans['eo_EO'] = array(
 'IP whitelist' => 'IP-adresa blankolisto',
 'Input one IP address you want to exempt per line' => 'Enmeti unu IP-adreson, kiun vi volas sendevigi, en ĉiu linio',
 'The trackback does not come from referring host.' => 'La supro ne devenas de la referenca retnodo.',
-'Media player for the these file formats: %s.' => 'Video-legilo por la jenaj datumaranĝoj: %s.',
+'Media player for the these file formats: %s. Note: iOS supports only: %s; Android supports only: %s.' => 'Video-legilo por la jenaj datumformoj: %s. Noto: iOS komprenas nur %s-on; Android komprenas nur %s-on.',
 'Video width (px)' => 'Videa larĝo (rastrumere)',
 '100% width if left empty or 0' => '100% larĝo se vaka aŭ 0',
 'Video height (px)' => 'Videa alto (rastrumere)',
