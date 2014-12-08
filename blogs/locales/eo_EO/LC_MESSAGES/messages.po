@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
 "POT-Creation-Date: 2014-12-07 20:03-0500\n"
-"PO-Revision-Date: 2014-12-07 20:05-0500\n"
+"PO-Revision-Date: 2014-12-07 21:55-0500\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -8479,7 +8479,7 @@ msgstr "TTT-eja koloro"
 #: ../../../inc/collections/views/_coll_settings_site.form.php:74
 #: ../../../inc/collections/views/_coll_settings_site.form.php:75
 msgid "Shared with email settings"
-msgstr "Kunuzataj de retpoŝta agordo"
+msgstr "Komuna kun retpoŝta agordo"
 
 #: ../../../inc/collections/views/_coll_settings_site.form.php:73
 #: ../../../inc/tools/views/_email_settings.form.php:171
@@ -10521,7 +10521,7 @@ msgstr "Ĉi tiu agordo plu limigos ajnajn mediajn atingopermesojn de specifaj bl
 
 #: ../../../inc/files/_files.init.php:218
 msgid "Access to shared root"
-msgstr "Atingo al kunuzita radiko"
+msgstr "Atingo al komuna radiko"
 
 #: ../../../inc/files/_files.init.php:225
 #: ../../../inc/files/_files.init.php:240
@@ -11419,7 +11419,7 @@ msgstr "La dosierujon «%s» ne eblis krei."
 
 #: ../../../inc/files/model/_fileroot.class.php:149
 msgid "Shared"
-msgstr "Kunuzitaj"
+msgstr "Komuna"
 
 #: ../../../inc/files/model/_fileroot.class.php:218
 msgid "User roots"
@@ -12107,11 +12107,11 @@ msgstr "Aktivigi uzanto-dosierujojn"
 
 #: ../../../inc/files/views/_file_settings.form.php:178
 msgid "Check to enable shared root directory."
-msgstr "Marki aktivigi kunuzatan radikan dosierujon."
+msgstr "Marki aktivigi komunan radikan dosierujon."
 
 #: ../../../inc/files/views/_file_settings.form.php:178
 msgid "Enable shared directory"
-msgstr "Aktivigi kunuzatan dosierujon"
+msgstr "Aktivigi komunan dosierujon"
 
 #: ../../../inc/files/views/_file_settings.form.php:179
 msgid "Check to enable root directory for skins."
@@ -13719,7 +13719,7 @@ msgstr "Longitudo"
 #: ../../../skins/_edit.disp.php:241 ../../../skins/forums/_edit.disp.php:324
 #: ../../../skins/pureforums/_edit.disp.php:325
 msgid "Visibility / Sharing"
-msgstr "videblo / kunuzado"
+msgstr "Videbleco / Konigo"
 
 #: ../../../inc/items/views/_item_expert.form.php:468
 #: ../../../inc/items/views/_item_mass.form.php:191
@@ -14811,7 +14811,7 @@ msgstr "Ŝanĝis prioritatojn."
 #: ../../../inc/settings/remotepublish.ctrl.php:190
 #: ../../../inc/settings/settings.ctrl.php:109
 msgid "Global settings are shared between all blogs; see Blog settings for more granular settings."
-msgstr "Tutprograma agordo estas kunuzata inter ĉiuj blogoj; uzu Blogan agordon por ĉiubloga agordo."
+msgstr "Tutprograma agordo estas komuna inter ĉiuj blogoj; uzu Blogan agordon por aparta agordado."
 
 #: ../../../inc/locales/model/_translation.funcs.php:119
 msgid "No found .PO file"
