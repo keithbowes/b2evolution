@@ -149,7 +149,7 @@ if (class_exists('DOMDocument'))
 	}
 }
 
-$ger_pods = array('https://despora.de', 'https://wk3.org', 'https://socializer.cc', 'https://sysad.org', 'https://iliketoast.net', 'https://despora.at');
+$ger_pods = array('https://despora.de', 'https://wk3.org', 'https://socializer.cc', 'https://sysad.org', 'https://iliketoast.net');
 $std_pods = array('https://joindiaspora.com', 'https://pod.geraspora.de', 'https://diasp.de', 'https://diasp.eu', 'https://diasporabrazil.org', 'https://podricing.org', 'https://diasp.org', 'https://diaspora-fr.org', 'https://poddery.com', 'https://nerdpol.ch');
 $pods = array_merge($std_pods, $ger_pods, $pods);
 
