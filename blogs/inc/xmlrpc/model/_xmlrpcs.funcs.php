@@ -1451,7 +1451,9 @@ function xmlrpcs_new_item( $params, & $Blog = NULL )
 	$edited_Item->set( 'ptyp_ID', $params['item_typ_ID'] );
 	$edited_Item->set( 'featured', $params['featured'] );
 	$edited_Item->set_tags_from_string( $params['tags'] );
-	$edited_Item->set( 'locale', $current_User->locale );
+
+	$blog_props = $DB->get_row('SELECT blog_locale FROM `T_blogs` WHERE blog_ID=' . $Blog->ID, ARRAY_A, 0);
+	$edited_Item->set( 'locale', $blog_props['blog_locale'] );
 	$edited_Item->set_creator_User( $current_User );
 
 	if( $params['excerpt'] != '' ) $edited_Item->set( 'excerpt', $params['excerpt'] );

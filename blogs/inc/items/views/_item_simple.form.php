@@ -93,7 +93,12 @@ $Form->begin_form( '', '', $params );
 
 
 	// Fields used in "advanced" form, but not here:
-	$Form->hidden( 'post_locale', $edited_Item->get( 'locale' ) );
+	if ('new' == param('action'))
+	{
+		$blog_props = $DB->get_row('SELECT blog_locale FROM `T_blogs` WHERE blog_ID=' . param('blog'), ARRAY_A, 0);
+		$Form->hidden( 'post_locale', $blog_props['blog_locale'] );
+	}
+		$Form->hidden( 'post_locale', $edited_Item->get( 'locale' ) );
 	$Form->hidden( 'item_typ_ID', $edited_Item->ptyp_ID );
 	$Form->hidden( 'post_url', $edited_Item->get( 'url' ) );
 	$Form->hidden( 'post_excerpt', $edited_Item->get( 'excerpt' ) );

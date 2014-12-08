@@ -158,7 +158,13 @@ $Form->begin_form( '', '', $params );
 	}
 
 	// -- Language chooser BEGIN --
-	$locale_options = locale_options( $edited_Item->get( 'locale' ), false, true );
+	if ('new' == param('action'))
+	{
+		$blog_props = $DB->get_row('SELECT blog_locale FROM `T_blogs` WHERE blog_ID=' . param('blog'), ARRAY_A, 0);
+		$locale_options = locale_options( $blog_props['blog_locale'], false, true );
+	}
+	else
+		$locale_options = locale_options( $edited_Item->get( 'locale '), false, true);
 
 	if ( is_array( $locale_options ) )
 	{	// We've only one enabled locale.
