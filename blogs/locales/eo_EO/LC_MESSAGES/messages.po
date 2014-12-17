@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
 "POT-Creation-Date: 2014-12-07 20:03-0500\n"
-"PO-Revision-Date: 2014-12-07 21:55-0500\n"
+"PO-Revision-Date: 2014-12-13 23:16-0500\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -3743,7 +3743,7 @@ msgstr "al"
 
 #: ../../../inc/_core/ui/results/_results.class.php:2224
 msgid "Sorry, there is nothing to display..."
-msgstr "Bedaŭre ekzistas nenio por montriĝo…"
+msgstr "Bedaŭre ekzistas nenio montrebla…"
 
 # TRANS: abbr. for "Selection"
 #: ../../../inc/_core/ui/results/_resultsel.class.php:99

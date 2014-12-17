@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo_EO'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net/\nPOT-Creation-Date: 2014-12-07 20:03-0500\nPO-Revision-Date: 2014-12-07 21:55-0500\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net/\nPOT-Creation-Date: 2014-12-07 20:03-0500\nPO-Revision-Date: 2014-12-13 23:16-0500\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 'Categories' => 'Kategorioj',
 'Tags' => 'Etikedoj',
 'Previous' => 'Antaŭa',
@@ -628,7 +628,7 @@ $trans['eo_EO'] = array(
 'Lines per page:' => 'Linioj je ĉiu paĝo',
 'Pages' => 'Paĝoj',
 'to' => 'al',
-'Sorry, there is nothing to display...' => 'Bedaŭre ekzistas nenio por montriĝo…',
+'Sorry, there is nothing to display...' => 'Bedaŭre ekzistas nenio montrebla…',
 'Sel' => 'Ele',
 'Selection name' => 'Elektonomo',
 'Update selection' => 'Aktualigi elekton',
