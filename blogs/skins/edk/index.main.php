@@ -137,9 +137,8 @@ skin_include('$disp$', array(
 if ($MainList)
 {
 	$row = $DB->get_row('SELECT COUNT(*) FROM ' . $MainList->ItemQuery->dbtablename .
-		' WHERE post_main_cat_ID IN (SELECT cat_ID FROM ' .
-		$Blog->delete_restrictions[0]['table'] . ' WHERE cat_blog_ID= ' .
-		$Blog->ID . ')', ARRAY_A, 0);
+		' WHERE post_main_cat_ID IN (SELECT cat_ID FROM T_categories' .
+		' WHERE cat_blog_ID=' . $Blog->ID . ')', ARRAY_A, 0);
 	$MainList->page_links(array(
 			'block_start' => '<div id="page-links">',
 			'block_end' => '</div>',
