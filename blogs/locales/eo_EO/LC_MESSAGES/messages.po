@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
 "POT-Creation-Date: 2014-12-19 10:38-0500\n"
-"PO-Revision-Date: 2014-12-20 09:27-0500\n"
+"PO-Revision-Date: 2014-12-22 14:35-0500\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -2631,7 +2631,7 @@ msgstr "Neatendita eraro okazis."
 #: ../../../inc/_core/_misc.funcs.php:2517
 #: ../../../inc/_core/_misc.funcs.php:2538
 msgid "If this error persists, please report it to the administrator."
-msgstr "Se la eraro daŭras, bonvolu denunci al la estro ĝin."
+msgstr "Se la eraro daŭras, bonvolu sciigi la estron pri ĝi."
 
 #: ../../../inc/_core/_misc.funcs.php:2520
 #: ../../../inc/_core/_misc.funcs.php:2547
@@ -2654,7 +2654,7 @@ msgstr "La parametroj de via peto estas nevalidaj."
 
 #: ../../../inc/_core/_misc.funcs.php:2664
 msgid "If you have obtained this error by clicking on a link INSIDE of this site, please report the bad link to the administrator."
-msgstr "Se vi ricevis la eraron per klakado de ligilo <em>ene de</em> ĉi tiu TTT-ejo, bonvolu denunci la malbonan ligilon al la estro."
+msgstr "Se vi ricevis la eraron per klakado de ligilo <em>ene de</em> ĉi tiu TTT-ejo, bonvolu sciigi la estron pri la fuŝa ligilo."
 
 #: ../../../inc/_core/_misc.funcs.php:2781
 msgid "Clear"
@@ -22638,7 +22638,7 @@ msgstr "Vi denuncis la uzanton en %s kiel \"%s\" kun pliaj informojn \"%s\" - <a
 
 #: ../../../inc/users/model/_user.funcs.php:4035
 msgid "Already reported"
-msgstr "Jam denuncita."
+msgstr "Jam denuncita"
 
 #: ../../../inc/users/model/_user.funcs.php:4109
 #: ../../../inc/users/model/_user.funcs.php:4124
