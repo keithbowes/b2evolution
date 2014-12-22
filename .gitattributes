@@ -1,5 +1,12 @@
-* text=auto
+# If your editor can't handle this, use a better editor
+* text eol=lf
 
+# Binary files that shouldn't be converted
+*.bz2 binary
+*.eot binary
 *.gif binary
 *.jpg binary
 *.png binary
+*.swf binary
+*.ttf binary
+*.woff binary
