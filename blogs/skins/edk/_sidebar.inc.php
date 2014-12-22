@@ -1,5 +1,9 @@
 <!-- begin sidebar -->
-<?php global $app_name, $app_version, $baseurl; ?>
+<?php
+	global $app_name, $app_version, $baseurl;
+	/* Make sure the sidebar uses the blog's locale insted of the locale of the bottom post */
+	locale_temp_switch($Blog->locale);
+?>
 
 <ul id="menu">
 <li>
