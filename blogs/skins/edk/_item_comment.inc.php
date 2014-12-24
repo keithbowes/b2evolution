@@ -37,7 +37,7 @@ $Comment = & $params['Comment'];
 ?>
 <!-- ========== START of a COMMENT/TB/PB ========== -->
 <?php
-if(!empty($Comment->author_user_ID) && $Comment->author_user_ID == $Item->Author->ID) $author_class = ' class="author-comment"';
+if(!empty($Comment->author_user_ID) && $Comment->author_user_ID == $Item->get_creator_User()->ID) $author_class = ' class="author-comment"';
 else $author_class = ' class="user-comment"';
 ?>
 	<div<?php echo $author_class; ?> id="<?php echo $Comment->get_anchor(); ?>">

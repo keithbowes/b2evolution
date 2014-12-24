@@ -1,5 +1,4 @@
 <?php
-
 if (param('diaspora-pod'))
 {
 	setcookie('Diaspora-Pod', param('diaspora-pod'), time() + (9 * 7 * 24 * 60 * 60) /* 9 weeks */);
@@ -32,12 +31,11 @@ if ($last_date != $date && 'single' != $disp)
   echo '</h2>';
 }
 $last_date = $date;
-
 ?>
 	<div class="post" id="<?php $Item->anchor_id(); ?>" <?php echo $_item_langattrs ?>>
 <?php 
 	$Item->locale_temp_switch();
-	printf('<%4$s class="storytitle"><a href="%1$s"  title="%3$s">%2$s</a></%5$s>', $Item->get_single_url(), $Item->title, T_('Permanent link to full entry'), $hl, $hl);
+	printf('<%4$s class="storytitle"><a rel="permalink" href="%1$s?show=post&amp;redir=no"  title="%3$s">%2$s</a></%5$s>', $Item->get_single_url(), $Item->title, T_('Permanent link to full entry'), $hl, $hl);
 ?>
   <div class="meta"><?php echo T_('Posted in'); ?> <?php $Item->categories(); ?>
  <?php echo T_('by'); ?>
@@ -51,6 +49,8 @@ echo preg_replace('/(\s*alt=)"[^"]*"/', '$1""', $Item->get_edit_link(array('titl
 ?></div>
 
 <?php
+if (param('show') != 'comments' || $disp != 'single')
+{
 	global $first_item, $last_item, $next_item, $prev_item;
 	if ((!supports_xhtml() && !supports_link_toolbar()) &&
 		(NULL !== $first_item || NULL !== $last_item || NULL !== $next_item || NULL !== $prev_item))
@@ -116,16 +116,22 @@ echo preg_replace('/(\s*alt=)"[^"]*"/', '$1""', $Item->get_edit_link(array('titl
 		$Item->feedback_link(
 			array(
 				'link_after' => '</div>',
+				'link_anchor_more' => '',
+				'link_anchor_one' => '',
+				'link_anchor_zero' => '',
 				'link_before' => '<div class="postmetadata">',
+				'show_in_single_mode' => !empty(param('show')),
 				'type' => 'comments',
+				'url' => $Item->get_feedback_url() . '?show=comments&amp;redir=no',
 			)
 		);
+}
 ?>
 
 </div>
 <?php
 
-skin_include( '_item_feedback.inc.php');
+if (param('show') != 'post') skin_include( '_item_feedback.inc.php');
 endwhile;
 
 skin_include('$disp$', array(
