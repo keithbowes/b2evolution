@@ -121,6 +121,7 @@ function get_item($dir)
 	if (!$Item) return;
 	$categorytablename = $Item->main_Chapter->dbtablename;
 	$itemtablename = $Item->dbtablename;
+	if (!$categorytablename || !$itemtablename) return;
 	$row = 0;
 	// Here we iterate through the items until we can get an item with a category associated with the current blog
 	while (true) {

@@ -70,8 +70,8 @@ while( $Comment = & $CommentList->get_next() )
 			?>
 			<?php
 $Comment->date() ?> @ <?php $Comment->time( 'H:i' );
-$Comment->edit_link( ' &middot; ' ); /* Link to backoffice for editing */
-$Comment->delete_link( ' &middot; ' ); /* Link to backoffice for deleting */
+$Comment->edit_link( ' &#183; ' ); /* Link to backoffice for editing */
+$Comment->delete_link( ' &#183; ' ); /* Link to backoffice for deleting */
 ?>
 		</div>
 	</div>
