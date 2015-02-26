@@ -42,6 +42,12 @@
 	}
 }
 
+// Register form
+#register_form input.form_text_input {
+	border: 1px solid #CCC;
+	padding: 6px 12px;
+}
+
 // Register widget form
 .widget_core_user_register {
 	#register_form {
@@ -109,14 +115,32 @@ input.search_field {
 	margin-bottom: 0;
 	display: inline-block;
 }
-div.compact_search_form input.search_field {
-	width: 183px;
+form.search .search_options {
+	width: 100%;
+	.search_option input {
+		margin-right: 5px;
+	}
+	.search_option label {
+		margin-bottom: 0;
+		margin-top: 5px;
+	}
+}
+div.compact_search_form {
+	input.search_field {
+		width: 100%;
+		margin: 0;
+	}
 }
 div.extended_search_form {
 	text-align: center;
-	input.search_field {
-		margin-right: 3px;
-		width: 500px;
+	margin: 0 auto 2em auto;
+	max-width: 530px;
+	.search_options {
+		text-align: center;
+		.search_option {
+			display: inline-block;
+			margin-right: 10px;
+		}
 	}
 }
 
@@ -159,6 +183,18 @@ textarea.message_text {
 }
 
 // Fix the form elements
+.comment_form {
+	h3 {
+		margin: 0;
+	}
+	.panel {
+		margin: 0;
+		border: none;
+		.panel-body {
+			padding: 0;
+		}
+	}
+}
 form.bComment {
 	border: none;
 	padding: 0;
@@ -176,9 +212,6 @@ form.bComment {
 		margin-top: 0;
 	}
 }
-#comment_rating {
-	margin-top: 7px;
-}
 #comment_date_field {
 	input {
 		width: 80px;
@@ -186,6 +219,30 @@ form.bComment {
 	label {
 		font-weight: normal;
 	}
+}
+.form-group[id^="ffield_uploadfile"] .controls {
+	padding-top: 5px;
+	input {
+		line-height: 10px;
+	}
+}
+// Comment template
+.comment_rating {
+	margin-top: 4px;
+}
+.ratings_table {
+	margin-bottom: 10px;
+	.rating_summary {
+		border-spacing: 1px;
+		border-collapse: separate;
+	}
+	.progress {
+		border-radius: 0;
+		height: 13px;
+	}
+}
+#comment_preview {
+	background-color: #FFF;
 }
 
 .bPost, .featurepost {
@@ -201,6 +258,9 @@ form.bComment {
 			color: #999;
 		}
 	}
+}
+form#user_checkchanges.bComment{
+	border: none;
 }
 
 div.bSideItem {
@@ -286,13 +346,12 @@ div.bSideItem {
 	margin-top: 0;
 }
 
-// Status banners
-#styled_content_block span.note[class*="status_"] {
-	top: -14px;
-	left: 14px
-}
-
 // Pagination
 .pagination {
+	margin: 0;
+}
+
+// Messages
+div.action_messages, div.log_container {
 	margin: 0;
 }

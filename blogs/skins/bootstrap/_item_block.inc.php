@@ -12,7 +12,7 @@
  * @package evoskins
  * @subpackage bootstrap
  *
- * @version $Id: _item_block.inc.php 8011 2015-01-15 16:43:06Z yura $
+ * @version $Id: _item_block.inc.php 8273 2015-02-16 16:19:27Z yura $
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 
@@ -58,7 +58,7 @@ echo '<div id="styled_content_block">'; // Beginning of post display
 
 		// We want to display the post time:
 		$Item->issue_time( array(
-				'before'      => T_('posted on '),
+				'before'      => ' '.T_('posted on '),
 				'after'       => ' ',
 				'time_format' => 'M j, Y',
 			) );
@@ -78,6 +78,12 @@ echo '<div id="styled_content_block">'; // Beginning of post display
 			'include_other'   => true,
 			'include_external'=> true,
 			'link_categories' => true,
+		) );
+
+		// Link for editing
+		$Item->edit_link( array(
+			'before'    => ' &bull; ',
+			'after'     => '',
 		) );
 	?>
 	</div>
@@ -122,21 +128,16 @@ echo '<div id="styled_content_block">'; // Beginning of post display
 							'link_text_more' => '#',
 							'link_title' => '#',
 						) );
-
-			$Item->edit_link( array( // Link to backoffice for editing
-					'before'    => ' &bull; ',
-					'after'     => '',
-				) );
 		?>
 	</div>
 
 	<?php
 		// ------------------ FEEDBACK (COMMENTS/TRACKBACKS) INCLUDED HERE ------------------
-		skin_include( '_item_feedback.inc.php', array(
+		skin_include( '_item_feedback.inc.php', array_merge( array(
 				'before_section_title' => '<h4>',
 				'after_section_title'  => '</h4>',
 				'author_link_text' => $params['author_link_text'],
-			) );
+			), $params ) );
 		// Note: You can customize the default item feedback by copying the generic
 		// /skins/_item_feedback.inc.php file into the current skin folder.
 		// ---------------------- END OF FEEDBACK (COMMENTS/TRACKBACKS) ---------------------

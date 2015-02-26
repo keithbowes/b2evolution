@@ -14,7 +14,7 @@
  * @package evoskins
  * @subpackage bootstrap
  *
- * @version $Id: index.main.php 8096 2015-01-28 12:19:24Z yura $
+ * @version $Id: index.main.php 8273 2015-02-16 16:19:27Z yura $
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 
@@ -113,7 +113,8 @@ siteskin_include( '_site_body_header.inc.php' );
 
 <!-- =================================== START OF MAIN AREA =================================== -->
 	<div class="row">
-		<div class="col-md-9">
+		<div class="<?php echo ( $Skin->get_setting( 'layout' ) == 'single_column' ? 'col-md-12' : 'col-md-9' ); ?>"<?php
+				echo ( $Skin->get_setting( 'layout' ) == 'left_sidebar' ? ' style="float:right;"' : '' ); ?>>
 
 	<?php
 		// ------------------------- MESSAGES GENERATED FROM ACTIONS -------------------------
@@ -169,7 +170,7 @@ siteskin_include( '_site_body_header.inc.php' );
 	?>
 
 	<?php
-	if( $disp != 'front' && $disp != 'download' )
+	if( $disp != 'front' && $disp != 'download' && $disp != 'search' )
 	{
 		// -------------------- PREV/NEXT PAGE LINKS (POST LIST MODE) --------------------
 		mainlist_page_links( array(
@@ -194,7 +195,25 @@ siteskin_include( '_site_body_header.inc.php' );
 			// ---------------------- ITEM BLOCK INCLUDED HERE ------------------------
 			skin_include( '_item_block.inc.php', array(
 					'content_mode' => 'auto',		// 'auto' will auto select depending on $disp-detail
-					'image_size'	 =>	'fit-400x320',
+					'image_size'   => 'fit-400x320',
+					// Comment template
+					'comment_start'         => '<div class="panel panel-default">',
+					'comment_end'           => '</div>',
+					'comment_title_before'  => '<div class="panel-heading">',
+					'comment_title_after'   => '',
+					'comment_rating_before' => '<div class="comment_rating floatright">',
+					'comment_rating_after'  => '</div>',
+					'comment_text_before'   => '</div><div class="panel-body">',
+					'comment_text_after'    => '',
+					'comment_info_before'   => '<div class="bCommentSmallPrint">',
+					'comment_info_after'    => '</div></div>',
+					'preview_start'         => '<div class="panel panel-warning" id="comment_preview">',
+					'preview_end'           => '</div>',
+					// Comment form
+					'form_title_start'      => '<div class="panel '.( $Session->get('core.preview_Comment') ? 'panel-danger' : 'panel-default' )
+					                           .' comment_form"><div class="panel-heading"><h3>',
+					'form_title_end'        => '</h3></div>',
+					'after_comment_form'    => '</div>',
 				) );
 			// ----------------------------END ITEM BLOCK  ----------------------------
 
@@ -257,6 +276,26 @@ siteskin_include( '_site_body_header.inc.php' );
 				'login_form_class'  => 'form-login',
 				'profile_avatar_before' => '<div class="panel panel-default profile_avatar">',
 				'profile_avatar_after' => '</div>',
+				'search_input_before'  => '<div class="input-group">',
+				'search_input_after'   => '',
+				'search_submit_before' => '<span class="input-group-btn">',
+				'search_submit_after'  => '</span></div>',
+				// Comment template
+				'comment_avatar_position' => 'before_text',
+				'comment_start'         => '<div class="panel panel-default">',
+				'comment_end'           => '</div>',
+				'comment_post_before'   => '<div class="panel-heading"><h4 class="bTitle floatleft">',
+				'comment_post_after'    => '</h4>',
+				'comment_title_before'  => '<div class="floatright">',
+				'comment_title_after'   => '</div><div class="clear"></div></div><div class="panel-body">',
+				'comment_rating_before' => '<div class="comment_rating floatright">',
+				'comment_rating_after'  => '</div>',
+				'comment_text_before'   => '',
+				'comment_text_after'    => '',
+				'comment_info_before'   => '<div class="bCommentSmallPrint">',
+				'comment_info_after'    => '</div></div>',
+				'preview_start'         => '<div class="panel panel-warning" id="comment_preview">',
+				'preview_end'           => '</div>',
 			) );
 		// Note: you can customize any of the sub templates included here by
 		// copying the matching php file into your skin directory.
@@ -264,9 +303,12 @@ siteskin_include( '_site_body_header.inc.php' );
 	?>
 
 		</div>
-
+	<?php
+	if( $Skin->get_setting( 'layout' ) != 'single_column' )
+	{
+	?>
 <!-- =================================== START OF SIDEBAR =================================== -->
-		<div class="col-md-3">
+		<div class="col-md-3"<?php echo ( $Skin->get_setting( 'layout' ) == 'left_sidebar' ? ' style="float:left;"' : '' ); ?>>
 
 	<?php
 		// ------------------------- "Sidebar" CONTAINER EMBEDDED HERE --------------------------
@@ -294,6 +336,12 @@ siteskin_include( '_site_body_header.inc.php' );
 				// This will enclose (foot)notes:
 				'notes_start' => '<div class="notes">',
 				'notes_end' => '</div>',
+				// Widget 'Search form':
+				'search_class'         => 'compact_search_form',
+				'search_input_before'  => '<div class="input-group">',
+				'search_input_after'   => '',
+				'search_submit_before' => '<span class="input-group-btn">',
+				'search_submit_after'  => '</span></div>',
 			) );
 		// ----------------------------- END OF "Sidebar" CONTAINER -----------------------------
 	?>
@@ -310,6 +358,7 @@ siteskin_include( '_site_body_header.inc.php' );
 			) );
 	?>
 		</div>
+	<?php } ?>
 	</div>
 
 <!-- =================================== START OF FOOTER =================================== -->

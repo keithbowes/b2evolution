@@ -18,7 +18,7 @@
  * @author blueyed: Daniel HAHLER
  * @author fplanque: Francois PLANQUE.
  *
- * @version $Id: _coll_general.form.php 8021 2015-01-19 08:25:12Z yura $
+ * @version $Id: _coll_general.form.php 8263 2015-02-15 04:27:31Z fplanque $
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 
@@ -39,7 +39,7 @@ if( $edited_Blog->ID == 0 )
 	$kind_title = get_collection_kinds( $kind );
 	$form_title = sprintf( T_('New %s'), $kind_title ).':';
 
-	$Form->global_icon( sprintf( T_('Abort New %s'), $kind_title ), 'close', $admin_url.'?ctrl=collections&amp;tab=list', ' '.sprintf( T_('Abort New %s'), $kind_title ), 3, 3 );
+	$Form->global_icon( T_('Abort creating new collection'), 'close', $admin_url.'?ctrl=collections&amp;tab=list', ' '.sprintf( T_('Abort New %s'), $kind_title ), 3, 3 );
 }
 
 $Form->begin_form( 'fform', $form_title );
@@ -181,7 +181,7 @@ $Form->begin_fieldset( T_('Lists of collections').get_manual_link( 'collection-l
 											array( 'logged', T_('For logged-in users only') ),
 											array( 'member', T_('For members only') ),
 											array( 'never', T_('Never') )
-										), T_('Show in front-office list'), true, T_('Select how you want this blog to be advertised in the list of all public blogs on this system.') );
+										), T_('Show in front-office list'), true, T_('Select when you want this blog to appear in the list of blogs on this system.') );
 
 	$Form->checkbox( 'favorite', $edited_Blog->get( 'favorite' ),
 						T_( 'Show in back-office favorites' ), T_( 'Include in the quick blog selector at the top of the back office pages.' ) );
