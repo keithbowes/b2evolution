@@ -92,7 +92,7 @@ if( strtoupper($argv[1]) == 'CORE' )
 	echo "CORE mode..\n";
 	$mode = 'CORE';
 	// The blogs directory:
-	$dir_root = dirname(__FILE__).'/../blogs/';
+	$dir_root = dirname(__FILE__).'/../';
 }
 elseif( strtoupper($argv[1]) == 'CWD' )
 {
@@ -244,7 +244,7 @@ if( $action == 'extract' )
 	if( $mode == 'CORE' )
 	{ // Replace header "vars" in first 20 lines:
 		// Get $app_version:
-		require_once dirname(__FILE__).'/../blogs/conf/_config.php';
+		require_once dirname(__FILE__).'/../conf/_config.php';
 
 		system( 'sed -i 1,20"'
 			.'s/PACKAGE/b2evolution/;'
@@ -298,7 +298,7 @@ if( $action == 'merge' )
 
 if( $action == 'convert' )
 { // convert messages.PO files to _global.php
-	require_once dirname(__FILE__).'/../blogs/inc/locales/_pofile.class.php';
+	require_once dirname(__FILE__).'/../inc/locales/_pofile.class.php';
 
 	foreach( $locales_to_convert as $l_locale )
 	{
