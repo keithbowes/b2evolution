@@ -29,7 +29,7 @@ $schema_queries['T_files'] = array(
 			file_type                enum('image', 'audio', 'other') COLLATE ascii_general_ci NULL DEFAULT NULL,
 			file_root_type           enum('absolute','user','collection','shared','skins','import') COLLATE ascii_general_ci NOT NULL DEFAULT 'absolute',
 			file_root_ID             int(11) unsigned not null default 0,
-			file_path                varchar(767) not null default '',
+			file_path                varchar(255) not null default '',
 			file_title               varchar(255),
 			file_alt                 varchar(255),
 			file_desc                text,
