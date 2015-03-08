@@ -1,6 +1,6 @@
 # Facile aktualigi la tradukajn dosierojn
 # Ŝanĝi la variablon XG_PHP al la vojo de la programeto xg.php
-XG_PHP ?= $(shell pwd)/../../../gettext/xg.php
+XG_PHP ?= $(shell pwd)/../../_transifex/xg.php
 XG ?= php -f $(XG_PHP)
 
 all: purigi
@@ -12,8 +12,9 @@ update-messages:
 	cd ../.. && $(XG) CWD merge eo_EO
 
 update-static:
+	touch ../static.pot LC_MESSAGES/static.po
 	cd LC_MESSAGES && cp -f static.po static.po~
-	msgmerge -Uq LC_MESSAGES/static.po ../../../gettext/transifex/static.pot
+	@msgmerge -Uq LC_MESSAGES/static.po ../static.pot
 
 entoj: all
 	sed -i -f entoj.sed _global.php
