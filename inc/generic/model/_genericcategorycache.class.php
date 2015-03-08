@@ -232,6 +232,18 @@ class GenericCategoryCache extends GenericCache
 					//     6. If inhereited from parent, ask parent for sort order (which may trigger a recursion)
 					//   7. Sort children of this category against each other
 
+					// TODO: One option would be to pre-sort everything here...
+					// BUT it's probably better to sort at display time, only if we need to!
+					// 
+					// In case we wanted to presort here, we would od it approx like this:
+					// 1. Get sort order of requested collection (blog_ID) : either alphabetic or specifc order
+					// 2. Sort root categories against each other  --   sort( $this->subset_root_cats[$this->cache[$cat_ID]->{$this->subset_property}] )
+					// 3. Loop through all categories:
+					//   4. If this category has no children, continue to next cat
+					//   5. Get desired sort order for this categorie's children: either alphabetic or specific order or inherit from parent
+					//     6. If inhereited from parent, ask parent for sort order (which may trigger a recursion)
+					//   7. Sort children of this category against each other
+
 					$Timer->pause('reveal_children', false );
 
 				}
@@ -354,6 +366,7 @@ class GenericCategoryCache extends GenericCache
 				$r .= $callbacks['no_children']( $cat, $level ); // </li>
 			}
 		}
+
 
 
 		if( !empty( $cat->parent_ID ) && !empty( $callbacks['posts'] ) )

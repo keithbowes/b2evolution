@@ -5,6 +5,11 @@
 	font-family: 'Glyphicons Halflings' !important;
 }
 
+// Don't rewrite a font family of glyph icons
+.glyphicon {
+	font-family: 'Glyphicons Halflings' !important;
+}
+
 ul, ol {
 	margin: 0 0 10px 25px;
 	padding: 0;
@@ -109,6 +114,16 @@ ul, ol {
 		}
 		td.input div.tile label {
 			display: none;
+		}
+	}
+	// Select category table on edit post form
+	#itemform_categories {
+		.panel-body.extracats {
+			padding: 0;
+			table.table {
+				margin: 0;
+				border: none;
+			}
 		}
 	}
 	// Select category table on edit post form

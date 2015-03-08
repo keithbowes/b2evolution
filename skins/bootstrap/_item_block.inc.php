@@ -150,6 +150,9 @@ echo '<div id="styled_content_block">'; // Beginning of post display
 						) );
 		?>
 	</div>
+	<?php
+	}
+	?>
 
 	<?php
 		// ------------------ FEEDBACK (COMMENTS/TRACKBACKS) INCLUDED HERE ------------------

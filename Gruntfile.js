@@ -240,6 +240,19 @@ module.exports = function(grunt) {
 			}
 		},
 
+		// Markdown to HTML
+		markdown: {
+			options: {
+				template: 'readme.template.html'
+			},
+			files: {
+				expand: true,
+				src: 'readme.md',
+				dest: '',
+				ext: '.html'
+			}
+		},
+
 		// Configuration for the watch tasks:
 		watch: {
 			/* Early tests:

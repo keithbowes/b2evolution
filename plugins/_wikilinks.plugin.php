@@ -212,6 +212,8 @@ class wikilinks_plugin extends Plugin
 						(?= [\.,:;!\?] \s | \s | $ )							# Lookahead for whitespace or end of string
 						/sx';	// s = dot matches newlines, x = extended (spaces + comments allowed)
 
+				// Use title of wiki word without attribute part
+				$WikiWord = $WikiWord_match[1];
 
 					// Find matching Item:
 					if( ($Item = & $ItemCache->get_by_urltitle( $wiki_word, false )) !== false )

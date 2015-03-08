@@ -453,6 +453,10 @@ class Parsedown
 					{ // Don't apply <p> around list and already existing paragraph tags
 						$markup .= $text;
 					}
+					elseif( preg_match( '~^<(ul|ol|li|p)~i', $text ) || preg_match( '~</(ul|ol|li|p)>$~i', $text ) )
+					{ // Don't apply <p> around list and already existing paragraph tags
+						$markup .= $text;
+					}
 					elseif( $context === 'li' && $index === 0 )
 					{
 						$markup .= $text;

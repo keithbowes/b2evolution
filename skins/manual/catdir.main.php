@@ -39,6 +39,13 @@ siteskin_include( '_site_body_header.inc.php' );
 // ------------------------------- END OF SITE HEADER --------------------------------
 
 
+
+// ---------------------------- SITE HEADER INCLUDED HERE ----------------------------
+// If site headers are enabled, they will be included here:
+siteskin_include( '_site_body_header.inc.php' );
+// ------------------------------- END OF SITE HEADER --------------------------------
+
+
 // -------------------------- BODY HEADER INCLUDED HERE --------------------------
 skin_include( '_body_header.inc.php' );
 // Note: You can customize the default BODY header by copying the generic
@@ -97,6 +104,13 @@ skin_include( '_body_footer.inc.php' );
 // Note: You can customize the default BODY footer by copying the generic
 // /skins/_body_footer.inc.php file into the current skin folder.
 // -------------------------------- END OF BODY FOOTER ---------------------------
+
+
+// ---------------------------- SITE FOOTER INCLUDED HERE ----------------------------
+// If site footers are enabled, they will be included here:
+siteskin_include( '_site_body_footer.inc.php' );
+// ------------------------------- END OF SITE FOOTER --------------------------------
+
 
 
 // ---------------------------- SITE FOOTER INCLUDED HERE ----------------------------
