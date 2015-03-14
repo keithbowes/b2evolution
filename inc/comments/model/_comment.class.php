@@ -2353,7 +2353,7 @@ class Comment extends DataObject
 
 		$post_permalink = $this->Item->get_single_url( 'auto', '', $glue );
 
-		return $post_permalink.'#'.$this->get_anchor();
+		return $post_permalink.'?show=comments&amp;redir=no#'.$this->get_anchor();
 	}
 
 
