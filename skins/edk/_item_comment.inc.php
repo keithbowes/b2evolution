@@ -83,7 +83,7 @@ else $author_class = ' class="user-comment"';
 							'before'    => '',
 							'after'     => ' '.$Skin->T_('from').' ',
 							'text' 		=> T_('Comment'),
-							'title'     => '',
+							'title'     => '#',
 							'nofollow'	=> true,
 						) );
 				}
