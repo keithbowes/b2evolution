@@ -275,7 +275,7 @@ echo $params['html_tag'];
 if ('single' == $disp)
 		{
 ?>
-  <link rel="bookmark" href="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']); ?>#comments" title="<?php echo T_('Comments') ?>" />
+  <link rel="bookmark" href="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']); ?>?show=comments&amp;redir=no#comments" title="<?php echo T_('Comments') ?>" />
 <?php
 		}
 ?>
