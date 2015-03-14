@@ -6,6 +6,8 @@ if (param('diaspora-pod'))
 	die();
 }
 
+$show_mode = param('show', 'string', 'post');
+
 $last_date = '';
 $hl = 'single' != $disp ? 'h3' : 'h2';
 
@@ -35,7 +37,7 @@ $last_date = $date;
 	<div class="post" id="<?php $Item->anchor_id(); ?>" <?php echo $_item_langattrs ?>>
 <?php 
 	$Item->locale_temp_switch();
-	printf('<%4$s class="storytitle"><a rel="permalink" href="%1$s?show=post&amp;redir=no"  title="%3$s">%2$s</a></%5$s>', $Item->get_single_url(), $Item->title, T_('Permanent link to full entry'), $hl, $hl);
+	printf('<%4$s class="storytitle"><a rel="permalink" href="%1$s"  title="%3$s">%2$s</a></%5$s>', $Item->get_single_url(), $Item->title, T_('Permanent link to full entry'), $hl, $hl);
 ?>
   <div class="meta"><?php echo T_('Posted in'); ?> <?php $Item->categories(); ?>
  <?php echo T_('by'); ?>
@@ -49,7 +51,7 @@ echo preg_replace('/(\s*alt=)"[^"]*"/', '$1""', $Item->get_edit_link(array('titl
 ?></div>
 
 <?php
-if (param('show') != 'comments' || $disp != 'single')
+if ($show_mode != 'comments' || $disp != 'single')
 {
 	global $first_item, $last_item, $next_item, $prev_item;
 	if ((!supports_xhtml() && !supports_link_toolbar()) &&
@@ -120,7 +122,7 @@ if (param('show') != 'comments' || $disp != 'single')
 				'link_anchor_one' => '',
 				'link_anchor_zero' => '',
 				'link_before' => '<div class="postmetadata">',
-				'show_in_single_mode' => !empty(param('show')),
+				'show_in_single_mode' => !empty($show_mode),
 				'type' => 'comments',
 				'url' => $Item->get_feedback_url() . '?show=comments&amp;redir=no',
 			)
@@ -131,7 +133,7 @@ if (param('show') != 'comments' || $disp != 'single')
 </div>
 <?php
 
-if (param('show') != 'post') skin_include( '_item_feedback.inc.php');
+if ($show_mode != 'post') skin_include( '_item_feedback.inc.php');
 endwhile;
 
 skin_include('$disp$', array(
