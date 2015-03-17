@@ -210,9 +210,10 @@ if( $action == 'extract' )
 			unset($file_array[$i]);
 		}
 	}
-	$cmd = implode(' ', $file_array);
+	$cmd = implode("\n", $file_array);
+	file_put_contents('files.txt', $cmd);
 
-	$cmd = 'xgettext -o '.escapeshellarg($file_pot).' --from-code=iso-8859-15 --no-wrap --add-comments=TRANS --copyright-holder="Francois PLANQUE" --msgid-bugs-address=http://fplanque.net/ --keyword=T_ --keyword=NT_ --keyword=TS_ -F ' . $cmd;
+	$cmd = 'xgettext -f files.txt -o '.escapeshellarg($file_pot).' --from-code=iso-8859-15 --no-wrap --add-comments=TRANS --copyright-holder="Francois PLANQUE" --msgid-bugs-address=http://fplanque.net/ --keyword=T_ --keyword=NT_ --keyword=TS_ --sort-by-file';
 
 	// Append filenames, if specified:
 	if( isset($argv[3]) )
@@ -229,6 +230,7 @@ if( $action == 'extract' )
 		die("Failed!\n");
 	}
 	echo "[ok]\n";
+	unlink('files.txt');
 
 
 	// Replace various things (see comments)
@@ -252,7 +254,7 @@ if( $action == 'extract' )
 			.'s/# SOME DESCRIPTIVE TITLE./# b2evolution - Language file/;'
 			.'s/(C) YEAR/(C) 2003-'.date('Y').'/;'
 			.'s/YEAR(?!-MO)/'.date('Y').'/;'
-			.'s/CHARSET/iso-8859-1/;'
+			.'s/CHARSET/utf-8/;'
 			.'" '.escapeshellarg($file_pot) );
 	}
 	else
