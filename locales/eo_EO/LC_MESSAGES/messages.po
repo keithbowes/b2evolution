@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
 "POT-Creation-Date: 2015-03-13 23:39-0400\n"
-"PO-Revision-Date: 2015-03-16 23:54-0400\n"
+"PO-Revision-Date: 2015-03-17 19:41-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -8118,7 +8118,7 @@ msgstr "Mesaĝado"
 #: ../../../plugins/_archives.plugin.php:301
 #: ../../../skins/basic/index.main.php:266
 msgid "Archives"
-msgstr "Arkivejo"
+msgstr "Arkivoj"
 
 #: ../../../inc/collections/views/_coll_other.form.php:70
 msgid "monthly"
@@ -8158,7 +8158,7 @@ msgstr "Arkiva ordigado"
 
 #: ../../../inc/collections/views/_coll_other.form.php:82
 msgid "How to sort your archives? (only in post by post mode)"
-msgstr "Kiel ordigi vian arkivejon? (nur en afiŝpostafiŝa reĝimo"
+msgstr "Kiel ordigi viajn arkivojn? (nur laŭ afiŝpostafiŝa reĝimo)"
 
 #: ../../../inc/collections/views/_coll_other.form.php:86
 #: ../../../inc/collections/views/_coll_seo.form.php:331
@@ -8434,7 +8434,7 @@ msgstr "OpenGraph"
 
 #: ../../../inc/collections/views/_coll_seo.form.php:130
 msgid "\"By date\" archives"
-msgstr "Dosieroj \"per dato\""
+msgstr "Arkivoj \"laŭ dato\""
 
 #: ../../../inc/collections/views/_coll_seo.form.php:134
 #: ../../../inc/collections/views/_coll_seo.form.php:218
@@ -11704,7 +11704,7 @@ msgstr "tgz-dosiero"
 
 #: ../../../inc/files/model/_file.funcs.php:1926
 msgid "Archive"
-msgstr "Arkivejo"
+msgstr "Arkivo"
 
 #: ../../../inc/files/model/_file.funcs.php:1927
 msgid "Microsoft Word"
@@ -14019,7 +14019,7 @@ msgstr "Ĉiuj escepte de "
 
 #: ../../../inc/items/model/_itemlistlight.class.php:956
 msgid "Archives for"
-msgstr "Arkivejo por"
+msgstr "Arkivoj por"
 
 #: ../../../inc/items/model/_itemlistlight.class.php:965
 #: ../../../plugins/_archives.plugin.php:226
@@ -23926,7 +23926,7 @@ msgstr "Nivelo por novaj uzantoj "
 
 #: ../../../inc/users/views/_registration.form.php:68
 msgid "Levels determine hierarchy of users in blogs."
-msgstr "Niveloj decidas hierarkio de uzantoj en blogoj."
+msgstr "Niveloj decidas hierarkion de uzantoj en blogoj."
 
 #: ../../../inc/users/views/_registration.form.php:74
 msgid "Default user settings"
@@ -25712,7 +25712,7 @@ msgstr "Komunaj navigaj ligiloj"
 
 #: ../../../inc/widgets/widgets/_coll_common_links.widget.php:64
 msgid "Display these links: Recently, Archives, Categories, Latest Comments"
-msgstr "Montri jenajn ligilojn: Freŝe, Arkivejo, kategorioj, Plej freŝaj komentoj"
+msgstr "Montri jenajn ligilojn: Freŝe, arkivoj, kategorioj, Plej freŝaj komentoj"
 
 #: ../../../inc/widgets/widgets/_coll_common_links.widget.php:85
 msgid "Show \"Home\""
@@ -25748,7 +25748,7 @@ msgstr "Al la afiŝa indekso."
 
 #: ../../../inc/widgets/widgets/_coll_common_links.widget.php:109
 msgid "Show \"Archives\""
-msgstr "Montri \"Arkivejo\""
+msgstr "Montri \"Arkivoj\""
 
 #: ../../../inc/widgets/widgets/_coll_common_links.widget.php:110
 msgid "Go to the monthly/weekly/daily archive list."
@@ -28414,7 +28414,7 @@ msgstr "Ĉi tiu etosa etikedo montras liston de afiŝaj arkivoj."
 
 #: ../../../plugins/_archives.plugin.php:50
 msgid "Archives can be grouped monthly, daily, weekly or post by post."
-msgstr "Arkivejo povas grupiĝi laŭ monatoj, tagoj, semajnoj aŭ afiŝoj."
+msgstr "Arkivoj povas grupiĝi laŭ monatoj, tagoj, semajnoj aŭ afiŝoj."
 
 #: ../../../plugins/_archives.plugin.php:138
 msgid "More..."
