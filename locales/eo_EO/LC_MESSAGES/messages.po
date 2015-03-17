@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
 "POT-Creation-Date: 2015-03-13 23:39-0400\n"
-"PO-Revision-Date: 2015-03-13 23:58-0400\n"
+"PO-Revision-Date: 2015-03-16 23:54-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -19,13 +19,13 @@ msgstr ""
 #: ../../../_tests/blogs/_libs.misc.simpletest.php:122
 #: ../../../inc/xhtml_validator/_xhtml_validator.class.php:259
 msgid "Illegal tag"
-msgstr "Kontraŭleĝa etikedo"
+msgstr "Nevalida etikedo"
 
 #: ../../../_tests/blogs/_libs.misc.simpletest.php:128
 #: ../../../inc/xhtml_validator/_xhtml_validator.class.php:309
 #, php-format
 msgid "Tag &lt;%s&gt; may not contain raw character data"
-msgstr "Etikedo &lt;%s&gt; ne eblas enhavi neformatitajn signo-datumojn"
+msgstr "Etikedo &lt;%s&gt; ne rajtas enhavi neformatitajn signo-datumojn"
 
 # TRANS: short for "Switch to _A_dmin"
 #: ../../../conf/_icons.php:37

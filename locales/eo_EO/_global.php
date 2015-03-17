@@ -7,9 +7,9 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo_EO'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net/\nPOT-Creation-Date: 2015-03-13 23:39-0400\nPO-Revision-Date: 2015-03-13 23:58-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
-'Illegal tag' => 'Kontraŭleĝa etikedo',
-'Tag &lt;%s&gt; may not contain raw character data' => 'Etikedo &lt;%s&gt; ne eblas enhavi neformatitajn signo-datumojn',
+'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net/\nPOT-Creation-Date: 2015-03-13 23:39-0400\nPO-Revision-Date: 2015-03-16 23:54-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'Illegal tag' => 'Nevalida etikedo',
+'Tag &lt;%s&gt; may not contain raw character data' => 'Etikedo &lt;%s&gt; ne rajtas enhavi neformatitajn signo-datumojn',
 'Adm' => '[A]',
 'Blg' => '^',
 'Folder' => 'Dosierujo',
