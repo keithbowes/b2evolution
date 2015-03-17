@@ -125,7 +125,7 @@ if ($show_mode != 'comments' || $disp != 'single')
 				'link_before' => '<div class="postmetadata">',
 				'show_in_single_mode' => !empty($show_mode),
 				'type' => 'comments',
-				'url' => $Item->get_feedback_url() . '?show=comments&amp;redir=no',
+				'url' => $Item->get_feedback_url() . '?show=comments&amp;redir=no#comments',
 			)
 		);
 }
