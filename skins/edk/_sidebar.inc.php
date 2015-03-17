@@ -35,10 +35,11 @@
   <li><h2<?php if (!supports_xhtml()) echo ' tabindex="26789"'; ?>><?php echo T_('Misc'); ?></h2>
  	  <ul>
 <?php
-global $cururl;
-global $_item_title;
+global $_item_title, $_item_url;
 if (empty($_item_title))
 	$_item_title = $Blog->get('name');
+if (empty($_item_url))
+	$_item_url = $Blog->get('url');
 
 if ($Blog->get_setting('feed_content') != 'none')
 {
@@ -64,9 +65,9 @@ if (supports_xhtml())
 <?php
 }
 ?>
-<li><a href="https://m.facebook.com/sharer/?u=<?php echo $cururl; ?>&amp;t=<?php echo urlencode($_item_title); ?>" onclick="window.open(this.href.replace(/m\.(facebook\.com)\/(sharer)/, 'www.$1/$2/$2.php')); return false;" class="button" id="facebook" title="[<?php echo $Skin->T_('Share on Facebook'); ?>]"><?php echo preg_replace('/^(.*)F(acebook.*)$/', '<span class="button-sf">$1</span>F<span class="button-sf">$2</span>', $Skin->T_('Share on Facebook')); ?></a></li>
-<li><a href="<?php echo "https://plus.google.com/share?url=$cururl"; ?>" onclick="window.open(this.href); return false;" class="button" id="gplus" title="[<?php echo $Skin->T_('Share on Google+'); ?>]"><?php echo preg_replace('/^(.*)G(oogle)\+/', '<span class="button-sf">$1</span>G<span class="button-sf">$2</span>+', $Skin->T_('Share on Google+')); ?></a></li>
-<li><a href="<?php echo "https://twitter.com/intent/tweet?original_referer=$cururl&amp;url=$cururl&amp;text=" . urlencode($_item_title); ?>" onclick="window.open(this.href); return false;" class="button" id="twitter" title="[<?php echo $Skin->T_('Share on Twitter'); ?>]"><?php echo preg_replace('/^(.*)T(witter.*)$/', '<span class="button-sf">$1</span>T<span class="button-sf">$2</span>', $Skin->T_('Share on Twitter')); ?></a></li>
+<li><a href="https://m.facebook.com/sharer/?u=<?php echo $_item_url; ?>&amp;t=<?php echo urlencode($_item_title); ?>" onclick="window.open(this.href.replace(/m\.(facebook\.com)\/(sharer)/, 'www.$1/$2/$2.php')); return false;" class="button" id="facebook" title="[<?php echo $Skin->T_('Share on Facebook'); ?>]"><?php echo preg_replace('/^(.*)F(acebook.*)$/', '<span class="button-sf">$1</span>F<span class="button-sf">$2</span>', $Skin->T_('Share on Facebook')); ?></a></li>
+<li><a href="<?php echo "https://plus.google.com/share?url=$_item_url"; ?>" onclick="window.open(this.href); return false;" class="button" id="gplus" title="[<?php echo $Skin->T_('Share on Google+'); ?>]"><?php echo preg_replace('/^(.*)G(oogle)\+/', '<span class="button-sf">$1</span>G<span class="button-sf">$2</span>+', $Skin->T_('Share on Google+')); ?></a></li>
+<li><a href="<?php echo "https://twitter.com/intent/tweet?original_referer=$_item_url&amp;url=$_item_url&amp;text=" . urlencode($_item_title); ?>" onclick="window.open(this.href); return false;" class="button" id="twitter" title="[<?php echo $Skin->T_('Share on Twitter'); ?>]"><?php echo preg_replace('/^(.*)T(witter.*)$/', '<span class="button-sf">$1</span>T<span class="button-sf">$2</span>', $Skin->T_('Share on Twitter')); ?></a></li>
 <li>
 <script type="text/javascript">
 /*<![CDATA[*/
@@ -90,7 +91,7 @@ function getUri(form, pod)
 
 <form id="diaspform" action="<?php echo $_SERVER['PHP_SELF']; ?>" onsubmit="var pod = localStorage.getItem('diasporapod'); if (!pod) pod = '<?php echo $pod; ?>'; pod = prompt('<?php echo $Skin->T_('Enter the URL of a Diaspora* pod where you want to share (e.g. https://joindiaspora.com)'); ?>', pod); if (!pod || pod.indexOf('https://') != 0) { /* Alert for empty string, but not for canceled operation */ if (pod != null) alert('<?php echo $Skin->T_('Invalid entry!'); ?>'); return false; } localStorage.setItem('diasporapod', pod); this['diaspora-pod'].value = pod; window.open(getUri(this, pod)); return false;">
 <div>
-<input type="hidden" name="url" value="<?php echo $cururl; ?>" />
+<input type="hidden" name="url" value="<?php echo $_item_url; ?>" />
 <input type="hidden" name="title" value="<?php echo urlencode($_item_title); ?>" />
 <?php
 $pods = array();
@@ -199,7 +200,7 @@ for ($i = 0; $i < count($pods); $i++)
 		<ul>
 <?php $logged_in = is_logged_in() && $current_User->check_perm('admin', 'restricted');
 ?>
-	<li><a href="<?php echo $baseurl ?>admin.php<?php if (!$logged_in) echo '?redirect_to=' . $cururl . '' ?>"><?php echo T_($logged_in ? 'Dashboard' : 'Log in') ?></a></li>
+	<li><a href="<?php echo $baseurl ?>admin.php<?php if (!$logged_in) echo '?redirect_to=' . $_item_url . '' ?>"><?php echo T_($logged_in ? 'Dashboard' : 'Log in') ?></a></li>
 <?php user_logout_link( '<li>', '</li>' ); ?>
 </ul></li>
 	<li><h2<?php if (!supports_xhtml()) echo ' tabindex="46789"'; ?>><?php echo $Skin->T_('Credits') ?></h2>
