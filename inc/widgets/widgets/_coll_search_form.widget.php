@@ -174,12 +174,11 @@ class coll_search_form_Widget extends ComponentWidget
 			echo '</div>';
 		}
 
-		echo '</div>';
-
 		if( $this->disp_params['use_search_disp'] )
 		{
 			echo '<input type="hidden" name="disp" value="search" />';
 		}
+		echo '</div>';
 		echo '</form>';
 
 		echo $this->disp_params['block_body_end'];
