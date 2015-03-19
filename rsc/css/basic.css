@@ -936,7 +936,6 @@ div#debug_ajax_info {
   min-width: 190px;
   min-height: 83px;
   opacity: 0.85;
-  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=85);
 }
 div#debug_ajax_info.debug {
   padding: 0;

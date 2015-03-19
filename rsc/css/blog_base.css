@@ -726,20 +726,6 @@ div.results .status_trash span {
   float: left;
   width: 80px;
 }
-@media \0screen {
-  /* IE8 */
-  #styled_content_block .status_draft span,
-  #styled_content_block .status_review span,
-  #styled_content_block .status_community span,
-  #styled_content_block .status_protected span,
-  #styled_content_block .status_private span,
-  #styled_content_block .status_published span,
-  #styled_content_block .status_deprecated span,
-  #styled_content_block .status_redirected span {
-    top: -15px;
-    left: -2px;
-  }
-}
 .search_title {
   font-size: 125%;
 }
