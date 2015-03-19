@@ -105,7 +105,9 @@ if ($show_mode != 'comments' || $disp != 'single')
 	</div>
 
 <?php
+	if ('single' == $disp)
 		$hl[1] = $hl[1] + 1;
+
 		$Item->tags(
 			array(
 				'after' => "\n</ul>\n</div>\n",
