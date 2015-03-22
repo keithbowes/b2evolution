@@ -386,7 +386,7 @@ C message size exceeds',
 	 * @param boolean true to return param's real value
 	 * @return mixed Value of parameter
 	 */
-	function get( $parname, $real_value = false )
+	function get( $parname, $real_value = false, $unused = NULL )
 	{
 		if( $real_value )
 		{
