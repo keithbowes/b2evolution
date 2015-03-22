@@ -7,12 +7,8 @@ Author: Keith Bowes
 Default WordPress by Dave Shea || http://mezzoblue.com
 */
 
-@import url(../../rsc/css/basic.css);	/* Import basic styles */
-@import url(../../rsc/css/basic_styles.css);	/* Import basic styles */
-@import url(../../rsc/css/blog_base.css);	/* Import standard blog styles */
 @import url(../../rsc/css/blog_elements.css);	/* Import standard blog elements styles */
 @import url(../../rsc/css/comments.css);	/* Import default comment styles */
 @import url(../../rsc/css/forms.css);	/* Import default form styles */
 @import url(../../rsc/css/fp02.css);	/* Import François styles */
 @import url(../../rsc/css/img.css);	/* Import standard image styles */
-@import url(../../rsc/css/item_base.css);	/* Import standard item styles */

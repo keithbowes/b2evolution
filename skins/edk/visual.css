@@ -99,10 +99,6 @@ html {
   overflow: hidden;
 }
 
-/*iframe {
-  display: none;
-}*/
-
 li, p,
 .credit,
 .feedback,
@@ -341,8 +337,7 @@ li, p,
 }
 
 .bText,
-.storycontent/*,
-.sub*/ {
+.storycontent {
   clear: both;
   overflow: auto !important;
   padding-top: 0.2em;
@@ -459,11 +454,6 @@ form.bComment textarea {
   max-width: 90%;
   padding: 0.2em;
 }
-
-/*form.bComment input:invalid {
-  background-color: red;
-  color: silver;
-}*/
 
 form.bComment legend {
   border: thin double gray;
@@ -703,41 +693,3 @@ form.bComment legend {
   width: 28%;
   }
 }
-
-/* For browsers that support CSS 4 media queries */
-/*@media (color) or (monochrome) {
-  #diaspora {
-  appearance: none;
-  }
-
-  #menu {
-  background-color: inherit;
-  }
-
-  #menu,
-  #menu div.search,
-  #menu ul li h2 a {
-  color: navy;
-  list-style-type: none;
-  margin: 0;
-  padding-left: 0.2em;
-  text-transform: lowercase;
-  }
-
-  #menu *:not(h2):not(th):not(.button) {
-  font-size: 0.8em;
-  font-weight: normal !important;
-  }
-
-  #menu ul li a {
-  color: red;
-  }
-
-  #menu .credit a {
-  color: red !important;
-  }
-
-  .bCalendarTable caption * {
-  color: maroon !important;
-  }
-}*/
