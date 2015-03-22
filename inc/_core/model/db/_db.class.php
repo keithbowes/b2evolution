@@ -391,7 +391,7 @@ class DB
 			if( $old_html_errors !== false ) ini_set('html_errors', $old_html_errors);
 		}
 
-		if( 0 != mysqli_connect_errno() )
+		if( 0 != $this->dbhandle->connect_errno )
 		{
 			$this->print_error( 'Error establishing a database connection!',
 				( $mysql_error ? '<p>('.$mysql_error.')</p>' : '' ).'
