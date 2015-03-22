@@ -373,8 +373,8 @@ class DB
 
 		if( ! $this->dbhandle )
 		{ // Connect to the Database:
-			// echo "mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags )";
-			// mysql_error() is tied to an established connection
+			// echo "mysqli_real_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $this->dbname, $this->dbport, $this->dbsocket, $client_flags  )";
+			// mysqli::$connect_error is tied to an established connection
 			// if the connection fails we need a different method to get the error message
 			$php_errormsg = null;
 			$old_track_errors = ini_set('track_errors', 1);
@@ -578,7 +578,7 @@ class DB
 		if( ! strlen($title) )
 		{
 			if( is_object($this->dbhandle) )
-			{ // use mysql_error:
+			{ // use mysqli_error:
 				$this->last_error = mysqli_error($this->dbhandle).'(Errno='.mysqli_errno($this->dbhandle).')';
 			}
 			else
@@ -822,7 +822,7 @@ class DB
 		// Keep track of the last query for debug..
 		$this->last_query = $query;
 
-		// Perform the query via std mysql_query function..
+		// Perform the query via std mysqli_query function..
 		$this->num_queries++;
 
 		if( $this->log_queries )
