@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
 "POT-Creation-Date: 2015-03-13 23:39-0400\n"
-"PO-Revision-Date: 2015-03-30 00:27-0400\n"
+"PO-Revision-Date: 2015-03-30 00:33-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -349,7 +349,7 @@ msgstr "Reta manlibro"
 #: ../../../inc/items/model/_itemlight.class.php:1090
 #: ../../../skins/photoblog/_item_block.inc.php:84
 msgid "Permalink"
-msgstr "Ĉiama ligilo"
+msgstr "Daŭrligilo"
 
 #: ../../../conf/_icons.php:607 ../../../inc/items/items.ctrl.php:1349
 #: ../../../inc/items/items.ctrl.php:1350
@@ -8142,7 +8142,7 @@ msgstr "Arkiva grupigado"
 
 #: ../../../inc/collections/views/_coll_other.form.php:74
 msgid "How do you want to browse the post archives? May also apply to permalinks."
-msgstr "Kiel vi volas foliumi la afiŝajn arkivojn? Eble ankaŭ aplikiĝos al ĉiamaj ligiloj."
+msgstr "Kiel vi volas foliumi la afiŝajn arkivojn? Eble ankaŭ aplikiĝos al daŭrligiloj."
 
 #: ../../../inc/collections/views/_coll_other.form.php:80
 msgid "date"
@@ -8265,7 +8265,7 @@ msgstr "NOFOLLOW ĉe ligiloj al"
 
 #: ../../../inc/collections/views/_coll_seo.form.php:68
 msgid "Link to the permanent url of the post"
-msgstr "Ligilo al la ĉiama URL de la afiŝo"
+msgstr "Ligilo al la daŭra URL de la afiŝo"
 
 #: ../../../inc/collections/views/_coll_seo.form.php:69
 msgid "Link to the \"link to URL\" specified in the post (if any)"
@@ -8273,7 +8273,7 @@ msgstr "Ligilo al la  \"ligilo al URL\" specifita en la afiŝo (se ĝi ekzistas)
 
 #: ../../../inc/collections/views/_coll_seo.form.php:70
 msgid "Link to the \"link to URL\" if specified, otherwise fall back to permanent url"
-msgstr "Ligilo al la \"ligilo al URL\" se specifita; alie uzi la ĉiaman URL-on"
+msgstr "Ligilo al la \"ligilo al URL\" se specifita; alie uzi la daŭran URL-on"
 
 #: ../../../inc/collections/views/_coll_seo.form.php:71
 msgid "No links on titles"
@@ -8302,11 +8302,11 @@ msgstr "Ligilo al afiŝo en subkategorio"
 
 #: ../../../inc/collections/views/_coll_seo.form.php:86
 msgid "Permalinks"
-msgstr "Ĉiamaj ligiloj"
+msgstr "Daŭrligiloj"
 
 #: ../../../inc/collections/views/_coll_seo.form.php:90
 msgid "Single post pages / \"Permalink\" pages"
-msgstr "Unuopaj afiŝaj paĝoj / Paĝoj pri \"Ĉiamaj ligiloj\""
+msgstr "Unuopaj afiŝaj paĝoj / Paĝoj pri \"Daŭrligiloj\""
 
 #: ../../../inc/collections/views/_coll_seo.form.php:94
 #: ../../../inc/collections/views/_coll_seo.form.php:96
@@ -8395,7 +8395,7 @@ msgstr "Uzi aldonan vojon: kategoria vojo"
 
 #: ../../../inc/collections/views/_coll_seo.form.php:110
 msgid "Permalink scheme"
-msgstr "Aranĝo de ĉiama ligilo"
+msgstr "Aranĝo de daŭrligilo"
 
 #: ../../../inc/collections/views/_coll_seo.form.php:112
 msgid "Limit slug length to"
@@ -9381,7 +9381,7 @@ msgstr "Sendi al komenta verkisto mesaĝon"
 
 #: ../../../inc/comments/model/_comment.class.php:2413
 msgid "Permanent link to this comment"
-msgstr "Ĉiama ligilo al ĉi tiu komento"
+msgstr "Daŭrligilo al ĉi tiu komento"
 
 #: ../../../inc/comments/model/_comment.class.php:2687
 #: ../../../inc/comments/model/_comment.class.php:2693
@@ -10174,7 +10174,7 @@ msgstr "Spammesaĝa suspekto"
 
 #: ../../../inc/cron/model/_decode_returned_emails.funcs.php:740
 msgid "Permament error"
-msgstr "Ĉiama eraro"
+msgstr "Daŭra eraro"
 
 #: ../../../inc/cron/model/_decode_returned_emails.funcs.php:741
 msgid "Temporary error"
@@ -13208,7 +13208,7 @@ msgstr "Vi forigos ĉi tiun afiŝon.\\nVi ne rajtas malfari tion."
 #: ../../../inc/slugs/views/_slug_list.view.php:176
 #: ../../../skins/basic/index.main.php:153
 msgid "Permanent link to full entry"
-msgstr "Ĉiama ligilo al plena ero"
+msgstr "Daŭrligilo al plena ero"
 
 #: ../../../inc/items/items.ctrl.php:1361
 #: ../../../inc/items/items.ctrl.php:1362
@@ -14151,7 +14151,7 @@ msgstr "Mallonga URL"
 
 #: ../../../inc/items/views/_item_expert.form.php:284
 msgid "&quot;slug&quot; to be used in permalinks"
-msgstr "&quot;limako&quot; uziĝos en ĉiama ligiloj"
+msgstr "&quot;limako&quot; uziĝos en daŭrligiloj"
 
 #: ../../../inc/items/views/_item_expert.form.php:284
 #: ../../../inc/items/views/_item_mass_edit.view.php:72
@@ -14797,7 +14797,7 @@ msgstr "Komenca eltiraĵo"
 # TRANS: Noun - we're talking about a teaser image i-e: an image that appears before content and with image url linked to permalink
 #: ../../../inc/links/model/_linkitem.class.php:85
 msgid "Teaser-Permalink"
-msgstr "Eltiraĵo-ĉiamligilo"
+msgstr "Eltiraĵo-daŭrligilo"
 
 # TRANS: Noun - we're talking about a teaser image i-e: an image that appears before content and with image url linked to external link
 #: ../../../inc/links/model/_linkitem.class.php:86
@@ -19956,7 +19956,7 @@ msgstr "Suspekta 3"
 
 #: ../../../inc/tools/model/_email.funcs.php:31
 msgid "Permanent error"
-msgstr "Ĉiama eraro"
+msgstr "Daŭra eraro"
 
 #: ../../../inc/tools/model/_email.funcs.php:32
 msgid "Spammer"
@@ -20944,7 +20944,7 @@ msgstr "Dato de lasta eraro"
 
 #: ../../../inc/tools/views/_email_address.form.php:46
 msgid "Permanent errors count"
-msgstr "Nombro da ĉiamaj eraroj"
+msgstr "Nombro da daŭraj eraroj"
 
 #: ../../../inc/tools/views/_email_address.form.php:48
 msgid "Temporary errors count"
@@ -21005,7 +21005,7 @@ msgstr "Nombro"
 
 #: ../../../inc/tools/views/_email_address.view.php:167
 msgid "Permanent errors"
-msgstr "Ĉiamaj eraroj"
+msgstr "Daŭraj eraroj"
 
 #: ../../../inc/tools/views/_email_address.view.php:176
 msgid "Temporary errors"
@@ -25849,7 +25849,7 @@ msgstr "Ligila titolo"
 
 #: ../../../inc/widgets/widgets/_coll_featured_intro.widget.php:65
 msgid "Intro posts are never linked to their permalink URL"
-msgstr "Enkondukaj afiŝoj neniam ligiĝos ol iliaj ĉiamligilaj URL-oj"
+msgstr "Enkondukaj afiŝoj neniam ligiĝos ol iliaj daŭrligilaj URL-oj"
 
 #: ../../../inc/widgets/widgets/_coll_featured_intro.widget.php:68
 #: ../../../inc/widgets/widgets/_coll_item_list.widget.php:152
@@ -25862,7 +25862,7 @@ msgstr "Aŭtomata"
 #: ../../../inc/widgets/widgets/_coll_item_list.widget.php:153
 #: ../../../inc/widgets/widgets/_coll_item_list.widget.php:188
 msgid "Item permalink"
-msgstr "Ĉiama ligilo de la ero"
+msgstr "Daŭrligilo de la ero"
 
 #: ../../../inc/widgets/widgets/_coll_featured_intro.widget.php:70
 #: ../../../inc/widgets/widgets/_coll_item_list.widget.php:154
