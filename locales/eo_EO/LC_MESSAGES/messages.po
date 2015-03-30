@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
 "POT-Creation-Date: 2015-03-13 23:39-0400\n"
-"PO-Revision-Date: 2015-03-17 19:41-0400\n"
+"PO-Revision-Date: 2015-03-30 00:27-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -992,7 +992,7 @@ msgstr "La enmetita retpoŝtadreso malvalidas."
 #: ../../../htsrv/comment_post.php:197
 #: ../../../inc/xmlrpc/model/_xmlrpcs.funcs.php:1105
 msgid "Supplied website address is invalid: "
-msgstr "La enmetita TTT-eja adreso malvalidas: "
+msgstr "La enmetita kolektara adreso malvalidas: "
 
 #: ../../../htsrv/comment_post.php:288
 #: ../../../inc/xmlrpc/model/_xmlrpcs.funcs.php:1156
@@ -1415,7 +1415,7 @@ msgstr "La etoso [%s] ne instaliĝas en ĉi tiu sistemo."
 #: ../../../htsrv/register.php:142
 #, php-format
 msgid "You already registered on this site. You can <a %s>log in here</a>. If you don't know or have forgotten it, you can <a %s>set your password here</a>."
-msgstr "Vi jam registriĝis en la TTT-ejo. Vi rajtas <a %s>ensaluti</a>. Se vi ne scias aŭ forgesis vian pasvorton, vi povas <a %s>agordi vian pasvorton</a>."
+msgstr "Vi jam registriĝis en la kolektaro. Vi rajtas <a %s>ensaluti</a>. Se vi ne scias aŭ forgesis vian pasvorton, vi povas <a %s>agordi vian pasvorton</a>."
 
 #: ../../../htsrv/register.php:277
 #, php-format
@@ -1441,7 +1441,7 @@ msgstr "Bedaŭre la retpoŝtmesaĝon kun la ligilo por aktivigi vian konton esti
 
 #: ../../../htsrv/register.php:412
 msgid "You have successfully registered on this site. Welcome!"
-msgstr "Vi sukcese registriĝis en ĉi tiu TTT-ejo. Bonvenon!"
+msgstr "Vi sukcese registriĝis en ĉi tiu kolektaro. Bonvenon!"
 
 #: ../../../htsrv/register.php:449
 msgid "Registration Currently Disabled"
@@ -2602,7 +2602,7 @@ msgstr "La parametroj de via peto estas nevalidaj."
 
 #: ../../../inc/_core/_misc.funcs.php:2645
 msgid "If you have obtained this error by clicking on a link INSIDE of this site, please report the bad link to the administrator."
-msgstr "Se vi ricevis la eraron per klakado de ligilo <em>ene de</em> ĉi tiu TTT-ejo, bonvolu sciigi la estron pri la fuŝa ligilo."
+msgstr "Se vi ricevis la eraron per klakado de ligilo <em>ene de</em> ĉi tiu kolektaro, bonvolu sciigi la estron pri la fuŝa ligilo."
 
 #: ../../../inc/_core/_misc.funcs.php:2762
 msgid "Clear"
@@ -2985,7 +2985,7 @@ msgstr "Serĉi"
 #: ../../../inc/collections/views/_coll_home.form.php:49
 #: ../../../inc/widgets/widgets/_menu_link.widget.php:27
 msgid "Site Map"
-msgstr "TTT-eja mapo"
+msgstr "Kolektara mapo"
 
 #: ../../../inc/_core/_template.funcs.php:387
 #: ../../../inc/collections/views/_coll_home.form.php:44
@@ -4082,7 +4082,7 @@ msgstr "Por la plej bona sekureco, ni rekomendas, ke vi <a %s>tuj ŝanĝu vian p
 
 #: ../../../inc/_init_login.inc.php:275
 msgid "Your preferred language/locale is no longer available on this site. You are now using the default language/locale."
-msgstr "Via preferata lingvo/lokaĵaro ne plu disponeblas en la TTT-ejo. Vi nun uzos la aprioran lingvon/lokaĵaron."
+msgstr "Via preferata lingvo/lokaĵaro ne plu disponeblas en la kolektaro. Vi nun uzos la aprioran lingvon/lokaĵaron."
 
 #: ../../../inc/_init_login.inc.php:282 ../../../inc/_init_login.inc.php:357
 #, php-format
@@ -5429,7 +5429,7 @@ msgstr "Novaj uzantoj aŭtomate havas novan blogon"
 
 #: ../../../inc/collections/_collections.init.php:566
 msgid "Site structure"
-msgstr "TTT-eja strukturo"
+msgstr "Kolektara strukturo"
 
 #: ../../../inc/collections/_collections.init.php:573
 #: ../../../inc/dashboard/dashboard.ctrl.php:459
@@ -5464,11 +5464,11 @@ msgstr "b2evolution en Facebook"
 #: ../../../inc/collections/_collections.init.php:700
 #: ../../../inc/collections/views/_coll_settings_site.form.php:54
 msgid "Global Site Settings"
-msgstr "Tut-TTT-eja agordo"
+msgstr "Tut-kolektara agordo"
 
 #: ../../../inc/collections/_collections.init.php:707
 msgid "Site Collections"
-msgstr "TTT-ejaj kolektoj"
+msgstr "Kolektoj"
 
 # TRANS: settings common to all collections
 #: ../../../inc/collections/_collections.init.php:715
@@ -5760,11 +5760,11 @@ msgstr "Tempoj de reŝargo devas esti inter %d kaj %d sekundoj."
 #: ../../../inc/collections/collections.ctrl.php:323
 #: ../../../inc/settings/settings.ctrl.php:78
 msgid "Site settings updated."
-msgstr "TTT-eja agordo aktualiĝis."
+msgstr "Kolektara agordo aktualiĝis."
 
 #: ../../../inc/collections/collections.ctrl.php:355
 msgid "Global Settings"
-msgstr "Tut-TTT-eja agordo"
+msgstr "Kolektara agordo"
 
 #: ../../../inc/collections/collections.ctrl.php:373
 #: ../../../inc/widgets/widgets/_coll_featured_intro.widget.php:103
@@ -6197,7 +6197,7 @@ msgstr "Ĉefa"
 
 #: ../../../inc/collections/model/_blog.funcs.php:327
 msgid "A collection optimized to be used for the site homepage as well as for generic functions such as messaging, user profiles, etc."
-msgstr "Kolekto destinita estkiel la TTT-eja ĉefpaĝo kaj por ĝeneralaj funkcioj kiaj mesaĝujoj, uzanto-profiloj ktp."
+msgstr "Kolekto destinita estkiel la kolektara ĉefpaĝo kaj por ĝeneralaj funkcioj kiaj mesaĝujoj, uzanto-profiloj ktp."
 
 #: ../../../inc/collections/model/_blog.funcs.php:330
 msgid "Standard blog"
@@ -6818,7 +6818,7 @@ msgstr "Personigita meta-etikeda/CSS-a sekcio (antaŭ &lt;/head&gt;)"
 
 #: ../../../inc/collections/views/_coll_advanced.form.php:192
 msgid "Add custom meta tags and/or css styles to the &lt;head&gt; section. Example use: website verification, Google+, favicon image..."
-msgstr "Aldoni personigitajn meta-etikedojn kajaŭ stilfoliaj eroj al la sekcio &lt;head&gt;. Ekzempla uzo: TTT-eja atestado, Google+, favicon-piktogramo ktp"
+msgstr "Aldoni personigitajn meta-etikedojn kajaŭ stilfoliaj eroj al la sekcio &lt;head&gt;. Ekzempla uzo: kolektara atestado, Google+, favicon-piktogramo ktp"
 
 #: ../../../inc/collections/views/_coll_advanced.form.php:193
 msgid "Custom javascript section (before &lt;/body&gt;)"
@@ -8069,7 +8069,7 @@ msgstr "Specifa afiŝa identigilo"
 
 #: ../../../inc/collections/views/_coll_other.form.php:35
 msgid "Sitemaps"
-msgstr "TTT-ejaj mapoj"
+msgstr "Kolektaraj mapoj"
 
 #: ../../../inc/collections/views/_coll_other.form.php:37
 msgid "Check to allow usage of skins with the \"sitemap\" type."
@@ -8077,7 +8077,7 @@ msgstr "Marki por permesi uzadojn de etosoj kun la tipo \"sitemap\"."
 
 #: ../../../inc/collections/views/_coll_other.form.php:37
 msgid "Enable sitemaps"
-msgstr "Aktivigi TTT-ejajn mapojn"
+msgstr "Aktivigi kolektarajn mapojn"
 
 #: ../../../inc/collections/views/_coll_other.form.php:42
 msgid "Allow users to subscribe and receive email notifications for each new post and/or comment."
@@ -8857,7 +8857,7 @@ msgstr "Noto: Por pli plena malŝalto, alinomon la dosieron /conf/_maintenance.h
 
 #: ../../../inc/collections/views/_coll_settings_site.form.php:56
 msgid "Site code"
-msgstr "TTT-eja kodo"
+msgstr "Kolektara kodo"
 
 #: ../../../inc/collections/views/_coll_settings_site.form.php:57
 #: ../../../inc/sessions/views/_stats_goalcats.form.php:40
@@ -8877,7 +8877,7 @@ msgstr "Ekz-e: #ff0000 por ruĝo"
 
 #: ../../../inc/collections/views/_coll_settings_site.form.php:57
 msgid "Site color"
-msgstr "TTT-eja koloro"
+msgstr "Kolektara koloro"
 
 #: ../../../inc/collections/views/_coll_settings_site.form.php:58
 #: ../../../inc/collections/views/_coll_settings_site.form.php:59
@@ -8888,32 +8888,32 @@ msgstr "Komuna kun retpoŝta agordo"
 #: ../../../inc/collections/views/_coll_settings_site.form.php:58
 #: ../../../inc/tools/views/_email_settings.form.php:87
 msgid "Short site name"
-msgstr "Mallonga TTT-paĝara nomo"
+msgstr "Mallonga kolektara nomo"
 
 #: ../../../inc/collections/views/_coll_settings_site.form.php:59
 #: ../../../inc/tools/views/_email_settings.form.php:88
 msgid "Long site name"
-msgstr "Longa TTT-paĝara nomo"
+msgstr "Longa kolektara nomo"
 
 #: ../../../inc/collections/views/_coll_settings_site.form.php:60
 msgid "Small site logo (URL)"
-msgstr "Malgranda TTT-ejo emblemo (URL)"
+msgstr "Malgranda kolektaro emblemo (URL)"
 
 #: ../../../inc/collections/views/_coll_settings_site.form.php:61
 msgid "Large site logo (URL)"
-msgstr "Granda TTT-ejo emblemo (URL)"
+msgstr "Granda kolektaro emblemo (URL)"
 
 #: ../../../inc/collections/views/_coll_settings_site.form.php:62
 msgid "Site footer text"
-msgstr "TTT-eja pieda teksto"
+msgstr "Kolektara pieda teksto"
 
 #: ../../../inc/collections/views/_coll_settings_site.form.php:63
 msgid "Enable site skins"
-msgstr "Aktivigi TTT-ejajn etosojn"
+msgstr "Aktivigi kolektarajn etosojn"
 
 #: ../../../inc/collections/views/_coll_settings_site.form.php:63
 msgid "Enables a sitewide header and footer"
-msgstr "Aktivigas ĉapo kaj piedo por la tuta TTT-ejo"
+msgstr "Aktivigas ĉapo kaj piedo por la tuta kolektaro"
 
 #: ../../../inc/collections/views/_coll_settings_site.form.php:69
 msgid "Default collections"
@@ -8925,7 +8925,7 @@ msgstr "Kolekto por informaj paĝoj"
 
 #: ../../../inc/collections/views/_coll_settings_site.form.php:81
 msgid "The pages in this collection will be added to the site menu."
-msgstr "La paĝoj en ĉi tiu kolekto aldoniĝos al la TTT-eja menuo."
+msgstr "La paĝoj en ĉi tiu kolekto aldoniĝos al la kolektara menuo."
 
 #: ../../../inc/collections/views/_coll_settings_site.form.php:85
 msgid "Collection for login/registration"
@@ -8945,7 +8945,7 @@ msgstr "Ĉi tiu kolekto uziĝos por ĉiuj mesaĝaj funkcioj."
 
 #: ../../../inc/collections/views/_coll_settings_site.form.php:99
 msgid "Technical Site Settings"
-msgstr "TTT-eja agordo teĥnika"
+msgstr "Kolektara agordo teĥnika"
 
 #: ../../../inc/collections/views/_coll_settings_site.form.php:101
 msgid "Reload-page timeout"
@@ -15883,12 +15883,12 @@ msgstr "La novaj dosieroj jam estas instalitaj."
 #: ../../../inc/maintenance/upgrade.ctrl.php:363
 #, php-format
 msgid "If you continue, the following sequence will be carried out automatically (trying to minimize \"<a %s>maintenance time</a>\" for the site):"
-msgstr "Se vi daŭros la jena sinsekvo plenumos aŭtomate (por provi minimumigi \"<a %s>prizorgan tempon</a>\" por la TTT-ejo):"
+msgstr "Se vi daŭros la jena sinsekvo plenumos aŭtomate (por provi minimumigi \"<a %s>prizorgan tempon</a>\" por la kolektaro):"
 
 #: ../../../inc/maintenance/upgrade.ctrl.php:365
 #, php-format
 msgid "The site will switch to <a %s>maintenance mode</a>"
-msgstr "La TTT-ejo ŝanĝiĝos al <a %s>prizorga reĝimo</a>"
+msgstr "La kolektaro ŝanĝiĝos al <a %s>prizorga reĝimo</a>"
 
 #: ../../../inc/maintenance/upgrade.ctrl.php:367
 msgid "A backup will be performed"
@@ -15909,7 +15909,7 @@ msgstr "La elpurigaj reguloj de %s aplikiĝos"
 
 #: ../../../inc/maintenance/upgrade.ctrl.php:371
 msgid "The site will switch to normal mode again at the end of the install script."
-msgstr "La TTT-ejo denove ŝanĝiĝos al ordinara reĝimo post la fino de la instala skripto."
+msgstr "La kolektaro denove ŝanĝiĝos al ordinara reĝimo post la fino de la instala skripto."
 
 #: ../../../inc/maintenance/upgrade.ctrl.php:408
 msgid "Installing package from SVN..."
@@ -16035,7 +16035,7 @@ msgstr "marki por preventi ensaluton (escepte por estroj), sendadon de komentoj 
 
 #: ../../../inc/maintenance/views/_backup.form.php:94
 msgid "Leave the site open for modifications during backup. (Not recommended)."
-msgstr "Malfermi la TTT-ejon por modifoj dum sekurkopiadon. (Nerekomendinda)"
+msgstr "Malfermi la kolektaron por modifoj dum sekurkopiadon. (Nerekomendinda)"
 
 #: ../../../inc/maintenance/views/_backup.form.php:95
 msgid "Lock b2evolution while backing up"
@@ -18041,7 +18041,7 @@ msgstr "Serĉi vizitojn laŭ TTT-legilo"
 #: ../../../inc/sessions/_sessions.init.php:203
 #: ../../../inc/sessions/_sessions.init.php:316
 msgid "Referered B-hits"
-msgstr "Vizitoj el aliaj TTT-ejoj"
+msgstr "Vizitoj el aliaj kolektaroj"
 
 #: ../../../inc/sessions/_sessions.init.php:160
 #: ../../../inc/sessions/_sessions.init.php:206
@@ -18271,7 +18271,7 @@ msgstr "Rektaj vizitoj de TTT-legiloj"
 
 #: ../../../inc/sessions/model/_hitlog.funcs.php:78
 msgid "Refered browser hits"
-msgstr "Vizitoj de TTT-legiloj el aliaj TTT-ejoj"
+msgstr "Vizitoj de TTT-legiloj el aliaj kolektaroj"
 
 #: ../../../inc/sessions/model/_hitlog.funcs.php:480
 #: ../../../inc/tools/system.ctrl.php:436
@@ -18379,7 +18379,7 @@ msgstr "Rektaj vizitoj"
 
 #: ../../../inc/sessions/stats.ctrl.php:282
 msgid "Referred by other sites"
-msgstr "Vizitoj el aliaj TTT-ejoj"
+msgstr "Vizitoj el aliaj kolektaroj"
 
 #: ../../../inc/sessions/stats.ctrl.php:287
 msgid "Incoming searches"
@@ -18869,7 +18869,7 @@ msgstr "Freŝaj vizitoj"
 
 #: ../../../inc/sessions/views/_stats_view.funcs.php:46
 msgid "Refered hits"
-msgstr "Vizitoj el aliaj TTT-ejoj"
+msgstr "Vizitoj el aliaj kolektaroj"
 
 #: ../../../inc/sessions/views/_stats_view.funcs.php:61
 msgid "Show all sessions"
@@ -19259,7 +19259,7 @@ msgstr "La trajto estas malaktivigita."
 
 #: ../../../inc/skins/_skin.funcs.php:915
 msgid "Your web browser is too old. For this site to work correctly, we recommend you use a more recent browser."
-msgstr "Via TTT-legilo estas tro malmodera. Por la TTT-ejo ĝuste funkciu, ni rekomendas, ke vi uzu pli modernan TTT-legilon."
+msgstr "Via TTT-legilo estas tro malmodera. Por la kolektaro ĝuste funkciu, ni rekomendas, ke vi uzu pli modernan TTT-legilon."
 
 #: ../../../inc/skins/_skin.funcs.php:1692
 msgid "Same as normal skin."
@@ -19493,11 +19493,11 @@ msgstr "Speciala sistema etoso por XML-fluoj (RSS, Atom, ktp.)"
 
 #: ../../../inc/skins/views/_skin.form.php:49
 msgid "Special system skin for XML sitemaps"
-msgstr "Speciala sistema etoso por TTT-ejaj el XML"
+msgstr "Speciala sistema etoso por kolektaraj el XML"
 
 #: ../../../inc/skins/views/_skin.form.php:49
 msgid "XML Sitemap"
-msgstr "TTT-ejo el XML"
+msgstr "Kolektaro el XML"
 
 #: ../../../inc/skins/views/_skin_list.view.php:31
 msgid "Installed skins"
@@ -19544,7 +19544,7 @@ msgstr "Fluo-etosoj"
 
 #: ../../../inc/skins/views/_skin_list_available.view.php:51
 msgid "Sitemap skins"
-msgstr "TTT-ejmapaj etosoj"
+msgstr "Kolektarmapaj etosoj"
 
 #: ../../../inc/slugs/model/_slug.class.php:62
 #: ../../../inc/slugs/model/_slug.class.php:63
@@ -21193,11 +21193,11 @@ msgstr "Revenvojo"
 #: ../../../inc/tools/views/_email_settings.form.php:88
 #: ../../../inc/tools/views/_email_settings.form.php:89
 msgid "Shared with site settings"
-msgstr "Donis al la TTT-eja agordo"
+msgstr "Donis al la kolektara agordo"
 
 #: ../../../inc/tools/views/_email_settings.form.php:89
 msgid "Site logo (URL)"
-msgstr "TTT-ejo slogano (URL)"
+msgstr "Kolektaro slogano (URL)"
 
 #: ../../../inc/tools/views/_email_smtp.form.php:60
 msgid "SMTP Server connection settings"
@@ -22562,7 +22562,7 @@ msgstr "Aldoni kampon…"
 #: ../../../inc/users/model/_user.funcs.php:2786
 #: ../../../inc/users/views/_user_identity.form.php:163
 msgid "Visit the site"
-msgstr "Viziti la TTT-ejon"
+msgstr "Viziti la kolektaron"
 
 #: ../../../inc/users/model/_user.funcs.php:2875
 msgid "Restrict to members of this blog"
@@ -23610,7 +23610,7 @@ msgstr "Ĉiam uzanto-paĝo"
 #: ../../../inc/users/views/_display.form.php:100
 #: ../../../inc/users/views/_display.form.php:118
 msgid "User website if available (fallback to user page)"
-msgstr "TTT-ejo de uzanto se disponeblas (apriore uzanto-paĝo)"
+msgstr "Kolektaro de uzanto se disponeblas (apriore uzanto-paĝo)"
 
 #: ../../../inc/users/views/_display.form.php:101
 #: ../../../inc/users/views/_display.form.php:119
@@ -23720,7 +23720,7 @@ msgstr "Preventi CSS-ŝanĝetojn"
 
 #: ../../../inc/users/views/_group.form.php:184
 msgid "WARNING: if allowed, users may deface the site, add hidden text, etc."
-msgstr "AVERTO: Se permesita, uzantoj eble kodrompi la TTT-ejon, aldoni kaŝajn tekstojn ktp."
+msgstr "AVERTO: Se permesita, uzantoj eble kodrompi la kolektaron, aldoni kaŝajn tekstojn ktp."
 
 #: ../../../inc/users/views/_group.form.php:185
 msgid "Prevent iframes"
@@ -23935,7 +23935,7 @@ msgstr "Aŭtomata uzanto-agordo"
 #: ../../../inc/users/views/_registration.form.php:76
 #: ../../../inc/users/views/_user_subscriptions.form.php:156
 msgid "private messages on this site."
-msgstr "privataj mesaĝoj en ĉi tiu TTT-ejo."
+msgstr "privataj mesaĝoj en ĉi tiu kolektaro."
 
 #: ../../../inc/users/views/_registration.form.php:79
 #: ../../../inc/users/views/_user_subscriptions.form.php:160
@@ -23993,7 +23993,7 @@ msgstr "Ĉiu mesaĝo enhavas facilan unuklakan malabonan ligilon."
 #: ../../../inc/users/views/_registration.form.php:93
 #: ../../../inc/users/views/_user_subscriptions.form.php:233
 msgid "Send me news about this site."
-msgstr "Sendi al mi novaĵojn pri ĉi tiu TTT-ejo."
+msgstr "Sendi al mi novaĵojn pri ĉi tiu kolektaro."
 
 #: ../../../inc/users/views/_registration.form.php:94
 #: ../../../inc/users/views/_user_subscriptions.form.php:234
@@ -24852,7 +24852,7 @@ msgstr "Personigita daŭro"
 
 #: ../../../inc/users/views/_user_preferences.form.php:204
 msgid "Check this to be displayed as online when visiting the site."
-msgstr "Marki ĉi tion montriĝi \"reta\" kiam vi vizitas la TTT-ejon."
+msgstr "Marki ĉi tion montriĝi \"reta\" kiam vi vizitas la kolektaron."
 
 #: ../../../inc/users/views/_user_preferences.form.php:204
 #: ../../../inc/users/views/_user_preferences.form.php:209
@@ -25796,11 +25796,11 @@ msgstr "Iri la kontaktilon de la blogestro."
 
 #: ../../../inc/widgets/widgets/_coll_common_links.widget.php:145
 msgid "Show \"Site map\""
-msgstr "Montri \"TTT-eja mapo\""
+msgstr "Montri \"Kolektara mapo\""
 
 #: ../../../inc/widgets/widgets/_coll_common_links.widget.php:146
 msgid "Go to site map (HTML version)."
-msgstr "Al la TTT-eja mapo (laŭ HTML)."
+msgstr "Al la kolektara mapo (laŭ HTML)."
 
 #: ../../../inc/widgets/widgets/_coll_common_links.widget.php:190
 #: ../../../inc/widgets/widgets/_menu_link.widget.php:242
@@ -25828,7 +25828,7 @@ msgstr "Estraj detaloj"
 #: ../../../inc/widgets/widgets/_coll_common_links.widget.php:254
 #: ../../../inc/widgets/widgets/_menu_link.widget.php:297
 msgid "Site map"
-msgstr "TTT-eja mapo"
+msgstr "Kolektara mapo"
 
 #: ../../../inc/widgets/widgets/_coll_featured_intro.widget.php:49
 msgid "Template"
@@ -27202,7 +27202,7 @@ msgid ""
 msgstr ""
 "<p>Ĉi tiu blogo estas kreita pere de b2evolution</p>.\n"
 "\n"
-"<p>Vi nune rigardas informan paĝon pri la TTT-ejo.</p>\n"
+"<p>Vi nune rigardas informan paĝon pri la kolektaro.</p>\n"
 "\n"
 "<p>Informaj paĝoj estas tre similaj je ordinaraj afiŝoj escepte de tio, ke ili ne aperas en la regula fluo de afiŝoj. Ili anstataŭe aperas kiel informaj paĝoj en la flankaĵo.</p>\n"
 "\n"
@@ -27210,7 +27210,7 @@ msgstr ""
 
 #: ../../../install/_functions_create.php:1597
 msgid "About this site"
-msgstr "Pri la TTT-ejo"
+msgstr "Pri la kolektaro"
 
 #: ../../../install/_functions_create.php:1612
 msgid ""
@@ -27220,9 +27220,9 @@ msgid ""
 "\n"
 "<p>You can add collections at will. You can also remove them (including this \"Home\" collection) if you don't need one.</p>"
 msgstr ""
-"<p>Ĉi tio estas la ĉefpaĝo de la TTT-ejo.</p>\n"
+"<p>Ĉi tio estas la ĉefpaĝo de la kolektaro.</p>\n"
 "\n"
-"<p>Pli specife ĝi estas la \"Frontpaĝo\" de la unua kolekto de la TTT-ejo. La unua kolekto nomiĝas \"Hejmo\". Aliaj specimenaj kolektoj estis kreitaj. Vi povas atingi ilin per klako sur \"Blogo A\", \"Blogo B\", \"Fotoj\" ks en la menuzono je la supro de la paĝo.</p>\n"
+"<p>Pli specife ĝi estas la \"Frontpaĝo\" de la unua kolekto de la kolektaro. La unua kolekto nomiĝas \"Hejmo\". Aliaj specimenaj kolektoj estis kreitaj. Vi povas atingi ilin per klako sur \"Blogo A\", \"Blogo B\", \"Fotoj\" ks en la menuzono je la supro de la paĝo.</p>\n"
 "\n"
 "<p>Vi rajtas laŭvole aldoni kolektojn. Vi ankaŭ rajtas forigi ilin (inkluzive de la kolekto \"Hejmo\") se vi ne plu bezonas ilin.</p>"
 
@@ -27363,7 +27363,7 @@ msgstr "Etendita afiŝo"
 #: ../../../install/_functions_create.php:2019
 #: ../../../install/_functions_create.php:2394
 msgid "Welcome to your b2evolution-powered website!"
-msgstr "Bonvenon al b2evolution-kreita TTT-ejo!"
+msgstr "Bonvenon al b2evolution-kreita kolektaro!"
 
 #: ../../../install/_functions_create.php:1712
 #: ../../../install/_functions_create.php:2020
@@ -27382,7 +27382,7 @@ msgid ""
 "\n"
 "<p>You can add new collections of any type (blog, photos, forums, etc.), delete unwanted one and customize existing collections (title, sidebar, blog skin, widgets, etc.) from the admin interface.</p>"
 msgstr ""
-"<p>Kiel ekzemplo la instalilo aŭtomate kreis kelkajn specimenajn kolektojn kun specimena enhavo. Kompreneble tiu specimena strukturo estas redaktenda. Antaŭ ol vi faros tion, jen tio, kio troveblas ĉe la TTT-ejo:</p>\n"
+"<p>Kiel ekzemplo la instalilo aŭtomate kreis kelkajn specimenajn kolektojn kun specimena enhavo. Kompreneble tiu specimena strukturo estas redaktenda. Antaŭ ol vi faros tion, jen tio, kio troveblas ĉe la kolektaro:</p>\n"
 "\n"
 "<ul>\n"
 "\t<li><strong>Blogo A</strong>: Vi nune rigardas ĝin. Ĝi enhavas kelkajn specimenajn afiŝojn, uzante simplajn trajtojn de b2evolution.</li>\n"
@@ -27474,7 +27474,7 @@ msgstr "<p>Apriore blogoj montriĝos per etosoj. Se vi ne volas uzi etosojn, uzi
 
 #: ../../../install/_functions_create.php:1798
 msgid "Skins, Stubs, Templates &amp; website integration..."
-msgstr "Etosoj, ĝermoj, ŝablonoj kaj TTT-eja integriĝo…"
+msgstr "Etosoj, ĝermoj, ŝablonoj kaj kolektara integriĝo…"
 
 #: ../../../install/_functions_create.php:1818
 msgid ""
@@ -27933,7 +27933,7 @@ msgstr "Jam instalita."
 
 #: ../../../install/_functions_install.php:1010
 msgid "There is already a file called .htaccess at the blog root. If you don't specifically need this file, it is recommended that you delete it or rename it to old.htaccess before you continue. This will allow b2evolution to create a new .htaccess file that is optimized for best results."
-msgstr "Jam ekzistas dosiero nomata .htaccess en la bloga radiko. Se vi ne bezonas tiun dosieron, estas rekomendinde ke vi forigi aŭ alinomi ĝin kaj poste daŭri. Tio permesos al b2evolution krei novan dosieron .htaccess, kiu maksimumiĝos por la plej bona TTT-eja funkciado."
+msgstr "Jam ekzistas dosiero nomata .htaccess en la bloga radiko. Se vi ne bezonas tiun dosieron, estas rekomendinde ke vi forigi aŭ alinomi ĝin kaj poste daŭri. Tio permesos al b2evolution krei novan dosieron .htaccess, kiu maksimumiĝos por la plej bona kolektara funkciado."
 
 #: ../../../install/_functions_install.php:1011
 msgid "Here are the contents of the current .htaccess file:"
@@ -28023,7 +28023,7 @@ msgstr "Trovi gastiganton"
 
 #: ../../../install/debug.php:390 ../../../install/index.php:1025
 msgid "Official website"
-msgstr "Oficiala TTT-ejo"
+msgstr "Oficiala kolektaro"
 
 #: ../../../install/debug.php:390 ../../../install/index.php:1025
 msgid "Online resources"
@@ -28975,7 +28975,7 @@ msgstr "Eĥi al b2evolution.net"
 
 #: ../../../plugins/_ping_b2evonet.plugin.php:52
 msgid "Ping the b2evolution.net site"
-msgstr "Eĥi al la TTT-ejo de b2evolution.net"
+msgstr "Eĥi al la kolektaro de b2evolution.net"
 
 #: ../../../plugins/_ping_b2evonet.plugin.php:53
 msgid "Pings the b2evolution.net site to include your post in the list of recently updated blogs."
@@ -29183,7 +29183,7 @@ msgstr "Kromprogramo kiu estas konektita?"
 
 #: ../../../plugins/_whosonline.plugin.php:43
 msgid "This skin tag displays a list of whos is online."
-msgstr "La etosa etikedo montras liston de tiuj, kiuj aktuale uzas la TTT-ejon."
+msgstr "La etosa etikedo montras liston de tiuj, kiuj aktuale uzas la kolektaron."
 
 #: ../../../plugins/_whosonline.plugin.php:44
 msgid "All logged in users and guest users who have requested a page in the last 5 minutes are listed."
@@ -30090,7 +30090,7 @@ msgstr "Afiŝita al konto @"
 
 #: ../../../plugins/videoplug_plugin/_videoplug.plugin.php:37
 msgid "Video plug for a few popular video sites."
-msgstr "Kromprogramo Video por kelkaj popularoj videaj TTT-ejoj."
+msgstr "Kromprogramo Video por kelkaj popularoj videaj kolektaroj."
 
 #: ../../../plugins/videoplug_plugin/_videoplug.plugin.php:38
 msgid "This is a basic video plug pluigin. Use it by entering [video:youtube:123xyz] or [video:dailymotion:123xyz] into your post, where 123xyz is the ID of the video."
@@ -30272,7 +30272,7 @@ msgstr "Via nomo."
 
 #: ../../../skins/_contact_msg.form.php:72
 msgid "Your email address. (Will <strong>not</strong> be displayed on this site.)"
-msgstr "Via retpoŝtadreso. (<strong>Ne</strong> montriĝos en ĉi tiu TTT-ejo.)"
+msgstr "Via retpoŝtadreso. (<strong>Ne</strong> montriĝos en ĉi tiu kolektaro.)"
 
 #: ../../../skins/_contact_msg.form.php:75
 msgid "Subject of your message."
@@ -30331,16 +30331,16 @@ msgstr "Ĉefpaĝa ĉefkampo"
 
 #: ../../../skins/_help.disp.php:26
 msgid "This is a private website or section"
-msgstr "Jen privata TTT-ejo aŭ sekcio"
+msgstr "Jen privata kolektaro aŭ sekcio"
 
 #: ../../../skins/_help.disp.php:28
 msgid "You need special permissions to access the contents of this website/section."
-msgstr "Vi bezonas specialajn permesojn por atingi la enhavon de tiu TTT-ejo/sekcio."
+msgstr "Vi bezonas specialajn permesojn por atingi la enhavon de tiu kolektaro/sekcio."
 
 #: ../../../skins/_help.disp.php:30
 #, php-format
 msgid "If you need assistance, please <a %s>contact the owner of this website/section</a>."
-msgstr "Se vi bezonas helpon, bonvolu <a %s>kontakti la estron de la TTT-ejo/sekcio</a>."
+msgstr "Se vi bezonas helpon, bonvolu <a %s>kontakti la estron de la kolektaro/sekcio</a>."
 
 #: ../../../skins/_help.disp.php:33
 msgid "Content issues"
@@ -30348,12 +30348,12 @@ msgstr "Enhavaj problemoj"
 
 #: ../../../skins/_help.disp.php:35
 msgid "This is an independent website published solely under the reponsibility of its owner."
-msgstr "Ĉi tiu estas sendependa TTT-ejo eldonita sole laŭ la responso de sia estro."
+msgstr "Ĉi tiu estas sendependa kolektaro eldonita sole laŭ la responso de sia estro."
 
 #: ../../../skins/_help.disp.php:37
 #, php-format
 msgid "In case of concerns with the contents of this website/section, please <a %s>contact the owner of this website/section</a>."
-msgstr "Okaze de zorgoj pri la enhavo de ĉi tiu TTT-ejo/sekcio, bonvolu <a %s>kontakti la estron de tiu TTT-ejo/sekcio</a>."
+msgstr "Okaze de zorgoj pri la enhavo de ĉi tiu kolektaro/sekcio, bonvolu <a %s>kontakti la estron de tiu kolektaro/sekcio</a>."
 
 #: ../../../skins/_help.disp.php:39
 msgid "What to do if the owner doesn't respond"
@@ -30390,7 +30390,7 @@ msgstr "Mencio"
 #: ../../../skins/pureforums/_item_comment_form.inc.php:297
 #: ../../../skins/touch/_item_comment_form.inc.php:232
 msgid "Your email address will <strong>not</strong> be revealed on this site."
-msgstr "Via retpoŝtadreso <strong>ne</strong> montriĝos en ĉi tiu TTT-ejo"
+msgstr "Via retpoŝtadreso <strong>ne</strong> montriĝos en ĉi tiu kolektaro"
 
 #: ../../../skins/_item_comment_form.inc.php:248
 #: ../../../skins/basic/_item_comment_form.inc.php:93
@@ -30434,7 +30434,7 @@ msgstr "Memori min"
 #: ../../../skins/pureforums/_item_comment_form.inc.php:380
 #: ../../../skins/touch/_item_comment_form.inc.php:317
 msgid "For my next comment on this site"
-msgstr "Por mia sekva komento en ĉi tiu TTT-ejo"
+msgstr "Por mia sekva komento en ĉi tiu kolektaro"
 
 #: ../../../skins/_item_comment_form.inc.php:338
 #: ../../../skins/forums/_item_comment_form.inc.php:377
@@ -30568,7 +30568,7 @@ msgstr "Tio eble okazis inter kiam ricevis sciigon por la nova mesaĝo kaj kiam 
 
 #: ../../../skins/_messages.disp.php:90
 msgid "We are striving to keep this site free of inappropriate messages and misbehaving users. Despite our efforts, if you identify misbehaving users, please be sure to report them by using the 'Report this user' feature that you will find on their profile."
-msgstr "Ni strebas liberigi la TTT-ejon de maldecaj mesaĝoj kaj malbonkondutaj uzantoj. Malgraŭ niaj klopodoj se vi identigas malbonkondutajn uzantojn, bonvolu certigi denunci ilin per la uzo de la trajto 'Denunci la uzanton', kiu vi trovos en ties profilo."
+msgstr "Ni strebas liberigi la kolektaron de maldecaj mesaĝoj kaj malbonkondutaj uzantoj. Malgraŭ niaj klopodoj se vi identigas malbonkondutajn uzantojn, bonvolu certigi denunci ilin per la uzo de la trajto 'Denunci la uzanton', kiu vi trovos en ties profilo."
 
 #: ../../../skins/_messages.disp.php:109
 msgid "Previous messages in this conversation"
@@ -31182,7 +31182,7 @@ msgstr "Mencio de:"
 
 #: ../../../skins/basic/_item_comment_form.inc.php:81
 msgid "Your email address will <strong>not</strong> be displayed on this site."
-msgstr "Via retpoŝtadreso <strong>ne</strong> montriĝos en ĉi tiu TTT-ejo."
+msgstr "Via retpoŝtadreso <strong>ne</strong> montriĝos en ĉi tiu kolektaro."
 
 #: ../../../skins/basic/_item_comment_form.inc.php:91
 msgid "Site/Url"
@@ -32101,7 +32101,7 @@ msgstr "Kio estas RSS?"
 #: ../../../skins/photoalbums/_catdir.disp.php:28
 #: ../../../skins/photoalbums/_posts.disp.php:29
 msgid "This site has no public contents."
-msgstr "La TTT-ejo havas nenian publikan enhavon."
+msgstr "La kolektaro havas nenian publikan enhavon."
 
 #: ../../../skins/photoalbums/_catdir.disp.php:92
 #: ../../../skins/photoalbums/_posts.disp.php:73
@@ -32255,7 +32255,7 @@ msgstr "Javaskripto por poŝtelefona Safari aktuale estas malŝaltita."
 
 #: ../../../skins/touch/_body_header.inc.php:25
 msgid "Turn it on in <em> Settings &rsaquo; Safari </em><br /> to view this website."
-msgstr "Ŝaltu ĝin en <em> Agordo → Safari </em><br /> por vidi la TTT-ejon."
+msgstr "Ŝaltu ĝin en <em> Agordo → Safari </em><br /> por vidi la kolektaron."
 
 #: ../../../skins/touch/_body_header.inc.php:34
 msgid "Navigation"
@@ -32436,7 +32436,7 @@ msgstr "Vi antaŭnelonge registris novan konton en %s .."
 #: ../../../skins_email/account_activate.txt.php:42
 #: ../../../skins_email/account_activate.txt.php:57
 msgid "You must activate this account by clicking below in order to be able to use all the site features."
-msgstr "Vi devas aktivigi la konton per alklakado de malsupra ligilo por uzi la tuton de la TTT-paĝaraj trajtoj."
+msgstr "Vi devas aktivigi la konton per alklakado de malsupra ligilo por uzi la tuton de la kolektaraj trajtoj."
 
 #: ../../../skins_email/account_activate.html.php:45
 #: ../../../skins_email/account_activate.html.php:60
@@ -32454,7 +32454,7 @@ msgstr "Vi ĵuse ŝanĝis la retpoŝtadreson kunligita kun via konto en %s ."
 #: ../../../skins_email/account_activate.txt.php:47
 #: ../../../skins_email/account_activate.txt.php:52
 msgid "You must reactivate this account by clicking below in order to continue to use all the site features."
-msgstr "vi devas reaktivigi la konton per alklakado de la malsupra ligilo por daŭri uzi la tuton de la TTT-paĝaraj trajtoj."
+msgstr "Vi devas reaktivigi la konton per alklakado de la malsupra ligilo por daŭri uzi la tuton de la kolektaraj trajtoj."
 
 #: ../../../skins_email/account_activate.html.php:50
 #: ../../../skins_email/account_activate.html.php:55
@@ -33098,7 +33098,7 @@ msgstr "Por vidi pliajn informojn pri la laboroj sekvu la jenan ligilon: %s"
 #~ msgstr "Restigi vaka por nuna blogo."
 
 #~ msgid "Information about this site"
-#~ msgstr "Aldonaj informoj pri la TTT-ejo"
+#~ msgstr "Aldonaj informoj pri la kolektaro"
 
 #~ msgid "Monument Valley"
 #~ msgstr "Monumenta Valo"
@@ -33884,10 +33884,10 @@ msgstr "Por vidi pliajn informojn pri la laboroj sekvu la jenan ligilon: %s"
 #~ msgstr "Administri vian blogon"
 
 #~ msgid "Advanced Site Settings"
-#~ msgstr "Altnivela TTT-eja agordo"
+#~ msgstr "Altnivela kolektara agordo"
 
 #~ msgid "A standalone admin-contact page for your site"
-#~ msgstr "Memstara paĝon por kontaktado de la estro de la TTT-ejo"
+#~ msgstr "Memstara paĝon por kontaktado de la estro de la kolektaro"
 
 #~ msgid "The page you're looking at"
 #~ msgstr "Via rigardata paĝo"
@@ -33926,7 +33926,7 @@ msgstr "Por vidi pliajn informojn pri la laboroj sekvu la jenan ligilon: %s"
 #~ msgstr "Dankon pro via mesaĝo. Mi laŭeble respondos."
 
 #~ msgid "The administrator of this site has turned off all means of being contacted."
-#~ msgstr "La estro de ĉi tiu TTT-ejo malŝaltis ĉiajn kontaktajn rimedojn."
+#~ msgstr "La estro de ĉi tiu kolektaro malŝaltis ĉiajn kontaktajn rimedojn."
 
 #~ msgid "Sorry, but you must <a %s>log in</a> before you can contact to me."
 #~ msgstr "Vi devas <a %s>ensaluti</a> antaŭ ol vi povas kontakti min."
@@ -33935,7 +33935,7 @@ msgstr "Por vidi pliajn informojn pri la laboroj sekvu la jenan ligilon: %s"
 #~ msgstr "Via mesaĝo ne sendiĝis. Eble reprovi."
 
 #~ msgid "This demo displays a form to contact the site admin."
-#~ msgstr "Ĉi tiu demonstro elmontras formularion por kontakti la estro de la TTT-ejo."
+#~ msgstr "Ĉi tiu demonstro elmontras formularion por kontakti la estro de la kolektaro."
 
 #~ msgid "Contact Form Demo"
 #~ msgstr "Demonstro de la kontaktilo"
