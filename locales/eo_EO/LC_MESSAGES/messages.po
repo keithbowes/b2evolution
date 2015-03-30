@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
 "POT-Creation-Date: 2015-03-30 16:12-0400\n"
-"PO-Revision-Date: 2015-03-30 16:40-0400\n"
+"PO-Revision-Date: 2015-03-30 18:42-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -1342,7 +1342,7 @@ msgstr "La servilo (PHP-skripto) ne havas sufiĉan memoron por ricevi tiun grand
 
 #: ../../../htsrv/quick_upload.php:236
 msgid "Incorrect crumb received. Did you wait too long before uploading?"
-msgstr "Neĝusta panero ricevita. Ĉu vi atendis tro longe antaŭ via alŝuto?"
+msgstr "Eksvalidiĝinta seanco ricevita. Ĉu vi atendis tro longe antaŭ via alŝuto?"
 
 #: ../../../htsrv/quick_upload.php:259
 msgid "You don't have permission to upload on this file root."
@@ -18287,7 +18287,7 @@ msgstr "Retpoŝta donanto"
 
 #: ../../../inc/sessions/model/_session.class.php:664
 msgid "Incorrect crumb received!"
-msgstr "Neĝusta panero ricevita."
+msgstr "Eksvalidiĝinta seanco ricevita."
 
 #: ../../../inc/sessions/model/_session.class.php:665
 msgid "Your request was stopped for security reasons."
@@ -18304,7 +18304,7 @@ msgstr "Bonvolu reen al la antaŭa paĝo kaj reŝargi ĝin antaŭ ol refoje send
 
 #: ../../../inc/sessions/model/_session.class.php:680
 msgid "Alternatively, you can try to resubmit your request with a refreshed crumb:"
-msgstr "Alternative vi povas provi resendi vian peton kun refreŝigota panero:"
+msgstr "Alternative vi povas provi resendi vian peton kun refreŝiĝonta seanco:"
 
 #: ../../../inc/sessions/model/_session.class.php:685
 msgid "Resubmit now!"
@@ -25381,7 +25381,7 @@ msgstr "Apartigilo"
 
 #: ../../../inc/widgets/widgets/_breadcrumb_path.widget.php:50
 msgid "Separator between breadcrumbs."
-msgstr "Apartigilo inter paneroj."
+msgstr "Apartigilo inter paĝniveloj."
 
 #: ../../../inc/widgets/widgets/_breadcrumb_path.widget.php:54
 msgid "Start with"
@@ -25398,7 +25398,7 @@ msgstr "Patra kategorio de radiko"
 #: ../../../inc/widgets/widgets/_breadcrumb_path.widget.php:70
 #: ../../../inc/widgets/widgets/_breadcrumb_path.widget.php:88
 msgid "Breadcrumb Path"
-msgstr "Paneran vojon"
+msgstr "Paĝniveloj"
 
 #: ../../../inc/widgets/widgets/_coll_avatar.widget.php:43
 msgid "Profile picture (Avatar)"
@@ -32089,7 +32089,7 @@ msgstr "Montri ilobreton"
 
 #: ../../../skins_adm/chicago/_adminUI.class.php:425
 msgid "Show breadcrumbs path"
-msgstr "Montri paneran vojon"
+msgstr "Montri paĝnivelojn"
 
 #: ../../../skins_adm/chicago/_adminUI.class.php:426
 msgid "Show Menu"
