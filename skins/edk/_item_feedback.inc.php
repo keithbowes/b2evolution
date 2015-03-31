@@ -22,22 +22,56 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 // Default params:
 $params = array_merge( array(
+		'Item'                 => NULL,
 		'disp_comments'        => true,
 		'disp_comment_form'    => true,
 		'disp_trackbacks'      => true,
 		'disp_trackback_url'   => true,
 		'disp_pingbacks'       => true,
+		'disp_section_title'   => true,
+		'disp_rating_summary'  => true,
 		'before_section_title' => '<h2 class="cform">',
 		'after_section_title'  => '</h2>',
+		'comments_title_text'  => '',
 		'comment_list_start'   => "\n\n",
 		'comment_list_end'     => "\n\n",
 		'comment_start'        => '<div class="bComment">',
 		'comment_end'          => '</div>',
+		'comment_title_before' => '<div class="bCommentTitle">',
+		'comment_title_after'  => '</div>',
+		'comment_rating_before'=> '<div class="comment_rating">',
+		'comment_rating_after' => '</div>',
+		'comment_text_before'  => '<div class="bCommentText">',
+		'comment_text_after'   => '</div>',
+		'comment_info_before'  => '<div class="bCommentSmallPrint">',
+		'comment_info_after'   => '</div>',
 		'preview_start'        => '<div class="bComment" id="comment_preview">',
 		'preview_end'          => '</div>',
+		'comment_error_start'  => '<div class="bComment" id="comment_error">',
+		'comment_error_end'    => '</div>',
 		'comment_template'     => '_item_comment.inc.php',	// The template used for displaying individual comments (including preview)
+		'comment_image_size'   => 'fit-400x320',
+		'author_link_text'     => 'name', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
+		'link_to'              => 'userurl>userpage',		    // 'userpage' or 'userurl' or 'userurl>userpage' or 'userpage>userurl'
 		'form_title_start'     => '<h2 class="cform">',
 		'form_title_end'       => '</h2>',
+		'disp_notification'    => true,
+		'notification_before'  => '<div class="comment_notification">',
+		'notification_text'    => T_( 'This is your post. You are receiving notifications when anyone comments on your posts.' ),
+		'notification_text2'   => T_( 'You will be notified by email when someone comments here.' ),
+		'notification_text3'   => T_( 'Notify me by email when someone comments here.' ),
+		'notification_after'   => '</div>',
+		'feed_title'           => '#',
+		'disp_nav_top'         => true,
+		'disp_nav_bottom'      => true,
+		'nav_top_inside'       => false, // TRUE to display it after start of comments list (inside), FALSE to display a page navigation before comments list
+		'nav_bottom_inside'    => false, // TRUE to display it before end of comments list (inside), FALSE to display a page navigation after comments list
+		'nav_block_start'      => '<p class="center">',
+		'nav_block_end'        => '</p>',
+		'nav_prev_text'        => '&lt;&lt;',
+		'nav_next_text'        => '&gt;&gt;',
+		'nav_prev_class'       => '',
+		'nav_next_class'       => '',
 	), $params );
 
 
@@ -254,14 +288,64 @@ if( $params['disp_comments'] || $params['disp_trackbacks'] || $params['disp_ping
 
 	// _______________________________________________________________
 
-	if( $Item->can_see_comments( false ) && ( $params['disp_comments'] || $params['disp_trackbacks'] || $params['disp_pingbacks'] ))
-	{
-  ?>
-		<div class="feedback_feed_msg"><a href="<?php global $rsc_url; $Blog->disp('url') ?>?tempskin=_atom&amp;disp=comments&amp;p=<?php echo $Item->ID; ?>"><?php echo get_icon('feed') ?> <?php echo T_('Comment feed for this post'); ?></a></div>
 
-<?php
+// ----------- Register for item's comment notification -----------
+if( is_logged_in() && $Item->can_comment( NULL ) )
+{
+	global $DB, $htsrv_url;
+	global $UserSettings;
+
+	$not_subscribed = true;
+	$creator_User = $Item->get_creator_User();
+
+	if( $Blog->get_setting( 'allow_subscriptions' ) )
+	{
+		$sql = 'SELECT count( sub_user_ID ) FROM T_subscriptions
+					WHERE sub_user_ID = '.$current_User->ID.' AND sub_coll_ID = '.$Blog->ID.' AND sub_comments <> 0';
+		if( $DB->get_var( $sql ) > 0 )
+		{
+			echo '<p>'.T_( 'You are receiving notifications when anyone comments on any post.' );
+			echo ' <a href="'.$Blog->get('subsurl').'">'.T_( 'Click here to manage your subscriptions.' ).'</a></p>';
+			$not_subscribed = false;
+		}
 	}
+
+	if( $params['disp_notification'] )
+	{	// Display notification link
+		echo $params['notification_before'];
+
+		$notification_icon = get_icon( 'notification' );
+
+		if( $not_subscribed && ( $creator_User->ID == $current_User->ID ) && ( $UserSettings->get( 'notify_published_comments', $current_User->ID ) != 0 ) )
+		{
+			echo ''.$notification_icon.' <span>'.$params['notification_text'];
+			echo ' <a href="'.$Blog->get('subsurl').'">'.T_( 'Click here to manage your subscriptions.' ).'</a></span><';
+			$not_subscribed = false;
+		}
+		if( $not_subscribed && $Blog->get_setting( 'allow_item_subscriptions' ) )
+		{
+			if( get_user_isubscription( $current_User->ID, $Item->ID ) )
+			{
+				echo $notification_icon.' <span>'.$params['notification_text2'];
+				echo ' <a href="'.$samedomain_htsrv_url.'action.php?mname=collections&action=isubs_update&amp;p='.$Item->ID.'&amp;notify=0&amp;'.url_crumb( 'collections_isubs_update' ).'">'.T_( 'Click here to unsubscribe.' ).'</a></span>';
+			}
+			else
+			{
+				echo $notification_icon.' <span><a href="'.$samedomain_htsrv_url.'action.php?mname=collections&amp;action=isubs_update&amp;p='.$Item->ID.'&amp;notify=1&amp;'.url_crumb( 'collections_isubs_update' ).'">'.$params['notification_text3'].'</a></span>';
+			}
+		}
+
+		echo $params['notification_after'];
+	}
+}
 	// _______________________________________________________________
+}
+
+
+if( $Item->can_see_comments( false ) && ( $params['disp_comments'] || $params['disp_trackbacks'] || $params['disp_pingbacks'] ) )
+{	// user is allowed to see comments
+	// Display link for comments feed:
+	$Item->feedback_feed_link( '_atom', '<div class="feedback_feed_msg">', '</div>', $params['feed_title'] );
 }
 
 // ------------------ COMMENT FORM INCLUDED HERE ------------------
