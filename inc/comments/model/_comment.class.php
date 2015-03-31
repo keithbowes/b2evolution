@@ -1315,7 +1315,7 @@ class Comment extends DataObject
 			}
 			else
 			{
-				echo $glue.'redirect_to='.rawurlencode( regenerate_url( '', 'filter=restore', '', '&' ) );
+				echo  $glue.'redirect_to='.rawurlencode( regenerate_url( '', array('filter=restore', 'show=comments', 'redir=no#c'.$this->ID), '', '&' ) );
 			}
 		}
 		echo '" title="'.$title.'"';
@@ -1475,7 +1475,7 @@ class Comment extends DataObject
 			}
 			else
 			{
-				$url .= $glue.'redirect_to='.rawurlencode( regenerate_url( '', 'filter=restore', '', '&' ) );
+				$url .= $glue.'redirect_to='.rawurlencode( regenerate_url( '', array('filter=restore', 'show=comments', 'redir=no'), '', '&' ) );
 			}
 		}
 

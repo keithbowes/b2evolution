@@ -41,7 +41,7 @@ $params = array_merge( array(
 		'after_comment_error'  => '</em></p>',
 		'before_comment_form'  => '',
 		'after_comment_form'   => '',
-		'form_comment_redirect_to' => $Item->get_feedback_url( $disp == 'feedback-popup', '&' ),
+		'form_comment_redirect_to' => $Item->get_feedback_url( $disp == 'feedback-popup', '&' ) . '?show=comments&redir=no',
 	), $params );
 
 $comment_reply_ID = param( 'reply_ID', 'integer', 0 );
