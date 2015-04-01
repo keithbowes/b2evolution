@@ -45,8 +45,8 @@ if( $current_User->check_perm( 'emails', 'edit' ) )
 
 		$url = '?ctrl=email&amp;tab=settings&amp;tab3=returned&amp;'.url_crumb('emailsettings').'&amp;action=';
 		$Form->info_field( T_('Perform tests'),
-					'<a href="'.$url.'test_1">['.T_('server connection').']</a>&nbsp;&nbsp;'.
-					'<a href="'.$url.'test_2">['.T_('get one returned email').']</a>&nbsp;&nbsp;'.
+					'<a href="'.$url.'test_1">['.T_('server connection').']</a>&#160;&#160;'.
+					'<a href="'.$url.'test_2">['.T_('get one returned email').']</a>&#160;&#160;'.
 					'<a href="'.$url.'test_3">['.T_('Copy/Paste an error message').']</a>' );
 
 		if( $action == 'test_3' )

@@ -2953,10 +2953,7 @@ function callback_filter_userlist( & $Form )
 	$Form->checkbox( 'gender_men', get_param('gender_men'), T_('Men') );
 	$Form->checkbox( 'gender_women', get_param('gender_women'), T_('Women') );
 	echo '</span>';
-	if( !is_admin_page() )
-	{
-		echo '<br />';
-	}
+	echo is_admin_page() ? '' : '<br />';
 
 	if( is_admin_page() )
 	{ // show this filters only on admin interface
@@ -2975,7 +2972,7 @@ function callback_filter_userlist( & $Form )
 				'0'  => T_('All (Grouped)'),
 			) + $GroupCache->get_option_array();
 		$Form->select_input_array( 'group', get_param('group'), $group_options_array, T_('User group'), '', array( 'force_keys_as_values' => true ) );
-		echo '<br />';
+		echo is_admin_page() ? '' : '<br />';
 	}
 
 	$location_filter_displayed = false;
@@ -3023,11 +3020,11 @@ function callback_filter_userlist( & $Form )
 
 	if( $location_filter_displayed )
 	{
-		echo '<br />';
+		echo is_admin_page() ? '' : '<br />';
 	}
 
 	$Form->interval( 'age_min', get_param('age_min'), 'age_max', get_param('age_max'), 3, T_('Age group') );
-	echo '<br />';
+	echo is_admin_page() ? '' : '<br />';
 
 	$criteria_types = param( 'criteria_type', 'array:integer' );
 	$criteria_values = param( 'criteria_value', 'array:string' );
@@ -4602,25 +4599,6 @@ function users_results_block( $params = array() )
 	$UserList->title = $params['results_title'];
 	$UserList->no_results_text = $params['results_no_text'];
 
-	/*
-	 * Table icons:
-	 */
-	if( $params['display_btn_refresh'] )
-	{ // Display a button to refresh the users list
-		$UserList->global_icon( T_('Refresh users list...'), 'refresh', url_add_param( $params['page_url'], 'filter=refresh' ), T_('Refresh').' &raquo;', 3, 4 );
-	}
-	if( $current_User->check_perm( 'users', 'edit', false ) )
-	{
-		if( $params['display_btn_adduser'] )
-		{ // Display a button to add user
-			$UserList->global_icon( T_('Create a new user...'), 'new', $admin_url.'?ctrl=user&amp;action=new&amp;user_tab=profile', T_('Add user').' &raquo;', 3, 4 );
-		}
-		if( $params['display_btn_adduser'] )
-		{ // Display a button to add group
-			$UserList->global_icon( T_('Create a new group...'), 'new', $admin_url.'?ctrl=groups&amp;action=new', T_('Add group').' &raquo;', 3, 4 );
-		}
-	}
-
 	$UserList->set_default_filters( $default_filters );
 	$UserList->load_from_Request();
 
@@ -4654,8 +4632,8 @@ function users_results_block( $params = array() )
 		}
 
 		if( $UserList->is_filtered() )
-		{	// Display link to reset filters only if some filter is applied
-			$filter_presets['reset'] = array( T_('Reset Filters'), url_add_param( $params['page_url'], 'filter=reset' ), 'class="floatright"' );
+		{ // Display link to reset filters only if some filter is applied
+			$UserList->global_icon( T_('Reset filters'), 'reset_filters', url_add_param( $params['page_url'], 'filter=reset' ), T_('Reset filters'), 3, 4, array( 'class' => 'action_icon btn-warning' ) );
 		}
 
 		$UserList->filter_area = array(
@@ -4663,6 +4641,25 @@ function users_results_block( $params = array() )
 			'url_ignore' => 'users_paged,u_paged,keywords',
 			'presets' => $filter_presets,
 			);
+	}
+
+	/*
+	 * Table icons:
+	 */
+	if( $params['display_btn_refresh'] )
+	{ // Display a button to refresh the users list
+		$UserList->global_icon( T_('Refresh users list...'), 'refresh', url_add_param( $params['page_url'], 'filter=refresh' ), T_('Refresh'), 3, 4, array( 'class' => 'action_icon btn-warning' ) );
+	}
+	if( $current_User->check_perm( 'users', 'edit', false ) )
+	{
+		if( $params['display_btn_adduser'] )
+		{ // Display a button to add user
+			$UserList->global_icon( T_('Create a new user...'), 'new', $admin_url.'?ctrl=user&amp;action=new&amp;user_tab=profile', T_('Add user').' &raquo;', 3, 4 );
+		}
+		if( $params['display_btn_adduser'] )
+		{ // Display a button to add group
+			$UserList->global_icon( T_('Create a new group...'), 'new', $admin_url.'?ctrl=groups&amp;action=new', T_('Add group').' &raquo;', 3, 4 );
+		}
 	}
 
 	// Display result :
@@ -4839,7 +4836,7 @@ function users_results( & $UserList, $params = array() )
 				'order' => 'nb_blogs',
 				'th_class' => 'shrinkwrap small',
 				'td_class' => 'center small',
-				'td' => '~conditional( (#nb_blogs# > 0), \'<a href="admin.php?ctrl=user&amp;user_tab=activity&amp;user_ID=$user_ID$" title="'.format_to_output( T_('View personal blogs'), 'htmlattr' ).'">$nb_blogs$</a>\', \'&nbsp;\' )~',
+				'td' => '~conditional( (#nb_blogs# > 0), \'<a href="admin.php?ctrl=user&amp;user_tab=activity&amp;user_ID=$user_ID$" title="'.format_to_output( T_('View personal blogs'), 'htmlattr' ).'">$nb_blogs$</a>\', \'&#160;\' )~',
 			);
 	}
 
@@ -4912,7 +4909,7 @@ function users_results( & $UserList, $params = array() )
 				'td' => '%user_td_mailto( #user_email# )%
 				%user_td_pm( #user_ID#, #user_login# )%'.
 				('~conditional( (#user_url# != \'http://\') && (#user_url# != \'\'), \' <a href="$user_url$" target="_blank" title="'.format_to_output( T_('Website'), 'htmlattr' ).': $user_url$">'
-						.get_icon( 'www', 'imgtag', array( 'class' => 'middle', 'title' => format_to_output( T_('Website'), 'htmlattr' ).': $user_url$' ) ).'</a>\', \'&nbsp;\' )~'),
+						.get_icon( 'www', 'imgtag', array( 'class' => 'middle', 'title' => format_to_output( T_('Website'), 'htmlattr' ).': $user_url$' ) ).'</a>\', \'&#160;\' )~'),
 			);
 	}
 
@@ -5052,7 +5049,7 @@ function user_td_mailto( $email )
 {
 	if( empty( $email ) )
 	{
-		return '&nbsp;';
+		return '&#160;';
 	}
 	return action_icon( T_('Email').': '.$email, 'email', 'mailto:'.$email, T_('Email') );
 }
@@ -5063,7 +5060,7 @@ function user_td_pm( $user_ID, $user_login )
 
 	if( $user_ID == $current_User->ID )
 	{
-		return '&nbsp;';
+		return '&#160;';
 	}
 
 	$UserCache = & get_UserCache();

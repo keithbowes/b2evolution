@@ -188,7 +188,7 @@ function deadline( $date )
 
 	if( $timestamp <= 0 )
 	{
-		return '&nbsp;';	// IE needs that crap in order to display cell border :/
+		return '&#160;';	// IE needs that crap in order to display cell border :/
 	}
 
 	return mysql2localedate( $date );

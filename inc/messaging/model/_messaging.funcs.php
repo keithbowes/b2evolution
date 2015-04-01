@@ -2211,7 +2211,7 @@ function col_msg_actions( $thrd_ID, $msg_ID )
 
 	if( $msg_ID < 1 )
 	{ // Don't display actions in preview mode
-		return '&nbsp;';
+		return '&#160;';
 	}
 	else if( is_admin_page() )
 	{

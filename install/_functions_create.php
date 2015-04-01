@@ -227,19 +227,21 @@ function create_default_data()
 	// added in Phoenix-Alpha
 	task_begin( 'Creating default Post Types... ' );
 	$DB->query( "
-		INSERT INTO T_items__type ( ptyp_ID, ptyp_name )
-		VALUES ( 1, 'Post' ),
-					 ( 1000, 'Page' ),
-					 ( 1400, 'Intro-Front' ),
-					 ( 1500, 'Intro-Main' ),
-					 ( 1520, 'Intro-Cat' ),
-					 ( 1530, 'Intro-Tag' ),
-					 ( 1570, 'Intro-Sub' ),
-					 ( 1600, 'Intro-All' ),
-					 ( 2000, 'Podcast' ),
-					 ( 3000, 'Sidebar link' ),
-					 ( 4000, 'Advertisement' ),
-					 ( 5000, 'Reserved' ) " );
+		INSERT INTO T_items__type ( ityp_ID, ityp_name, ityp_backoffice_tab, ityp_template_name, ityp_allow_html )
+		VALUES ( 1,    'Post',          'Posts',         'single', 1 ),
+					 ( 100,  'Manual Page',   'Posts',         'single', 0 ),
+					 ( 200,  'Forum Topic',   'Posts',         'single', 0 ),
+					 ( 1000, 'Page',          'Pages',         'page',   1 ),
+					 ( 1400, 'Intro-Front',   'Intros',        NULL,     1 ),
+					 ( 1500, 'Intro-Main',    'Intros',        NULL,     1 ),
+					 ( 1520, 'Intro-Cat',     'Intros',        NULL,     1 ),
+					 ( 1530, 'Intro-Tag',     'Intros',        NULL,     1 ),
+					 ( 1570, 'Intro-Sub',     'Intros',        NULL,     1 ),
+					 ( 1600, 'Intro-All',     'Intros',        NULL,     1 ),
+					 ( 2000, 'Podcast',       'Podcasts',      'single', 1 ),
+					 ( 3000, 'Sidebar link',  'Sidebar links', NULL,     1 ),
+					 ( 4000, 'Advertisement', 'Advertisement', NULL,     1 ),
+					 ( 5000, 'Reserved',      NULL,            NULL,     1 )" );
 	task_end();
 
 
@@ -1113,10 +1115,6 @@ function create_blog(
 		$Blog->set_setting( 'skin'.$blog_skin_ID.'_bubbletip', '1' );
 		$Blog->set_setting( 'skin'.$blog_skin_ID.'_gender_colored', '1' );
 		$Blog->set_setting( 'in_skin_editing', '1' );
-		$Blog->set_setting( 'location_country', 'required' );
-		$Blog->set_setting( 'location_region', 'required' );
-		$Blog->set_setting( 'location_subregion', 'required' );
-		$Blog->set_setting( 'location_city', 'required' );
 
 		if( $kind == 'manual' )
 		{	// Set a posts ordering by 'post_order ASC'
@@ -1135,7 +1133,6 @@ function create_blog(
 
 	if( !$allow_html )
 	{
-		$Blog->set_setting( 'allow_html_post', 0 );
 		$Blog->set_setting( 'allow_html_comment', 0 );
 	}
 
@@ -1318,14 +1315,26 @@ function create_demo_contents()
 	$default_blog_longdesc = T_('This is the long description for the blog named \'%s\'. %s');
 	$default_blog_access_type = 'relative';
 
-	// Array contains which collections should be installed
-	$collections = param( 'collections', 'array:string', array() );
-	$install_collection_home = in_array( 'home', $collections );
-	$install_collection_bloga = in_array( 'a', $collections );
-	$install_collection_blogb = in_array( 'b', $collections );
-	$install_collection_photos = in_array( 'photos', $collections );
-	$install_collection_forums = in_array( 'forums', $collections );
-	$install_collection_manual = in_array( 'manual', $collections );
+	$create_sample_contents = param( 'create_sample_contents', 'string', '' );
+	if( $create_sample_contents == 'all' )
+	{	// Array contains which collections should be installed
+		$install_collection_home =   1;
+		$install_collection_bloga =  1;
+		$install_collection_blogb =  1;
+		$install_collection_photos = 1;
+		$install_collection_forums = 1;
+		$install_collection_manual = 1;
+	}
+	else
+	{	// Array contains which collections should be installed
+		$collections = param( 'collections', 'array:string', array() );
+		$install_collection_home = in_array( 'home', $collections );
+		$install_collection_bloga = in_array( 'a', $collections );
+		$install_collection_blogb = in_array( 'b', $collections );
+		$install_collection_photos = in_array( 'photos', $collections );
+		$install_collection_forums = in_array( 'forums', $collections );
+		$install_collection_manual = in_array( 'manual', $collections );
+	}
 
 	task_begin( 'Creating default blogs... ' );
 
@@ -1501,11 +1510,11 @@ function create_demo_contents()
 
 	if( $install_collection_forums )
 	{ // Create categories for forums
-		$cat_forums_forum_group = cat_create( T_('A forum group'), 'NULL', $blog_forums_ID, NULL, false, NULL, true );
+		$cat_forums_forum_group = cat_create( T_('A forum group'), 'NULL', $blog_forums_ID, NULL, false, NULL, NULL, true );
 		$cat_forums_ann = cat_create( T_('Welcome'), $cat_forums_forum_group, $blog_forums_ID, T_('Welcome description') );
 		$cat_forums_aforum = cat_create( T_('A forum'), $cat_forums_forum_group, $blog_forums_ID, T_('Short description of this forum') );
 		$cat_forums_anforum = cat_create( T_('Another forum'), $cat_forums_forum_group, $blog_forums_ID, T_('Short description of this forum') );
-		$cat_forums_another_group = cat_create( T_('Another group'), 'NULL', $blog_forums_ID, NULL, false, NULL, true );
+		$cat_forums_another_group = cat_create( T_('Another group'), 'NULL', $blog_forums_ID, NULL, false, NULL, NULL, true );
 		$cat_forums_news = cat_create( T_('News'), $cat_forums_another_group, $blog_forums_ID, T_('News description') );
 		$cat_forums_bg = cat_create( T_('Background'), $cat_forums_another_group, $blog_forums_ID, T_('Background description') );
 		$cat_forums_fun = cat_create( T_('Fun'), $cat_forums_another_group, $blog_forums_ID, T_('Fun description') );
@@ -1521,11 +1530,11 @@ function create_demo_contents()
 		$cat_manual_intro = cat_create( T_('Introduction'), NULL, $blog_manual_ID, NULL, false, 10 );
 		$cat_manual_getstarted = cat_create( T_('Getting Started'), NULL, $blog_manual_ID, NULL, false, 20 );
 		$cat_manual_userguide = cat_create( T_('User Guide'), NULL, $blog_manual_ID, NULL, false, 30 );
-		$cat_manual_reference = cat_create( T_('Reference'), NULL, $blog_manual_ID, NULL, false, 40 );
+		$cat_manual_reference = cat_create( T_('Reference'), NULL, $blog_manual_ID, NULL, false, 40, 'alpha' );
 
 		$cat_manual_everyday = cat_create( T_('Collections'), $cat_manual_reference, $blog_manual_ID, NULL, false, 10 );
 		$cat_manual_advanced = cat_create( T_('Other'), $cat_manual_reference, $blog_manual_ID, NULL, false, 5 );
-		
+
 		$cat_manual_blogs = cat_create( T_('Blogs'), $cat_manual_everyday, $blog_manual_ID, NULL, false, 35 );
 		$cat_manual_photos = cat_create( T_('Photo Albums'), $cat_manual_everyday, $blog_manual_ID, NULL, false, 25 );
 		$cat_manual_forums = cat_create( T_('Forums'), $cat_manual_everyday, $blog_manual_ID, NULL, false, 5 );
@@ -1534,9 +1543,9 @@ function create_demo_contents()
 	task_end();
 
 
-	$info_page = T_('<p>This blog is powered by b2evolution.</p>
+	$info_page = T_('<p>This website is powered by b2evolution.</p>
 
-<p>You are currently looking at an info page about %s.</p>
+<p>You are currently looking at an info page about "%s".</p>
 
 <p>Info pages are very much like regular posts, except that they do not appear in the regular flow of posts. They appear as info pages in the sidebar instead.</p>
 
@@ -1968,7 +1977,7 @@ The rain---not the reign---in Spain.');
 	}
 
 	if( $install_collection_forums )
-	{ // ---------------- Insert the POSTS for Forums blog ---------------- //
+	{ // ---------------- Insert the POSTS for Forums Collection ---------------- //
 		task_begin( 'Creating sample posts for Collection Forums... ' );
 
 		// Insert a PAGE:
@@ -2074,7 +2083,7 @@ The rain---not the reign---in Spain.');
 	}
 
 	if( $install_collection_manual )
-	{ // ---------------- Insert the POSTS for Manual blog ---------------- //
+	{ // ---------------- Insert the POSTS for Manual collection ---------------- //
 		task_begin( 'Creating sample posts for Collection Manual... ' );
 
 		// Insert a main intro:
@@ -2096,7 +2105,8 @@ Just to be clear: this is a **demo** of a manual. The user manual for b2evolutio
 		// Insert a cat intro:
 		$now = date('Y-m-d H:i:s',$timestamp++);
 		$edited_Item = new Item();
-		$edited_Item->insert( 1, T_("Chapter Intro"), T_('This is an introduction for this chapter. It is a post using the "intro-cat" type.'), $now, $cat_manual_everyday,
+		$edited_Item->insert( 1, T_("Chapter Intro"), T_('This is an introduction for this chapter. It is a post using the "intro-cat" type.')
+			."\n\n".T_('Contrary to the other sections which are explictely sorted by default, this section is sorted alphabetically by default.'), $now, $cat_manual_reference,
 			array(), 'published', '#', '', '', 'open', array('default'), 1520 );
 
 		// Insert a PAGE:
@@ -2108,18 +2118,18 @@ Just to be clear: this is a **demo** of a manual. The user manual for b2evolutio
 		// Insert a post:
 		$now = date('Y-m-d H:i:s',$timestamp++);
 		$edited_Item = new Item();
-		$edited_Item->insert( 1, T_('First Topic'), T_('<p>This is the first topic.</p>
+		$edited_Item->insert( 1, T_('First Page'), T_('<p>This is the first page.</p>
 
-<p>It appears in a single category.</p>'), $now, $cat_manual_intro, array( $cat_manual_userguide, $cat_manual_photos ),
+<p>It appears in a single category.</p>'), $now, $cat_manual_intro, array(),
 		'published', '#', '', '', 'open', array('default'), 1, NULL, 10 );
 
 		// Insert a post:
 		$now = date('Y-m-d H:i:s',$timestamp++);
 		$edited_Item = new Item();
-		$edited_Item->insert( 1, T_('Second topic'), T_('<p>This is the second topic.</p>
+		$edited_Item->insert( 1, T_('Second Page'), T_('<p>This is the second page.</p>
 
-<p>It appears in multiple categories.</p>'), $now, $cat_manual_userguide, array( $cat_manual_intro ),
-		'published', '#', '', '', 'open', array('default'), 1, NULL, 3 );
+<p>It appears in multiple categories.</p>'), $now, $cat_manual_intro, array( $cat_manual_getstarted ),
+		'published', '#', '', '', 'open', array('default'), 1, NULL, 20 );
 
 		// Insert a post:
 		$now = date('Y-m-d H:i:s',$timestamp++);
@@ -2362,8 +2372,8 @@ Hello
 |-
 ! scope="row" colspan="2"| Total
 | $1.90
-|}', $now, $cat_manual_userguide, array( $cat_manual_intro ),
-			'published', '#', '', '', 'open', array('default'), 1, NULL, 3 );
+|}', $now, $cat_manual_reference, array( $cat_manual_userguide ),
+			'published', '#', '', '', 'open', array('default'), 1, NULL, 50 );
 
 		// Insert a post:
 		$now = date('Y-m-d H:i:s',$timestamp++);
@@ -2371,7 +2381,7 @@ Hello
 		$edited_Item->insert( 1, T_('Image topic'), T_('<p>This topic has an image attached to it. The image is automatically resized to fit the current blog skin. You can zoom in by clicking on the thumbnail.</p>
 
 <p>Check out the photoblog (accessible through the links at the top) to see a completely different skin focused more on the photos than on the blog text.</p>'), $now, $cat_manual_getstarted, array( $cat_manual_blogs ),
-			'published', '#', '', '', 'open', array('default'), 1, NULL, 20 );
+			'published', '#', '', '', 'open', array('default'), 1, NULL, 10 );
 		$edit_File = new File( 'shared', 0, 'monument-valley/monuments.jpg' );
 		$LinkOwner = new LinkItem( $edited_Item );
 		$edit_File->link_to_Object( $LinkOwner );
@@ -2395,8 +2405,8 @@ Hello
 
 '.sprintf( T_("<p>This is page %d.</p>"), 4 ).'
 
-'.T_('<p>It is the last page.</p>'), $now, $cat_manual_reference, array(),
-			'published', '#', '', '', 'open', array('default'), 1, NULL, 8 );
+'.T_('<p>It is the last page.</p>'), $now, $cat_manual_userguide, array(),
+			'published', '#', '', '', 'open', array('default'), 1, NULL, 30 );
 
 		// Insert a post:
 		$now = date('Y-m-d H:i:s',$timestamp++);
@@ -2405,8 +2415,8 @@ Hello
 
 [teaserbreak]
 
-<p>This is the extended text. You only see it when you have clicked the "more" link.</p>'), $now, $cat_manual_getstarted, array(),
-			'published', '#', '', '', 'open', array('default'), 1, NULL, 5 );
+<p>This is the extended text. You only see it when you have clicked the "more" link.</p>'), $now, $cat_manual_userguide, array(),
+			'published', '#', '', '', 'open', array('default'), 1, NULL, 20 );
 		$edited_Item->set_setting( 'hide_teaser', '1' );
 		$edited_Item->dbsave();
 
@@ -2417,7 +2427,7 @@ Hello
 
 [teaserbreak]
 
-<p>This is the extended text. You only see it when you have clicked the "more" link.</p>'), $now, $cat_manual_everyday, array(),
+<p>This is the extended text. You only see it when you have clicked the "more" link.</p>'), $now, $cat_manual_userguide, array(),
 			'published', '#', '', '', 'open', array('default'), 1, NULL, 10 );
 
 		// Insert a post:
@@ -2436,7 +2446,7 @@ Hello
 </ul>
 
 <p>You can add new collections of any type (blog, photos, forums, etc.), delete unwanted one and customize existing collections (title, sidebar, blog skin, widgets, etc.) from the admin interface.</p>"), $now, $cat_manual_intro, array( $cat_manual_everyday ),
-			'published', '#', '', '', 'open', array('default'), 1, NULL, 5 );
+			'published', '#', '', '', 'open', array('default'), 1, NULL, 30 );
 		$edit_File = new File( 'shared', 0, 'logos/b2evolution8.png' );
 		$LinkOwner = new LinkItem( $edited_Item );
 		$edit_File->link_to_Object( $LinkOwner );

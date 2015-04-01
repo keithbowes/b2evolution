@@ -164,9 +164,9 @@ display_dragdrop_upload_button( array(
 		'path'             => '/quick-uploads/'.( $LinkOwner->type == 'item' ? 'p' : 'c' ).$LinkOwner->link_Object->ID.'/',
 		'list_style'       => 'table',
 		'template_filerow' => '<table><tr>'
-					.'<td class="firstcol shrinkwrap qq-upload-image"><span class="qq-upload-spinner">&nbsp;</span></td>'
-					.'<td class="qq-upload-file fm_filename">&nbsp;</td>'
-					.'<td class="qq-upload-link-id shrinkwrap">&nbsp;</td>'
+					.'<td class="firstcol shrinkwrap qq-upload-image"><span class="qq-upload-spinner">&#160;</span></td>'
+					.'<td class="qq-upload-file fm_filename">&#160;</td>'
+					.'<td class="qq-upload-link-id shrinkwrap">&#160;</td>'
 					.'<td class="qq-upload-link-actions shrinkwrap">'
 						.'<div class="qq-upload-status">'
 							.TS_('Uploading...')

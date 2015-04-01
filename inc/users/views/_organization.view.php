@@ -55,7 +55,7 @@ $Results->cols[] = array(
 $Results->cols[] = array(
 		'th' => T_('Url'),
 		'order' => 'org_url',
-		'td' => '~conditional( #org_url# == "", "&nbsp;", "<a href=\"#org_url#\">#org_url#</a>" )~',
+		'td' => '~conditional( #org_url# == "", "&#160;", "<a href=\"#org_url#\">#org_url#</a>" )~',
 	);
 
 if( $current_User->check_perm( 'users', 'edit', false ) )

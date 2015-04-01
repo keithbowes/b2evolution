@@ -149,11 +149,11 @@ function filter_crontab( & $Form )
 
 	// Date/time filters:
 	$Form->date_input( 'datestartinput', $datestart, T_('Start Date') );
-	echo T_('at').' &nbsp;';
+	echo T_('at').' &#160;';
 	$Form->time_input( 'timestart', '           '.$timestart, '' );
 
 	$Form->date_input( 'datestopinput', $datestop, T_('End Date') );
-	echo T_('at').' &nbsp;';
+	echo T_('at').' &#160;';
 	$Form->time_input( 'timestop', '           '.$timestop, '' );
 }
 $Results->filter_area = array(

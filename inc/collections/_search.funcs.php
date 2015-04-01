@@ -496,7 +496,7 @@ function display_search_result( $params = array() )
 
 	// Content
 	echo $params['cell_content_start'];
-	echo ! empty( $params['excerpt'] ) ? $params['excerpt'] : '&nbsp;';
+	echo ! empty( $params['excerpt'] ) ? $params['excerpt'] : '&#160;';
 	echo $params['cell_content_end'];
 
 	if( ! empty( $params['author'] ) || ! empty( $params['editor'] ) || $params['cell_author_empty'] !== false )

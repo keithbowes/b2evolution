@@ -94,7 +94,7 @@ else
 	}
 }
 
-$Form->text_input( 'thrd_title', $edited_Thread->title, $params['cols'], T_('Subject'), '', array( 'maxlength'=> 255, 'required'=>true, 'class'=>'wide_input' ) );
+$Form->text_input( 'thrd_title', $edited_Thread->title, $params['cols'], T_('Subject'), '', array( 'maxlength'=> 255, 'required'=>true, 'class'=>'wide_input large' ) );
 
 
 ob_start();
@@ -137,7 +137,7 @@ if( !empty( $thrd_recipients_array ) )
 
 // display submit button, but only if enabled
 $Form->end_form( array(
-		array( 'submit', 'actionArray[preview]', T_('Preview'), 'SaveButton' ),
+		array( 'submit', 'actionArray[preview]', T_('Preview'), 'SaveButton btn-info' ),
 		array( 'submit', 'actionArray[create]', T_('Send message'), 'SaveButton' )
 	) );
 
