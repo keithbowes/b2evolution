@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
 "POT-Creation-Date: 2015-04-02 17:41-0400\n"
-"PO-Revision-Date: 2015-04-02 17:46-0400\n"
+"PO-Revision-Date: 2015-04-02 18:25-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -5386,7 +5386,7 @@ msgstr "Alklaki por igi, ke ĉi tio ne plu estu metakategorio"
 
 #: ../../../inc/chapters/views/_chapter_list.view.php:118
 msgid "Click to make this as meta category"
-msgstr "Alklaki por igi, ke ĉiu tiu estu metakategorio"
+msgstr "Alklaki por igi, ke ĉi tiu estu metakategorio"
 
 #: ../../../inc/chapters/views/_chapter_list.view.php:129
 msgid "Unlock category"
@@ -33130,9 +33130,3 @@ msgstr "Se vi volas neniujn pluajn sciigojn pri eraroj de planitaj laboroj, sekv
 #, php-format
 msgid "To see more information about these tasks click here: %s"
 msgstr "Por vidi pliajn informojn pri la laboroj sekvu la jenan ligilon: %s"
-
-#~ msgid "Markdown formatting"
-#~ msgstr "Markdown-formatado"
-
-#~ msgid "+"
-#~ msgstr "+"

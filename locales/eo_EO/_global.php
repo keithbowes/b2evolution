@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo_EO'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net/\nPOT-Creation-Date: 2015-04-02 17:41-0400\nPO-Revision-Date: 2015-04-02 17:46-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net/\nPOT-Creation-Date: 2015-04-02 17:41-0400\nPO-Revision-Date: 2015-04-02 18:25-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 'Illegal tag' => 'Nevalida etikedo',
 'Tag &lt;%s&gt; may not contain raw character data' => 'Etikedo &lt;%s&gt; ne rajtas enhavi neformatitajn signo-datumojn',
 'Adm' => '[A]',
@@ -892,7 +892,7 @@ $trans['eo_EO'] = array(
 'Click to make this the default category' => 'Alklaki por igi al ĉi tiu la aprioran kategorion',
 'Alphabetic' => 'Alfabeta',
 'Click to revert this from meta category' => 'Alklaki por igi, ke ĉi tio ne plu estu metakategorio',
-'Click to make this as meta category' => 'Alklaki por igi, ke ĉiu tiu estu metakategorio',
+'Click to make this as meta category' => 'Alklaki por igi, ke ĉi tiu estu metakategorio',
 'Unlock category' => 'Malfiksi kategorion',
 'Lock category' => 'Fiksi kategorion',
 'New...' => 'Nova…',
