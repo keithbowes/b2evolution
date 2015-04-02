@@ -70,7 +70,7 @@ Optionally, it will also display a toolbar for quick insertion of smilies into a
 	 *
 	 * @return array
 	 */
-	function GetDefaultSettings()
+	function GetDefaultSettings( & $params )
 	{
 		global $rsc_subdir;
 		return array(
@@ -146,7 +146,7 @@ XX(      graydead.gif
 	 *
 	 * @return array
 	 */
-	function GetDefaultUserSettings()
+	function GetDefaultUserSettings( & $params )
 	{
 		return array(
 				'use_toolbar' => array(

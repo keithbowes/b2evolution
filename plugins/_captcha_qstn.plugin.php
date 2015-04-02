@@ -54,7 +54,7 @@ class captcha_qstn_plugin extends Plugin
 	}
 
 
-	function GetDefaultSettings()
+	function GetDefaultSettings( & $params)
 	{
 		global $Settings, $test_install_all_features;
 
@@ -245,7 +245,7 @@ class captcha_qstn_plugin extends Plugin
 	 * @param string Form type ( comment|register|message )
 	 * @return boolean|NULL
 	 */
-	function CaptchaValidated( & $params, $form_type )
+	function CaptchaValidated( & $params, $form_type = NULL )
 	{
 		global $DB, $localtimenow, $Session;
 
@@ -419,7 +419,7 @@ class captcha_qstn_plugin extends Plugin
 	 * @param string Form type ( comment|register|message )
 	 * @return boolean|NULL true, if displayed; false, if error; NULL if it does not apply
 	 */
-	function CaptchaPayload( & $params, $form_type )
+	function CaptchaPayload( & $params, $form_type = NULL )
 	{
 		global $DB, $Session;
 

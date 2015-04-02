@@ -43,9 +43,11 @@ class PluginSettings extends AbstractSettings
 	 * @param string The settings name.
 	 * @return mixed|NULL|false False in case of error, NULL if not found, the value otherwise.
 	 */
-	function get( $setting )
+	function get( $col = NULL, $setting = NULL, $arg = NULL )
 	{
-		return parent::get( $this->plugin_ID, $setting );
+		if ( $col === NULL)
+			$col = $this->plugin_ID;
+		return parent::get( $col, $setting, $arg );
 	}
 
 
@@ -56,7 +58,7 @@ class PluginSettings extends AbstractSettings
 	 * @param string The settings value.
 	 * @return boolean true, if the value has been set, false if it has not changed.
 	 */
-	function set( $setting, $value )
+	function set( $setting = NULL, $value = NULL )
 	{
 		return parent::set( $this->plugin_ID, $setting, $value );
 	}

@@ -78,7 +78,7 @@ class autolinks_plugin extends Plugin
 	/**
 	 * @return array
 	 */
-	function GetDefaultSettings()
+	function GetDefaultSettings( & $params )
 	{
 		global $rsc_subdir;
 		return array(

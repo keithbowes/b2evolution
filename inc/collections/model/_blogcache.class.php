@@ -405,12 +405,12 @@ class BlogCache extends DataObjectCache
 	 * @param string Callback method name
 	 * @return string HTML tags <option>
 	 */
-	function get_option_list( $default = 0, $allow_none = false, $method = 'get_name' )
+	function get_option_list( $default = 0, $allow_none = false, $method = 'get_name', $ignore_IDs = array() )
 	{
 		// We force a full load!
 		$this->load_all();
 
-		return parent::get_option_list( $default, $allow_none, $method );
+		return parent::get_option_list( $default, $allow_none, $method, $ignore_IDs );
 	}
 
 

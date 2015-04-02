@@ -2356,13 +2356,13 @@ class Blog extends DataObject
 	/**
 	 * Update the DB based on previously recorded changes
 	 */
-	function dbupdate()
+	function dbupdate($auto_track_modification = true)
 	{
 		global $DB, $Plugins, $servertimenow;
 
 		$DB->begin();
 
-		parent::dbupdate();
+		parent::dbupdate($auto_track_modification);
 
 		// if this blog settings was modified we need to invalidate this blog's page caches
 		// this way all existing cached page on this blog will be regenerated during next display

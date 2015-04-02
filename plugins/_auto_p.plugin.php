@@ -60,7 +60,7 @@ Optionally, it will also mark single line breaks with HTML &lt;BR&gt; tags.');
 	/**
 	 * @return array
 	 */
-	function GetDefaultSettings()
+	function GetDefaultSettings( & $params )
 	{
 		return array(
 				'br' => array(

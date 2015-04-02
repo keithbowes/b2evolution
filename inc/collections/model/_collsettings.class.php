@@ -217,14 +217,14 @@ class CollectionSettings extends AbstractSettings
 	 * @param string Second column key
 	 * @return boolean
 	 */
-	function _load( $coll_ID, $arg )
+	function _load( $coll_ID = NULL, $arg = NULL, $arg3 = NULL )
 	{
 		if( empty( $coll_ID ) )
 		{
 			return false;
 		}
 
-		return parent::_load( $coll_ID, $arg );
+		return parent::_load( $coll_ID, $arg, $arg3 );
 	}
 }
 
