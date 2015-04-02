@@ -60,7 +60,7 @@ class AdminUI extends AdminUI_general
 
 		require_css( 'skins_adm/bootstrap/rsc/css/style.css', true );
 
-		// Set bootstrap classes for messages
+		// Set bootstrap css classes for messages
 		$Messages->set_params( array(
 				'class_outerdiv' => 'action_messages container-fluid',
 				'class_success'  => 'alert alert-dismissible alert-success fade in',
@@ -589,6 +589,13 @@ class AdminUI extends AdminUI_general
 					'radio_oneline_end'      => "</label>\n",
 				);
 
+			case 'file_browser':
+				return array(
+					'block_start' => '<div class="panel panel-default file_browser"><div class="panel-heading"><span class="pull-right">$global_icons$</span><h3 class="panel-title">$title$</h3></div><div class="panel-body">',
+					'block_end'   => '</div></div>',
+					'global_icons_class' => 'btn btn-default btn-sm',
+				);
+
 			case 'block_item':
 			case 'dash_item':
 				return array(
@@ -666,38 +673,22 @@ var modal_window_js_initialized = false;
  */
 function openModalWindow( body_html, width, height, transparent, title, button )
 {
-	if( typeof width == 'undefined' )
-	{
-		width = '560px';
-	}
-	var style_height = '';
-	var css_classes = '';
-	if( typeof height != 'undefined' && ( height > 0 || height != '' ) )
-	{
-		if( height.match( /px\$/i ) )
-		{
-			css_classes = ' modal_fixed_height';
-			height = '100%';
-		}
-		style_height = ';height:' + height;
-	}
-	var use_buttons = true;
-	if( typeof button != 'undefined' && button == false )
-	{
-		use_buttons = false;
-	}
+	var style_width = ( typeof( width ) == 'undefined' || width == 'auto' ) ? '' : 'width:' + width + ';';
+	var style_height = ( typeof( height ) == 'undefined' || height == 0 || height == '' ) ? '': 'height:' + height;
+	var style_height_fixed = style_height.match( /%\$/i ) ? ' style=\"height:100%;overflow:hidden;\"' : '';
+	var use_buttons = ( typeof( button ) == 'undefined' || button != false );
 
 	if( jQuery( '#modal_window' ).length == 0 )
 	{ // Build modal window
-		var modal_html = '<div id=\"modal_window\" class=\"modal fade' + css_classes + '\" style=\"width:' + width + style_height + '\"><div class=\"modal-dialog\" style=\"height:100%;display:table-cell;\"><div class=\"modal-content\">';
+		var modal_html = '<div id=\"modal_window\" class=\"modal fade\"><div class=\"modal-dialog\" style=\"' + style_width + style_height +'\"><div class=\"modal-content\"' + style_height_fixed + '>';
 		if( typeof title != 'undefined' && title != '' )
 		{
 			modal_html += '<div class=\"modal-header\">' +
 					'<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>' +
-					'<h4>' + title + '</h4>' +
+					'<h4 class=\"modal-title\">' + title + '</h4>' +
 				'</div>';
 		}
-		modal_html += '<div class=\"modal-body\">' + body_html + '</div>';
+		modal_html += '<div class=\"modal-body\"' + style_height_fixed + '>' + body_html + '</div>';
 
 		if( use_buttons )
 		{
@@ -760,7 +751,10 @@ function openModalWindow( body_html, width, height, transparent, title, button )
 		options = 'show';
 	}
 	jQuery( '#modal_window' ).modal( options );
-	jQuery( '#modal_window' ).css( 'display', 'table' )
+	if( style_width == '' )
+	{
+		jQuery( '#modal_window .modal-dialog' ).css( { 'display': 'table', 'width': 'auto' } );
+	}
 
 	jQuery( '#modal_window').on( 'hidden', function ()
 	{ // Remove modal window on hide event to draw new window in next time with new title and button
@@ -771,6 +765,18 @@ function openModalWindow( body_html, width, height, transparent, title, button )
 }
 ";
 				break;
+
+			case 'plugin_template':
+				// Template for plugins
+				return array(
+						'toolbar_before'       => '<div class="btn-toolbar $toolbar_class$" role="toolbar">',
+						'toolbar_after'        => '</div>',
+						'toolbar_title_before' => '<div class="btn-toolbar-title">',
+						'toolbar_title_after'  => '</div>',
+						'toolbar_group_before' => '<div class="btn-group btn-group-xs" role="group">',
+						'toolbar_group_after'  => '</div>',
+						'toolbar_button_class' => 'btn btn-default',
+					);
 
 			default:
 				// Delegate to parent class:
