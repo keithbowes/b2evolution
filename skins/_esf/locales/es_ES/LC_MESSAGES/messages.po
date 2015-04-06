@@ -1,7 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: b 2e\n"
-"PO-Revision-Date: 2013-12-11 00:04-0500\n"
+"Report-Msgid-Bugs-To: http://fplanque.net/\n"
+"POT-Creation-Date: 2015-04-05 23:18-0400\n"
+"PO-Revision-Date: 2015-04-05 23:23-0400\n"
 "Last-Translator: Keith <zooplah@gmail.com>\n"
 "Language-Team: Esperanto\n"
 "Language: eo\n"
@@ -10,12 +12,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ../../../ad.include.php:3
 msgid "More info about ESF feeds:\n"
 msgstr "Más información sobre fuentes de ESF:\n"
 
+#: ../../../ad.include.php:6
 msgid ""
 "Self-promotion: To read ESF feeds, you can download my feed\n"
 "# reader:\n"
 msgstr ""
 "Autopromoción: A leer fuentes de ESF puede descargar mi\n"
 "# legador de fuentes:\n"
+
+#: ../../../comments.main.php:71
+#, php-format
+msgid "%s responded to \"%s\""
+msgstr "%s repuesta a \"%s\""

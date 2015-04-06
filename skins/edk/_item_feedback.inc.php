@@ -345,7 +345,7 @@ if( is_logged_in() && $Item->can_comment( NULL ) )
 if( $Item->can_see_comments( false ) && ( $params['disp_comments'] || $params['disp_trackbacks'] || $params['disp_pingbacks'] ) )
 {	// user is allowed to see comments
 	// Display link for comments feed:
-	$Item->feedback_feed_link( '_atom', '<div class="feedback_feed_msg">', '</div>', $params['feed_title'] );
+	$Item->feedback_feed_link( '_esf', '<div class="feedback_feed_msg">', '</div>', $params['feed_title'] );
 }
 
 // ------------------ COMMENT FORM INCLUDED HERE ------------------
