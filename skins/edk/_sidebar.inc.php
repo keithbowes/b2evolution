@@ -200,7 +200,7 @@ for ($i = 0; $i < count($pods); $i++)
 		<ul>
 <?php $logged_in = is_logged_in() && $current_User->check_perm('admin', 'restricted');
 ?>
-	<li><a href="<?php echo $baseurl ?>admin.php<?php if (!$logged_in) echo '?redirect_to=' . $_item_url . '' ?>"><?php echo T_($logged_in ? 'Dashboard' : 'Log in') ?></a></li>
+	<li><a href="<?php echo $baseurl ?>admin.php<?php if (!$logged_in) echo '?redirect_to=' . $_item_url . '' ?>"><?php echo T_($logged_in ? 'Back-office' : 'Log in') ?></a></li>
 <?php user_logout_link( '<li>', '</li>' ); ?>
 </ul></li>
 	<li><h2<?php if (!supports_xhtml()) echo ' tabindex="46789"'; ?>><?php echo $Skin->T_('Credits') ?></h2>
