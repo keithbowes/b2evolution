@@ -204,7 +204,7 @@ if( $action == 'extract' )
 	for ($i = 0; $i < count($file_array); $i++)
 	{
 		$dir_name = dirname($file_array[$i]) . '/';
-		$file_name = glob($dir_name . 'locales/*/_global.php')[0];
+		$file_name = $dir_name . 'locales/messages.pot';
 		if (@file_exists($file_name) && $dir_name != $dir_root)
 		{
 			unset($file_array[$i]);
@@ -213,7 +213,14 @@ if( $action == 'extract' )
 	$cmd = implode("\n", $file_array);
 	file_put_contents('files.txt', $cmd);
 
-	$cmd = 'xgettext -f files.txt -o '.escapeshellarg($file_pot).' --from-code=iso-8859-15 --no-wrap --add-comments=TRANS --copyright-holder="Francois PLANQUE" --msgid-bugs-address=http://fplanque.net/ --keyword=T_ --keyword=NT_ --keyword=TS_ --sort-by-file';
+	if (!($copyright_holder = getenv('COPYRIGHT_HOLDER')))
+		$copyright_holder = ($mode == 'CORE') ? 'François FLANQUE' : 
+		preg_replace('/^([^,]+).*$/', '$1', posix_getpwuid(posix_geteuid())['gecos']);
+
+	if (!($msgid_bugs_address = getenv('MSGID_BUGS_ADDRESS')))
+		$msgid_bugs_address = ($mode == 'CORE') ? 'http://fplanque.net' : '';
+
+	$cmd = 'xgettext -f files.txt -o '.escapeshellarg($file_pot).' --from-code=iso-8859-15 --no-wrap --add-comments=TRANS --copyright-holder="' . $copyright_holder . '" --msgid-bugs-address="' . $msgid_bugs_address . '" --keyword=T_ --keyword=NT_ --keyword=TS_ --sort-by-file';
 
 	// Append filenames, if specified:
 	if( isset($argv[3]) )
