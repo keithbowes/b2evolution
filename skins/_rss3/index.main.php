@@ -2,9 +2,6 @@
 
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 
-
-
-
 // Note: even if we request the same post as $Item earlier, the following will do more restrictions (dates, etc.)
 // Init the MainList object:
 init_MainList( $Blog->get_setting('posts_per_feed') );
@@ -35,17 +32,8 @@ header("ETag: $etag");
 
 
 skin_content_header('text/plain');
-?>
+require_once 'ad.include.php';
 
-#
-# <?php echo $Skin->T_("More info about RSS 3.0 feeds:\n"); ?>
-# http://www.aaronsw.com/2002/rss30
-#
-# <?php echo $Skin->T_("Self-promotion: To read RSS 3.0 feeds, you can download my feed\n# reader:\n"); ?>
-# http://sourceforge.net/projects/r3r
-#
-
-<?php
 echo "title: ";
 html_entity_decode($Blog->disp('name', 'xml'), ENT_QUOTES, 'UTF-8');
 echo "\n";
