@@ -96,7 +96,7 @@ title: <?php echo format_to_output( sprintf( /* TRANS: First %s: Commentator's n
 
 created: <?php $Comment->time( 'r', true ); ?>
 
-creator: <?php echo strip_tags($Comment->get_author(array('format' => 'entityencoded'))); ?>
+creator: <?php printf('%s %s', $Comment->get_author_email(), $Comment->get_author_name()); ?>
 
 guid: c<?php $Comment->ID() ?>@<?php echo $baseurl ?>
 			<?php
