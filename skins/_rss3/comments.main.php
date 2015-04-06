@@ -78,12 +78,11 @@ link: <?php $Blog->disp( 'lastcommentsurl', 'xml' ) ?>
 
 language: <?php $Blog->disp( 'locale', 'xml' ) ?>
 
-docs: http://backend.userland.com/rss
+docs: http://www.aaronsw.com/2002/rss30
 ttl: 60
 		<?php while( $Comment = & $CommentList->get_next( false ) )
 		{ // Loop through comments:
 			// Load comment's Item:
-			echo "\n";
 			$Comment->get_Item();
 ?>
 
@@ -113,4 +112,5 @@ guid: c<?php $Comment->ID() ?>@<?php echo $baseurl ?>
 description: <?php echo $content; ?>
 
 link: <?php $Comment->permanent_url(); ?>
+
 		<?php } /* End of comment loop. */ ?>

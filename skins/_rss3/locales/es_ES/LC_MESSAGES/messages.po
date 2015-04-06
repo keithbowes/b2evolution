@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: b 2e\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
-"POT-Creation-Date: 2015-04-06 00:41-0400\n"
-"PO-Revision-Date: 2015-04-06 00:48-0400\n"
+"POT-Creation-Date: 2015-04-06 01:31-0400\n"
+"PO-Revision-Date: 2015-04-06 01:32-0400\n"
 "Last-Translator: Keith <zooplah@gmail.com>\n"
 "Language-Team: Esperanto\n"
 "Language: eo\n"
@@ -13,10 +13,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../../../ad.include.php:3
-msgid "More info about RSS 3.0 feeds:\n"
-msgstr "Más información sobre fuentes de RSS 3.0:\n"
-
-#: ../../../ad.include.php:6
 msgid ""
 "Self-promotion: To read RSS 3.0 feeds, you can download my feed\n"
 "# reader:\n"
@@ -25,7 +21,7 @@ msgstr ""
 "# legador de fuentes:\n"
 
 # TRANS: First %s: Commentator's name, second %s: post title
-#: ../../../comments.main.php:90
+#: ../../../comments.main.php:89
 #, php-format
 msgid "%s in response to: %s"
 msgstr "%s en repuesta a: %s"
