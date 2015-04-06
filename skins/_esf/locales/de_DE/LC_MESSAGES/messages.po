@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: b 2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
 "POT-Creation-Date: 2015-04-05 23:18-0400\n"
-"PO-Revision-Date: 2015-04-05 23:21-0400\n"
+"PO-Revision-Date: 2015-04-06 00:54-0400\n"
 "Last-Translator: keith <keith@localhost.localdomain>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -26,8 +26,9 @@ msgstr "Mehr Informationen über ESF-Feeds:\n"
 msgid ""
 "Self-promotion: To read ESF feeds, you can download my feed\n"
 "# reader:\n"
-msgstr "Eigenwerbung: Um ESF-Feeds zu lesen, können Sie meine Feedleser:\n"
-
+msgstr ""
+"Eigenwerbung: Um ESF-Feeds zu lesen, können Sie meinen\n"
+"Feedleser herunterladen:\n"
 
 #: ../../../comments.main.php:71
 #, php-format
