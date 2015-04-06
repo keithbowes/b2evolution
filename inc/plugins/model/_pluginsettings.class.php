@@ -43,11 +43,9 @@ class PluginSettings extends AbstractSettings
 	 * @param string The settings name.
 	 * @return mixed|NULL|false False in case of error, NULL if not found, the value otherwise.
 	 */
-	function get( $col = NULL, $setting = NULL, $arg = NULL )
+	function get( $setting = NULL, $arg1 = NULL, $arg2 = NULL )
 	{
-		if ( $col === NULL)
-			$col = $this->plugin_ID;
-		return parent::get( $col, $setting, $arg );
+		return parent::get( $this->plugin_ID, $setting, $arg1 );
 	}
 
 
