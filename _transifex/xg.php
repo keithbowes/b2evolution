@@ -190,17 +190,17 @@ if( $action == 'extract' )
 	if( isset($argv[3]) )
 	{ // File(s) specified
 		$cmd = '';
-		echo 'Extracting T_() and NT_() strings from given files below "'.basename($dir_root).'" into "'.basename($dir_root).'/locales/messages.pot".. ';
+		echo 'Extracting T_(), NT_(), and TS_() strings from given files below "'.basename($dir_root).'" into "'.basename($dir_root).'/locales/messages.pot".. ';
 	}
 	else
 	{
-		echo 'Extracting T_() and NT_() strings from all .php files below "'.basename($dir_root).'" into "'.basename($dir_root).'/locales/messages.pot".. ';
-		# find *.php files, but not in "build" directory:
-		$cmd = 'find '.escapeshellarg($dir_root).' -wholename "*/build/*" -prune -o \( -iname "*.php" -print \) | xargs ';
+		echo 'Extracting T_(), NT_(), and TS_() strings from all .php files below "'.basename($dir_root).'" into "'.basename($dir_root).'/locales/messages.pot".. ';
+		# find *.php files, but not in "_tests" directory:
+		$cmd = 'find '.escapeshellarg($dir_root).' -name "*.php" -not -wholename "*/_tests/*"';
 	}
 
 	/* Filter out files that already have translations */
-	$file_array = explode(' ', `$cmd`);
+	$file_array = explode("\n", `$cmd`);
 	for ($i = 0; $i < count($file_array); $i++)
 	{
 		$dir_name = dirname($file_array[$i]) . '/';
