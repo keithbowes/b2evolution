@@ -51,7 +51,7 @@ else $author_class = ' class="user-comment"';
 			case 'comment': // Display a comment:
 				if( empty($Comment->ID) )
 				{	// PREVIEW comment
-					echo T_('PREVIEW Comment from:').' ';
+					echo __('PREVIEW Comment from:').' ';
 				}
 				else
 				{
@@ -82,7 +82,7 @@ else $author_class = ' class="user-comment"';
 					$Comment->permanent_link( array(
 							'before'    => '',
 							'after'     => ' '.$Skin->T_('from').' ',
-							'text' 		=> T_('Comment'),
+							'text' 		=> __('Comment'),
 							'title'     => '#',
 							'nofollow'	=> true,
 						) );
@@ -103,8 +103,8 @@ else $author_class = ' class="user-comment"';
 			case 'trackback': // Display a trackback:
 				$Comment->permanent_link( array(
 						'before'    => '',
-						'after'     => ' '.T_('from:').' ',
-						'text' 		=> T_('Trackback'),
+						'after'     => ' '.__('from:').' ',
+						'text' 		=> __('Trackback'),
 						'nofollow'	=> true,
 					) );
 				$Comment->author( '', '#', '', '#', 'htmlbody', true );
@@ -113,8 +113,8 @@ else $author_class = ' class="user-comment"';
 			case 'pingback': // Display a pingback:
 				$Comment->permanent_link( array(
 						'before'    => '',
-						'after'     => ' '.T_('from:').' ',
-						'text' 		=> T_('Pingback'),
+						'after'     => ' '.__('from:').' ',
+						'text' 		=> __('Pingback'),
 						'nofollow'	=> true,
 					) );
 				$Comment->author( '', '#', '', '#', 'htmlbody', true );

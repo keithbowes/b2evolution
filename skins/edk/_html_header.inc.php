@@ -274,11 +274,11 @@ echo $params['html_tag'];
 if ('single' == $disp)
 		{
 ?>
-  <link rel="bookmark" href="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']); ?>?show=comments&amp;redir=no#comments" title="<?php echo T_('Comments') ?>" />
+  <link rel="bookmark" href="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']); ?>?show=comments&amp;redir=no#comments" title="<?php echo __('Comments') ?>" />
 <?php
 		}
 ?>
-  <link rel="top" href="<?php echo $baseurl; ?>" title="<?php echo T_('Go back to home page'); ?>" />
+  <link rel="top" href="<?php echo $baseurl; ?>" title="<?php echo __('Go back to home page'); ?>" />
 
 <?php
 if ('posts' != $disp)

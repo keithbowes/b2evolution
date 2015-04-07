@@ -11,7 +11,7 @@
 <?php 
 	$tabindexattr = (supports_xhtml()) ? '': ' tabindex="' . (65536 + 1) . '"';
 		// Display container contents:
-		skin_container( NT_('Sidebar'), array(
+		skin_container( _t('Sidebar'), array(
 				// The following (optional) params will be used as defaults for widgets included in this container:
 				// This will enclose each widget in a block:
 				'block_start' => '<li class="$wi_class$">',
@@ -32,7 +32,7 @@
 				'notes_start' => '<div class="notes">',
 				'notes_end' => '</div>',
       ) );?>
-  <li><h2<?php if (!supports_xhtml()) echo ' tabindex="26789"'; ?>><?php echo T_('Misc'); ?></h2>
+  <li><h2<?php if (!supports_xhtml()) echo ' tabindex="26789"'; ?>><?php echo __('Misc'); ?></h2>
  	  <ul>
 <?php
 global $_item_title, $_item_url;
@@ -196,11 +196,11 @@ for ($i = 0; $i < count($pods); $i++)
 </li>
 	  </ul>
  </li>
-	<li><h2<?php if (!supports_xhtml()) echo ' tabindex="36789"'; ?>><?php echo T_('Admin') ?></h2>
+	<li><h2<?php if (!supports_xhtml()) echo ' tabindex="36789"'; ?>><?php echo __('Admin') ?></h2>
 		<ul>
 <?php $logged_in = is_logged_in() && $current_User->check_perm('admin', 'restricted');
 ?>
-	<li><a href="<?php echo $baseurl ?>admin.php<?php if (!$logged_in) echo '?redirect_to=' . $_item_url . '' ?>"><?php echo T_($logged_in ? 'Back-office' : 'Log in') ?></a></li>
+	<li><a href="<?php echo $baseurl ?>admin.php<?php if (!$logged_in) echo '?redirect_to=' . $_item_url . '' ?>"><?php echo __($logged_in ? 'Back-office' : 'Log in') ?></a></li>
 <?php user_logout_link( '<li>', '</li>' ); ?>
 </ul></li>
 	<li><h2<?php if (!supports_xhtml()) echo ' tabindex="46789"'; ?>><?php echo $Skin->T_('Credits') ?></h2>

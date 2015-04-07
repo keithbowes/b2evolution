@@ -11,6 +11,22 @@ $show_mode = param('show', 'string', 'post');
 $last_date = '';
 $hl = 'single' != $disp ? 'h3' : 'h2';
 
+/* Functions to avoid redundant translations of core phrases */
+function __($str)
+{
+	return T_($str);
+}
+
+function _s($str)
+{
+	return TS_($str);
+}
+
+function _t($str)
+{
+	return NT_($str);
+}
+
 skin_init( $disp );
 skin_include( '_html_header.inc.php' );
 skin_include( '_body_header.inc.php' );
@@ -38,10 +54,10 @@ $last_date = $date;
 	<div class="post" id="<?php $Item->anchor_id(); ?>" <?php echo $_item_langattrs ?>>
 <?php 
 	$Item->locale_temp_switch();
-	printf('<%4$s class="storytitle"><a rel="permalink" href="%1$s"  title="%3$s">%2$s</a></%5$s>', $Item->get_single_url(), $Item->title, T_('Permanent link to full entry'), $hl, $hl);
+	printf('<%4$s class="storytitle"><a rel="permalink" href="%1$s"  title="%3$s">%2$s</a></%5$s>', $Item->get_single_url(), $Item->title, __('Permanent link to full entry'), $hl, $hl);
 ?>
-  <div class="meta"><?php echo T_('Posted in'); ?> <?php $Item->categories(); ?>
- <?php echo T_('by'); ?>
+  <div class="meta"><?php echo __('Posted in'); ?> <?php $Item->categories(); ?>
+ <?php echo __('by'); ?>
 	<a href="<?php $Item->get_creator_User()->url(); ?>"><?php echo $Item->get_creator_User()->firstname; ?></a>
  <?php
 printf($Skin->T_('on %s'), $Item->get_issue_date());
@@ -111,7 +127,7 @@ if ($show_mode != 'comments' || $disp != 'single')
 		$Item->tags(
 			array(
 				'after' => "\n</ul>\n</div>\n",
-				'before' => "<div class=\"meta\">\n<$hl class=\"tag-list-header\">" . $Skin->T_('Tags') . "</$hl>\n<ul class=\"tag-list\">",
+				'before' => "<div class=\"meta\">\n<$hl class=\"tag-list-header\">" . __('Tags') . "</$hl>\n<ul class=\"tag-list\">",
 				'separator' => '',
 				'tag_after' => '</li>',
 				'tag_before' => "\n<li>",

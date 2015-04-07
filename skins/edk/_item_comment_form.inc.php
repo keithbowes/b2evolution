@@ -24,9 +24,9 @@ $params = array_merge( array(
 		'disp_comment_form'	   =>	true,
 		'form_title_start'     => '<h3>',
 		'form_title_end'       => '</h3>',
-		'form_title_text'      => T_('Leave a comment'),
-		'form_comment_text'    => T_('Comment text'),
-		'form_submit_text'     => T_('Send comment'),
+		'form_title_text'      => __('Leave a comment'),
+		'form_comment_text'    => __('Comment text'),
+		'form_submit_text'     => __('Send comment'),
 		'form_params'          => array(), // Use to change a structre of form, i.e. fieldstart, fieldend and etc.
 		'policy_text'          => '',
 		'textarea_lines'       => 10,
@@ -176,7 +176,7 @@ function validateCommentForm(form)
 {
 	if( form.'.$dummy_fields['content'].'.value.replace(/^\s+|\s+$/g,"").length == 0 )
 	{
-		alert("'.TS_('Please do not send empty comments.').'");
+		alert("'._s('Please do not send empty comments.').'");
 		return false;
 	}
 }
@@ -201,7 +201,7 @@ echo '<div id="form_p' . $Item->ID . '">';
 		$Form->hidden( 'reply_ID', $comment_reply_ID );
 
 		// Link to scroll back up to replying comment
-		echo '<a href="'.url_add_param( $Item->get_permanent_url(), 'reply_ID='.$comment_reply_ID.'&amp;redir=no' ).'#c'.$comment_reply_ID.'" class="comment_reply_current" rel="'.$comment_reply_ID.'">'.T_('You are currently replying to a specific comment').'</a>';
+		echo '<a href="'.url_add_param( $Item->get_permanent_url(), 'reply_ID='.$comment_reply_ID.'&amp;redir=no' ).'#c'.$comment_reply_ID.'" class="comment_reply_current" rel="'.$comment_reply_ID.'">'.__('You are currently replying to a specific comment').'</a>';
 	}
 	$Form->hidden( 'redirect_to',
 			// Make sure we get back to the right page (on the right domain)
@@ -215,8 +215,8 @@ echo '<div id="form_p' . $Item->ID . '">';
 
 	if( check_user_status( 'is_validated' ) )
 	{ // User is logged in and activated:
-		$Form->info_field( T_('User'), '<strong>'.$current_User->get_identity_link( array( 'link_text' => 'text', 'display_bubbletip' => false ) ).'</strong>'
-			.' '.get_user_profile_link( ' [', ']', T_('Edit profile') ) );
+		$Form->info_field( __('User'), '<strong>'.$current_User->get_identity_link( array( 'link_text' => 'text', 'display_bubbletip' => false ) ).'</strong>'
+			.' '.get_user_profile_link( ' [', ']', __('Edit profile') ) );
 	}
 	else
 	{ // User is not logged in or not activated:
@@ -226,24 +226,24 @@ echo '<div id="form_p' . $Item->ID . '">';
 			$comment_author_email = $current_User->email;
 		}
 		// Note: we use funky field names to defeat the most basic guestbook spam bots
-		$Form->text( $dummy_fields[ 'name' ], $comment_author, 40, T_('Name'), '', 100, 'bComment' );
+		$Form->text( $dummy_fields[ 'name' ], $comment_author, 40, __('Name'), '', 100, 'bComment' );
 
-		$Form->text( $dummy_fields[ 'email' ], $comment_author_email, 40, T_('Email'), '<br />('.T_('Your email address will <strong>not</strong> be revealed on this site.').')', 100, 'bComment', supports_xhtml() ? 'text' : 'email' );
+		$Form->text( $dummy_fields[ 'email' ], $comment_author_email, 40, __('Email'), '<br />('.__('Your email address will <strong>not</strong> be revealed on this site.').')', 100, 'bComment', supports_xhtml() ? 'text' : 'email' );
 
 		$Item->load_Blog();
 		if( $Item->Blog->get_setting( 'allow_anon_url' ) )
 		{
-			$Form->text( $dummy_fields[ 'url' ], $comment_author_url, 40, T_('Website'), '<br />('.T_('Your URL will be displayed.').')', 100, 'bComment', supports_xhtml() ? 'text' : 'url' );
+			$Form->text( $dummy_fields[ 'url' ], $comment_author_url, 40, __('Website'), '<br />('.__('Your URL will be displayed.').')', 100, 'bComment', supports_xhtml() ? 'text' : 'url' );
 		}
 	}
 
 	if( $Item->can_rate() )
 	{	// Comment rating:
 		ob_start();
-		echo $Form->begin_field( NULL, T_('Your vote'), true );
+		echo $Form->begin_field( NULL, __('Your vote'), true );
 		$Comment->rating_input();
 		$comment_rating = ob_get_clean();
-		$Form->info_field( T_('Your vote'), $comment_rating );
+		$Form->info_field( __('Your vote'), $comment_rating );
 	}
 
 	if( !empty($params['policy_text']) )
@@ -258,7 +258,7 @@ echo '<div id="form_p' . $Item->ID . '">';
 
 	// Message field:
 	$note = '';
-	// $note = T_('Allowed XHTML tags').': '.htmlspecialchars(str_replace( '><',', ', $comment_allowed_tags));
+	// $note = __('Allowed XHTML tags').': '.htmlspecialchars(str_replace( '><',', ', $comment_allowed_tags));
 	$Form->textarea( $dummy_fields[ 'content' ], $comment_content, $params['textarea_lines'], $params['form_comment_text'], $note, 38, 'bComment' );
 
 	// set b2evoCanvas for plugins
@@ -267,7 +267,7 @@ echo '<div id="form_p' . $Item->ID . '">';
 	if (!empty($comment_allowed_tags) && $Blog->get_setting('allow_html_comment') === '1')
 	{
 		echo '<fieldset class="fieldset"><div class="allowed-tags input">';
-		echo T_('Allowed XHTML tags') . ': ';
+		echo __('Allowed XHTML tags') . ': ';
 		echo str_replace('<', '&lt;', str_replace('>', '&gt;', str_replace('><', '>, <', $comment_allowed_tags)));
 		echo "</div></fieldset>\n\n";
 	}
@@ -308,14 +308,14 @@ echo '<div id="form_p' . $Item->ID . '">';
 		}
 		if( !empty( $list_options ) )
 		{	// display list
-			$Form->checklist( $list_options, 'comment_attachments', T_( 'Attached files' ) );
+			$Form->checklist( $list_options, 'comment_attachments', __( 'Attached files' ) );
 		}
 		// memorize all attachments ids
 		$Form->hidden( 'preview_attachments', $comment_attachments );
 	}
 	if( $Item->can_attach() )
 	{	// Display attach file input field
-		$Form->input_field( array( 'label' => T_('Attach files'), 'note' => '<br />'.get_upload_restriction(), 'name' => 'uploadfile[]', 'type' => 'file' ) );
+		$Form->input_field( array( 'label' => __('Attach files'), 'note' => '<br />'.get_upload_restriction(), 'name' => 'uploadfile[]', 'type' => 'file' ) );
 	}
 
 	$comment_options = array();
@@ -323,14 +323,14 @@ echo '<div id="form_p' . $Item->ID . '">';
 	if( ! is_logged_in( false ) )
 	{ // User is not logged in:
 		$comment_options[] = '<label><input type="checkbox" class="checkbox" name="comment_cookies" tabindex="7"'
-													.( $comment_cookies ? ' checked="checked"' : '' ).' value="1" /> '.T_('Remember me').'</label>'
-													.' <span class="note">('.T_('For my next comment on this site').')</span>';
+													.( $comment_cookies ? ' checked="checked"' : '' ).' value="1" /> '.__('Remember me').'</label>'
+													.' <span class="note">('.__('For my next comment on this site').')</span>';
 		// TODO: If we got info from cookies, Add a link called "Forget me now!" (without posting a comment).
 	}
 
 	if( ! empty($comment_options) )
 	{
-		echo $Form->begin_field( NULL, T_('Options'), true );
+		echo $Form->begin_field( NULL, __('Options'), true );
 		echo implode( '<br />', $comment_options );
 		echo $Form->end_field();
 	}
@@ -340,7 +340,7 @@ echo '<div id="form_p' . $Item->ID . '">';
 	if( !empty( $comment_renderer_checkboxes ) )
 	{
 		$Form->begin_fieldset();
-		echo '<div class="label">'.T_('Text Renderers').':</div>';
+		echo '<div class="label">'.__('Text Renderers').':</div>';
 		echo '<div class="input">'.$comment_renderer_checkboxes.'</div>';
 		$Form->end_fieldset();
 	}
@@ -350,7 +350,7 @@ echo '<div id="form_p' . $Item->ID . '">';
 	$Form->begin_fieldset();
 		echo $Form->buttonsstart;
 
-		$preview_text = ( $Item->can_attach() ) ? T_('Preview/Add file') : T_('Preview');
+		$preview_text = ( $Item->can_attach() ) ? __('Preview/Add file') : __('Preview');
 		$Form->button_input( array( 'name' => 'submit_comment_post_'.$Item->ID.'[save]', 'class' => 'submit', 'value' => $params['form_submit_text'], 'tabindex' => 10 ) );
 		$Form->button_input( array( 'name' => 'submit_comment_post_'.$Item->ID.'[preview]', 'class' => 'preview', 'value' => $preview_text, 'tabindex' => 9 ) );
 
