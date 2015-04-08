@@ -3,7 +3,7 @@
 /**
  * Create a new messages.POT file and update specified .po files.
  *
- * Uses find, xargs, sed, xgettext and msgmerge tools.
+ * Uses find, sed, grep, xgettext and msgmerge tools.
  *
  * This file is part of the b2evolution/evocms project - {@link http://b2evolution.net/}.
  * See also {@link http://sourceforge.net/projects/evocms/}.
@@ -32,7 +32,7 @@
 echo "** gettext helper tool for b2evolution **\n";
 
 // Check that all external tools are available:
-foreach( array( 'xgettext', 'msgmerge', 'find', 'xargs', 'sed' ) as $testtool )
+foreach( array( 'xgettext', 'msgmerge', 'find', 'sed', 'grep' ) as $testtool )
 {
 	exec( $testtool.' --version', $output, $return );
 	if( $return !== 0 )
