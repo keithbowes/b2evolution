@@ -261,12 +261,22 @@ if( $action == 'extract' )
 			.'s/# SOME DESCRIPTIVE TITLE./# b2evolution - Language file/;'
 			.'s/(C) YEAR/(C) 2003-'.date('Y').'/;'
 			.'s/YEAR(?!-MO)/'.date('Y').'/;'
-			.'s/CHARSET/utf-8/;'
+			.'s/CHARSET/UTF-8/;'
 			.'" '.escapeshellarg($file_pot) );
 	}
-	else
+	elseif ($mode == 'CWD')
 	{
-		// TODO: try to detect usage with a plugin and s&r accordingly
+		$plugin_name = basename(getcwd());
+		$plugin_file = preg_replace('/^(.*)_plugin/', '_$1.plugin.php', $plugin_name);
+		$version_no = rtrim(`grep '\$version' $plugin_file | sed -e "s/^.*\$version\s*=\s*'\([^']*\)'.*\$/\\1/g"`);
+		system( 'sed -i 1,20"'
+			.'s/PACKAGE/' . $plugin_name . '/;'
+			.'s/VERSION/'.$version_no.'/;'
+			.'s/# SOME DESCRIPTIVE TITLE./# ' . $plugin_name . ' - Language file/;'
+			.'s/(C) YEAR/(C) 2003-'.date('Y').'/;'
+			.'s/YEAR(?!-MO)/'.date('Y').'/;'
+			.'s/CHARSET/UTF-8/;'
+			.'" '.escapeshellarg($file_pot) );
 	}
 	echo "[ok]\n";
 
