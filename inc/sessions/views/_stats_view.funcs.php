@@ -63,7 +63,7 @@ function hits_results( & $Results, $params = array() )
 
 	$Results->cols[] = array(
 			'th' => T_('Session'),
-			order' => 'hit_sess_ID',
+			'order' => 'hit_sess_ID',
 			'td_class' => 'right compact_data',
 			'td' => $session_link,
 		);
