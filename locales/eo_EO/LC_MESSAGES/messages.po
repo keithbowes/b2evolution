@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
 "POT-Creation-Date: 2015-04-04 02:21-0400\n"
-"PO-Revision-Date: 2015-04-04 02:29-0400\n"
+"PO-Revision-Date: 2015-04-08 02:00-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -2387,7 +2387,7 @@ msgstr "Nigrolisto"
 #: ../../../inc/antispam/views/_antispam_ipranges.view.php:45
 #: ../../../inc/sessions/_sessions.init.php:289
 msgid "IP Ranges"
-msgstr "IP-adresa grupoj"
+msgstr "IP-adresaj grupoj"
 
 #: ../../../inc/_core/__core.init.php:1611
 #: ../../../inc/_core/__core.init.php:1654
@@ -4834,7 +4834,7 @@ msgstr "Se ŝlosilvorto blokas legitajn domajno, alklaki la verdan bildeton por 
 
 #: ../../../inc/antispam/views/_antispam_list.view.php:57
 msgid "Request abuse update from centralized blacklist!"
-msgstr "Peti ĝisdatigon pri misuzo el centrigita nigrolisto."
+msgstr "Peti ĝisdatigon pri misuzo el centralizita nigrolisto."
 
 #: ../../../inc/antispam/views/_antispam_list.view.php:83
 msgid "Banned keywords blacklist"
@@ -4951,7 +4951,7 @@ msgstr "Se referanto malkovriĝis kiel spamo, ĉu ne bloku la peton per mesaĝo 
 
 #: ../../../inc/antispam/views/_antispam_settings.form.php:46
 msgid "Report to central blacklist"
-msgstr "Raporti al la centrigita nigrolisto"
+msgstr "Raporti al la centralizita nigrolisto"
 
 #: ../../../inc/antispam/views/_antispam_settings.form.php:46
 msgid "When banning a keyword, offer an option to report to the central blacklist."
@@ -28163,7 +28163,7 @@ msgstr "Instalado sukcesis"
 #: ../../../install/_functions_install.php:247
 #, php-format
 msgid "Now you can <a %s>log in</a> with the following credentials:"
-msgstr "Vi povas nun <a %s>ensaluti</a> per la sekvaj atestoj:"
+msgstr "Vi povas nun <a %s>ensaluti</a> per la jenaj informoj:"
 
 #: ../../../install/_functions_install.php:255
 msgid "Note that password carefully! It is a <em>random</em> password that is given to you when you install b2evolution. If you lose it, you will have to delete the database tables and re-install anew."
