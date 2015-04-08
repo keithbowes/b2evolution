@@ -3,7 +3,7 @@
 /**
  * Create a new messages.POT file and update specified .po files.
  *
- * Uses find, sed, grep, xgettext and msgmerge tools.
+ * Uses xgettext and msgmerge tools.
  *
  * This file is part of the b2evolution/evocms project - {@link http://b2evolution.net/}.
  * See also {@link http://sourceforge.net/projects/evocms/}.
@@ -32,7 +32,7 @@
 echo "** gettext helper tool for b2evolution **\n";
 
 // Check that all external tools are available:
-foreach( array( 'xgettext', 'msgmerge', 'find', 'sed', 'grep' ) as $testtool )
+foreach( array( 'xgettext', 'msgmerge' ) as $testtool )
 {
 	exec( $testtool.' --version', $output, $return );
 	if( $return !== 0 )
@@ -68,6 +68,29 @@ function echo_usage()
 	echo " ..edit .po file..\n";
 	echo " php -f xg.php CORE convert de_DE\n";
 	echo "\n";
+}
+
+function find($dir)
+{
+	static $files = '';
+	$dir = realpath($dir).'/';
+	if (is_dir($dir))
+	{
+		if ($dh = opendir($dir))
+		{
+			while (($file = readdir($dh)) !== false)
+			{
+				global $mode;
+				if (is_file($dir.$file) && preg_match('/\.php$/', $dir.$file) && !preg_match('/_tests/', $dir.$file) &&
+					(!is_file($dir.'locales/messages.pot') || $mode == 'CWD') && $file != '_global.php')
+					$files .= "$dir$file\n";
+				elseif (is_dir($dir.$file) && $file != '.' && $file != '..')
+					find($dir.$file);
+			}
+			closedir($dh);
+		}
+	}
+	return $files;
 }
 
 
@@ -147,6 +170,7 @@ if( ! realpath($dir_root) )
 {
 	die( "Fatal error: The path '$dir_root' was not found!\n" );
 }
+
 // Normalize path:
 $dir_root = realpath($dir_root).'/';
 
@@ -184,9 +208,6 @@ if( $action == 'extract' )
 		}
 	}
 
-	// The locales dir is our working dir:
-#	chdir( $dir_root.'locales' );
-
 	if( isset($argv[3]) )
 	{ // File(s) specified
 		$cmd = '';
@@ -195,22 +216,9 @@ if( $action == 'extract' )
 	else
 	{
 		echo 'Extracting T_(), NT_(), and TS_() strings from all .php files below "'.basename($dir_root).'" into "'.basename($dir_root).'/locales/messages.pot".. ';
-		# find *.php files, but not in "_tests" directory:
-		$cmd = 'find '.escapeshellarg($dir_root).' -name "*.php" -not -wholename "*/_tests/*"';
+		$cmd = find($dir_root);
 	}
 
-	/* Filter out files that already have translations */
-	$file_array = explode("\n", `$cmd`);
-	for ($i = 0; $i < count($file_array); $i++)
-	{
-		$dir_name = dirname($file_array[$i]) . '/';
-		$file_name = $dir_name . 'locales/messages.pot';
-		if (@file_exists($file_name) && $dir_name != $dir_root)
-		{
-			unset($file_array[$i]);
-		}
-	}
-	$cmd = implode("\n", $file_array);
 	file_put_contents('files.txt', $cmd);
 
 	if (!($copyright_holder = getenv('COPYRIGHT_HOLDER')))
@@ -249,34 +257,45 @@ if( $action == 'extract' )
 	$data = preg_replace( '~^#: .*$~me', 'str_replace( \' '.$dir_root.'\', \' ../../../\', \'$0\' )', $data );
 
 	file_put_contents( $file_pot, $data );
+	unset($data);
 
 	if( $mode == 'CORE' )
 	{ // Replace header "vars" in first 20 lines:
 		// Get $app_version:
 		require_once dirname(__FILE__).'/../conf/_config.php';
 
-		system( 'sed -i 1,20"'
-			.'s/PACKAGE/b2evolution/;'
-			.'s/VERSION/'.$app_version.'/;'
-			.'s/# SOME DESCRIPTIVE TITLE./# b2evolution - Language file/;'
-			.'s/(C) YEAR/(C) 2003-'.date('Y').'/;'
-			.'s/YEAR(?!-MO)/'.date('Y').'/;'
-			.'s/CHARSET/UTF-8/;'
-			.'" '.escapeshellarg($file_pot) );
+		$file_contents = file_get_contents($file_pot);
+		$file_contents = preg_replace(
+			array('/PACKAGE/', '/VERSION/', '/# SOME DESCRIPTIVE TITLE./', '/(C) YEAR/', '/YEAR(?!-MO)/', '/CHARSET/'),
+			array(
+				$app_name, $app_version, '# ' . $app_name . ' - Language file',
+				'(C) 2003-'.date('Y'), date('Y'), date('Y'), 'UTF8'
+			),
+			$file_contents);
+		file_put_contents($file_pot, $file_contents);
+		unset($file_contents);
 	}
 	elseif ($mode == 'CWD')
 	{
 		$plugin_name = basename(getcwd());
 		$plugin_file = preg_replace('/^(.*)_plugin/', '_$1.plugin.php', $plugin_name);
-		$version_no = rtrim(`grep '\$version' $plugin_file | sed -e "s/^.*\$version\s*=\s*'\([^']*\)'.*\$/\\1/g"`);
-		system( 'sed -i 1,20"'
-			.'s/PACKAGE/' . $plugin_name . '/;'
-			.'s/VERSION/'.$version_no.'/;'
-			.'s/# SOME DESCRIPTIVE TITLE./# ' . $plugin_name . ' - Language file/;'
-			.'s/(C) YEAR/(C) 2003-'.date('Y').'/;'
-			.'s/YEAR(?!-MO)/'.date('Y').'/;'
-			.'s/CHARSET/UTF-8/;'
-			.'" '.escapeshellarg($file_pot) );
+
+		define('EVO_MAIN_INIT', true);
+		require_once dirname(__FILE__).'/../inc/plugins/_plugin.class.php';
+		require_once dirname(__FILE__).'/../plugins/'.$plugin_name.'/'.$plugin_file;
+		$plugin_inst = new $plugin_name();
+		$plugin_version = $plugin_inst->version;
+
+		$file_contents = file_get_contents($file_pot);
+		$file_contents = preg_replace(
+			array('/PACKAGE/', '/VERSION/', '/# SOME DESCRIPTIVE TITLE./', '/(C) YEAR/', '/YEAR(?!-MO)/', '/CHARSET/'),
+			array(
+				$plugin_name, $plugin_version, '# ' . $plugin_name . ' - Language file',
+				'(C) 2003-'.date('Y'), date('Y'), date('Y'), 'UTF8'
+			),
+			$file_contents);
+		file_put_contents($file_pot, $file_contents);
+		unset($file_contents);
 	}
 	echo "[ok]\n";
 
@@ -305,8 +324,16 @@ if( $action == 'merge' )
 		}
 
 		system( 'msgmerge -U -F --no-wrap '.escapeshellarg($l_file_po).' '.escapeshellarg($file_pot) );
+
 		# delete old TRANS comments and make automatic ones valid comments:
-		system( 'sed -i -r "/^#\\s+TRANS:/d; s/^#\\. TRANS:/# TRANS:/;" '.$l_file_po );
+		$file_contents = file_get_contents($l_file_po);
+		$file_contents = preg_replace(
+			array('/^#\s+TRANS:/', '/#\. TRANS:/'),
+			array('', '# TRANS:'),
+			$file_contents);
+		file_put_contents($l_file_po, $file_contents);	
+		unset($file_contents);
+
 		echo "Written $l_file_po .\n";
 		echo "\n";
 	}
