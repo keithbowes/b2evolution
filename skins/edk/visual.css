@@ -45,10 +45,14 @@ abbr {
 }
 
 article {
+  margin: 0 0 0 0.75%;
+  padding-bottom: 0.2em;
+}
+
+article,
+nav #menu > * {
   background-color: azure;
   border: medium lightblue dotted;
-  margin-bottom: 0.7em !important;
-  padding-bottom: 0.2em;
 }
 
 blockquote {
@@ -110,11 +114,6 @@ main {
   width: 76%;
 }
 
-
-main > * {
-  margin: 0 0 0 2%;
-}
-
 main abbr {
   border-bottom-color: magenta;
 }
@@ -139,7 +138,7 @@ main .bComment * {
 
 nav {
   display: table-cell;
-  width: 24%;
+  width: 23.25%;
 }
 
 nav,
@@ -152,8 +151,8 @@ nav ul li h2 a {
 }
 
 nav > * {
-  margin: 0 4% 0 0;
   overflow-x: auto;
+  margin-left: 2%;
 }
 
 nav div.search {
@@ -202,6 +201,10 @@ nav ul span[rel] {
   display: inline-block;
   padding-top: 0.5em;
   white-space: nowrap;
+}
+
+nav #menu > li > ul > li:first-child h2 {
+  margin-top: 0;
 }
 
 #page-links a:visited {
@@ -475,10 +478,6 @@ form.bComment legend {
   float: right;
 }
 
-#menu ul {
-  background-color: azure;
-}
-
 #menu .SearchField {
   background-color: orange;
   border: thin solid #999;
@@ -616,10 +615,6 @@ form.bComment legend {
   color: orange;
   display: block;
   width: auto;
-}
-
-.notes {
-  margin-top: -1em;
 }
 
 .pavatar {

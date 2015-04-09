@@ -8,7 +8,6 @@ if (param('diaspora-pod'))
 
 $show_mode = param('show', 'string', 'post');
 
-$last_date = '';
 $hl = 'single' != $disp ? 'h3' : 'h2';
 
 /* Functions to avoid redundant translations of core phrases */
@@ -31,6 +30,9 @@ skin_init( $disp );
 skin_include( '_html_header.inc.php' );
 skin_include( '_body_header.inc.php' );
 
+if (supports_xhtml())
+	$last_date = '';
+
 display_if_empty();
 while( $Item = & mainlist_get_item() ):
 
@@ -41,15 +43,18 @@ $_item_lang = preg_replace('/^(\w{2,3})-.+$/', '$1', $Item->dget('locale', 'raw'
 $_item_langattrs = (supports_xhtml() == FALSE) ? "lang=\"$_item_lang\"" : ($use_strict ? "xml:lang=\"$_item_lang\" lang=\"$_item_lang\"" : "xml:lang=\"$_item_lang\"");
 $_item_country = strtolower(preg_replace('/^\w{2,3}-([^-]+).*$/', '$1', $Item->dget('locale', 'raw')));
 
-preg_match('/^(\S*)\s*(\S*)$/', $Item->issue_date, $matches);
-list($match, $date, $time) = $matches;
-if ($last_date != $date && 'single' != $disp)
+if (supports_xhtml())
 {
-  echo '<h2>';
-  $Item->issue_date();
-  echo '</h2>';
+	preg_match('/^(\S*)\s*(\S*)$/', $Item->issue_date, $matches);
+	list($match, $date, $time) = $matches;
+	if ($last_date != $date && 'single' != $disp)
+	{
+	  echo '<h2>';
+	  $Item->issue_date();
+	  echo '</h2>';
+	}
+	$last_date = $date;
 }
-$last_date = $date;
 ?>
 	<<?php if (supports_xhtml()) echo 'div class="post"'; else echo 'article'; ?> id="<?php $Item->anchor_id(); ?>" <?php echo $_item_langattrs ?>>
 <?php 

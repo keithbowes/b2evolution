@@ -10,16 +10,11 @@
 }
 
 #content {
-  bottom: 0;
-  left: 28%;
-  overflow: auto;
   padding: 1em 0;
-  position: absolute;
-  width: 72%;
 }
 
 #content > * {
-  margin: 0 2%;
+  margin: 0 1%;
 }
 
 #content abbr {
@@ -50,12 +45,7 @@
 
 #menu {
   background-color: navy;
-  bottom: 0;
-  left: 0;
-  overflow: auto;
   padding-bottom: 1em;
-  position: absolute;
-  width: 28%;
 }
 
 #menu > * {
@@ -72,7 +62,6 @@
 }
 
 #menu ul {
-  background-color: transparent;
   font-variant: normal;
   list-style-type: none;
   margin: 0;
@@ -127,6 +116,9 @@ body {
 
 body #menu,
 body #content {
+  bottom: 0;
+  overflow: auto;
+  position: absolute;
   top: 0;
 }
 
@@ -137,7 +129,7 @@ html {
 /* For browsers that support CSS 3 media queries */
 @media (color), (monochrome) {
   #content {
-    left: 0;
+    left: 28%;
     width: 72%;
   }
 
@@ -147,7 +139,7 @@ html {
 
   #menu {
     display: inline-block;
-    left: 72%;
+    left: 0;
     padding: 0;
     right: 0;
     width: 28%;
