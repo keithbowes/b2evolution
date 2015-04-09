@@ -282,16 +282,22 @@ if( $action == 'extract' )
 
 		define('EVO_MAIN_INIT', true);
 		require_once dirname(__FILE__).'/../inc/plugins/_plugin.class.php';
-		require_once dirname(__FILE__).'/../plugins/'.$plugin_name.'/'.$plugin_file;
-		$plugin_inst = new $plugin_name();
-		$plugin_version = $plugin_inst->version;
+		@include_once dirname(__FILE__).'/../plugins/'.$plugin_name.'/'.$plugin_file;
+
+		if (class_exists($plugin_name))
+		{
+			$plugin_inst = new $plugin_name();
+			$plugin_version = $plugin_inst->version;
+		}
+		elseif (!($plugin_version = getenv('PLUGIN_VERSION')))
+			$plugin_version = getenv('SKIN_VERSION');
 
 		$file_contents = file_get_contents($file_pot);
 		$file_contents = preg_replace(
 			array('/PACKAGE/', '/VERSION/', '/# SOME DESCRIPTIVE TITLE./', '/(C) YEAR/', '/YEAR(?!-MO)/', '/CHARSET/'),
 			array(
 				$plugin_name, $plugin_version, '# ' . $plugin_name . ' - Language file',
-				'(C) 2003-'.date('Y'), date('Y'), date('Y'), 'UTF8'
+				'(C) 2003-'.date('Y'), date('Y'), 'UTF8'
 			),
 			$file_contents);
 		file_put_contents($file_pot, $file_contents);
