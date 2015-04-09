@@ -53,11 +53,18 @@ function parse_accept()
 
 function supports_xhtml()
 {
+	/* Make sure HTML validators get the right representation */
 	if (strpos($_SERVER['HTTP_USER_AGENT'], 'W3C_Validator') !== FALSE)
 	{
 		global $use_strict;
 		$use_strict = FALSE;
 		return TRUE;
+	}
+	elseif ($_SERVER['HTTP_USER_AGENT'] == 'Validator.nu/LV')
+	{
+		global $use_strict;
+		$use_strict = FALSE;
+		return FALSE;
 	}
 
 	$types = parse_accept();
