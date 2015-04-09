@@ -59,7 +59,7 @@ if (supports_xhtml())
 	<<?php if (supports_xhtml()) echo 'div class="post"'; else echo 'article'; ?> id="<?php $Item->anchor_id(); ?>" <?php echo $_item_langattrs ?>>
 <?php 
 	$Item->locale_temp_switch();
-	printf('<%4$s class="storytitle"><a rel="permalink" href="%1$s"  title="%3$s">%2$s</a></%5$s>', $Item->get_single_url(), $Item->title, __('Permanent link to full entry'), $hl, $hl);
+	printf('<%4$s class="storytitle"><a %6$shref="%1$s"  title="%3$s">%2$s</a></%5$s>', $Item->get_single_url(), $Item->title, __('Permanent link to full entry'), $hl, $hl, supports_xhtml() ? 'rel="permalink" ' : '');
 ?>
   <div class="meta"><?php echo __('Posted in'); ?> <?php $Item->categories(); ?>
  <?php echo __('by'); ?>
