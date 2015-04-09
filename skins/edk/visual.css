@@ -44,6 +44,13 @@ abbr {
   letter-spacing: .07em;
 }
 
+article {
+  background-color: azure;
+  border: medium lightblue dotted;
+  margin-bottom: 0.7em !important;
+  padding-bottom: 0.2em;
+}
+
 blockquote {
   background-color: beige;
   border-left: medium solid #ccc;
@@ -54,13 +61,7 @@ blockquote {
 body {
   background-color: silver !important;
   color: #000;
-  margin: 0;
-  padding: 0;
-}
-
-body #menu,
-body #content {
-  top: 0;
+  display: table-row;
 }
 
 cite {
@@ -95,10 +96,6 @@ h3 + p a {
   margin: 0.5em 0.1em !important;
 }
 
-html {
-  overflow: hidden;
-}
-
 li, p,
 .credit,
 .feedback,
@@ -108,92 +105,70 @@ li, p,
   letter-spacing: -0.05em;
 }
 
-#content {
-  bottom: 0;
-  left: 28%;
-  overflow: auto;
-  padding: 1em 0;
-  position: absolute;
-  width: 72%;
+main {
+  display: table-cell;
+  width: 76%;
 }
 
-#content > * {
-  margin: 0 2%;
+
+main > * {
+  margin: 0 0 0 2%;
 }
 
-#content abbr {
+main abbr {
   border-bottom-color: magenta;
 }
 
-#content > h2 {
+main > h2 {
   border: none;
   font-size: 120%;
 }
 
-#content > h2:not(.cform) {
+main > h2:not(.cform) {
   padding-bottom: 0.5em;
   text-align: center;
 }
 
-#content h3 {
+main h3 {
   border-bottom-color: purple;
 }
 
-#content .bComment * {
+main .bComment * {
   text-align: left;
 }
 
-#menu {
-  background-color: navy;
-  bottom: 0;
-  left: 0;
-  overflow: auto;
-  padding-bottom: 1em;
-  position: absolute;
-  width: 28%;
+nav {
+  display: table-cell;
+  width: 24%;
 }
 
-#menu > * {
-  max-width: 95%;
-  white-space: nowrap !important;
-}
-
-#menu div.search {
-  padding-bottom: 0.5em;
-}
-
-#menu h2 {
-  font-weight: 600;
-}
-
-#menu ul {
-  font-variant: normal;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  text-align: left;
-}
-
-#menu ul li a {
-  background-color: transparent;
-  color: silver;
-}
-
-#menu form.search {
-  margin: 0 0 0 1em;
-}
-
-#menu,
-#menu div.search,
-#menu ul li h2 a {
-  color: gold;
+nav,
+nav div.search,
+nav ul li h2 a {
   list-style-type: none;
   margin: 0;
   padding-left: 0.2em;
   text-transform: lowercase;
 }
 
-#menu li {
+nav > * {
+  margin: 0 4% 0 0;
+  overflow-x: auto;
+}
+
+nav div.search {
+  padding-bottom: 0.5em;
+}
+
+nav h2 {
+  font-weight: 600;
+}
+
+nav form.search {
+  margin: 0 0 0 1em;
+}
+
+nav li {
   font-size: 1.05em;
   font-weight: 500;
   letter-spacing: 0.1em;
@@ -202,7 +177,15 @@ li, p,
   padding-bottom: 0.1em;
 }
 
-#menu ul li {
+nav ul {
+  color: black;
+  font-variant: normal;
+  list-style-type: none;
+  padding: 0;
+  text-align: left;
+}
+
+nav ul li {
   font-style: normal;
   letter-spacing: 0;
   margin-top: 0;
@@ -210,18 +193,15 @@ li, p,
   padding-left: 1em;
 }
 
-#menu .SearchField {
-  background-color: orange;
-  border: thin solid #999;
-  color: navy;
-  height: 1em;
-  width: 70%;
+nav ul li a {
+  background-color: transparent;
+  color: brown !important;
 }
 
-#page-links {
-  font-weight: 600;
-  padding-bottom: 1em;
-  text-align: center;
+nav ul span[rel] {
+  display: inline-block;
+  padding-top: 0.5em;
+  white-space: nowrap;
 }
 
 #page-links a:visited {
@@ -270,6 +250,7 @@ li, p,
 }
 
 .bCalendarTable caption {
+  background-color: navy;
   border: thin black inset;
   margin: 0.2em 0 0.3em 0 !important;
 }
@@ -350,10 +331,6 @@ li, p,
   white-space: normal;
 }
 
-.credit a {
-  color: lime !important;
-}
-
 .flag {
   position: relative;
   top: 0.1em;
@@ -382,13 +359,6 @@ li, p,
 
 .meta .icon {
   vertical-align: 0.05em !important;
-}
-
-.post {
-  background-color: azure;
-  border: medium lightblue dotted;
-  margin-bottom: 0.7em !important;
-  padding-bottom: 0.2em;
 }
 
 .postmetadata {
@@ -498,16 +468,34 @@ form.bComment legend {
   background-color: #d1402e !important;
   color: #f9e6e3 !important;
   padding: 0 0.2em 0.2em 0.2em;
-  width: 0.8em;
+  width: 1.4em;
 }
 
 #lastitem {
   float: right;
 }
 
+#menu ul {
+  background-color: azure;
+}
+
+#menu .SearchField {
+  background-color: orange;
+  border: thin solid #999;
+  color: navy;
+  height: 1em;
+  width: 60%;
+}
+
 #nextitem {
   clear: right;
   float: right;
+}
+
+#page-links {
+  font-weight: 600;
+  padding-bottom: 1em;
+  text-align: center;
 }
 
 #previtem {
@@ -672,24 +660,4 @@ form.bComment legend {
 
 .tag-list-header:after {
   content: ": ";
-}
-
-/* For browsers that support CSS 3 media queries */
-@media (color), (monochrome) {
-  #content {
-  left: 0;
-  width: 72%;
-  }
-
-  #gplus {
-  letter-spacing: 1em;
-  }
-
-  #menu {
-  display: inline-block;
-  left: 72%;
-  padding: 0;
-  right: 0;
-  width: 28%;
-  }
 }

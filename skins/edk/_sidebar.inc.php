@@ -5,6 +5,14 @@
 	locale_temp_switch($Blog->locale);
 ?>
 
+<?php
+	if (!supports_xhtml())
+	{
+?>
+<nav>
+<?php
+	}
+?>
 <ul id="menu">
 <li>
 <ul>
@@ -204,6 +212,7 @@ for ($i = 0; $i < count($pods); $i++)
 <?php user_logout_link( '<li>', '</li>' ); ?>
 </ul></li>
 	<li><h2<?php if (!supports_xhtml()) echo ' tabindex="46789"'; ?>><?php echo $Skin->T_('Credits') ?></h2>
+<?php if (!supports_xhtml()) echo '<footer>'; ?>
 <ul class="credit"><li>
 <?php
 	$Plugins->trigger_event('SkinEndHtmlBody');
@@ -212,10 +221,20 @@ printf($Skin->T_('<div>Powered by <cite><a href="http://www.duckduckgo.com/?q=!+
 ?>
 </li>
 </ul>
+<?php if (!supports_xhtml()) echo '</footer>'; ?>
 </li>
 </ul>
 </li>
 </ul>
+
+<?php
+if (!supports_xhtml())
+{
+?>
+</nav>
+<?php
+}
+?>
 
 <!-- end sidebar -->
 

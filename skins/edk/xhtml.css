@@ -1,0 +1,155 @@
+.credit a {
+  color: lime !important;
+}
+
+.post {
+  background-color: azure;
+  border: medium lightblue dotted;
+  margin-bottom: 0.7em !important;
+  padding-bottom: 0.2em;
+}
+
+#content {
+  bottom: 0;
+  left: 28%;
+  overflow: auto;
+  padding: 1em 0;
+  position: absolute;
+  width: 72%;
+}
+
+#content > * {
+  margin: 0 2%;
+}
+
+#content abbr {
+  border-bottom-color: magenta;
+}
+
+#content > h2 {
+  border: none;
+  font-size: 120%;
+}
+
+#content > h2:not(.cform) {
+  padding-bottom: 0.5em;
+  text-align: center;
+}
+
+#content h3 {
+  border-bottom-color: purple;
+}
+
+#content .bComment * {
+  text-align: left;
+}
+
+#gplus {
+  width: 0.8em;
+}
+
+#menu {
+  background-color: navy;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  padding-bottom: 1em;
+  position: absolute;
+  width: 28%;
+}
+
+#menu > * {
+  max-width: 95%;
+  white-space: nowrap !important;
+}
+
+#menu div.search {
+  padding-bottom: 0.5em;
+}
+
+#menu h2 {
+  font-weight: 600;
+}
+
+#menu ul {
+  background-color: transparent;
+  font-variant: normal;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+#menu ul li a {
+  background-color: transparent;
+  color: silver;
+}
+
+#menu form.search {
+  margin: 0 0 0 1em;
+}
+
+#menu,
+#menu div.search,
+#menu ul li h2 a {
+  color: gold;
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0.2em;
+  text-transform: lowercase;
+}
+
+#menu li {
+  font-size: 1.05em;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  line-height: 1.1em;
+  margin-top: 1em;
+  padding-bottom: 0.1em;
+}
+
+#menu ul li {
+  font-style: normal;
+  letter-spacing: 0;
+  margin-top: 0;
+  padding: 0;
+  padding-left: 1em;
+}
+
+#menu .SearchField {
+  width: 70%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body #menu,
+body #content {
+  top: 0;
+}
+
+html {
+  overflow: hidden;
+}
+
+/* For browsers that support CSS 3 media queries */
+@media (color), (monochrome) {
+  #content {
+    left: 0;
+    width: 72%;
+  }
+
+  #gplus {
+    letter-spacing: 1em;
+  }
+
+  #menu {
+    display: inline-block;
+    left: 72%;
+    padding: 0;
+    right: 0;
+    width: 28%;
+  }
+}

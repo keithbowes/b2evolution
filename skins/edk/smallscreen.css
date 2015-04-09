@@ -9,10 +9,10 @@ html {
 
 /* Use more display for content in devices with limited screen space
  * to minimize scrolling. */
-#content,
-#menu {
-  position: static;
-  width: 100%;
+main,
+nav {
+  display: block;
+  width: 100% !important;
 }
 
 .allowed-tags {

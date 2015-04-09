@@ -1,7 +1,11 @@
 /* Allow printing everything, instead of just the first page */
-#content {
-  position: static;
+main {
+  display: block;
   width: 100%;
+}
+
+nav {
+  display: none;
 }
 
 /* Gold on white paper: not a good idea */

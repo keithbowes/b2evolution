@@ -365,6 +365,14 @@ if ($Blog->get_setting('feed_content') != 'none')
 	require_css('visual.css', 'relative', NULL, 'handheld, print, projection, screen, tty, tv');
 	require_css('smallscreen.css', 'relative', NULL, '(max-width: 640px)');
 	require_css('print.css', 'relative', NULL, 'print');
+
+	if (supports_xhtml())
+	{
+		require_css('xhtml.css', 'relative', NULL, 'handeld, print, projection, screen, tty, tv');
+		require_css('smallscreen-xhtml.css', 'relative', NULL, '(max-width: 640px)');
+		require_css('print-xhtml.css', 'relative', NULL, 'print');
+	}
+
 	include_headlines(); /* Add javascript and css files included by plugins and skin */
 
 	$Blog->disp( 'blog_css', 'raw');

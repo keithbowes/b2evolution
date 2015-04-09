@@ -1,0 +1,5 @@
+/* Allow printing everything, instead of just the first page */
+#content {
+  position: static;
+  width: 100%;
+}

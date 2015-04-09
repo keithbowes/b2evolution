@@ -1,0 +1,5 @@
+#content,
+#menu {
+  position: static;
+  width: 100%;
+}

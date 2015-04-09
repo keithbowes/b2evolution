@@ -51,7 +51,7 @@ if ($last_date != $date && 'single' != $disp)
 }
 $last_date = $date;
 ?>
-	<div class="post" id="<?php $Item->anchor_id(); ?>" <?php echo $_item_langattrs ?>>
+	<<?php if (supports_xhtml()) echo 'div class="post"'; else echo 'article'; ?> id="<?php $Item->anchor_id(); ?>" <?php echo $_item_langattrs ?>>
 <?php 
 	$Item->locale_temp_switch();
 	printf('<%4$s class="storytitle"><a rel="permalink" href="%1$s"  title="%3$s">%2$s</a></%5$s>', $Item->get_single_url(), $Item->title, __('Permanent link to full entry'), $hl, $hl);
@@ -124,23 +124,23 @@ if ($show_mode != 'comments' || $disp != 'single')
 	if ('single' == $disp)
 		$hl[1] = $hl[1] + 1;
 
-		$Item->tags(
-			array(
-				'after' => "\n</ul>\n</div>\n",
-				'before' => "<div class=\"meta\">\n<$hl class=\"tag-list-header\">" . __('Tags') . "</$hl>\n<ul class=\"tag-list\">",
-				'separator' => '',
-				'tag_after' => '</li>',
-				'tag_before' => "\n<li>",
-			)
-		);
+	$Item->tags(
+		array(
+			'after' => "\n</ul>\n</div>\n",
+			'before' => "<div class=\"meta\">\n<$hl class=\"tag-list-header\">" . __('Tags') . "</$hl>\n<ul class=\"tag-list\">",
+			'separator' => '',
+			'tag_after' => '</li>',
+			'tag_before' => "\n<li>",
+		)
+	);
 
-		$Item->feedback_link(
-			array(
-				'link_after' => '</div>',
-				'link_anchor_more' => '',
-				'link_anchor_one' => '',
-				'link_anchor_zero' => '',
-				'link_before' => '<div class="postmetadata">',
+	$Item->feedback_link(
+		array(
+			'link_after' => '</div>',
+			'link_anchor_more' => '',
+			'link_anchor_one' => '',
+			'link_anchor_zero' => '',
+			'link_before' => '<div class="postmetadata">',
 				'show_in_single_mode' => !empty($show_mode),
 				'type' => 'comments',
 				'url' => $Item->get_feedback_url() . '?show=comments&amp;redir=no#comments',
@@ -149,7 +149,7 @@ if ($show_mode != 'comments' || $disp != 'single')
 }
 ?>
 
-</div>
+	</<?php if (supports_xhtml()) echo 'div'; else echo 'article'; ?>>
 <?php
 
 if ($show_mode != 'post') skin_include( '_item_feedback.inc.php');
