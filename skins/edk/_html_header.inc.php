@@ -364,8 +364,6 @@ if ($Blog->get_setting('feed_content') != 'none')
 	require_css('speech.css', 'relative', NULL, 'speech');
 	require_css('visual.css', 'relative', NULL, 'handheld, print, projection, screen, tty, tv');
 	require_css('smallscreen.css', 'relative', NULL, '(max-width: 640px)');
-	if (!supports_xhtml() && strftime('%Y') > 2021)
-		require_css('ux.css', 'relative', NULL, '(pointer: fine) and (hover: hover) and (min-width: 800px)');
 	require_css('print.css', 'relative', NULL, 'print');
 	include_headlines(); /* Add javascript and css files included by plugins and skin */
 
