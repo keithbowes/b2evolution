@@ -57,7 +57,7 @@ function supports_xhtml()
 	if (strpos($_SERVER['HTTP_USER_AGENT'], 'W3C_Validator') !== FALSE)
 	{
 		global $use_strict;
-		$use_strict = FALSE;
+		$use_strict = TRUE;
 		return TRUE;
 	}
 	elseif ($_SERVER['HTTP_USER_AGENT'] == 'Validator.nu/LV')
