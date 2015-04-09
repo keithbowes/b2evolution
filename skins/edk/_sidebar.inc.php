@@ -212,16 +212,38 @@ for ($i = 0; $i < count($pods); $i++)
 <?php user_logout_link( '<li>', '</li>' ); ?>
 </ul></li>
 	<li><h2<?php if (!supports_xhtml()) echo ' tabindex="46789"'; ?>><?php echo $Skin->T_('Credits') ?></h2>
-<?php if (!supports_xhtml()) echo '<footer>'; ?>
+<?php
+if (supports_xhtml())
+{
+?>
 <ul class="credit"><li>
 <?php
+}
+else
+{
+?>
+	<footer>
+<?php
+}
 	$Plugins->trigger_event('SkinEndHtmlBody');
 
 printf($Skin->T_('<div>Powered by <cite><a href="http://www.duckduckgo.com/?q=!+%s">%s</a> %s</cite>.</div>'), $app_name, $app_name, $app_version);
 ?>
+<?php
+if (supports_xhtml())
+{
+?>
 </li>
 </ul>
-<?php if (!supports_xhtml()) echo '</footer>'; ?>
+<?php
+}
+else
+{
+?>
+</footer>
+<?php
+}
+?>
 </li>
 </ul>
 </li>

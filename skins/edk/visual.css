@@ -45,7 +45,7 @@ abbr {
 }
 
 article {
-  margin: 0 0 0 0.75%;
+  margin: 0 0 1em 0.75%;
   padding-bottom: 0.2em;
 }
 
@@ -197,7 +197,8 @@ nav ul li a {
   color: brown !important;
 }
 
-nav ul span[rel] {
+nav ul a.user,
+nav ul span.user {
   display: inline-block;
   padding-top: 0.5em;
   white-space: nowrap;
@@ -259,6 +260,7 @@ nav #menu > li > ul > li:first-child h2 {
 }
 
 .bCalendarTable caption * {
+  background-color: transparent !important;
   color: gold !important;
 }
 
