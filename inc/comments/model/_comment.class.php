@@ -776,6 +776,7 @@ class Comment extends DataObject
 				'after'  => '',
 			), $params );
 
+		global $use_strict;
 		$gender_class = '';
 		if( check_setting( 'gender_colored' ) )
 		{ // Set a gender class if the setting is ON
@@ -783,8 +784,9 @@ class Comment extends DataObject
 		}
 
 		$author_name = $this->dget( 'author', $format );
+		$attr = $use_strict ? 'rel' : 'data-bubbletip';
 
-		$author_name = '<span class="user anonymous'.$gender_class.'" rel="bubbletip_comment_'.$this->ID.'">'
+		$author_name = '<span class="user anonymous'.$gender_class.'" ' .$attr . '="bubbletip_comment_'.$this->ID.'">'
 			.$params['before']
 			.$author_name
 			.$params['after']

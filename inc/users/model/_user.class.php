@@ -1470,7 +1470,8 @@ class User extends DataObject
 		$attr_bubbletip = '';
 		if( $params['display_bubbletip'] )
 		{	// Set attribute to initialize a bubbletip
-			$attr_bubbletip = ' rel="bubbletip_user_'.$this->ID.'"';
+			global $use_strict;
+			$attr_bubbletip = ' ' . ($use_strict ? 'rel' : 'data-bubbletip') . '="bubbletip_user_'.$this->ID.'"';
 		}
 
 		$avatar_tag = '';
