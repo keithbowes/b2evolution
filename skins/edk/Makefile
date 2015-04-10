@@ -3,6 +3,8 @@ sources=_403_forbidden.disp.php _404_not_found.disp.php _html_header.inc.php _it
 		_item_comment_form.inc.php _sidebar.inc.php index.main.php
 XG= ../../_transifex/xg.php
 
+all: generate-pot update-po convert clean
+
 convert:
 	$(XG) CWD convert $(locales)
 

@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['de_DE'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b 2e\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2015-04-07 19:24-0400\nPO-Revision-Date: 2015-04-07 19:22-0400\nLast-Translator: Keith <keith@localhost>\nLanguage-Team: German\nLanguage: de\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b 2e\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2015-04-09 22:52-0400\nPO-Revision-Date: 2015-04-09 22:53-0400\nLast-Translator: Keith <keith@localhost>\nLanguage-Team: German\nLanguage: de\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 '403 Forbidden' => '403 Verboten',
 '<p><a href="%s">%s</a> cannot resolve the requested URL.</p>' => '<p><a href="%s">%s</a> kann nicht die angeforderter URL auflösen.</p>',
 '404 Not Found' => '404 Nicht Gefunden',
@@ -28,6 +28,7 @@ $trans['de_DE'] = array(
 'Enter the URL of a Diaspora* pod where you want to share (e.g. https://joindiaspora.com)' => 'Eingabe den URL einer Diaspora*-Hülse (zB https://https://joindiaspora.com), wo du teilen willst',
 'Invalid entry!' => 'Ungültige Eingabe',
 'Share on Diaspora*' => 'Teilen auf Diaspora*',
+'Back-office' => 'Back-Office',
 'Credits' => 'Anerkennungen',
 '<div>Powered by <cite><a href="http://www.duckduckgo.com/?q=!+%s">%s</a> %s</cite>.</div>' => '<div>Präsentiert von <cite><a href="http://www.duckduckgo.com/?q=!+%s">%s</a> %s</cite>.</div>',
 'on %s' => 'an %s',
