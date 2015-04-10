@@ -254,14 +254,12 @@ nav #menu > li > ul > li:first-child h2 {
 }
 
 .bCalendarTable caption {
-  background-color: navy;
-  border: thin black inset;
+  border: none !important;
   margin: 0.2em 0 0.3em 0 !important;
 }
 
 .bCalendarTable caption * {
   background-color: transparent !important;
-  color: gold !important;
 }
 
 .bCalendarTable tbody td#bCalendarToday {
