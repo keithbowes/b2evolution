@@ -683,7 +683,7 @@ class Calendar
 		{ // We want to display navigation in the table footer:
 			echo "<tfoot>\n";
 			echo "<tr>\n";
-			echo '<td colspan="'.( ( $this->mode == 'month' ? 1 : 1 ) + (int)$this->today_is_visible ).'" id="prev">';
+			echo '<td colspan="'.( ( $this->mode == 'month' ? 2 : 1 ) + (int)$this->today_is_visible ).'" id="prev">';
 			echo preg_replace('/^&#160;/', '', implode( '&#160;', $this->getNavLinks( 'prev' ) ));
 			echo "</td>\n";
 
@@ -696,11 +696,11 @@ class Calendar
 			}
 			else
 			{
-				echo '<td colspan="'.( $this->mode == 'month' ? '1' : '0' ).'" class="center">'
+				echo '<td colspan="'.( $this->mode == 'month' ? '2' : '1' ).'" class="center">'
 							.$this->archive_link( T_('Current'), '', date('Y'), ( $this->mode == 'month' ? date('m') : NULL ) )
 							.'</td>';
 			}
-			echo '<td colspan="'.( ( $this->mode == 'month' ? 3 : 2 ) + (int)$this->today_is_visible ).'" id="next">';
+			echo '<td colspan="3" id="next">';
 			echo '&#160;&#160;&#160;&#160;';
 			echo implode( '&#160;', $this->getNavLinks( 'next' ) );
 			echo "</td>\n";
