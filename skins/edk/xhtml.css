@@ -10,7 +10,9 @@
 }
 
 #content {
+  left: 28%;
   padding: 1em 0;
+  width: 72%;
 }
 
 #content > * {
@@ -45,7 +47,9 @@
 
 #menu {
   background-color: navy;
+  left: 0;
   padding-bottom: 1em;
+  width: 28%;
 }
 
 #menu > * {
@@ -128,20 +132,13 @@ html {
 
 /* For browsers that support CSS 3 media queries */
 @media (color), (monochrome) {
-  #content {
-    left: 28%;
-    width: 72%;
-  }
-
   #gplus {
     letter-spacing: 1em;
   }
 
   #menu {
     display: inline-block;
-    left: 0;
     padding: 0;
     right: 0;
-    width: 28%;
   }
 }
