@@ -132,12 +132,18 @@ html {
 
 /* For browsers that support CSS 3 media queries */
 @media (color), (monochrome) {
+  #content
+  {
+    left: 0;
+  }
+
   #gplus {
     letter-spacing: 1em;
   }
 
   #menu {
     display: inline-block;
+    left: 72%;
     padding: 0;
     right: 0;
   }
