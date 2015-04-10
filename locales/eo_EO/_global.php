@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo_EO'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2015-04-09 22:16-0400\nPO-Revision-Date: 2015-04-09 22:26-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2015-04-09 22:16-0400\nPO-Revision-Date: 2015-04-10 18:45-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 'Adm' => '[A]',
 'Blg' => '^',
 'Folder' => 'Dosierujo',
@@ -2467,7 +2467,7 @@ $trans['eo_EO'] = array(
 'You must <a %s>create categories</a> first.' => 'Vi devas antaŭ tio <a %s>krei kategoriojn</a>.',
 'Delete this post' => 'Forigi ĉi tiun afiŝon',
 "You are about to delete this post!\\nThis cannot be undone!" => "Vi forigos ĉi tiun afiŝon.\\nVi ne rajtas malfari tion.",
-'Permanent link to full entry' => 'Daŭrligilo al plena ero',
+'Permanent link to full entry' => 'Daŭrligilo al la plena ero',
 'Change type' => 'Ŝanĝi tipon',
 'In skin editing' => 'Enetosa retaktado',
 'View post & comments' => 'Vidi afiŝojn kaj komentojn',

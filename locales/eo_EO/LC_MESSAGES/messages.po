@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net\n"
 "POT-Creation-Date: 2015-04-09 22:16-0400\n"
-"PO-Revision-Date: 2015-04-09 22:26-0400\n"
+"PO-Revision-Date: 2015-04-10 18:45-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -13058,7 +13058,7 @@ msgstr "Vi forigos ĉi tiun afiŝon.\\nVi ne rajtas malfari tion."
 #: ../../../inc/slugs/views/_slug_list.view.php:176
 #: ../../../skins/basic/index.main.php:153
 msgid "Permanent link to full entry"
-msgstr "Daŭrligilo al plena ero"
+msgstr "Daŭrligilo al la plena ero"
 
 #: ../../../inc/items/items.ctrl.php:1443
 #: ../../../inc/items/items.ctrl.php:1444
