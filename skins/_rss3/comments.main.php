@@ -78,6 +78,7 @@ link: <?php $Blog->disp( 'lastcommentsurl', 'xml' ) ?>
 
 language: <?php $Blog->disp( 'locale', 'xml' ) ?>
 
+generator: <?php printf("%s %s\n", $app_name, $app_version); ?>
 docs: http://www.aaronsw.com/2002/rss30
 ttl: 60
 		<?php while( $Comment = & $CommentList->get_next( false ) )
@@ -86,13 +87,19 @@ ttl: 60
 			$Comment->get_Item();
 ?>
 
-title: <?php echo format_to_output( sprintf( /* TRANS: First %s: Commentator's name, second %s: post title */ T_( '%s in response to: %s' ),
-													$Comment->get_author( array( 'format' => 'raw', 'link_to' => '' ) ),
-													$Comment->Item->get_title( array(
-														'format' => 'raw',
-														'link_type' => 'none',
-													) ) ),
-'xml' );; ?>
+title: <?php echo format_to_output(
+			sprintf(
+				/* TRANS: First %s: Commentator's name, second %s: post title */
+				T_( '%s in response to: %s' ),
+				$Comment->get_author( array( 'format' => 'raw', 'link_to' => '' ) ),
+				$Comment->Item->get_title(
+					array(
+						'format' => 'raw',
+						'link_type' => 'none',
+					)
+				)
+			),
+			'xml' ); ?>
 
 created: <?php $Comment->time( 'r', true ); ?>
 
