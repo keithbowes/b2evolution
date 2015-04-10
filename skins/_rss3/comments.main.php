@@ -1,6 +1,6 @@
 <?php
 /**
- * This template generates an RSS 2.0 feed for the requested blog's latest comments
+ * This template generates an RSS 3.0 feed for the requested blog's latest comments
  *
  * For a quick explanation of b2evo 2.0 skins, please start here:
  * {@link http://b2evolution.net/man/skin-structure}
@@ -8,7 +8,7 @@
  * See {@link http://backend.userland.com/rss}
  *
  * @package evoskins
- * @subpackage rss
+ * @subpackage rss3
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 
@@ -74,7 +74,7 @@ title: <?php
 			// ------------------------------ END OF REQUEST TITLE -----------------------------
 		?>
 
-link: <?php $Blog->disp( 'lastcommentsurl', 'xml' ) ?>
+link: <?php $Blog->disp( 'link', 'xml' ) ?>
 
 language: <?php $Blog->disp( 'locale', 'xml' ) ?>
 

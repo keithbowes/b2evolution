@@ -38,7 +38,7 @@ echo "title: ";
 html_entity_decode($Blog->disp('name', 'xml'), ENT_QUOTES, 'UTF-8');
 echo "\n";
 echo "link: ";
-$Blog->disp('link', 'xml') . '?tempskin=_rss3';
+$Blog->disp('link', 'xml');
 echo "\ngenerator: $app_name $app_version";
 echo "\n";
 

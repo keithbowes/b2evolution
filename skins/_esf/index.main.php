@@ -38,7 +38,7 @@ echo "title\t";
 html_entity_decode($Blog->disp('name', 'xml'), ENT_QUOTES, 'UTF-8');
 echo "\n";
 echo "link\t";
-$Blog->disp('link', 'xml') . '?tempskin=_esf';
+$Blog->disp('link', 'xml');
 echo "\n";
 
 do

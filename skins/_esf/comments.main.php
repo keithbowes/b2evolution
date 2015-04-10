@@ -54,7 +54,7 @@ echo "title\t";
 html_entity_decode($Blog->disp('name', 'xml'), ENT_QUOTES, 'UTF-8');
 echo "\n";
 echo "link\t";
-$Blog->disp('link', 'xml') . '?_tempskin=atom&disp=comments';
+$Blog->disp('link', 'xml');
 echo "\n";
 
 ?>
