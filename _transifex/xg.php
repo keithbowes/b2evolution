@@ -80,9 +80,9 @@ function find($dir)
 		{
 			while (($file = readdir($dh)) !== false)
 			{
-				global $mode;
+				global $dir_root, $mode;
 				if (is_file($dir.$file) && preg_match('/\.php$/', $dir.$file) && !preg_match('/_tests/', $dir.$file) &&
-					(!is_file($dir.'locales/messages.pot') || $mode == 'CWD') && $file != '_global.php')
+					(!is_file($dir.'locales/messages.pot') || $mode == 'CWD' || $dir_root == $dir) && $file != '_global.php')
 					$files .= "$dir$file\n";
 				elseif (is_dir($dir.$file) && $file != '.' && $file != '..')
 					find($dir.$file);
