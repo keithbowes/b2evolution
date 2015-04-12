@@ -219,11 +219,15 @@ if( $action == 'extract' )
 		$cmd = find($dir_root);
 	}
 
-	file_put_contents('files.txt', $cmd);
+	if (!empty($cmd))
+	{
+		file_put_contents('files.txt', $cmd);
+		unset($cmd);
+	}
 
 	if (!($copyright_holder = getenv('COPYRIGHT_HOLDER')))
 		$copyright_holder = ($mode == 'CORE') ? 'François FLANQUE' : 
-		preg_replace('/^([^,]+).*$/', '$1', posix_getpwuid(posix_geteuid())['gecos']);
+		explode(',', posix_getpwuid(posix_geteuid())['gecos'])[0];
 
 	if (!($msgid_bugs_address = getenv('MSGID_BUGS_ADDRESS')))
 		$msgid_bugs_address = ($mode == 'CORE') ? 'http://fplanque.net' : '';
@@ -245,7 +249,9 @@ if( $action == 'extract' )
 		die("Failed!\n");
 	}
 	echo "[ok]\n";
-	unlink('files.txt');
+
+	if (file_exists('files.txt'))
+		unlink('files.txt');
 
 
 	// Replace various things (see comments)
