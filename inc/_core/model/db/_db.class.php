@@ -286,7 +286,7 @@ class DB
 	 *    - 'user': username to connect with
 	 *    - 'password': password to connect with
 	 *    OR
-	 *    - 'handle': a MySQL Database handle (from a previous {@link mysql_connect()})
+	 *    - 'handle': a MySQL Database handle (from a previous {@link mysqli_init()})
 	 *   Optional:
 	 *    - 'name': the name of the default database, see {@link DB::select()}
 	 *    - 'host': host of the database; Default: 'localhost'
@@ -295,9 +295,8 @@ class DB
 	 *    - 'table_options': sets {@link $table_options}
 	 *    - 'use_transactions': sets {@link $use_transactions}
 	 *    - 'aliases': Aliases for tables (array( alias => table name )); Default: no aliases.
-	 *    - 'new_link': create a new link to the DB, even if there was a mysql_connect() with
-	 *       the same params before. (requires PHP 4.2)
-	 *    - 'client_flags': optional settings like compression or SSL encryption. See {@link http://www.php.net/manual/en/ref.mysql.php#mysql.client-flags}.
+	 *    - 'new_link': don't use a persistent connection
+	 *    - 'client_flags': optional settings like compression or SSL encryption. See {@link http://www.php.net/manual/en/mysqli.constants.php}.
 	 *       (requires PHP 4.3)
 	 *    - 'log_queries': should queries get logged internally? (follows $debug by default, and requires it to be enabled otherwise)
 	 *      This is a requirement for the following options:
