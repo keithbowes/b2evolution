@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net\n"
 "POT-Creation-Date: 2015-04-11 01:18-0400\n"
-"PO-Revision-Date: 2015-04-11 01:21-0400\n"
+"PO-Revision-Date: 2015-04-11 18:00-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -3302,11 +3302,11 @@ msgstr "Nuligi redaktadon"
 #: ../../../inc/_core/_template.funcs.php:1105
 #: ../../../inc/widgets/widgets.ctrl.php:483
 msgid "Update cancelled"
-msgstr "Aktualigo nuligita"
+msgstr "Ĝisdatigo nuligita"
 
 #: ../../../inc/_core/_template.funcs.php:1106
 msgid "Update paused"
-msgstr "Aktualigo paŭzita"
+msgstr "Ĝisdatigo paŭzinta"
 
 #: ../../../inc/_core/_template.funcs.php:1107
 #: ../../../inc/widgets/widgets.ctrl.php:480
@@ -4134,7 +4134,7 @@ msgstr "Elektonomo"
 
 #: ../../../inc/_core/ui/results/_resultsel.class.php:187
 msgid "Update selection"
-msgstr "Aktualigi elekton"
+msgstr "Ĝisdatigi elekton"
 
 #: ../../../inc/_core/ui/results/_resultsel.class.php:291
 msgid "Selection"
@@ -4554,7 +4554,7 @@ msgstr "Spama pezo devas esti en la amplekso de 0 ĝis 100."
 #: ../../../inc/sessions/stats.ctrl.php:142
 #: ../../../inc/tools/email.ctrl.php:202
 msgid "Settings updated."
-msgstr "Agordo aktualigita."
+msgstr "Agordo ĝisdatigita."
 
 #: ../../../inc/antispam/antispam.ctrl.php:324
 #, php-format
@@ -4650,7 +4650,7 @@ msgstr "Ne necesa. (Jam traktita)"
 
 #: ../../../inc/antispam/model/_antispam.funcs.php:271
 msgid "New latest update timestamp"
-msgstr "La freŝa tempindiko pri aktualigado"
+msgstr "La freŝa tempindiko pri ĝisdatigo"
 
 #: ../../../inc/antispam/model/_antispam.funcs.php:276
 #: ../../../inc/cron/jobs/_comment_notifications.job.php:61
@@ -6903,7 +6903,7 @@ msgstr "Estro"
 
 #: ../../../inc/collections/model/_blog.funcs.php:1496
 msgid "Blog URL"
-msgstr "Blog-URL"
+msgstr "Blogo-URL"
 
 #: ../../../inc/collections/model/_blog.funcs.php:1504
 #: ../../../inc/items/model/_itemlistlight.class.php:1211
@@ -7084,7 +7084,7 @@ msgstr "Aktivigi javaskriptajn formulariojn"
 
 #: ../../../inc/collections/views/_coll_advanced.form.php:120
 msgid "Cache rendered blog pages"
-msgstr "Blog-paĝoj montritaj per la tenejo"
+msgstr "Blogo-paĝoj montritaj per la tenejo"
 
 #: ../../../inc/collections/views/_coll_advanced.form.php:120
 msgid "Enable page cache"
@@ -7162,12 +7162,12 @@ msgstr "Ĉi tiu uziĝas en meta-etikedaj ŝlosilvortoj. Neniu HTML."
 
 #: ../../../inc/collections/views/_coll_advanced.form.php:171
 msgid "Blog footer"
-msgstr "Blog-piedo"
+msgstr "Blogo-piedo"
 
 #: ../../../inc/collections/views/_coll_advanced.form.php:172
 #, php-format
 msgid "Use &lt;br /&gt; to insert a line break. You might want to put your copyright or <a href=\"%s\" target=\"_blank\">creative commons</a> notice here."
-msgstr "Uzi &lt;br /&gt; por enmeti linirompon. Vi eble volos meti vian kopirajton aŭ notico pri <a href=\"%s\" onclick=\"open(this.href); return false;\">creative commons</a> ĉi tie."
+msgstr "Uzu la elementon &lt;br /&gt; por enmeti linirompon. Vi eble volos meti vian kopirajton aŭ noticon pri <a href=\"%s\" onclick=\"window.open(this.href); return false;\" hreflang="en">la permesilo Kreema Komunaĵo</a> ĉi tie."
 
 #: ../../../inc/collections/views/_coll_advanced.form.php:174
 msgid "Single post footer"
@@ -8546,7 +8546,7 @@ msgstr "Kanonigi"
 
 #: ../../../inc/collections/views/_coll_seo.form.php:64
 msgid "\"Next\" blog pages"
-msgstr "Blog-paĝoj \"Sekva\""
+msgstr "Blogo-paĝoj \"Sekva\""
 
 #: ../../../inc/collections/views/_coll_seo.form.php:64
 #: ../../../inc/collections/views/_coll_seo.form.php:65
@@ -9130,7 +9130,7 @@ msgstr "tagoj."
 #: ../../../inc/collections/views/_coll_settings_site.form.php:45
 #: ../../../inc/tools/views/_misc_tools.view.php:93
 msgid "Locking down b2evolution for maintenance, upgrade or server switching..."
-msgstr "Malŝaltanta b2evolution-on pro prizorgo, aktualigo aŭ servila ŝanĝo…"
+msgstr "Malŝaltanta b2evolution-on pro prizorgo, ĝisdatigo aŭ servila ŝanĝo…"
 
 #: ../../../inc/collections/views/_coll_settings_site.form.php:46
 #: ../../../inc/tools/views/_misc_tools.view.php:95
@@ -10950,7 +10950,7 @@ msgstr "Sistemo-mezuroj"
 #: ../../../inc/dashboard/dashboard.ctrl.php:598
 #: ../../../inc/maintenance/upgrade.ctrl.php:84
 msgid "Updates from b2evolution.net"
-msgstr "Aktualigoj el b2evolution.net"
+msgstr "Ĝisdatigoj el b2evolution.net"
 
 #: ../../../inc/dashboard/model/_dashboard.funcs.php:86
 #, php-format
@@ -11602,7 +11602,7 @@ msgstr "La dosiero «%s» aktualiĝis."
 #: ../../../inc/files/files.ctrl.php:558
 #, php-format
 msgid "The file &laquo;%s&raquo; could not be updated."
-msgstr "Ne eblis aktualigi la dosieron «%s»."
+msgstr "Ne eblis ĝisdatigi la dosieron «%s»."
 
 #: ../../../inc/files/files.ctrl.php:620 ../../../inc/files/files.ctrl.php:691
 #: ../../../inc/files/files.ctrl.php:776 ../../../inc/files/files.ctrl.php:863
@@ -13446,7 +13446,7 @@ msgstr "Nova elemento kreita."
 #: ../../../inc/generic/inc/_generic_listeditor.php:124
 #: ../../../inc/generic/inc/_generic_recursive_listeditor.php:147
 msgid "Element updated."
-msgstr "Elemento aktualigita."
+msgstr "Elemento ĝisdatiĝis."
 
 #: ../../../inc/generic/inc/_generic_listeditor.php:152
 msgid "Copy element..."
@@ -13472,7 +13472,7 @@ msgstr "nomo"
 #: ../../../inc/generic/model/_genericelement.class.php:106
 #: ../../../inc/maintenance/views/_upgrade.form.php:40
 msgid "Update"
-msgstr "Aktualigi"
+msgstr "Ĝisdatigi"
 
 #: ../../../inc/generic/views/_generic_category.form.php:45
 msgid "Parent"
@@ -13652,7 +13652,7 @@ msgstr "Ero estis restarigita el revizio n-ro %s"
 
 #: ../../../inc/items/items.ctrl.php:901
 msgid "The post couldn't be updated."
-msgstr "La afiŝo ne aktualigeblas."
+msgstr "La afiŝo ne ĝisdatigeblas."
 
 #: ../../../inc/items/items.ctrl.php:1063
 msgid "One post has been updated!"
@@ -17587,7 +17587,7 @@ msgstr "La ricevontoj ne volas, ke vi nun kontakti ilin."
 
 #: ../../../inc/messaging/msg_settings.ctrl.php:98
 msgid "Settings were updated."
-msgstr "Agordo aktualigita."
+msgstr "Agordo ĝisdatiĝis."
 
 #: ../../../inc/messaging/threads.ctrl.php:64
 #: ../../../skins/contacts.main.php:42 ../../../skins/threads.main.php:55
@@ -18072,7 +18072,7 @@ msgstr "La kromprogramo devigas eldono %s de %s, sed %s estas instalita."
 #: ../../../inc/plugins/model/_plugins_admin.class.php:1452
 #, php-format
 msgid "Unknown dependency type (%s). This probably means that the plugin is not compatible and you have to upgrade your %s installation."
-msgstr "Nekonata dependaĵa tipo (%s). Tio probable signifas, ke la kromprogramo ne estas konforma kaj vi devas aktualigi vian instaladon de %s. "
+msgstr "Nekonata dependaĵa tipo (%s). Tio probable signifas, ke la kromprogramo ne estas konforma kaj vi devas ĝisdatigi vian instaladon de %s. "
 
 #: ../../../inc/plugins/plugins.ctrl.php:114
 #: ../../../inc/plugins/plugins.ctrl.php:165
@@ -18638,7 +18638,7 @@ msgstr "Nova valuto kreiĝis."
 
 #: ../../../inc/regional/currencies.ctrl.php:196
 msgid "Currency updated."
-msgstr "Valuto aktualigita."
+msgstr "Valuto ĝisdatiĝis."
 
 #: ../../../inc/regional/currencies.ctrl.php:222
 #, php-format
@@ -18771,7 +18771,7 @@ msgstr "Nova regiono kreiĝis."
 #: ../../../inc/regional/regions.ctrl.php:234
 #: ../../../inc/regional/subregions.ctrl.php:237
 msgid "Region updated."
-msgstr "Regiono aktualigita."
+msgstr "Regiono ĝisdatiĝis."
 
 #: ../../../inc/regional/regions.ctrl.php:260
 #: ../../../inc/regional/subregions.ctrl.php:263
@@ -21706,7 +21706,7 @@ msgstr "Ne forigita"
 
 #: ../../../inc/tools/system.ctrl.php:182
 msgid "For maximum security, it is recommended that you delete your /blogs/install/ folder once you are done with install or upgrade."
-msgstr "Por maksimuma sekureco estas rekomendinde, ke vi forigi la dosierujon /blogs/install/ tuj post kiam vi finas la instaladon aŭ aktualigadon."
+msgstr "Por maksimuma sekureco estas rekomendinde, ke vi forigi la dosierujon /blogs/install/ tuj post kiam vi finas la instaladon aŭ ĝisdatigon."
 
 #: ../../../inc/tools/system.ctrl.php:185
 msgid "Allowed!"
@@ -21793,11 +21793,11 @@ msgstr "Vidi PHP-informojn"
 
 #: ../../../inc/tools/system.ctrl.php:329
 msgid "This version is too old. b2evolution will not run correctly. You must ask your host to upgrade PHP before you can run b2evolution."
-msgstr "Ĉi tiu eldono estas tro malnova. b2evolution ne ĝuste plenumiĝos. Vi devas peti al via gastiganto aktualigi PHP-on antaŭ vi povas plenumi la programon b2evolution."
+msgstr "Ĉi tiu eldono estas tro malnova. b2evolution ne ĝuste plenumiĝos. Vi devas peti al via gastiganto ĝisdatigi PHP-on antaŭ vi povas plenumi la programon b2evolution."
 
 #: ../../../inc/tools/system.ctrl.php:333
 msgid "This version is old. b2evolution may run but some features may fail. You should ask your host to upgrade PHP before running b2evolution."
-msgstr "Ĉi tiu eldono estas tro malnova. b2evolution eble plenumiĝos sed iuj trajtoj eble malsukcesos. Vi petu al via gastiganto aktualigi PHP-on antaŭ ol plenumanta b2evolution-on."
+msgstr "Ĉi tiu eldono estas tro malnova. b2evolution eble plenumiĝos sed iuj trajtoj eble malsukcesos. Vi petu al via gastiganto ĝisdatigi PHP-on antaŭ ol plenumanta b2evolution-on."
 
 #: ../../../inc/tools/system.ctrl.php:335
 msgid "PHP 5.2 or greater is recommended for maximum security, especially for \"httpOnly\" cookies support."
@@ -22629,7 +22629,7 @@ msgstr "Nombro da importitaj uzantoj"
 #: ../../../inc/tools/views/_phpbb_topics.form.php:49
 #: ../../../inc/tools/views/_phpbb_users.form.php:46
 msgid "Count of the updated users"
-msgstr "Nombro da aktualigitaj uzantoj"
+msgstr "Nombro da ĝisdatigitaj uzantoj"
 
 #: ../../../inc/tools/views/_phpbb_groups.form.php:24
 msgid "Step 2: User group mapping"
@@ -23308,7 +23308,7 @@ msgstr "Virino"
 #: ../../../inc/users/model/_user.class.php:4961
 #: ../../../plugins/twitter_plugin/_twitter.plugin.php:462
 msgid "You are only allowed to update your own profile!"
-msgstr "Vi permesas aktualigi nur via propra profilo."
+msgstr "Vi rajtas ĝisdatigi nur via propra profilo."
 
 #: ../../../inc/users/model/_user.class.php:4338
 msgid "New user has been created."
@@ -23329,7 +23329,7 @@ msgstr "Profilo aktualiĝis."
 
 #: ../../../inc/users/model/_user.class.php:4396
 msgid "User status couldn't be updated!"
-msgstr "Uzanto-stato ne aktualigeblas."
+msgstr "Uzanto-stato ne ĝisdatigeblas."
 
 #: ../../../inc/users/model/_user.class.php:4405
 #, php-format
@@ -24243,7 +24243,7 @@ msgstr "Nova organizaĵo kreiĝis."
 
 #: ../../../inc/users/organizations.ctrl.php:160
 msgid "Organization updated."
-msgstr "Organizaĵo aktualigita."
+msgstr "Organizaĵo ĝisdatiĝis."
 
 #: ../../../inc/users/organizations.ctrl.php:187
 #, php-format
@@ -26650,7 +26650,7 @@ msgstr "Umaĵa ordo neŝanĝita"
 
 #: ../../../inc/widgets/widgets.ctrl.php:484
 msgid "Update Paused"
-msgstr "Aktualigo paŭzita"
+msgstr "Ĝisdatigo paŭzinta"
 
 #: ../../../inc/widgets/widgets.ctrl.php:571
 msgid "Select widget to add:"
@@ -29263,7 +29263,7 @@ msgstr "Resumo de la baza agordo…"
 #: ../../../install/_functions_install.php:130
 #, php-format
 msgid "If you don't see correct settings here, STOP before going any further, and <a %s>update your base configuration</a>."
-msgstr "Se vi ne vidas la ĝustan agordon ĉi tie, ĈESI antaŭ ol plu iri kaj <a %s>aktualigi la bazan agordon</a>."
+msgstr "Se vi ne vidas la ĝustan agordon ĉi tie, ĈESI antaŭ ol plu iri kaj <a %s>ĝisdatigi la bazan agordon</a>."
 
 #: ../../../install/_functions_install.php:139 ../../../install/index.php:529
 msgid "MySQL Username"
@@ -29409,7 +29409,7 @@ msgstr "Kontroli la pasvorton"
 
 #: ../../../install/debug.php:232
 msgid "Update debug config"
-msgstr "Aktualigi senerarigan agordo-dosieron"
+msgstr "Ĝisdatigi senerarigan agordo-dosieron"
 
 #: ../../../install/debug.php:268 ../../../install/index.php:286
 msgid "b2evo installer"
@@ -29480,7 +29480,7 @@ msgstr "Ne plenumas postulojn"
 
 #: ../../../install/index.php:226
 msgid "Upgrade from a previous version"
-msgstr "Aktualigi de antaŭ eldono"
+msgstr "Ĝisdatigi de antaŭ eldono"
 
 #: ../../../install/index.php:230
 msgid "New Install"
@@ -29509,7 +29509,7 @@ msgstr "Neniu apriora horzono elektita. Bonvolu specifi la valoron de 'date.time
 
 #: ../../../install/index.php:319
 msgid "Check your database config settings below and update them if necessary..."
-msgstr "Kontroli vian datumbazan agordon sube kaj aktualigi ilin se necese…"
+msgstr "Kontroli vian datumbazan agordon sube kaj ĝisdatigi ilin se necese…"
 
 #: ../../../install/index.php:328
 msgid "b2evolution cannot be installed, because of the following errors:"
@@ -29531,12 +29531,12 @@ msgstr "Via agorda dosiero [%s] aŭtomate kreiĝis."
 
 #: ../../../install/index.php:424
 msgid "Config file update"
-msgstr "Aktualigado de la agorda dosiero"
+msgstr "Ĝisdatigo de la agorda dosiero"
 
 #: ../../../install/index.php:425
 #, php-format
 msgid "We cannot automatically create or update your config file [%s]!"
-msgstr "Ni ne eblas aŭtomate krei aŭ aktualigi vian agordan dosieron [%s]!"
+msgstr "Ni ne eblas aŭtomate krei aŭ ĝisdatigi vian agordan dosieron [%s]!"
 
 #: ../../../install/index.php:426
 msgid "There are two ways to deal with this:"
@@ -29562,7 +29562,7 @@ msgstr "Reveni al ĉi tiu paĝo kaj reŝargi."
 
 #: ../../../install/index.php:436
 msgid "Alternatively, you can update the config file manually:"
-msgstr "Alternative vi povas permane aktualigi la agordan dosieron:"
+msgstr "Alternative vi povas permane ĝisdatigi la agordan dosieron:"
 
 #: ../../../install/index.php:438
 msgid "Create a new text file with a text editor."
@@ -29652,7 +29652,7 @@ msgstr "Ĉi tiu uziĝas por krei vian estran konton. Vi ricevos sciigojn por kom
 
 #: ../../../install/index.php:539
 msgid "Update config file"
-msgstr "Aktualigi agordan dosieron"
+msgstr "Ĝisdatigi agordo-dosieron"
 
 #: ../../../install/index.php:559
 msgid "How would you like your b2evolution installed?"
@@ -30442,7 +30442,7 @@ msgstr "Eĥi al la kolektaro de b2evolution.net"
 
 #: ../../../plugins/_ping_b2evonet.plugin.php:53
 msgid "Pings the b2evolution.net site to include your post in the list of recently updated blogs."
-msgstr "Eĥas al b2evolution.net por inkluzivigi vian afiŝon en la liston de freŝe aktualigitaj blogoj."
+msgstr "Eĥas al b2evolution.net por inkluzivigi vian afiŝon en la liston de freŝe ĝisdatigitaj blogoj."
 
 #: ../../../plugins/_ping_pingomatic.plugin.php:51
 msgid "Ping-O-Matic plugin"
@@ -31450,11 +31450,11 @@ msgstr "Afiŝi al via Twitter-konto kiam vi afiŝi al via blogo"
 
 #: ../../../plugins/twitter_plugin/_twitter.plugin.php:82
 msgid "Posts to your Twitter account to update Twitter.com with details of your blog post."
-msgstr "Afiŝas al via Twitter-konto por aktualigi al Twitter.com kun detaloj pri via bloga afiŝo."
+msgstr "Afiŝas al via Twitter-konto por ĝisdatigi al Twitter.com kun detaloj pri via bloga afiŝo."
 
 #: ../../../plugins/twitter_plugin/_twitter.plugin.php:85
 msgid "Update your twitter account with details about the new post."
-msgstr "Aktualigi vian Twitter-konton kun detaloj pri la nova afiŝo."
+msgstr "Ĝisdatigi vian Twitter-konton kun detaloj pri la nova afiŝo."
 
 #: ../../../plugins/twitter_plugin/_twitter.plugin.php:112
 msgid "The twitter plugin needs a non-empty code."
