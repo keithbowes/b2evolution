@@ -12,14 +12,15 @@ More info: http://b2evolution.net
 
 ## Differences to upstream
 
-This is a fork of the [upstream project](https://github.com/b2evolution/b2evolution).  I regularly merge with upstream and push it to GitHub.  The primary changes in this fork are:
-1. Includes my edk theme, used on my blog.
-1. Includes feeds (both main and comment) in the ESF and RSS 3.0 formats.
-1. Includes my Esperanto translation, including an eo-EO.locale.php that uses the proper locale name, formats, surrogates, etc.
-1. Includes changes to validate as XHTML.  In general that means replaces the entities &nbsp;, &raquo;, &laquo;, &middot;, and &hellip; with their UTF-8 literals or numerical references.
-1. Sorting of categories.  Categories are sorted alphabetically rather than based on ID.
-1. I'm using the mysqli API, where upstream continues to use the deprecated mysql API.
-1. I still use xg.php (where upstream seems to have settled for xgmac.sh and completely removed xg.php), though I've made several changes.
+This is [a fork](https://github.com/keithbowes/b2evolution) of the [upstream project](https://github.com/b2evolution/b2evolution).  I regularly merge with upstream and push it to GitHub.  The primary changes in this fork are:
+
+1.  Includes my edk theme, used on my blog.
+1.  Includes feeds (both main and comment) in the ESF and RSS 3.0 formats.
+1.  Includes my Esperanto translation, including an eo-EO.locale.php that uses the proper locale name, formats, surrogates, etc.
+1.  Includes changes to validate as XHTML.  In general that means replaces the entities &amp;nbsp;, &amp;raquo;, &amp;laquo;, &amp;middot;, and &amp;hellip; with their UTF-8 literals or numerical references.
+1.  Sorting of categories.  Categories are sorted alphabetically rather than based on ID.
+1.  I'm using the mysqli API, where upstream continues to use the deprecated mysql API.
+1.  I still use xg.php (where upstream seems to have settled for xgmac.sh and completely removed xg.php), though I've made several changes.
 
 The rest of this document is from upstream and should apply equally to both this fork and upstream.
 
