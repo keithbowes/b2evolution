@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net\n"
 "POT-Creation-Date: 2015-04-11 01:18-0400\n"
-"PO-Revision-Date: 2015-04-11 18:00-0400\n"
+"PO-Revision-Date: 2015-04-12 13:36-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -429,7 +429,7 @@ msgstr "Historio"
 #: ../../../conf/_icons.php:655
 #: ../../../inc/users/model/_userfield.class.php:116
 msgid "Allowed"
-msgstr "Permesa"
+msgstr "Permesata"
 
 #: ../../../conf/_icons.php:663
 msgid "Allowed for registered users"
@@ -940,7 +940,7 @@ msgstr "Ebla kialo: la funkcio PHP-a mail() eble estis malaktivigita en la servi
 
 #: ../../../htsrv/anon_unsubscribe.php:91
 msgid "All your comments have been marked not to allow emailing you through a message form."
-msgstr "Ĉiuj viaj komentoj markiĝis ne permesi mesaĝadon de vi per mesaĝilo."
+msgstr "Ĉiuj el viaj komentoj markiĝis por ne permesi mesaĝadon de vi per mesaĝilo."
 
 #: ../../../htsrv/anon_unsubscribe.php:98
 msgid "The request not to receive emails through a message form for your comments failed."
@@ -6879,7 +6879,7 @@ msgstr "Ankoraŭ neniu blogo kreiĝis."
 
 #: ../../../inc/collections/model/_blog.funcs.php:1341
 msgid "Sorry, you have no permission to edit/view any blog's properties."
-msgstr "Bedaŭre vi ne permesas redakti/vidi ecojn de iu ajn blogo."
+msgstr "Bedaŭre vi ne rajtas redakti/vidi ecojn de iu ajn blogo."
 
 #: ../../../inc/collections/model/_blog.funcs.php:1478
 msgid "Full Name"
@@ -13560,7 +13560,7 @@ msgstr "Ĉu forigi ero-tipon «%s»?"
 
 #: ../../../inc/items/items.ctrl.php:178
 msgid "Sorry, you have no permission to post yet."
-msgstr "Bedaŭre vi ne jam permesas afiŝi."
+msgstr "Bedaŭre vi ne jam rajtas afiŝi."
 
 #: ../../../inc/items/items.ctrl.php:291
 #, php-format
@@ -19254,7 +19254,7 @@ msgstr "Forigi malnovajn vizitojn kaj seancojn (inkluzivas plejbonigon)"
 #: ../../../inc/sessions/goals.ctrl.php:54
 #: ../../../inc/sessions/stats.ctrl.php:58
 msgid "Sorry, there is no blog you have permission to view stats for."
-msgstr "Bedaŭre ne ekzistas blogo en kiu vi permesas vidi statistikaĵojn."
+msgstr "Bedaŭre ne ekzistas blogo en kiu vi rajtas vidi statistikaĵojn."
 
 #: ../../../inc/sessions/goals.ctrl.php:87
 msgid "Goal Category"
@@ -23250,11 +23250,11 @@ msgstr "Vi ne rajtas sendi al vi privatan mesaĝon."
 
 #: ../../../inc/users/model/_user.class.php:3145
 msgid "This user can only be contacted through private messages, but you are not allowed to send private message to this user."
-msgstr "Ĉi tiu uzanto allasas nur privatajn mesaĝojn, sed vi ne permesas sendi ajnajn privatajn mesaĝojn al la uzanto."
+msgstr "Ĉi tiu uzanto allasas nur privatajn mesaĝojn, sed vi ne rajtas sendi ajnajn privatajn mesaĝojn al la uzanto."
 
 #: ../../../inc/users/model/_user.class.php:3148
 msgid "This user can only be contacted through private messages but you are not allowed to send any private messages."
-msgstr "Ĉi tiu uzanto allasas nur privatajn mesaĝojn, sed vi ne permesas sendi ajnajn privatajn mesaĝojn."
+msgstr "Ĉi tiu uzanto allasas nur privatajn mesaĝojn, sed vi ne rajtas sendi ajnajn privatajn mesaĝojn."
 
 #: ../../../inc/users/model/_user.class.php:3151
 msgid "This user does not wish to be contacted directly."
@@ -24870,7 +24870,7 @@ msgstr "Preventi Javaskripton"
 
 #: ../../../inc/users/views/_group.form.php:188
 msgid "WARNING: if allowed, users can easily do XSS hacks, steal passwords from other users, etc."
-msgstr "AVERTO: Se permesas, uzantoj povos troŝargi la servilon, ŝtelos pasvortojn de aliaj uzantoj ktp"
+msgstr "AVERTO: Se permesata, uzantoj povos troŝargi la servilon, ŝtelos pasvortojn de aliaj uzantoj ktp"
 
 #: ../../../inc/users/views/_group.form.php:189
 msgid "Prevent objects"
@@ -31098,7 +31098,7 @@ msgstr "Formatado de infodots ekz-e [infodot:1234:40:60:20ex]HTML-markoj[enddot]
 
 #: ../../../plugins/infodots_plugin/_infodots.plugin.php:47
 msgid "This plugin allows to render info dots over images by using the syntax [infodot:1234:40:60:20ex]html text[enddot] for example"
-msgstr "Ĉi tiu kromprogramo permesas informaj punktoj super bildoj per la sintakso ekzemple [infodot:1234:40:60:20ex]HTML-markoj[enddot]"
+msgstr "Ĉi tiu kromprogramo permesas informajn punktojn super bildoj per la sintakso ekzemple [infodot:1234:40:60:20ex]HTML-markoj[enddot]"
 
 #: ../../../plugins/infodots_plugin/_infodots.plugin.php:75
 msgid "Enter the minimum pixel width an image must have for dots to be displayed."
