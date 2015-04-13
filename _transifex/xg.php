@@ -270,7 +270,7 @@ if( $action == 'extract' )
 			array('/PACKAGE/', '/VERSION/', '/# SOME DESCRIPTIVE TITLE./', '/(C) YEAR/', '/YEAR(?!-MO)/', '/CHARSET/'),
 			array(
 				$app_name, $app_version, '# ' . $app_name . ' - Language file',
-				'(C) 2003-'.date('Y'), date('Y'), date('Y'), 'UTF8'
+				'(C) 2003-'.date('Y'), date('Y'), date('Y'), 'UTF-8'
 			),
 			$file_contents);
 		file_put_contents($file_pot, $file_contents);
@@ -298,7 +298,7 @@ if( $action == 'extract' )
 			array('/PACKAGE/', '/VERSION/', '/# SOME DESCRIPTIVE TITLE./', '/(C) YEAR/', '/YEAR(?!-MO)/', '/CHARSET/'),
 			array(
 				$plugin_name, $plugin_version, '# ' . $plugin_name . ' - Language file',
-				'(C) 2003-'.date('Y'), date('Y'), 'UTF8'
+				'(C) 2003-'.date('Y'), date('Y'), 'UTF-8'
 			),
 			$file_contents);
 		file_put_contents($file_pot, $file_contents);
