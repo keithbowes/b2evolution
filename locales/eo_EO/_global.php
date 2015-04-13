@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo_EO'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2015-04-11 01:18-0400\nPO-Revision-Date: 2015-04-12 13:36-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2015-04-13 00:39-0400\nPO-Revision-Date: 2015-04-13 00:40-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 'Adm' => '[A]',
 'Blg' => '^',
 'Folder' => 'Dosierujo',
@@ -2903,6 +2903,7 @@ $trans['eo_EO'] = array(
 'You have disabled some locales. This results in:' => 'Vi malaktivigis iujn lokaĵarojn. Tiu kaŭzos la jenan:',
 'These will be assigned the default locale %s' => 'La jenaj kunligiĝon kun la apriora lokaĵaro %s',
 'Unexpected error occured, regional settings could not be updated.' => 'Neatendita eraro okazas. Regiona agordo ne povis aktualiĝi.',
+'The category should be sent as string' => 'Oni devas sendi la kategorion kiel ĉenon',
 'Locale settings' => 'Lokaĵara agordo',
 'The first two letters should be a <a %s>ISO 639 language code</a>. The last two letters should be a <a %s>ISO 3166 country code</a>.' => 'La unuaj du literoj estu <a %s>lingva kodo laŭ ISO 639</a>. La lastaj du literoj estu <a %s>landa kodo laŭ ISO 3166</a>.',
 'Enabled' => 'Aktivigita',
