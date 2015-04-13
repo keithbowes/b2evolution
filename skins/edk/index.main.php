@@ -28,6 +28,11 @@ function _t($str)
 
 skin_init( $disp );
 skin_include( '_html_header.inc.php' );
+?>
+
+	<h1><?php bloginfo('name'); ?></h1>
+<?php
+skin_include('_sidebar.inc.php');
 skin_include( '_body_header.inc.php' );
 
 if (supports_xhtml())
@@ -166,20 +171,24 @@ skin_include('$disp$', array(
   'disp_page' => ''
 ));
 
+echo "<!-- begin footer -->\n";
 if ($MainList)
 {
 	$row = $DB->get_row('SELECT COUNT(*) FROM ' . $MainList->ItemQuery->dbtablename .
 		' WHERE post_main_cat_ID IN (SELECT cat_ID FROM T_categories' .
 		' WHERE cat_blog_ID=' . $Blog->ID . ')', ARRAY_A, 0);
+
+	$footer_elem = supports_xhtml() ? 'div' : 'footer';
 	$MainList->page_links(array(
-			'block_start' => '<div id="page-links">',
-			'block_end' => '</div>',
+			'block_start' => '<' . $footer_elem . ' id="page-links">',
+			'block_end' => '</' . $footer_elem . '>',
 			'prev_text' => '<span class="sago">←</span>',
 			'next_text' => '<span class="sago">→</span>',
 			'list_span' => ceil($row['COUNT(*)'] / $Blog->get_setting('posts_per_page')),
 		)
 	);
 }
+echo "\n\n<!-- end footer -->\n";
 
   skin_include( '_body_footer.inc.php' );
   skin_include( '_html_footer.inc.php' );

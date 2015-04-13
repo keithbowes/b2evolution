@@ -151,7 +151,7 @@ nav ul li h2 a {
 }
 
 nav > * {
-  overflow-x: auto;
+  overflow: auto hidden;
   margin-left: 2%;
 }
 
