@@ -79,13 +79,19 @@ function supports_xhtml()
 		return FALSE;
 }
 
+function is_text_browser()
+{
+	$ua = $_SERVER['HTTP_USER_AGENT'];
+	return preg_match('/^Lynx|[Ll]inks/', $ua);
+}
+
 function supports_link_toolbar()
 {
 	$ua = $_SERVER['HTTP_USER_AGENT'];
 	/* Note: Opera > 12.x is based on WebKit and doesn't have a link toolbar,
 	 * but its user-agent is OPR instead of Opera, so we're OK. */
 	$ret = preg_match('/Iceape|Opera|SeaMonkey/', $ua); // Graphical browsers
-	$ret = $ret || preg_match('/^(Lynx|[Ll]inks)/', $ua); // Text browsers
+	$ret = $ret || is_text_browser(); // Text browsers
 	$ret = $ret || preg_match('/UdiWWW|i?C[Aa][Bb]|Emacs_W3/', $ua); // Ancient browsers
 	return $ret;
 }
@@ -106,24 +112,87 @@ else
 global $locale;
 $locale = preg_replace('/(\w{2,3})-.*$/', '$1', locale_lang(false));
 
-function get_full_url($part)
+function get_full_url($part = '')
 {
 	global $Blog;
 	global $baseurl;
-	return $baseurl . $Blog->siteurl . "/$part";
+
+	return $baseurl . $Blog->siteurl . '/' . $part;
+}
+
+function is_valid_query($result)
+{
+	return ($result !== FALSE && is_array($result) && count($result) > 0);
+}
+
+function get_post_suffix($dir = '', $row = 0)
+{
+	global $Blog, $DB, $Item;
+
+	$blogid = isset($Item) ? $Item->blog_ID : isset($Blog) ? $Blog->ID : -1;
+	$blogslug = isset($Item) ? $Item->urltitle : '';
+	$categorytablename = isset($Item) ? $Item->main_Chapter->dbtablename : 'T_categories';
+	$itemtablename = isset($Item) ? $Item->dbtablename : 'T_items__item';
+
+	if (!empty($dir))
+		$item_data = $DB->get_row('SELECT post_datestart, post_ID, post_main_cat_ID, post_title, post_urltitle FROM ' . $itemtablename . ' ORDER BY UNIX_TIMESTAMP(post_datestart) ' . $dir, ARRAY_A, $row);
+	elseif (isset($Item))
+		$item_data = $DB->get_row('SELECT post_datestart, post_ID, post_main_cat_ID, post_title, post_urltitle FROM ' . $itemtablename . ' WHERE post_ID=' . $Item->ID, ARRAY_A, 0);
+	else
+	{
+		return '';
+	}
+
+	if (!is_valid_query($item_data)) return NULL;
+
+	$cat_data = $DB->get_row('SELECT cat_parent_ID, cat_name, cat_blog_ID FROM ' . $categorytablename . ' WHERE cat_ID = ' . $item_data['post_main_cat_ID'], ARRAY_A, 0);
+	if (!is_valid_query($cat_data)) return NULL;
+
+	$pathinfo = $DB->get_row('SELECT cset_value from T_coll_settings WHERE cset_coll_ID = ' . $blogid . ' AND cset_name = \'single_links\'', ARRAY_A, 0);
+	if (!is_valid_query($pathinfo)) return NULL;
+
+	$item_data['post_datestart'] = strtotime($item_data['post_datestart']);
+	$cat_data['cat_name'] = strtolower($cat_data['cat_name']);
+
+	switch ($pathinfo['cset_value'])
+	{
+		case 'param_num':
+			$item_data['post_urltitle'] = '?p=' . $item_data['post_ID']; 
+			break;
+		case 'param_title':
+			$item_data['post_urltitle'] = '?title=' . $item_data['post_urltitle'];
+		case 'short':
+			// Do nothing
+			break;
+		case 'y':
+			$item_data['post_urltitle'] = strftime('%Y/', $item_data['post_datestart']) . $item_data['post_urltitle'];
+			break;
+		case 'ym':
+			$item_data['post_urltitle'] = strftime('%Y/%m/', $item_data['post_datestart']) . $item_data['post_urltitle'];
+			break;
+		case 'ymd':
+			$item_data['post_urltitle'] = strftime('%Y/%m/%d/', $item_data['post_datestart']) . $item_data['post_urltitle'];
+			break;
+		case 'subchap':
+			$item_data['post_urltitle'] = $cat_data['cat_name'] . '/' . $item_data['post_urltitle']; 
+			break;
+		case 'chapters':
+			if (isset($cat_data['cat_parent_ID']))
+			{
+				$parent_cat = $DB->get_row("SELECT cat_name FROM $categorytablename WHERE cat_ID = " . $cat_data['cat_parent_ID'], ARRAY_A, 0);
+				$item_data['post_urltitle'] = $cat_data['cat_name'] . '/' . strtolower($parent_cat['cat_name']) .' /' . $item_data['post_urltitle']; 
+			}
+			else
+				$item_data['post_urltitle'] = $cat_data['cat_name'] . '/' . $item_data['post_urltitle']; 
+			break;
+	}
+
+	return $item_data['post_urltitle'];
 }
 
 /* If you can think of a better way to do this, you're my hero. */
 function get_item($dir)
 {
-	if (!function_exists('is_valid_query'))
-	{
-		function is_valid_query($result)
-		{
-			return ($result !== FALSE && is_array($result) && count($result) > 0);
-		}
-	}
-
 	global $Blog, $DB, $Item;
 	$blogid = $Item ? $Item->blog_ID : $Blog ? $Blog->ID : -1;
 	$blogslug = $Item ? $Item->urltitle : '';
@@ -146,43 +215,7 @@ function get_item($dir)
 		{
 			if ($item_data['post_urltitle'] != $blogslug)
 			{
-				$pathinfo = $DB->get_row('SELECT cset_value from T_coll_settings WHERE cset_coll_ID = ' . $blogid . ' AND cset_name = \'single_links\'', ARRAY_A, 0);
-				$item_data['post_datestart'] = strtotime($item_data['post_datestart']);
-				$cat_data['cat_name'] = strtolower($cat_data['cat_name']);
-
-				switch ($pathinfo['cset_value'])
-				{
-					case 'param_num':
-						$item_data['post_urltitle'] = '?p=' . $item_data['post_ID']; 
-						break;
-					case 'param_title':
-						$item_data['post_urltitle'] = '?title=' . $item_data['post_urltitle'];
-					case 'short':
-						// Do nothing
-						break;
-					case 'y':
-						$item_data['post_urltitle'] = strftime('%Y/', $item_data['post_datestart']) . $item_data['post_urltitle'];
-						break;
-					case 'ym':
-						$item_data['post_urltitle'] = strftime('%Y/%m/', $item_data['post_datestart']) . $item_data['post_urltitle'];
-						break;
-					case 'ymd':
-						$item_data['post_urltitle'] = strftime('%Y/%m/%d/', $item_data['post_datestart']) . $item_data['post_urltitle'];
-						break;
-					case 'subchap':
-						$item_data['post_urltitle'] = $cat_data['cat_name'] . '/' . $item_data['post_urltitle']; 
-						break;
-					case 'chapters':
-						if (isset($cat_data['cat_parent_ID']))
-						{
-							$parent_cat = $DB->get_row("SELECT cat_name FROM $categorytablename WHERE cat_ID = " . $cat_data['cat_parent_ID'], ARRAY_A, 0);
-							$item_data['post_urltitle'] = $cat_data['cat_name'] . '/' . strtolower($parent_cat['cat_name']) .' /' . $item_data['post_urltitle']; 
-						}
-						else
-							$item_data['post_urltitle'] = $cat_data['cat_name'] . '/' . $item_data['post_urltitle']; 
-						break;
-				}
-
+				$item_data['post_urltitle'] = get_post_suffix($dir, $row);
 				return $item_data;
 			}
 			else
@@ -328,8 +361,8 @@ echo $params['html_tag'];
 	if (supports_xhtml() || supports_link_toolbar())
 	{
 ?>
-  <link rel="bookmark" href="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']); ?>#content" title="<?php echo $Skin->T_('Main Content'); ?>" />
-  <link rel="bookmark" href="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']); ?>#menu" title="<?php echo $Skin->T_('Menu'); ?>" />
+  <link rel="bookmark" href="<?php echo get_full_url(get_post_suffix()); ?>#content" title="<?php echo $Skin->T_('Main Content'); ?>" />
+  <link rel="bookmark" href="<?php echo get_full_url(get_post_suffix()); ?>?show=menu&amp;redir=no#menu" title="<?php echo $Skin->T_('Menu'); ?>" />
 
 <?php
 if ('single' == $disp)

@@ -1,11 +1,11 @@
 <!-- begin sidebar -->
 <?php
-	global $app_name, $app_version, $baseurl;
+	global $app_name, $app_version, $baseurl, $show_mode;
 	/* Make sure the sidebar uses the blog's locale insted of the locale of the bottom post */
 	locale_temp_switch($Blog->locale);
-?>
 
-<?php
+if (is_text_browser() && 'menu' != $show_mode) return;
+
 	if (!supports_xhtml())
 	{
 ?>

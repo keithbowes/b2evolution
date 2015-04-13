@@ -41,6 +41,9 @@ skin_include( '_body_header.inc.php' );
 if (supports_xhtml())
 	$last_date = '';
 
+if (is_text_browser() && 'menu' == $show_mode)
+	goto end_html;
+
 display_if_empty();
 while( $Item = & mainlist_get_item() ):
 
@@ -193,6 +196,7 @@ if ($MainList)
 }
 echo "\n\n<!-- end footer -->\n";
 
+end_html:
   skin_include( '_body_footer.inc.php' );
   skin_include( '_html_footer.inc.php' );
 ?>
