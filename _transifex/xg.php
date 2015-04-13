@@ -335,7 +335,7 @@ if( $action == 'merge' )
 		# delete old TRANS comments and make automatic ones valid comments:
 		$file_contents = file_get_contents($l_file_po);
 		$file_contents = preg_replace(
-			array('/^#\s+TRANS:/', '/#\. TRANS:/'),
+			array('/#\s+TRANS:.+' . PHP_EOL . '/', '/#\. TRANS:/'),
 			array('', '# TRANS:'),
 			$file_contents);
 		file_put_contents($l_file_po, $file_contents);	
