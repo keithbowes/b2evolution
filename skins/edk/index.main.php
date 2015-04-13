@@ -32,7 +32,10 @@ skin_include( '_html_header.inc.php' );
 
 	<h1><?php bloginfo('name'); ?></h1>
 <?php
-skin_include('_sidebar.inc.php');
+
+if (supports_xhtml())
+	skin_include( '_sidebar.inc.php' );
+
 skin_include( '_body_header.inc.php' );
 
 if (supports_xhtml())

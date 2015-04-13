@@ -1,4 +1,27 @@
 <?php
-global $main_elem;
-echo "\n</$main_elem>\n\n<!-- end main content -->\n\n";
+if (!supports_xhtml())
+{
+	global $app_name, $app_version;
+?>
+</section>
+</main>
+
+<footer>
+<?php
+	$Plugins->trigger_event('SkinEndHtmlBody');
+
+	printf($Skin->T_('<div>Powered by <cite><a href="http://www.duckduckgo.com/?q=!+%s">%s</a> %s</cite>.</div>'), $app_name, $app_name, $app_version);
+	get_copyright();
+?>
+
+</footer>
+
+<?php
+}
+else
+{
+?>
+</div>
+<?php
+}
 ?>

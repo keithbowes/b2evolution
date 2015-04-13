@@ -103,6 +103,7 @@ else
 	skin_content_header($content_type);
 }
 
+global $locale;
 $locale = preg_replace('/(\w{2,3})-.*$/', '$1', locale_lang(false));
 
 function get_full_url($part)
@@ -123,10 +124,11 @@ function get_item($dir)
 		}
 	}
 
-	global $DB, $Item;
-	if (!$Item) return;
-	$categorytablename = $Item->main_Chapter->dbtablename;
-	$itemtablename = $Item->dbtablename;
+	global $Blog, $DB, $Item;
+	$blogid = $Item ? $Item->blog_ID : $Blog ? $Blog->ID : -1;
+	$blogslug = $Item ? $Item->urltitle : '';
+	$categorytablename = $Item ? $Item->main_Chapter->dbtablename : 'T_categories';
+	$itemtablename = $Item ? $Item->dbtablename : 'T_items__item';
 	if (!$categorytablename || !$itemtablename) return;
 	$row = 0;
 	// Here we iterate through the items until we can get an item with a category associated with the current blog
@@ -140,11 +142,11 @@ function get_item($dir)
 		$cat_data = $DB->get_row("SELECT cat_parent_ID, cat_name, cat_blog_ID FROM $categorytablename WHERE cat_ID = " . $item_data['post_main_cat_ID'], ARRAY_A, 0);
 		if (!is_valid_query($cat_data))
 			return NULL;
-		else if ($cat_data['cat_blog_ID'] == $Item->blog_ID)
+		else if ($cat_data['cat_blog_ID'] == $blogid)
 		{
-			if ($item_data['post_urltitle'] != $Item->urltitle)
+			if ($item_data['post_urltitle'] != $blogslug)
 			{
-				$pathinfo = $DB->get_row('SELECT cset_value from T_coll_settings WHERE cset_coll_ID = ' . $Item->blog_ID . ' AND cset_name = \'single_links\'', ARRAY_A, 0);
+				$pathinfo = $DB->get_row('SELECT cset_value from T_coll_settings WHERE cset_coll_ID = ' . $blogid . ' AND cset_name = \'single_links\'', ARRAY_A, 0);
 				$item_data['post_datestart'] = strtotime($item_data['post_datestart']);
 				$cat_data['cat_name'] = strtolower($cat_data['cat_name']);
 
@@ -194,6 +196,55 @@ function get_item($dir)
 global $first_item, $last_item;
 $first_item = get_item('ASC');
 $last_item = get_item('DESC');
+
+function get_license($params = array())
+{
+	global $Skin;
+	global $locale;
+
+	$params = array_merge(
+		array(
+			'display' => TRUE,
+			'format' => 'html',
+		),
+		$params
+	);
+
+	$fmt ='<a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.' . $locale . '"><img src="https://licensebuttons.net/l/by/4.0/80x15.png" alt="' . $Skin->T_('Creative Commons') . '" title="' . $Skin->T_('Creative Commons') . '" /></a>';
+	$func = $params['display'] ? 'printf' : 'sprintf';
+	return $func(($params['format'] == 'html') ? $fmt : $Skin->T_('Creative Commons'));
+}
+
+function get_copyright($params = array())
+{
+	global $Blog, $Skin;
+	global $first_item;
+
+	$params = array_merge(
+		array(
+			'display' => TRUE,
+			'license' => TRUE,
+		),
+		$params
+	);
+
+	$fmt = str_replace(
+		array('(C)', '-'),
+		array('©', '–'),
+		$params['license'] ?
+		# TRANS: Params: Start year, end year, author, license
+		$Skin->T_('(C) %1$d-%2$d %3$s under %4$s') :
+		# TRANS: Params: Start year, end year, author
+		$Skin->T_('(C) %1$d-%2$d %3$s')
+	);	
+
+	if ($params['display'])
+		$func = 'printf';
+	else
+		$func = 'sprintf';
+
+	return $func($fmt, strftime('%Y', $first_item['post_datestart']), strftime('%Y'), $Blog->get_owner_User()->get('fullname'), get_license(array('display' => FALSE)));
+}
 
 function get_prevnext_item($which)
 {
@@ -263,6 +314,9 @@ echo $params['html_tag'];
 		request_title($params);
 		// ------------------------------ END OF REQUEST TITLE -----------------------------
 	?></title>
+		<meta name="DC.rights" content="<?php get_copyright(array('license' => FALSE)); ?>" />
+		<meta name="copyright" content="<?php get_copyright(array('license' => FALSE)) ?>" />
+		<meta name="license" content="<?php get_license(array('format' => 'text')); ?>" />
 <?php
 		skin_description_tag();
 		skin_keywords_tag();

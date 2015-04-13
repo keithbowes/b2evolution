@@ -65,12 +65,15 @@ blockquote {
 body {
   background-color: silver !important;
   color: #000;
-  display: table-row;
 }
 
 cite {
   font-size: 90%;
   font-style: normal;
+}
+
+footer {
+  text-align: center;
 }
 
 h1 {
@@ -110,30 +113,7 @@ li, p,
 }
 
 main {
-  display: table-cell;
-  width: 76%;
-}
-
-main abbr {
-  border-bottom-color: magenta;
-}
-
-main > h2 {
-  border: none;
-  font-size: 120%;
-}
-
-main > h2:not(.cform) {
-  padding-bottom: 0.5em;
-  text-align: center;
-}
-
-main h3 {
-  border-bottom-color: purple;
-}
-
-main .bComment * {
-  text-align: left;
+  display: table-row;
 }
 
 nav {
@@ -433,6 +413,33 @@ form.bComment legend {
   color: inherit;
   font-weight: 100;
   padding: 0.73em;
+}
+
+#content {
+  display: table-cell;
+  width: 76%;
+}
+
+#content abbr {
+  border-bottom-color: magenta;
+}
+
+#content > h2 {
+  border: none;
+  font-size: 120%;
+}
+
+#content > h2:not(.cform) {
+  padding-bottom: 0.5em;
+  text-align: center;
+}
+
+#content h3 {
+  border-bottom-color: purple;
+}
+
+#content .bComment * {
+  text-align: left;
 }
 
 #diaspora {

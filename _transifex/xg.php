@@ -219,11 +219,8 @@ if( $action == 'extract' )
 		$cmd = find($dir_root);
 	}
 
-	if (!empty($cmd))
-	{
-		file_put_contents('files.txt', $cmd);
-		unset($cmd);
-	}
+	file_put_contents('files.txt', $cmd);
+	unset($cmd);
 
 	if (!($copyright_holder = getenv('COPYRIGHT_HOLDER')))
 		$copyright_holder = ($mode == 'CORE') ? 'François FLANQUE' : 
@@ -249,9 +246,7 @@ if( $action == 'extract' )
 		die("Failed!\n");
 	}
 	echo "[ok]\n";
-
-	if (file_exists('files.txt'))
-		unlink('files.txt');
+	unlink('files.txt');
 
 
 	// Replace various things (see comments)

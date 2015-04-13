@@ -218,29 +218,13 @@ if (supports_xhtml())
 ?>
 <ul class="credit"><li>
 <?php
-}
-else
-{
-?>
-	<footer>
-<?php
-}
 	$Plugins->trigger_event('SkinEndHtmlBody');
 
 printf($Skin->T_('<div>Powered by <cite><a href="http://www.duckduckgo.com/?q=!+%s">%s</a> %s</cite>.</div>'), $app_name, $app_name, $app_version);
-?>
-<?php
-if (supports_xhtml())
-{
+get_copyright();
 ?>
 </li>
 </ul>
-<?php
-}
-else
-{
-?>
-</footer>
 <?php
 }
 ?>

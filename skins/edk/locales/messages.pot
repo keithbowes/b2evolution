@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edk \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-09 22:52-0400\n"
+"POT-Creation-Date: 2015-04-13 17:19-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,15 +30,31 @@ msgstr ""
 msgid "404 Not Found"
 msgstr ""
 
-#: _html_header.inc.php:247
+#: _html_header.inc.php:213 _html_header.inc.php:215
+msgid "Creative Commons"
+msgstr ""
+
+#. TRANS: Params: Start year, end year, author, license
+#: _html_header.inc.php:236
+#, php-format
+msgid "(C) %1$d-%2$d %3$s under %4$s"
+msgstr ""
+
+#. TRANS: Params: Start year, end year, author
+#: _html_header.inc.php:238
+#, php-format
+msgid "(C) %1$d-%2$d %3$s"
+msgstr ""
+
+#: _html_header.inc.php:298
 msgid "Please leave this for stats"
 msgstr ""
 
-#: _html_header.inc.php:277
+#: _html_header.inc.php:331
 msgid "Main Content"
 msgstr ""
 
-#: _html_header.inc.php:278
+#: _html_header.inc.php:332
 msgid "Menu"
 msgstr ""
 
@@ -51,7 +67,7 @@ msgstr ""
 msgid "from"
 msgstr ""
 
-#: _item_comment.inc.php:135 index.main.php:69
+#: _item_comment.inc.php:135 index.main.php:77
 msgid " at "
 msgstr ""
 
@@ -109,12 +125,12 @@ msgstr ""
 msgid "Credits"
 msgstr ""
 
-#: _sidebar.inc.php:230
+#: _sidebar.inc.php:223
 #, php-format
 msgid "<div>Powered by <cite><a href=\"http://www.duckduckgo.com/?q=!+%s\">%s</a> %s</cite>.</div>"
 msgstr ""
 
-#: index.main.php:68
+#: index.main.php:76
 #, php-format
 msgid "on %s"
 msgstr ""

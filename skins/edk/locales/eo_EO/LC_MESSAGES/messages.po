@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: b 2e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-09 22:52-0400\n"
-"PO-Revision-Date: 2015-04-09 22:55-0400\n"
+"POT-Creation-Date: 2015-04-13 17:19-0400\n"
+"PO-Revision-Date: 2015-04-13 17:22-0400\n"
 "Last-Translator: Keith Bowes <keith@localhost>\n"
 "Language-Team: Esperanto\n"
 "Language: eo \n"
@@ -25,15 +25,31 @@ msgstr "<p><a href=\"%s\">%s</a> ne povis solvi la petitan retadreson.</p>"
 msgid "404 Not Found"
 msgstr "404: Ne trovita"
 
-#: _html_header.inc.php:247
+#: _html_header.inc.php:213 _html_header.inc.php:215
+msgid "Creative Commons"
+msgstr "Permesila Krea Komunaĵo"
+
+# TRANS: Params: Start year, end year, author, license
+#: _html_header.inc.php:236
+#, php-format
+msgid "(C) %1$d-%2$d %3$s under %4$s"
+msgstr "Kopirajto %1$d ĝis %2$d de %3$s laŭ %4$s"
+
+# TRANS: Params: Start year, end year, author
+#: _html_header.inc.php:238
+#, php-format
+msgid "(C) %1$d-%2$d %3$s"
+msgstr "Kopirajto %1$d ĝis %2$d %3$s"
+
+#: _html_header.inc.php:298
 msgid "Please leave this for stats"
 msgstr "Bonvolu restigi tion pro statistikaĵoj"
 
-#: _html_header.inc.php:277
+#: _html_header.inc.php:331
 msgid "Main Content"
 msgstr "Ĉefa enhavo"
 
-#: _html_header.inc.php:278
+#: _html_header.inc.php:332
 msgid "Menu"
 msgstr "Menuo"
 
@@ -46,7 +62,7 @@ msgstr " (responde al <a href=\"%s\">%s</a>)"
 msgid "from"
 msgstr "de"
 
-#: _item_comment.inc.php:135 index.main.php:69
+#: _item_comment.inc.php:135 index.main.php:77
 msgid " at "
 msgstr " je "
 
@@ -104,12 +120,12 @@ msgstr "Stirilo"
 msgid "Credits"
 msgstr "Dankesprimoj"
 
-#: _sidebar.inc.php:230
+#: _sidebar.inc.php:223
 #, php-format
 msgid "<div>Powered by <cite><a href=\"http://www.duckduckgo.com/?q=!+%s\">%s</a> %s</cite>.</div>"
 msgstr "<div>Kreita pere de <cite><a href=\"http://www.duckduckgo.com/?q=!+%s\">%s</a> %s</cite>.</div>"
 
-#: index.main.php:68
+#: index.main.php:76
 #, php-format
 msgid "on %s"
 msgstr "je %s"

@@ -25,28 +25,6 @@ html {
   margin: 0 1%;
 }
 
-#content abbr {
-  border-bottom-color: magenta;
-}
-
-#content > h2 {
-  border: none;
-  font-size: 120%;
-}
-
-#content > h2:not(.cform) {
-  padding-bottom: 0.5em;
-  text-align: center;
-}
-
-#content h3 {
-  border-bottom-color: purple;
-}
-
-#content .bComment * {
-  text-align: left;
-}
-
 #gplus {
   width: 0.8em;
 }
@@ -125,6 +103,10 @@ html {
 
 .bCalendarTable caption a {
   color: gold !important;
+}
+
+.credit {
+  white-space: nowrap;
 }
 
 .credit a {

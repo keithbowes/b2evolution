@@ -1,5 +1,18 @@
 <?php
-global $main_elem;
-$main_elem = supports_xhtml() ? 'div' : 'main';
-echo "<!-- begin main content -->\n\n<$main_elem id=\"content\">";
+if (supports_xhtml())
+{
+?>
+<div id="content">
+<?php
+}
+else
+{
+?>
+<main>
+<?php
+skin_include('_sidebar.inc.php');
+?>
+<section id="content">
+<?php
+}
 ?>
