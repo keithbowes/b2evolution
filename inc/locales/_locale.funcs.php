@@ -1522,7 +1522,7 @@ function reallocale($locale = '', $scategory = 'LC_ALL')
 				{
 					foreach ($output as $loc)
 					{
-						if (preg_match("/^$locale/", $loc))
+						if (strpos($loc, $locale) === 0)
 						{
 							$l = setlocale($category, $loc);
 							break;
