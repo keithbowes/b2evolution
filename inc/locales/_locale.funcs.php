@@ -1486,4 +1486,58 @@ function locale_insert_default()
 	}
 }
 
+/**
+ * Get the closest installed system locale to that requested.
+ *
+ * @param string The requested locale, '' for the current locale
+ * @param string The category to use
+ * @return string The closest installed locale or the system default if nothing available
+ * */
+function reallocale($locale = '', $scategory = 'LC_ALL')
+{
+	if (empty($locale))
+	{
+		global $current_locale;
+		$locale = $current_locale;
+	}
+
+	if (!is_string($scategory))
+	{
+		debug_die(T_('The category should be sent as string'),
+			array('recoverable' => TRUE, 'status' => ''));
+	}
+
+	$category = constant($scategory);
+	$locale = str_replace('-', '_', $locale);
+
+	if (($l = setlocale($category, $locale)) === FALSE)
+	{
+		$locale = preg_replace('/^([^_]{2,3}).*$/', '$1', $locale);
+		if (($l = setlocale($category, $locale)) === FALSE)
+		{
+			if (($l = setlocale($category, $locale.'_'.strtoupper($locale))) === FALSE)
+			{
+				exec('locale -a', $output, $result);
+				if ($result === 0)
+				{
+					foreach ($output as $loc)
+					{
+						if (preg_match("/^$locale/", $loc))
+						{
+							$l = setlocale($category, $loc);
+							break;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	if ($l === FALSE)
+		$l = setlocale($category, '');
+
+	putenv($scategory . '=' . $l);
+	return $l;
+}
+
 ?>

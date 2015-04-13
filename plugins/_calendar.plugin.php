@@ -701,7 +701,27 @@ class Calendar
 							.'</td>';
 			}
 			echo '<td colspan="3" id="next">';
-			echo '&#160;&#160;&#160;&#160;';
+			
+			/* Right amount of padding */
+			reallocale('', 'LC_TIME');
+			switch ($this->headerdisplay)
+			{
+				case 'D':
+					$hdl = strlen(strftime('%a'));
+					break;
+				case 'e':
+					$hdl = strlen(mb_substr(strftime('%a'), 0, 1));
+					break;
+				case 'l':
+					$hdl =  strlen(strfmttime('%A'));
+					break;
+				default:
+					$hdl = 0;
+					break;
+			}
+			for ($i = 0; $i < $hdl * 3 - 1; $i++)
+				echo '&#160;';
+
 			echo implode( '&#160;', $this->getNavLinks( 'next' ) );
 			echo "</td>\n";
 			echo "</tr>\n";

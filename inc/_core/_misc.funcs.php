@@ -2476,6 +2476,7 @@ function debug_get_backtrace( $limit_to_last = NULL, $ignore_from = array( 'func
  * @param array Additional params
  *        - "status" (Default: '500 Internal Server Error')
  *        - "debug_info" - Use this info instead of $additional_info when debug is ON
+ *        - "recoverable" - We can recover from the error
  */
 function debug_die( $additional_info = '', $params = array() )
 {
@@ -2483,8 +2484,9 @@ function debug_die( $additional_info = '', $params = array() )
 	global $log_app_errors, $app_name, $is_cli, $display_errors_on_production;
 
 	$params = array_merge( array(
-		'status'     => '500 Internal Server Error',
-		'debug_info' => '',
+		'status'      => '500 Internal Server Error',
+		'debug_info'  => '',
+		'recoverable' => FALSE,
 		), $params );
 
 	if( $debug && ! empty( $params['debug_info'] ) )
@@ -2615,7 +2617,8 @@ function debug_die( $additional_info = '', $params = array() )
 		echo '</body></html>';
 	}
 
-	die(1);	// Error code 1. Note: This will still call the shutdown function.
+	if ( ! $params['recoverable'] )
+		die(1);	// Error code 1. Note: This will still call the shutdown function.
 }
 
 
