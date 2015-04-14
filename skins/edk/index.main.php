@@ -195,7 +195,22 @@ if ($MainList)
 ?>
 
 <!-- end footer -->
+
+<?php
+if (supports_xhtml())
+{
+?>
+</div>
+<?php
+}
+else
+{
+?>
 </section>
+<?php
+}
+?>
+
 
 <?php
 end_html:

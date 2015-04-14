@@ -17,10 +17,4 @@ if (!supports_xhtml())
 
 <?php
 }
-else
-{
-?>
-</div>
-<?php
-}
 ?>

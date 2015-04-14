@@ -349,10 +349,15 @@ echo $params['html_tag'];
 		request_title($params);
 		// ------------------------------ END OF REQUEST TITLE -----------------------------
 	?></title>
+<?php
+	if (supports_xhtml())
+	{
+?>
 		<meta name="DC.rights" content="<?php get_copyright(array('license' => FALSE)); ?>" />
 		<meta name="copyright" content="<?php get_copyright(array('license' => FALSE)) ?>" />
 		<meta name="license" content="<?php get_license(array('format' => 'text')); ?>" />
 <?php
+	}
 		skin_description_tag();
 		skin_keywords_tag();
 		skin_opengraph_tags();

@@ -10,6 +10,7 @@ if (is_text_browser() && 'menu' != $show_mode) return;
 	{
 ?>
 <nav>
+<h2 class="section-heading"><?php echo $Skin->T_('Menu'); ?></h2>
 <?php
 	}
 ?>

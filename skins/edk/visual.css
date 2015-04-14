@@ -351,6 +351,10 @@ nav #menu > li > ul > li:first-child h2 {
   text-align: right;
 }
 
+.section-heading {
+  display: none;
+}
+
 .search_submit {
   margin: 0.5em;
   width: 25%;
