@@ -117,7 +117,9 @@ function get_full_url($part = '')
 	global $Blog;
 	global $baseurl;
 
-	return $baseurl . $Blog->siteurl . '/' . $part;
+	$r = $baseurl . $Blog->siteurl;
+	$r .= empty($part) ? '' : '/' . $part;
+	return $r;
 }
 
 function is_valid_query($result)
@@ -151,7 +153,6 @@ function get_post_suffix($dir = '', $row = 0)
 	$pathinfo = $DB->get_row('SELECT cset_value from T_coll_settings WHERE cset_coll_ID = ' . $blogid . ' AND cset_name = \'single_links\'', ARRAY_A, 0);
 	if (!is_valid_query($pathinfo)) return NULL;
 
-	$item_data['post_datestart'] = strtotime($item_data['post_datestart']);
 	$cat_data['cat_name'] = strtolower($cat_data['cat_name']);
 
 	switch ($pathinfo['cset_value'])
@@ -208,6 +209,7 @@ function get_item($dir)
 		if (!is_valid_query($item_data))
 			return NULL;
 
+		$item_data['post_datestart'] = strtotime($item_data['post_datestart']);
 		$cat_data = $DB->get_row("SELECT cat_parent_ID, cat_name, cat_blog_ID FROM $categorytablename WHERE cat_ID = " . $item_data['post_main_cat_ID'], ARRAY_A, 0);
 		if (!is_valid_query($cat_data))
 			return NULL;

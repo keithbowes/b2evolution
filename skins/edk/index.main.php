@@ -84,10 +84,10 @@ echo preg_replace('/(\s*alt=)"[^"]*"/', '$1""', $Item->get_edit_link(array('titl
 ?></div>
 
 <?php
-if ($show_mode != 'comments' || $disp != 'single')
+if ($show_mode != 'comments')
 {
 	global $first_item, $last_item, $next_item, $prev_item;
-	if ((!supports_xhtml() && !supports_link_toolbar()) &&
+	if ((!supports_xhtml() && !supports_link_toolbar()) && 'single' == $disp &&
 		(NULL !== $first_item || NULL !== $last_item || NULL !== $next_item || NULL !== $prev_item))
 	{
 ?>
