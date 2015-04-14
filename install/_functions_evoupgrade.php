@@ -5520,12 +5520,12 @@ function upgrade_b2evo_tables( $upgrade_action = 'evoupgrade' )
 			ADD ityp_use_comment_expiration   ENUM( 'required', 'optional', 'never' ) COLLATE ascii_general_ci DEFAULT 'optional'" );
 		$DB->query( 'UPDATE T_items__type SET
 			ityp_backoffice_tab = CASE
-				WHEN ityp_ID = 1    THEN "Posts"
-				WHEN ityp_ID = 1000 THEN "Pages"
-				WHEN ityp_ID >= 1400 AND ityp_ID <= 1600 THEN "Intros"
-				WHEN ityp_ID = 2000 THEN "Podcasts"
-				WHEN ityp_ID = 3000 THEN "Sidebar links"
-				WHEN ityp_ID = 4000 THEN "Advertisement"
+				WHEN ityp_ID = 1    THEN "' . T_('Posts') . '"
+				WHEN ityp_ID = 1000 THEN "' . T_('Pages') . '"
+				WHEN ityp_ID >= 1400 AND ityp_ID <= 1600 THEN "' . T_('Intros') . '"
+				WHEN ityp_ID = 2000 THEN "' . T_('Podcasts') . '"
+				WHEN ityp_ID = 3000 THEN "' . T_('Sidebar links') . '"
+				WHEN ityp_ID = 4000 THEN "' . T_('Advertisement') . '"
 				WHEN ityp_ID = 5000 THEN NULL
 				ELSE "Posts"
 			END,
