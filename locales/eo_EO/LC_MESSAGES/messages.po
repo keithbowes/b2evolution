@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net\n"
 "POT-Creation-Date: 2015-04-13 00:39-0400\n"
-"PO-Revision-Date: 2015-04-13 00:40-0400\n"
+"PO-Revision-Date: 2015-04-13 22:49-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -7338,7 +7338,7 @@ msgstr "Blogo-piedo"
 #: ../../../inc/collections/views/_coll_advanced.form.php:172
 #, php-format
 msgid "Use &lt;br /&gt; to insert a line break. You might want to put your copyright or <a href=\"%s\" target=\"_blank\">creative commons</a> notice here."
-msgstr "Uzu la elementon &lt;br /&gt; por enmeti linirompon. Vi eble volos meti vian kopirajton aŭ noticon pri <a href=\"%s\" onclick=\"window.open(this.href); return false;\" hreflang=\"en\">la permesilo Kreema Komunaĵo</a> ĉi tie."
+msgstr "Uzu la elementon &lt;br /&gt; por enmeti linirompon. Vi eble volos meti vian kopirajton aŭ noticon pri <a href=\"%s\" onclick=\"window.open(this.href); return false;\" hreflang=\"en\">la permesilo Krea Komunaĵo</a> ĉi tie."
 
 #: ../../../inc/collections/views/_coll_advanced.form.php:174
 msgid "Single post footer"

@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo_EO'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2015-04-13 00:39-0400\nPO-Revision-Date: 2015-04-13 00:40-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2015-04-13 00:39-0400\nPO-Revision-Date: 2015-04-13 22:49-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 'Adm' => '[A]',
 'Blg' => '^',
 'Folder' => 'Dosierujo',
@@ -1181,7 +1181,7 @@ $trans['eo_EO'] = array(
 'This is is used in meta tag description and RSS feeds. NO HTML!' => 'Ĉi tiu uziĝas en meta-etikedaj priskriboj kaj RSS-kanaloj. Neniu HTML.',
 'This is is used in meta tag keywords. NO HTML!' => 'Ĉi tiu uziĝas en meta-etikedaj ŝlosilvortoj. Neniu HTML.',
 'Blog footer' => 'Blogo-piedo',
-'Use &lt;br /&gt; to insert a line break. You might want to put your copyright or <a href="%s" target="_blank">creative commons</a> notice here.' => 'Uzu la elementon &lt;br /&gt; por enmeti linirompon. Vi eble volos meti vian kopirajton aŭ noticon pri <a href="%s" onclick="window.open(this.href); return false;" hreflang="en">la permesilo Kreema Komunaĵo</a> ĉi tie.',
+'Use &lt;br /&gt; to insert a line break. You might want to put your copyright or <a href="%s" target="_blank">creative commons</a> notice here.' => 'Uzu la elementon &lt;br /&gt; por enmeti linirompon. Vi eble volos meti vian kopirajton aŭ noticon pri <a href="%s" onclick="window.open(this.href); return false;" hreflang="en">la permesilo Krea Komunaĵo</a> ĉi tie.',
 'Single post footer' => 'Piedo de unuopa afiŝo',
 'Available variables: %s.' => 'Haveblaj variabloj: %s.',
 'This will be displayed after each post in single post view.' => 'Ĉi tio montriĝos post ĉiu nova afiŝo en unuopa reĝimo.',
