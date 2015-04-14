@@ -171,7 +171,6 @@ nav ul li h2 a {
   list-style-type: none;
   margin: 0;
   padding-left: 0.2em;
-  text-transform: lowercase;
 }
 
 nav > * {
