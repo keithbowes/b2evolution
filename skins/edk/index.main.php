@@ -47,7 +47,10 @@ if (supports_xhtml())
 	$last_date = '';
 
 if (is_text_browser() && 'menu' == $show_mode)
+{
 	end_html();
+	return;
+}
 
 display_if_empty();
 while( $Item = & mainlist_get_item() ):
@@ -217,10 +220,6 @@ else
 </section>
 <?php
 }
+
+end_html();
 ?>
-
-
-<?php
-	end_html();
-?>
-
