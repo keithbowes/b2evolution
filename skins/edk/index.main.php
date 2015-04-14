@@ -26,6 +26,14 @@ function _t($str)
 	return NT_($str);
 }
 
+/* Output the end of HTML */
+function end_html()
+{
+	skin_include( '_sidebar.inc.php' );
+	skin_include( '_body_footer.inc.php' );
+	skin_include( '_html_footer.inc.php' );
+}
+
 skin_init( $disp );
 skin_include( '_html_header.inc.php' );
 ?>
@@ -39,7 +47,7 @@ if (supports_xhtml())
 	$last_date = '';
 
 if (is_text_browser() && 'menu' == $show_mode)
-	goto end_html;
+	end_html();
 
 display_if_empty();
 while( $Item = & mainlist_get_item() ):
@@ -213,9 +221,6 @@ else
 
 
 <?php
-end_html:
-	skin_include( '_sidebar.inc.php' );
-	skin_include( '_body_footer.inc.php' );
-	skin_include( '_html_footer.inc.php' );
+	end_html();
 ?>
 
