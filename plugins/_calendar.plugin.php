@@ -704,22 +704,27 @@ class Calendar
 			
 			/* Right amount of padding */
 			reallocale('', 'LC_TIME');
-			switch ($this->headerdisplay)
+			for ($i = 0; $i < 2; $i++)
 			{
-				case 'D':
-					$hdl = strlen(strftime('%a'));
-					break;
-				case 'e':
-					$hdl = strlen(mb_substr(strftime('%a'), 0, 1));
-					break;
-				case 'l':
-					$hdl =  strlen(strfmttime('%A'));
-					break;
-				default:
-					$hdl = 0;
-					break;
+				$ts = gmmktime(0, 0, 0, 1, 2 + $i + locale_startofweek(), 1970);
+				switch ($this->headerdisplay)
+				{
+					case 'D':
+						$hdl = mb_strlen(strftime('%a', $ts));
+						break;
+					case 'l':
+						$hdl =  mb_strlen(strftime('%A', $ts));
+						break;
+					default:
+						$hdl = 2;
+						break;
+				}
+				for ($j = 0; $j < $hdl; $j++)
+					echo '&#160;';
 			}
-			for ($i = 0; $i < $hdl * 3 - 1; $i++)
+
+			$c = ceil($hdl / 2);
+			for ($i = 0; $i < $c; $i++)
 				echo '&#160;';
 
 			echo implode( '&#160;', $this->getNavLinks( 'next' ) );
