@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: b 2e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-13 17:19-0400\n"
-"PO-Revision-Date: 2015-04-13 17:22-0400\n"
+"PO-Revision-Date: 2015-04-13 20:25-0400\n"
 "Last-Translator: Keith Bowes <keith@localhost>\n"
 "Language-Team: Esperanto\n"
 "Language: eo \n"
@@ -27,7 +27,7 @@ msgstr "404: Ne trovita"
 
 #: _html_header.inc.php:213 _html_header.inc.php:215
 msgid "Creative Commons"
-msgstr "Permesila Krea Komunaĵo"
+msgstr "Permesilo Krea Komunaĵo"
 
 # TRANS: Params: Start year, end year, author, license
 #: _html_header.inc.php:236
