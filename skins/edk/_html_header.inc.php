@@ -367,9 +367,10 @@ echo $params['html_tag'];
 
 	if (supports_xhtml() || supports_link_toolbar())
 	{
+		$comment_args = is_text_browser() ? '?show=menu&amp;redir=no' : '';
 ?>
   <link rel="bookmark" href="<?php echo get_full_url(get_post_suffix()); ?>#content" title="<?php echo $Skin->T_('Main Content'); ?>" />
-  <link rel="bookmark" href="<?php echo get_full_url(get_post_suffix()); ?>?show=menu&amp;redir=no#menu" title="<?php echo $Skin->T_('Menu'); ?>" />
+  <link rel="bookmark" href="<?php echo get_full_url(get_post_suffix()) . $comment_args; ?>#menu" title="<?php echo $Skin->T_('Menu'); ?>" />
 
 <?php
 if ('single' == $disp)
