@@ -2527,6 +2527,12 @@ div.message_toolbars {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
+.modal-content {
+  height: 100%;
+}
+.modal-body {
+  height: 100%;
+}
 .modal-body .panel {
   border: none;
   box-shadow: none;
