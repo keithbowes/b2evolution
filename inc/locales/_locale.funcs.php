@@ -1495,6 +1495,8 @@ function locale_insert_default()
  * */
 function reallocale($locale = '', $scategory = 'LC_ALL')
 {
+	global $real_locale;
+
 	if (empty($locale))
 	{
 		global $current_locale;
@@ -1510,12 +1512,12 @@ function reallocale($locale = '', $scategory = 'LC_ALL')
 	$category = constant($scategory);
 	$locale = str_replace('-', '_', $locale);
 
-	if (($l = setlocale($category, $locale)) === FALSE)
+	if (empty($real_locale) && ($real_locale = setlocale($category, $locale)) === FALSE)
 	{
 		$locale = preg_replace('/^([^_]{2,3}).*$/', '$1', $locale);
-		if (($l = setlocale($category, $locale)) === FALSE)
+		if (($real_locale = setlocale($category, $locale)) === FALSE)
 		{
-			if (($l = setlocale($category, $locale.'_'.strtoupper($locale))) === FALSE)
+			if (($real_locale = setlocale($category, $locale.'_'.strtoupper($locale))) === FALSE)
 			{
 				exec('locale -a', $output, $result);
 				if ($result === 0)
@@ -1524,7 +1526,7 @@ function reallocale($locale = '', $scategory = 'LC_ALL')
 					{
 						if (strpos($loc, $locale) === 0)
 						{
-							$l = setlocale($category, $loc);
+							$real_locale = setlocale($category, $loc);
 							break;
 						}
 					}
@@ -1533,11 +1535,12 @@ function reallocale($locale = '', $scategory = 'LC_ALL')
 		}
 	}
 
-	if ($l === FALSE)
-		$l = setlocale($category, '');
+	if ($real_locale === FALSE)
+		$real_locale = setlocale($category, '');
 
-	putenv($scategory . '=' . $l);
-	return $l;
+	putenv($scategory . '=' . $real_locale);
+	setlocale($category, $real_locale);
+	return $real_locale;
 }
 
 ?>
