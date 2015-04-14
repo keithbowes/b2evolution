@@ -33,9 +33,6 @@ skin_include( '_html_header.inc.php' );
 	<h1><?php bloginfo('name'); ?></h1>
 <?php
 
-if (supports_xhtml())
-	skin_include( '_sidebar.inc.php' );
-
 skin_include( '_body_header.inc.php' );
 
 if (supports_xhtml())
@@ -194,10 +191,16 @@ if ($MainList)
 		)
 	);
 }
-echo "\n\n<!-- end footer -->\n";
 
+?>
+
+<!-- end footer -->
+</section>
+
+<?php
 end_html:
-  skin_include( '_body_footer.inc.php' );
-  skin_include( '_html_footer.inc.php' );
+	skin_include( '_sidebar.inc.php' );
+	skin_include( '_body_footer.inc.php' );
+	skin_include( '_html_footer.inc.php' );
 ?>
 

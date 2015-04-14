@@ -9,9 +9,6 @@ else
 {
 ?>
 <main>
-<?php
-skin_include('_sidebar.inc.php');
-?>
 <section id="content">
 <?php
 }

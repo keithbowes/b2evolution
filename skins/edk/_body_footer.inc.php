@@ -3,7 +3,6 @@ if (!supports_xhtml())
 {
 	global $app_name, $app_version;
 ?>
-</section>
 </main>
 
 <footer>
