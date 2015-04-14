@@ -1,3 +1,19 @@
+*:lang(de) {
+  voice-family: horst, romeo, young male, male;
+}
+
+*:lang(en) {
+  voice-family: paul, young male, male;
+}
+
+*:lang(eo) {
+  voice-family: ludoviko, old male, karlo, young male, male;
+}
+
+*:lang(es) {
+  voice-family: julio, young male, female;
+}
+
 abbr {
   speak: normal;
   speak-as: normal;
@@ -5,9 +21,9 @@ abbr {
 
 abbr.initialism {
   speak-as: spell-out;
-  speech-rate: x-slow;
+  voice-rate: x-slow;
 }
 
 abbr:not(.initialism) {
-  speech-rate: slow;
+  voice-rate: slow;
 }

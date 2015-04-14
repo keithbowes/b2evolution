@@ -305,8 +305,8 @@ div.avatartag.main > img:first-child {
 }
 div#evo_toolbar {
   background-color: #f5f5f5;
-  color: ButtonText;
   border-bottom: 1px solid #ddd;
+  color: black;
   text-align: left;
   margin: 0;
   font: 14px "Helvetica Neue", Helvetica, sans-serif, Arial;
@@ -315,6 +315,8 @@ div#evo_toolbar {
   left: 0px;
   top: 0px;
   width: 100%;
+  -moz-appearance: button;
+  -webkit-appearance: button;
   -webkit-text-size-adjust: none;
 }
 @media only screen and (max-device-width: 1024px) {

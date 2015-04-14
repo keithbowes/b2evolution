@@ -14,8 +14,17 @@
   font-family: 'Comic Sans MS', fantasy;
 }
 
+* .bComment {
+  background-color: aqua;
+}
+
+:not(textarea).bComment {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
 :target {
-  border: thick double WindowText !important;
+  border: thick double black;
   padding: 0.23em;
 }
 
@@ -74,6 +83,41 @@ cite {
 
 footer {
   text-align: center;
+}
+
+form.bComment {
+  margin-bottom: 1em !important;
+  padding-bottom: 1em;
+}
+
+form.bComment {
+  background-color: teal;
+  display: block;
+}
+
+form.bComment a {
+  color: darkorange;
+}
+
+form.bComment fieldset {
+  border: 0;
+}
+
+form.bComment input[type="email"], form.bComment input[type="password"],
+form.bComment input[type="text"], form.bComment input[type="url"],
+form.bComment textarea {
+  background-color: lavender;
+  border: thin solid #333;
+  color: red;
+  max-width: 90%;
+  padding: 0.2em;
+}
+
+form.bComment legend {
+  border: thin double gray;
+  color: inherit;
+  font-weight: 100;
+  padding: 0.73em;
 }
 
 h1 {
@@ -188,8 +232,136 @@ nav #menu > li > ul > li:first-child h2 {
   margin-top: 0;
 }
 
+#content {
+  display: table-cell;
+  width: 76%;
+}
+
+#content abbr {
+  border-bottom-color: magenta;
+}
+
+#content > h2 {
+  border: none;
+  font-size: 120%;
+}
+
+#content > h2:not(.cform) {
+  padding-bottom: 0.5em;
+  text-align: center;
+}
+
+#content h3 {
+  border-bottom-color: purple;
+}
+
+#content .bComment * {
+  text-align: left;
+}
+
+#diaspora {
+  background-color: #505050 !important;
+  border: none;
+  border-radius: 0.4em;
+  color: white !important;
+  cursor: pointer;
+  line-height: 0.6em;
+  padding: 0.2em 0 0 0;
+  vertical-align: top;
+}
+
+#esf {
+  margin: 0.3em 0 0.1em 0;
+}
+
+#facebook {
+  background-color: #3b5998 !important;
+  border-color: black;
+  border-radius: 0.2em;
+  border-style: solid;
+  border-width: thin 0;
+  color: #ebeef4 !important;
+  height: 1em;
+  line-height: 0.9em;
+  padding: 0.2em 0.2em 0 0.2em;
+  width: 0.8em;
+}
+
+#firstitem {
+  float: left;
+}
+
+#gplus {
+  background-color: #d1402e !important;
+  color: #f9e6e3 !important;
+  padding: 0 0.2em 0.2em 0.2em;
+  width: 1.4em;
+}
+
+#lastitem {
+  float: right;
+}
+
+#menu .SearchField {
+  background-color: orange;
+  border: thin solid #999;
+  color: navy;
+  height: 1em;
+  width: 60%;
+}
+
+#nextitem {
+  clear: right;
+  float: right;
+}
+
+#page-links {
+  font-weight: 600;
+  padding-bottom: 1em;
+  text-align: center;
+}
+
 #page-links a:visited {
   color: red;
+}
+
+#previtem {
+  clear: left;
+  float: left;
+}
+
+#prevnext {
+  background-color: silver;
+  border: solid thin black;
+  height: 2em;
+  line-height: 1em;
+  margin: 0 0.1em;
+  padding: 0.5em;
+}
+
+#twitter {
+  background-color: #777 !important;
+  border-color: black;
+  border-radius: 0.2em;
+  border-style: solid;
+  border-width: thin 0;
+  color: #3bfdde !important;
+  height: 1em;
+  line-height: 0.9em;
+  padding: 0.2em 0.4em 0 0.2em;
+  width: 0.6em;
+}
+
+#valid {
+  background-color: #fb3 !important;
+  border-bottom: 0.15em solid #4a4a4a;
+  border-left: 0.12em solid #cecece;
+  border-right: 0.15em solid #4a4a4a;
+  border-top: 0.12em solid #cecece;
+  color: black !important;
+  font-family: Arial, Helvetica, serif;
+  margin-top: 0.1em;
+  padding: 0.1em 0.5em;
 }
 
 .SearchField:focus {
@@ -205,6 +377,36 @@ nav #menu > li > ul > li:first-child h2 {
   border-right-width: 0 !important;
   border-top-width: 0 !important;
   cursor: default;
+}
+
+.allowed-tags {
+  background-color: gray;
+  color: black;
+  max-width: 46%;
+  padding: 0.5em;
+}
+
+.allowed-tags a {
+  background-color: #111;
+  color: inherit;
+}
+
+.author-comment .bComment {
+  background-color: navy !important;
+  color: silver;
+}
+
+.author-comment .bComment,
+.user-comment .bComment {
+  margin: 0.5em;
+}
+
+.author-comment .bComment a {
+  color: orange;
+}
+
+.author-comment .bCommentSmallPrint {
+  border-top-color: silver;
 }
 
 .bCalendarEmptyCell:hover {
@@ -300,6 +502,20 @@ nav #menu > li > ul > li:first-child h2 {
   border-right: none;
 }
 
+.bComment a {
+  color: red;
+}
+
+.bComment a:hover {
+  background-color: black;
+}
+
+.bCommentSmallPrint {
+  border-top: thin dotted black;
+  font-family: monospace;
+  padding-top: 0.2em;
+}
+
 .bText,
 .storycontent {
   clear: both;
@@ -307,17 +523,39 @@ nav #menu > li > ul > li:first-child h2 {
   padding-top: 0.2em;
 }
 
-.credit {
-  font: normal 1em Arial, serif;
-  padding: 0.2em 0 0.5em 0 !important;
-  text-transform: none;
-  white-space: normal;
+.button {
+  display: inline-block !important;
+  font-family: sans-serif;
+  font-size: 0.7em;
+  font-weight: bold;
+  overflow: hidden;
+}
+
+.button-sf {
+  display: none !important;
+}
+
+.feed {
+  background-color: #F63 !important;
+  color: white !important;
+  padding: 0.1em 0.5em;
 }
 
 .flag {
   position: relative;
   top: 0.1em;
   vertical-align: text-top;
+}
+
+.input {
+  float: right;
+  width: 48%;
+}
+
+.label {
+  float: left;
+  text-align: left;
+  width: 48%;
 }
 
 .meta {
@@ -344,11 +582,31 @@ nav #menu > li > ul > li:first-child h2 {
   vertical-align: 0.05em !important;
 }
 
+.note,
+.notes {
+  background-color: transparent;
+  color: orange;
+  display: block;
+  width: auto;
+}
+
+.pavatar {
+  clear: both;
+  float: left;
+  padding: 0 1em 1em 0;
+}
+
 .postmetadata {
   background-color: transparent;
   color: #ccc;
   margin-right: 1em;
   text-align: right;
+}
+
+.sago {
+  bottom: 0.2em;
+  display: inline-block;
+  position: relative;
 }
 
 .section-heading {
@@ -371,273 +629,6 @@ nav #menu > li > ul > li:first-child h2 {
 
 .storytitle a {
   color: inherit;
-}
-
-/* Miaj aldonoj */
-
-:not(textarea).bComment {
-  overflow-x: auto;
-  overflow-y: hidden;
-}
-
-* .bComment {
-  background-color: aqua;
-}
-
-form.bComment {
-  margin-bottom: 1em !important;
-  padding-bottom: 1em;
-}
-
-form.bComment {
-  background-color: teal;
-  display: block;
-}
-
-form.bComment a {
-  color: darkorange;
-}
-
-form.bComment fieldset {
-  border: 0;
-}
-
-form.bComment input[type="email"], form.bComment input[type="password"],
-form.bComment input[type="text"], form.bComment input[type="url"],
-form.bComment textarea {
-  background-color: lavender;
-  border: thin solid #333;
-  color: red;
-  max-width: 90%;
-  padding: 0.2em;
-}
-
-form.bComment legend {
-  border: thin double gray;
-  color: inherit;
-  font-weight: 100;
-  padding: 0.73em;
-}
-
-#content {
-  display: table-cell;
-  width: 76%;
-}
-
-#content abbr {
-  border-bottom-color: magenta;
-}
-
-#content > h2 {
-  border: none;
-  font-size: 120%;
-}
-
-#content > h2:not(.cform) {
-  padding-bottom: 0.5em;
-  text-align: center;
-}
-
-#content h3 {
-  border-bottom-color: purple;
-}
-
-#content .bComment * {
-  text-align: left;
-}
-
-#diaspora {
-  background-color: #505050 !important;
-  border: none;
-  border-radius: 0.4em;
-  color: white !important;
-  cursor: pointer;
-  line-height: 0.6em;
-  padding: 0.2em 0 0 0;
-  vertical-align: top;
-}
-
-#esf {
-  margin: 0.3em 0 0.1em 0;
-}
-
-#facebook {
-  background-color: #3b5998 !important;
-  border-color: WindowText;
-  border-radius: 0.2em;
-  border-style: solid;
-  border-width: thin 0;
-  color: #ebeef4 !important;
-  height: 1em;
-  line-height: 0.9em;
-  padding: 0.2em 0.2em 0 0.2em;
-  width: 0.8em;
-}
-
-#firstitem {
-  float: left;
-}
-
-#gplus {
-  background-color: #d1402e !important;
-  color: #f9e6e3 !important;
-  padding: 0 0.2em 0.2em 0.2em;
-  width: 1.4em;
-}
-
-#lastitem {
-  float: right;
-}
-
-#menu .SearchField {
-  background-color: orange;
-  border: thin solid #999;
-  color: navy;
-  height: 1em;
-  width: 60%;
-}
-
-#nextitem {
-  clear: right;
-  float: right;
-}
-
-#page-links {
-  font-weight: 600;
-  padding-bottom: 1em;
-  text-align: center;
-}
-
-#previtem {
-  clear: left;
-  float: left;
-}
-
-#prevnext {
-  background-color: silver;
-  border: solid thin WindowText;
-  height: 2em;
-  line-height: 1em;
-  margin: 0 0.1em;
-  padding: 0.5em;
-}
-
-#twitter {
-  background-color: #777 !important;
-  border-color: WindowText;
-  border-radius: 0.2em;
-  border-style: solid;
-  border-width: thin 0;
-  color: #3bfdde !important;
-  height: 1em;
-  line-height: 0.9em;
-  padding: 0.2em 0.4em 0 0.2em;
-  width: 0.6em;
-}
-
-#valid {
-  background-color: #fb3 !important;
-  border-bottom: 0.15em solid #4a4a4a;
-  border-left: 0.12em solid #cecece;
-  border-right: 0.15em solid #4a4a4a;
-  border-top: 0.12em solid #cecece;
-  color: black !important;
-  font-family: Arial, Helvetica, serif;
-  margin-top: 0.1em;
-  padding: 0.1em 0.5em;
-}
-
-.allowed-tags {
-  background-color: gray;
-  color: black;
-  max-width: 46%;
-  padding: 0.5em;
-}
-
-.allowed-tags a {
-  background-color: #111;
-  color: inherit;
-}
-
-.author-comment .bComment {
-  background-color: navy !important;
-  color: silver;
-}
-
-.author-comment .bComment,
-.user-comment .bComment {
-  margin: 0.5em;
-}
-
-.author-comment .bComment a {
-  color: orange;
-}
-
-.author-comment .bCommentSmallPrint {
-  border-top-color: silver;
-}
-
-.bComment a {
-  color: red;
-}
-
-.bComment a:hover {
-  background-color: black;
-}
-
-.bCommentSmallPrint {
-  border-top: thin dotted black;
-  font-family: monospace;
-  padding-top: 0.2em;
-}
-
-.button {
-  display: inline-block !important;
-  font-family: sans-serif;
-  font-size: 0.7em;
-  font-weight: bold;
-  overflow: hidden;
-}
-
-.button-sf {
-  display: none !important;
-}
-
-.feed {
-  background-color: #F63 !important;
-  color: white !important;
-  padding: 0.1em 0.5em;
-}
-
-.input {
-  float: right;
-  width: 48%;
-}
-
-.label {
-  float: left;
-  text-align: left;
-  width: 48%;
-}
-
-.note,
-.notes {
-  background-color: transparent;
-  color: orange;
-  display: block;
-  width: auto;
-}
-
-.pavatar {
-  clear: both;
-  float: left;
-  padding: 0 1em 1em 0;
-}
-
-.sago {
-  bottom: 0.2em;
-  display: inline-block;
-  position: relative;
 }
 
 .tag-list {
