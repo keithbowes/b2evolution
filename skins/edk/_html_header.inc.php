@@ -132,7 +132,7 @@ function is_valid_query($result)
 	return ($result !== FALSE && is_array($result) && count($result) > 0);
 }
 
-function get_post_suffix($dir = '', $row = 0)
+function get_post_urltitle($dir = '', $row = 0)
 {
 	global $Blog, $DB, $Item;
 
@@ -222,7 +222,7 @@ function get_item($dir)
 		{
 			if ($item_data['post_urltitle'] != $blogslug)
 			{
-				$item_data['post_urltitle'] = get_post_suffix($dir, $row);
+				$item_data['post_urltitle'] = get_post_urltitle($dir, $row);
 				return $item_data;
 			}
 			else
@@ -374,8 +374,8 @@ echo $params['html_tag'];
 	{
 		$comment_args = is_text_browser() ? '?show=menu&amp;redir=no' : '';
 ?>
-  <link rel="bookmark" href="<?php echo get_full_url(get_post_suffix()); ?>#content" title="<?php echo $Skin->T_('Main Content'); ?>" />
-  <link rel="bookmark" href="<?php echo get_full_url(get_post_suffix()) . $comment_args; ?>#menu" title="<?php echo $Skin->T_('Menu'); ?>" />
+  <link rel="bookmark" href="<?php echo get_full_url(get_post_urltitle()); ?>#content" title="<?php echo $Skin->T_('Main Content'); ?>" />
+  <link rel="bookmark" href="<?php echo get_full_url(get_post_urltitle()) . $comment_args; ?>#menu" title="<?php echo $Skin->T_('Menu'); ?>" />
 
 <?php
 if ('single' == $disp)
