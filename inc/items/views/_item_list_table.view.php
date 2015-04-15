@@ -62,7 +62,7 @@ echo $ItemList->get_filter_title( '<h2 class="page-title">', '</h2>', '<br />', 
 */
 
 
-$ItemList->title = sprintf( T_('%s list'), $tab_type );
+$ItemList->title = sprintf( T_('%s list'), T_($tab_type) );
 
 // Initialize Results object
 items_results( $ItemList, array(
