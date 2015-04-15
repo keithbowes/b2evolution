@@ -375,7 +375,7 @@ class Calendar
 	 */
 	function Calendar( $m = '', $params = array() )
 	{
-		global $localtimenow;
+		global $localtimenow, $use_strict;
 
 		$this->dbtable = 'T_items__item';
 		$this->dbprefix = 'post_';
@@ -433,7 +433,8 @@ class Calendar
 		$this->monthformat = 'F Y';
 		$this->linktomontharchive = true;  // month displayed as link to month' archive
 
-		$this->tablestart = '<table class="bCalendarTable">'."\n";
+		$summary_attr = $use_strict ? 'summary' : 'title';
+		$this->tablestart = '<table class="bCalendarTable" ' . $summary_attr . '="' . T_('Monthly calendar with links to each day\'s posts') . '">'."\n";
 		$this->tableend = '</table>';
 
 		$this->monthstart = '<caption>';
