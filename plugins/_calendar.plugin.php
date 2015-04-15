@@ -437,11 +437,14 @@ class Calendar
 		if (!$use_strict)
 			$this->tablestart .= 'title="' . T_('Monthly calendar with links to each day\'s posts') . '">'."\n";
 		else
-			$this->tablestart .= '><summary>' . T_('Monthly calendar with links to each day\'s posts') . '</summary>' . "\n";
+			$this->tablestart .= '>' . "\n";
 		$this->tableend = '</table>';
 
 		$this->monthstart = '<caption>';
 		$this->monthend = "</caption>\n";
+
+		if ($use_strict)
+			$this->monthend .= '<summary>' . T_('Monhly calendar with links to each day\'s posts') . '</summary>' . "\n";
 
 		$this->rowstart = '<tr class="bCalendarRow">' . "\n";
 		$this->rowend = "</tr>\n";
