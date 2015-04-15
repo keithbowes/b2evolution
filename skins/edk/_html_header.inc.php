@@ -309,25 +309,14 @@ if (!supports_xhtml())
 else
 {
 	global $use_strict;
-	if ($use_strict)
-	{
-		for ($i = 0; $i < 23; $i++)
-			$space .= ' ';
-		$dtd = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.1//EN"' . "\n" .
-			$space . '"http://www.w3.org/MarkUp/DTD/xhtml-rdfa-2.dtd">';
+	global $skin;
+	$xml_base = $Blog->get_local_skins_url().$skin.'/';
+	for ($i = 0; $i < 23; $i++)
+		$space .= ' ';
+	$dtd = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 2.0//EN"' . "\n" .
+	   $space . '"' . $xml_base . 'xhtml2.dtd">';
 
-		$langattrs ="xml:lang=\"$locale\" lang=\"$locale\"";
-	}
-	else
-	{
-		for ($i = 0; $i < 8; $i++)
-			$space .= ' ';
-		$dtd = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"' . "\n" .
-			$space . '"http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">';
-
-		$langattrs="xml:lang=\"$locale\"";
-	}
-
+	$langattrs ="xml:lang=\"$locale\" xml:base=\"". $xml_base . '"';
 	$htmlelem = "<html xmlns=\"http://www.w3.org/1999/xhtml\" $langattrs>";
 }
 
@@ -335,7 +324,7 @@ else
 $params = array_merge( array(
 	'auto_pilot'    => 'seo_title',
 	'body_class'    => NULL,
-	'generator_tag' => '<meta name="generator" content="' . $app_name . ' '.$app_version.'" /><!-- ' . $Skin->T_('Please leave this for stats') . " -->\n",
+	'generator_tag' => '<meta property="generator" content="' . $app_name . ' '.$app_version.'" /><!-- ' . $Skin->T_('Please leave this for stats') . " -->\n",
 	'html_tag'      => "$dtd\n$htmlelem\n",
 ), $params );
 
@@ -346,6 +335,7 @@ echo $params['html_tag'];
 <head>
 <?php
 	if (!supports_xhtml()) echo "<meta charset=\"$io_charset\">\n"; /* Charset for static pages */
+if (!supports_xhtml())
 	skin_base_tag(); /* Base URL for this skin. You need this to fix relative links! */
 	$Plugins->trigger_event( 'SkinBeginHtmlHead' );
 ?>
@@ -354,15 +344,10 @@ echo $params['html_tag'];
 		request_title($params);
 		// ------------------------------ END OF REQUEST TITLE -----------------------------
 	?></title>
+		<meta property="DC.rights" content="<?php get_copyright(array('license' => FALSE)); ?>" />
+		<meta property="copyright" content="<?php get_copyright(array('license' => FALSE)) ?>" />
+		<meta property="license" content="<?php get_license(array('format' => 'text')); ?>" />
 <?php
-	if (supports_xhtml())
-	{
-?>
-		<meta name="DC.rights" content="<?php get_copyright(array('license' => FALSE)); ?>" />
-		<meta name="copyright" content="<?php get_copyright(array('license' => FALSE)) ?>" />
-		<meta name="license" content="<?php get_license(array('format' => 'text')); ?>" />
-<?php
-	}
 		skin_description_tag();
 		skin_keywords_tag();
 		skin_opengraph_tags();

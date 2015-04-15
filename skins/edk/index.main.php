@@ -70,7 +70,7 @@ global $use_strict;
 $_item_title = ($disp == 'single') ? $Item->get_title() : '';
 $_item_url = ($disp == 'single') ? $Item->get_tinyurl() : '';
 $_item_lang = preg_replace('/^(\w{2,3})-.+$/', '$1', $Item->dget('locale', 'raw'));
-$_item_langattrs = (supports_xhtml() == FALSE) ? "lang=\"$_item_lang\"" : ($use_strict ? "xml:lang=\"$_item_lang\" lang=\"$_item_lang\"" : "xml:lang=\"$_item_lang\"");
+$_item_langattrs = (supports_xhtml() == FALSE) ? "lang=\"$_item_lang\"" : "xml:lang=\"$_item_lang\"";
 $_item_country = strtolower(preg_replace('/^\w{2,3}-([^-]+).*$/', '$1', $Item->dget('locale', 'raw')));
 
 if (supports_xhtml())
