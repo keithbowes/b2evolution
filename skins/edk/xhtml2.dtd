@@ -394,6 +394,7 @@
 <!ELEMENT script (#PCDATA)>
 <!ATTLIST script
   %attrs;
+  async       (async)        #IMPLIED
   defer       (defer)        #IMPLIED
   type        %ContentType;  #IMPLIED
   implements  %URI;          #IMPLIED
