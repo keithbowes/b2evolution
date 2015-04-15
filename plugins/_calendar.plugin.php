@@ -433,8 +433,11 @@ class Calendar
 		$this->monthformat = 'F Y';
 		$this->linktomontharchive = true;  // month displayed as link to month' archive
 
-		$summary_attr = $use_strict ? 'summary' : 'title';
-		$this->tablestart = '<table class="bCalendarTable" ' . $summary_attr . '="' . T_('Monthly calendar with links to each day\'s posts') . '">'."\n";
+		$this->tablestart = '<table class="bCalendarTable"';
+		if (!$use_strict)
+			$this->tablestart .= 'title="' . T_('Monthly calendar with links to each day\'s posts') . '">'."\n";
+		else
+			$this->tablestart .= '><summary>' . T_('Monthly calendar with links to each day\'s posts') . '</summary>' . "\n";
 		$this->tableend = '</table>';
 
 		$this->monthstart = '<caption>';
@@ -704,28 +707,22 @@ class Calendar
 			echo '<td colspan="3" id="next">';
 			
 			/* Right amount of padding */
-			reallocale(locale_lang(false), 'LC_TIME');
-			for ($i = 0; $i < 2; $i++)
+			for ($i = 5; $i < 8; $i++)
 			{
-				$ts = gmmktime(0, 0, 0, 1, 2 + $i + locale_startofweek(), 1970);
 				switch ($this->headerdisplay)
 				{
 					case 'D':
-						$hdl = mb_strlen(strftime('%a', $ts));
+						$hdl += mb_strlen(T_($weekday_abbrev[($i + locale_startofweek()) % 7]));
 						break;
 					case 'l':
-						$hdl =  mb_strlen(strftime('%A', $ts));
+						$hdl +=  mb_strlen(T_($weekday[($i + locale_startofweek()) % 7]));
 						break;
 					default:
-						$hdl = 2;
+						$hdl += 2;
 						break;
 				}
-				for ($j = 0; $j < $hdl; $j++)
-					echo '&#160;';
 			}
-
-			$c = ceil($hdl / 2);
-			for ($i = 0; $i < $c; $i++)
+			for ($i = 0; $i < $hdl - 1; $i++)
 				echo '&#160;';
 
 			echo implode( '&#160;', $this->getNavLinks( 'next' ) );
