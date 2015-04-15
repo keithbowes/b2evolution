@@ -703,7 +703,7 @@ class Calendar
 			echo '<td colspan="3" id="next">';
 			
 			/* Right amount of padding */
-			reallocale('', 'LC_TIME');
+			reallocale(locale_lang(false), 'LC_TIME');
 			for ($i = 0; $i < 2; $i++)
 			{
 				$ts = gmmktime(0, 0, 0, 1, 2 + $i + locale_startofweek(), 1970);
