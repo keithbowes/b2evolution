@@ -53,30 +53,35 @@ function parse_accept()
 
 function supports_xhtml()
 {
+	global $use_strict;
+
 	/* Make sure HTML validators get the right representation */
-	if (strpos($_SERVER['HTTP_USER_AGENT'], 'W3C_Validator') !== FALSE)
+	if ($_SERVER['HTTP_USER_AGENT'] == 'Validator.nu/LV')
 	{
-		global $use_strict;
-		$use_strict = TRUE;
-		return TRUE;
+		$r = FALSE;
 	}
-	elseif ($_SERVER['HTTP_USER_AGENT'] == 'Validator.nu/LV')
+	elseif (strpos($_SERVER['HTTP_USER_AGENT'], 'Validator') !== FALSE)
 	{
-		global $use_strict;
-		$use_strict = FALSE;
-		return FALSE;
+		$r = TRUE;
 	}
 
-	$types = parse_accept();
-	if (!empty($types['application/xhtml+xml']))
+	/* If not a validator, let the HTTP headers decide */
+	if (!isset($r))
 	{
-		if (!empty($types['text/html']))
-			return $types['application/xhtml+xml'] >= $types['text/html'];
+		$types = parse_accept();
+		if (!empty($types['application/xhtml+xml']))
+		{
+			if (!empty($types['text/html']))
+				$r = $types['application/xhtml+xml'] >= $types['text/html'];
+			else
+				$r = $types['application/xhtml+xml'] > 0;
+		}
 		else
-			return $types['application/xhtml+xml'] > 0;
+			$r = FALSE;
 	}
-	else
-		return FALSE;
+
+	$use_strict = $r;
+	return $r;
 }
 
 function is_text_browser()

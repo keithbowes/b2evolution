@@ -196,7 +196,6 @@ skin_include('$disp$', array(
   'disp_page' => ''
 ));
 
-echo "<!-- begin footer -->\n";
 if ($MainList)
 {
 	$row = $DB->get_row('SELECT COUNT(*) FROM ' . $MainList->ItemQuery->dbtablename .
@@ -205,8 +204,8 @@ if ($MainList)
 
 	$footer_elem = supports_xhtml() ? 'div' : 'footer';
 	$MainList->page_links(array(
-			'block_start' => '<' . $footer_elem . ' id="page-links">',
-			'block_end' => '</' . $footer_elem . '>',
+			'block_start' => "\n" . '<!-- begin footer -->' . "\n" . '<' . $footer_elem . ' id="page-links">',
+			'block_end' => '</' . $footer_elem . '>' . "\n" . '<!-- end footer -->' . "\n",
 			'prev_text' => '<span class="sago">←</span>',
 			'next_text' => '<span class="sago">→</span>',
 			'list_span' => ceil($row['COUNT(*)'] / $Blog->get_setting('posts_per_page')),
@@ -214,11 +213,6 @@ if ($MainList)
 	);
 }
 
-?>
-
-<!-- end footer -->
-
-<?php
 if (supports_xhtml())
 {
 ?>
