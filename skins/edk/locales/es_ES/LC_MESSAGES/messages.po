@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: b 2e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-13 17:19-0400\n"
-"PO-Revision-Date: 2015-04-13 17:04-0400\n"
+"POT-Creation-Date: 2015-04-14 23:31-0400\n"
+"PO-Revision-Date: 2015-04-14 23:35-0400\n"
 "Last-Translator: Keith Bowes <keith@localhost>\n"
 "Language-Team: Spanish\n"
 "Language: es_ES \n"
@@ -25,31 +25,31 @@ msgstr "<p><a href=\"%s\">%s</a> no pudo resolver el pedido URL.</p>"
 msgid "404 Not Found"
 msgstr "404 No Encontrado"
 
-#: _html_header.inc.php:213 _html_header.inc.php:215
+#: _html_header.inc.php:248 _html_header.inc.php:250
 msgid "Creative Commons"
 msgstr "Licencia Creative Commons"
 
 # TRANS: Params: Start year, end year, author, license
-#: _html_header.inc.php:236
+#: _html_header.inc.php:271
 #, php-format
 msgid "(C) %1$d-%2$d %3$s under %4$s"
 msgstr "(C) %1$d-%2$d %3$s bajo %4$s"
 
 # TRANS: Params: Start year, end year, author
-#: _html_header.inc.php:238
+#: _html_header.inc.php:273
 #, php-format
 msgid "(C) %1$d-%2$d %3$s"
 msgstr "(C) %1$d-%2$d %3$s"
 
-#: _html_header.inc.php:298
+#: _html_header.inc.php:333
 msgid "Please leave this for stats"
 msgstr "Deje eso por estadísticas por favor"
 
-#: _html_header.inc.php:331
+#: _html_header.inc.php:372
 msgid "Main Content"
 msgstr "Contendidos principales"
 
-#: _html_header.inc.php:332
+#: _html_header.inc.php:373 _sidebar.inc.php:13
 msgid "Menu"
 msgstr "Menú"
 
@@ -62,7 +62,7 @@ msgstr " (en repuesta a <a href=\"%s\">%s</a>)"
 msgid "from"
 msgstr "por"
 
-#: _item_comment.inc.php:135 index.main.php:77
+#: _item_comment.inc.php:135 index.main.php:99
 msgid " at "
 msgstr " a los "
 
@@ -74,58 +74,58 @@ msgstr "<a href=\"http://es.wikipedia.org/wiki/Markdown\">Markdown</a> está hab
 msgid "<a href=\"http://en.wikipedia.org/wiki/BBCode\">BBCode</a> is enabled."
 msgstr "<a href=\"http://es.wikipedia.org/wiki/BBCode\">BBCode</a> está habilitado."
 
-#: _sidebar.inc.php:57 _sidebar.inc.php:63
+#: _sidebar.inc.php:58 _sidebar.inc.php:64
 #, php-format
 msgid "%s <span class=\"button-sf\">Feed</span>"
 msgstr "<span class=\"button-sf\">Alimentación de</span> %s"
 
-#: _sidebar.inc.php:57 _sidebar.inc.php:63
+#: _sidebar.inc.php:58 _sidebar.inc.php:64
 #, php-format
 msgid "%s Feed"
 msgstr "Alimentación de %s"
 
-#: _sidebar.inc.php:72
+#: _sidebar.inc.php:73
 msgid "Valid XHTML"
 msgstr "XHTML Válido"
 
-#: _sidebar.inc.php:76
+#: _sidebar.inc.php:77
 msgid "Share on Facebook"
 msgstr "Compartir en Facebook"
 
-#: _sidebar.inc.php:77
+#: _sidebar.inc.php:78
 msgid "Share on Google+"
 msgstr "Compartir en Google+"
 
-#: _sidebar.inc.php:78
+#: _sidebar.inc.php:79
 msgid "Share on Twitter"
 msgstr "Compartir en Twitter"
 
-#: _sidebar.inc.php:100
+#: _sidebar.inc.php:101
 msgid "Enter the URL of a Diaspora* pod where you want to share (e.g. https://joindiaspora.com)"
 msgstr "Entra el URL de una vaina de Diaspora* a donde desea compartir (por ejemplo https://joindiaspora.com)"
 
-#: _sidebar.inc.php:100
+#: _sidebar.inc.php:101
 msgid "Invalid entry!"
 msgstr "¡Entrada inválida!"
 
-#: _sidebar.inc.php:201
+#: _sidebar.inc.php:202
 msgid "Share on Diaspora*"
 msgstr "Compartir en Diaspora*"
 
-#: _sidebar.inc.php:211
+#: _sidebar.inc.php:212
 msgid "Back-office"
 msgstr "Back-office"
 
-#: _sidebar.inc.php:214
+#: _sidebar.inc.php:219
 msgid "Credits"
 msgstr "Créditos"
 
-#: _sidebar.inc.php:223
+#: index.main.php:47
 #, php-format
-msgid "<div>Powered by <cite><a href=\"http://www.duckduckgo.com/?q=!+%s\">%s</a> %s</cite>.</div>"
-msgstr "<div>Creado por <cite><a href=\"http://www.duckduckgo.com/?q=!+%s\">%s</a> %s</cite>.</div>"
+msgid "<div>Powered by <cite><a href=\"http://www.duckduckgo.com/?q=!+%1$s\">%1$s</a> <span title=\"Really %2$s\">%3$s</span></cite>.</div>"
+msgstr "<div>Creado por <cite><a href=\"http://www.duckduckgo.com/?q=!+%1$s\">%1$s</a> <span title=\"Efectivamente %2$s\">%3$s</span></cite>.</div>"
 
-#: index.main.php:76
+#: index.main.php:98
 #, php-format
 msgid "on %s"
 msgstr "en %s"

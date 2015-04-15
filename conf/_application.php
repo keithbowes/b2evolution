@@ -92,7 +92,7 @@ $modules = array(
 	*
 	* @return string A sane version
  */
-function get_real_app_version()
+function get_sane_app_version()
 {
 	global $app_version;
 
@@ -107,7 +107,8 @@ function get_real_app_version()
 	else
 		return sprintf('%d.%d.%d', $major, $minor, $micro);
 }
-$app_version = get_real_app_version();
+
+$sane_app_version = get_sane_app_version();
 
 $app_footer_text = sprintf('<a href="https://duckduckgo.com/?q=!+%1$s" title="Viziti la TTT-ejon de %1$s"><b>%1$s %2$s</b></a>
 		&#183;

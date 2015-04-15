@@ -1,6 +1,6 @@
 <!-- begin sidebar -->
 <?php
-	global $app_name, $app_version, $baseurl, $show_mode;
+	global $baseurl, $show_mode;
 	/* Make sure the sidebar uses the blog's locale insted of the locale of the bottom post */
 	locale_temp_switch($Blog->locale);
 
@@ -219,10 +219,7 @@ if (supports_xhtml())
 	<li><h2<?php if (!supports_xhtml()) echo ' tabindex="46789"'; ?>><?php echo $Skin->T_('Credits') ?></h2>
 <ul class="credit"><li>
 <?php
-	$Plugins->trigger_event('SkinEndHtmlBody');
-
-printf($Skin->T_('<div>Powered by <cite><a href="http://www.duckduckgo.com/?q=!+%s">%s</a> %s</cite>.</div>'), $app_name, $app_name, $app_version);
-get_copyright();
+	show_footer();
 ?>
 </li>
 </ul>

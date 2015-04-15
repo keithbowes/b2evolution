@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net\n"
 "POT-Creation-Date: 2015-04-14 21:02-0400\n"
-"PO-Revision-Date: 2015-04-14 21:05-0400\n"
+"PO-Revision-Date: 2015-04-14 23:59-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -14056,12 +14056,12 @@ msgstr "Ĉesi je"
 
 #: ../../../inc/items/model/_itemlistlight.class.php:1341
 msgid "Hide future"
-msgstr "Kaŝi estontecan"
+msgstr "Kaŝi estontecon"
 
 #: ../../../inc/items/model/_itemlistlight.class.php:1386
 #, php-format
 msgid "Limited to %d last days"
-msgstr "Limigita al %d lastaj tagoj"
+msgstr "Limigita al la pasintaj %d tagoj"
 
 #: ../../../inc/items/model/_itemlistlight.class.php:1394
 #, php-format
@@ -16639,7 +16639,7 @@ msgstr "La uzanto ankoraŭ ne ricevis sciigon, do la unua sciigo estas sendota j
 #: ../../../inc/messaging/model/_messaging.funcs.php:1531
 #, php-format
 msgid "The user has logged in in the last %d days, so we will space out notifications by %d days."
-msgstr "La uzanto ensalutis dum la lastaj %d tagoj, do ties sciigoj havas %d interaj tagoj."
+msgstr "La uzanto ensalutis dum la pasintaj %d tagoj, do ties sciigoj havas %d interaj tagoj."
 
 #: ../../../inc/messaging/model/_messaging.funcs.php:1724
 msgid "Threads with private messages sent by the user"
@@ -29643,7 +29643,7 @@ msgstr "La etosa etikedo montras liston de tiuj, kiuj aktuale uzas la kolektaron
 
 #: ../../../plugins/_whosonline.plugin.php:44
 msgid "All logged in users and guest users who have requested a page in the last 5 minutes are listed."
-msgstr "Ĉiuj ensalutitaj uzantoj kaj gastoj, kiuj petis paĝon en la lastaj 5 minutoj estas listigaj."
+msgstr "Ĉiuj ensalutitaj uzantoj kaj gastoj, kiuj petis paĝon en la pasintaj 5 minutoj estas listigaj."
 
 #: ../../../plugins/_whosonline.plugin.php:58
 msgid "Contact icons"

@@ -36,6 +36,17 @@ function end_html()
 
 skin_init( $disp );
 skin_include( '_html_header.inc.php' );
+
+/* Show the footer */
+function show_footer()
+{
+	global $Plugins, $Skin;
+	global $app_name, $app_version, $sane_app_version;
+	$Plugins->trigger_event('SkinEndHtmlBody');
+
+	printf($Skin->T_('<div>Powered by <cite><a href="http://www.duckduckgo.com/?q=!+%1$s">%1$s</a> <span title="Really %2$s">%3$s</span></cite>.</div>'), $app_name, $app_version, $sane_app_version);
+	get_copyright();
+}
 ?>
 
 	<h1><?php bloginfo('name'); ?></h1>
