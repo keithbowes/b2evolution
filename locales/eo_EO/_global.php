@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo_EO'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2015-04-14 19:50-0400\nPO-Revision-Date: 2015-04-14 20:06-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2015-04-14 21:02-0400\nPO-Revision-Date: 2015-04-14 21:05-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 'Adm' => '[A]',
 'Blg' => '^',
 'Folder' => 'Dosierujo',
@@ -1928,6 +1928,9 @@ $trans['eo_EO'] = array(
 'Conversations' => 'Kunparoloj',
 'System metrics' => 'Sistemo-mezuroj',
 'Updates from b2evolution.net' => 'Ĝisdatigoj el b2evolution.net',
+'<p>Updates from b2evolution.net are disabled!</p>' => '<p>Ĝisdatigoj el b2evolution.net are malaktivigitaj!</p>',
+'<p>You will <b>NOT</b> be alerted if you are running an insecure configuration.</p>' => '<p>Oni <strong>ne</strong> avertas vin se vi uzas nesekuran eldonon.</p>',
+'This is the Admin\'s first ever login.' => 'Jen la administrantoj tute unua ensaluto.',
 'Getting updates from %s.' => 'Ricevanta ĝisdatigojn el %s.',
 'Invalid updates received' => 'Nevalidaj ĝisdatigoj ricevitaj',
 'in response to' => 'responde al',

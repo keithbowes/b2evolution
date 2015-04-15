@@ -145,8 +145,8 @@ if( ! empty($msg) )
 }
 else
 {
-	$msg = '<p>Updates from b2evolution.net are disabled!</p>
-			<p>You will <b>NOT</b> be alerted if you are running an insecure configuration.</p>';
+	$msg = _T('<p>Updates from b2evolution.net are disabled!</p>
+			<p>You will <b>NOT</b> be alerted if you are running an insecure configuration.</p>');
 
 	$app_age = ($localtimenow - $app_timestamp) / 3600 / 24 / 30;	// approx age in months
 	if( $app_age > 12 )

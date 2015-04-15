@@ -630,14 +630,14 @@ if( $current_User->check_perm( 'options', 'edit' ) )
 	}
 	else
 	{
-		echo '<p>Updates from b2evolution.net are disabled!</p>';
-		echo '<p>You will <b>NOT</b> be alerted if you are running an insecure configuration.</p>';
+		echo T_('<p>Updates from b2evolution.net are disabled!</p>');
+		echo T_('<p>You will <b>NOT</b> be alerted if you are running an insecure configuration.</p>');
 	}
 
 	// Track just the first login into b2evolution to determine how many people installed manually vs automatic installs:
 	if( $current_User->ID == 1 && $UserSettings->get('first_login') == NULL )
 	{
-		echo 'This is the Admin\'s first ever login.';
+		echo T_('This is the Admin\'s first ever login.');
 		echo '<img src="http://b2evolution.net/htsrv/track.php?key=first-ever-login" alt="" />';
 		// OK, done. Never do this again from now on:
 		$UserSettings->set('first_login', $localtimenow ); // We might actually display how long the system has been running somewhere

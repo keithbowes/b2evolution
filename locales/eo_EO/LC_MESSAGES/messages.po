@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net\n"
-"POT-Creation-Date: 2015-04-14 19:50-0400\n"
-"PO-Revision-Date: 2015-04-14 20:06-0400\n"
+"POT-Creation-Date: 2015-04-14 21:02-0400\n"
+"PO-Revision-Date: 2015-04-14 21:05-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -10415,6 +10415,18 @@ msgstr "Sistemo-mezuroj"
 #: ../../../inc/maintenance/upgrade.ctrl.php:84
 msgid "Updates from b2evolution.net"
 msgstr "Ĝisdatigoj el b2evolution.net"
+
+#: ../../../inc/dashboard/dashboard.ctrl.php:633
+msgid "<p>Updates from b2evolution.net are disabled!</p>"
+msgstr "<p>Ĝisdatigoj el b2evolution.net are malaktivigitaj!</p>"
+
+#: ../../../inc/dashboard/dashboard.ctrl.php:634
+msgid "<p>You will <b>NOT</b> be alerted if you are running an insecure configuration.</p>"
+msgstr "<p>Oni <strong>ne</strong> avertas vin se vi uzas nesekuran eldonon.</p>"
+
+#: ../../../inc/dashboard/dashboard.ctrl.php:640
+msgid "This is the Admin's first ever login."
+msgstr "Jen la administrantoj tute unua ensaluto."
 
 #: ../../../inc/dashboard/model/_dashboard.funcs.php:86
 #, php-format
@@ -33270,77 +33282,77 @@ msgstr "Se vi volas neniujn pluajn sciigojn pri eraroj de planitaj laboroj, sekv
 msgid "To see more information about these tasks click here: %s"
 msgstr "Por vidi pliajn informojn pri la laboroj sekvu la jenan ligilon: %s"
 
-#~ msgid "Display organization members."
-#~ msgstr "Montri organizaĵanojn."
-
-#~ msgid "Team ID"
-#~ msgstr "Skipo-identigilo"
-
-#~ msgid "New Collection..."
-#~ msgstr "Nova kolekto…"
-
-#~ msgid "Extracting language file for %s..."
-#~ msgstr "Malpakiĝo de la lingvo-dosiero por %s…"
-
-#~ msgid "The file %s is not writable."
-#~ msgstr "La dosiero %s ne skribeblas."
-
-#~ msgid "This import step has already been processed."
-#~ msgstr "La importo-paŝo jam estas traktita."
-
-#~ msgid "Database connection"
-#~ msgstr "Datumbaza konekto"
-
-#~ msgid "User group mapping"
-#~ msgstr "Uzanto-grupa asignado"
-
-#~ msgid "Import users"
-#~ msgstr "Importi uzantojn"
-
-#~ msgid "Import forums"
-#~ msgstr "Importi forumojn"
-
-#~ msgid "Import topics"
-#~ msgstr "Importi temojn"
-
-#~ msgid "Import replies"
-#~ msgstr "Importi respondojn"
-
-#~ msgid "Import messages"
-#~ msgstr "Importi mesaĝojn"
-
-#~ msgid "Choose an username"
-#~ msgstr "Elekti salutnomon"
-
-#~ msgid "In case of concerns with the contents of this blog/site, please <a %s>contact the owner of this blog</a>."
-#~ msgstr "Okaze de zorgoj pri la enhavo de la kolekto/kolektaro, bonvolu <a %s>kontakti la estron la blogo</a>."
-
-#~ msgid "Comment | "
-#~ msgstr "Komento "
-
-#~ msgid "Name (required)"
-#~ msgstr "Nomo (devigita)"
-
-#~ msgid "Mail (will not be published) (required)"
-#~ msgstr "Retpoŝtadreso (ne publikiĝos) (devigita)"
-
-#~ msgid "Auto-BR"
-#~ msgstr "Aŭtomataj linirompoj"
-
-#~ msgid "Line breaks become &lt;br /&gt;"
-#~ msgstr "Linirompoj konvertiĝos al &t;br /&gt;"
-
-#~ msgid "Name, email &amp; website"
-#~ msgstr "Nomo, retpoŝtadreso kaj TTT-ejo"
-
-#~ msgid "Allow users to contact you through a message form (your email will <strong>not</strong> be revealed."
-#~ msgstr "Permesi, ke uzantoj povu kontakti min per mesaĝo-formulario (via retpoŝtadreso <strong>ne</strong> publikiĝos.)"
-
-#~ msgid "Subject of email message."
-#~ msgstr "Temo de la retpoŝtmesaĝo."
+#~ msgid "%d moderators have been notified!"
+#~ msgstr "%d kontrolantoj sciiĝis."
 
 #~ msgid "Written by "
 #~ msgstr "Skribita de "
 
-#~ msgid "%d moderators have been notified!"
-#~ msgstr "%d kontrolantoj sciiĝis."
+#~ msgid "Subject of email message."
+#~ msgstr "Temo de la retpoŝtmesaĝo."
+
+#~ msgid "Allow users to contact you through a message form (your email will <strong>not</strong> be revealed."
+#~ msgstr "Permesi, ke uzantoj povu kontakti min per mesaĝo-formulario (via retpoŝtadreso <strong>ne</strong> publikiĝos.)"
+
+#~ msgid "Name, email &amp; website"
+#~ msgstr "Nomo, retpoŝtadreso kaj TTT-ejo"
+
+#~ msgid "Line breaks become &lt;br /&gt;"
+#~ msgstr "Linirompoj konvertiĝos al &t;br /&gt;"
+
+#~ msgid "Auto-BR"
+#~ msgstr "Aŭtomataj linirompoj"
+
+#~ msgid "Mail (will not be published) (required)"
+#~ msgstr "Retpoŝtadreso (ne publikiĝos) (devigita)"
+
+#~ msgid "Name (required)"
+#~ msgstr "Nomo (devigita)"
+
+#~ msgid "Comment | "
+#~ msgstr "Komento "
+
+#~ msgid "In case of concerns with the contents of this blog/site, please <a %s>contact the owner of this blog</a>."
+#~ msgstr "Okaze de zorgoj pri la enhavo de la kolekto/kolektaro, bonvolu <a %s>kontakti la estron la blogo</a>."
+
+#~ msgid "Choose an username"
+#~ msgstr "Elekti salutnomon"
+
+#~ msgid "Import messages"
+#~ msgstr "Importi mesaĝojn"
+
+#~ msgid "Import replies"
+#~ msgstr "Importi respondojn"
+
+#~ msgid "Import topics"
+#~ msgstr "Importi temojn"
+
+#~ msgid "Import forums"
+#~ msgstr "Importi forumojn"
+
+#~ msgid "Import users"
+#~ msgstr "Importi uzantojn"
+
+#~ msgid "User group mapping"
+#~ msgstr "Uzanto-grupa asignado"
+
+#~ msgid "Database connection"
+#~ msgstr "Datumbaza konekto"
+
+#~ msgid "This import step has already been processed."
+#~ msgstr "La importo-paŝo jam estas traktita."
+
+#~ msgid "The file %s is not writable."
+#~ msgstr "La dosiero %s ne skribeblas."
+
+#~ msgid "Extracting language file for %s..."
+#~ msgstr "Malpakiĝo de la lingvo-dosiero por %s…"
+
+#~ msgid "New Collection..."
+#~ msgstr "Nova kolekto…"
+
+#~ msgid "Team ID"
+#~ msgstr "Skipo-identigilo"
+
+#~ msgid "Display organization members."
+#~ msgstr "Montri organizaĵanojn."
