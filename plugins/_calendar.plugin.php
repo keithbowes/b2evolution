@@ -435,7 +435,7 @@ class Calendar
 
 		$this->tablestart = '<table class="bCalendarTable"';
 		if (!$use_strict)
-			$this->tablestart .= 'title="' . T_('Monthly calendar with links to each day\'s posts') . '">'."\n";
+			$this->tablestart .= ' title="' . T_('Monthly calendar with links to each day\'s posts') . '">'."\n";
 		else
 			$this->tablestart .= '>' . "\n";
 		$this->tableend = '</table>';

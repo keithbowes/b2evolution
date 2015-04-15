@@ -157,7 +157,7 @@ class coll_search_form_Widget extends ComponentWidget
 		echo '<div class="'.$search_form_class.'">';
 
 		echo $this->disp_params['search_input_before'];
-		echo '<input type="text" name="s" size="25" value="'.htmlspecialchars( get_param( 's' ) ).'" class="search_field SearchField form-control" title="'.format_to_output( T_('Enter text to search for'), 'htmlattr' ).'" />';
+		echo '<input type="search" name="s" size="25" value="'.htmlspecialchars( get_param( 's' ) ).'" class="search_field SearchField form-control" title="'.format_to_output( T_('Enter text to search for'), 'htmlattr' ).'" />';
 		echo $this->disp_params['search_input_after'];
 
 		echo $this->disp_params['search_submit_before'];

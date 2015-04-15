@@ -949,9 +949,8 @@ function require_js( $js_file, $relative_to = 'rsc_url', $async = false, $output
 	{
 		$required_js[] = strtolower( $js_url );
 
-		global $use_strict;
 		$script_tag = '<script type="text/javascript"';
-		$script_tag .= $async && !$use_strict ? ' async="async"' : '';
+		$script_tag .= $async ? ' async="async"' : '';
 		$script_tag .= ' src="'.$js_url.'">';
 		$script_tag .= '</script>';
 
