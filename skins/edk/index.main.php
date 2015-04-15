@@ -86,7 +86,7 @@ if (supports_xhtml())
 	$last_date = $date;
 }
 ?>
-	<<?php if (supports_xhtml()) echo 'div class="post"'; else echo 'article'; ?> id="<?php $Item->anchor_id(); ?>" <?php echo $_item_langattrs ?>>
+	<<?php if (supports_xhtml()) echo 'div class="post" role="article"'; else echo 'article'; ?> id="<?php $Item->anchor_id(); ?>" <?php echo $_item_langattrs ?>>
 <?php 
 	$Item->locale_temp_switch();
 	printf('<%4$s class="storytitle"><a %6$shref="%1$s"  title="%3$s">%2$s</a></%5$s>', $Item->get_single_url(), $Item->title, __('Permanent link to full entry'), $hl, $hl, supports_xhtml() ? 'rel="permalink" ' : '');
@@ -213,18 +213,11 @@ if ($MainList)
 	);
 }
 
-if (supports_xhtml())
-{
 ?>
-</div>
-<?php
-}
-else
-{
-?>
+
 </section>
+
 <?php
-}
 
 end_html();
 ?>

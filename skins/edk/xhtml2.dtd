@@ -130,7 +130,7 @@
   onkeydown   a key was pressed down
   onkeyup     a key was released
 -->
-<!ENTITY % events
+<!ENTITY % legacy-events
  "onclick     %Script;       #IMPLIED
   ondblclick  %Script;       #IMPLIED
   onmousedown %Script;       #IMPLIED
@@ -151,7 +151,7 @@
   ev:phase         (bubble|capture|default|target) #IMPLIED
   ev:propagate     (stop|continue)                 #IMPLIED
   ev:defaultAction (cancel|perform)                #IMPLIED
-  %events;"
+  %legacy-events;"
 >
 
 <!ENTITY % Forms
@@ -170,8 +170,15 @@
    coords CDATA   #IMPLIED"
 >
 
+<!ENTITY % legacy-focus
+    "accesskey   CDATA      #IMPLIED
+     tabindex    %Number;   #IMPLIED
+     onfocus     %Script;   #IMPLIED
+     onblur      %Script;   #IMPLIED"
+>
 <!ENTITY % Hypertext
  "cite      %URI;           #IMPLIED
+  charset   %Charset;       #IMPLIED
   href      %URI;           #IMPLIED
   hreflang  %LanguageCode;  #IMPLIED
   hrefmedia %MediaDesc;     #IMPLIED
@@ -180,8 +187,7 @@
   prevfocus IDREF           #IMPLIED
   target    CDATA           #IMPLIED
   xml:base  %URI;           #IMPLIED
-  onfocus   %Script;        #IMPLIED
-  onblur    %Script;        #IMPLIED
+  %legacy-focus;
   %Map;"
 >
 
@@ -284,12 +290,13 @@
 <!ENTITY % lists "ul | ol | dl">
 <!ENTITY % blocktext "pre | separator | l | blockquote | blockcode | address">
 
-<!ENTITY % legacy-form.elem "form">
+<!ENTITY % legacy-fieldset "fieldset">
 <!ENTITY % block
-     "p | %heading; | div | %lists; | %blocktext; | table | access">
+     "p | %heading; | div | %lists; | %blocktext; | %legacy-fieldset; | table | access">
 
 <!ENTITY % Block "(%block; | %xforms.misc; | %misc;)*">
 
+<!ENTITY % legacy-form.elem "form">
 <!-- %Flow; mixes block and inline and is used for list items etc. -->
 <!ENTITY % Flow "(#PCDATA | %block; | %inline; | %misc; | %legacy-form.elem;)*">
 
@@ -387,7 +394,6 @@
 <!ELEMENT script (#PCDATA)>
 <!ATTLIST script
   %attrs;
-  charset     %Charset;      #IMPLIED
   defer       (defer)        #IMPLIED
   type        %ContentType;  #IMPLIED
   implements  %URI;          #IMPLIED
@@ -403,11 +409,14 @@
 
 <!--=================== Document Body ====================================-->
 
+<!ENTITY % legacy-body-events
+  "onload   %Script;    #IMPLIED
+   onunload %Script;    #IMPLIED"
+>
 <!ELEMENT body %Block;>
 <!ATTLIST body
   %attrs;
-  onload   %Script;    #IMPLIED
-  onunload %Script;    #IMPLIED
+  %legacy-body-events;
   >
 
 <!ELEMENT div %Flow;>  <!-- generic language/style container -->
@@ -856,13 +865,15 @@ several semantically related columns together.
 <!ATTLIST label
   %attrs;
   for         IDREF          #IMPLIED
-  accesskey   %Character;    #IMPLIED
   >
 
 <!ENTITY % InputType
   "(text | password | checkbox |
     radio | submit | reset |
-    file | hidden | image | button)"
+    file | hidden | image | button |
+    color | date | datetime | email |
+    number | range | search | tel |
+    time | url | week)"
    >
 
 <!-- the name attribute is required for all but submit & reset -->
@@ -888,7 +899,6 @@ several semantically related columns together.
   size        %Number;       #IMPLIED
   multiple    (multiple)     #IMPLIED
   disabled    (disabled)     #IMPLIED
-  tabindex    %Number;       #IMPLIED
   onchange    %Script;       #IMPLIED
   >
 
@@ -933,7 +943,6 @@ several semantically related columns together.
 <!ELEMENT legend %Inline;>     <!-- fieldset label -->
 <!ATTLIST legend
   %attrs;
-  accesskey   %Character;    #IMPLIED
   >
 
 <!--

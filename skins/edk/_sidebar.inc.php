@@ -14,7 +14,7 @@ if (is_text_browser() && 'menu' != $show_mode) return;
 <?php
 	}
 ?>
-<ul id="menu">
+	<ul id="menu"<?php if (supports_xhtml()) echo ' role="navigation"'; ?>>
 <li>
 <ul>
 <?php 
@@ -183,7 +183,7 @@ document.forms.diaspform.appendChild(elem);
 </script>
 <noscript>
 <div>
-<select name="diaspora-pod">
+<select name="diaspora-pod"<?php if (supports_xhtml()) echo ' role="combobox"'; ?>>
 <?php
 for ($i = 0; $i < count($pods); $i++)
 {
@@ -217,7 +217,7 @@ if (supports_xhtml())
 {
 ?>
 	<li><h2<?php if (!supports_xhtml()) echo ' tabindex="46789"'; ?>><?php echo $Skin->T_('Credits') ?></h2>
-<ul class="credit"><li>
+<ul class="credit" role="contentinfo"><li>
 <?php
 	show_footer();
 ?>

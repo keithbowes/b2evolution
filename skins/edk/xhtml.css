@@ -21,6 +21,10 @@ html {
   overflow: hidden;
 }
 
+summary {
+  display: none;
+}
+
 #content {
   left: 0;
   padding: 1em 0;

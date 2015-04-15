@@ -334,11 +334,12 @@ echo $params['html_tag'];
 
 <head>
 <?php
-	if (!supports_xhtml()) echo "<meta charset=\"$io_charset\">\n"; /* Charset for static pages */
+	echo "<meta charset=\"$io_charset\" />\n"; /* Charset for static pages */
 if (!supports_xhtml())
 	skin_base_tag(); /* Base URL for this skin. You need this to fix relative links! */
 	$Plugins->trigger_event( 'SkinBeginHtmlHead' );
 ?>
+
   <title><?php
 		// ------------------------- TITLE FOR THE CURRENT REQUEST -------------------------
 		request_title($params);
@@ -348,6 +349,7 @@ if (!supports_xhtml())
 		<meta property="copyright" content="<?php get_copyright(array('license' => FALSE)) ?>" />
 		<meta property="license" content="<?php get_license(array('format' => 'text')); ?>" />
 <?php
+
 		skin_description_tag();
 		skin_keywords_tag();
 		skin_opengraph_tags();

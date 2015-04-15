@@ -4,7 +4,7 @@ if (!supports_xhtml())
 ?>
 </main>
 
-<footer>
+<footer role="contentinfo">
 <?php
 	show_footer();
 ?>

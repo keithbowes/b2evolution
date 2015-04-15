@@ -228,12 +228,12 @@ echo '<div id="form_p' . $Item->ID . '">';
 		// Note: we use funky field names to defeat the most basic guestbook spam bots
 		$Form->text( $dummy_fields[ 'name' ], $comment_author, 40, __('Name'), '', 100, 'bComment' );
 
-		$Form->text( $dummy_fields[ 'email' ], $comment_author_email, 40, __('Email'), '<br />('.__('Your email address will <strong>not</strong> be revealed on this site.').')', 100, 'bComment', supports_xhtml() ? 'text' : 'email' );
+		$Form->text( $dummy_fields[ 'email' ], $comment_author_email, 40, __('Email'), '<br />('.__('Your email address will <strong>not</strong> be revealed on this site.').')', 100, 'bComment', 'email' );
 
 		$Item->load_Blog();
 		if( $Item->Blog->get_setting( 'allow_anon_url' ) )
 		{
-			$Form->text( $dummy_fields[ 'url' ], $comment_author_url, 40, __('Website'), '<br />('.__('Your URL will be displayed.').')', 100, 'bComment', supports_xhtml() ? 'text' : 'url' );
+			$Form->text( $dummy_fields[ 'url' ], $comment_author_url, 40, __('Website'), '<br />('.__('Your URL will be displayed.').')', 100, 'bComment', 'url' );
 		}
 	}
 
