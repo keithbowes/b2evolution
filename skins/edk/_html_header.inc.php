@@ -12,11 +12,10 @@
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 
-global $Hit, $Session, $Skin;
+global $Skin;
 global $app_name, $app_version, $xmlsrv_url;
-global $baseurl, $baseurlroot, $io_charset;
+global $baseurl, $io_charset;
 
-global $content_type;
 function parse_accept()
 {
 	$ret = array();
