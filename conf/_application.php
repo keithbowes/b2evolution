@@ -80,36 +80,6 @@ $modules = array(
 
 /* Overrides */
 
-/**
-	* Get a sane version number
-	* After version 4.1.x, the version numbers have been off, so here's the real versions:
-	* 5.0 was pretty justifiable for the plugin incompatibilites and front-office features
-	* So was 5.1 for a largely redesigned interface but was still compatible with 5.0
-	* 5.2 is really 5.1.3
-	* 6.0 is really 5.2 (some changes, but largely compatible with 5.x).
-	* 6.x.y are really 5.2.x-(alpha|beta|stable)[y%n]
-	* 7.0 probably won't introduce much new and may just continue being 5.2.x or maybe 5.3.
-	*
-	* @return string A sane version
- */
-function get_sane_app_version()
-{
-	global $app_version;
-
-	/* Parse the real version */
-	preg_match('/^(\d+)\.(\d+)\.(\d+)/', $app_version, $matches);
-	list($match, $major, $minor, $micro) = $matches;
-
-	if ($major > 5)
-		return sprintf('5.%d.%d.%d', 2 + $major - 6, $minor, $micro);
-	elseif ($major == 5 && $minor > 1)
-		return sprintf('5.1.%d.%d', $minor + 1, $micro);
-	else
-		return sprintf('%d.%d.%d', $major, $minor, $micro);
-}
-
-$sane_app_version = get_sane_app_version();
-
 $app_footer_text = sprintf('<a href="https://duckduckgo.com/?q=!+%1$s" title="Viziti la TTT-ejon de %1$s"><b>%1$s %2$s</b></a>
 		&#183;
 		<a href="http://www.esperanto.mv.ru/Cetero/gpl.html" class="nobr">la Ĝenerala Publika Permesilo de GNU</a>', $app_name, $app_version);

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edk \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-14 23:31-0400\n"
+"POT-Creation-Date: 2015-04-16 02:22-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,31 +30,31 @@ msgstr ""
 msgid "404 Not Found"
 msgstr ""
 
-#: _html_header.inc.php:248 _html_header.inc.php:250
+#: _html_header.inc.php:253 _html_header.inc.php:255
 msgid "Creative Commons"
 msgstr ""
 
 #. TRANS: Params: Start year, end year, author, license
-#: _html_header.inc.php:271
+#: _html_header.inc.php:276
 #, php-format
 msgid "(C) %1$d-%2$d %3$s under %4$s"
 msgstr ""
 
 #. TRANS: Params: Start year, end year, author
-#: _html_header.inc.php:273
+#: _html_header.inc.php:278
 #, php-format
 msgid "(C) %1$d-%2$d %3$s"
 msgstr ""
 
-#: _html_header.inc.php:333
+#: _html_header.inc.php:327
 msgid "Please leave this for stats"
 msgstr ""
 
-#: _html_header.inc.php:372
+#: _html_header.inc.php:364
 msgid "Main Content"
 msgstr ""
 
-#: _html_header.inc.php:373 _sidebar.inc.php:13
+#: _html_header.inc.php:365 _sidebar.inc.php:13
 msgid "Menu"
 msgstr ""
 
@@ -127,7 +127,7 @@ msgstr ""
 
 #: index.main.php:47
 #, php-format
-msgid "<div>Powered by <cite><a href=\"http://www.duckduckgo.com/?q=!+%1$s\">%1$s</a> <span title=\"Really %2$s\">%3$s</span></cite>.</div>"
+msgid "<div>Powered by <cite><a href=\"http://www.duckduckgo.com/?q=!+%1$s\">%1$s</a> %2$s</cite>.</div>"
 msgstr ""
 
 #: index.main.php:98

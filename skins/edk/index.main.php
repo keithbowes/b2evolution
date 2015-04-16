@@ -44,7 +44,7 @@ function show_footer()
 	global $app_name, $app_version, $sane_app_version;
 	$Plugins->trigger_event('SkinEndHtmlBody');
 
-	printf($Skin->T_('<div>Powered by <cite><a href="http://www.duckduckgo.com/?q=!+%1$s">%1$s</a> <span title="Really %2$s">%3$s</span></cite>.</div>'), $app_name, $app_version, $sane_app_version);
+	printf($Skin->T_('<div>Powered by <cite><a href="http://www.duckduckgo.com/?q=!+%1$s">%1$s</a> %2$s</cite>.</div>'), $app_name, $app_version);
 	get_copyright();
 }
 ?>
