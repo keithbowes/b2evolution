@@ -28,7 +28,7 @@ summary {
 #content {
   left: 0;
   padding: 1em 0;
-  width: 72%;
+  width: 72% !important;
 }
 
 #content > * {
@@ -43,7 +43,7 @@ summary {
   background-color: navy;
   left: 72%;
   padding-bottom: 1em;
-  width: 27.8%;
+  width: 27.8% !important;
 }
 
 #menu > * {
