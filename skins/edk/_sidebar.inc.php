@@ -150,7 +150,7 @@ if (class_exists('DOMDocument'))
 			for ($i = 0; $i < $rows->length; $i++)
 			{
 				$cpod = $rows->item($i)->getElementsbyTagName('td')->item(0)->getElementsByTagName('a')->item(0)->getAttribute('href');
-				if (TRUE /*preg_match('/^https/', $cpod)*/)
+				if (strpos($cpod, 'https') === 0)
 				{
 					$pods[$pi] = $cpod;
 					@fwrite($fh, $cpod . "\n");
