@@ -183,7 +183,11 @@ document.forms.diaspform.appendChild(elem);
 </script>
 <noscript>
 <div>
-<select name="diaspora-pod"<?php if (supports_xhtml()) echo ' role="combobox"'; ?>>
+<?php
+if (!supports_xhtml()) echo '<datalist id="pods-list">' . "\n";
+?>
+
+<select name="diaspora-pod-select"<?php if (supports_xhtml()) echo ' role="combobox"'; ?>>
 <?php
 for ($i = 0; $i < count($pods); $i++)
 {
@@ -197,6 +201,20 @@ for ($i = 0; $i < count($pods); $i++)
 }
 ?>
 </select>
+
+<?php
+if (!supports_xhtml())
+{
+?>
+
+</datalist>
+
+<?php $current_pod = $pod ? $pod : $Skin->T_('Select a pod to use above or enter one here.'); ?>
+<input name="diaspora-pod" value="<?php echo $current_pod; ?>" list="pods-list" />
+
+<?php
+}
+?>
 </div>
 </noscript>
 <button type="submit" class="button" id="diaspora" title="[<?php echo $Skin->T_('Share on Diaspora*'); ?>]" onmouseover="status=getUri(this.form, getPod(this.form['diaspora-pod']));" onfocus="status=getURi(this.form, getPod(this.form['diaspora-pod']));" onmouseout="status=defaultStatus" onblur="status=defaultStatus"><?php echo preg_replace('/^(.+Diaspora)(\*)$/', '<span class="button-sf">$1</span>$2', $Skin->T_('Share on Diaspora*')); ?></button>

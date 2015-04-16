@@ -1,8 +1,13 @@
 <?php
-if (param('diaspora-pod'))
+/*
+ * Use the value of diaspora-pod-select if available.  It won't be in HTML5 browsers with <datalist> support.
+ * Otherwise use the value of diaspora-pod in HTML5 browsers.
+ * However, in browsers without <datalist>, we don't want to use diaspora-pod.
+ */
+if ($diaspora_pod = (param('diaspora-pod-select') || param('diaspora-pod')))
 {
-	setcookie('Diaspora-Pod', param('diaspora-pod'), time() + (9 * 7 * 24 * 60 * 60) /* 9 weeks */);
-	header('Location: ' . param('diaspora-pod') . '/bookmarklet?url=' . param('url') . '&title=' . param('title'));
+	setcookie('Diaspora-Pod', $diaspora_pod, time() + (9 * 7 * 24 * 60 * 60) /* 9 weeks */);
+	header('Location: ' . $diaspora_pod . '/bookmarklet?url=' . param('url') . '&title=' . param('title'));
 	die();
 }
 

@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['de_DE'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b 2e\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2015-04-16 02:22-0400\nPO-Revision-Date: 2015-04-16 02:23-0400\nLast-Translator: Keith <keith@localhost>\nLanguage-Team: German\nLanguage: de\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b 2e\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2015-04-16 15:32-0400\nPO-Revision-Date: 2015-04-16 15:35-0400\nLast-Translator: Keith <keith@localhost>\nLanguage-Team: German\nLanguage: de\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 '403 Forbidden' => '403 Verboten',
 '<p><a href="%s">%s</a> cannot resolve the requested URL.</p>' => '<p><a href="%s">%s</a> kann nicht die angeforderter URL auflösen.</p>',
 '404 Not Found' => '404 Nicht Gefunden',
@@ -28,8 +28,9 @@ $trans['de_DE'] = array(
 'Share on Facebook' => 'Teilen auf Facebook',
 'Share on Google+' => 'Teilen auf Google+',
 'Share on Twitter' => 'Teilen auf Twitter',
-'Enter the URL of a Diaspora* pod where you want to share (e.g. https://joindiaspora.com)' => 'Eingabe den URL einer Diaspora*-Hülse (zB https://https://joindiaspora.com), wo du teilen willst',
+'Enter the URL of a Diaspora* pod where you want to share (e.g. https://joindiaspora.com)' => 'Eingabe den URL einer Diaspora*-Pod (zB https://https://joindiaspora.com), wo du teilen willst',
 'Invalid entry!' => 'Ungültige Eingabe',
+'Select a pod to use above or enter one here.' => 'Wählen einen Pod, um zu verwenden, oder eingeben einen Pod hier.',
 'Share on Diaspora*' => 'Teilen auf Diaspora*',
 'Back-office' => 'Back-Office',
 'Credits' => 'Anerkennungen',
