@@ -209,7 +209,7 @@ for ($i = 0; $i < count($pods); $i++)
 		<ul>
 <?php $logged_in = is_logged_in() && $current_User->check_perm('admin', 'restricted');
 ?>
-	<li><a href="<?php echo $baseurl ?>admin.php<?php if (!$logged_in) echo '?redirect_to=' . $_item_url . '' ?>"><?php echo $logged_in ? $Skin->T_('Back-office') : __('Log in') ?></a></li>
+	<li><a href="<?php echo $baseurl ?>admin.php<?php if (!$logged_in) echo '?redirect_to=' . $_item_url . '' ?>" title="<?php if (!$logged_in) echo __('Log in to your account'); else echo __('Go to the back-office...'); ?>"><?php echo $logged_in ? $Skin->T_('Back-office') : __('Log in') ?></a></li>
 <?php user_logout_link( '<li>', '</li>' ); ?>
 </ul></li>
 <?php
