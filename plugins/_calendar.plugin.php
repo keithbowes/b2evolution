@@ -444,7 +444,7 @@ class Calendar
 		$this->monthend = "</caption>\n";
 
 		if ($use_strict)
-			$this->monthend .= '<summary>' . T_('Monhly calendar with links to each day\'s posts') . '</summary>' . "\n";
+			$this->monthend .= '<summary>' . T_('Monthly calendar with links to each day\'s posts') . '</summary>' . "\n";
 
 		$this->rowstart = '<tr class="bCalendarRow">' . "\n";
 		$this->rowend = "</tr>\n";
