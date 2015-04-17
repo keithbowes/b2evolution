@@ -774,9 +774,8 @@ function phpbb_import_user_fields( $phpbb_user, $b2evo_user_ID )
 
 	global $tableprefix;
 
-	mysqli_query( 'INSERT INTO '.$tableprefix.'users__fields ( uf_user_ID, uf_ufdf_ID, uf_varchar )
-			VALUES '.implode( ', ', $import_data ),
-		$DB->dbhandle );
+	mysqli_query( $DB->dbhandle, 'INSERT INTO '.$tableprefix.'users__fields ( uf_user_ID, uf_ufdf_ID, uf_varchar )
+			VALUES '.implode( ', ', $import_data ) );
 }
 
 
