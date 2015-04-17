@@ -73,7 +73,7 @@ class BlockCache
 	 *
 	 * @see http://b2evolution.net/man/widget-caching
 	 */
-	function invalidate_key( $key, $val )
+	static function invalidate_key( $key, $val )
 	{
 		global $Debuglog, $servertimenow, $instance_name;
 
@@ -261,7 +261,7 @@ class BlockCache
 	 * @param mixed $payload
 	 * @param int Time to live in seconds (default: 86400; 0 means "as long as possible")
 	 */
-	function cacheproviderstore( $key, $payload, $ttl = 86400 )
+	static function cacheproviderstore( $key, $payload, $ttl = 86400 )
 	{
 		return set_to_mem_cache($key, $payload, $ttl);
 	}
