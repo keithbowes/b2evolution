@@ -46,7 +46,7 @@ a:hover {
   color: fuchsia;
 }
 
-abbr { 
+abbr {
   border-bottom: thin dashed aqua;
   cursor: help;
   font-size: 90%;
@@ -150,6 +150,22 @@ h3 + p a {
 input[list] {
   -moz-appearance: menulist;
   -webkit-appearance: menulist;
+}
+
+input[type="search"]:focus {
+  background-color: darkorange !important;
+}
+
+input[type="search"]:hover {
+  background-color: red;
+}
+
+input[type="search"] {
+  background-color: orange;
+  border: thin solid #999;
+  color: navy;
+  height: 1em;
+  width: 60%;
 }
 
 li, p,
@@ -306,14 +322,6 @@ nav #menu > li > ul > li:first-child h2 {
   float: right;
 }
 
-#menu .SearchField {
-  background-color: orange;
-  border: thin solid #999;
-  color: navy;
-  height: 1em;
-  width: 60%;
-}
-
 #nextitem {
   clear: right;
   float: right;
@@ -366,14 +374,6 @@ nav #menu > li > ul > li:first-child h2 {
   font-family: Arial, Helvetica, serif;
   margin-top: 0.1em;
   padding: 0.1em 0.5em;
-}
-
-.SearchField:focus {
-  background-color: darkorange !important;
-}
-
-.SearchField:hover {
-  background-color: red;
 }
 
 .bCalendarEmptyCell {

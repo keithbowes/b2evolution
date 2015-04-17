@@ -92,7 +92,7 @@ if( $action == 'register' )
 
 	if( $Settings->get( 'registration_ask_locale' ) )
 	{ // ask user language
-		$locale = 'en_US';
+		$locale = 'eo_EO';
 		$Form->select( 'locale', $locale, 'locale_options_return', T_('Locale'), T_('Preferred language') );
 	}
 	$Form->end_field();
