@@ -7,13 +7,13 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo_EO'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b 2e\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2015-04-16 15:32-0400\nPO-Revision-Date: 2015-04-16 15:38-0400\nLast-Translator: Keith Bowes <keith@localhost>\nLanguage-Team: Esperanto\nLanguage: eo \nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b 2e\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2015-04-17 00:42-0400\nPO-Revision-Date: 2015-04-17 00:47-0400\nLast-Translator: Keith Bowes <keith@localhost>\nLanguage-Team: Esperanto\nLanguage: eo \nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 '403 Forbidden' => '403: Malpermesita',
 '<p><a href="%s">%s</a> cannot resolve the requested URL.</p>' => '<p><a href="%s">%s</a> ne povis solvi la petitan retadreson.</p>',
 '404 Not Found' => '404: Ne trovita',
 'Creative Commons' => 'Permesilo Krea Komunaĵo',
 '(C) %1$d-%2$d %3$s under %4$s' => 'Kopirajto (C) %1$d ĝis %2$d de %3$s laŭ %4$s',
-'(C) %1$d-%2$d %3$s' => 'Kopirajto %1$d ĝis %2$d %3$s',
+'(C) %1$d-%2$d %3$s' => 'Kopirajto (C) %1$d ĝis %2$d de %3$s',
 'Please leave this for stats' => 'Bonvolu restigi tion pro statistikaĵoj',
 'Main Content' => 'Ĉefa enhavo',
 'Menu' => 'Menuo',

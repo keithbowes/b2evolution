@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: b 2e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-16 15:32-0400\n"
-"PO-Revision-Date: 2015-04-16 15:38-0400\n"
+"POT-Creation-Date: 2015-04-17 00:42-0400\n"
+"PO-Revision-Date: 2015-04-17 00:47-0400\n"
 "Last-Translator: Keith Bowes <keith@localhost>\n"
 "Language-Team: Esperanto\n"
 "Language: eo \n"
@@ -39,7 +39,7 @@ msgstr "Kopirajto (C) %1$d ĝis %2$d de %3$s laŭ %4$s"
 #: _html_header.inc.php:277
 #, php-format
 msgid "(C) %1$d-%2$d %3$s"
-msgstr "Kopirajto %1$d ĝis %2$d %3$s"
+msgstr "Kopirajto (C) %1$d ĝis %2$d de %3$s"
 
 #: _html_header.inc.php:326
 msgid "Please leave this for stats"
@@ -108,19 +108,19 @@ msgstr "Enmeti la retadreson de Diaspora*-guŝo al kiu vi deziras konigi (ekz-e 
 msgid "Invalid entry!"
 msgstr "Nevalidan enmetaĵon!"
 
-#: _sidebar.inc.php:212
+#: _sidebar.inc.php:215
 msgid "Select a pod to use above or enter one here."
 msgstr "Elekti guŝon uzotan ĉi-supre aŭ enmeti alian en ĉi tiun kampon."
 
-#: _sidebar.inc.php:220
+#: _sidebar.inc.php:224
 msgid "Share on Diaspora*"
 msgstr "Konigi en Diaspora*"
 
-#: _sidebar.inc.php:230
+#: _sidebar.inc.php:234
 msgid "Back-office"
 msgstr "Stirilo"
 
-#: _sidebar.inc.php:237
+#: _sidebar.inc.php:241
 msgid "Credits"
 msgstr "Dankesprimoj"
 
