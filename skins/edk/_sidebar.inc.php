@@ -187,7 +187,7 @@ document.forms.diaspform.appendChild(elem);
 if (!supports_xhtml()) echo '<datalist id="pods-list">' . "\n";
 ?>
 
-<select name="diaspora-pod-select"<?php if (supports_xhtml()) echo ' role="combobox"'; ?>>
+<select name="diaspora-pod-select">
 <?php
 for ($i = 0; $i < count($pods); $i++)
 {
@@ -195,7 +195,7 @@ for ($i = 0; $i < count($pods); $i++)
 	{
 		echo '<option value="' . $pods[$i] . '"';
 		if ($pods[$i] == $pod)
-			echo ' selected="selected"';
+			echo supports_xhtml() ?' selected="selected"' : ' id="selected-option"';
 		echo '>' . $pods[$i] . "</option>\n";
 	}
 }
@@ -209,8 +209,12 @@ if (!supports_xhtml())
 
 </datalist>
 
-<?php $current_pod = $pod ? $pod : $Skin->T_('Select a pod to use above or enter one here.'); ?>
-<input name="diaspora-pod" value="<?php echo $current_pod; ?>" list="pods-list" />
+<label>
+<input name="diaspora-pod" value="<?php $pod; ?>" list="pods-list" role="combobox" aria-expanded="true" aria-autocomplete="both" aria-owns="pods-list" aria-activedescendant="selected-option" />
+<br />
+<span class="note">(<?php $Skin->T_('Select a pod to use above or enter one here.'); ?>)</span>
+
+</label>
 
 <?php
 }
