@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo_EO'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2015-04-16 23:18-0400\nPO-Revision-Date: 2015-04-16 23:28-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2015-04-16 23:18-0400\nPO-Revision-Date: 2015-04-17 19:05-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 'Adm' => '[A]',
 'Blg' => '^',
 'Folder' => 'Dosierujo',
@@ -5852,7 +5852,7 @@ $trans['eo_EO'] = array(
 'WARNING: the max_execution_time is set to %s seconds in php.ini and cannot be increased automatically. This may lead to a PHP <a %s>timeout causing the upgrade to fail</a>. If so please post a screenshot to the <a %s>forums</a>.' => 'AVERTO: max_execution_tempo estas agordita al %s sekundoj en php.ini kaj ne povas aŭtomate pliiĝi. Tio eble kaŭzon <a %s>eksvalidiĝo kaŭzanta malsukcesan ĝisdatigon</a>. Tiel afiŝu ekrankopion en la <a %s>forumoj</a>.',
 'Upgrading data in existing b2evolution database...' => 'Promocianta datumojn en jama datumbazo…',
 'Upgrade completed successfully!' => 'Promocio sukcese finita.',
-'Now you can <a %s>log in</a> with your usual b2evolution username and password.' => 'Nun vi povas <a %s>ensaluti</a> per viaj kutima salutnomo kaj pasvorto de b2evolution.',
+'Now you can <a %s>log in</a> with your usual b2evolution username and password.' => 'Vi povas nun <a %s>ensaluti</a> per viaj kutimaj salutnomo kaj pasvorto de b2evolution.',
 'Deletion in progress' => 'Forigo okazanta',
 'If you have installed b2evolution tables before and wish to start anew, you must delete the b2evolution tables before you can start a new installation. b2evolution can delete its own tables for you, but for obvious security reasons, this feature is disabled by default.' => 'Se vi instalis b2evolution-tabelojn antaŭe kaj volas komenci refoje, vi devas forigi la b2evolution-tabelojn antaŭ ol vi povas komenci novan instaladon. b2evolution povas forigi ĝiajn proprajn tabelojn por vi, sed pro evidentaj sekurecaj kialoj tio trajto estas apriore malaktivigita.',
 "Are you sure you want to delete your existing %s tables?\nDo you have a backup?" => "Ĉu vi certas, ke vi volas forigi la jamajn tabelojn %s?\nĈu vi havas rezervon?",

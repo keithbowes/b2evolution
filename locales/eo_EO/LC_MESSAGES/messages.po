@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net\n"
 "POT-Creation-Date: 2015-04-16 23:18-0400\n"
-"PO-Revision-Date: 2015-04-16 23:28-0400\n"
+"PO-Revision-Date: 2015-04-17 19:05-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -28819,7 +28819,7 @@ msgstr "Promocio sukcese finita."
 #: ../../../install/index.php:938
 #, php-format
 msgid "Now you can <a %s>log in</a> with your usual b2evolution username and password."
-msgstr "Nun vi povas <a %s>ensaluti</a> per viaj kutima salutnomo kaj pasvorto de b2evolution."
+msgstr "Vi povas nun <a %s>ensaluti</a> per viaj kutimaj salutnomo kaj pasvorto de b2evolution."
 
 #: ../../../install/index.php:969
 msgid "Deletion in progress"
