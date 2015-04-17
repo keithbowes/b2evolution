@@ -5509,6 +5509,19 @@ function set_to_mem_cache($key, $payload, $ttl = 0)
 
 
 /**
+ * Store payload/data into the cache provider.
+ *
+ * @param mixed $key
+ * @param mixed $payload
+ * @param int Time to live in seconds (default: 86400; 0 means "as long as possible")
+ */
+function cacheproviderstore( $key, $payload, $ttl = 86400 )
+{
+	return set_to_mem_cache($key, $payload, $ttl);
+}
+
+
+/**
  * Remove a given key from the volatile/lossy cache.
  *
  * @param string key

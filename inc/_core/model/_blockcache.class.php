@@ -82,7 +82,7 @@ class BlockCache
 		// Invalidate using the real time (seconds may have elapsed since $sertimenow)
 		// Add 1 second because of the granularity that's down to the second
 		// Worst case scenario: content will be collected/cahced several times for a whole second (as well as the first request after the end of that second)
-		BlockCache::cacheproviderstore( $lastchanged_key_name, time()+1 );
+		cacheproviderstore( $lastchanged_key_name, time()+1 );
 
 		$Debuglog->add( 'Invalidated: '.$lastchanged_key_name.' @ '.(time()+1), 'blockcache' );
 	}
@@ -108,12 +108,12 @@ class BlockCache
 		foreach( $this->keys as $key => $val )
 		{
 			$lastchanged_key_name = $instance_name.'+last_changed+'.$key.'='.$val;
-			$last_changed_ts = $this->cacheproviderretrieve( $lastchanged_key_name, $success );
+			$last_changed_ts = get_from_mem_cache( $lastchanged_key_name, $success );
 			if( ! $success )
 			{	// We have lost the key! Recreate and keep going for other keys:
 				$Debuglog->add( 'Missing: '.$lastchanged_key_name, 'blockcache' );
 				$missing_date = true;
-				$this->cacheproviderstore( $lastchanged_key_name, $servertimenow );
+				cacheproviderstore( $lastchanged_key_name, $servertimenow );
 				continue;
 			}
 
@@ -147,7 +147,7 @@ class BlockCache
 
 		// return false;
 
-		$content = $this->cacheproviderretrieve( $this->serialized_keys, $success );
+		$content = get_from_mem_cache( $this->serialized_keys, $success );
 
 		if( ! $success )
 		{
@@ -249,37 +249,7 @@ class BlockCache
 		ob_end_flush();
 
 		// We use servertimenow because we may have used data that was loaded at the very start of this page
-		$this->cacheproviderstore( $this->serialized_keys, $servertimenow.' '.$this->cached_page_content );
-	}
-
-
-	/**
-	 * Store payload/data into the cache provider.
-	 *
-	 * @todo dh> This method should get removed from here, it's not limited to BlockCache.
-	 * @param mixed $key
-	 * @param mixed $payload
-	 * @param int Time to live in seconds (default: 86400; 0 means "as long as possible")
-	 */
-	static function cacheproviderstore( $key, $payload, $ttl = 86400 )
-	{
-		return set_to_mem_cache($key, $payload, $ttl);
-	}
-
-
-	/**
-	 * Fetch key from the cache provider.
-	 *
-	 * {@internal JFI: apc_fetch supports fetching an array of keys}}
-	 *
-	 * @todo dh> This method should get removed from here, it's not limited to BlockCache.
-	 * @todo dh> Add $default param, defaulting to NULL. This will be used on lookup failures.
-	 * @param mixed $key
-	 * @param boolean $success (by reference)
-	 */
-	function cacheproviderretrieve( $key, & $success )
-	{
-		return get_from_mem_cache($key, $success);
+		cacheproviderstore( $this->serialized_keys, $servertimenow.' '.$this->cached_page_content );
 	}
 
 }
