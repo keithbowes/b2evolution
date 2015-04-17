@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: b 2e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-16 15:32-0400\n"
-"PO-Revision-Date: 2015-04-16 15:37-0400\n"
+"POT-Creation-Date: 2015-04-17 00:57-0400\n"
+"PO-Revision-Date: 2015-04-17 01:12-0400\n"
 "Last-Translator: Keith Bowes <keith@localhost>\n"
 "Language-Team: Spanish\n"
 "Language: es_ES \n"
@@ -108,19 +108,19 @@ msgstr "Entra el URL de una pod de Diaspora* a donde desea compartir (por ejempl
 msgid "Invalid entry!"
 msgstr "¡Entrada inválida!"
 
-#: _sidebar.inc.php:212
-msgid "Select a pod to use above or enter one here."
-msgstr "Eligir un pod a usar o entrar un pod aquí."
+#: _sidebar.inc.php:215
+msgid "Select a pod to use above or enter one in the text field."
+msgstr "Elegir un pod de usar de encima o entrar un pod en el campo de texto."
 
-#: _sidebar.inc.php:220
+#: _sidebar.inc.php:224
 msgid "Share on Diaspora*"
 msgstr "Compartir en Diaspora*"
 
-#: _sidebar.inc.php:230
+#: _sidebar.inc.php:234
 msgid "Back-office"
 msgstr "Back-office"
 
-#: _sidebar.inc.php:237
+#: _sidebar.inc.php:241
 msgid "Credits"
 msgstr "Créditos"
 

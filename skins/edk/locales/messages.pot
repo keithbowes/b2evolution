@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edk \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-17 00:42-0400\n"
+"POT-Creation-Date: 2015-04-17 00:57-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -114,7 +114,7 @@ msgid "Invalid entry!"
 msgstr ""
 
 #: _sidebar.inc.php:215
-msgid "Select a pod to use above or enter one here."
+msgid "Select a pod to use above or enter one in the text field."
 msgstr ""
 
 #: _sidebar.inc.php:224

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: b 2e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-16 15:32-0400\n"
-"PO-Revision-Date: 2015-04-16 15:35-0400\n"
+"POT-Creation-Date: 2015-04-17 00:57-0400\n"
+"PO-Revision-Date: 2015-04-17 01:20-0400\n"
 "Last-Translator: Keith <keith@localhost>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -108,25 +108,25 @@ msgstr "Teilen auf Twitter"
 
 #: _sidebar.inc.php:101
 msgid "Enter the URL of a Diaspora* pod where you want to share (e.g. https://joindiaspora.com)"
-msgstr "Eingabe den URL einer Diaspora*-Pod (zB https://https://joindiaspora.com), wo du teilen willst"
+msgstr "Eingabe den URL eines Diaspora*-Pods (zB https://https://joindiaspora.com), wo du teilen willst"
 
 #: _sidebar.inc.php:101
 msgid "Invalid entry!"
 msgstr "Ungültige Eingabe"
 
-#: _sidebar.inc.php:212
-msgid "Select a pod to use above or enter one here."
-msgstr "Wählen einen Pod, um zu verwenden, oder eingeben einen Pod hier."
+#: _sidebar.inc.php:215
+msgid "Select a pod to use above or enter one in the text field."
+msgstr "Wählen einen Pod, um zu verwenden, oder eingeben einen Pod in den Textfeld."
 
-#: _sidebar.inc.php:220
+#: _sidebar.inc.php:224
 msgid "Share on Diaspora*"
 msgstr "Teilen auf Diaspora*"
 
-#: _sidebar.inc.php:230
+#: _sidebar.inc.php:234
 msgid "Back-office"
 msgstr "Back-Office"
 
-#: _sidebar.inc.php:237
+#: _sidebar.inc.php:241
 msgid "Credits"
 msgstr "Anerkennungen"
 

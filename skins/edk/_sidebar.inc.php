@@ -212,7 +212,7 @@ if (!supports_xhtml())
 <label>
 <input name="diaspora-pod" value="<?php $pod; ?>" list="pods-list" role="combobox" aria-expanded="true" aria-autocomplete="both" aria-owns="pods-list" aria-activedescendant="selected-option" />
 <br />
-<span class="note">(<?php $Skin->T_('Select a pod to use above or enter one here.'); ?>)</span>
+<span class="note">(<?php echo $Skin->T_('Select a pod to use above or enter one in the text field.'); ?>)</span>
 
 </label>
 
