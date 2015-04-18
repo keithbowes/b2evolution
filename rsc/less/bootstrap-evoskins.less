@@ -270,6 +270,10 @@ a.btn.action_icon {
 		width: 250px;
 	}
 }
+// Fix aligment
+select#report_user_status {
+	margin-top: -7px;
+}
 
 // Used to set a font size of action icons to normal view
 a.action_icon {
@@ -359,10 +363,20 @@ div.messages{
 	border-bottom: 1px solid #bbb;
 }
 
-// Shift a popover window to the right on 35px to don't hide a plus icon
-.popover.right.popover-userfield {
-	margin-left: 35px !important;
-	cursor: pointer;
+// Popover
+.popover {
+	color: #333;
+	&.right {
+		text-align: left;
+		&.popover-userfield {
+			// Shift a popover window to the right on 35px to don't hide a plus icon
+			margin-left: 35px !important;
+			cursor: pointer;
+		}
+	}
+	p {
+		margin: 10px 0 0 0;
+	}
 }
 
 // Glyphicons
@@ -483,10 +497,18 @@ legend.panel-heading {
 	font-weight: normal;
 	margin-bottom: 0;
 }
-.panel-title .icon {
-	vertical-align: middle;
-	position: relative;
-	top: -1px;
+.panel-title {
+	.icon {
+		vertical-align: middle;
+		position: relative;
+		top: -1px;
+	}
+	a.help_plugin_icon {
+		color: #337ab7;
+		&:hover {
+			color: #23527c;
+		}
+	}
 }
 
 // Form to add contacts
@@ -676,11 +698,6 @@ div.edit_toolbars, div.message_toolbars {
 	background-color: #613192;
 }
 
-// Fix alignment in popover
-.popover.right {
-	text-align: left;
-}
-
 // Fix label width on TinyMCE modal windows
 .mce-container label.mce-label {
 	max-width: none;
@@ -691,9 +708,11 @@ div.edit_toolbars, div.message_toolbars {
 	img {
 		.border-radius;
 	}
-	a.user img {
+	/*
+	a.user img { // bubbletip
 		.border-radius(0);
 	}
+	*/
 }
 
 // User links widget
