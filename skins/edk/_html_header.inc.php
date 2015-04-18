@@ -16,6 +16,7 @@ global $Skin;
 global $app_name, $app_version, $xmlsrv_url;
 global $baseurl, $io_charset;
 
+global $content_type;
 function parse_accept()
 {
 	$ret = array();
@@ -299,6 +300,44 @@ global $next_item, $prev_item;
 $next_item = get_prevnext_item('prev');
 $prev_item = get_prevnext_item('next');
 
+function edk_get_meta($type, $value, $content, $extra = array())
+{
+	if (supports_xhtml())
+	{
+		if ($type != 'charset')
+			$r = sprintf('<meta property="%s" content="%s" />', $value, $content);
+		else
+		{
+			global $content_type;
+			$r = sprintf('<meta property="Content-Type" content="%s;charset=%s" />', $content_type, $value);
+		}
+	}
+	else
+	{
+		$r = '<meta ';
+		$attrs = array(
+			$type => $value,
+			'content' => $content,
+		);
+		$attrs = array_merge($extra, $attrs);
+
+		do
+		{
+			$key = key($attrs);
+			$r .= $key . '="' . $attrs[$key] . '" ';
+		} while(next($attrs));
+		$r .= ' />';
+	}
+
+	$r .= "\n";
+	return $r;
+}
+
+function edk_meta($type, $value, $content, $extra = array())
+{
+	echo edk_get_meta($type, $value, $content, $extra);
+}
+
 if (!supports_xhtml())
 {
 	$dtd = '<!DOCTYPE html>';	
@@ -323,7 +362,7 @@ else
 $params = array_merge( array(
 	'auto_pilot'    => 'seo_title',
 	'body_class'    => NULL,
-	'generator_tag' => '<meta property="generator" content="' . $app_name . ' '.$app_version.'" /><!-- ' . $Skin->T_('Please leave this for stats') . " -->\n",
+	'generator_tag' => edk_get_meta('name', 'generator', sprintf('%s %s', $app_name, $app_version)) . '<!-- ' . $Skin->T_('Please leave this for stats') . " -->\n",
 	'html_tag'      => "$dtd\n$htmlelem\n",
 ), $params );
 
@@ -333,7 +372,7 @@ echo $params['html_tag'];
 
 <head>
 <?php
-	echo "<meta charset=\"$io_charset\" />\n"; /* Charset for static pages */
+edk_meta('charset', $io_charset);
 if (!supports_xhtml())
 	skin_base_tag(); /* Base URL for this skin. You need this to fix relative links! */
 	$Plugins->trigger_event( 'SkinBeginHtmlHead' );
@@ -344,10 +383,11 @@ if (!supports_xhtml())
 		request_title($params);
 		// ------------------------------ END OF REQUEST TITLE -----------------------------
 	?></title>
-		<meta property="DC.rights" content="<?php get_copyright(array('license' => FALSE)); ?>" />
-		<meta property="copyright" content="<?php get_copyright(array('license' => FALSE)) ?>" />
-		<meta property="license" content="<?php get_license(array('format' => 'text')); ?>" />
 <?php
+
+	edk_meta('property', 'DC.rights', get_copyright(array('display' => FALSE, 'license' =>  FALSE)));
+	edk_meta('property', 'copyright', get_copyright(array('display' =>  FALSE, 'license' =>  FALSE)));
+	edk_meta('property', 'license', get_license(array('display' => FALSE, 'format' =>  'text')));
 
 		skin_description_tag();
 		skin_keywords_tag();
