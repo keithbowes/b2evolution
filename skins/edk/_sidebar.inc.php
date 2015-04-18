@@ -75,7 +75,7 @@ if (supports_xhtml())
 }
 ?>
 <li><a href="https://m.facebook.com/sharer/?u=<?php echo $_item_url; ?>&amp;t=<?php echo urlencode($_item_title); ?>" onclick="window.open(this.href.replace(/m\.(facebook\.com)\/(sharer)/, 'www.$1/$2/$2.php')); return false;" class="button" id="facebook" title="[<?php echo $Skin->T_('Share on Facebook'); ?>]"><?php echo preg_replace('/^(.*)F(acebook.*)$/', '<span class="button-sf">$1</span>F<span class="button-sf">$2</span>', $Skin->T_('Share on Facebook')); ?></a></li>
-<li><a href="<?php echo "https://plus.google.com/share?url=$_item_url"; ?>" onclick="window.open(this.href); return false;" class="button" id="gplus" title="[<?php echo $Skin->T_('Share on Google+'); ?>]"><?php echo preg_replace('/^(.*)G(oogle)\+/', '<span class="button-sf">$1</span>G<span class="button-sf">$2</span>+', $Skin->T_('Share on Google+')); ?></a></li>
+<li><a href="<?php echo "https://plus.google.com/share?url=$_item_url"; ?>" onclick="window.open(this.href); return false;" class="button" id="gplus" title="[<?php echo $Skin->T_('Share on Google+'); ?>]"><?php echo preg_replace('/^(.*)G(oogle)\+/', '<span class="button-sf">$1</span>G<span class="button-sf">$2+</span>', $Skin->T_('Share on Google+')); ?></a></li>
 <li><a href="<?php echo "https://twitter.com/intent/tweet?original_referer=$_item_url&amp;url=$_item_url&amp;text=" . urlencode($_item_title); ?>" onclick="window.open(this.href); return false;" class="button" id="twitter" title="[<?php echo $Skin->T_('Share on Twitter'); ?>]"><?php echo preg_replace('/^(.*)T(witter.*)$/', '<span class="button-sf">$1</span>T<span class="button-sf">$2</span>', $Skin->T_('Share on Twitter')); ?></a></li>
 <li>
 <script type="text/javascript">

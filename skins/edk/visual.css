@@ -85,6 +85,13 @@ footer {
   text-align: center;
 }
 
+footer[role="contentinfo"] {
+  clear: both;
+  position: relative;
+  left: 42%;
+  text-align: left;
+}
+
 form.bComment {
   margin-bottom: 1em !important;
   padding-bottom: 1em;
@@ -152,20 +159,20 @@ input[list] {
   -webkit-appearance: menulist;
 }
 
+input[type="search"] {
+  background-color: orange;
+  border: thin solid #999;
+  color: navy;
+  height: 1em;
+  width: 65% !important;
+}
+
 input[type="search"]:focus {
   background-color: darkorange !important;
 }
 
 input[type="search"]:hover {
   background-color: red;
-}
-
-input[type="search"] {
-  background-color: orange;
-  border: thin solid #999;
-  color: navy;
-  height: 1em;
-  width: 60%;
 }
 
 li, p,
@@ -177,12 +184,12 @@ li, p,
   letter-spacing: -0.05em;
 }
 
-main {
-  display: table-row;
+main #content {
+  margin: 1em 0.5em 0.5% 0;
 }
 
 nav {
-  display: table-cell;
+  float: left;
   width: 23.25%;
 }
 
@@ -222,7 +229,6 @@ nav li {
 
 nav ul {
   color: black;
-  font-variant: normal;
   list-style-type: none;
   padding: 0;
   text-align: left;
@@ -232,8 +238,7 @@ nav ul li {
   font-style: normal;
   letter-spacing: 0;
   margin-top: 0;
-  padding: 0;
-  padding-left: 1em;
+  padding: 0 0.2em;
 }
 
 nav ul li a {
@@ -252,9 +257,13 @@ nav #menu > li > ul > li:first-child h2 {
   margin-top: 0;
 }
 
+nav #menu > li:last-child {
+  padding-bottom: 1em;
+}
+
 #content {
-  display: table-cell;
-  width: 76%;
+  float: right;
+  width: 75.5%;
 }
 
 #content abbr {
@@ -315,7 +324,7 @@ nav #menu > li > ul > li:first-child h2 {
   background-color: #d1402e !important;
   color: #f9e6e3 !important;
   padding: 0 0.2em 0.2em 0.2em;
-  width: 1.4em;
+  width: 0.8em;
 }
 
 #lastitem {
@@ -431,7 +440,7 @@ nav #menu > li > ul > li:first-child h2 {
   background-color: #dc9;
   border: thin solid #ddd;
   margin: auto;
-  width: 90%;
+  width: 100%;
 }
 
 .bCalendarTable a:hover {
@@ -533,6 +542,7 @@ nav #menu > li > ul > li:first-child h2 {
   font-size: 0.7em;
   font-weight: bold;
   overflow: hidden;
+  text-transform: lowercase;
 }
 
 .button-sf {

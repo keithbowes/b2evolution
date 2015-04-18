@@ -35,10 +35,6 @@ summary {
   margin: 0 1%;
 }
 
-#gplus {
-  width: 0.8em;
-}
-
 #menu {
   background-color: navy;
   left: 72%;
@@ -107,6 +103,10 @@ summary {
   width: 70%;
 }
 
+.bCalendarTable {
+  width: 90%;
+}
+
 .bCalendarTable caption {
   border: thin black inset !important;
 }
@@ -134,7 +134,7 @@ summary {
 }
 
 /* For browsers that support CSS 3 media queries */
-@media (color), (monochrome) {
+@media all and (color) {
   #content
   {
     left: 28%;
@@ -145,9 +145,16 @@ summary {
   }
 
   #menu {
+    background-color: azure;
+    color: black;
     display: inline-block;
     left: 0;
     padding: 0;
     right: 0;
+  }
+
+  #menu li a:not(.button) {
+    background-color: transparent;
+    color: brown !important;
   }
 }
