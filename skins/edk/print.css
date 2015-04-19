@@ -1,11 +1,10 @@
-/* Allow printing everything, instead of just the first page */
-main {
-  display: block;
-  width: 100%;
-}
-
+footer,
 nav {
   display: none;
+}
+
+#content {
+  width: 100%;
 }
 
 /* Gold on white paper: not a good idea */

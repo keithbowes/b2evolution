@@ -209,7 +209,7 @@ if ($MainList)
 
 	$footer_elem = supports_xhtml() ? 'div' : 'footer';
 	$MainList->page_links(array(
-			'block_start' => "\n" . '<!-- begin footer -->' . "\n" . '<' . $footer_elem . ' id="page-links">',
+			'block_start' => "\n" . '<!-- begin footer -->' . "\n" . '<' . $footer_elem . ' id="page-links" role="navigation">',
 			'block_end' => '</' . $footer_elem . '>' . "\n" . '<!-- end footer -->' . "\n",
 			'prev_text' => '<span class="sago">←</span>',
 			'next_text' => '<span class="sago">→</span>',

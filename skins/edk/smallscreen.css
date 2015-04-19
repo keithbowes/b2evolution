@@ -2,29 +2,27 @@ body,
 html {
   border: none;
   margin: 0;
-  overflow: auto;
-  overflow-x: hidden;
+  overflow: hidden auto;
   padding: 0;
 }
 
 /* Use more display for content in devices with limited screen space
  * to minimize scrolling. */
-main,
-nav {
-  display: block;
+nav,
+#content {
   width: 100% !important;
 }
 
 .allowed-tags {
   margin: 0;
-  padding: 0;
   max-width: 100%;
+  padding: 0 !important;
   width: 100%;
 }
 
 .bCalendarTable {
-    max-width: 25em !important;
     margin: 1em 2em;
+    max-width: 100%;
 }
 
 .input,

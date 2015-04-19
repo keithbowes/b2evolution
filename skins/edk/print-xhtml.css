@@ -1,5 +1,11 @@
+/* Hide navigation that's useless on paper */
+[role="navigation"] {
+  display: none !important;
+}
+
 /* Allow printing everything, instead of just the first page */
 #content {
-  position: static;
-  width: 100%;
+  overflow: auto;
+  position: static !important;
+  width: 100% !important;
 }
