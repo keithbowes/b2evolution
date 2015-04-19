@@ -101,19 +101,6 @@ function supports_link_toolbar()
 	return $ret;
 }
 
-if (supports_xhtml())
-{
-	$content_type = 'application/xhtml+xml';
-	skin_content_header($content_type);
-	echo '<?xml version="1.0" encoding="' . $io_charset . '"?' . '>';
-	echo "\n";
-}
-else
-{
-	$content_type = 'text/html';
-	skin_content_header($content_type);
-}
-
 global $locale;
 $locale = preg_replace('/(\w{2,3})-.*$/', '$1', locale_lang(false));
 
@@ -338,26 +325,33 @@ function edk_meta($type, $value, $content, $extra = array())
 	echo edk_get_meta($type, $value, $content, $extra);
 }
 
-if (!supports_xhtml())
+if (supports_xhtml())
 {
-	$dtd = '<!DOCTYPE html>';	
-	$langattrs ="lang=\"$locale\"";
-	$htmlelem = "<html $langattrs>";
-}
-else
-{
-	global $use_strict;
+	$content_type = 'application/xhtml+xml';
+	skin_content_header($content_type);
+	echo '<?xml version="1.0" encoding="' . $io_charset . '"?' . '>';
+	echo "\n";
+
 	global $skin;
 	$xml_base = $Blog->get_local_skins_url().$skin.'/';
 	for ($i = 0; $i < 23; $i++)
 		$space .= ' ';
+
 	$dtd = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 2.0//EN"' . "\n" .
 	   $space . '"' . $xml_base . 'xhtml2.dtd">';
 
 	$langattrs ="xml:lang=\"$locale\" xml:base=\"". $xml_base . '"';
 	$htmlelem = "<html xmlns=\"http://www.w3.org/1999/xhtml\" $langattrs>";
 }
+else
+{
+	$content_type = 'text/html';
+	skin_content_header($content_type);
 
+	$dtd = '<!DOCTYPE html>';	
+	$langattrs ="lang=\"$locale\"";
+	$htmlelem = "<html $langattrs>";
+}
 
 $params = array_merge( array(
 	'auto_pilot'    => 'seo_title',
