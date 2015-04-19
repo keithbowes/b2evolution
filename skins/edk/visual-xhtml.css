@@ -178,6 +178,13 @@ summary {
   }
 }
 
+@media (-webkit-min-device-pixel-ratio: 0)
+{
+  input[type="search"] {
+    height: inherit;
+  }
+}
+
 /* For browsers that support CSS 4 media queries */
 /* Allow expanding the tiny menu */
 @media (pointer: course) and (hover: hover),

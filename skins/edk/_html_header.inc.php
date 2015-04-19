@@ -487,17 +487,17 @@ if ($Blog->get_setting('feed_content') != 'none')
 ?>
   <link rel="EditURI" type="application/rsd+xml" title="RSD" href="<?php echo $xmlsrv_url; ?>rsd.php?blog=<?php echo $Blog->ID; ?>" />
 <?php
-	require_css('style.css', 'relative', NULL, 'all');
-	require_css('speech.css', 'relative', NULL, 'speech');
-	require_css('visual.css', 'relative', NULL, 'handheld, print, projection, screen, tty, tv');
-	require_css('smallscreen.css', 'relative', NULL, '(max-width: 640px)');
-	require_css('print.css', 'relative', NULL, 'print');
+	require_css($xml_base.'style.css', 'relative', NULL, 'all');
+	require_css($xml_base.'speech.css', 'relative', NULL, 'speech');
+	require_css($xml_base.'visual.css', 'relative', NULL, 'handheld, print, projection, screen, tty, tv');
+	require_css($xml_base.'smallscreen.css', 'relative', NULL, '(max-width: 640px)');
+	require_css($xml_base.'print.css', 'relative', NULL, 'print');
 
 	if (supports_xhtml())
 	{
-		require_css('visual-xhtml.css', 'relative', NULL, 'handeld, print, projection, screen, tty, tv');
-		require_css('smallscreen-xhtml.css', 'relative', NULL, '(max-width: 640px)');
-		require_css('print-xhtml.css', 'relative', NULL, 'print');
+		require_css($xml_base.'visual-xhtml.css', 'relative', NULL, 'handeld, print, projection, screen, tty, tv');
+		require_css($xml_base.'smallscreen-xhtml.css', 'relative', NULL, '(max-width: 640px)');
+		require_css($xml_base.'print-xhtml.css', 'relative', NULL, 'print');
 	}
 
 	include_headlines(); /* Add javascript and css files included by plugins and skin */
