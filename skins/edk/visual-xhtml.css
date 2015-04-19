@@ -24,6 +24,7 @@ html {
 input[type="search"] {
   background-color: orange;
   color: navy;
+  height: 1em;
 }
 
 input[type="search"]:focus {
@@ -147,7 +148,7 @@ summary {
 }
 
 /* For browsers that support CSS 3 media queries */
-@media all and (color) {
+@media (color) {
   #content
   {
     left: 28%;
@@ -169,5 +170,24 @@ summary {
   #menu li a:not(.button) {
     background-color: transparent;
     color: brown !important;
+  }
+}
+
+/* For browsers that support CSS 4 media queries */
+/* Allow expanding the tiny menu */
+@media (pointer: course) and (hover: hover),
+(any-pointer: fine) and (hover) {
+  #content {
+    left: 4%;
+    width: 96% !important;
+  }
+
+  #menu {
+    left: 0;
+    width: 3.5% !important;
+  }
+
+  #menu:hover {
+    width: 72% !important;
   }
 }

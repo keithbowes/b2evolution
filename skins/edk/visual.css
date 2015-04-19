@@ -110,9 +110,12 @@ form.bComment fieldset {
   border: 0;
 }
 
-form.bComment input[type="email"], form.bComment input[type="password"],
-form.bComment input[type="text"], form.bComment input[type="url"],
-form.bComment textarea {
+form.bComment input[type="email"],
+form.bComment input[type="password"],
+form.bComment input[type="text"],
+form.bComment input[type="url"],
+form.bComment textarea,
+input[type="search"] {
   background-color: lavender;
   border: thin solid #333;
   color: red;
@@ -161,7 +164,6 @@ input[list] {
 
 input[type="search"] {
   border: thin solid #999;
-  height: 1em;
   width: 65% !important;
 }
 
