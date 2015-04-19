@@ -160,19 +160,9 @@ input[list] {
 }
 
 input[type="search"] {
-  background-color: orange;
   border: thin solid #999;
-  color: navy;
   height: 1em;
   width: 65% !important;
-}
-
-input[type="search"]:focus {
-  background-color: darkorange !important;
-}
-
-input[type="search"]:hover {
-  background-color: red;
 }
 
 li, p,

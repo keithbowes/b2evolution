@@ -21,6 +21,19 @@ html {
   overflow: hidden;
 }
 
+input[type="search"] {
+  background-color: orange;
+  color: navy;
+}
+
+input[type="search"]:focus {
+  background-color: darkorange !important;
+}
+
+input[type="search"]:hover {
+  background-color: red;
+}
+
 summary {
   display: none;
 }
