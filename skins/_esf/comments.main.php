@@ -54,7 +54,12 @@ echo "title\t";
 html_entity_decode($Blog->disp('name', 'xml'), ENT_QUOTES, 'UTF-8');
 echo "\n";
 echo "link\t";
-$Blog->disp('link', 'xml');
+$Blog->disp('lastcommentsurl', 'xml');
+
+param('p');
+if ($p)
+	echo "&p=$p";
+
 echo "\n";
 
 ?>

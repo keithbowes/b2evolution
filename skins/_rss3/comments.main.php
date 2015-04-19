@@ -74,7 +74,13 @@ title: <?php
 			// ------------------------------ END OF REQUEST TITLE -----------------------------
 		?>
 
-link: <?php $Blog->disp( 'link', 'xml' ) ?>
+link: <?php
+			$Blog->disp( 'lastcommentsurl', 'xml' );
+			param('p');
+			if (p)
+				echo "&p=$p";
+
+?>
 
 language: <?php $Blog->disp( 'locale', 'xml' ) ?>
 
