@@ -159,12 +159,17 @@ summary {
   }
 
   #menu {
-    background-color: azure;
-    color: black;
     display: inline-block;
     left: 0;
     padding: 0;
     right: 0;
+  }
+}
+
+@media screen or (color) {
+  #menu {
+    background-color: azure;
+    color: black;
   }
 
   #menu li a:not(.button) {
