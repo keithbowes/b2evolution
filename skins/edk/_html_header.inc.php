@@ -138,7 +138,7 @@ function get_post_urltitle($dir = '', $row = 0)
 
 	$blogid = isset($Item) ? $Item->blog_ID : isset($Blog) ? $Blog->ID : -1;
 	$blogslug = isset($Item) ? $Item->urltitle : '';
-	$categorytablename = isset($Item) ? $Item->main_Chapter->dbtablename : 'T_categories';
+	$categorytablename = isset($Item) && isset($Item->main_Chapter) ? $Item->main_Chapter->dbtablename : 'T_categories';
 	$itemtablename = isset($Item) ? $Item->dbtablename : 'T_items__item';
 
 	if (!empty($dir))
@@ -202,7 +202,7 @@ function get_item($dir)
 	global $Blog, $DB, $Item;
 	$blogid = $Item ? $Item->blog_ID : $Blog ? $Blog->ID : -1;
 	$blogslug = $Item ? $Item->urltitle : '';
-	$categorytablename = $Item ? $Item->main_Chapter->dbtablename : 'T_categories';
+	$categorytablename = isset($Item) && isset($Item->main_Chapter) ? $Item->main_Chapter->dbtablename : 'T_categories';
 	$itemtablename = $Item ? $Item->dbtablename : 'T_items__item';
 	if (!$categorytablename || !$itemtablename) return;
 	$row = 0;

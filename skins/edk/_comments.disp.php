@@ -18,12 +18,17 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $CommentList = new CommentList2( $Blog );
 
+global $DB;
+$query = $DB->get_row('SELECT COUNT(*) FROM T_comments', ARRAY_A, 0);
+
+$p = param('p');
+
 // Filter list:
 $CommentList->set_filters( array(
 		'types' => array( 'comment', 'trackback', 'pingback' ),
 		'statuses' => array ( 'published' ),
 		'order' => 'DESC',
-		'comments' => 20,
+		'comments' => empty($p) ? 20 : $query['COUNT(*)'],
 	) );
 
 // Get ready for display (runs the query):
@@ -35,6 +40,7 @@ while( $Comment = & $CommentList->get_next() )
 { // Loop through comments:
 	// Load comment's Item object:
 	$Comment->get_Item();
+	if (!empty($p) && $Comment->Item->ID != $p) continue;
 	?>
 	<!-- ========== START of a COMMENT ========== -->
 	<?php $Comment->anchor() ?>
