@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net\n"
 "POT-Creation-Date: 2015-04-18 01:00-0400\n"
-"PO-Revision-Date: 2015-04-18 01:25-0400\n"
+"PO-Revision-Date: 2015-04-20 02:49-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -3541,11 +3541,11 @@ msgstr "URL devas esti absoluta."
 #: ../../../inc/_core/_url.funcs.php:161
 #, php-format
 msgid "URL \"%s\" must be a full path starting with \"/\" or an anchor starting with \"#\"."
-msgstr "URL \"%s\" devas esti plena vojo komencante per \"/\" aŭ ankro komencante per \"#\"."
+msgstr "URL \"%s\" devas esti plena vojo komenciĝanta per \"/\" aŭ ankro komenciĝanta per \"#\"."
 
 #: ../../../inc/_core/_url.funcs.php:162
 msgid "URL must be a full path starting with \"/\" or an anchor starting with \"#\"."
-msgstr "URL devas esti plena vojo komencante per \"/\" aŭ ankro komencante per \"#\"."
+msgstr "URL devas esti plena vojo komenciĝanta per \"/\" aŭ ankro komenciĝanta per \"#\"."
 
 #: ../../../inc/_core/_url.funcs.php:171
 #, php-format
@@ -3754,11 +3754,11 @@ msgstr "Promocianta ĉiujn tablojn en la b2evolution-a MySQL-datumbazo laŭ UTF-
 #: ../../../inc/_core/model/db/_upgrade.funcs.php:1767
 #, php-format
 msgid "Converting %s..."
-msgstr "Konvertante je %s…"
+msgstr "Konvertanta je %s…"
 
 #: ../../../inc/_core/model/db/_upgrade.funcs.php:1773
 msgid "Changing default charset of DB..."
-msgstr "Ŝanĝante la aprioran kodoprezenton de la datumbazo…"
+msgstr "Ŝanĝanta la aprioran kodoprezenton de la datumbazo…"
 
 #: ../../../inc/_core/model/db/_upgrade.funcs.php:1777
 msgid "Upgrading done!"
@@ -4334,7 +4334,7 @@ msgstr "Plej freŝa tempindiko"
 #: ../../../inc/antispam/model/_antispam.funcs.php:230
 #, php-format
 msgid "Requesting abuse list from %s..."
-msgstr "Petante liston de misuzado el %s…"
+msgstr "Petanta liston de misuzado el %s…"
 
 #: ../../../inc/antispam/model/_antispam.funcs.php:242
 msgid "Incomplete reponse."
@@ -4441,7 +4441,7 @@ msgstr "URL de verkisto"
 
 #: ../../../inc/antispam/model/_antispam.funcs.php:422
 msgid "Content starts with..."
-msgstr "Enhavo komencante per…"
+msgstr "Enhavo komenciĝas per…"
 
 #: ../../../inc/antispam/model/_antispam.funcs.php:423
 msgid "Action"
@@ -6063,7 +6063,7 @@ msgstr "Kolekto-dosieruja URL"
 
 #: ../../../inc/collections/model/_blog.class.php:884
 msgid "You must provide an absolute URL (starting with <code>http://</code> or <code>https://</code>) and it must contain at least one '/' sign after the domain name!"
-msgstr "Vi devas doni absolutan URL-on (komencante per <code>http://</code> aŭ <code>https://</code>) kaj ĝi devas enhavi almenaŭ unu oblikvon post la domajnnomo."
+msgstr "Vi devas doni absolutan URL-on (komenciĝanta per <code>http://</code> aŭ <code>https://</code>) kaj ĝi devas enhavi almenaŭ unu oblikvon post la domajnnomo."
 
 #: ../../../inc/collections/model/_blog.class.php:892
 msgid "Blog Folder URL"
@@ -6092,7 +6092,7 @@ msgstr "Vi devas doni la plenan vojon de la media dosierujo."
 
 #: ../../../inc/collections/model/_blog.class.php:950
 msgid "You must provide an absolute URL (starting with <code>http://</code> or <code>https://</code>)!"
-msgstr "Vi devas doni absolutan URL-on (komencante per <code>http://</code> aŭ <code>https://</code>)."
+msgstr "Vi devas doni absolutan URL-on (komenciĝanta per <code>http://</code> aŭ <code>https://</code>)."
 
 #: ../../../inc/collections/model/_blog.class.php:966
 msgid "You must provide the media subdirectory."
@@ -6698,7 +6698,7 @@ msgstr "Kolektoj por agregado"
 
 #: ../../../inc/collections/views/_coll_advanced.form.php:107
 msgid "List collection IDs separated by ',', '*' for all collections or leave empty for current collection."
-msgstr "Listigi kolekto-identigilojn apartigante per ',' aŭ uzi la signon '*' por ĉiuj kolektoj aŭ vaka por la nuna kolekto."
+msgstr "Listigi kolekto-identigilojn apartigatajn per ',' aŭ uzi la signon '*' por ĉiuj kolektoj aŭ vaka por la nuna kolekto."
 
 #: ../../../inc/collections/views/_coll_advanced.form.php:111
 #: ../../../inc/collections/views/_coll_settings_blog.form.php:48
@@ -7048,7 +7048,7 @@ msgstr "Maksimumo nombro da kunsendaĵoj je ĉiu uzanto je ĉiu afiŝo"
 
 #: ../../../inc/collections/views/_coll_comments.form.php:132
 msgid "Allow other bloggers to send trackbacks to this blog, letting you know when they refer to it. This will also let you send trackbacks to other blogs."
-msgstr "Permesi, ke aliaj blogantoj sendu spurojn al ĉi tiu kolekto, sciigante al vi kiam ili referas al ĝi. Ĉi tiu ankaŭ permesas, ke vi sendu spurojn al aliaj kolektoj."
+msgstr "Permesi, ke aliaj blogantoj sendu spurojn al ĉi tiu kolekto, kiuj sciigos al vi kiam ili referas al ĝi. Ĉi tiu ankaŭ permesas, ke vi sendu spurojn al aliaj kolektoj."
 
 #: ../../../inc/collections/views/_coll_comments.form.php:132
 #: ../../../skins/basic/_item_feedback.inc.php:86
@@ -8036,7 +8036,7 @@ msgstr "Noto: Anonimaj uzantoj povas krei komentojn laŭ tiu stato. Vi verŝajne
 
 #: ../../../inc/collections/views/_coll_perm_view.funcs.php:266
 msgid "(un)selects all checkboxes using Javascript"
-msgstr "(Mal)markas ĉiujn markobutonojn uzante Javaskripton"
+msgstr "(Mal)markas ĉiujn markobutonojn per Javaskripto"
 
 #: ../../../inc/collections/views/_coll_perm_view.funcs.php:267
 msgid "(un)check all"
@@ -8049,7 +8049,7 @@ msgstr "Ĉi tie vi povas agordi iujn kromprogramojn aparte por ĉiu kolekto. <a 
 
 #: ../../../inc/collections/views/_coll_plugin_settings.form.php:97
 msgid "There are no plugins providing blog-specific settings."
-msgstr "Estas neniuj kromprogramoj donanta blogspecifan agordon."
+msgstr "Estas neniuj kromprogramoj donanta kolekto-specifan agordon."
 
 #: ../../../inc/collections/views/_coll_sel_type.view.php:19
 msgid "What kind of collection would you like to create?"
@@ -12684,7 +12684,7 @@ msgstr "Sufiksoj"
 
 #: ../../../inc/files/views/_filetype.form.php:43
 msgid "separated by whitespace"
-msgstr "apartigante per blanka spaco"
+msgstr "apartigata per blanka spaco"
 
 #: ../../../inc/files/views/_filetype.form.php:45
 msgid "File type name"
@@ -13496,7 +13496,7 @@ msgstr "Ne eblis elekti la elektitajn kategoriojn."
 
 #: ../../../inc/items/model/_item.class.php:5662
 msgid "Post had already pinged: skipping notifications..."
-msgstr "Afiŝo jam eĥis: ignorante sciigojn…"
+msgstr "Afiŝo jam eĥis: ignoranta sciigojn…"
 
 #: ../../../inc/items/model/_item.class.php:5673
 msgid "Post processing already pending..."
@@ -13504,7 +13504,7 @@ msgstr "Afiŝa traktado jam atendante…"
 
 #: ../../../inc/items/model/_item.class.php:5683
 msgid "Post not publicly published: skipping notifications..."
-msgstr "Afiŝo ne publike eldonita: ignorante sciigojn…"
+msgstr "Afiŝo ne publike eldonita: ignoranta sciigojn…"
 
 #: ../../../inc/items/model/_item.class.php:5693
 msgid "This post type doesn't need notifications..."
@@ -13512,7 +13512,7 @@ msgstr "La afiŝa tipo ne postulas sciigojn…"
 
 #: ../../../inc/items/model/_item.class.php:5711
 msgid "Scheduling asynchronous notifications..."
-msgstr "Enhorigante sensamtempaj sciigoj…"
+msgstr "Enhoriganta alitempajn sciigojn…"
 
 #: ../../../inc/items/model/_item.class.php:5821
 #, php-format
@@ -13552,7 +13552,7 @@ msgstr "Saltanta eĥoj (plenumiĝis en localhost)."
 #: ../../../inc/items/model/_item.class.php:5983
 #, php-format
 msgid "Pinging %s..."
-msgstr "Eĥante al %s…"
+msgstr "Eĥanta al %s…"
 
 #: ../../../inc/items/model/_item.class.php:6328
 msgid "This is a tinyurl you can copy/paste into twitter, emails and other places where you need a short link to this post"
@@ -15806,7 +15806,7 @@ msgstr "Vi elektis nenion konservi."
 #: ../../../inc/maintenance/model/_backup.class.php:206
 #, php-format
 msgid "Starting backup to: &laquo;%s&raquo; ..."
-msgstr "Eksekurkopiante al: «%s»…"
+msgstr "Eksekurkopianta al: «%s»…"
 
 #: ../../../inc/maintenance/model/_backup.class.php:238
 #, php-format
@@ -15815,7 +15815,7 @@ msgstr "Sekurkopio finita. Dosierujo: «%s»."
 
 #: ../../../inc/maintenance/model/_backup.class.php:257
 msgid "Creating folders/files backup..."
-msgstr "Kreante dosier(uj)ajn sekurkopiojn…"
+msgstr "Kreanta dosier(uj)ajn sekurkopiojn…"
 
 #: ../../../inc/maintenance/model/_backup.class.php:312
 #, php-format
@@ -15836,7 +15836,7 @@ msgstr "Ne eblis krei: «%s»."
 
 #: ../../../inc/maintenance/model/_backup.class.php:357
 msgid "Creating database backup..."
-msgstr "Kreante datumbazan sekurkopion…"
+msgstr "Kreanta datumbazan sekurkopion…"
 
 #: ../../../inc/maintenance/model/_backup.class.php:416
 #, php-format
@@ -15876,7 +15876,7 @@ msgstr "Neniu ĝisdatigo estas nun necesa. Vi eble devigos reinstalon se vi vola
 
 #: ../../../inc/maintenance/model/_maintenance.funcs.php:127
 msgid "Switching to maintenance mode..."
-msgstr "Ŝanĝiĝante al prizorga reĝimo…"
+msgstr "Ŝanĝiĝanta al prizorga reĝimo…"
 
 #: ../../../inc/maintenance/model/_maintenance.funcs.php:153
 #, php-format
@@ -15885,7 +15885,7 @@ msgstr "Ne eblis interŝanĝi prizorgan reĝimon. Prizorga dosiero ne povas krei
 
 #: ../../../inc/maintenance/model/_maintenance.funcs.php:163
 msgid "Switching out of maintenance mode..."
-msgstr "Ŝanĝiĝante el prizorga reĝimo…"
+msgstr "Ŝanĝiĝanta el prizorga reĝimo…"
 
 #: ../../../inc/maintenance/model/_maintenance.funcs.php:176
 #, php-format
@@ -16168,7 +16168,7 @@ msgstr "Konstati, ke ĉiuj celaj dosieroj estas legeblaj…"
 
 #: ../../../inc/maintenance/upgrade.ctrl.php:461
 msgid "Copying new folders and files..."
-msgstr "Kopiante novajn dosier(uj)ojn…"
+msgstr "Kopianta novajn dosier(uj)ojn…"
 
 #: ../../../inc/maintenance/upgrade.ctrl.php:467
 msgid "The files and database backup was created successfully but all folders and files could not be overwritten"
@@ -18699,7 +18699,7 @@ msgstr "Fina"
 #: ../../../inc/sessions/views/_stats_goalhits.view.php:132
 #: ../../../inc/sessions/views/_stats_search_keywords.view.php:189
 msgid "Goal names starting with"
-msgstr "Celaj nomoj komencante per…"
+msgstr "Celaj nomoj komenciĝantaj per"
 
 #: ../../../inc/sessions/views/_goal_hitsummary.view.php:154
 #: ../../../inc/sessions/views/_stats_goalcats.form.php:33
@@ -19093,7 +19093,7 @@ msgstr "Vizitoj de RSS/Atom-legiloj - Resumo"
 
 #: ../../../inc/sessions/views/_stats_syndication.view.php:20
 msgid "Any user agent accessing the XML feeds will be flagged as an XML reader."
-msgstr "Ajna TTT-legilo atingante la XML-fluojn estos vidita kiel XML-legilo."
+msgstr "Ajna TTT-legilo atinganta la XML-fluojn estos vidita kiel XML-legilo."
 
 #: ../../../inc/sessions/views/_stats_syndication.view.php:72
 msgid "XML (RSS/Atom) hits"
@@ -28244,11 +28244,11 @@ msgstr "Ha, jen komento mia."
 
 #: ../../../install/_functions_create.php:2847
 msgid "Hi!<br />This is a sample comment that has been approved by default!<br />Admins and moderators can very quickly approve or reject comments from the collection dashboard."
-msgstr "Saluton<br />Jen specimena komento, kiu aŭtomate aprobiĝis.<br />Administrantoj kaj kontrolantoj povas tute rapide aprobas aŭ malaprobas komentojn uzante la kolekto-stirilon."
+msgstr "Saluton<br />Jen specimena komento, kiu aŭtomate aprobiĝis.<br />Administrantoj kaj kontrolantoj povas tute rapide aprobas aŭ malaprobas komentojn per la kolekto-stirilo."
 
 #: ../../../install/_functions_create.php:2851
 msgid "Hi!<br />This is a sample comment that has not been approved by default.<br />Admins and moderators can very quickly approve or reject comments from the collection dashboard."
-msgstr "Saluton!<br />Jen specimena komento, kiu ne aŭtomate aprobiĝis.<br />Administrantoj kaj kontrolantoj povas tute rapide aprobi aŭ malaprobi komentojn uzante la kolekto-stirilon."
+msgstr "Saluton!<br />Jen specimena komento, kiu ne aŭtomate aprobiĝis.<br />Administrantoj kaj kontrolantoj povas tute rapide aprobi aŭ malaprobi komentojn per la kolekto-stirilo."
 
 #: ../../../install/_functions_delete.php:77
 msgid "Reset done!"
@@ -28965,7 +28965,7 @@ msgstr "URL-oj de aŭtomata ligado"
 
 #: ../../../plugins/_autolinks.plugin.php:89
 msgid "Autolink URLs starting with http: https: mailto: aim: icq: as well as adresses of the form www.*.* or *@*.*"
-msgstr "URL-oj de aŭtomata ligado komencante per http: https: mailto: aim: icq: kaj adresoj en la formo www.*.* aŭ *@*.*"
+msgstr "URL-oj de aŭtomata ligado komenciĝanta per http: https: mailto: aim: icq: kaj adresoj en la formo www.*.* aŭ *@*.*"
 
 #: ../../../plugins/_autolinks.plugin.php:92
 msgid "Autolink definitions"
@@ -29084,7 +29084,7 @@ msgstr "Permesi blogadon per javaskriptaj legosignoj."
 
 #: ../../../plugins/_bookmarklet.plugin.php:37
 msgid "Adds a tool allowing blogging through a bookmarklet."
-msgstr "Aldonas ilon permesante blogadon per javaskripta legosigno."
+msgstr "Aldonas ilon por permesi blogi per javaskripta legosigno."
 
 #: ../../../plugins/_bookmarklet.plugin.php:56
 #: ../../../plugins/_bookmarklet.plugin.php:64
@@ -29686,7 +29686,7 @@ msgstr "Kontaktaj piktogramoj"
 
 #: ../../../plugins/_whosonline.plugin.php:59
 msgid "Display contact icons allowing to send private messages to logged in users."
-msgstr "Montri kontaktajn piktogramojn permesante sendi privatajn mesaĝojn al ensalutitaj uzantoj."
+msgstr "Montri kontaktajn piktogramojn por permesi sendi privatajn mesaĝojn al ensalutitaj uzantoj."
 
 #: ../../../plugins/_whosonline.plugin.php:64
 msgid "Online session timeout"
@@ -30438,7 +30438,7 @@ msgstr "Aktivigi por aldoni facilan algluadon"
 
 #: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:195
 msgid "Enable to add directionality icons to TinyMCE that enables TinyMCE to better handle languages that is written from right to left."
-msgstr "Aktivigi por aldoni direktajn piktogramojn al TinyMC, aktivigante, ke TinyMCE pli bone traktu lingvojn skribante de dekstro al maldekstro."
+msgstr "Aktivigi por aldoni direktajn piktogramojn al TinyMC por aktivigi, ke TinyMCE pli bone traktu lingvojn, kiuj skribiĝas de dekstro al maldekstro."
 
 #: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:279
 msgid "Toggle to plain HTML editor"
@@ -30989,7 +30989,7 @@ msgstr "Ĉi tiu afiŝo havas 1 reagon, kiu atendas kontroladon... %s"
 #: ../../../skins/touch/_item_feedback.inc.php:276
 #, php-format
 msgid "This post has %d feedbacks awaiting moderation... %s"
-msgstr "Ĉi tiu afiŝo havas %d reagojn atendante kontroladon... %s"
+msgstr "Ĉi tiu afiŝo havas %d reagojn atendanta kontroladon... %s"
 
 #: ../../../skins/_item_feedback.inc.php:397
 #: ../../../skins/touch/_item_feedback.inc.php:317
