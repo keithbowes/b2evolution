@@ -49,7 +49,7 @@ $params = array_merge( array(
 		'preview_end'          => '</div>',
 		'comment_error_start'  => '<div class="bComment" id="comment_error">',
 		'comment_error_end'    => '</div>',
-		'comment_template'     => '_item_comment.inc.php',	// The template used for displaying individual comments (including preview)
+		'comment_template'     => 'templates/_item_comment.inc.php',	// The template used for displaying individual comments (including preview)
 		'comment_image_size'   => 'fit-400x320',
 		'author_link_text'     => 'name', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
 		'link_to'              => 'userurl>userpage',		    // 'userpage' or 'userurl' or 'userurl>userpage' or 'userpage>userurl'
@@ -349,7 +349,7 @@ if( $Item->can_see_comments( false ) && ( $params['disp_comments'] || $params['d
 }
 
 // ------------------ COMMENT FORM INCLUDED HERE ------------------
-skin_include( '_item_comment_form.inc.php', $params );
+skin_include( 'templates/_item_comment_form.inc.php', $params );
 // Note: You can customize the default item feedback by copying the generic
 // /skins/_item_comment_form.inc.php file into the current skin folder.
 // ---------------------- END OF COMMENT FORM ---------------------

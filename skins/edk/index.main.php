@@ -34,13 +34,13 @@ function _t($str)
 /* Output the end of HTML */
 function end_html()
 {
-	skin_include( '_sidebar.inc.php' );
-	skin_include( '_body_footer.inc.php' );
-	skin_include( '_html_footer.inc.php' );
+	skin_include( 'templates/_sidebar.inc.php' );
+	skin_include( 'templates/_body_footer.inc.php' );
+	skin_include( 'templates/_html_footer.inc.php' );
 }
 
 skin_init( $disp );
-skin_include( '_html_header.inc.php' );
+skin_include( 'templates/_html_header.inc.php' );
 
 /* Show the footer */
 function show_footer()
@@ -57,7 +57,7 @@ function show_footer()
 	<h1><?php bloginfo('name'); ?></h1>
 <?php
 
-skin_include( '_body_header.inc.php' );
+skin_include( 'templates/_body_header.inc.php' );
 
 if (supports_xhtml())
 	$last_date = '';
@@ -192,7 +192,7 @@ if ($show_mode != 'comments')
 	</<?php if (supports_xhtml()) echo 'div'; else echo 'article'; ?>>
 <?php
 
-if ($show_mode != 'post') skin_include( '_item_feedback.inc.php');
+if ($show_mode != 'post') skin_include( 'templates/_item_feedback.inc.php');
 endwhile;
 
 skin_include('$disp$', array(

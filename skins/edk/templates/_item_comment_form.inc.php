@@ -33,7 +33,6 @@ $params = array_merge( array(
 		'default_text'         => '',
 		'preview_block_start'  => '',
 		'preview_start'        => '<div class="bComment" id="comment_preview">',
-		'comment_template'     => '_item_comment.inc.php',	// The template used for displaying individual comments (including preview)
 		'preview_end'          => '</div>',
 		'preview_block_end'    => '',
 		'before_comment_error' => '<p><em>',

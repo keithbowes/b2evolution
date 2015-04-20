@@ -4,6 +4,10 @@
 -->
 
 <!--
+     Support for HTML5 forms was added due to browsers being unwilling to support XForms (see https://bugzilla.mozilla.org/show_bug.cgi?id=xforms).
+-->
+
+<!--
    Extensible HTML version 1.0 Strict DTD
 
    This is the same as HTML 4 Strict except for
@@ -202,6 +206,15 @@
   rev      CDATA     #IMPLIED"
 >
 
+<!-- Copied from the XHTML+ARIA DTD, because we need ARIA support -->
+<!-- bring in the WAI-ARIA attributes cause we need them in Common -->
+<!ENTITY % ARIA-attributes.module "INCLUDE" >
+<![%ARIA-attributes.module;[
+<!ENTITY % ARIA-attributes.mod
+     PUBLIC "-//W3C//ENTITIES XHTML ARIA Attributes 1.0//EN"
+            "aria-attributes-1.mod" >
+%ARIA-attributes.mod;]]>
+
 <!-- core attributes common to most elements
   id       document-wide unique id
   class    space separated list of classes
@@ -217,6 +230,7 @@
   title       %Text;         #IMPLIED
   media       %MediaDesc;    #IMPLIED
   layout      (irrelevant|relevant) #IMPLIED
+  %ARIA.attrib;
   %Edit;
   %Embedding;
   %Events;
@@ -270,7 +284,7 @@
 <!ENTITY % phrase "em | strong | dfn | code | q |
                    samp | kbd | var | cite | abbr | sub | sup ">
 
-<!ENTITY % legacy-form.elems "input | select | textarea | label | button">
+<!ENTITY % legacy-form.elems "input | datalist | select | textarea | label | button">
 
 <!-- these can occur at block or inline level -->
 <!ENTITY % misc.inline "ins | del | script">
@@ -888,9 +902,22 @@ several semantically related columns together.
   checked     (checked)      #IMPLIED
   disabled    (disabled)     #IMPLIED
   readonly    (readonly)     #IMPLIED
+  required    (required)     #IMPLIED
   size        CDATA          #IMPLIED
   maxlength   %Number;       #IMPLIED
+  minlength   %Number;       #IMPLIED
   alt         CDATA          #IMPLIED
+  pattern     CDATA          #IMPLIED
+  min         %Number;       #IMPLIED
+  max         %Number;       #IMPLIED
+  step        %Number;       #IMPLIED
+  list        IDREF          #IMPLIED
+  placeholder CDATA          #IMPLIED
+>
+
+<!ELEMENT datalist %Flow;>
+<!ATTLIST atalist
+    %attrs;
 >
 
 <!ELEMENT select (optgroup|option)+>  <!-- option selector -->
