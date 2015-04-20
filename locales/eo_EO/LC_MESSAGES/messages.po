@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net\n"
 "POT-Creation-Date: 2015-04-18 01:00-0400\n"
-"PO-Revision-Date: 2015-04-20 02:49-0400\n"
+"PO-Revision-Date: 2015-04-20 02:57-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -6336,7 +6336,7 @@ msgstr "Nur ensalutitaj uzantoj"
 #: ../../../inc/collections/model/_blog.funcs.php:977
 #: ../../../inc/collections/model/_blog.funcs.php:998
 msgid "Blog members only"
-msgstr "Nur bloganoj"
+msgstr "Nur anoj"
 
 #: ../../../inc/collections/model/_blog.funcs.php:977
 #: ../../../inc/collections/model/_blog.funcs.php:998
@@ -28664,7 +28664,7 @@ msgstr "Datumbazo en kiu vi volas instali"
 
 #: ../../../install/index.php:525
 msgid "b2evolution stores blog posts, comments, user permissions, etc. in a MySQL database. You must create this database prior to installing b2evolution and provide the access parameters to this database below. If you are not familiar with this, you can ask your hosting provider to create the database for you."
-msgstr "b2evolution konservas blogerojn, komentojn, atingopermesojn ktp en MySQL-datumbazo. Vi devas krei tiun datumbazon antaŭ instalado de b2evolution kaj doni la atingajn parametrojn al tiu datumbazo ĉi-sube. Se vi ne familiaras kn tio, vi povas peti, ke via gastiganto kreu la datumbazon por vi."
+msgstr "b2evolution konservas afiŝojn, komentojn, atingopermesojn ktp en MySQL-datumbazo. Vi devas krei tiun datumbazon antaŭ instalado de b2evolution kaj doni la atingajn parametrojn al tiu datumbazo ĉi-sube. Se vi ne familiaras kn tio, vi povas peti, ke via gastiganto kreu la datumbazon por vi."
 
 #: ../../../install/index.php:527
 msgid "Typically looks like \"localhost\" or \"sql-6\" or \"sql-8.yourhost.net\"..."
@@ -30337,7 +30337,7 @@ msgstr "Stela formatado ekz-e [stars:2.3/5]"
 
 #: ../../../plugins/star_plugin/_star.plugin.php:46
 msgid "This plugin allows to render star ratings inside blog posts and comments by using the syntax [stars:2.3/5] for example"
-msgstr "Ĉi tiu kromprogramo permesas stelajn taksojn en blogeroj kaj komentoj per la sintakso [stars:2.3/5]"
+msgstr "Ĉi tiu kromprogramo permesas stelajn taksojn en afiŝoj kaj komentoj per la sintakso [stars:2.3/5]"
 
 #: ../../../plugins/test_plugin/_test.plugin.php:55
 msgid "Test plugin"
@@ -31810,7 +31810,7 @@ msgstr "Montri la daton de ĉiu afiŝo"
 #: ../../../skins/colourise/single.main.php:106
 #: ../../../skins/evopress/single.main.php:177
 msgid "This entry was posted on "
-msgstr "Ĉi tiu blogero estis afiŝita je"
+msgstr "Ĉi tiu afiŝo estis afiŝita je"
 
 # TRANS: time
 #: ../../../skins/colourise/single.main.php:110
@@ -31827,7 +31827,7 @@ msgstr "de "
 #: ../../../skins/colourise/single.main.php:121
 #: ../../../skins/evopress/single.main.php:192
 msgid "This entry was posted by "
-msgstr "Ĉi tiu blogero estis afiŝita de "
+msgstr "Ĉi tiu afiŝo estis afiŝita de "
 
 #: ../../../skins/colourise/single.main.php:128
 #: ../../../skins/evopress/single.main.php:199
@@ -32076,7 +32076,7 @@ msgstr "Afiŝi respondon"
 #: ../../../skins/forums/_item_block.inc.php:237
 #: ../../../skins/pureforums/_item_block.inc.php:233
 msgid "You must be a member of this blog to post a reply."
-msgstr "Vi devas esti blogano antaŭ ol respondi."
+msgstr "Vi devas esti ano antaŭ ol respondi."
 
 #: ../../../skins/forums/_item_block.inc.php:238
 #: ../../../skins/pureforums/_item_block.inc.php:234
