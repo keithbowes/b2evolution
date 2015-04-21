@@ -59,7 +59,7 @@ article {
 }
 
 div[role="article"],
-section[role="navigation"] #menu > * {
+#menu {
   background-color: azure;
   border: medium lightblue dotted;
 }
@@ -176,10 +176,6 @@ li, p,
   letter-spacing: -0.05em;
 }
 
-section[role="main"]#content {
-  margin: 1em 0.5em 0.5% 0;
-}
-
 section[role="navigation"] {
   float: left;
   width: 23.25%;
@@ -245,18 +241,12 @@ section[role="navigation"] ul span.user {
   white-space: nowrap;
 }
 
-section[role="navigation"] #menu > li > ul > li:first-child h2 {
-  margin-top: 0;
-}
-
-section[role="navigation"] #menu > li:last-child {
-  padding-bottom: 1em;
-}
-
 #content {
   float: right;
+  margin: 1em 0.5em 0.5% 0;
   width: 75.5%;
 }
+
 
 #content abbr {
   border-bottom-color: magenta;
@@ -291,7 +281,9 @@ section[role="navigation"] #menu > li:last-child {
   vertical-align: top;
 }
 
-#esf {
+#esf,
+#rss3 {
+  color: white !important;
   margin: 0.3em 0 0.1em 0;
 }
 
@@ -321,6 +313,18 @@ section[role="navigation"] #menu > li:last-child {
 
 #lastitem {
   float: right;
+}
+
+#menu > * {
+  background-color: inherit;
+}
+
+#menu > li > ul > li:first-child h2 {
+  margin-top: 0;
+}
+
+#menu > li:last-child {
+  padding-bottom: 1em;
 }
 
 #nextitem {
