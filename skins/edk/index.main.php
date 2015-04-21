@@ -11,6 +11,16 @@ if ($diaspora_pod = (param('diaspora-pod-select') || param('diaspora-pod')))
 	die();
 }
 
+if (param('delete_cookies'))
+{
+	foreach ($_COOKIE as $cookie => $cval)
+	{
+		printf($Skin->T_("Deleting cookie %s<br />\n"), $cookie);
+		setcookie($cookie, NULL, -1);
+	}
+	die($Skin->T_('Cookies deleted!'));
+}
+
 $show_mode = param('show', 'string', 'post');
 
 $hl = 'single' != $disp ? 'h3' : 'h2';
@@ -48,6 +58,7 @@ function show_footer()
 
 	printf($Skin->T_('<div>Powered by <cite><a href="http://www.duckduckgo.com/?q=!+%1$s">%1$s</a> %2$s</cite>.</div>'), $app_name, $app_version);
 	get_copyright();
+	echo '<div>' . $Skin->T_('This site uses <a href="http://en.wikipedia.org/wiki/HTTP_cookie">cookies</a>.') . ' <a href="' . $_SERVER['PHP_SELF'] . '?delete_cookies=1&amp;redir=no">' . $Skin->T_('Delete Cookies!') . '</a></div>' . "\n";
 }
 
 skin_init( $disp );
