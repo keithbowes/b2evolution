@@ -313,7 +313,7 @@ function edk_get_meta($type, $value, $content, $extra = array())
 			$key = key($attrs);
 			$r .= $key . '="' . $attrs[$key] . '" ';
 		} while(next($attrs));
-		$r .= ' />';
+		$r .= '/>';
 	}
 
 	$r .= "\n";
@@ -325,22 +325,24 @@ function edk_meta($type, $value, $content, $extra = array())
 	echo edk_get_meta($type, $value, $content, $extra);
 }
 
+
+global $skin;
+$edk_base = $Blog->get_local_skins_url().$skin.'/';
+header(sprintf('Default-Style: %s', $Skin->T_(supports_xhtml() ? 'Left Menu' : 'Clear Look')));
+
 if (supports_xhtml())
 {
 	$content_type = 'application/xhtml+xml';
 	skin_content_header($content_type);
 	echo '<?xml version="1.0" encoding="' . $io_charset . '"?' . '>';
 	echo "\n";
-
-	global $skin;
-	$xml_base = $Blog->get_local_skins_url().$skin.'/';
 	for ($i = 0; $i < 23; $i++)
 		$space .= ' ';
 
 	$dtd = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 2.0//EN"' . "\n" .
-	   $space . '"' . $xml_base . 'DTD/xhtml2.dtd">';
+	   $space . '"' . $edk_base . 'DTD/xhtml2.dtd">';
 
-	$langattrs ="xml:lang=\"$locale\" xml:base=\"". $xml_base . '"';
+	$langattrs = 'xml:base="'. $edk_base . '" xml:lang="' . $locale . '"';
 	$htmlelem = "<html xmlns=\"http://www.w3.org/1999/xhtml\" $langattrs>";
 }
 else
@@ -379,6 +381,7 @@ if (!supports_xhtml())
 	?></title>
 <?php
 
+	edk_meta('name', 'author', $Blog->get_owner_User()->get('fullname'));
 	edk_meta('property', 'DC.rights', get_copyright(array('display' => FALSE, 'license' =>  FALSE)));
 	edk_meta('property', 'copyright', get_copyright(array('display' =>  FALSE, 'license' =>  FALSE)));
 	edk_meta('property', 'license', get_license(array('display' => FALSE, 'format' =>  'text')));
@@ -480,30 +483,22 @@ if ($Blog->get_setting('feed_content') != 'none')
 ?>
   <link rel="EditURI" type="application/rsd+xml" title="RSD" href="<?php echo $xmlsrv_url; ?>rsd.php?blog=<?php echo $Blog->ID; ?>" />
 <?php
-	/* Don't embed style.css, as it's found in the css/ subdir and loaded explicitly below */
+	/* Don't embed style.css, as it doesn't exist in this theme */
 	global $headlines;
 	unset($headlines['style.css']);
 
 	/* Main CSS files */
-	require_css($xml_base.'css/style.css', 'relative', NULL, 'all');
-	require_css($xml_base.'css/speech.css', 'relative', NULL, 'speech');
-	require_css($xml_base.'css/visual.css', 'relative', NULL, 'handheld, print, projection, screen, tty, tv');
-	require_css($xml_base.'css/smallscreen.css', 'relative', NULL, '(max-width: 640px)');
-	require_css($xml_base.'css/print.css', 'relative', NULL, 'print');
+	$visual_media = 'handheld, print, projection, screen, tty, tv';
+	require_css($edk_base.'css/core.css', 'relative', NULL, 'all');
+	require_css($edk_base.'css/speech.css', 'relative', NULL, 'speech');
+	require_css($edk_base.'css/visual.css', 'relative', NULL, $visual_media);
+	require_css($edk_base.'css/smallscreen.css', 'relative', NULL, '(max-width: 640px)');
+	require_css($edk_base.'css/print.css', 'relative', NULL, 'print');
 
 	/* Alternate CSS files */
-	if (supports_xhtml())
-	{
-		require_css($xml_base.'css/right-menu.css', 'relative', $Skin->T_('Right Menu'), 'screen');
-		require_css($xml_base.'css/left-menu.css', 'relative', $Skin->T_('Left Menu'), 'screen');
-		require_css($xml_base.'css/clear.css', 'relative', $Skin->T_('Clear Look'), 'screen');
-	}
-	else
-	{
-		require_css($xml_base.'css/clear.css', 'relative', $Skin->T_('Clear Look'), 'screen');
-		require_css($xml_base.'css/left-menu.css', 'relative', $Skin->T_('Left Menu'), 'screen');
-		require_css($xml_base.'css/right-menu.css', 'relative', $Skin->T_('Right Menu'), 'screen');
-	}
+	require_css($edk_base.'css/right-menu.css', 'relative', $Skin->T_('Right Menu'), $visual_media);
+	require_css($edk_base.'css/left-menu.css', 'relative', $Skin->T_('Left Menu'), $visual_media);
+	require_css($edk_base.'css/clear.css', 'relative', $Skin->T_('Clear Look'), $visual_media);
 
 	include_headlines(); /* Add javascript and css files included by plugins and skin */
 

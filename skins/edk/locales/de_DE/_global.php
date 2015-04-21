@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['de_DE'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b 2e\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2015-04-21 01:02-0400\nPO-Revision-Date: 2015-04-21 01:05-0400\nLast-Translator: Keith <keith@localhost>\nLanguage-Team: German\nLanguage: de\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b 2e\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2015-04-21 01:02-0400\nPO-Revision-Date: 2015-04-21 16:01-0400\nLast-Translator: Keith <keith@localhost>\nLanguage-Team: German\nLanguage: de\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 "Deleting cookie %s<br />\n" => "Entfernend Cookie %s<br />\n",
 'Cookies deleted!' => 'Cookies entfernt!',
 '<div>Powered by <cite><a href="http://www.duckduckgo.com/?q=!+%1$s">%1$s</a> %2$s</cite>.</div>' => '<div>Präsentiert von <cite><a href="http://www.duckduckgo.com/?q=!+%1$s">%1$s</a> %2$s</cite>.</div>',
@@ -24,9 +24,9 @@ $trans['de_DE'] = array(
 'Please leave this for stats' => 'Hinterlasse für die Statistik bitte',
 'Main Content' => 'Hauptinhalt',
 'Menu' => 'Menü',
-'Right Menu' => 'Recht-Menü',
-'Left Menu' => 'Links-Menü',
-'Clear Look' => 'ClearLook',
+'Right Menu' => 'Rechts Menü',
+'Left Menu' => 'Links Menü',
+'Clear Look' => 'Klares Aussehen',
 ' (in response to <a href="%s">%s</a>)' => ' (eine Antwort an <a href="%s">%s</a>)',
 'from' => 'von',
 '<a href="http://en.wikipedia.org/wiki/Markdown">Markdown</a> is enabled.' => '<a href="http://de.wikipedia.org/wiki/Markdown">Markdown</a> ist aktiviert.',

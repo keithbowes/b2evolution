@@ -1,9 +1,18 @@
 [role="contentinfo"],
 #nav,
-.bCalendarTable caption a
-{
+.bCalendarTable caption a {
   background-color: navy;
   color: gold !important;
+}
+
+[role="contentinfo"] {
+  display: block;
+  position: static;
+  width: 100%;
+}
+
+[role="contentinfo"] div {
+  padding-left: 42%;
 }
 
 [role="contentinfo"] a {
@@ -12,17 +21,18 @@
 
 input[type="search"] {
   background-color: orange;
-  border: thin black solid;
+  border: thin #999 solid;
   color: navy;
-  height: 1em;
+  height: 14pt;
+  padding: 0;
 }
 
 input[type="search"]:focus {
-  background-color: red !important;
+  background-color: darkorange !important;
 }
 
 input[type="search"]:hover {
-  background-color: darkorange;
+  background-color: red;
 }
 
 #content {
@@ -68,4 +78,5 @@ input[type="search"]:hover {
 
 .bCalendarTable caption {
   border: thin black inset !important;
+  margin: 0.2em 0 0.3em 0;
 }

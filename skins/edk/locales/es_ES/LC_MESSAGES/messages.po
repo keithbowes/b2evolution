@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: b 2e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-21 01:02-0400\n"
-"PO-Revision-Date: 2015-04-21 01:13-0400\n"
+"PO-Revision-Date: 2015-04-21 16:04-0400\n"
 "Last-Translator: Keith Bowes <keith@localhost>\n"
 "Language-Team: Spanish\n"
 "Language: es_ES \n"
@@ -86,15 +86,15 @@ msgstr "Menú"
 
 #: templates/_html_header.inc.php:497 templates/_html_header.inc.php:505
 msgid "Right Menu"
-msgstr "Menú Derecho"
+msgstr "Menú de derecha"
 
 #: templates/_html_header.inc.php:498 templates/_html_header.inc.php:504
 msgid "Left Menu"
-msgstr "Menú Izquierdo"
+msgstr "Menú de izquierda"
 
 #: templates/_html_header.inc.php:499 templates/_html_header.inc.php:503
 msgid "Clear Look"
-msgstr "Clear Look"
+msgstr "Apariencia Clara"
 
 #: templates/_item_comment.inc.php:78
 #, php-format

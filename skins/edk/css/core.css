@@ -1,12 +1,3 @@
-/*
-Theme Name: Etoso de Keĉjo
-Description: A modification of Classic 1.5, the original WordPress theme that graced versions 1.2.x and prior.  It includes independently scrollable sections and not as dull of colors.  Port to b2evolution.
-Version: 0.9
-Author: Keith Bowes
-
-Default WordPress by Dave Shea || http://mezzoblue.com
-*/
-
 @import url(../../../rsc/css/blog_elements.css);	/* Import standard blog elements styles */
 @import url(../../../rsc/css/comments.css);	/* Import default comment styles */
 @import url(../../../rsc/css/forms.css);	/* Import default form styles */

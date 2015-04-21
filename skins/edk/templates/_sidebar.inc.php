@@ -191,7 +191,9 @@ for ($i = 0; $i < count($pods); $i++)
 ?>
 </select>
 
+<br />
 <span class="note">(<?php echo $Skin->T_('Select a pod to use above or enter one below.'); ?>)</span>
+<br />
 </datalist>
 
 <label>

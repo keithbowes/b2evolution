@@ -57,7 +57,7 @@ function show_footer()
 	$Plugins->trigger_event('SkinEndHtmlBody');
 
 	printf($Skin->T_('<div>Powered by <cite><a href="http://www.duckduckgo.com/?q=!+%1$s">%1$s</a> %2$s</cite>.</div>'), $app_name, $app_version);
-	get_copyright();
+	printf('<div>%s</div>', get_copyright(array('display' => FALSE)));
 	echo '<div>' . $Skin->T_('This site uses <a href="http://en.wikipedia.org/wiki/HTTP_cookie">cookies</a>.') . ' <a href="' . $_SERVER['PHP_SELF'] . '?delete_cookies=1&amp;redir=no">' . $Skin->T_('Delete Cookies!') . '</a></div>' . "\n";
 }
 

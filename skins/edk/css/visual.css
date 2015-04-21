@@ -31,8 +31,9 @@
 [role="contentinfo"] {
   clear: both;
   position: relative;
-  left: 42%;
+  left: 28%;
   text-align: left;
+  width: 70%;
 }
 
 a {

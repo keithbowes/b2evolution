@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo_EO'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b 2e\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2015-04-21 01:02-0400\nPO-Revision-Date: 2015-04-21 01:09-0400\nLast-Translator: Keith Bowes <keith@localhost>\nLanguage-Team: Esperanto\nLanguage: eo \nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b 2e\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2015-04-21 01:02-0400\nPO-Revision-Date: 2015-04-21 16:02-0400\nLast-Translator: Keith Bowes <keith@localhost>\nLanguage-Team: Esperanto\nLanguage: eo \nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 "Deleting cookie %s<br />\n" => "Foriganta la kuketon %s<br />\n",
 'Cookies deleted!' => 'Kuketoj forigitaj!',
 '<div>Powered by <cite><a href="http://www.duckduckgo.com/?q=!+%1$s">%1$s</a> %2$s</cite>.</div>' => '<div>Kreita pere de <cite><a href="http://www.duckduckgo.com/?q=!+%1$s">%1$s</a> %2$s</cite>.</div>',
@@ -24,9 +24,9 @@ $trans['eo_EO'] = array(
 'Please leave this for stats' => 'Bonvolu restigi tion pro statistikaĵoj',
 'Main Content' => 'Ĉefa enhavo',
 'Menu' => 'Menuo',
-'Right Menu' => 'Dekstra Menuo',
-'Left Menu' => 'Maldekstra menuo',
-'Clear Look' => 'Klara Aspekto',
+'Right Menu' => 'Dekstraflanka menuo',
+'Left Menu' => 'Maldekstraflanka menuo',
+'Clear Look' => 'Klara aspekto',
 ' (in response to <a href="%s">%s</a>)' => ' (responde al <a href="%s">%s</a>)',
 'from' => 'de',
 '<a href="http://en.wikipedia.org/wiki/Markdown">Markdown</a> is enabled.' => '<a href="http://bagateloj.org/post/6209552185">Markdown</a> estas aktiva.',
