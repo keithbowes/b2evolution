@@ -1,5 +1,5 @@
 [role="contentinfo"],
-section[role="navigation"],
+#nav,
 .bCalendarTable caption a
 {
   background-color: navy;
@@ -25,12 +25,6 @@ input[type="search"]:hover {
   background-color: darkorange;
 }
 
-section[role="navigation"] {
-  float: left;
-  overflow-x: auto;
-  text-transform: lowercase;
-}
-
 #content {
   float: right;
   margin-left: 0.5%;
@@ -38,7 +32,7 @@ section[role="navigation"] {
 
 #menu {
   margin: 0;
-  padding-top: 0.5em;
+  padding-top: 0.5em !important;
 }
 
 #menu * {
@@ -64,6 +58,12 @@ section[role="navigation"] {
 
 #menu ul li a {
   color: silver;
+}
+
+#nav {
+  float: left;
+  overflow-x: auto;
+  text-transform: lowercase;
 }
 
 .bCalendarTable caption {

@@ -170,59 +170,6 @@ li, p,
   letter-spacing: -0.05em;
 }
 
-section[role="navigation"] {
-  width: 23.25%;
-}
-
-section[role="navigation"] > * {
-  overflow: auto hidden;
-  margin-left: 2%;
-}
-
-section[role="navigation"] div.search {
-  padding-bottom: 0.5em;
-}
-
-section[role="navigation"] div.search,
-section[role="navigation"] ul li h2 a {
-  list-style-type: none;
-  margin: 0;
-  padding-left: 0.2em;
-}
-
-section[role="navigation"] h2 {
-  font-weight: 600;
-}
-
-section[role="navigation"] form.search {
-  margin: 0 0 0 1em;
-}
-
-section[role="navigation"] li {
-  font-size: 1.05em;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  line-height: 1.1em;
-}
-
-section[role="navigation"] ul {
-  color: black;
-  list-style-type: none;
-  padding: 0;
-  text-align: left;
-}
-
-section[role="navigation"] ul li {
-  font-style: normal;
-  letter-spacing: 0;
-  margin-top: 0;
-  padding: 0 0.2em;
-}
-
-section[role="navigation"] ul li a {
-  background-color: transparent;
-}
-
 table summary {
   display: none;
 }
@@ -297,6 +244,59 @@ table summary {
 
 #lastitem {
   float: right;
+}
+
+#nav {
+  width: 23.25%;
+}
+
+#nav > * {
+  overflow: auto hidden;
+  margin-left: 2%;
+}
+
+#nav div.search {
+  padding-bottom: 0.5em;
+}
+
+#nav div.search,
+#nav ul li h2 a {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0.2em;
+}
+
+#nav h2 {
+  font-weight: 600;
+}
+
+#nav form.search {
+  margin: 0 0 0 1em;
+}
+
+#nav li {
+  font-size: 1.05em;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  line-height: 1.1em;
+}
+
+#nav ul {
+  color: black;
+  list-style-type: none;
+  padding: 0;
+  text-align: left;
+}
+
+#nav ul li {
+  font-style: normal;
+  letter-spacing: 0;
+  margin-top: 0;
+  padding: 0 0.2em;
+}
+
+#nav ul li a {
+  background-color: transparent;
 }
 
 #nextitem {

@@ -70,7 +70,8 @@ skin_include( 'templates/_html_header.inc.php' );
 
 skin_include( 'templates/_body_header.inc.php' );
 
-	$last_date = '';
+$footer_elem = supports_xhtml() ? 'div' : 'footer';
+$last_date = '';
 
 if (is_text_browser() && 'menu' == $show_mode)
 {
@@ -213,9 +214,8 @@ if ($MainList)
 		' WHERE post_main_cat_ID IN (SELECT cat_ID FROM T_categories' .
 		' WHERE cat_blog_ID=' . $Blog->ID . ')', ARRAY_A, 0);
 
-	$footer_elem = supports_xhtml() ? 'div' : 'footer';
 	$MainList->page_links(array(
-			'block_start' => "\n" . '<!-- begin footer -->' . "\n" . '<' . $footer_elem . ' id="page-links" role="navigation">',
+			'block_start' => "\n" . '<!-- begin footer -->' . "\n" . '<' . $footer_elem . ' id="page-links"' . (supports_xhtml() ? ' role="navigation"' : '') . '>',
 			'block_end' => '</' . $footer_elem . '>' . "\n" . '<!-- end footer -->' . "\n",
 			'prev_text' => '<span class="sago">←</span>',
 			'next_text' => '<span class="sago">→</span>',
@@ -229,7 +229,6 @@ if ($MainList)
 </section>
 
 <?php
-
 if (!is_text_browser() || 'menu' == $disp)
 	end_html();
 ?>

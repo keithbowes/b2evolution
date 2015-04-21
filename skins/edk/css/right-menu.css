@@ -5,10 +5,10 @@
   text-align: center;
 }
 
-section[role="navigation"] {
-  float: right;
-}
-
 #content {
   float: left;
+}
+
+#nav {
+  float: right;
 }

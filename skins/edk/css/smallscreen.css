@@ -13,9 +13,9 @@ html {
 
 /* Use more display for content in devices with limited screen space
  * to minimize scrolling. */
-section[role="navigation"],
 #content,
-#menu {
+#menu,
+#nav {
   clear: both !important;
   margin: 0.5% !important;
   width: 98% !important;

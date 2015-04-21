@@ -5,7 +5,7 @@
 	locale_temp_switch($Blog->locale);
 ?>
 
-<section role="navigation">
+<section id="nav"<?php if (supports_xhtml()) echo ' role="navigation"'?>>
 	<ul id="menu">
 <li>
 <ul>

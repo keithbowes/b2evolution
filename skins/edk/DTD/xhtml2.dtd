@@ -916,7 +916,7 @@ several semantically related columns together.
 >
 
 <!ELEMENT datalist %Flow;>
-<!ATTLIST atalist
+<!ATTLIST datalist
     %attrs;
 >
 
