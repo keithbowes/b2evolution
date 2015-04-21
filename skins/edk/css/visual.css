@@ -58,8 +58,8 @@ article {
   padding-bottom: 0.2em;
 }
 
-article,
-nav #menu > * {
+div[role="article"],
+section[role="navigation"] #menu > * {
   background-color: azure;
   border: medium lightblue dotted;
 }
@@ -176,41 +176,41 @@ li, p,
   letter-spacing: -0.05em;
 }
 
-main #content {
+section[role="main"]#content {
   margin: 1em 0.5em 0.5% 0;
 }
 
-nav {
+section[role="navigation"] {
   float: left;
   width: 23.25%;
 }
 
-nav,
-nav div.search,
-nav ul li h2 a {
+section[role="navigation"],
+section[role="navigation"] div.search,
+section[role="navigation"] ul li h2 a {
   list-style-type: none;
   margin: 0;
   padding-left: 0.2em;
 }
 
-nav > * {
+section[role="navigation"] > * {
   overflow: auto hidden;
   margin-left: 2%;
 }
 
-nav div.search {
+section[role="navigation"] div.search {
   padding-bottom: 0.5em;
 }
 
-nav h2 {
+section[role="navigation"] h2 {
   font-weight: 600;
 }
 
-nav form.search {
+section[role="navigation"] form.search {
   margin: 0 0 0 1em;
 }
 
-nav li {
+section[role="navigation"] li {
   font-size: 1.05em;
   font-weight: 500;
   letter-spacing: 0.1em;
@@ -219,37 +219,37 @@ nav li {
   padding-bottom: 0.1em;
 }
 
-nav ul {
+section[role="navigation"] ul {
   color: black;
   list-style-type: none;
   padding: 0;
   text-align: left;
 }
 
-nav ul li {
+section[role="navigation"] ul li {
   font-style: normal;
   letter-spacing: 0;
   margin-top: 0;
   padding: 0 0.2em;
 }
 
-nav ul li a {
+section[role="navigation"] ul li a {
   background-color: transparent;
   color: brown !important;
 }
 
-nav ul a.user,
-nav ul span.user {
+section[role="navigation"] ul a.user,
+section[role="navigation"] ul span.user {
   display: inline-block;
   padding-top: 0.5em;
   white-space: nowrap;
 }
 
-nav #menu > li > ul > li:first-child h2 {
+section[role="navigation"] #menu > li > ul > li:first-child h2 {
   margin-top: 0;
 }
 
-nav #menu > li:last-child {
+section[role="navigation"] #menu > li:last-child {
   padding-bottom: 1em;
 }
 
@@ -613,10 +613,6 @@ nav #menu > li:last-child {
   bottom: 0.2em;
   display: inline-block;
   position: relative;
-}
-
-.section-heading {
-  display: none;
 }
 
 .search_submit {

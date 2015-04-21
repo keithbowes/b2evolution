@@ -39,19 +39,19 @@ function end_html()
 	skin_include( 'templates/_html_footer.inc.php' );
 }
 
-skin_init( $disp );
-skin_include( 'templates/_html_header.inc.php' );
-
 /* Show the footer */
 function show_footer()
 {
 	global $Plugins, $Skin;
-	global $app_name, $app_version, $sane_app_version;
+	global $app_name, $app_version;
 	$Plugins->trigger_event('SkinEndHtmlBody');
 
 	printf($Skin->T_('<div>Powered by <cite><a href="http://www.duckduckgo.com/?q=!+%1$s">%1$s</a> %2$s</cite>.</div>'), $app_name, $app_version);
 	get_copyright();
 }
+
+skin_init( $disp );
+skin_include( 'templates/_html_header.inc.php' );
 ?>
 
 	<h1><?php bloginfo('name'); ?></h1>
@@ -71,7 +71,6 @@ if (is_text_browser() && 'menu' == $show_mode)
 display_if_empty();
 while( $Item = & mainlist_get_item() ):
 
-global $use_strict;
 $_item_title = ($disp == 'single') ? $Item->get_title() : '';
 $_item_url = ($disp == 'single') ? $Item->get_tinyurl() : '';
 $_item_lang = preg_replace('/^(\w{2,3})-.+$/', '$1', $Item->dget('locale', 'raw'));
@@ -91,7 +90,7 @@ if (supports_xhtml())
 	$last_date = $date;
 }
 ?>
-	<<?php if (supports_xhtml()) echo 'div class="post" role="article"'; else echo 'article'; ?> id="<?php $Item->anchor_id(); ?>" <?php echo $_item_langattrs ?>>
+	<div role="article" id="<?php $Item->anchor_id(); ?>" <?php echo $_item_langattrs ?>>
 <?php 
 	$Item->locale_temp_switch();
 	printf('<%4$s class="storytitle"><a %6$shref="%1$s"  title="%3$s">%2$s</a></%5$s>', $Item->get_single_url(), $Item->title, __('Permanent link to full entry'), $hl, $hl, supports_xhtml() ? 'rel="permalink" ' : '');
@@ -189,7 +188,7 @@ if ($show_mode != 'comments')
 }
 ?>
 
-	</<?php if (supports_xhtml()) echo 'div'; else echo 'article'; ?>>
+	</div>
 <?php
 
 if ($show_mode != 'post') skin_include( 'templates/_item_feedback.inc.php');

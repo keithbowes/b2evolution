@@ -2,7 +2,6 @@
 if (!supports_xhtml())
 {
 ?>
-</main>
 
 <footer role="contentinfo">
 <?php

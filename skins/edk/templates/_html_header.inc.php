@@ -423,14 +423,7 @@ else
 		$lang = preg_replace('/^([^-]+)-?.*$/', '$1', $row['blog_locale']);
 		if (supports_xhtml())
 		{
-			if ($use_strict)
-			{
-				$linklang = "lang=\"$lang\" xml:lang=\"$lang\"";
-			}
-			else
-			{
-				$linklang = "xml:lang=\"$lang\"";
-			}
+			$linklang = "xml:lang=\"$lang\"";
 		}
 		else
 			$linklang = "lang=\"$lang\"";

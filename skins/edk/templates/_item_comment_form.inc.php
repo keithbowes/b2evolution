@@ -128,7 +128,7 @@ if( $params['disp_comment_form'] && $Item->can_comment( NULL, NULL, '#', $params
 				$comment_author_email = isset($_COOKIE[$cookie_email]) ? trim($_COOKIE[$cookie_email]) : '';
 				$comment_author_url = isset($_COOKIE[$cookie_url]) ? trim($_COOKIE[$cookie_url]) : '';
 			}
-			if( empty($comment_author_url) && supports_xhtml() )
+			if( empty($comment_author_url) )
 			{	// Even if we have a blank cookie, let's reset this to remind the bozos what it's for
 				$comment_author_url = 'http://';
 			}

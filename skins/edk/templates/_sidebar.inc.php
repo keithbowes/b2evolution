@@ -3,22 +3,13 @@
 	global $baseurl, $show_mode;
 	/* Make sure the sidebar uses the blog's locale insted of the locale of the bottom post */
 	locale_temp_switch($Blog->locale);
-
-if (is_text_browser() && 'menu' != $show_mode) return;
-
-	if (!supports_xhtml())
-	{
 ?>
-<nav>
-<h2 class="section-heading"><?php echo $Skin->T_('Menu'); ?></h2>
-<?php
-	}
-?>
-	<ul id="menu"<?php if (supports_xhtml()) echo ' role="navigation"'; ?>>
+
+<section role="navigation">
+	<ul id="menu">
 <li>
 <ul>
 <?php 
-	$tabindexattr = (supports_xhtml()) ? '': ' tabindex="' . (65536 + 1) . '"';
 		// Display container contents:
 		skin_container( _t('Sidebar'), array(
 				// The following (optional) params will be used as defaults for widgets included in this container:
@@ -26,7 +17,7 @@ if (is_text_browser() && 'menu' != $show_mode) return;
 				'block_start' => '<li class="$wi_class$">',
 				'block_end' => '</li>',
 				// This will enclose the title of each widget:
-				'block_title_start' => '<h2' . $tabindexattr . '>',
+				'block_title_start' => '<h2 tabindex="65536">',
 				'block_title_end' => '</h2>',
 				// If a widget displays a list, this will enclose that list:
 				'list_start' => '<ul>',
@@ -41,7 +32,7 @@ if (is_text_browser() && 'menu' != $show_mode) return;
 				'notes_start' => '<div class="notes">',
 				'notes_end' => '</div>',
       ) );?>
-  <li><h2<?php if (!supports_xhtml()) echo ' tabindex="26789"'; ?>><?php echo __('Misc'); ?></h2>
+  <li><h2 tabindex="26789"><?php echo __('Misc'); ?></h2>
  	  <ul>
 <?php
 global $_item_title, $_item_url;
@@ -183,10 +174,8 @@ document.forms.diaspform.appendChild(elem);
 </script>
 <noscript>
 <div>
-<?php
-if (!supports_xhtml()) echo '<datalist id="pods-list">' . "\n";
-?>
 
+<datalist id="pods-list">
 <select name="diaspora-pod-select">
 <?php
 for ($i = 0; $i < count($pods); $i++)
@@ -195,30 +184,22 @@ for ($i = 0; $i < count($pods); $i++)
 	{
 		echo '<option value="' . $pods[$i] . '"';
 		if ($pods[$i] == $pod)
-			echo supports_xhtml() ?' selected="selected"' : ' id="selected-option"';
+			echo ' selected="selected" id="selected-option"';
 		echo '>' . $pods[$i] . "</option>\n";
 	}
 }
 ?>
 </select>
 
-<?php
-if (!supports_xhtml())
-{
-?>
-
+<span class="note">(<?php echo $Skin->T_('Select a pod to use above or enter one below.'); ?>)</span>
 </datalist>
 
 <label>
 <input name="diaspora-pod" value="<?php $pod; ?>" list="pods-list" role="combobox" aria-expanded="true" aria-autocomplete="both" aria-owns="pods-list" aria-activedescendant="selected-option" />
 <br />
-<span class="note">(<?php echo $Skin->T_('Select a pod to use above or enter one in the text field.'); ?>)</span>
 
 </label>
 
-<?php
-}
-?>
 </div>
 </noscript>
 <button type="submit" class="button" id="diaspora" title="[<?php echo $Skin->T_('Share on Diaspora*'); ?>]" onmouseover="status=getUri(this.form, getPod(this.form['diaspora-pod']));" onfocus="status=getURi(this.form, getPod(this.form['diaspora-pod']));" onmouseout="status=defaultStatus" onblur="status=defaultStatus"><?php echo preg_replace('/^(.+Diaspora)(\*)$/', '<span class="button-sf">$1</span>$2', $Skin->T_('Share on Diaspora*')); ?></button>
@@ -227,7 +208,7 @@ if (!supports_xhtml())
 </li>
 	  </ul>
  </li>
-	<li><h2<?php if (!supports_xhtml()) echo ' tabindex="36789"'; ?>><?php echo __('Admin') ?></h2>
+	<li><h2 tabindex="36789"><?php echo __('Admin') ?></h2>
 		<ul>
 <?php $logged_in = is_logged_in() && $current_User->check_perm('admin', 'restricted');
 ?>
@@ -238,7 +219,7 @@ if (!supports_xhtml())
 if (supports_xhtml())
 {
 ?>
-	<li><h2<?php if (!supports_xhtml()) echo ' tabindex="46789"'; ?>><?php echo $Skin->T_('Credits') ?></h2>
+	<li><h2 tabindex="46789"><?php echo $Skin->T_('Credits') ?></h2>
 <ul class="credit" role="contentinfo"><li>
 <?php
 	show_footer();
@@ -253,14 +234,7 @@ if (supports_xhtml())
 </li>
 </ul>
 
-<?php
-if (!supports_xhtml())
-{
-?>
-</nav>
-<?php
-}
-?>
+</section>
 
 <!-- end sidebar -->
 
