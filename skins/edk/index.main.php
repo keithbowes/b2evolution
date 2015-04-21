@@ -59,7 +59,6 @@ skin_include( 'templates/_html_header.inc.php' );
 
 skin_include( 'templates/_body_header.inc.php' );
 
-if (supports_xhtml())
 	$last_date = '';
 
 if (is_text_browser() && 'menu' == $show_mode)
@@ -77,17 +76,14 @@ $_item_lang = preg_replace('/^(\w{2,3})-.+$/', '$1', $Item->dget('locale', 'raw'
 $_item_langattrs = (supports_xhtml() == FALSE) ? "lang=\"$_item_lang\"" : "xml:lang=\"$_item_lang\"";
 $_item_country = strtolower(preg_replace('/^\w{2,3}-([^-]+).*$/', '$1', $Item->dget('locale', 'raw')));
 
-if (supports_xhtml())
+preg_match('/^(\S*)\s*(\S*)$/', $Item->issue_date, $matches);
+list($match, $date, $time) = $matches;
+if ($last_date != $date && 'single' != $disp)
 {
-	preg_match('/^(\S*)\s*(\S*)$/', $Item->issue_date, $matches);
-	list($match, $date, $time) = $matches;
-	if ($last_date != $date && 'single' != $disp)
-	{
-	  echo '<h2>';
-	  $Item->issue_date();
-	  echo '</h2>';
-	}
-	$last_date = $date;
+  echo '<h2 class="post-date">';
+  $Item->issue_date();
+  echo '</h2>';
+$last_date = $date;
 }
 ?>
 	<div role="article" id="<?php $Item->anchor_id(); ?>" <?php echo $_item_langattrs ?>>
@@ -223,5 +219,6 @@ if ($MainList)
 
 <?php
 
-end_html();
+if (!is_text_browser() || 'menu' == $disp)
+	end_html();
 ?>

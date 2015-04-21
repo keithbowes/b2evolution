@@ -1,5 +1,5 @@
-footer,
-nav {
+[role="contentinfo"],
+[role="navigation"] {
   display: none;
 }
 

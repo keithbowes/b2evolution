@@ -215,21 +215,6 @@ for ($i = 0; $i < count($pods); $i++)
 	<li><a href="<?php echo $baseurl ?>admin.php<?php if (!$logged_in) echo '?redirect_to=' . $_item_url . '' ?>" title="<?php if (!$logged_in) echo __('Log in to your account'); else echo __('Go to the back-office...'); ?>"><?php echo $logged_in ? $Skin->T_('Back-office') : __('Log in') ?></a></li>
 <?php user_logout_link( '<li>', '</li>' ); ?>
 </ul></li>
-<?php
-if (supports_xhtml())
-{
-?>
-	<li><h2 tabindex="46789"><?php echo $Skin->T_('Credits') ?></h2>
-<ul class="credit" role="contentinfo"><li>
-<?php
-	show_footer();
-?>
-</li>
-</ul>
-</li>
-<?php
-}
-?>
 </ul>
 </li>
 </ul>

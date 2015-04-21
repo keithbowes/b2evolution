@@ -1,9 +1,0 @@
-html {
-  overflow-y: auto;
-}
-
-#content,
-#menu {
-  position: static !important;
-  width: 100% !important;
-}

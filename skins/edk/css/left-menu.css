@@ -1,0 +1,71 @@
+[role="contentinfo"],
+section[role="navigation"],
+.bCalendarTable caption a
+{
+  background-color: navy;
+  color: gold !important;
+}
+
+[role="contentinfo"] a {
+  color: lime;
+}
+
+input[type="search"] {
+  background-color: orange;
+  border: thin black solid;
+  color: navy;
+  height: 1em;
+}
+
+input[type="search"]:focus {
+  background-color: red !important;
+}
+
+input[type="search"]:hover {
+  background-color: darkorange;
+}
+
+section[role="navigation"] {
+  float: left;
+  overflow-x: auto;
+  text-transform: lowercase;
+}
+
+#content {
+  float: right;
+  margin-left: 0.5%;
+}
+
+#menu {
+  margin: 0;
+  padding-top: 0.5em;
+}
+
+#menu * {
+  white-space: nowrap;
+}
+
+#menu h2[tabindex],
+#menu li {
+  color: gold !important;
+}
+
+#menu > li > ul > li:first-child h2 {
+  margin-top: 0;
+}
+
+#menu > li:last-child {
+  padding-bottom: 1em;
+}
+
+#menu ul {
+  padding-left: 0.5em;
+}
+
+#menu ul li a {
+  color: silver;
+}
+
+.bCalendarTable caption {
+  border: thin black inset !important;
+}

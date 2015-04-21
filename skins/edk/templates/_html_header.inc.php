@@ -484,17 +484,25 @@ if ($Blog->get_setting('feed_content') != 'none')
 	global $headlines;
 	unset($headlines['style.css']);
 
+	/* Main CSS files */
 	require_css($xml_base.'css/style.css', 'relative', NULL, 'all');
 	require_css($xml_base.'css/speech.css', 'relative', NULL, 'speech');
 	require_css($xml_base.'css/visual.css', 'relative', NULL, 'handheld, print, projection, screen, tty, tv');
 	require_css($xml_base.'css/smallscreen.css', 'relative', NULL, '(max-width: 640px)');
 	require_css($xml_base.'css/print.css', 'relative', NULL, 'print');
 
+	/* Alternate CSS files */
 	if (supports_xhtml())
 	{
-		require_css($xml_base.'css/visual-xhtml.css', 'relative', NULL, 'handeld, print, projection, screen, tty, tv');
-		require_css($xml_base.'css/smallscreen-xhtml.css', 'relative', NULL, '(max-width: 640px)');
-		require_css($xml_base.'css/print-xhtml.css', 'relative', NULL, 'print');
+		require_css($xml_base.'css/right-menu.css', 'relative', $Skin->T_('Right Menu'), 'screen');
+		require_css($xml_base.'css/left-menu.css', 'relative', $Skin->T_('Left Menu'), 'screen');
+		require_css($xml_base.'css/clear.css', 'relative', $Skin->T_('Clear Look'), 'screen');
+	}
+	else
+	{
+		require_css($xml_base.'css/clear.css', 'relative', $Skin->T_('Clear Look'), 'screen');
+		require_css($xml_base.'css/left-menu.css', 'relative', $Skin->T_('Left Menu'), 'screen');
+		require_css($xml_base.'css/right-menu.css', 'relative', $Skin->T_('Right Menu'), 'screen');
 	}
 
 	include_headlines(); /* Add javascript and css files included by plugins and skin */

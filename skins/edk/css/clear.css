@@ -1,0 +1,35 @@
+section[role="navigation"] {
+  float: left;
+}
+
+section[role="navigation"] ul a.user,
+section[role="navigation"] ul span.user {
+  display: inline-block;
+  padding-top: 0.5em;
+}
+
+#content {
+  float: right;
+  margin: 1em 0.5em 0.5% 0;
+}
+
+#menu {
+  background-color: azure;
+  border: medium lightblue dotted;
+}
+
+#menu > li > ul > li:first-child h2 {
+  margin-top: 0;
+}
+
+#menu > li:last-child {
+  padding-bottom: 1em;
+}
+
+#menu ul li a {
+  color: brown;
+}
+
+.post-date {
+  display: none;
+}

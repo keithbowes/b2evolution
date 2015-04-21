@@ -1,3 +1,8 @@
+[role="contentinfo"] {
+  position: static !important;
+  text-align: left !important;
+}
+
 body,
 html {
   border: none;
@@ -8,9 +13,12 @@ html {
 
 /* Use more display for content in devices with limited screen space
  * to minimize scrolling. */
-nav,
-#content {
-  width: 100% !important;
+section[role="navigation"],
+#content,
+#menu {
+  clear: both !important;
+  margin: 0.5% !important;
+  width: 98% !important;
 }
 
 .allowed-tags {

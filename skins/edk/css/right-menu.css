@@ -1,0 +1,14 @@
+@import url(left-menu.css);
+
+[role="contentinfo"] {
+  position: static;
+  text-align: center;
+}
+
+section[role="navigation"] {
+  float: right;
+}
+
+#content {
+  float: left;
+}

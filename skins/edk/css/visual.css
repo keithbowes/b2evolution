@@ -28,6 +28,13 @@
   padding: 0.23em;
 }
 
+[role="contentinfo"] {
+  clear: both;
+  position: relative;
+  left: 42%;
+  text-align: left;
+}
+
 a {
   background-color: transparent;
   color: red;
@@ -53,17 +60,6 @@ abbr {
   letter-spacing: .07em;
 }
 
-article {
-  margin: 0 0 1em 0.75%;
-  padding-bottom: 0.2em;
-}
-
-div[role="article"],
-#menu {
-  background-color: azure;
-  border: medium lightblue dotted;
-}
-
 blockquote {
   background-color: beige;
   border-left: medium solid #ccc;
@@ -81,15 +77,13 @@ cite {
   font-style: normal;
 }
 
-footer {
-  text-align: center;
+div[role="article"] {
+  background-color: azure;
+  border: medium lightblue dotted;
 }
 
-footer[role="contentinfo"] {
-  clear: both;
-  position: relative;
-  left: 42%;
-  text-align: left;
+footer {
+  text-align: center;
 }
 
 form.bComment {
@@ -177,16 +171,7 @@ li, p,
 }
 
 section[role="navigation"] {
-  float: left;
   width: 23.25%;
-}
-
-section[role="navigation"],
-section[role="navigation"] div.search,
-section[role="navigation"] ul li h2 a {
-  list-style-type: none;
-  margin: 0;
-  padding-left: 0.2em;
 }
 
 section[role="navigation"] > * {
@@ -196,6 +181,13 @@ section[role="navigation"] > * {
 
 section[role="navigation"] div.search {
   padding-bottom: 0.5em;
+}
+
+section[role="navigation"] div.search,
+section[role="navigation"] ul li h2 a {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0.2em;
 }
 
 section[role="navigation"] h2 {
@@ -211,8 +203,6 @@ section[role="navigation"] li {
   font-weight: 500;
   letter-spacing: 0.1em;
   line-height: 1.1em;
-  margin-top: 1em;
-  padding-bottom: 0.1em;
 }
 
 section[role="navigation"] ul {
@@ -231,19 +221,13 @@ section[role="navigation"] ul li {
 
 section[role="navigation"] ul li a {
   background-color: transparent;
-  color: brown !important;
 }
 
-section[role="navigation"] ul a.user,
-section[role="navigation"] ul span.user {
-  display: inline-block;
-  padding-top: 0.5em;
-  white-space: nowrap;
+table summary {
+  display: none;
 }
 
 #content {
-  float: right;
-  margin: 1em 0.5em 0.5% 0;
   width: 75.5%;
 }
 
@@ -313,18 +297,6 @@ section[role="navigation"] ul span.user {
 
 #lastitem {
   float: right;
-}
-
-#menu > * {
-  background-color: inherit;
-}
-
-#menu > li > ul > li:first-child h2 {
-  margin-top: 0;
-}
-
-#menu > li:last-child {
-  padding-bottom: 1em;
 }
 
 #nextitem {
