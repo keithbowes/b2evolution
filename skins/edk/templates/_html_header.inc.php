@@ -325,10 +325,42 @@ function edk_meta($type, $value, $content, $extra = array())
 	echo edk_get_meta($type, $value, $content, $extra);
 }
 
+function to_ascii($str)
+{
+	if (is_ascii($str))
+		return $str;
+	else
+	{
+		require_once 'inc/locales/_charset.funcs.php';
+		if (($str = evo_iconv_transliterate($str)) !== FALSE)
+		{
+			return $str;
+		}
+		else
+		{
+			$c = '';
+			$strlen = extension_loaded('mbstring') ? 'mb_strlen' : 'strlen';
+			$substr = extension_loaded('mbstring') ? 'mb_substr' : 'substr';
+
+			$l = $strlen($str);
+			for ($i = 0; $i < $l; $i++)
+			{
+				$s = $substr($str, $i, 1);
+				if (ord($s) < 128)
+					$c .= $s;
+				/* Without the mb_* functions, each multibytes char would get replaced by multiple question marks */
+				elseif (extension_loaded('mbstring'))
+					$c .= '?';
+			}
+
+			return $c;
+		}
+	}
+}
 
 global $skin;
 $edk_base = $Blog->get_local_skins_url().$skin.'/';
-header(sprintf('Default-Style: %s', $Skin->T_(supports_xhtml() ? 'Left Menu' : 'Clear Look')));
+header(sprintf('Default-Style: %s', to_ascii($Skin->T_(supports_xhtml() ? 'Left Menu' : 'Clear Look'))));
 
 if (supports_xhtml())
 {
@@ -493,9 +525,9 @@ if ($Blog->get_setting('feed_content') != 'none')
 	require_css($edk_base.'css/visual.css', 'relative', NULL, $visual_media);
 
 	/* Alternate CSS files */
-	require_css($edk_base.'css/right-menu.css', 'relative', $Skin->T_('Right Menu'), $visual_media);
-	require_css($edk_base.'css/left-menu.css', 'relative', $Skin->T_('Left Menu'), $visual_media);
-	require_css($edk_base.'css/clear.css', 'relative', $Skin->T_('Clear Look'), $visual_media);
+	require_css($edk_base.'css/right-menu.css', 'relative', to_ascii($Skin->T_('Right Menu')), $visual_media);
+	require_css($edk_base.'css/left-menu.css', 'relative', to_ascii($Skin->T_('Left Menu')), $visual_media);
+	require_css($edk_base.'css/clear.css', 'relative', to_ascii($Skin->T_('Clear Look')), $visual_media);
 
 	/* Media-specific overrides */
 	require_css($edk_base.'css/print.css', 'relative', NULL, 'print');
