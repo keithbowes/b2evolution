@@ -1662,9 +1662,7 @@ function iconv_loaded()
 		$flag = extension_loaded( 'iconv' );
 		if( $flag )
 		{ // iconv is loaded, set encodings to "UTF-8"
-			iconv_set_encoding( "internal_encoding", "UTF-8" );
-			iconv_set_encoding( "input_encoding", "UTF-8" );
-			iconv_set_encoding( "output_encoding", "UTF-8" );
+			iconv_set_encoding( 'default_encoding', 'UTF-8' );
 		}
 	}
 
