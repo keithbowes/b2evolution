@@ -10,7 +10,7 @@
  *
  * {@internal Below is a list of authors who have contributed to design/coding of this file: }}
  * @author asimo: Evo Factory / Attila Simo
- * 
+ *
  * @version $Id: _login.disp.php,v 1.15 2011/09/13 08:32:30 efy-asimo Exp $
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );

@@ -192,22 +192,22 @@ if( $params['disp_comments'] || $params['disp_trackbacks'] || $params['disp_ping
 			'order' => $Blog->get_setting( 'comments_orderdir' ),
       'threaded_comments' => $Blog->get_setting( 'threaded_comments' ),
 		) );
-	
+
 	$CommentList->load_from_Request();
 
 	// Get ready for display (runs the query):
 	$CommentList->display_init();
-	
+
 	// Set redir=no in order to open comment pages
 	$old_redir = $redir;
 	memorize_param( 'redir', 'string', $old_redir, 'no' );
-	
+
 	// Prev/Next page navigation
 	if (isset($CommentList) && isset($CommentList->page_links))
 	$CommentList->page_links( array(
 			'page_url' => url_add_tail( $Item->get_permanent_url(), '#comments' ),
 		) );
-	
+
 
 		if( $Blog->get_setting( 'threaded_comments' ) )
 		{	// Array to store the comment replies
@@ -269,13 +269,13 @@ if( $params['disp_comments'] || $params['disp_trackbacks'] || $params['disp_ping
 		{ // To use comments page navigation after list
 			echo $params['comment_list_end'];
 		}
-	
+
 	// Prev/Next page navigation
 	if (isset($CommentList) && isset($CommentList->page_links))
 	$CommentList->page_links( array(
 			'page_url' => url_add_tail( $Item->get_permanent_url(), '#comments' ),
 		) );
-	
+
 	// Restore "redir" param
 	forget_param('redir');
 

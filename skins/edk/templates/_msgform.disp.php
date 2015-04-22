@@ -78,7 +78,7 @@ if( ! empty($recipient_id) )
 		if( ! $allow_msgform )
 		{ // should be prevented by UI
 			if( is_logged_in() && $recipient_User->accepts_pm() )
-			{ // current User is loggeg in, and recipient User accepts private messages. 
+			{ // current User is loggeg in, and recipient User accepts private messages.
 		    	global $current_User;
 		    	if( $current_User->accepts_pm() )
 			    { // if recipient user accepts private messages and current user accpets as well, then allow_msgform can be false, only if this two users are the same
@@ -91,7 +91,7 @@ if( ! empty($recipient_id) )
 			}
 			else
 			{ // recipient User doesn't accepts private messages, and doesn't accept email
-				echo '<p class="error">'.T_('This user does not wish to be contacted directly.').'</p>'; 
+				echo '<p class="error">'.T_('This user does not wish to be contacted directly.').'</p>';
 			}
 			return;
 		}
@@ -162,13 +162,13 @@ else
 				  FROM T_items__item, T_comments
 				 WHERE comment_ID = '.$DB->quote($comment_id).'
 				   AND post_ID = comment_post_ID' );
-	
+
 			if( $row )
 			{
 				$subject = T_('Re:').' '.sprintf( /* TRANS: Used as mail subject; %s gets replaced by an item's title */ T_( 'Comment on %s' ), $row->post_title );
 			}
 		}
-	
+
 		if( empty($subject) && ! empty($post_id) )
 		{
 			$row = $DB->get_row( '
@@ -182,13 +182,13 @@ else
 		}
 	}
 	?>
-	
+
 	<!-- form to send email -->
 	<?php
-	
+
 	$Form = new Form( $htsrv_url.'message_send.php' );
 		$Form->begin_form( 'bComment' );
-	
+
 		$Form->add_crumb( 'newmessage' );
 		if( !empty( $Blog ) )
 		{
@@ -198,14 +198,14 @@ else
 		$Form->hidden( 'post_id', $post_id );
 		$Form->hidden( 'comment_id', $comment_id );
 		$Form->hidden( 'redirect_to', url_rel_to_same_host($redirect_to, $htsrv_url) );
-	
+
 		?>
-	
+
 		<fieldset>
 			<div class="label"><label><?php echo T_('To')?>:</label></div>
 			<div class="info"><strong><?php echo $recipient_name;?></strong></div>
 		</fieldset>
-	
+
 		<?php
 		// Note: we use funky field name in order to defeat the most basic guestbook spam bots:
 		$Form->text( 'd', $email_author, 40, T_('From'),  '<br />' . T_('Your name.'), 50, 'bComment' );
@@ -216,16 +216,16 @@ else
 		}
 		$Form->text( 'g', $subject, 40, T_('Subject'), '<br />' . $subject_note, 255, 'bComment' );
 		$Form->textarea( 'h', '', 15, T_('Message'), '<br />' . T_('Plain text only.'), 40, 'bComment' );
-	
+
 		$Plugins->trigger_event( 'DisplayMessageFormFieldset', array( 'Form' => & $Form,
 			'recipient_ID' => & $recipient_id, 'item_ID' => $post_id, 'comment_ID' => $comment_id ) );
-	
+
 		$Form->begin_fieldset();
 		?>
 			<div class="input">
 				<?php
 				$Form->button_input( array( 'name' => 'submit_message_'.$recipient_id, 'class' => 'submit', 'value' => T_('Send message') ) );
-	
+
 				$Plugins->trigger_event( 'DisplayMessageFormButton', array( 'Form' => & $Form,
 					'recipient_ID' => & $recipient_id, 'item_ID' => $post_id, 'comment_ID' => $comment_id ) );
 				?>
@@ -233,9 +233,9 @@ else
 			<?php
 		$Form->end_fieldset();
 		?>
-	
+
 		<div class="clear"></div>
-	
+
 	<?php
 	$Form->end_form();
 }

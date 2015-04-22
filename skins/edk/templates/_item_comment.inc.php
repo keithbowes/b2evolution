@@ -67,7 +67,7 @@ else $author_class = ' class="user-comment"';
 						{
 							$refid = $DB->get_row(NULL, ARRAY_N, 0)[1];
 							$DB->query('SELECT user_nickname, user_firstname, user_lastname, user_login FROM T_users WHERE user_ID=' . $refid);
-							$refname = $DB->get_row(NULL, ARRAY_N, 0)[0];	
+							$refname = $DB->get_row(NULL, ARRAY_N, 0)[0];
 							if (!$refname)
 							{
 								$refname = $DB->get_row(NULL, ARRAY_N, 0)[1] . ' ' . $DB->get_row(NULL, ARRAY_N, 0)[2];
@@ -77,7 +77,7 @@ else $author_class = ' class="user-comment"';
 						}
 						$after_user_text = sprintf($Skin->T_(' (in response to <a href="%s">%s</a>)'), htmlentities($_SERVER['REQUEST_URI']) . '#c' . $refcomment, $refname);
 					} else $after_user_text = '';
-				
+
 					// Normal comment
 					$Comment->permanent_link( array(
 							'before'    => '',
@@ -124,7 +124,7 @@ else $author_class = ' class="user-comment"';
   </div>
 	<?php $Comment->rating(); ?>
     <div class="bCommentText">
-		<?php 
+		<?php
 		$Comment->avatar();
 		$Comment->content();
 ?>

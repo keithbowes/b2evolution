@@ -99,7 +99,7 @@ $last_date = $date;
 }
 ?>
 	<div role="article" id="<?php $Item->anchor_id(); ?>" <?php echo $_item_langattrs ?>>
-<?php 
+<?php
 	$Item->locale_temp_switch();
 	printf('<%4$s class="storytitle"><a %6$shref="%1$s"  title="%3$s">%2$s</a></%5$s>', $Item->get_single_url(), $Item->title, __('Permanent link to full entry'), $hl, $hl, supports_xhtml() ? 'rel="permalink" ' : '');
 ?>

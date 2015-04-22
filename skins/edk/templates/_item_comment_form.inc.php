@@ -262,7 +262,7 @@ echo '<div id="form_p' . $Item->ID . '">';
 
 	// set b2evoCanvas for plugins
 	echo '<script type="text/javascript">var b2evoCanvas = document.getElementById( "'.$dummy_fields[ 'content' ].'" );</script>';
-	
+
 	if (!empty($comment_allowed_tags) && $Blog->get_setting('allow_html_comment') === '1')
 	{
 		echo '<fieldset class="fieldset"><div class="allowed-tags input">';

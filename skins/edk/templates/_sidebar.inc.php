@@ -9,7 +9,7 @@
 	<ul id="menu">
 <li>
 <ul>
-<?php 
+<?php
 		// Display container contents:
 		skin_container( _t('Sidebar'), array(
 				// The following (optional) params will be used as defaults for widgets included in this container:

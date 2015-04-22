@@ -150,7 +150,7 @@ function get_post_urltitle($dir = '', $row = 0)
 	switch ($pathinfo['cset_value'])
 	{
 		case 'param_num':
-			$item_data['post_urltitle'] = '?p=' . $item_data['post_ID']; 
+			$item_data['post_urltitle'] = '?p=' . $item_data['post_ID'];
 			break;
 		case 'param_title':
 			$item_data['post_urltitle'] = '?title=' . $item_data['post_urltitle'];
@@ -167,16 +167,16 @@ function get_post_urltitle($dir = '', $row = 0)
 			$item_data['post_urltitle'] = strftime('%Y/%m/%d/', $item_data['post_datestart']) . $item_data['post_urltitle'];
 			break;
 		case 'subchap':
-			$item_data['post_urltitle'] = $cat_data['cat_name'] . '/' . $item_data['post_urltitle']; 
+			$item_data['post_urltitle'] = $cat_data['cat_name'] . '/' . $item_data['post_urltitle'];
 			break;
 		case 'chapters':
 			if (isset($cat_data['cat_parent_ID']))
 			{
 				$parent_cat = $DB->get_row("SELECT cat_name FROM $categorytablename WHERE cat_ID = " . $cat_data['cat_parent_ID'], ARRAY_A, 0);
-				$item_data['post_urltitle'] = $cat_data['cat_name'] . '/' . strtolower($parent_cat['cat_name']) .' /' . $item_data['post_urltitle']; 
+				$item_data['post_urltitle'] = $cat_data['cat_name'] . '/' . strtolower($parent_cat['cat_name']) .' /' . $item_data['post_urltitle'];
 			}
 			else
-				$item_data['post_urltitle'] = $cat_data['cat_name'] . '/' . $item_data['post_urltitle']; 
+				$item_data['post_urltitle'] = $cat_data['cat_name'] . '/' . $item_data['post_urltitle'];
 			break;
 	}
 
@@ -263,7 +263,7 @@ function get_copyright($params = array())
 		$Skin->T_('(C) %1$d-%2$d %3$s under %4$s') :
 		# TRANS: Params: Start year, end year, author
 		$Skin->T_('(C) %1$d-%2$d %3$s')
-	);	
+	);
 
 	if ($params['display'])
 		$func = 'printf';
@@ -382,7 +382,7 @@ else
 	$content_type = 'text/html';
 	skin_content_header($content_type);
 
-	$dtd = '<!DOCTYPE html>';	
+	$dtd = '<!DOCTYPE html>';
 	$langattrs ="lang=\"$locale\"";
 	$htmlelem = "<html $langattrs>";
 }
