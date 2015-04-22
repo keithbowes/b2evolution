@@ -28,14 +28,6 @@
   padding: 0.23em;
 }
 
-[role="contentinfo"] {
-  clear: both;
-  position: relative;
-  left: 28%;
-  text-align: left;
-  width: 70%;
-}
-
 a {
   background-color: transparent;
   color: red;
@@ -202,6 +194,14 @@ table summary {
   text-align: left;
 }
 
+#credit {
+  clear: both;
+  position: relative;
+  left: 28%;
+  text-align: left;
+  width: 70%;
+}
+
 #diaspora {
   background-color: #505050 !important;
   border: none;
@@ -248,7 +248,7 @@ table summary {
 }
 
 #nav {
-  width: 23.25%;
+  width: 23.5%;
 }
 
 #nav > * {

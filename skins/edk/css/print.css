@@ -1,6 +1,11 @@
-[role="contentinfo"],
-#nav {
+[role="navigation"],
+#credit {
   display: none;
+}
+
+body,
+#content {
+  overflow: visible;
 }
 
 #content {

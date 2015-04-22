@@ -1,17 +1,13 @@
-[role="contentinfo"],
+#content {
+  float: right;
+  margin: 1em 0.5em 0.5% 0;
+}
+
+#credit,
 #menu {
   background-color: azure;
   border: medium lightblue dotted;
   overflow-x: hidden;
-}
-
-section[role="navigation"] {
-  float: left;
-}
-
-#content {
-  float: right;
-  margin: 1em 0.5em 0.5% 0;
 }
 
 #menu > li > ul > li:first-child h2 {
@@ -24,6 +20,10 @@ section[role="navigation"] {
 
 #menu ul li a {
   color: brown;
+}
+
+#nav {
+  float: left;
 }
 
 #nav ul a.user,

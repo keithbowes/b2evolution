@@ -1,9 +1,5 @@
 @import url(left-menu.css);
 
-[role="contentinfo"] div {
-  padding-left: 16%;
-}
-
 input[type="search"] {
   height: 1em;
   width: 70% !important;
@@ -11,6 +7,10 @@ input[type="search"] {
 
 #content {
   float: left;
+}
+
+#credit {
+  clear: right;
 }
 
 #nav {

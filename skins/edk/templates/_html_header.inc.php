@@ -490,15 +490,17 @@ if ($Blog->get_setting('feed_content') != 'none')
 	/* Main CSS files */
 	$visual_media = 'handheld, print, projection, screen, tty, tv';
 	require_css($edk_base.'css/core.css', 'relative', NULL, 'all');
-	require_css($edk_base.'css/speech.css', 'relative', NULL, 'speech');
 	require_css($edk_base.'css/visual.css', 'relative', NULL, $visual_media);
-	require_css($edk_base.'css/smallscreen.css', 'relative', NULL, '(max-width: 640px)');
-	require_css($edk_base.'css/print.css', 'relative', NULL, 'print');
 
 	/* Alternate CSS files */
 	require_css($edk_base.'css/right-menu.css', 'relative', $Skin->T_('Right Menu'), $visual_media);
 	require_css($edk_base.'css/left-menu.css', 'relative', $Skin->T_('Left Menu'), $visual_media);
 	require_css($edk_base.'css/clear.css', 'relative', $Skin->T_('Clear Look'), $visual_media);
+
+	/* Media-specific overrides */
+	require_css($edk_base.'css/print.css', 'relative', NULL, 'print');
+	require_css($edk_base.'css/smallscreen.css', 'relative', NULL, '(max-width: 640px)');
+	require_css($edk_base.'css/speech.css', 'relative', NULL, 'speech');
 
 	include_headlines(); /* Add javascript and css files included by plugins and skin */
 

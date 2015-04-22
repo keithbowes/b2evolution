@@ -1,30 +1,33 @@
-[role="contentinfo"] {
-  position: static !important;
-  text-align: left !important;
-}
-
 body,
 html {
   border: none;
   margin: 0;
-  overflow: hidden auto;
+  overflow: visible;
   padding: 0;
 }
 
 /* Use more display for content in devices with limited screen space
  * to minimize scrolling. */
 #content,
+#credit,
 #menu,
 #nav {
-  clear: both !important;
-  margin: 0.5% !important;
-  width: 98% !important;
+  clear: both;
+  height: auto;
+  margin: 0.5%;
+  overflow-x: hidden;
+  width: 98%;
+}
+
+#credit {
+  position: static;
+  text-align: left;
 }
 
 .allowed-tags {
   margin: 0;
   max-width: 100%;
-  padding: 0 !important;
+  padding: 0;
   width: 100%;
 }
 

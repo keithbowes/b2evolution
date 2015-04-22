@@ -1,22 +1,7 @@
-[role="contentinfo"],
-#nav,
-.bCalendarTable caption a {
-  background-color: navy;
-  color: gold !important;
-}
-
-[role="contentinfo"] {
-  display: block;
-  position: static;
-  width: 100%;
-}
-
-[role="contentinfo"] div {
-  padding-left: 42%;
-}
-
-[role="contentinfo"] a {
-  color: lime;
+body,
+html {
+  height: 100%;
+  overflow: hidden;
 }
 
 input[type="search"] {
@@ -37,7 +22,34 @@ input[type="search"]:hover {
 
 #content {
   float: right;
+  height: 100%;
   margin-left: 0.5%;
+  overflow: auto;
+  padding-right: 0.5%;
+}
+
+#credit {
+  clear: left;
+  height: 10%;
+  overflow: auto;
+  position: static;
+  width: 23.5%;
+}
+
+#credit,
+#nav,
+.bCalendarTable caption a {
+  background-color: navy;
+  color: gold !important;
+}
+
+#credit a {
+  color: lime;
+}
+
+#credit div {
+  padding: 0 0.5em;
+  white-space: nowrap;
 }
 
 #menu {
@@ -72,7 +84,8 @@ input[type="search"]:hover {
 
 #nav {
   float: left;
-  overflow-x: auto;
+  height: 90%;
+  overflow: auto;
   text-transform: lowercase;
 }
 
