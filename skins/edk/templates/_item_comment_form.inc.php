@@ -200,7 +200,7 @@ echo '<div id="form_p' . $Item->ID . '">';
 		$Form->hidden( 'reply_ID', $comment_reply_ID );
 
 		// Link to scroll back up to replying comment
-		echo '<a href="'.url_add_param( $Item->get_permanent_url(), 'reply_ID='.$comment_reply_ID.'&amp;redir=no' ).'#c'.$comment_reply_ID.'" class="comment_reply_current" rel="'.$comment_reply_ID.'">'.__('You are currently replying to a specific comment').'</a>';
+		echo '<a href="'.url_add_param( $Item->get_permanent_url(), 'show=comments&amp;reply_ID='.$comment_reply_ID.'&amp;redir=no' ).'#c'.$comment_reply_ID.'" class="comment_reply_current" rel="'.$comment_reply_ID.'">'.__('You are currently replying to a specific comment').'</a>';
 	}
 	$Form->hidden( 'redirect_to',
 			// Make sure we get back to the right page (on the right domain)

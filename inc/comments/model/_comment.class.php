@@ -3881,7 +3881,7 @@ class Comment extends DataObject
 		}
 		$class = ' class="'.trim( $class ).'"';
 
-		$url = url_add_param( $this->Item->get_permanent_url(), 'reply_ID='.$this->ID.'&amp;redir=no' ).'#form_p'.$this->Item->ID;
+		$url = url_add_param( $this->Item->get_permanent_url(), 'show=comments&amp;reply_ID='.$this->ID.'&amp;redir=no' ).'#form_p'.$this->Item->ID;
 
 		echo $before;
 

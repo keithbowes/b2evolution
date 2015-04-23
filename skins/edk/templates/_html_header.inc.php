@@ -348,7 +348,7 @@ function to_ascii($str)
 				$s = $substr($str, $i, 1);
 				if (ord($s) < 128)
 					$c .= $s;
-				/* Without the mb_* functions, each multibytes char would get replaced by multiple question marks */
+				/* Without the mb_* functions, each multibyte char would get replaced by multiple question marks */
 				elseif (extension_loaded('mbstring'))
 					$c .= '?';
 			}
