@@ -4,6 +4,10 @@ html {
   overflow: hidden;
 }
 
+body.disp_single [role="article"] {
+  margin-top: 1em;
+}
+
 input[type="search"] {
   background-color: orange;
   border: thin #999 solid;
