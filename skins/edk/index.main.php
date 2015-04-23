@@ -4,10 +4,14 @@
  * Otherwise use the value of diaspora-pod in HTML5 browsers.
  * However, in browsers without <datalist>, we don't want to use diaspora-pod.
  */
-if ($diaspora_pod = (param('diaspora-pod-select') || param('diaspora-pod')))
+
+if (!($diaspora_pod = param('diaspora-pod')))
+	$diaspora_pod = param('diaspora-pod-select');
+
+if ($diaspora_pod)
 {
 	setcookie('Diaspora-Pod', $diaspora_pod, time() + (9 * 7 * 24 * 60 * 60) /* 9 weeks */);
-	header('Location: ' . $diaspora_pod . '/bookmarklet?url=' . param('url') . '&title=' . param('title'));
+	header('Location: ' . $diaspora_pod . '/bookmarklet?url=' . param('diaspora-url') . '&title=' . param('diaspora-title'));
 	die();
 }
 
@@ -82,7 +86,7 @@ if (is_text_browser() && 'menu' == $show_mode)
 display_if_empty();
 while( $Item = & mainlist_get_item() ):
 
-$_item_title = ($disp == 'single') ? $Item->get_title() : '';
+$_item_title = ($disp == 'single') ? $Item->title : '';
 $_item_url = ($disp == 'single') ? $Item->get_tinyurl() : '';
 $_item_lang = preg_replace('/^(\w{2,3})-.+$/', '$1', $Item->dget('locale', 'raw'));
 $_item_langattrs = (supports_xhtml() == FALSE) ? "lang=\"$_item_lang\"" : "xml:lang=\"$_item_lang\"";
@@ -92,10 +96,10 @@ preg_match('/^(\S*)\s*(\S*)$/', $Item->issue_date, $matches);
 list($match, $date, $time) = $matches;
 if ($last_date != $date && 'single' != $disp)
 {
-  echo '<h2 class="post-date">';
-  $Item->issue_date();
-  echo '</h2>';
-$last_date = $date;
+	echo '<h2 class="post-date">';
+	$Item->issue_date();
+	echo '</h2>';
+	$last_date = $date;
 }
 ?>
 	<div role="article" id="<?php $Item->anchor_id(); ?>" <?php echo $_item_langattrs ?>>

@@ -126,12 +126,13 @@ function get_post_urltitle($dir = '', $row = 0)
 	$blogid = isset($Item) ? $Item->blog_ID : isset($Blog) ? $Blog->ID : -1;
 	$blogslug = isset($Item) ? $Item->urltitle : '';
 	$categorytablename = isset($Item) && isset($Item->main_Chapter) ? $Item->main_Chapter->dbtablename : 'T_categories';
-	$itemtablename = isset($Item) ? $Item->dbtablename : 'T_items__item';
+	$itemtablename = isset($Item) && isset($Item->dbtablename) ? $Item->dbtablename : 'T_items__item';
+	$postid = isset($Item) && isset($Item->ID) ? $Item->ID : 0;
 
 	if (!empty($dir))
 		$item_data = $DB->get_row('SELECT post_datestart, post_ID, post_main_cat_ID, post_title, post_urltitle FROM ' . $itemtablename . ' ORDER BY UNIX_TIMESTAMP(post_datestart) ' . $dir, ARRAY_A, $row);
 	elseif (isset($Item))
-		$item_data = $DB->get_row('SELECT post_datestart, post_ID, post_main_cat_ID, post_title, post_urltitle FROM ' . $itemtablename . ' WHERE post_ID=' . $Item->ID, ARRAY_A, 0);
+		$item_data = $DB->get_row('SELECT post_datestart, post_ID, post_main_cat_ID, post_title, post_urltitle FROM ' . $itemtablename . ' WHERE post_ID=' . $postid, ARRAY_A, 0);
 	else
 	{
 		return '';

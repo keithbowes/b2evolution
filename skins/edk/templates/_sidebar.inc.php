@@ -91,8 +91,9 @@ function getUri(form, pod)
 
 <form id="diaspform" action="<?php echo $_SERVER['PHP_SELF']; ?>" onsubmit="var pod = localStorage.getItem('diasporapod'); if (!pod) pod = '<?php echo $pod; ?>'; pod = prompt('<?php echo $Skin->T_('Enter the URL of a Diaspora* pod where you want to share (e.g. https://joindiaspora.com)'); ?>', pod); if (!pod || pod.indexOf('https://') != 0) { /* Alert for empty string, but not for canceled operation */ if (pod != null) alert('<?php echo $Skin->T_('Invalid entry!'); ?>'); return false; } localStorage.setItem('diasporapod', pod); this['diaspora-pod'].value = pod; window.open(getUri(this, pod)); return false;">
 <div>
-<input type="hidden" name="url" value="<?php echo $_item_url; ?>" />
-<input type="hidden" name="title" value="<?php echo urlencode($_item_title); ?>" />
+<input type="hidden" name="diaspora-url" value="<?php echo urlencode($_item_url); ?>" />
+<input type="hidden" name="diaspora-title" value="<?php echo urlencode($_item_title); ?>" />
+<input type="hidden" name="redir" value="no" />
 <?php
 $pods = array();
 if (class_exists('DOMDocument'))
