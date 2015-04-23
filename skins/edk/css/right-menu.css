@@ -1,5 +1,17 @@
 @import url(left-menu.css);
 
+:lang(de) {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+:lang(eo) {
+  font-family: 'Lucida Sans Unicode', 'Times New Roman', Arial, 'Courier New', monospace;
+}
+
+:lang(es) {
+  font-family: 'Comic Sans MS', 'Nimbus Sans L', fantasy;
+}
+
 input[type="search"] {
   height: 1em;
   width: 70% !important;

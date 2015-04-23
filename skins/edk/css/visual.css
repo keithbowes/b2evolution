@@ -1,17 +1,5 @@
 * {
-  font-family: 'Liberation Sans', 'Lucida Grande', 'Lucida Unicode Sans', Verdana, sans-serif;
-}
-
-*:lang(de) {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-*:lang(eo) {
-  font-family: 'Lucida Sans Unicode', 'Times New Roman', Arial, 'Courier New', monospace;
-}
-
-*:lang(es) {
-  font-family: 'Comic Sans MS', fantasy;
+  font-family: 'DejaVu Sans', 'Helvetica Neue', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
 }
 
 * .bComment {
@@ -73,6 +61,7 @@ cite {
 div[role="article"] {
   background-color: azure;
   border: medium lightblue dotted;
+  margin: 0 0 1em 0;
 }
 
 footer {
