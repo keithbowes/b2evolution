@@ -168,7 +168,7 @@ if ($show_mode != 'comments')
 ?>
 
 <div class="storycontent">
-		<?php $Item->content(); ?>
+		<?php skin_include('templates/_item_content.inc.php'); ?>
 	</div>
 
 <?php
