@@ -10,7 +10,6 @@ html {
  * to minimize scrolling. */
 #content,
 #credit,
-#menu,
 #nav {
   clear: both;
   height: auto;

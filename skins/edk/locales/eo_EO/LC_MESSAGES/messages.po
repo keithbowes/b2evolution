@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: b 2e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-21 01:02-0400\n"
-"PO-Revision-Date: 2015-04-21 16:02-0400\n"
+"POT-Creation-Date: 2015-04-25 01:54-0400\n"
+"PO-Revision-Date: 2015-04-25 01:59-0400\n"
 "Last-Translator: Keith Bowes <keith@localhost>\n"
 "Language-Team: Esperanto\n"
 "Language: eo \n"
@@ -12,34 +12,34 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: index.main.php:18
+#: index.main.php:22
 #, php-format
 msgid "Deleting cookie %s<br />\n"
 msgstr "Foriganta la kuketon %s<br />\n"
 
-#: index.main.php:21
+#: index.main.php:25
 msgid "Cookies deleted!"
 msgstr "Kuketoj forigitaj!"
 
-#: index.main.php:59
+#: index.main.php:63
 #, php-format
 msgid "<div>Powered by <cite><a href=\"http://www.duckduckgo.com/?q=!+%1$s\">%1$s</a> %2$s</cite>.</div>"
 msgstr "<div>Kreita pere de <cite><a href=\"http://www.duckduckgo.com/?q=!+%1$s\">%1$s</a> %2$s</cite>.</div>"
 
-#: index.main.php:61
+#: index.main.php:65
 msgid "Delete Cookies!"
 msgstr "Forigi kuketojn!"
 
-#: index.main.php:61
+#: index.main.php:65
 msgid "This site uses <a href=\"http://en.wikipedia.org/wiki/HTTP_cookie\">cookies</a>."
 msgstr "Ĉi tiu TTT-ejo uzas <a href=\"http://eo.wikipedia.org/wiki/Kuketo\">kuketojn</a>."
 
-#: index.main.php:109
+#: index.main.php:114
 #, php-format
 msgid "on %s"
 msgstr "je %s"
 
-#: index.main.php:110 templates/_item_comment.inc.php:135
+#: index.main.php:115 templates/_item_comment.inc.php:135
 msgid " at "
 msgstr " je "
 
@@ -56,45 +56,45 @@ msgstr "<p><a href=\"%s\">%s</a> ne povis solvi la petitan retadreson.</p>"
 msgid "404 Not Found"
 msgstr "404: Ne trovita"
 
-#: templates/_html_header.inc.php:240 templates/_html_header.inc.php:242
+#: templates/_html_header.inc.php:250 templates/_html_header.inc.php:252
 msgid "Creative Commons"
 msgstr "Permesilo Krea Komunaĵo"
 
 # TRANS: Params: Start year, end year, author, license
-#: templates/_html_header.inc.php:263
+#: templates/_html_header.inc.php:273
 #, php-format
 msgid "(C) %1$d-%2$d %3$s under %4$s"
 msgstr "Kopirajto (C) %1$d ĝis %2$d de %3$s laŭ %4$s"
 
 # TRANS: Params: Start year, end year, author
-#: templates/_html_header.inc.php:265
+#: templates/_html_header.inc.php:275
 #, php-format
 msgid "(C) %1$d-%2$d %3$s"
 msgstr "Kopirajto (C) %1$d ĝis %2$d de %3$s"
 
-#: templates/_html_header.inc.php:359
+#: templates/_html_header.inc.php:353
+msgid "Classic Look"
+msgstr "Konata aspekto"
+
+#: templates/_html_header.inc.php:354 templates/_html_header.inc.php:416
+msgid "Clear Look"
+msgstr "Klara aspekto"
+
+#: templates/_html_header.inc.php:355 templates/_html_header.inc.php:400
+msgid "Transitional Look"
+msgstr "Intertempa aspekto"
+
+#: templates/_html_header.inc.php:425
 msgid "Please leave this for stats"
 msgstr "Bonvolu restigi tion pro statistikaĵoj"
 
-#: templates/_html_header.inc.php:397
+#: templates/_html_header.inc.php:464
 msgid "Main Content"
 msgstr "Ĉefa enhavo"
 
-#: templates/_html_header.inc.php:398
+#: templates/_html_header.inc.php:465
 msgid "Menu"
 msgstr "Menuo"
-
-#: templates/_html_header.inc.php:497 templates/_html_header.inc.php:505
-msgid "Right Menu"
-msgstr "Dekstraflanka menuo"
-
-#: templates/_html_header.inc.php:498 templates/_html_header.inc.php:504
-msgid "Left Menu"
-msgstr "Maldekstraflanka menuo"
-
-#: templates/_html_header.inc.php:499 templates/_html_header.inc.php:503
-msgid "Clear Look"
-msgstr "Klara aspekto"
 
 #: templates/_item_comment.inc.php:78
 #, php-format
@@ -147,14 +147,14 @@ msgstr "Enmeti la retadreson de Diaspora*-guŝo al kiu vi deziras konigi (ekz-e 
 msgid "Invalid entry!"
 msgstr "Nevalidan enmetaĵon!"
 
-#: templates/_sidebar.inc.php:194
+#: templates/_sidebar.inc.php:196
 msgid "Select a pod to use above or enter one below."
 msgstr "Elekti guŝon uzotan ĉi-supre aŭ enmeti alian ĉi-malsupre."
 
-#: templates/_sidebar.inc.php:205
+#: templates/_sidebar.inc.php:208
 msgid "Share on Diaspora*"
 msgstr "Konigi en Diaspora*"
 
-#: templates/_sidebar.inc.php:215
+#: templates/_sidebar.inc.php:218
 msgid "Back-office"
 msgstr "Stirilo"

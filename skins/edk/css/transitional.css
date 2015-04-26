@@ -12,8 +12,8 @@ input[type="search"] {
   background-color: orange;
   border: thin #999 solid;
   color: navy;
-  height: 14pt;
   padding: 0;
+  width: 70% !important;
 }
 
 input[type="search"]:focus {
@@ -41,6 +41,7 @@ input[type="search"]:hover {
 }
 
 #credit,
+#menu,
 #nav,
 .bCalendarTable caption a {
   background-color: navy;
@@ -56,6 +57,10 @@ input[type="search"]:hover {
   white-space: nowrap;
 }
 
+#facebook {
+  margin-top: -0.1em;
+}
+
 #menu {
   margin: 0;
   padding-top: 0.5em !important;
@@ -65,7 +70,7 @@ input[type="search"]:hover {
   white-space: nowrap;
 }
 
-#menu h2[tabindex],
+#menu h2,
 #menu li {
   color: gold !important;
 }
@@ -91,6 +96,11 @@ input[type="search"]:hover {
   height: 90%;
   overflow: auto;
   text-transform: lowercase;
+}
+
+#next a,
+#prev a {
+  color: brown !important;
 }
 
 .bCalendarTable caption {

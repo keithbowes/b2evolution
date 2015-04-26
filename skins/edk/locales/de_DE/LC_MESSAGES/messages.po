@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: b 2e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-21 01:02-0400\n"
-"PO-Revision-Date: 2015-04-21 16:01-0400\n"
+"POT-Creation-Date: 2015-04-25 01:54-0400\n"
+"PO-Revision-Date: 2015-04-25 02:50-0400\n"
 "Last-Translator: Keith <keith@localhost>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -18,34 +18,34 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: index.main.php:18
+#: index.main.php:22
 #, php-format
 msgid "Deleting cookie %s<br />\n"
 msgstr "Entfernend Cookie %s<br />\n"
 
-#: index.main.php:21
+#: index.main.php:25
 msgid "Cookies deleted!"
 msgstr "Cookies entfernt!"
 
-#: index.main.php:59
+#: index.main.php:63
 #, php-format
 msgid "<div>Powered by <cite><a href=\"http://www.duckduckgo.com/?q=!+%1$s\">%1$s</a> %2$s</cite>.</div>"
 msgstr "<div>Präsentiert von <cite><a href=\"http://www.duckduckgo.com/?q=!+%1$s\">%1$s</a> %2$s</cite>.</div>"
 
-#: index.main.php:61
+#: index.main.php:65
 msgid "Delete Cookies!"
 msgstr "Entfernen Cookies!"
 
-#: index.main.php:61
+#: index.main.php:65
 msgid "This site uses <a href=\"http://en.wikipedia.org/wiki/HTTP_cookie\">cookies</a>."
 msgstr "Diese Site benutzt <a href=\"http://de.wikipedia.org/wiki/HTTP-Cookie\">Cookies</a>."
 
-#: index.main.php:109
+#: index.main.php:114
 #, php-format
 msgid "on %s"
 msgstr "an %s"
 
-#: index.main.php:110 templates/_item_comment.inc.php:135
+#: index.main.php:115 templates/_item_comment.inc.php:135
 msgid " at "
 msgstr " an "
 
@@ -62,45 +62,45 @@ msgstr "<p><a href=\"%s\">%s</a> kann nicht die angeforderter URL auflösen.</p>
 msgid "404 Not Found"
 msgstr "404 Nicht Gefunden"
 
-#: templates/_html_header.inc.php:240 templates/_html_header.inc.php:242
+#: templates/_html_header.inc.php:250 templates/_html_header.inc.php:252
 msgid "Creative Commons"
 msgstr "Creative Commons Lizenzvertrag"
 
 # TRANS: Params: Start year, end year, author, license
-#: templates/_html_header.inc.php:263
+#: templates/_html_header.inc.php:273
 #, php-format
 msgid "(C) %1$d-%2$d %3$s under %4$s"
 msgstr "(C) %1$d-%2$d %3$s unter %4$s"
 
 # TRANS: Params: Start year, end year, author
-#: templates/_html_header.inc.php:265
+#: templates/_html_header.inc.php:275
 #, php-format
 msgid "(C) %1$d-%2$d %3$s"
 msgstr "(C) %1$d-%2$d %3$s"
 
-#: templates/_html_header.inc.php:359
+#: templates/_html_header.inc.php:353
+msgid "Classic Look"
+msgstr "Bekanntes Aussehen"
+
+#: templates/_html_header.inc.php:354 templates/_html_header.inc.php:416
+msgid "Clear Look"
+msgstr "Klares Aussehen"
+
+#: templates/_html_header.inc.php:355 templates/_html_header.inc.php:400
+msgid "Transitional Look"
+msgstr "Übergangsaussehen"
+
+#: templates/_html_header.inc.php:425
 msgid "Please leave this for stats"
 msgstr "Hinterlasse für die Statistik bitte"
 
-#: templates/_html_header.inc.php:397
+#: templates/_html_header.inc.php:464
 msgid "Main Content"
 msgstr "Hauptinhalt"
 
-#: templates/_html_header.inc.php:398
+#: templates/_html_header.inc.php:465
 msgid "Menu"
 msgstr "Menü"
-
-#: templates/_html_header.inc.php:497 templates/_html_header.inc.php:505
-msgid "Right Menu"
-msgstr "Rechts Menü"
-
-#: templates/_html_header.inc.php:498 templates/_html_header.inc.php:504
-msgid "Left Menu"
-msgstr "Links Menü"
-
-#: templates/_html_header.inc.php:499 templates/_html_header.inc.php:503
-msgid "Clear Look"
-msgstr "Klares Aussehen"
 
 #: templates/_item_comment.inc.php:78
 #, php-format
@@ -151,16 +151,16 @@ msgstr "Eingabe den URL eines Diaspora*-Pods (zB https://https://joindiaspora.co
 
 #: templates/_sidebar.inc.php:92
 msgid "Invalid entry!"
-msgstr "Ungültige Eingabe"
+msgstr "Ungültige Eingabe!"
 
-#: templates/_sidebar.inc.php:194
+#: templates/_sidebar.inc.php:196
 msgid "Select a pod to use above or enter one below."
 msgstr "Wählen einen Pod, um zu verwenden, oder eingeben einen Pod in den Textfeld."
 
-#: templates/_sidebar.inc.php:205
+#: templates/_sidebar.inc.php:208
 msgid "Share on Diaspora*"
 msgstr "Teilen auf Diaspora*"
 
-#: templates/_sidebar.inc.php:215
+#: templates/_sidebar.inc.php:218
 msgid "Back-office"
 msgstr "Back-Office"

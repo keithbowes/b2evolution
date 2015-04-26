@@ -14,9 +14,8 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 global $Skin;
 global $app_name, $app_version, $xmlsrv_url;
-global $baseurl, $io_charset;
+global $baseurl, $content_type, $io_charset;
 
-global $content_type;
 function parse_accept()
 {
 	$ret = array();
@@ -29,9 +28,9 @@ function parse_accept()
 
 		if ($type == 'text/*' && empty($ret['text/html']))
 			$type = 'text/html';
-		else if ($type == 'application/*' && empty($ret['application/xhtml+xml']))
+		elseif ($type == 'application/*' && empty($ret['application/xhtml+xml']))
 			$type = 'application/xhtml+xml';
-		else if ($type == '*/*' || $type == '*')
+		elseif ($type == '*/*' || $type == '*')
 		{
 			if (!empty($ret['text/html']) && empty($ret['application/xhtml+xml']))
 				$type = 'application/xhtml+xml';
@@ -51,43 +50,61 @@ function parse_accept()
 	return $ret;
 }
 
+function init_content_type()
+{
+	global $content_type, $supports_xhtml, $use_strict;
+
+	if (!isset($content_type))
+	{
+		/* Make sure user agents with inaccurate Accept headers get the right represention */
+		$ua_overrides = array(
+			'AppleWebKit' => TRUE,
+			'Dillo' => FALSE,
+			'Validator.nu' => FALSE,
+			'Validator' => TRUE,
+		);
+
+		foreach ($ua_overrides as $ua => $support)
+		{
+			if (strpos($_SERVER['HTTP_USER_AGENT'], $ua) !== FALSE)
+			{
+				$r = $support;
+				break;
+			}
+		}
+
+		if (!isset($r))
+		{
+			/* If not overriden, let the HTTP headers decide */
+			$types = parse_accept();
+			if (!empty($types['application/xhtml+xml']))
+			{
+				if (!empty($types['text/html']))
+					$r = $types['application/xhtml+xml'] >= $types['text/html'];
+				else
+					$r = $types['application/xhtml+xml'] > 0;
+			}
+			else
+				$r = FALSE;
+		}
+
+		$content_type = $r ? 'application/xhtml+xml' : 'text/html';
+	}
+
+	$supports_xhtml = 'text/html' != $content_type;
+	$use_strict = $supports_xhtml;
+}
+
 function supports_xhtml()
 {
-	global $use_strict;
-
-	/* Make sure HTML validators get the right representation */
-	if ($_SERVER['HTTP_USER_AGENT'] == 'Validator.nu/LV')
-	{
-		$r = FALSE;
-	}
-	elseif (strpos($_SERVER['HTTP_USER_AGENT'], 'Validator') !== FALSE)
-	{
-		$r = TRUE;
-	}
-
-	/* If not a validator, let the HTTP headers decide */
-	if (!isset($r))
-	{
-		$types = parse_accept();
-		if (!empty($types['application/xhtml+xml']))
-		{
-			if (!empty($types['text/html']))
-				$r = $types['application/xhtml+xml'] >= $types['text/html'];
-			else
-				$r = $types['application/xhtml+xml'] > 0;
-		}
-		else
-			$r = FALSE;
-	}
-
-	$use_strict = $r;
-	return $r;
+	global $supports_xhtml;
+	return $supports_xhtml;
 }
 
 function is_text_browser()
 {
 	$ua = $_SERVER['HTTP_USER_AGENT'];
-	return preg_match('/^Lynx|[Ll]inks/', $ua);
+	return preg_match('/^L_?y_?n_?x|[Ll]inks/', $ua);
 }
 
 function supports_link_toolbar()
@@ -184,7 +201,12 @@ function get_post_urltitle($dir = '', $row = 0)
 	return $item_data['post_urltitle'];
 }
 
-/* If you can think of a better way to do this, you're my hero. */
+/* Get the DB info about the first or last item of the current blog.
+ * If you can think of a better way to do this, you're my hero.
+ *
+ * @param string The direction to go. Can be ASC (ascending) for the first item or DESC  (descending) for the last item.
+ * @return array An array containing the DB fields.
+ */
 function get_item($dir)
 {
 	global $Blog, $DB, $Item;
@@ -206,7 +228,7 @@ function get_item($dir)
 		$cat_data = $DB->get_row("SELECT cat_parent_ID, cat_name, cat_blog_ID FROM $categorytablename WHERE cat_ID = " . $item_data['post_main_cat_ID'], ARRAY_A, 0);
 		if (!is_valid_query($cat_data))
 			return NULL;
-		else if ($cat_data['cat_blog_ID'] == $blogid)
+		elseif ($cat_data['cat_blog_ID'] == $blogid)
 		{
 			if ($item_data['post_urltitle'] != $blogslug)
 			{
@@ -283,7 +305,8 @@ function get_prevnext_item($which)
 	}
 	return NULL;
 }
-/* b2evolution's idea of prev and next seem backwards to me */
+
+/* b2evolution's idea of prev and next seems backwards to me */
 global $next_item, $prev_item;
 $next_item = get_prevnext_item('prev');
 $prev_item = get_prevnext_item('next');
@@ -317,58 +340,133 @@ function edk_get_meta($type, $value, $content, $extra = array())
 		$r .= '/>';
 	}
 
-	$r .= "\n";
 	return $r;
 }
 
 function edk_meta($type, $value, $content, $extra = array())
 {
-	echo edk_get_meta($type, $value, $content, $extra);
+	add_headline(edk_get_meta($type, $value, $content, $extra), $value);
 }
 
-function to_ascii($str)
+function edk_css_include()
 {
-	if (is_ascii($str))
-		return $str;
-	else
+	global $Skin;
+	global $edk_base, $headlines;
+	$visual_media = 'handheld, print, projection, screen, tty, tv';
+
+	/* Main CSS files */
+	require_css($edk_base.'css/core.css', 'relative', NULL, 'all');
+	require_css($edk_base.'css/visual.css', 'relative', NULL, $visual_media);
+
+	/* Alternate CSS files */
+	require_css($edk_base.'css/classic.css', 'relative', to_ascii($Skin->T_('Classic Look')), $visual_media);
+	require_css($edk_base.'css/clear.css', 'relative', to_ascii($Skin->T_('Clear Look')), $visual_media);
+	require_css($edk_base.'css/transitional.css', 'relative', to_ascii($Skin->T_('Transitional Look')), $visual_media);
+
+	/* Media-specific overrides */
+	require_css($edk_base.'css/print.css', 'relative', NULL, 'print');
+	require_css($edk_base.'css/smallscreen.css', 'relative', NULL, '(max-width: 640px)');
+	require_css($edk_base.'css/speech.css', 'relative', NULL, 'speech');
+
+	/* Don't embed style.css, as it doesn't exist in this theme */
+	unset($headlines['style.css']);
+
+	/* In XHTML, it needs to be outputted as XML processing instructions,
+	 * so do that and remove it from the headlines to include. */
+	if (supports_xhtml())
 	{
-		require_once 'inc/locales/_charset.funcs.php';
-		if (($str = evo_iconv_transliterate($str)) !== FALSE)
+		$alt = FALSE;
+		foreach ($headlines as $file => $elem)
 		{
-			return $str;
-		}
-		else
-		{
-			$c = '';
-			$strlen = extension_loaded('mbstring') ? 'mb_strlen' : 'strlen';
-			$substr = extension_loaded('mbstring') ? 'mb_substr' : 'substr';
-
-			$l = $strlen($str);
-			for ($i = 0; $i < $l; $i++)
+			/* Only for CSS files.  For JS, etc, don't do anything. */
+			if (preg_match('/\.css$/', $file))
 			{
-				$s = $substr($str, $i, 1);
-				if (ord($s) < 128)
-					$c .= $s;
-				/* Without the mb_* functions, each multibyte char would get replaced by multiple question marks */
-				elseif (extension_loaded('mbstring'))
-					$c .= '?';
-			}
+				$elem = str_replace(array('<link', ' rel="stylesheet"', 'title=', ' />'), array('<?xml-stylesheet', '', 'alternate="yes" title=', '?>'), $elem);
 
-			return $c;
+				/* The first stylesheet with a title shouldn't be alternate */
+				if (!$alt && strpos($elem, 'alternate="yes"') !== FALSE)
+				{
+					$elem = str_replace('alternate="yes" ', '', $elem);
+					$alt = TRUE;
+				}
+
+				echo $elem . "\n";
+				unset($headlines[$file]);
+			}
 		}
 	}
 }
 
-global $skin;
+function to_ascii($str)
+{
+	/* Don't do anything if already ASCII or if HTML5 */
+	if (!supports_xhtml() || is_ascii($str))
+		return $str;
+	else
+	{
+		require_once 'inc/locales/_charset.funcs.php';
+		global $current_locale, $default_locale, $locales;
+		$locale = !empty($current_locale) ? $current_locale : $default_locale;
+
+		$charset = $locales[$locale]['charset'];
+		$tm = $locales[$locale]['transliteration_map'];
+
+		// Decode entities so that we can convert them
+		$str = html_entity_decode($str, ENT_QUOTES, $charset);
+
+		/* Try to use the locale's built-in transliteraton map, if available */
+		if ($constr = strtr($str, $tm))
+			$str = $constr;
+
+		/* Try to transliterate by iconv if available */
+		/* Should be after the transliteration map, in case iconv can't handle some chars */
+		if (($newstr = evo_iconv_transliterate($str)) !== FALSE)
+			$str = $newstr;
+
+		/* If either/both of the steps above worked, we should return the converted string.
+		 * If not, more crude conversion to follow */
+		if ($constr || $newstr)
+			return $str;
+
+		/* If there's no transliteration map and iconv failed,
+		 * try to replace each multibyte character with a question mark */
+		if (extension_loaded('mbstring'))
+		{
+			$old_encoding = mb_internal_encoding();
+			mb_internal_encoding($charset);
+
+			$newstr = '';
+			$l = mb_strlen($str);
+			for ($i = 0; $i < $l; $i++)
+			{
+				$c= mb_substr($str, $i, 1);
+				if (ord($c) < 128)
+					$newstr .= $c;
+				else
+					$newstr .= '?';
+			}
+
+			mb_internal_encoding($old_encoding);
+			return $newstr;
+		}
+		/* If all else fails, format non-ASCII names like URLs */
+		else
+			return replace_special_chars($str);
+	}
+}
+
+global $edk_base, $skin;
 $edk_base = $Blog->get_local_skins_url().$skin.'/';
-header(sprintf('Default-Style: %s', to_ascii($Skin->T_(supports_xhtml() ? 'Left Menu' : 'Clear Look'))));
+
+init_content_type();
+skin_content_header($content_type);
 
 if (supports_xhtml())
 {
-	$content_type = 'application/xhtml+xml';
-	skin_content_header($content_type);
+	header(sprintf('Default-Style: %s', to_ascii($Skin->T_('Transitional Look'))));
 	echo '<?xml version="1.0" encoding="' . $io_charset . '"?' . '>';
 	echo "\n";
+	edk_css_include();
 	for ($i = 0; $i < 23; $i++)
 		$space .= ' ';
 
@@ -380,9 +478,8 @@ if (supports_xhtml())
 }
 else
 {
-	$content_type = 'text/html';
-	skin_content_header($content_type);
-
+	edk_css_include();
+	edk_meta('http-equiv', 'Default-Style', $Skin->T_('Clear Look'));
 	$dtd = '<!DOCTYPE html>';
 	$langattrs ="lang=\"$locale\"";
 	$htmlelem = "<html $langattrs>";
@@ -401,7 +498,7 @@ echo $params['html_tag'];
 
 <head>
 <?php
-edk_meta('charset', $io_charset);
+echo edk_get_meta('charset', $io_charset);
 if (!supports_xhtml())
 	skin_base_tag(); /* Base URL for this skin. You need this to fix relative links! */
 	$Plugins->trigger_event( 'SkinBeginHtmlHead' );
@@ -516,26 +613,7 @@ if ($Blog->get_setting('feed_content') != 'none')
 ?>
   <link rel="EditURI" type="application/rsd+xml" title="RSD" href="<?php echo $xmlsrv_url; ?>rsd.php?blog=<?php echo $Blog->ID; ?>" />
 <?php
-	/* Don't embed style.css, as it doesn't exist in this theme */
-	global $headlines;
-	unset($headlines['style.css']);
-
-	/* Main CSS files */
-	$visual_media = 'handheld, print, projection, screen, tty, tv';
-	require_css($edk_base.'css/core.css', 'relative', NULL, 'all');
-	require_css($edk_base.'css/visual.css', 'relative', NULL, $visual_media);
-
-	/* Alternate CSS files */
-	require_css($edk_base.'css/right-menu.css', 'relative', to_ascii($Skin->T_('Right Menu')), $visual_media);
-	require_css($edk_base.'css/left-menu.css', 'relative', to_ascii($Skin->T_('Left Menu')), $visual_media);
-	require_css($edk_base.'css/clear.css', 'relative', to_ascii($Skin->T_('Clear Look')), $visual_media);
-
-	/* Media-specific overrides */
-	require_css($edk_base.'css/print.css', 'relative', NULL, 'print');
-	require_css($edk_base.'css/smallscreen.css', 'relative', NULL, '(max-width: 640px)');
-	require_css($edk_base.'css/speech.css', 'relative', NULL, 'speech');
-
-	include_headlines(); /* Add javascript and css files included by plugins and skin */
+	include_headlines(); /* Add javascript and css files included by plugins and the skin */
 
 	$Blog->disp( 'blog_css', 'raw');
 	$Blog->disp( 'user_css', 'raw');

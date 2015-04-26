@@ -135,7 +135,7 @@ if( $params['disp_comment_form'] && $Item->can_comment( NULL, NULL, '#', $params
 
 			$comment_content =  $params['default_text'];
 		}
-		else if (is_object($Comment))
+		elseif (is_object($Comment))
 		{ // set saved Comment attributes from Session
 			$comment_content = $Comment->content;
 			$comment_author = $Comment->author;

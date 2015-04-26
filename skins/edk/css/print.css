@@ -9,7 +9,8 @@ body,
 }
 
 #content {
-  width: 100%;
+  margin-left: 0.5%;
+  width: 99%;
 }
 
 /* Gold on white paper: not a good idea */

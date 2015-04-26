@@ -277,7 +277,7 @@ $ProfileForm->begin_fieldset( sprintf( T_('You and %s...'), $User->login ) );
 			$ProfileForm->hidden( 'group_ID', 'new' );
 			$ProfileForm->text_input( 'group_ID_combo', param( 'group_ID_combo', 'string', '' ), 18, T_('Create a new group'), '', array( 'field_suffix' => $button_add_group, 'maxlength' => 50 ) );
 		}
-		else if( $User->ID != $current_User->ID )
+		elseif( $User->ID != $current_User->ID )
 		{	// Form to add this user into the group
 			$ProfileForm->combo_box( 'group_ID', param( 'group_ID_combo', 'string', '' ), get_contacts_groups_options( param( 'group', 'string', '-1' ), false ), T_('Add this user to a group'), array( 'new_field_size' => '8', 'field_suffix' => $button_add_group ) );
 		}

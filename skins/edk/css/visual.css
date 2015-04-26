@@ -13,6 +13,7 @@
 
 :target {
   border: thick double black;
+  margin-bottom: 0.5em;
   padding: 0.23em;
 }
 
@@ -206,10 +207,8 @@ table summary {
   vertical-align: top;
 }
 
-#esf,
-#rss3 {
-  color: white !important;
-  margin: 0.3em 0 0.1em 0;
+#esf {
+  margin-top: 0.2em;
 }
 
 #facebook {
@@ -343,7 +342,6 @@ table summary {
   border-top: 0.12em solid #cecece;
   color: black !important;
   font-family: Arial, Helvetica, serif;
-  margin-top: 0.1em;
   padding: 0.1em 0.5em;
 }
 
@@ -587,6 +585,7 @@ table summary {
 
 .search_submit {
   margin: 0.5em;
+  vertical-align: middle;
   width: 25%;
 }
 
