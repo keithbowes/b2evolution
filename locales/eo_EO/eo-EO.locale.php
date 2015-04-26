@@ -16,7 +16,7 @@
 
 /* Display the encoded transliteration to insert in the database when running from CLI.
  * Otherwise, display nothing. */
-if (function_exists('T_'))
+if (function_exists('NT_'))
 {
 	function get_encoded_translit($str)
 	{
@@ -24,7 +24,7 @@ if (function_exists('T_'))
 }
 else
 {
-	function T_($str)
+	function NT_($str)
 	{
 		return $str;
 	}
@@ -37,7 +37,7 @@ else
 }
 
 $locale_defs['eo-EO'] = array(
-		'name' => T_('Esperanto (EO) utf8'),
+		'name' => NT_('Esperanto (EO) utf8'),
 		'charset' => 'utf-8',
 		'datefmt' => 'Y-M-d',
 		'timefmt' => 'H:i:s',
