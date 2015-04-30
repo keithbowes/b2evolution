@@ -203,7 +203,7 @@ if( $action != 'view' )
 
 		// Main profile picture with action icons to modify it
 		$user_pictures = '<div class="avatartag main image_rounded">'
-				.$edited_User->get_avatar_imgtag( 'crop-top-320x320', 'avatar', 'top', true, '', 'user', 0.5 )
+				.$edited_User->get_avatar_imgtag( 'crop-top-320x320', 'avatar', 'top', true, '', 'user', '160x160' )
 				.'<div class="avatar_actions">'
 					.action_icon( $change_picture_title, $change_picture_icon, get_user_settings_url( 'avatar', $edited_User->ID ), ' '.$change_picture_title, 3, 4 );
 		if( $edited_User->has_avatar() && ( $avatar_Link = & $edited_User->get_avatar_Link() ) )
@@ -240,7 +240,7 @@ if( $action != 'view' )
 					'image_size'          => 'crop-top-160x160',
 					'image_link_title'    => $edited_User->login,
 					'image_link_rel'      => 'lightbox[user]',
-					'tag_size'            => 0.5
+					'tag_size'            => '80x80'
 				) );
 		}
 
@@ -525,10 +525,10 @@ else
 
 // -------------------  Get existing userfields: -------------------------------
 $userfields = $DB->get_results( '
-SELECT ufdf_ID, uf_ID, ufdf_type, ufdf_name, ufdf_icon_name, uf_varchar, ufdf_required, ufdf_options, ufgp_order, ufdf_order, ufdf_suggest, ufdf_duplicated, ufgp_ID, ufgp_name
+SELECT ufdf_ID, uf_ID, ufdf_type, ufdf_code, ufdf_name, ufdf_icon_name, uf_varchar, ufdf_required, ufdf_options, ufgp_order, ufdf_order, ufdf_suggest, ufdf_duplicated, ufgp_ID, ufgp_name
 FROM
 	(
-		SELECT ufdf_ID, uf_ID, ufdf_type, ufdf_name, ufdf_icon_name, uf_varchar, ufdf_required, ufdf_options, ufgp_order, ufdf_order, ufdf_suggest, ufdf_duplicated, ufgp_ID, ufgp_name
+		SELECT ufdf_ID, uf_ID, ufdf_type, ufdf_code, ufdf_name, ufdf_icon_name, uf_varchar, ufdf_required, ufdf_options, ufgp_order, ufdf_order, ufdf_suggest, ufdf_duplicated, ufgp_ID, ufgp_name
 			FROM T_users__fields
 				LEFT JOIN T_users__fielddefs ON uf_ufdf_ID = ufdf_ID
 				LEFT JOIN T_users__fieldgroups ON ufdf_ufgp_ID = ufgp_ID
@@ -536,7 +536,7 @@ FROM
 
 		UNION
 
-		SELECT ufdf_ID, "0" AS uf_ID, ufdf_type, ufdf_name, ufdf_icon_name, "" AS uf_varchar, ufdf_required, ufdf_options, ufgp_order, ufdf_order, ufdf_suggest, ufdf_duplicated, ufgp_ID, ufgp_name
+		SELECT ufdf_ID, "0" AS uf_ID, ufdf_type, ufdf_code, ufdf_name, ufdf_icon_name, "" AS uf_varchar, ufdf_required, ufdf_options, ufgp_order, ufdf_order, ufdf_suggest, ufdf_duplicated, ufgp_ID, ufgp_name
 			FROM T_users__fielddefs
 				LEFT JOIN T_users__fieldgroups ON ufdf_ufgp_ID = ufgp_ID
 		WHERE ufdf_required IN ( "recommended", "require" )
@@ -561,7 +561,7 @@ $Form->begin_fieldset( T_('Add new fields') );
 			foreach( $add_field_types as $add_field_type )
 			{	// We use "foreach" because sometimes the user adds several fields with the same type
 				$userfields = $DB->get_results( '
-				SELECT ufdf_ID, "0" AS uf_ID, ufdf_type, ufdf_name, ufdf_icon_name, "" AS uf_varchar, ufdf_required, ufdf_options, ufdf_suggest, ufdf_duplicated, ufgp_ID, ufgp_name
+				SELECT ufdf_ID, "0" AS uf_ID, ufdf_type, ufdf_code, ufdf_name, ufdf_icon_name, "" AS uf_varchar, ufdf_required, ufdf_options, ufdf_suggest, ufdf_duplicated, ufgp_ID, ufgp_name
 					FROM T_users__fielddefs
 						LEFT JOIN T_users__fieldgroups ON ufdf_ufgp_ID = ufgp_ID
 				WHERE ufdf_ID = '.intval( $add_field_type ) );

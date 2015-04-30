@@ -14,7 +14,7 @@
  * @package evoskins
  * @subpackage bootstrap_main
  *
-	 * @version $Id: index.main.php 8793 2015-04-18 02:35:27Z fplanque $
+	 * @version $Id: index.main.php 8828 2015-04-28 10:15:51Z yura $
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 
@@ -155,6 +155,7 @@ if( $disp != 'front' )
 				'lostpassword_text' => '',
 				'account_activation' => '',
 				'msgform_text'      => '',
+				'user_text'         => '',
 			) );
 		// ----------------------------- END OF REQUEST TITLE ----------------------------
 	?>
@@ -311,9 +312,6 @@ if( $disp != 'front' )
 				'activate_form_title'  => T_('Account activation'),
 				'activate_page_before' => '<div class="wrap-form-activation">',
 				'activate_page_after'  => '</div>',
-				// Profile
-				'profile_avatar_before' => '<div class="panel panel-default profile_avatar">',
-				'profile_avatar_after'  => '</div>',
 				// Search
 				'search_input_before'  => '<div class="input-group">',
 				'search_input_after'   => '',

@@ -126,6 +126,7 @@ class User extends DataObject
 	 * User fields
 	 */
 	var $userfields = array();
+	var $userfields_by_code = array();
 	var $userfields_by_type = array();
 	var $updated_fields = array();
 	var $new_fields = array();
@@ -1934,9 +1935,10 @@ class User extends DataObject
 	 * Get user page url
 	 *
 	 * @param integer|NULL Blog ID or NULL to use current blog
+	 * @param boolean TRUE to force use URL even when current user in not logged in
 	 * @return string
 	 */
-	function get_userpage_url( $blog_ID = NULL )
+	function get_userpage_url( $blog_ID = NULL, $force_url = false )
 	{
 		global $Settings;
 
@@ -1957,7 +1959,7 @@ class User extends DataObject
 			return NULL;
 		}
 
-		if( is_logged_in() )
+		if( $force_url || is_logged_in() )
 		{ // If current User is logged in
 			if( $Settings->get( 'user_url_loggedin' ) == 'url' && $this->get_field_url( true ) != '' )
 			{ // Use website url if it is defined and setting enables this
@@ -3901,10 +3903,13 @@ class User extends DataObject
 	 * @param boolean true if the avatar image should be zoomed on click, false otherwise
 	 * @param string avatar overlay text
 	 * @param string group name for lightbox plugin
-	 * @param float Change size of the attributes "width" & "height". Example: ( $size = 'crop-top-64x64' + $tag_size = 0.5 ) => width="32" height="32"
+	 * @param string Change size of the attributes "width" & "height".
+	 *               Example: ( $tag_size = '160' ) => width="160" height="160"
+	 *                        ( $tag_size = '160x320' ) => width="160" height="320"
+	 *                        NULL - use real size
 	 * @return string
 	 */
-	function get_avatar_imgtag( $size = 'crop-top-64x64', $class = 'avatar', $align = '', $zoomable = false, $avatar_overlay_text = '', $lightbox_group = '', $tag_size = 1 )
+	function get_avatar_imgtag( $size = 'crop-top-64x64', $class = 'avatar', $align = '', $zoomable = false, $avatar_overlay_text = '', $lightbox_group = '', $tag_size = NULL )
 	{
 		global $current_User;
 
@@ -4147,7 +4152,7 @@ class User extends DataObject
 		global $DB;
 
 		$SQL = new SQL();
-		$SQL->SELECT( 'uf_varchar, ufdf_icon_name' );
+		$SQL->SELECT( 'uf_varchar, ufdf_ID, ufdf_icon_name, ufdf_code' );
 		$SQL->FROM( 'T_users__fields' );
 		$SQL->FROM_add( 'INNER JOIN T_users__fielddefs ON uf_ufdf_ID = ufdf_ID' );
 		$SQL->WHERE( 'uf_user_ID = '.$this->ID );
@@ -4185,6 +4190,32 @@ class User extends DataObject
 
 
 	/**
+	 * Get user field values by code
+	 *
+	 * @param integer Field code
+	 * @return array Field values
+	 */
+	function userfield_values_by_code( $field_code )
+	{
+		global $DB;
+
+		// Load all user fields once
+		$this->userfields_load();
+
+		$field_values = array();
+		if( ! empty( $this->userfields_by_code[ $field_code ] ) )
+		{ // Get value from cache
+			foreach( $this->userfields_by_code[ $field_code ] as $userfield_ID )
+			{
+				$field_values[] = $this->userfields[ $userfield_ID ]->uf_varchar;
+			}
+		}
+
+		return $field_values;
+	}
+
+
+	/**
 	 * Load userfields
 	 */
 	function userfields_load()
@@ -4192,7 +4223,7 @@ class User extends DataObject
 		global $DB;
 
 		$userfields = $DB->get_results( '
-			SELECT uf_ID, ufdf_ID, uf_varchar, ufdf_duplicated, ufdf_type, ufdf_name, ufdf_icon_name, ufgp_ID, ufgp_name
+			SELECT uf_ID, ufdf_ID, uf_varchar, ufdf_duplicated, ufdf_type, ufdf_name, ufdf_icon_name, ufdf_code, ufgp_ID, ufgp_name
 				FROM T_users__fields
 					INNER JOIN T_users__fielddefs ON uf_ufdf_ID = ufdf_ID
 					INNER JOIN T_users__fieldgroups ON ufdf_ufgp_ID = ufgp_ID
@@ -4204,7 +4235,7 @@ class User extends DataObject
 		foreach( $userfields as $userfield )
 		{
 			if( $userfield->ufdf_duplicated == 'list' )
-			{	// Prepare a values of list into one array
+			{ // Prepare a values of list into one array
 				if( !isset( $userfield_lists[$userfield->ufdf_ID] ) )
 				{	// Init array
 					$userfield_lists[$userfield->ufdf_ID] = array();
@@ -4217,19 +4248,21 @@ class User extends DataObject
 		foreach( $userfields as $userfield )
 		{
 			if( $userfield->ufdf_duplicated == 'list' )
-			{	// List style
+			{ // List style
 				if( isset( $userfield_lists[$userfield->ufdf_ID] ) )
-				{	// Save all data for this field:
+				{ // Save all data for this field:
 					$userfield->uf_varchar = implode( ', ', $userfield_lists[$userfield->ufdf_ID] );
 					$this->userfields[$userfield->uf_ID] = $userfield;
+					$this->userfields_by_code[$userfield->ufdf_code][] = $userfield->uf_ID;
 					// Unset array to avoid a duplicates
 					unset( $userfield_lists[$userfield->ufdf_ID] );
 				}
 			}
 			else
-			{	// Save all data for this field:
+			{ // Save all data for this field:
 				userfield_prepare( $userfield );
 				$this->userfields[$userfield->uf_ID] = $userfield;
+				$this->userfields_by_code[$userfield->ufdf_code][] = $userfield->uf_ID;
 			}
 			// Save index
 			$this->userfields_by_type[$userfield->ufdf_ID][] = $userfield->uf_ID;

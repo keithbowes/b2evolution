@@ -153,6 +153,7 @@ siteskin_include( '_site_body_header.inc.php' );
 				'lostpassword_text' => '',
 				'account_activation' => '',
 				'msgform_text'      => '',
+				'user_text'         => '',
 			) );
 		// ----------------------------- END OF REQUEST TITLE ----------------------------
 	?>
@@ -309,9 +310,6 @@ siteskin_include( '_site_body_header.inc.php' );
 				'activate_form_title'  => T_('Account activation'),
 				'activate_page_before' => '<div class="wrap-form-activation">',
 				'activate_page_after'  => '</div>',
-				// Profile
-				'profile_avatar_before' => '<div class="panel panel-default profile_avatar">',
-				'profile_avatar_after'  => '</div>',
 				// Search
 				'search_input_before'  => '<div class="input-group">',
 				'search_input_after'   => '',

@@ -377,6 +377,102 @@ span.loader_img.loader_user_deldata {
 .filter_item.blue div.icon:hover {
   background: #6a91df;
 }
+.ufld-yahooim.ufld--textcolor,
+.ufld-yahooim.ufld--hovertextcolor:hover {
+  color: #7b0099;
+}
+.ufld-yahooim.ufld--bgcolor,
+.ufld-yahooim.ufld--hoverbgcolor:hover {
+  background-color: #7b0099;
+}
+.ufld-skype.ufld--textcolor,
+.ufld-skype.ufld--hovertextcolor:hover {
+  color: #00aff0;
+}
+.ufld-skype.ufld--bgcolor,
+.ufld-skype.ufld--hoverbgcolor:hover {
+  background-color: #00aff0;
+}
+.ufld-twitter.ufld--textcolor,
+.ufld-twitter.ufld--hovertextcolor:hover {
+  color: #00aced;
+}
+.ufld-twitter.ufld--bgcolor,
+.ufld-twitter.ufld--hoverbgcolor:hover {
+  background-color: #00aced;
+}
+.ufld-facebook.ufld--textcolor,
+.ufld-facebook.ufld--hovertextcolor:hover {
+  color: #3b5998;
+}
+.ufld-facebook.ufld--bgcolor,
+.ufld-facebook.ufld--hoverbgcolor:hover {
+  background-color: #3b5998;
+}
+.ufld-googleplus.ufld--textcolor,
+.ufld-googleplus.ufld--hovertextcolor:hover {
+  color: #dd4b39;
+}
+.ufld-googleplus.ufld--bgcolor,
+.ufld-googleplus.ufld--hoverbgcolor:hover {
+  background-color: #dd4b39;
+}
+.ufld-linkedin.ufld--textcolor,
+.ufld-linkedin.ufld--hovertextcolor:hover {
+  color: #007bb6;
+}
+.ufld-linkedin.ufld--bgcolor,
+.ufld-linkedin.ufld--hoverbgcolor:hover {
+  background-color: #007bb6;
+}
+.ufld-github.ufld--textcolor,
+.ufld-github.ufld--hovertextcolor:hover {
+  color: #333333;
+}
+.ufld-github.ufld--bgcolor,
+.ufld-github.ufld--hoverbgcolor:hover {
+  background-color: #333333;
+}
+.ufld-flickr.ufld--textcolor,
+.ufld-flickr.ufld--hovertextcolor:hover {
+  color: #ff0084;
+}
+.ufld-flickr.ufld--bgcolor,
+.ufld-flickr.ufld--hoverbgcolor:hover {
+  background-color: #ff0084;
+}
+.ufld-youtube.ufld--textcolor,
+.ufld-youtube.ufld--hovertextcolor:hover {
+  color: #bb0000;
+}
+.ufld-youtube.ufld--bgcolor,
+.ufld-youtube.ufld--hoverbgcolor:hover {
+  background-color: #bb0000;
+}
+.ufld-digg.ufld--textcolor,
+.ufld-digg.ufld--hovertextcolor:hover {
+  color: #356aa0;
+}
+.ufld-digg.ufld--bgcolor,
+.ufld-digg.ufld--hoverbgcolor:hover {
+  background-color: #356aa0;
+}
+.ufld-stumbleupon.ufld--textcolor,
+.ufld-stumbleupon.ufld--hovertextcolor:hover {
+  color: #eb4924;
+}
+.ufld-stumbleupon.ufld--bgcolor,
+.ufld-stumbleupon.ufld--hoverbgcolor:hover {
+  background-color: #eb4924;
+}
+.ufld-pinterest.ufld--textcolor,
+.ufld-pinterest.ufld--hovertextcolor:hover {
+  color: #cb2027;
+}
+.ufld-pinterest.ufld--bgcolor,
+.ufld-pinterest.ufld--hoverbgcolor:hover {
+  background-color: #cb2027;
+}
 
 /*
  * Obviously, this file no longer contains only basic styles.
@@ -1739,12 +1835,6 @@ div.item_location {
 #edit_group_contacts label {
   padding-right: 5px;
 }
-.edit_user_admin_link {
-  float: left;
-  margin-left: 33%;
-  min-width: 33%;
-  text-align: center;
-}
 #ffield_item_tags ul.token-input-list-facebook {
   width: 100%;
 }
@@ -1971,6 +2061,75 @@ input.btn-lg {
 .top_menu div.item_title {
   display: inline-block;
 }
+.profile_content {
+  max-width: 960px;
+  margin: 0 auto;
+}
+.main_profile_picture {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
+.other_profile_pictures {
+  margin-bottom: 10px;
+}
+.other_profile_pictures img {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
+.profile_column_left {
+  float: left;
+  width: 300px;
+  max-width: 300px;
+}
+.profile_column_right {
+  margin: 20px 0 0 320px;
+}
+.profile_column_right #fieldset_user_fields {
+  overflow: hidden;
+}
+.profile_buttons .btn,
+.profile_buttons .btn-group {
+  width: 100%;
+}
+.profile_buttons .btn-group .btn {
+  width: 50%;
+}
+.profile_buttons a.btn button {
+  background: none;
+  border: none;
+  padding: 0;
+}
+form.bComment .other_profile_pictures div.avatartag {
+  float: none;
+}
+form.bComment .profile_column_right legend.panel-heading {
+  padding: 10px 15px;
+}
+@media (max-width: 767px) {
+  .profile_column_left {
+    margin: 0 auto;
+    float: none;
+  }
+  .profile_column_right {
+    margin-left: 0;
+    width: 100%;
+    float: left;
+  }
+}
+@media (max-width: 1199px) {
+  .profile_content .col-sm-3 {
+    width: 35%;
+  }
+  .profile_content .col-sm-9 {
+    width: 65%;
+  }
+}
 
 /**
  * item_base.css 
@@ -2053,6 +2212,11 @@ span.NonExistentWikiWord {
   div.radio:last-of-type,
   div.checkbox:last-of-type {
     padding-bottom: 7px;
+  }
+}
+@media (max-width: 992px) {
+  body.disp_user .container {
+    width: 100%;
   }
 }
 .glyphicon {
@@ -2520,6 +2684,12 @@ legend.panel-heading {
   top: -2px !important;
   left: -5px;
 }
+.panel-body #ffield_contact_groups label {
+  white-space: nowrap;
+}
+.panel-body #ffield_contact_groups .contact_group_new input[type=checkbox] {
+  margin-top: 12px;
+}
 .form-horizontal .controls input.large,
 .form-horizontal .controls .form-control.form_textarea_input {
   display: block;
@@ -2574,6 +2744,9 @@ div.message_toolbars {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
+.modal {
+  z-index: 10001;
+}
 .modal-backdrop {
   position: fixed;
 }
@@ -2581,6 +2754,9 @@ div.message_toolbars {
   border: none;
   box-shadow: none;
   -webkit-box-shadow: none;
+}
+.modal-body fieldset .panel {
+  margin-bottom: 0;
 }
 .tt-dropdown-menu {
   background-color: #FFFFFF;
@@ -2715,6 +2891,7 @@ div.message_toolbars {
   -ms-border-radius: 4px;
   -o-border-radius: 4px;
   border-radius: 4px;
+  color: #FFF;
   background: #23527c;
 }
 .widget--social-media-links a .fa {

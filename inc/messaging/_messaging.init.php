@@ -573,7 +573,17 @@ class messaging_Module extends Module
 				{ // only block or unblock is valid
 					debug_die( "Invalid action param" );
 				}
-				set_contact_blocked( $user_ID, ( ( $action == 'block' ) ? 1 : 0 ) );
+				if( set_contact_blocked( $user_ID, ( ( $action == 'block' ) ? 1 : 0 ) ) )
+				{
+					if( $action == 'block' )
+					{
+						$Messages->add( T_('You have blocked this user from contacting you.'), 'success' );
+					}
+					else
+					{
+						$Messages->add( T_('You have unblocked this user so he can contact you again.'), 'success' );
+					}
+				}
 				$redirect_to = str_replace( '&amp;', '&', $redirect_to );
 				break;
 
