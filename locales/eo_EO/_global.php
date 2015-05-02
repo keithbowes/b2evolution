@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo_EO'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2015-05-01 23:14-0400\nPO-Revision-Date: 2015-05-01 23:23-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2015-05-01 23:14-0400\nPO-Revision-Date: 2015-05-01 23:34-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 'Adm' => '[A]',
 'Blg' => '^',
 'Folder' => 'Dosierujo',
@@ -3953,7 +3953,7 @@ $trans['eo_EO'] = array(
 'Add a new slug...' => 'Aldoni novan URL-titolon…',
 'New slug' => 'Nova URL-titolo',
 'Email Address' => 'Retpoŝtadreson',
-'Maximum length of the field "Error message decoding configuration" is 5000 symbols, the big value will be cropped.' => 'Maksimuma longo de la kampo "Erarmesaĝo malkodante agordon" estas 5000 signoj, la granda valoro estos tranĉita.',
+'Maximum length of the field "Error message decoding configuration" is 5000 symbols, the big value will be cropped.' => 'Maksimuma longo de la kampo "Erarmesaĝo malkodante agordon" estas 5000 signoj, la granda valoro estos detranĉita.',
 'SMTP enabled.' => 'SMTP aktivigita',
 'SMTP disabled.' => 'SMTP malaktivigita',
 'Reason: %s' => 'Kialo: %s',
@@ -5333,7 +5333,7 @@ $trans['eo_EO'] = array(
 'Item URL' => 'Era URL',
 'Nowhere' => 'Nenie',
 'Image Size' => 'Bilda grando',
-'Cropping and sizing of thumbnails' => 'Eltirada kaj adaptado de miniaturoj',
+'Cropping and sizing of thumbnails' => 'Detranĉado kaj adaptado de miniaturoj',
 'Attached pictures' => 'Almetitaj bildoj',
 'Display first' => 'Montri unuan',
 'Display all' => 'Montri ĉion',
