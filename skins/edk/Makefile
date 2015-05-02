@@ -1,23 +1,22 @@
-locales=$(patsubst %/,%,$(patsubst locales/%,%,$(dir $(wildcard locales/*/))))
-sources=_403_forbidden.disp.php _404_not_found.disp.php _html_header.inc.php _item_comment.inc.php \
-		_item_comment_form.inc.php _sidebar.inc.php
+locales=$(patsubst %/,%,$(patsubst templates/locales/%,%,$(dir $(wildcard templates/locales/*/))))
+sources=_403_forbidden.disp.php _404_not_found.disp.php _funcs.inc.php \
+		_html_header.inc.php _item_comment.inc.php \
+		_item_comment_form.inc.php _sidebar.inc.php _user.disp.php
 
 PHP ?= php
-XG ?= $(PHP) ../../_transifex/xg.php
-
-override sources:=$(addprefix templates/,$(sources)) index.main.php
+XG ?= $(PHP) ../../../_transifex/xg.php
 
 all: generate-pot update-po convert clean
 
 convert:
-	$(XG) CWD convert $(locales)
+	cd templates && $(XG) CWD convert $(locales)
 
 generate-pot:
-	$(XG) CWD extract $(sources)
+	cd templates && $(XG) CWD extract $(sources)
 
 update-po:
-	$(XG) CWD merge $(locales)
+	cd templates && $(XG) CWD merge $(locales)
 
 clean:
-	rm -f $(wildcard locales/*/LC_MESSAGES/*~)
+	rm -f $(wildcard templates/locales/*/LC_MESSAGES/*~)
 

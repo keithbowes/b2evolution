@@ -41,6 +41,7 @@ $locale_defs['eo-EO'] = array(
 		'charset' => 'utf-8',
 		'datefmt' => 'Y-M-d',
 		'timefmt' => 'H:i:s',
+		'shorttimefmt' => 'H:i:s',
 		'startofweek' => 0,
 		'messages' => 'eo_EO',
 		/* When no iconv, transliterate as if there were */

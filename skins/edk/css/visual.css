@@ -161,6 +161,35 @@ table summary {
   display: none;
 }
 
+#cc {
+    background-color: silver;
+    border: thin black solid;
+    color: black;
+    height: 15px;
+    overflow: hidden;
+    padding: 0;
+    text-transform: uppercase;
+    width: 80px;
+}
+
+#cc-lic,
+#cc-lic a {
+    background-color: white;
+    color: black;
+    float: left;
+    text-align: center;
+    width: 30px;
+}
+
+#cc-lim,
+#cc-lim a {
+    background-color: black;
+    color: white;
+    float: right;
+    font-weight: normal;
+    width: 50px;
+}
+
 #content {
   width: 75.5%;
 }
@@ -539,7 +568,6 @@ table summary {
   height: 1.4em;
   letter-spacing: 0;
   overflow: hidden;
-  padding-bottom: 0.2em;
 }
 
 .meta a {
@@ -590,6 +618,7 @@ table summary {
 }
 
 .storytitle {
+  border: none;
   color: brown;
   display: block;
   font-size: 110%;

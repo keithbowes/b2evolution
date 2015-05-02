@@ -4526,8 +4526,6 @@ class Item extends ItemLight
 				'after' =>            '</div>',
 				'separator' =>        ', ',
 				'links' =>            true,
-				'tag_before' =>       '',
-				'tag_after' =>        '',
 			), $params );
 
 		$tags = $this->get_tags();

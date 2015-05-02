@@ -39,8 +39,8 @@ $params = array_merge( array(
 		'avatar_image_size'                => 'fit-160x160',
 		'avatar_image_size_if_anonymous'   => 'fit-160x160-blur-18',
 		'avatar_overlay_text_if_anonymous' => '#default#',
-		'edit_my_profile_link_text'        => T_('Edit my profile').' →',
-		'edit_user_admin_link_text'        => T_('Edit this user in backoffice'),
+		'edit_my_profile_link_text'        => __('Edit my profile').' →',
+		'edit_user_admin_link_text'        => $Skin->T_('Edit this user in the Back-office'),
 		'skin_form_params'                 => array(),
 	), $params );
 
@@ -122,57 +122,57 @@ if( $is_logged_in )
 
 echo $avatar_imgtag;
 
-$ProfileForm->begin_fieldset( T_('Identity') );
+$ProfileForm->begin_fieldset( __('Identity') );
 
 	echo '<div class="profile_pictured_fieldsets">';
 
 	$login_note = '';
 	if( $is_logged_in && ( $User->ID == $current_User->ID ) && ( $User->check_status( 'can_be_validated' ) ) )
 	{ // Remind the current user that he has not activated his account yet:
-		$login_note = '<span style="color:red; font-weight:bold">[<a style="color:red" href="'.get_activate_info_url( NULL, '&amp;' ).'">'.T_('Not activated').'</a>]</span>';
+		$login_note = '<span style="color:red; font-weight:bold">[<a style="color:red" href="'.get_activate_info_url( NULL, '&amp;' ).'">'.$Skin->T_('Not activated').'</a>]</span>';
 	}
 
-	$ProfileForm->info( T_('Login'), $User->get_colored_login(), $login_note );
+	$ProfileForm->info( __('Login'), $User->get_colored_login(), $login_note );
 
 	if( $Settings->get( 'firstname_editing' ) != 'hidden' && $User->get( 'firstname' ) != '' )
 	{
-		$ProfileForm->info( T_('First Name'), $User->get( 'firstname' ) );
+		$ProfileForm->info( $Skin->T_('First Name'), $User->get( 'firstname' ) );
 	}
 
 	if( $Settings->get( 'lastname_editing' ) != 'hidden' && $User->get( 'lastname' ) != '' )
 	{
-		$ProfileForm->info( T_('Last Name'), $User->get( 'lastname' ) );
+		$ProfileForm->info( $Skin->T_('Last Name'), $User->get( 'lastname' ) );
 	}
 
-	$ProfileForm->info( T_( 'I am' ), $User->get_gender() );
+	$ProfileForm->info( __( 'I am' ), $User->get_gender() );
 
 	if( ! empty( $User->ctry_ID ) && user_country_visible() )
 	{	// Display country
 		load_class( 'regional/model/_country.class.php', 'Country' );
-		$ProfileForm->info( T_( 'Country' ), $User->get_country_name() );
+		$ProfileForm->info( __( 'Country' ), $User->get_country_name() );
 	}
 
 	if( ! empty( $User->rgn_ID ) && user_region_visible() )
 	{	// Display region
 		load_class( 'regional/model/_region.class.php', 'Region' );
-		$ProfileForm->info( T_( 'Region' ), $User->get_region_name() );
+		$ProfileForm->info( __( 'Region' ), $User->get_region_name() );
 	}
 
 	if( ! empty( $User->subrg_ID ) && user_subregion_visible() )
 	{	// Display sub-region
 		load_class( 'regional/model/_subregion.class.php', 'Subregion' );
-		$ProfileForm->info( T_( 'Sub-region' ), $User->get_subregion_name() );
+		$ProfileForm->info( __( 'Sub-region' ), $User->get_subregion_name() );
 	}
 
 	if( ! empty( $User->city_ID ) && user_city_visible() )
 	{	// Display city
 		load_class( 'regional/model/_city.class.php', 'City' );
-		$ProfileForm->info( T_( 'City' ), $User->get_city_name() );
+		$ProfileForm->info( __( 'City' ), $User->get_city_name() );
 	}
 
 	if( ! empty( $User->age_min ) || ! empty( $User->age_max ) )
 	{
-		$ProfileForm->info( T_( 'My age group' ), sprintf( T_('from %d to %d years old'), $User->get('age_min'), $User->get('age_max') ) );
+		$ProfileForm->info( __( 'My age group' ), sprintf( $Skin->T_('from %d to %d years old'), $User->get('age_min'), $User->get('age_max') ) );
 	}
 
 	$user_organizations = $User->get_organizations();
@@ -191,7 +191,7 @@ $ProfileForm->begin_fieldset( T_('Identity') );
 				$org_names[] = '<a href="'.$org->url.'" rel="nofollow" target="_blank">'.$org->name.'</a>';
 			}
 		}
-		$ProfileForm->info( $count_organizations > 1 ? T_( 'Organizations' ) : T_( 'Organization' ), implode( '<br />', $org_names ) );
+		$ProfileForm->info( $count_organizations > 1 ? __( 'Organizations' ) : __( 'Organization' ), implode( '<br />', $org_names ) );
 	}
 
 	echo '</div>';
@@ -215,13 +215,13 @@ $ProfileForm->begin_fieldset( T_('Identity') );
 				) );
 			}
 			$info_content .= '<div class="clear"></div>';
-			$ProfileForm->info( T_('Other pictures'), $info_content );
+			$ProfileForm->info( __('Other pictures'), $info_content );
 		}
 	}
 
 $ProfileForm->end_fieldset();
 
-$ProfileForm->begin_fieldset( sprintf( T_('You and %s...'), $User->login ) );
+$ProfileForm->begin_fieldset( sprintf( $Skin->T_('You and %s...'), $User->login ) );
 
 	$contacts = array();
 	if( $is_logged_in && ( $current_User->ID != $User->ID ) && ( $current_User->check_perm( 'perm_messaging', 'reply' ) ) )
@@ -229,16 +229,16 @@ $ProfileForm->begin_fieldset( sprintf( T_('You and %s...'), $User->login ) );
 		$is_contact = check_contact( $User->ID );
 		if( $is_contact )
 		{ // displayed user is on current User contact list
-			$contacts[] = action_icon( T_('On my contacts list'), 'allowback', $Blog->get( 'contactsurl' ), T_('On my contacts list'), 3, 4, array(), array( 'style' => 'margin: 0 2px' ) );
+			$contacts[] = action_icon( __('On my contacts list'), 'allowback', $Blog->get( 'contactsurl' ), __('On my contacts list'), 3, 4, array(), array( 'style' => 'margin: 0 2px' ) );
 			$contacts_groups = get_contacts_groups_list( $User->ID );
 		}
 		elseif( $is_contact !== NULL )
 		{ // displayed user is on current User contact list but it's blocked by current User
-			$contacts[] = get_icon( 'file_not_allowed', 'imgtag', array( 'style' => 'margin-left: 4px' ) ).T_('You have blocked this user').' - <a href="'.url_add_param( $Blog->get( 'contactsurl' ), 'action=unblock&amp;user_ID='.$User->ID.'&amp;'.url_crumb( 'messaging_contacts' ) ).'">'.T_('Unblock').'</a>';
+			$contacts[] = get_icon( 'file_not_allowed', 'imgtag', array( 'style' => 'margin-left: 4px' ) ).$Skin->T_('You have blocked this user').' - <a href="'.url_add_param( $Blog->get( 'contactsurl' ), 'action=unblock&amp;user_ID='.$User->ID.'&amp;'.url_crumb( 'messaging_contacts' ) ).'">'.$Skin->T_('Unblock').'</a>';
 		}
 		elseif( $current_User->check_status( 'can_edit_contacts' ) )
 		{ // user is not in current User contact list, so allow "Add to my contacts" action, but only if current User is activated
-			$contacts[] = action_icon( T_('Add to my contacts'), 'add', url_add_param( $Blog->get( 'contactsurl' ), 'action=add_user&amp;user_ID='.$User->ID.'&amp;'.url_crumb( 'messaging_contacts' ) ), T_('Add to my contacts'), 3, 4, array(), array( 'style' => 'margin: 0 2px 0 0' ) );
+			$contacts[] = action_icon( __('Add to my contacts'), 'add', url_add_param( $Blog->get( 'contactsurl' ), 'action=add_user&amp;user_ID='.$User->ID.'&amp;'.url_crumb( 'messaging_contacts' ) ), __('Add to my contacts'), 3, 4, array(), array( 'style' => 'margin: 0 2px 0 0' ) );
 		}
 	}
 
@@ -246,14 +246,14 @@ $ProfileForm->begin_fieldset( sprintf( T_('You and %s...'), $User->login ) );
 	if( !empty($msgform_url) )
 	{
 		$msgform_url = url_add_param( $msgform_url, 'msg_type=PM' );
-		$contacts[] = action_icon( T_('Send a message'), 'email', $msgform_url, T_('Send a message'), 3, 4, array(), array( 'style' => 'margin-right:2px' ) );
+		$contacts[] = action_icon( __('Send a message'), 'email', $msgform_url, __('Send a message'), 3, 4, array(), array( 'style' => 'margin-right:2px' ) );
 	}
 	else
 	{ // No message form possibility to contact with User, get the reason why
 		$contacts[] = $User->get_no_msgform_reason();
 	}
 
-	$ProfileForm->info( T_('Contact'), implode( '<div style="height:6px"> </div>', $contacts ) );
+	$ProfileForm->info( __('Contact'), implode( '<div style="height:6px"> </div>', $contacts ) );
 
 	if( $is_logged_in && $current_User->check_status( 'can_edit_contacts' ) && $current_User->check_perm( 'perm_messaging', 'reply' ) )
 	{ // user is logged in, the account was activated and has the minimal messaging permission
@@ -263,23 +263,23 @@ $ProfileForm->begin_fieldset( sprintf( T_('You and %s...'), $User->login ) );
 		$ProfileForm->output = false;
 		$button_add_group = $ProfileForm->submit_input( array(
 				'name' => 'actionArray[add_user]',
-				'value' => T_('Add'),
+				'value' => __('Add'),
 				'class' => 'SaveButton'
 			) );
 		$ProfileForm->output = true;
 
 		if( !empty( $contacts_groups ) )
 		{	// Display contacts groups for current User
-			$ProfileForm->custom_content( '<p><strong>'.T_( 'You can organize your contacts into groups. You can decide in which groups to put this user here:' ).'</strong></p>' );
-			$ProfileForm->info( sprintf( T_('%s is'), $User->login ), $contacts_groups );
+			$ProfileForm->custom_content( '<p><strong>'.$Skin->T_( 'You can organize your contacts into groups. You can decide in which groups to put this user here:' ).'</strong></p>' );
+			$ProfileForm->info( sprintf( __('%s is'), $User->login ), $contacts_groups );
 
 			// Form to create a new group
 			$ProfileForm->hidden( 'group_ID', 'new' );
-			$ProfileForm->text_input( 'group_ID_combo', param( 'group_ID_combo', 'string', '' ), 18, T_('Create a new group'), '', array( 'field_suffix' => $button_add_group, 'maxlength' => 50 ) );
+			$ProfileForm->text_input( 'group_ID_combo', param( 'group_ID_combo', 'string', '' ), 18, $Skin->T_('Create a new group'), '', array( 'field_suffix' => $button_add_group, 'maxlength' => 50 ) );
 		}
 		elseif( $User->ID != $current_User->ID )
 		{	// Form to add this user into the group
-			$ProfileForm->combo_box( 'group_ID', param( 'group_ID_combo', 'string', '' ), get_contacts_groups_options( param( 'group', 'string', '-1' ), false ), T_('Add this user to a group'), array( 'new_field_size' => '8', 'field_suffix' => $button_add_group ) );
+			$ProfileForm->combo_box( 'group_ID', param( 'group_ID_combo', 'string', '' ), get_contacts_groups_options( param( 'group', 'string', '-1' ), false ), $Skin->T_('Add this user to a group'), array( 'new_field_size' => '8', 'field_suffix' => $button_add_group ) );
 		}
 	}
 
@@ -307,7 +307,7 @@ foreach( $User->userfields as $userfield )
 		{	// End previous group
 			$ProfileForm->end_fieldset();
 		}
-		$ProfileForm->begin_fieldset( T_( $userfield->ufgp_name ) );
+		$ProfileForm->begin_fieldset( __( $userfield->ufgp_name ) );
 	}
 
 	if( $userfield->ufdf_type == 'text' )
@@ -323,19 +323,19 @@ if( $group_ID > 0 )
 	$ProfileForm->end_fieldset();
 }
 
-$ProfileForm->begin_fieldset( T_( 'Reputation' ) );
+$ProfileForm->begin_fieldset( __( 'Reputation' ) );
 
-	$ProfileForm->info( T_('Number of posts'), $User->get_reputation_posts() );
+	$ProfileForm->info( __('Number of posts'), $User->get_reputation_posts() );
 
-	$ProfileForm->info( T_('Comments'), $User->get_reputation_comments() );
+	$ProfileForm->info( __('Comments'), $User->get_reputation_comments() );
 
-	$ProfileForm->info( T_('Photos'), $User->get_reputation_files( array( 'file_type' => 'image' ) ) );
+	$ProfileForm->info( __('Photos'), $User->get_reputation_files( array( 'file_type' => 'image' ) ) );
 
-	$ProfileForm->info( T_('Audio'), $User->get_reputation_files( array( 'file_type' => 'audio' ) ) );
+	$ProfileForm->info( __('Audio'), $User->get_reputation_files( array( 'file_type' => 'audio' ) ) );
 
-	$ProfileForm->info( T_('Other files'), $User->get_reputation_files( array( 'file_type' => 'other' ) ) );
+	$ProfileForm->info( __('Other files'), $User->get_reputation_files( array( 'file_type' => 'other' ) ) );
 
-	$ProfileForm->info( T_('Spam fighter score'), $User->get_reputation_spam() );
+	$ProfileForm->info( __('Spam fighter score'), $User->get_reputation_spam() );
 
 $ProfileForm->end_fieldset();
 

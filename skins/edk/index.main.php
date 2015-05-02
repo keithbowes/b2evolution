@@ -1,49 +1,32 @@
 <?php
+$nine_weeks = time() + 9 * 7 * 24 * 60 * 60;
+
 /*
  * Use the value of diaspora-pod-select if available.  It won't be in HTML5 browsers with <datalist> support.
  * Otherwise use the value of diaspora-pod in HTML5 browsers.
  * However, in browsers without <datalist>, we don't want to use diaspora-pod.
  */
-
-if (!($diaspora_pod = param('diaspora-pod')))
-	$diaspora_pod = param('diaspora-pod-select');
+if (!($diaspora_pod = param('diaspora-pod-select')))
+	$diaspora_pod = param('diaspora-pod');
 
 if ($diaspora_pod)
 {
-	setcookie('Diaspora-Pod', $diaspora_pod, time() + (9 * 7 * 24 * 60 * 60) /* 9 weeks */);
+	setcookie('Diaspora-Pod', $diaspora_pod,  $nine_weeks);
 	header('Location: ' . $diaspora_pod . '/bookmarklet?url=' . param('diaspora-url') . '&title=' . param('diaspora-title'));
 	die();
 }
 
+skin_init( $disp );
+skin_include('templates/_funcs.inc.php');
+
 if (param('delete_cookies'))
 {
-	foreach ($_COOKIE as $cookie => $cval)
-	{
-		printf($Skin->T_("Deleting cookie %s<br />\n"), $cookie);
-		setcookie($cookie, NULL, -1);
-	}
-	die($Skin->T_('Cookies deleted!'));
+	delete_cookies();
 }
 
 $show_mode = param('show', 'string', 'post');
 
 $hl = 'single' != $disp ? 'h3' : 'h2';
-
-/* Functions to avoid redundant translations of core phrases */
-function __($str)
-{
-	return T_($str);
-}
-
-function _s($str)
-{
-	return TS_($str);
-}
-
-function _t($str)
-{
-	return NT_($str);
-}
 
 /* Output the end of HTML */
 function end_html()
@@ -53,19 +36,6 @@ function end_html()
 	skin_include( 'templates/_html_footer.inc.php' );
 }
 
-/* Show the footer */
-function show_footer()
-{
-	global $Plugins, $Skin;
-	global $app_name, $app_version;
-	$Plugins->trigger_event('SkinEndHtmlBody');
-
-	printf($Skin->T_('<div>Powered by <cite><a href="http://www.duckduckgo.com/?q=!+%1$s">%1$s</a> %2$s</cite>.</div>'), $app_name, $app_version);
-	printf('<div>%s</div>', get_copyright(array('display' => FALSE)));
-	echo '<div>' . $Skin->T_('This site uses <a href="http://en.wikipedia.org/wiki/HTTP_cookie">cookies</a>.') . ' <a href="' . $_SERVER['PHP_SELF'] . '?delete_cookies=1&amp;redir=no">' . $Skin->T_('Delete Cookies!') . '</a></div>' . "\n";
-}
-
-skin_init( $disp );
 skin_include( 'templates/_html_header.inc.php' );
 ?>
 
@@ -105,18 +75,9 @@ if ($last_date != $date && 'single' != $disp)
 	<div role="article" id="<?php $Item->anchor_id(); ?>" <?php echo $_item_langattrs ?>>
 <?php
 	$Item->locale_temp_switch();
-	printf('<%4$s class="storytitle"><a %6$shref="%1$s"  title="%3$s">%2$s</a></%5$s>', $Item->get_single_url(), $Item->title, __('Permanent link to full entry'), $hl, $hl, supports_xhtml() ? 'rel="permalink" ' : '');
+	printf('<%4$s class="storytitle"><a rel="%5$s" href="%1$s"  title="%3$s">%2$s</a></%4$s>', $Item->get_single_url(), $Item->title, __('Permanent link to full entry'), $hl, supports_xhtml() ? 'permalink' : 'bookmark');
 ?>
-  <div class="meta"><?php echo __('Posted in'); ?> <?php $Item->categories(); ?>
- <?php echo __('by'); ?>
-	<a href="<?php $Item->get_creator_User()->url(); ?>"><?php echo $Item->get_creator_User()->firstname; ?></a>
- <?php
-printf($Skin->T_('on %s'), $Item->get_issue_date());
-echo $Skin->T_(' at ');
-$Item->issue_time();
-$Item->locale_flag();
-echo preg_replace('/(\s*alt=)"[^"]*"/', '$1""', $Item->get_edit_link(array('title' => '#')));
-?></div>
+	<div class="meta"><?php get_meta($Item); ?></div>
 
 <?php
 if ($show_mode != 'comments')
@@ -177,11 +138,9 @@ if ($show_mode != 'comments')
 
 	$Item->tags(
 		array(
-			'after' => "\n</ul>\n</div>\n",
-			'before' => "<div class=\"meta\">\n<$hl class=\"tag-list-header\">" . __('Tags') . "</$hl>\n<ul class=\"tag-list\">",
-			'separator' => '',
-			'tag_after' => '</li>',
-			'tag_before' => "\n<li>",
+			'after' => "\n</li>\n</ul>\n</div>\n",
+			'before' => "<div class=\"meta\">\n<$hl class=\"tag-list-header\">" . __('Tags') . "</$hl>\n<ul class=\"tag-list\">\n<li>",
+			'separator' => '</li><li>',
 		)
 	);
 
@@ -209,7 +168,9 @@ endwhile;
 skin_include('$disp$', array(
   'disp_posts' => '',
   'disp_single' => '',
-  'disp_page' => ''
+  'disp_page' => '',
+  'disp_profile' => 'templates/_profile.disp.php',
+  'disp_user' => 'templates/_user.disp.php',
 ));
 
 if ($MainList)

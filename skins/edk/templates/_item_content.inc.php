@@ -180,10 +180,7 @@ switch( $content_mode )
 					) );
 
 				// Display CONTENT:
-				$Item->content_teaser( array(
-						'before'      => '',
-						'after'       => '',
-					) );
+				echo lang_to_xml($Item->get_content_teaser( ));
 				$Item->more_link( array(
 						'force_more'  => $params['force_more'],
 						'before'      => $params['before_more_link'],
@@ -208,11 +205,7 @@ switch( $content_mode )
 							'restrict_to_image_position' => 'aftermore',	// Optionally restrict to files/images linked to specific position: 'teaser'|'aftermore'
 						) );
 				}
-				$Item->content_extension( array(
-						'before'      => '',
-						'after'       => '',
-						'force_more'  => $params['force_more'],
-					) );
+				echo lang_to_xml($Item->get_content_extension( '#', $params['force_more']));
 
 				// Links to post pages (for multipage posts):
 				$Item->page_links( '<p class="right">'.T_('Pages:').' ', '</p>', ' &middot; ' );

@@ -467,6 +467,7 @@ class ItemLight extends DataObject
 				'link_title'      => '#',
 				'format'          => 'htmlbody',
 				'show_locked'     => false,
+				'display'         => true,
 			), $params );
 
 
@@ -521,9 +522,14 @@ class ItemLight extends DataObject
 		}
 		sort($categoryNames);
 
-		echo $params['before'];
-		echo format_to_output( implode( $params['separator'], $categoryNames ), $params['format'] );
- 		echo $params['after'];
+		$r = $params['before'];
+		$r .= format_to_output( implode( $params['separator'], $categoryNames ), $params['format'] );
+		$r .= $params['after'];
+
+		if ($params['display'])
+			echo $r;
+		else
+			return $r;
 	}
 
 
