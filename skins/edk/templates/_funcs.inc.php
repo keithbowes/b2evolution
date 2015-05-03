@@ -82,7 +82,6 @@ function get_item($dir)
 		if (!is_valid_query($item_data))
 			return NULL;
 
-		$item_data['post_datestart'] = strtotime($item_data['post_datestart']);
 		$cat_data = $DB->get_row("SELECT cat_parent_ID, cat_name, cat_blog_ID FROM $categorytablename WHERE cat_ID = " . $item_data['post_main_cat_ID'], ARRAY_A, 0);
 		if (!is_valid_query($cat_data))
 			return NULL;
@@ -164,6 +163,7 @@ function get_post_urltitle($dir = '', $row = 0)
 	}
 
 	if (!is_valid_query($item_data)) return NULL;
+	$item_data['post_datestart'] = strtotime($item_data['post_datestart']);
 
 	$cat_data = $DB->get_row('SELECT cat_parent_ID, cat_name, cat_blog_ID FROM ' . $categorytablename . ' WHERE cat_ID = ' . $item_data['post_main_cat_ID'], ARRAY_A, 0);
 	if (!is_valid_query($cat_data)) return NULL;
@@ -217,7 +217,6 @@ function init_content_type()
 	{
 		/* Make sure user agents with inaccurate Accept headers get the right represention */
 		$ua_overrides = array(
-			'AppleWebKit' => TRUE,
 			'Dillo' => FALSE,
 			'Validator.nu' => FALSE,
 			'Validator' => TRUE,

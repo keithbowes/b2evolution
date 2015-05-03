@@ -1,0 +1,228 @@
+# edk - Language file
+# Copyright (C) 2015 keith
+# This file is distributed under the same license as the edk package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: edk \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-05-02 22:52-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/_403_forbidden.disp.php:20
+msgid "403 Forbidden"
+msgstr ""
+
+#: templates/_403_forbidden.disp.php:22 templates/_404_not_found.disp.php:22
+#, php-format
+msgid "<p><a href=\"%s\">%s</a> cannot resolve the requested URL.</p>"
+msgstr ""
+
+#: templates/_404_not_found.disp.php:20
+msgid "404 Not Found"
+msgstr ""
+
+#: templates/_funcs.inc.php:25
+#, php-format
+msgid "Deleting cookie %s.<br />\n"
+msgstr ""
+
+#: templates/_funcs.inc.php:28
+msgid "Cookies deleted!"
+msgstr ""
+
+#: templates/_funcs.inc.php:28
+msgid "There were no cookies to delete."
+msgstr ""
+
+#. TRANS: Params: Start year, end year, author, license
+#: templates/_funcs.inc.php:49
+#, php-format
+msgid "(C) %1$d-%2$d %3$s under %4$s"
+msgstr ""
+
+#. TRANS: Params: Start year, end year, author
+#: templates/_funcs.inc.php:51
+#, php-format
+msgid "(C) %1$d-%2$d %3$s"
+msgstr ""
+
+#: templates/_funcs.inc.php:116
+msgid "Attribution, Sharealike license"
+msgstr ""
+
+#: templates/_funcs.inc.php:116
+msgid "BY-SA"
+msgstr ""
+
+#: templates/_funcs.inc.php:116
+msgid "C<span class=\"button-sf\">reative </span>C<span class=\"button-sf\">ommons</span>"
+msgstr ""
+
+#: templates/_funcs.inc.php:116 templates/_funcs.inc.php:118
+msgid "Creative Commons"
+msgstr ""
+
+#. TRANS: The last two %s are icons
+#: templates/_funcs.inc.php:125
+#, php-format
+msgid "Posted in %s by <a href=\"%s\">%s</a> on %s at %s %s %s"
+msgstr ""
+
+#: templates/_funcs.inc.php:315
+#, php-format
+msgid "<div>Powered by <cite><a href=\"http://www.duckduckgo.com/?q=!+%1$s\">%1$s</a> %2$s</cite>.</div>"
+msgstr ""
+
+#: templates/_funcs.inc.php:317
+msgid "Delete Cookies!"
+msgstr ""
+
+#: templates/_funcs.inc.php:317
+msgid "This site uses <a href=\"http://en.wikipedia.org/wiki/HTTP_cookie\">cookies</a>."
+msgstr ""
+
+#: templates/_html_header.inc.php:34
+msgid "Classic Look"
+msgstr ""
+
+#: templates/_html_header.inc.php:35 templates/_html_header.inc.php:177
+msgid "Clear Look"
+msgstr ""
+
+#: templates/_html_header.inc.php:123
+msgid "Transitional Look"
+msgstr ""
+
+#: templates/_html_header.inc.php:154
+msgid "Please leave this for stats"
+msgstr ""
+
+#: templates/_html_header.inc.php:196
+msgid "Main Content"
+msgstr ""
+
+#: templates/_html_header.inc.php:197
+msgid "Menu"
+msgstr ""
+
+#: templates/_item_comment.inc.php:78
+#, php-format
+msgid " (in response to <a href=\"%s\">%s</a>)"
+msgstr ""
+
+#: templates/_item_comment.inc.php:84
+msgid "from"
+msgstr ""
+
+#: templates/_item_comment.inc.php:135
+msgid " at "
+msgstr ""
+
+#: templates/_item_comment_form.inc.php:278
+msgid "<a href=\"http://en.wikipedia.org/wiki/Markdown\">Markdown</a> is enabled."
+msgstr ""
+
+#: templates/_item_comment_form.inc.php:286
+msgid "<a href=\"http://en.wikipedia.org/wiki/BBCode\">BBCode</a> is enabled."
+msgstr ""
+
+#: templates/_sidebar.inc.php:49 templates/_sidebar.inc.php:55
+#, php-format
+msgid "%s <span class=\"button-sf\">Feed</span>"
+msgstr ""
+
+#: templates/_sidebar.inc.php:49 templates/_sidebar.inc.php:55
+#, php-format
+msgid "%s Feed"
+msgstr ""
+
+#: templates/_sidebar.inc.php:64
+msgid "Valid XHTML"
+msgstr ""
+
+#: templates/_sidebar.inc.php:68
+msgid "Share on Facebook"
+msgstr ""
+
+#: templates/_sidebar.inc.php:69
+msgid "Share on Google+"
+msgstr ""
+
+#: templates/_sidebar.inc.php:70
+msgid "Share on Twitter"
+msgstr ""
+
+#: templates/_sidebar.inc.php:92
+msgid "Enter the URL of a Diaspora* pod where you want to share (e.g. https://joindiaspora.com)"
+msgstr ""
+
+#: templates/_sidebar.inc.php:92
+msgid "Invalid entry!"
+msgstr ""
+
+#: templates/_sidebar.inc.php:196
+msgid "Select a pod to use above or enter one below."
+msgstr ""
+
+#: templates/_sidebar.inc.php:208
+msgid "Share on Diaspora*"
+msgstr ""
+
+#: templates/_sidebar.inc.php:218
+msgid "Back-office"
+msgstr ""
+
+#: templates/_user.disp.php:43
+msgid "Edit this user in the Back-office"
+msgstr ""
+
+#: templates/_user.disp.php:132
+msgid "Not activated"
+msgstr ""
+
+#: templates/_user.disp.php:139
+msgid "First Name"
+msgstr ""
+
+#: templates/_user.disp.php:144
+msgid "Last Name"
+msgstr ""
+
+#: templates/_user.disp.php:175
+#, php-format
+msgid "from %d to %d years old"
+msgstr ""
+
+#: templates/_user.disp.php:224
+#, php-format
+msgid "You and %s..."
+msgstr ""
+
+#: templates/_user.disp.php:237
+msgid "Unblock"
+msgstr ""
+
+#: templates/_user.disp.php:237
+msgid "You have blocked this user"
+msgstr ""
+
+#: templates/_user.disp.php:273
+msgid "You can organize your contacts into groups. You can decide in which groups to put this user here:"
+msgstr ""
+
+#: templates/_user.disp.php:278
+msgid "Create a new group"
+msgstr ""
+
+#: templates/_user.disp.php:282
+msgid "Add this user to a group"
+msgstr ""

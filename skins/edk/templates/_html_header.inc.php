@@ -27,18 +27,18 @@ function edk_css_include()
 	$visual_media = 'handheld, print, projection, screen, tty, tv';
 
 	/* Main CSS files */
-	require_css($edk_base.'css/core.css', 'relative', NULL, 'all');
-	require_css($edk_base.'css/visual.css', 'relative', NULL, $visual_media);
+	require_css($edk_base . 'css/core.css', 'relative', NULL, 'all');
+	require_css($edk_base . 'css/visual.css', 'relative', NULL, $visual_media);
 
 	/* Alternate CSS files */
-	require_css($edk_base.'css/classic.css', 'relative', $Skin->T_('Classic Look'), $visual_media);
-	require_css($edk_base.'css/clear.css', 'relative', $Skin->T_('Clear Look'), $visual_media);
+	require_css($edk_base . 'css/classic.css', 'relative', $Skin->T_('Classic Look'), $visual_media);
+	require_css($edk_base . 'css/clear.css', 'relative', $Skin->T_('Clear Look'), $visual_media);
 	require_css($default_style['file'], 'relative', $default_style['name'], $visual_media);
 
 	/* Media-specific overrides */
-	require_css($edk_base.'css/print.css', 'relative', NULL, 'print');
-	require_css($edk_base.'css/smallscreen.css', 'relative', NULL, '(max-width: 640px)');
-	require_css($edk_base.'css/speech.css', 'relative', NULL, 'speech');
+	require_css($edk_base . 'css/print.css', 'relative', NULL, 'print');
+	require_css($edk_base . 'css/smallscreen.css', 'relative', NULL, '(max-width: 640px)');
+	require_css($edk_base . 'css/speech.css', 'relative', NULL, 'speech');
 
 	/* Don't embed style.css, as it doesn't exist in this theme */
 	unset($headlines['style.css']);
@@ -180,6 +180,9 @@ if (!supports_xhtml())
 	edk_meta('property', 'copyright', get_copyright(array('display' =>  FALSE, 'license' =>  FALSE)));
 	edk_meta('property', 'license', get_license(array('display' => FALSE, 'format' =>  'text')));
 
+	add_js_headline('var collection_path = "' .  parse_url($baseurl, PHP_URL_PATH) . '";');
+	require_js($edk_base . 'js/styleprefs.js', NULL, TRUE);
+
 		skin_description_tag();
 		skin_keywords_tag();
 		skin_opengraph_tags();
@@ -283,6 +286,7 @@ if ($Blog->get_setting('feed_content') != 'none')
 	$Blog->disp( 'user_css', 'raw');
 	$Blog->disp_setting( 'head_includes', 'raw');
 ?>
+
 </head>
 
 <body<?php skin_body_attrs( array( 'class' => $params['body_class'] ) ); ?>>
