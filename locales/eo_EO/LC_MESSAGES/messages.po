@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net\n"
 "POT-Creation-Date: 2015-05-01 23:14-0400\n"
-"PO-Revision-Date: 2015-05-01 23:34-0400\n"
+"PO-Revision-Date: 2015-05-04 03:17-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -2513,7 +2513,7 @@ msgstr "XML-RPC"
 
 #: ../../../inc/_core/__core.init.php:1785
 msgid "Poll the antispam blacklist"
-msgstr "Sondi la nigroliston pri spamo"
+msgstr "Sondi la nigroliston kontraŭ spamo"
 
 #: ../../../inc/_core/__core.init.php:1791
 msgid "Process the return path inbox"
@@ -2657,7 +2657,7 @@ msgstr "Nenia respondo."
 #: ../../../inc/_core/_misc.funcs.php:2064
 #: ../../../inc/_core/_misc.funcs.php:2123
 msgid "Remote error"
-msgstr "Fora eraro"
+msgstr "Defora eraro"
 
 #: ../../../inc/_core/_misc.funcs.php:2100
 #: ../../../inc/_core/_misc.funcs.php:2145
@@ -10165,7 +10165,7 @@ msgstr "Horara tempo"
 #: ../../../inc/cron/views/_cronjob.form.php:60
 #: ../../../inc/cron/views/_cronjob.view.php:50
 msgid "Repeat every"
-msgstr "Ripeti ĉiu"
+msgstr "Ripeti je ĉiu"
 
 #: ../../../inc/cron/views/_cronjob.form.php:66
 #: ../../../inc/cron/views/_cronjob.view.php:54
@@ -15768,7 +15768,7 @@ msgstr "Erara prova laboro"
 
 #: ../../../inc/maintenance/_maintenance.init.php:219
 msgid "Clean up scheduled jobs older than a threshold"
-msgstr "Purigi enhorigitaj laboroj pli malfreŝa ol sojlo"
+msgstr "Purigi enhorigitajn laborojn pli malfreŝajn ol sojlon"
 
 #: ../../../inc/maintenance/_maintenance.init.php:225
 msgid "Heavy DB maintenance (CHECK & OPTIMIZE)"
@@ -19036,7 +19036,7 @@ msgstr "Salutnomo"
 #: ../../../inc/sessions/views/_stats_view.funcs.php:178
 #: ../../../inc/sessions/views/_stats_view.funcs.php:210
 msgid "Remote IP"
-msgstr "Fora IP"
+msgstr "Defora IP"
 
 #: ../../../inc/sessions/views/_stats_sessions_list.view.php:122
 #, php-format

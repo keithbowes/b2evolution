@@ -1,56 +1,26 @@
 /* Remember the user's selected alternate stylesheet */
-var default_set = false;
-var default_style = null;
 
-/* Some browsers produce an error, so let's take care of that */
-try
+function saveDefaultStyleSheet()
 {
-	default_style = document.cookie.match(/^.*Style=([^;]+).*$/)[1];
-}
-catch (e)
-{
-}
+  var stylesheets = document.styleSheets;
+  var user_style;
 
-function setDefaultStyleSheet()
-{
-	var stylesheets = document.styleSheets;
-	var user_style;
+  /* Enumerate through the stylesheets to see which alternate was selected */
+  for (i = 0; i < stylesheets.length; i++)
+  {
+    user_style = stylesheets[i].href;
+    if (stylesheets[i].title && !stylesheets[i].disabled)
+      break;
+  }
 
-	for (i = 0; i < stylesheets.length; i++)
-	{
-		/* Get the style sheet selected by the user */
-		if (stylesheets[i].title && !stylesheets[i].disabled)
-		{
-			user_style = stylesheets[i].href;
-		}
+  /* Set the cookie */
 
-		/* Enable the default style sheet */
-		if (stylesheets[i].title &&
-			(!default_set && stylesheets[i].href == default_style) ||
-			(default_set && stylesheets[i].href == user_style))
-		{
-			stylesheets[i].disabled = false;
-			default_style = stylesheets[i].href;
-		}
-		/* Disable all other alternate style sheets */
-		else if (default_style && stylesheets[i].title)
-			stylesheets[i].disabled = true;
+  /* The cookie expires in one week */
+  var date = new Date();
+  var expiry = new Date(date.setTime(date.getTime() + 7 * 24 * 60 * 60 * 1000)).toUTCString();
 
-
-		/* Set the cookie */
-		if (stylesheets[i].title && stylesheets[i].href == default_style)
-		{
-			// The cookie expires in one week
-			var date = new Date();
-			var expiry = new Date(date.setTime(date.getTime() + 7 * 24 * 60 * 60 * 1000)).toUTCString();
-			document.cookie = 'Style=' + default_style + '; expires=' + expiry + '; path=' + collection_path;
-		}
-	}
-
-
-	default_set = true;
+  document.cookie = 'Style=' + user_style + '; expires=' + expiry + '; path=' + collection_path;
 }
 
-// Set the default style sheet on first load and then refresh user changes every second
-setDefaultStyleSheet();
-setInterval(setDefaultStyleSheet, 1000);
+/* Might as well use jQuery to hopefully get around the myriad browser incompatibilities with unload event listeners */
+$(window).bind('beforeunload', saveDefaultStyleSheet);

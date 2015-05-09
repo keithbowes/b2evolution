@@ -18,14 +18,16 @@ function _t($str)
 function delete_cookies()
 {
 	global $Skin;
+	global $collection_path;
 	$deleted = FALSE;
 	foreach ($_COOKIE as $cookie => $cval)
 	{
 		$deleted = TRUE;
 		printf($Skin->T_("Deleting cookie %s.<br />\n"), $cookie);
-		setcookie($cookie, NULL, -1);
+		setcookie($cookie, NULL, -1, $collection_path);
 	}
-	die($deleted ? $Skin->T_('Cookies deleted!') : $Skin->T_('There were no cookies to delete.'));
+	echo $deleted ? $Skin->T_('Cookies deleted!') : $Skin->T_('There were no cookies to delete.');
+	exit;
 }
 
 function get_copyright($params = array())
@@ -137,9 +139,8 @@ function get_prevnext_item($which)
 {
 	global $MainList;
 	if ($MainList)
-	{
 		return $MainList->get_prevnext_Item($which);
-	}
+
 	return NULL;
 }
 
@@ -158,9 +159,7 @@ function get_post_urltitle($dir = '', $row = 0)
 	elseif (isset($Item))
 		$item_data = $DB->get_row('SELECT post_datestart, post_ID, post_main_cat_ID, post_title, post_urltitle FROM ' . $itemtablename . ' WHERE post_ID=' . $postid, ARRAY_A, 0);
 	else
-	{
 		return '';
-	}
 
 	if (!is_valid_query($item_data)) return NULL;
 	$item_data['post_datestart'] = strtotime($item_data['post_datestart']);
@@ -209,13 +208,33 @@ function get_post_urltitle($dir = '', $row = 0)
 	return $item_data['post_urltitle'];
 }
 
+
+function get_tinyurl()
+{
+	global $Item;
+	global $disp;
+
+	if (!isset($Item)) 
+	{
+		global $MainList;
+		if (isset($MainList))
+			$Item = $MainList->get_Item();
+	}
+
+	if (isset($Item) && 'single' == $disp)
+		return $Item->get_tinyurl();
+	else
+		return '';
+}
+
 function init_content_type()
 {
 	global $content_type, $supports_xhtml, $use_strict;
 
 	if (!isset($content_type))
 	{
-		/* Make sure user agents with inaccurate Accept headers get the right represention */
+		/* Make sure user agents with inaccurate Accept headers get the right represention.
+		 * The element values are whether XHTML is truly supported. */
 		$ua_overrides = array(
 			'Dillo' => FALSE,
 			'Validator.nu' => FALSE,
@@ -269,6 +288,14 @@ function lang_to_xml($str)
 		return $str;
 	else
 		return preg_replace('/\s+lang/', ' xml:lang', $str);
+}
+
+function locale_to_lang($locale, $attr = NULL)
+{
+	if (!$attr)
+		$attr = supports_xhtml() ? 'xml:lang' : 'lang';
+
+	return sprintf('%s="%s"',$attr, preg_replace('/^([^-]+).*$/', '$1', $locale));
 }
 
 function parse_accept()
@@ -334,6 +361,11 @@ function supports_xhtml()
 	return $supports_xhtml;
 }
 
+global $baseurl, $collection_path;
+$collection_path = parse_url($baseurl, PHP_URL_PATH);
+
+global $content_type;
+
 global $first_item, $last_item;
 $first_item = get_item('ASC');
 $last_item = get_item('DESC');
@@ -342,7 +374,5 @@ $last_item = get_item('DESC');
 global $next_item, $prev_item;
 $next_item = get_prevnext_item('prev');
 $prev_item = get_prevnext_item('next');
-
-global $content_type;
 
 ?>

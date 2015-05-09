@@ -57,10 +57,7 @@ display_if_empty();
 while( $Item = & mainlist_get_item() ):
 
 $_item_title = ($disp == 'single') ? $Item->title : '';
-$_item_url = ($disp == 'single') ? $Item->get_tinyurl() : '';
-$_item_lang = preg_replace('/^(\w{2,3})-.+$/', '$1', $Item->dget('locale', 'raw'));
-$_item_langattrs = (supports_xhtml() == FALSE) ? "lang=\"$_item_lang\"" : "xml:lang=\"$_item_lang\"";
-$_item_country = strtolower(preg_replace('/^\w{2,3}-([^-]+).*$/', '$1', $Item->dget('locale', 'raw')));
+$_item_url = get_tinyurl();
 
 preg_match('/^(\S*)\s*(\S*)$/', $Item->issue_date, $matches);
 list($match, $date, $time) = $matches;
@@ -72,7 +69,7 @@ if ($last_date != $date && 'single' != $disp)
 	$last_date = $date;
 }
 ?>
-	<div role="article" id="<?php $Item->anchor_id(); ?>" <?php echo $_item_langattrs ?>>
+	<div role="article" id="<?php $Item->anchor_id(); ?>" <?php echo locale_to_lang(locale_lang(false)); ?>>
 <?php
 	$Item->locale_temp_switch();
 	printf('<%4$s class="storytitle"><a rel="%5$s" href="%1$s"  title="%3$s">%2$s</a></%4$s>', $Item->get_single_url(), $Item->title, __('Permanent link to full entry'), $hl, supports_xhtml() ? 'permalink' : 'bookmark');
@@ -166,6 +163,12 @@ if ($show_mode != 'post') skin_include( 'templates/_item_feedback.inc.php');
 endwhile;
 
 skin_include('$disp$', array(
+  'disp_404' => 'templates/_404_not_found.disp.php',
+  'disp_403' => 'templates/_403_forbidden.disp.php',
+  'disp_comments' => 'templates/_comments.disp.php',
+  'disp_login' => 'templates/_login.disp.php',
+  'disp_register' => '_register.disp.php',
+  'disp_msgform' => 'templates/_msgform.disp.php',
   'disp_posts' => '',
   'disp_single' => '',
   'disp_page' => '',

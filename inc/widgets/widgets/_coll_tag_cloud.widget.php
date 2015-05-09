@@ -208,14 +208,14 @@ class coll_tag_cloud_Widget extends ComponentWidget
 			}
 			// If there's a space in the tag name, quote it:
 			$tag_name_disp = strpos($row->tag_name, ' ')
-				? '&laquo;'.format_to_output($row->tag_name, 'htmlbody').'&raquo;'
+				? '«'.format_to_output($row->tag_name, 'htmlbody').'»'
 				: format_to_output($row->tag_name, 'htmlbody');
 			$size = floor( $row->tag_count * $size_span / $count_span + $min_size );
 
 			$l_Blog = $BlogCache->get_by_id( $row->cat_blog_ID );
 			echo $l_Blog->get_tag_link( $row->tag_name, $tag_name_disp, array(
 				'style' => 'font-size:'.$size.'pt;',
-				'title' => sprintf( T_('Display posts tagged with &laquo;%s&raquo;'), $row->tag_name ) ) );
+				'title' => sprintf( T_('Display posts tagged with «%s»'), $row->tag_name ) ) );
 			$count++;
 		}
 		echo $this->disp_params['tag_cloud_end'];

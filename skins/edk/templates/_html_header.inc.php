@@ -17,23 +17,45 @@ global $app_name, $app_version, $xmlsrv_url;
 global $baseurl, $content_type, $io_charset;
 global $first_item, $last_item, $next_item, $prev_item;
 
-global $locale;
-$locale = preg_replace('/(\w{2,3})-.*$/', '$1', locale_lang(false));
-
 function edk_css_include()
 {
 	global $Skin;
-	global $default_style, $edk_base, $headlines;
+	global $edk_base, $headlines;
+
+	$default_style = array(
+		'file' => $edk_base . 'css/transitional.css',
+		'title' => $Skin->T_('Transitional Look'),
+	);
+
+	$html5_style = array(
+		'file' => $edk_base . 'css/clear.css',
+		'title' => $Skin->T_('Clear Look'),
+	);
+
 	$visual_media = 'handheld, print, projection, screen, tty, tv';
 
-	/* Main CSS files */
+	/* Main styles */
 	require_css($edk_base . 'css/core.css', 'relative', NULL, 'all');
 	require_css($edk_base . 'css/visual.css', 'relative', NULL, $visual_media);
 
-	/* Alternate CSS files */
-	require_css($edk_base . 'css/classic.css', 'relative', $Skin->T_('Classic Look'), $visual_media);
-	require_css($edk_base . 'css/clear.css', 'relative', $Skin->T_('Clear Look'), $visual_media);
-	require_css($default_style['file'], 'relative', $default_style['name'], $visual_media);
+	/* Alternate styles */
+	$alternate_styles = array(
+		array(
+			'file' => $edk_base . 'css/classic.css',
+			'title' => $Skin->T_('Classic Look'),
+		),
+		array(
+			'file' => $html5_style['file'],
+			'title' => $html5_style['title'],
+		),
+		array(
+			'file' => $default_style['file'],
+			'title' => $default_style['title'],
+		),
+	);
+
+	foreach ($alternate_styles as $style)
+		require_css($style['file'], 'relative', $style['title'], $visual_media);
 
 	/* Media-specific overrides */
 	require_css($edk_base . 'css/print.css', 'relative', NULL, 'print');
@@ -42,6 +64,11 @@ function edk_css_include()
 
 	/* Don't embed style.css, as it doesn't exist in this theme */
 	unset($headlines['style.css']);
+
+	/* Determine the default style sheet from the Style cookie if available.
+	 * If not, use the above arrays. */
+	$default_style = ($s = $_COOKIE['Style']) ? preg_replace('/\?v=.+$/', '', $s) :
+		(supports_xhtml() ? $default_style['file'] : $html5_style['file']);
 
 	/* In XHTML, it needs to be outputted as XML processing instructions,
 	 * so do that and remove it from the headlines to include. */
@@ -55,7 +82,7 @@ function edk_css_include()
 				$elem = str_replace(array('<link', ' rel="stylesheet"', ' />'), array('<?xml-stylesheet', '', '?>'), $elem);
 
 				/* The default stylesheet shouldn't be alternate */
-				if ($file != $default_style['file'])
+				if ($file != $default_style)
 				{
 					$elem = str_replace('title=', 'alternate="yes" title=', $elem);
 				}
@@ -64,6 +91,17 @@ function edk_css_include()
 				unset($headlines[$file]);
 			}
 		}
+	}
+	else
+	{
+		/* Get the default style sheet array from the file name */
+		foreach ($alternate_styles as $style)
+			if (array_search($default_style, $style))
+				break;
+
+		/* Set the default style sheet, for browsers that support it
+		 * (most CSS-enabled browsers do) */
+		edk_meta('http-equiv', 'Default-Style', $style['title']);
 	}
 }
 
@@ -114,17 +152,26 @@ function get_full_url($part = '')
 	return $r;
 }
 
+function get_other_blogs()
+{
+	global $Blog, $DB;
+	$DB->query('SELECT blog_locale, blog_name, blog_siteurl FROM ' . $Blog->dbtablename . ' WHERE blog_ID <> ' . $Blog->ID . ' AND blog_in_bloglist = 1');
+
+	$blogs = array();
+
+	while ($row = $DB->get_row(NULL, ARRAY_A))
+		array_push($blogs, $row);
+
+	return $blogs;
+}
+
 global $edk_base, $skin;
 $edk_base = $Blog->get_local_skins_url().$skin.'/';
 
-global $default_style;
-$default_style= array(
-	'file' => $edk_base . 'css/transitional.css',
-	'name' => $Skin->T_('Transitional Look'),
-);
-
 init_content_type();
 skin_content_header($content_type);
+
+$langattrs = locale_to_lang(locale_lang(false));
 
 if (supports_xhtml())
 {
@@ -137,14 +184,12 @@ if (supports_xhtml())
 	$dtd = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 2.0//EN"' . "\n" .
 	   $space . '"' . $edk_base . 'DTD/xhtml2.dtd">';
 
-	$langattrs = 'xml:base="'. $edk_base . '" xml:lang="' . $locale . '"';
-	$htmlelem = "<html xmlns=\"http://www.w3.org/1999/xhtml\" $langattrs>";
+	$htmlelem = "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:base=\"$edk_base\" $langattrs>";
 }
 else
 {
 	edk_css_include();
 	$dtd = '<!DOCTYPE html>';
-	$langattrs ="lang=\"$locale\"";
 	$htmlelem = "<html $langattrs>";
 }
 
@@ -161,7 +206,7 @@ echo $params['html_tag'];
 
 <head>
 <?php
-echo edk_get_meta('charset', $io_charset);
+echo edk_get_meta('charset', $io_charset) . "\n";
 if (!supports_xhtml())
 	skin_base_tag(); /* Base URL for this skin. You need this to fix relative links! */
 	$Plugins->trigger_event( 'SkinBeginHtmlHead' );
@@ -174,28 +219,36 @@ if (!supports_xhtml())
 	?></title>
 <?php
 
-	edk_meta('http-equiv', 'Default-Style', $Skin->T_('Clear Look'));
 	edk_meta('name', 'author', $Blog->get_owner_User()->get('fullname'));
 	edk_meta('property', 'DC.rights', get_copyright(array('display' => FALSE, 'license' =>  FALSE)));
 	edk_meta('property', 'copyright', get_copyright(array('display' =>  FALSE, 'license' =>  FALSE)));
 	edk_meta('property', 'license', get_license(array('display' => FALSE, 'format' =>  'text')));
 
-	add_js_headline('var collection_path = "' .  parse_url($baseurl, PHP_URL_PATH) . '";');
+	global $collection_path;
+	add_js_headline('var collection_path = "' .  $collection_path . '";');
 	require_js($edk_base . 'js/styleprefs.js', NULL, TRUE);
 
-		skin_description_tag();
-		skin_keywords_tag();
-		skin_opengraph_tags();
-		robots_tag();
+	skin_description_tag();
+	skin_keywords_tag();
+	skin_opengraph_tags();
+	robots_tag();
 
-		echo $params['generator_tag'];
+	echo $params['generator_tag'];
+
+	/* Hold this info in a variable instead of querying the DB multiple times */
+	$canonical_url = get_full_url(get_post_urltitle());
+	if ('single' == $disp)
+	{
+		printf('<link rel="canonical" href="%s" />%s', $canonical_url, "\n");
+		printf('<link rel="shortlink" href="%s" />%s', get_tinyurl(), "\n");
+	}
 
 	if (supports_xhtml() || supports_link_toolbar())
 	{
 		$comment_args = is_text_browser() ? '?show=menu&amp;redir=no' : '';
 ?>
-  <link rel="bookmark" href="<?php echo get_full_url(get_post_urltitle()); ?>#content" title="<?php echo $Skin->T_('Main Content'); ?>" />
-  <link rel="bookmark" href="<?php echo get_full_url(get_post_urltitle()) . $comment_args; ?>#menu" title="<?php echo $Skin->T_('Menu'); ?>" />
+  <link rel="bookmark" href="<?php echo $canonical_url; ?>#content" title="<?php echo $Skin->T_('Main Content'); ?>" />
+  <link rel="bookmark" href="<?php echo $canonical_url . $comment_args; ?>#menu" title="<?php echo $Skin->T_('Menu'); ?>" />
 
 <?php
 if ('single' == $disp)
@@ -205,7 +258,7 @@ if ('single' == $disp)
 <?php
 		}
 ?>
-  <link rel="top" href="<?php echo $baseurl; ?>" title="<?php echo __('Go back to home page'); ?>" />
+  <link rel="top" href="<?php echo $baseurl; ?>default.php" title="<?php echo __('Go back to home page'); ?>" />
 
 <?php
 if ('posts' != $disp)
@@ -216,19 +269,8 @@ if ('posts' != $disp)
 }
 else
 {
-	global $DB;
-	$DB->query('SELECT blog_locale, blog_name, blog_siteurl FROM ' . $Blog->dbtablename . ' WHERE blog_ID <> ' . $Blog->ID . ' AND blog_in_bloglist = 1');
-	while ($row = $DB->get_row(NULL, ARRAY_A))
-	{
-		$lang = preg_replace('/^([^-]+)-?.*$/', '$1', $row['blog_locale']);
-		if (supports_xhtml())
-		{
-			$linklang = "xml:lang=\"$lang\"";
-		}
-		else
-			$linklang = "lang=\"$lang\"";
-		echo '<link rel="alternate" href="' . $baseurl . $row['blog_siteurl'] . '" title="' . $row['blog_name'] . '" ' . $linklang . ' hreflang="' . $lang . '" />' . "\n";
-	}
+foreach (get_other_blogs() as $blog)
+	printf('<link rel="alternate" href="%s%s" title="%s" %s %s />%s', $baseurl, $blog['blog_siteurl'], $blog['blog_name'], locale_to_lang($blog['blog_locale']), locale_to_lang($blog['blog_locale'], 'hreflang'), "\n");
 }
 
 if (NULL !== $first_item)
@@ -277,9 +319,7 @@ if ($Blog->get_setting('feed_content') != 'none')
 <?php
 	}
 }
-?>
-  <link rel="EditURI" type="application/rsd+xml" title="RSD" href="<?php echo $xmlsrv_url; ?>rsd.php?blog=<?php echo $Blog->ID; ?>" />
-<?php
+	printf('<link rel="EditURI" type="application/rsd+xml" title="RSD" href="%srsd.php?blog=%d" />', $xmlsrv_url, $Blog->ID);
 	include_headlines(); /* Add javascript and css files included by plugins and the skin */
 
 	$Blog->disp( 'blog_css', 'raw');

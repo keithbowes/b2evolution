@@ -1,0 +1,1 @@
+This directory is just here so that xg.php won't put its messages in the global POT file.
