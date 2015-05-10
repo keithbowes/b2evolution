@@ -1,3 +1,18 @@
+* .bComment {
+  background-color: aqua;
+}
+
+:not(textarea).bComment {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+:target {
+  border: thick double black;
+  margin-bottom: 0.5em;
+  padding: 0.23em;
+}
+
 body,
 html {
   height: 100%;
@@ -6,6 +21,40 @@ html {
 
 body.disp_single [role="article"] {
   margin-top: 1em;
+}
+
+form.bComment {
+  margin-bottom: 1em !important;
+  padding-bottom: 1em;
+}
+
+form.bComment {
+  background-color: teal;
+  display: block;
+}
+
+form.bComment fieldset {
+  border: 0;
+}
+
+form.bComment input[type="email"],
+form.bComment input[type="password"],
+form.bComment input[type="text"],
+form.bComment input[type="url"],
+form.bComment textarea,
+input[type="search"] {
+  background-color: lavender;
+  border: thin solid #333;
+  color: red;
+  max-width: 90%;
+  padding: 0.2em;
+}
+
+form.bComment legend {
+  border: thin double gray;
+  color: inherit;
+  font-weight: 100;
+  padding: 0.73em;
 }
 
 input[type="search"] {
@@ -30,6 +79,10 @@ input[type="search"]:hover {
   overflow: auto;
   padding: 0 1%;
   width: 74.5%;
+}
+
+#content .bComment * {
+  text-align: left;
 }
 
 #credit {
@@ -103,9 +156,62 @@ input[type="search"]:hover {
   color: brown !important;
 }
 
+.allowed-tags {
+  background-color: gray;
+  color: black;
+  max-width: 46%;
+  padding: 0.5em;
+}
+
+.author-comment .bComment {
+  background-color: navy !important;
+  color: silver;
+}
+
+.author-comment .bComment,
+.user-comment .bComment {
+  margin: 0.5em;
+}
+
+.author-comment .bComment a {
+  color: orange;
+}
+
+.author-comment .bCommentSmallPrint {
+  border-top-color: silver;
+}
+
 .bCalendarTable caption {
   border: thin black inset !important;
   margin: 0.2em 0 0.3em 0;
+}
+
+.bComment a {
+  color: red;
+}
+
+.bComment a:hover {
+  background-color: black;
+}
+
+.bCommentSmallPrint {
+  border-top: thin dotted black;
+  font-family: monospace;
+  padding-top: 0.2em;
+}
+
+.note,
+.notes {
+  background-color: transparent;
+  color: orange;
+  display: block;
+  width: auto;
+}
+
+.search_submit {
+  margin: 0.5em;
+  vertical-align: middle;
+  width: 25%;
 }
 
 .storytitle {

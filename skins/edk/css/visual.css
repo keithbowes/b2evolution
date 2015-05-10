@@ -2,21 +2,6 @@
   font-family: 'DejaVu Sans', 'Helvetica Neue', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
 }
 
-* .bComment {
-  background-color: aqua;
-}
-
-:not(textarea).bComment {
-  overflow-x: auto;
-  overflow-y: hidden;
-}
-
-:target {
-  border: thick double black;
-  margin-bottom: 0.5em;
-  padding: 0.23em;
-}
-
 a {
   background-color: transparent;
   color: red;
@@ -73,44 +58,6 @@ footer {
   text-align: center;
 }
 
-form.bComment {
-  margin-bottom: 1em !important;
-  padding-bottom: 1em;
-}
-
-form.bComment {
-  background-color: teal;
-  display: block;
-}
-
-form.bComment a {
-  color: darkorange;
-}
-
-form.bComment fieldset {
-  border: 0;
-}
-
-form.bComment input[type="email"],
-form.bComment input[type="password"],
-form.bComment input[type="text"],
-form.bComment input[type="url"],
-form.bComment textarea,
-input[type="search"] {
-  background-color: lavender;
-  border: thin solid #333;
-  color: red;
-  max-width: 90%;
-  padding: 0.2em;
-}
-
-form.bComment legend {
-  border: thin double gray;
-  color: inherit;
-  font-weight: 100;
-  padding: 0.73em;
-}
-
 h1 {
   display: none;
 }
@@ -141,11 +88,6 @@ h3 + p a {
 input[list] {
   -moz-appearance: menulist;
   -webkit-appearance: menulist;
-}
-
-input[type="search"] {
-  border: thin solid #999;
-  width: 65% !important;
 }
 
 li, p,
@@ -211,10 +153,6 @@ table summary {
 
 #content h3 {
   border-bottom-color: purple;
-}
-
-#content .bComment * {
-  text-align: left;
 }
 
 #credit {
@@ -381,36 +319,6 @@ table summary {
   cursor: default;
 }
 
-.allowed-tags {
-  background-color: gray;
-  color: black;
-  max-width: 46%;
-  padding: 0.5em;
-}
-
-.allowed-tags a {
-  background-color: #111;
-  color: inherit;
-}
-
-.author-comment .bComment {
-  background-color: navy !important;
-  color: silver;
-}
-
-.author-comment .bComment,
-.user-comment .bComment {
-  margin: 0.5em;
-}
-
-.author-comment .bComment a {
-  color: orange;
-}
-
-.author-comment .bCommentSmallPrint {
-  border-top-color: silver;
-}
-
 .bCalendarEmptyCell:hover {
   background-color: transparent !important;
 }
@@ -504,20 +412,6 @@ table summary {
   border-right: none;
 }
 
-.bComment a {
-  color: red;
-}
-
-.bComment a:hover {
-  background-color: black;
-}
-
-.bCommentSmallPrint {
-  border-top: thin dotted black;
-  font-family: monospace;
-  padding-top: 0.2em;
-}
-
 .bText,
 .storycontent {
   clear: both;
@@ -584,14 +478,6 @@ table summary {
   vertical-align: 0.05em !important;
 }
 
-.note,
-.notes {
-  background-color: transparent;
-  color: orange;
-  display: block;
-  width: auto;
-}
-
 .pavatar {
   clear: both;
   float: left;
@@ -609,12 +495,6 @@ table summary {
   bottom: 0.2em;
   display: inline-block;
   position: relative;
-}
-
-.search_submit {
-  margin: 0.5em;
-  vertical-align: middle;
-  width: 25%;
 }
 
 .storytitle {
