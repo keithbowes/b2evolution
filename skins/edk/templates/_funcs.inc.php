@@ -123,6 +123,9 @@ function get_license($params = array())
 function get_meta($Item)
 {
 	global $Skin;
+	$flag = strpos($f = locale_flag($Item->locale, 'h10px', 'flag' , '', FALSE),
+		'background-position') !== FALSE ? $f : '';
+
 	# TRANS: The last two %s are icons	
 	printf($Skin->T_('Posted in %s by <a href="%s">%s</a> on %s at %s %s %s'),
 		$Item->categories(array('display' => FALSE)),
@@ -130,7 +133,7 @@ function get_meta($Item)
 		$Item->get_creator_User()->firstname,
 		$Item->get_issue_date(),
 		$Item->get_issue_date(array('date_format' => locale_timefmt())),
-		locale_flag($Item->locale, 'h10px', 'flag', '', FALSE),
+		$flag,
 		preg_replace('/(\s*alt=)"[^"]*"/', '$1""', $Item->get_edit_link(array('title' => '#')))
 	);
 }
@@ -288,14 +291,6 @@ function lang_to_xml($str)
 		return $str;
 	else
 		return preg_replace('/\s+lang/', ' xml:lang', $str);
-}
-
-function locale_to_lang($locale, $attr = NULL)
-{
-	if (!$attr)
-		$attr = supports_xhtml() ? 'xml:lang' : 'lang';
-
-	return sprintf('%s="%s"',$attr, preg_replace('/^([^-]+).*$/', '$1', $locale));
 }
 
 function parse_accept()

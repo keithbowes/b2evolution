@@ -171,8 +171,6 @@ $edk_base = $Blog->get_local_skins_url().$skin.'/';
 init_content_type();
 skin_content_header($content_type);
 
-$langattrs = locale_to_lang(locale_lang(false));
-
 if (supports_xhtml())
 {
 	echo '<?xml version="1.0" encoding="' . $io_charset . '"?' . '>';
@@ -184,13 +182,13 @@ if (supports_xhtml())
 	$dtd = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 2.0//EN"' . "\n" .
 	   $space . '"' . $edk_base . 'DTD/xhtml2.dtd">';
 
-	$htmlelem = "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:base=\"$edk_base\" $langattrs>";
+	$htmlelem = "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:base=\"$edk_base\" xml:lang=\"" . locale_lang(FALSE) . '">';
 }
 else
 {
 	edk_css_include();
 	$dtd = '<!DOCTYPE html>';
-	$htmlelem = "<html $langattrs>";
+	$htmlelem = '<html lang="' . locale_lang(FALSE) . '"';
 }
 
 $params = array_merge( array(
@@ -270,7 +268,7 @@ if ('posts' != $disp)
 else
 {
 foreach (get_other_blogs() as $blog)
-	printf('<link rel="alternate" href="%s%s" title="%s" %s %s />%s', $baseurl, $blog['blog_siteurl'], $blog['blog_name'], locale_to_lang($blog['blog_locale']), locale_to_lang($blog['blog_locale'], 'hreflang'), "\n");
+	printf('<link rel="alternate" href="%s%s" title="%s" %s="%s" hreflang="%s" />%s', $baseurl, $blog['blog_siteurl'], $blog['blog_name'], supports_xhtml() ? 'xml:lang' : 'lang', $blog['blog_locale'], $blog['blog_locale'], "\n");
 }
 
 if (NULL !== $first_item)

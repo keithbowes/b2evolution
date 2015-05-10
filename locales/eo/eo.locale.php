@@ -36,20 +36,21 @@ else
 
 }
 
-$locale_defs['eo-EO'] = array(
+$locale_defs['eo'] = array(
 		'name' => NT_('Esperanto (EO) utf8'),
 		'charset' => 'utf-8',
 		'datefmt' => 'Y-M-d',
 		'timefmt' => 'H:i:s',
 		'shorttimefmt' => 'H:i:s',
 		'startofweek' => 0,
-		'messages' => 'eo_EO',
+		'messages' => 'eo',
 		/* When no iconv, transliterate as if there were */
 		'transliteration_map' => array(
 			'ĉ' => 'cx', 'ĝ' => 'gx', 'ĥ' => 'hx', 'ĵ' => 'jx', 'ŝ' => 'sx', 'ŭ' => 'ux',
 			'Ĉ' => 'Cx', 'Ĝ' => 'Gx', 'Ĥ' => 'Hx', 'Ĵ' => 'Jx', 'Ŝ' => 'Sx', 'Ŭ' => 'Ux',
+			'«' => '', '»' => '', '„' => '', '”' => '', '‚' => '', '’' => '',
 		),
 	);
 
-get_encoded_translit($locale_defs['eo-EO']['transliteration_map']);
+get_encoded_translit($locale_defs['eo']['transliteration_map']);
 ?>

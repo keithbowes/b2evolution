@@ -495,13 +495,17 @@ function locale_flag( $locale = '', $collection = 'deprecated_param', $class = '
 	}
 
 	// extract flag name:
-	preg_match('/-(\w{2})$/', $locale, $matches);
-	$country_code = strtolower($matches[1]);
+	$locale_parts = explode('-', $locale);
+	$country_code = strtolower($locale_parts[1]);
 
-	if (isset($locales[$locale]['name']) && isset($Skin))
-		$title = $Skin->T_($locales[$locale]['name']);
-	elseif (isset($locales[$locale]['name']))
-		$title = $locales[$locale]['name'];
+	/* If no country code is provided, use the language code.
+	 * For most languages, they're the same. */
+	if (empty($country_code))
+		$country_code = strtolower($locale_parts[0]);
+
+	$name = $locales[$locale]['name'];
+	if (isset($name))
+		$title = isset($Skin) ? $Skin->T_($name) : $name;
 	else
 		$title = $locale;
 

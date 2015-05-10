@@ -69,7 +69,7 @@ if ($last_date != $date && 'single' != $disp)
 	$last_date = $date;
 }
 ?>
-	<div role="article" id="<?php $Item->anchor_id(); ?>" <?php echo locale_to_lang(locale_lang(false)); ?>>
+	<div role="article" id="<?php $Item->anchor_id(); ?>" <?php printf('%s="%s"', supports_xhtml() ? 'xml:lang' : 'lang', locale_lang(FALSE)); ?>>
 <?php
 	$Item->locale_temp_switch();
 	printf('<%4$s class="storytitle"><a rel="%5$s" href="%1$s"  title="%3$s">%2$s</a></%4$s>', $Item->get_single_url(), $Item->title, __('Permanent link to full entry'), $hl, supports_xhtml() ? 'permalink' : 'bookmark');
