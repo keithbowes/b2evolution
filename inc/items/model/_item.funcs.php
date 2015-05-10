@@ -1289,7 +1289,7 @@ function cat_select_before_each( $cat_ID, $level, $total_count )
 				.' style="padding-left:'.($level-1).'em;'.$additional_style.'">'
 				.$thisChapter->name.'</label>'
 				.$chapter_lock_status
-				.' <a href="'.evo_htmlspecialchars($thisChapter->get_permanent_url()).'" title="'.evo_htmlspecialchars(T_('View category in blog.')).'">'
+				.' <a href="'.htmlspecialchars($thisChapter->get_permanent_url()).'" title="'.htmlspecialchars(T_('View category in blog.')).'">'
 				.'&#160;→&#160;' // TODO: dh> provide an icon instead? // fp> maybe the A(dmin)/B(log) icon from the toolbar? And also use it for permalinks to posts?
 				.'</a></td>'
 			.'</tr>'."\n";

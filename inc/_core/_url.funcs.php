@@ -759,7 +759,7 @@ function disp_url( $url, $max_length = NULL )
 {
 	if( !empty($max_length) && utf8_strlen($url) > $max_length )
 	{
-		$disp_url = evo_htmlspecialchars(substr( $url, 0, $max_length-1 )).'…';
+		$disp_url = htmlspecialchars(substr( $url, 0, $max_length-1 )).'…';
 	}
 	else
 	{
