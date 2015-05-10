@@ -3,6 +3,7 @@
  * It now also contains all sorts of base styles like the toolbar and debug for backward comaptibility with older skins... :/
  */
 
+// CSS to show containers, widgets and includes: 
 @import "_dev-blocks.module.less";
 
 .border-radius (@radius: 4px) {
@@ -20,6 +21,7 @@
 }
 
 // Mark the nofollow links with pink background color on mouseover event
+// fp> I actually want to keep this on all skins. It's an attempt to dissuade spammers to spam by showing visually them that the links are nofollow.
 a[rel~=nofollow]:hover {
 	background: #f8e0e0;
 	-moz-border-radius: 2px;
@@ -875,7 +877,9 @@ ul.jslog_error {
 
 // User links widget
 .ufld_icon_links {
-	text-align: center;
+	text-align: center; 
+	// milos> Already styled with 'text-align: right;' in Starter style.less (line 7)
+	// fp> I put this back because you say 'already'. It's not 'already'. starter/style.less comes after this basic style. If we want to remove this we have to know that this style is overriden by ALL boostrap skins.
 	a {
 		text-align: center;
 	}
