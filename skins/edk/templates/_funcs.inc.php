@@ -83,6 +83,7 @@ function get_item($dir)
 		$item_data = $DB->get_row("SELECT post_datestart, post_ID, post_main_cat_ID, post_title, post_urltitle FROM $itemtablename ORDER BY UNIX_TIMESTAMP(post_datestart) $dir", ARRAY_A, $row);
 		if (!is_valid_query($item_data))
 			return NULL;
+		$item_data['post_datestart'] = strtotime($item_data['post_datestart']);
 
 		$cat_data = $DB->get_row("SELECT cat_parent_ID, cat_name, cat_blog_ID FROM $categorytablename WHERE cat_ID = " . $item_data['post_main_cat_ID'], ARRAY_A, 0);
 		if (!is_valid_query($cat_data))
