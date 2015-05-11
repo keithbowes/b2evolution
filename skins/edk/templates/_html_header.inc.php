@@ -20,7 +20,7 @@ global $first_item, $last_item, $next_item, $prev_item;
 function edk_css_include()
 {
 	global $Skin;
-	global $edk_base, $headlines;
+	global $current_locale, $edk_base, $headlines, $io_charset;
 
 	$default_style = array(
 		'file' => $edk_base . 'css/transitional.css',
@@ -40,22 +40,25 @@ function edk_css_include()
 
 	/* Alternate styles */
 	$alternate_styles = array(
-		array(
-			'file' => $edk_base . 'css/classic.css',
-			'title' => $Skin->T_('Classic Look'),
-		),
-		array(
-			'file' => $html5_style['file'],
-			'title' => $html5_style['title'],
-		),
-		array(
-			'file' => $default_style['file'],
-			'title' => $default_style['title'],
-		),
+		$Skin->T_('Classic Look') => $edk_base . 'css/classic.css',
+		$html5_style['title'] => $html5_style['file'],
+		$Skin->T_('One-column Look') => $edk_base . 'css/one.css',
+		$default_style['title'] => $default_style['file'],
 	);
 
-	foreach ($alternate_styles as $style)
-		require_css($style['file'], 'relative', $style['title'], $visual_media);
+	/* Sort the alternate styles based on locale */
+	$locales_to_try = array(
+		$io_charset,
+		str_replace('-', '_', $current_locale) . '.' . $io_charset,
+		'',
+	);
+	$old_locale = setlocale(LC_ALL, 0);
+	setlocale(LC_ALL, $locales_to_try);
+	ksort($alternate_styles, SORT_LOCALE_STRING);
+	setlocale(LC_ALL, $old_locale);
+
+	foreach ($alternate_styles as $title => $file)
+		require_css($file, 'relative', $title, $visual_media);
 
 	/* Media-specific overrides */
 	require_css($edk_base . 'css/print.css', 'relative', NULL, 'print');
@@ -95,13 +98,13 @@ function edk_css_include()
 	else
 	{
 		/* Get the default style sheet array from the file name */
-		foreach ($alternate_styles as $style)
-			if (array_search($default_style, $style))
+		foreach ($alternate_styles as $title => $file)
+			if (array_search($default_style, $file))
 				break;
 
 		/* Set the default style sheet, for browsers that support it
 		 * (most CSS-enabled browsers do) */
-		edk_meta('http-equiv', 'Default-Style', $style['title']);
+		edk_meta('http-equiv', 'Default-Style', $title);
 	}
 }
 

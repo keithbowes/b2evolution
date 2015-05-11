@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['es_ES'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b 2e\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2015-05-02 22:52-0400\nPO-Revision-Date: 2015-05-01 22:54-0400\nLast-Translator: Keith Bowes <keith@localhost>\nLanguage-Team: Spanish\nLanguage: es_ES \nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b 2e\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2015-05-10 22:22-0400\nPO-Revision-Date: 2015-05-10 22:29-0400\nLast-Translator: Keith Bowes <keith@localhost>\nLanguage-Team: Spanish\nLanguage: es_ES \nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 '403 Forbidden' => '403 Prohibido',
 '<p><a href="%s">%s</a> cannot resolve the requested URL.</p>' => '<p><a href="%s">%s</a> no pudo resolver el pedido URL.</p>',
 '404 Not Found' => '404 No Encontrado',
@@ -24,9 +24,10 @@ $trans['es_ES'] = array(
 '<div>Powered by <cite><a href="http://www.duckduckgo.com/?q=!+%1$s">%1$s</a> %2$s</cite>.</div>' => '<div>Creado por <cite><a href="http://www.duckduckgo.com/?q=!+%1$s">%1$s</a> %2$s</cite>.</div>',
 'Delete Cookies!' => 'Borrar cookies!',
 'This site uses <a href="http://en.wikipedia.org/wiki/HTTP_cookie">cookies</a>.' => 'Ese situo usa <a href="http://es.wikipedia.org/wiki/Cookie_(inform%E1tica)">cookies</a>.',
-'Classic Look' => 'Apariencia Clásica',
-'Clear Look' => 'Apariencia Clara',
 'Transitional Look' => 'Apariencia transicional',
+'Clear Look' => 'Apariencia Clara',
+'Classic Look' => 'Apariencia Clásica',
+'One-column Look' => 'Apariencia de una sola columna',
 'Please leave this for stats' => 'Deje eso por estadísticas por favor',
 'Main Content' => 'Contendidos principales',
 'Menu' => 'Menú',

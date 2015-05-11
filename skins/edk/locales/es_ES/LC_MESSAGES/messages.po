@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: b 2e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-02 22:52-0400\n"
-"PO-Revision-Date: 2015-05-01 22:54-0400\n"
+"POT-Creation-Date: 2015-05-10 22:22-0400\n"
+"PO-Revision-Date: 2015-05-10 22:29-0400\n"
 "Last-Translator: Keith Bowes <keith@localhost>\n"
 "Language-Team: Spanish\n"
 "Language: es_ES \n"
@@ -25,87 +25,91 @@ msgstr "<p><a href=\"%s\">%s</a> no pudo resolver el pedido URL.</p>"
 msgid "404 Not Found"
 msgstr "404 No Encontrado"
 
-#: templates/_funcs.inc.php:25
+#: templates/_funcs.inc.php:26
 #, php-format
 msgid "Deleting cookie %s.<br />\n"
 msgstr "Borrando la cookie %s.<br />\n"
 
-#: templates/_funcs.inc.php:28
+#: templates/_funcs.inc.php:29
 msgid "Cookies deleted!"
 msgstr "Cookies borradas!"
 
-#: templates/_funcs.inc.php:28
+#: templates/_funcs.inc.php:29
 msgid "There were no cookies to delete."
 msgstr "No hay cookies a borrar."
 
 # TRANS: Params: Start year, end year, author, license
-#: templates/_funcs.inc.php:49
+#: templates/_funcs.inc.php:51
 #, php-format
 msgid "(C) %1$d-%2$d %3$s under %4$s"
 msgstr "(C) %1$d-%2$d %3$s bajo %4$s"
 
 # TRANS: Params: Start year, end year, author
-#: templates/_funcs.inc.php:51
+#: templates/_funcs.inc.php:53
 #, php-format
 msgid "(C) %1$d-%2$d %3$s"
 msgstr "(C) %1$d-%2$d %3$s"
 
-#: templates/_funcs.inc.php:116
+#: templates/_funcs.inc.php:118
 msgid "Attribution, Sharealike license"
 msgstr "Licencia de atribución, compartir igual"
 
-#: templates/_funcs.inc.php:116
+#: templates/_funcs.inc.php:118
 msgid "BY-SA"
 msgstr "BY-SA"
 
-#: templates/_funcs.inc.php:116
+#: templates/_funcs.inc.php:118
 msgid "C<span class=\"button-sf\">reative </span>C<span class=\"button-sf\">ommons</span>"
 msgstr "C<span class=\"button-sf\">reative </span>C<span class=\"button-sf\">ommons</span>"
 
-#: templates/_funcs.inc.php:116 templates/_funcs.inc.php:118
+#: templates/_funcs.inc.php:118 templates/_funcs.inc.php:120
 msgid "Creative Commons"
 msgstr "Licencia Creative Commons"
 
 # TRANS: The last two %s are icons
-#: templates/_funcs.inc.php:125
+#: templates/_funcs.inc.php:130
 #, php-format
 msgid "Posted in %s by <a href=\"%s\">%s</a> on %s at %s %s %s"
 msgstr "Publicado en %s por <a href=\"%s\">%s</a> en %s a las %s %s %s"
 
-#: templates/_funcs.inc.php:315
+#: templates/_funcs.inc.php:337
 #, php-format
 msgid "<div>Powered by <cite><a href=\"http://www.duckduckgo.com/?q=!+%1$s\">%1$s</a> %2$s</cite>.</div>"
 msgstr "<div>Creado por <cite><a href=\"http://www.duckduckgo.com/?q=!+%1$s\">%1$s</a> %2$s</cite>.</div>"
 
-#: templates/_funcs.inc.php:317
+#: templates/_funcs.inc.php:339
 msgid "Delete Cookies!"
 msgstr "Borrar cookies!"
 
-#: templates/_funcs.inc.php:317
+#: templates/_funcs.inc.php:339
 msgid "This site uses <a href=\"http://en.wikipedia.org/wiki/HTTP_cookie\">cookies</a>."
 msgstr "Ese situo usa <a href=\"http://es.wikipedia.org/wiki/Cookie_(inform%E1tica)\">cookies</a>."
 
-#: templates/_html_header.inc.php:34
-msgid "Classic Look"
-msgstr "Apariencia Clásica"
-
-#: templates/_html_header.inc.php:35 templates/_html_header.inc.php:177
-msgid "Clear Look"
-msgstr "Apariencia Clara"
-
-#: templates/_html_header.inc.php:123
+#: templates/_html_header.inc.php:27
 msgid "Transitional Look"
 msgstr "Apariencia transicional"
 
-#: templates/_html_header.inc.php:154
+#: templates/_html_header.inc.php:32
+msgid "Clear Look"
+msgstr "Apariencia Clara"
+
+#: templates/_html_header.inc.php:45
+msgid "Classic Look"
+msgstr "Apariencia Clásica"
+
+#: templates/_html_header.inc.php:53
+msgid "One-column Look"
+msgstr "Apariencia de una sola columna"
+
+#: templates/_html_header.inc.php:201
 msgid "Please leave this for stats"
 msgstr "Deje eso por estadísticas por favor"
 
-#: templates/_html_header.inc.php:196
+#: templates/_html_header.inc.php:252
 msgid "Main Content"
 msgstr "Contendidos principales"
 
-#: templates/_html_header.inc.php:197
+#: templates/_html_header.inc.php:253
 msgid "Menu"
 msgstr "Menú"
 

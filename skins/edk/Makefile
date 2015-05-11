@@ -1,4 +1,4 @@
-locales=$(patsubst %/,%,$(patsubst templates/locales/%,%,$(dir $(wildcard templates/locales/*/))))
+locales=$(patsubst %/,%,$(patsubst locales/%,%,$(dir $(wildcard locales/*/))))
 sources=_403_forbidden.disp.php _404_not_found.disp.php _funcs.inc.php \
 		_html_header.inc.php _item_comment.inc.php \
 		_item_comment_form.inc.php _sidebar.inc.php _user.disp.php

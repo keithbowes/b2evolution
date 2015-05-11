@@ -1,0 +1,7 @@
+@import url(clear.css);
+@import url(smallscreen.css);
+
+body.disp_single #credit,
+body.disp_single #nav {
+  display: none;
+}

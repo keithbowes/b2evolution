@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b 2e\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2015-05-02 22:52-0400\nPO-Revision-Date: 2015-05-01 22:44-0400\nLast-Translator: Keith Bowes <keith@localhost>\nLanguage-Team: Esperanto\nLanguage: eo \nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b 2e\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2015-05-10 22:22-0400\nPO-Revision-Date: 2015-05-10 22:24-0400\nLast-Translator: Keith Bowes <keith@localhost>\nLanguage-Team: Esperanto\nLanguage: eo \nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 '403 Forbidden' => '403: Malpermesita',
 '<p><a href="%s">%s</a> cannot resolve the requested URL.</p>' => '<p><a href="%s">%s</a> ne povis solvi la petitan URL-on.</p>',
 '404 Not Found' => '404: Ne trovita',
@@ -24,9 +24,10 @@ $trans['eo'] = array(
 '<div>Powered by <cite><a href="http://www.duckduckgo.com/?q=!+%1$s">%1$s</a> %2$s</cite>.</div>' => '<div>Kreita pere de <cite><a href="http://www.duckduckgo.com/?q=!+%1$s">%1$s</a> %2$s</cite>.</div>',
 'Delete Cookies!' => 'Forigi kuketojn!',
 'This site uses <a href="http://en.wikipedia.org/wiki/HTTP_cookie">cookies</a>.' => 'Ĉi tiu TTT-ejo uzas <a href="http://eo.wikipedia.org/wiki/Kuketo">kuketojn</a>.',
-'Classic Look' => 'Konata aspekto',
-'Clear Look' => 'Klara aspekto',
 'Transitional Look' => 'Intertempa aspekto',
+'Clear Look' => 'Klara aspekto',
+'Classic Look' => 'Konata aspekto',
+'One-column Look' => 'Unukolumna aspekto',
 'Please leave this for stats' => 'Bonvolu restigi tion pro statistikaĵoj',
 'Main Content' => 'Ĉefa enhavo',
 'Menu' => 'Menuo',
