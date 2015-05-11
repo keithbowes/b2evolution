@@ -41,9 +41,9 @@ function edk_css_include()
 	/* Alternate styles */
 	$alternate_styles = array(
 		$Skin->T_('Classic Look') => $edk_base . 'css/classic.css',
-		$html5_style['title'] => $html5_style['file'],
 		$Skin->T_('One-column Look') => $edk_base . 'css/one.css',
 		$default_style['title'] => $default_style['file'],
+		$html5_style['title'] => $html5_style['file'],
 	);
 
 	/* Sort the alternate styles based on locale */

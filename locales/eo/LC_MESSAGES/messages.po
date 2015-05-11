@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net\n"
 "POT-Creation-Date: 2015-05-10 23:48-0400\n"
-"PO-Revision-Date: 2015-05-10 23:54-0400\n"
+"PO-Revision-Date: 2015-05-11 01:13-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -6904,7 +6904,7 @@ msgstr "Kontribuintoj de la programo"
 
 #: ../../../inc/collections/views/_coll_advanced.form.php:184
 msgid "You get the b2evolution software for <strong>free</strong>. We do appreciate you giving us credit. <strong>Thank you for your support!</strong>"
-msgstr "Vi akiras la programon b2evolution <strong>senpage</strong>. Bonvolu agnoski nin. <strong>Dankon pro via subteno.</strong>"
+msgstr "Vi akiris la programon b2evolution <strong>senkoste</strong>. Bonvolu agnoski nin. <strong>Dankon pro via subteno.</strong>"
 
 #: ../../../inc/collections/views/_coll_advanced.form.php:189
 msgid "Max footer credits"
@@ -18348,7 +18348,7 @@ msgstr "Tempa agordo"
 
 #: ../../../inc/regional/views/_time.form.php:106
 msgid "If you're not on the timezone of your server."
-msgstr "Se vi ne estas en la horzono de via servilo."
+msgstr "Se vi ne estas en la sama horzono kiel la servilo."
 
 #: ../../../inc/regional/views/_time.form.php:106
 msgid "Time difference"
@@ -33768,7 +33768,7 @@ msgstr "en"
 #~ msgstr "Interkonaj butonoj"
 
 #~ msgid "You get this skin for free. We do appreciate you giving us credit. <b>Thank you for your support!</b>"
-#~ msgstr "Vi akiras la programon b2evolution senpage. Ni aprezas viajn dankesprimojn. <strong>Dankon pro via subteno.</strong>"
+#~ msgstr "Vi akiris la etoson senkoste. Ni aprezas viajn dankesprimojn. <strong>Dankon pro via subteno.</strong>"
 
 #~ msgid "Display footer credits"
 #~ msgstr "Montri piedajn dankesprimojn"

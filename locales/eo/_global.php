@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2015-05-10 23:48-0400\nPO-Revision-Date: 2015-05-10 23:54-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2015-05-10 23:48-0400\nPO-Revision-Date: 2015-05-11 01:13-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 'Adm' => '[A]',
 'Blg' => '^',
 'Folder' => 'Dosierujo',
@@ -1199,7 +1199,7 @@ $trans['eo'] = array(
 'Notes' => 'Notoj',
 'Additional info. Appears in the backoffice.' => 'Aldonaj informoj. Aperas en la stirilo.',
 'Software credits' => 'Kontribuintoj de la programo',
-'You get the b2evolution software for <strong>free</strong>. We do appreciate you giving us credit. <strong>Thank you for your support!</strong>' => 'Vi akiras la programon b2evolution <strong>senpage</strong>. Bonvolu agnoski nin. <strong>Dankon pro via subteno.</strong>',
+'You get the b2evolution software for <strong>free</strong>. We do appreciate you giving us credit. <strong>Thank you for your support!</strong>' => 'Vi akiris la programon b2evolution <strong>senkoste</strong>. Bonvolu agnoski nin. <strong>Dankon pro via subteno.</strong>',
 'Max footer credits' => 'Maksimumaj piedaj dankesprimoj',
 'Skin and style' => 'Etoso kaj stilo',
 'Allow customized blog CSS file' => 'Permesi personigita CSS-dosieron ĉe vi',
@@ -3591,7 +3591,7 @@ $trans['eo'] = array(
 'Duplicate this sub-region...' => 'Duobligi ĉi tiun subregion…',
 'Create a new sub-region...' => 'Krei novan subregionon…',
 'Time settings' => 'Tempa agordo',
-'If you\'re not on the timezone of your server.' => 'Se vi ne estas en la horzono de via servilo.',
+'If you\'re not on the timezone of your server.' => 'Se vi ne estas en la sama horzono kiel la servilo.',
 'Time difference' => 'Tempa diferenco',
 'in hours, e.g. "1", "1:30" or "-1.5"' => 'laŭ horoj, ekz-e: "1", "1:30" aŭ "-1.5"',
 'Current server time' => 'Nuna tempo de servilo',
