@@ -12,64 +12,41 @@ instalaĵo de b2evolution.
 
 Se vi ne jam instalis la blogon:
 1. Iru al la paĝo /install en via bloga instalaĵo.
-2. Elektu el la elektilo la elekton Esperanto (EO) utf8.
+2. Elektu el la elektilo la elekton Esperanto UTF-8.
 3. Plenumu la instrukciojn.
 
 Se la blogo jam estas instalita, kreu la lokaĵaron per:
-1. Iru al Admin > Global Settings > Regional
+1. Iru al Admin > System > Regional > Locales
 2. Proksime al la subo de la paĝo, klaku sur Create new locale.
 3. Enmetu la jenajn informojn en la kampojn:
-  * Locale: eo-EO
+  * Locale: eo
   * Enabled: (marki tion)
-  * Name: Esperanto (EO) utf8
-  * Charset: utf-8
+  * Name: Esperanto UTF-8
+  * Charset: UTF-8
   * Date Format: Y-M-d
   * Time Format: H:i:s
+  * Short Time Format: H:i:s
   * Start of Week: Sun
-  * Lang file: eo_EO
+  * Lang file: eo
+  * Priority: 1
 4. Klaku sur Create
 5. En la paĝo Regional ŝanĝu la sekvan kampon:
-  * Default locale: Esperanto (EO) utf8
+  * Default locale: Esperanto UTF-8
 6. Proksime al la subo de la paĝo alklaku la butonon Save !
 
 Por aktivigi la lokaĵaron por via blogo (jam kreita):
-1. Iru al Admin > Blog Settings
-2. Elektu vian blogon el la listo ĉi-sube de Blog Settings.
-3. Sub General ŝanĝu la valoron de Main Locale al
-   Esperanto (EO) utf8
+1. Iru al Admin > Collections
+2. Elektu vian blogon el la listo ĉi-sube de Collections.
+3. Sub Settings > General ŝanĝu la valoron de Collection Locale
+   al Esperanto UTF-8
 4. Alklaku la butonon Save !
 
 Por aktivigi la lokaĵaron en la stirilo (se ankoraŭ en la angla):
 1. Iru al Admin > Users
-2. Sub Actions, alklaku la bildon, kiu similas krajono sur papero
-   por redakti viajn kontajn ecojn.
-3. Ĉe Preferred Language ŝanĝu al Esperanto (EO) utf8.
-4. Alklaku la butonon Save !
-
-PROBLEMO EBLA
-La signoj eble ne ĝuste montriĝos se vi ne agordis la signaron
-al UTF-8. Ankaŭ ŝajne iuj preferas la x-sistemon
-anstataŭ supersignoj. La sekvajn celojn oni povas uzi:
-* make entoj - Konverti al uzo de HTML-entoj
-* make xsistemo - Konverti al uzo de la x-sistemo
-* make hsistemo - Konverti al uzo de la zamenhofa h-sistemo
-(Rimarko: Certu, ke vi uzas la ĝustan valoron de la variablo
-XG_PHP antaŭ uzo.)
-(Vi ankaŭ povas rekte uzi la sed-skriptojn).
-
-Vi tiam devas realŝuti la dosieron _global.php
-por vidigi vian blogon sen Unikodo. Kompreneble pro tio, ke via
-blogo ne plu uzas Unikodon vi devos ŝanĝi la suprajn valorojn
-utf8 al latin1 kaj utf-8 al iso-8859-1.
-
-Por anstataŭe ŝanĝi la datumbazon al UTF-8:
-1. Ensalutu al en PHPMyAdmin.
-2. Eksportu la datumbazon al dosiero.
-3. En tio dosiero anstataŭigu la okazojn de latin1 per utf8.
-4. Forigu la datumbazon.
-5. Kreu novan datumbazon kun utf8_general_ci kiel sian novan
-   aranĝon.
-6. Importu la dosieron en vian novan unikodan datumbazon.
+2. Alklaku la ligilon kun via salutnomo (sub User Name).
+3. Alklaku sur la langeto Settings
+4. Ĉe Preferred Language ŝanĝu al Esperanto UTF-8
+5. Alklaku la butonon Save !
 
 DISVOLVADO
 Por aktualigi la lingvopakon al nova eldono de b2evolution
@@ -81,5 +58,5 @@ sekvi la jenan procedon:
 3. Tajpu: make
 4. Tajpu: make xz
 
-En la patra dosierujo vi tiam povos trovi la dosieron eo-EO.tar.xz
+En la patra dosierujo vi tiam povos trovi la dosieron eo.tar.xz
 enhavante elŝuteblan lingvopakon.

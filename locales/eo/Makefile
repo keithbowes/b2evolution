@@ -16,15 +16,6 @@ update-static:
 	cd LC_MESSAGES && cp -f static.po static.po~
 	@msgmerge -Uq LC_MESSAGES/static.po ../static.pot
 
-entoj: all
-	sed -i -f entoj.sed _global.php
-
-hsistemo: all
-	sed -i -f hsistemo.sed _global.php
-
-xsistemo: all
-	sed -i -f xsistemo.sed _global.php
-
 clean distclean purigi:
 	rm -f _global.php ../eo*.tar.xz
 	rm -f LC_MESSAGES/{messages,static}.po~
