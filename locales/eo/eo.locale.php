@@ -37,8 +37,8 @@ else
 }
 
 $locale_defs['eo'] = array(
-		'name' => NT_('Esperanto (EO) utf8'),
-		'charset' => 'utf-8',
+		'name' => NT_('Esperanto UTF-8'),
+		'charset' => 'UTF-8',
 		'datefmt' => 'Y-M-d',
 		'timefmt' => 'H:i:s',
 		'shorttimefmt' => 'H:i:s',
