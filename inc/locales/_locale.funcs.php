@@ -164,7 +164,7 @@ if( isset( $use_l10n ) && $use_l10n )
 		// That way translators can concentrate on the most essential stuff first.
 		$search_string = str_replace( array("\r\n", "\r"), "\n", $string );
 
-		if( isset( $trans[ $messages ][ $search_string ] ) )
+		if( $search_string != '' && isset( $trans[ $messages ][ $search_string ] ) )
 		{ // If the string has been translated:
 			//$Debuglog->add( 'String ['.$string.'] found', 'locale' );
 			$r = $trans[ $messages ][ $search_string ];
@@ -1455,8 +1455,8 @@ function locale_insert_default()
 		$insert_data = array();
 		foreach( $activate_locales as $a_locale )
 		{
-			if( !isset( $locales[ $a_locale ] ) )
-			{ // Skip an incorrect locale
+			if( !isset( $locales[ $a_locale ] ) || in_array( $a_locale, $existing_locales ) )
+			{ // Skip an incorrect locale or it already exists in DB
 				continue;
 			}
 
