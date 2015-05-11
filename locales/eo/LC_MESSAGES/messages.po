@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net\n"
 "POT-Creation-Date: 2015-05-10 23:48-0400\n"
-"PO-Revision-Date: 2015-05-11 01:13-0400\n"
+"PO-Revision-Date: 2015-05-11 13:27-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -3549,12 +3549,12 @@ msgstr "URL-formato $code$ nevalida."
 #: ../../../inc/_core/_url.funcs.php:110 ../../../inc/_core/_url.funcs.php:145
 #, php-format
 msgid "URI scheme \"%s\" not allowed."
-msgstr "URI-aranĝo \"%s\" ne permesiĝas."
+msgstr "URI-skemo \"%s\" ne permesiĝas."
 
 #: ../../../inc/_core/_url.funcs.php:69 ../../../inc/_core/_url.funcs.php:94
 #: ../../../inc/_core/_url.funcs.php:111 ../../../inc/_core/_url.funcs.php:146
 msgid "URI scheme not allowed."
-msgstr "URI-aranĝo ne permesiĝas."
+msgstr "URI-skemo ne permesiĝas."
 
 #: ../../../inc/_core/_url.funcs.php:76
 #, php-format
@@ -4218,7 +4218,7 @@ msgstr "Vi elsalutiĝis ĉar la sistemo estas prizorgata. Bonvolu denove ensalut
 
 #: ../../../inc/_init_login.inc.php:401
 msgid "In order to access the admin interface, you must first activate your account by clicking on the activation link in the email we sent you. <b>See below:</b>"
-msgstr "Por atingi la stiran interfacon, vi devas aktivigi vian konton per klakado sur la aktiva ligilo en la retpoŝtmesaĝo, kiun ni sendis al vi. <strong>Vidu sube:</strong>"
+msgstr "Por atingi la stirilan interfacon, vi devas aktivigi vian konton per klakado sur la aktiva ligilo en la retpoŝtmesaĝo, kiun ni sendis al vi. <strong>Vidu sube:</strong>"
 
 #: ../../../inc/_init_login.inc.php:429
 #, php-format
@@ -7569,7 +7569,7 @@ msgstr "Montriĝos supraĵe de la kolekto."
 
 #: ../../../inc/collections/views/_coll_general.form.php:76
 msgid "Will be used in selection menus and throughout the admin interface."
-msgstr "Uziĝos en elektaj menuoj kaj en la tuto de la stira interfaco."
+msgstr "Uziĝos en elektaj menuoj kaj en la tuto de la stirila interfaco."
 
 #: ../../../inc/collections/views/_coll_general.form.php:81
 #, php-format
@@ -7925,12 +7925,12 @@ msgstr "Altn."
 #: ../../../inc/collections/views/_coll_group_perm.form.php:250
 #: ../../../inc/collections/views/_coll_user_perm.form.php:253
 msgid "Advanced/Administrative blog properties"
-msgstr "Altnivelajn/stirajn kolekto-ecojn"
+msgstr "Altnivelaj/administraj kolekto-ecoj"
 
 #: ../../../inc/collections/views/_coll_group_perm.form.php:254
 #: ../../../inc/collections/views/_coll_user_perm.form.php:257
 msgid "Permission to edit advanced/administrative blog properties"
-msgstr "Permeso redakti altnivelajn/stirrajn kolekto-ecojn"
+msgstr "Permeso redakti altnivelajn/administrajn kolekto-ecojn"
 
 # TRANS: SHORT table header on TWO lines
 #: ../../../inc/collections/views/_coll_group_perm.form.php:260
@@ -8315,7 +8315,7 @@ msgstr "Uzi aldonan vojon: kategoria vojo"
 
 #: ../../../inc/collections/views/_coll_seo.form.php:110
 msgid "Permalink scheme"
-msgstr "Aranĝo de daŭrligilo"
+msgstr "Skemo de daŭrligiloj"
 
 #: ../../../inc/collections/views/_coll_seo.form.php:112
 msgid "Limit slug length to"
@@ -10134,7 +10134,7 @@ msgstr "Agorda eraro"
 #: ../../../inc/cron/model/_post_by_mail.funcs.php:303
 #, php-format
 msgid "Please add username and password in message body in format %s."
-msgstr "Bonvolu aldoni salutnomon kaj pasvorton en mesaĝa korpo laŭ la aranĝo %s."
+msgstr "Bonvolu aldoni salutnomon kaj pasvorton en mesaĝa korpo laŭ la formato %s."
 
 #: ../../../inc/cron/model/_post_by_mail.funcs.php:315
 #, php-format
@@ -10165,7 +10165,7 @@ msgstr "Dosiero-modulo estas malaktiva aŭ manka!"
 #: ../../../inc/cron/model/_post_by_mail.funcs.php:823
 #, php-format
 msgid "&lt;auth&gt; tag not found! Please add username and password in message body in format %s."
-msgstr "Etikedo &lt;auth&gt; ne trovita! Bonvolu aldoni salutnomon kaj pasvorton en mesaĝa korpo laŭ la aranĝo %s."
+msgstr "Etikedo &lt;auth&gt; ne trovita! Bonvolu aldoni salutnomon kaj pasvorton en mesaĝa korpo laŭ la formato %s."
 
 #: ../../../inc/cron/views/_cronjob.form.php:26
 msgid "Edit scheduled job"
@@ -15263,7 +15263,7 @@ msgstr "Signaro"
 
 #: ../../../inc/locales/_locale_settings.form.php:94
 msgid "Date format"
-msgstr "Data aranĝo"
+msgstr "Data formato"
 
 #: ../../../inc/locales/_locale_settings.form.php:94
 #: ../../../inc/locales/_locale_settings.form.php:97
@@ -15485,7 +15485,7 @@ msgstr "Apriora lokaĵaro"
 
 #: ../../../inc/locales/_locale_settings.form.php:217
 msgid "Overridden by browser config, user locale or blog locale (in this order)."
-msgstr "Anstataŭigita de foliuma agordo, uzanto-lokaĵaro aŭ kolekto-lokaĵo (laŭorda)."
+msgstr "Anstataŭigita de la TTT-legila agordo, uzanto-lokaĵaro aŭ kolekto-lokaĵo (laŭ tiu ordo)."
 
 #: ../../../inc/locales/_locale_settings.form.php:222
 msgid "Available locales"
@@ -15518,11 +15518,11 @@ msgstr "Montri tradukajn informojn"
 
 #: ../../../inc/locales/_locale_settings.form.php:262
 msgid "Date fmt"
-msgstr "Data aranĝo"
+msgstr "Data formato"
 
 #: ../../../inc/locales/_locale_settings.form.php:263
 msgid "Time fmt"
-msgstr "Tempa aranĝo"
+msgstr "Tempa formato"
 
 #: ../../../inc/locales/_locale_settings.form.php:264
 msgid "Short time fmt"
@@ -18055,7 +18055,7 @@ msgstr "Ĉu forigi la subregionon «%s»?"
 
 #: ../../../inc/regional/time.ctrl.php:56
 msgid "Invalid time format."
-msgstr "Nevalida tempa aranĝo."
+msgstr "Nevalida tempa formato."
 
 #: ../../../inc/regional/time.ctrl.php:78
 msgid "Time settings updated."
@@ -19132,7 +19132,7 @@ msgstr "en ĉiu publika paĝo"
 
 #: ../../../inc/sessions/views/_stats_settings.form.php:45
 msgid "on every admin page"
-msgstr "en ĉiu stira paĝo"
+msgstr "en ĉiu stirila paĝo"
 
 #: ../../../inc/sessions/views/_stats_settings.form.php:46
 msgid "Log hits"
@@ -23961,7 +23961,7 @@ msgstr "Vezikaj konsiletoj por salutnomoj"
 #: ../../../inc/users/views/_display.form.php:107
 #: ../../../inc/users/views/_display.form.php:130
 msgid "Bubble tip image format"
-msgstr "Bildo aranĝo de vezikaj konsiletoj"
+msgstr "Bildo-formato de vezikaj konsiletoj"
 
 #: ../../../inc/users/views/_display.form.php:96
 msgid "Username display for logged-in users (front-office)"
@@ -24648,7 +24648,7 @@ msgstr "Forigi uzanton kaj ĉiujn el ties kontribuaĵoj"
 #: ../../../inc/users/views/_user_admin.form.php:48
 #: ../../../inc/users/views/_user_admin.form.php:49
 msgid "User admin settings"
-msgstr "Uzanto-agordo stira"
+msgstr "Administranto-agordo"
 
 #: ../../../inc/users/views/_user_admin.form.php:74
 #: ../../../inc/users/views/_user_admin.form.php:89
@@ -25209,7 +25209,7 @@ msgstr "Preferita lokaĵaro"
 #: ../../../inc/users/views/_user_preferences.form.php:117
 #: ../../../inc/users/views/_user_preferences.form.php:209
 msgid "Preferred locale for admin interface, notifications, etc."
-msgstr "Preferita lokaĵaro por la stira interfaco, sciigoj ktp."
+msgstr "Preferita lokaĵaro por la stirila interfaco, sciigoj ktp."
 
 #: ../../../inc/users/views/_user_preferences.form.php:149
 msgid "Check this if you want to be able to log in from different computers/browsers at the same time. Otherwise, logging in from a new computer/browser will automatically disconnect you on the previous one."
@@ -28140,7 +28140,7 @@ msgid ""
 msgstr ""
 "<p>Blogoj de b2evolution instaliĝas kun apriora elekto de umaĵoj. Ekzemple la flankaĵo de ĉi tiu kolekto inkluzivas umaĵojn kiel kalendaron, serĉilon, liston de kategorioj, liston de XML-fluoj, ktp.</p>\n"
 "\n"
-"<p>Vi povas aldoni, forigi kaj reordigi umaĵojn de la folion Bloga agordo en la stira fasado.</p>\n"
+"<p>Vi povas aldoni, forigi kaj reordigi umaĵojn de la folion Bloga agordo en la stirila interfaco.</p>\n"
 "\n"
 "<p>Noto: por montriĝado umaĵaj metiĝis en ujojn. Ĉiu ujo aperas en specifa loko en etoso. Se vi ŝanĝas vian kolekto-etoson, la nova etoso eble ne uzos la samajn ujojn, kiuj ekzistas en la specifa etoso, kiun vi uzas.</p>"
 
@@ -28165,13 +28165,13 @@ msgid ""
 msgstr ""
 "<p>Apriore b2evolution-kolektoj montriĝos per la etoso evoskin.</p>\n"
 "\n"
-"<p>Vi povas ŝanĝi la etoson uzatan de iu ajn kolekto per redaktado de la kolekto-agordo en la stira interfaco.</p>\n"
+"<p>Vi povas ŝanĝi la etoson uzatan de iu ajn kolekto per redaktado de la kolekto-agordo en la stirila interfaco.</p>\n"
 "\n"
-"<p>Vi povas elŝuti aldonajn etosojn el <a href=\"http://skins.b2evolution.net/\">la etosa ejo</a>. Por instali ilin elpaku en la dosierujojn <cite>/blogs/skins/</cite>, navigu al Tutprograma agordo &gt; Etosoj en la stira interfaco kaj klaki sur \"Instali novan\".</p>\n"
+"<p>Vi povas elŝuti aldonajn etosojn el <a href=\"http://skins.b2evolution.net/\">la etosa ejo</a>. Por instali ilin elpaku en la dosierujojn <cite>/blogs/skins/</cite>, navigu al Tutprograma agordo &gt; Etosoj en la stirila interfaco kaj klaki sur \"Instali novan\".</p>\n"
 "\n"
 "<p>Vi ankaŭ povas krei proprajn etosojn per duobligo, alinomado aŭ alproprigo de iu jama etosa dosierujo el la dosierujo /blogs/skins.</p>\n"
 "\n"
-"<p>Por ekagordi etoson malfermu la dosieron '<cite>index.main.php</cite>' en tekstoredaktilo kaj legi la komentojn en tio. Noto: Vi povas ankaŭ redakti etosojn sub la langeto \"Dosieroj\" en la stira interfaco.</p>\n"
+"<p>Por ekagordi etoson malfermu la dosieron '<cite>index.main.php</cite>' en tekstoredaktilo kaj legi la komentojn en tio. Noto: Vi povas ankaŭ redakti etosojn sub la langeto \"Dosieroj\" en la stirila interfaco.</p>\n"
 "\n"
 "<p>Kaj kompreneble legu la <a href=\"%s\">manlibron pri etosoj</a>!</p>"
 

@@ -79,7 +79,7 @@ switch( $action )
 		$current_User->check_perm( 'options', 'edit', true );
 
 		param( 'newloc_locale', 'string', true );
-		param_check_regexp( 'newloc_locale', '/^[a-z]{2,3}-[A-Z]{2}.*$/', T_('Please use valid locale format.') );
+		param_check_regexp( 'newloc_locale', '/^[a-z]{2,3}(-[A-Z]{2}.*)?$/', T_('Please use valid locale format.') );
 		param( 'newloc_enabled', 'integer', 0 );
 		param( 'newloc_name', 'string', true );
 		param( 'newloc_datefmt', 'string', true );
