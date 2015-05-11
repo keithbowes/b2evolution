@@ -140,7 +140,7 @@ switch( $action )
 				}
 				else
 				{ // keep old state
-					$query .= ', '.( $locales[$oldloc_locale]['enabled'] ).' )';
+					$query .= ', '.( (int) $locales[$oldloc_locale]['enabled'] ).' )';
 					$Messages->add( sprintf( T_('Inserted locale &laquo;%s&raquo; into database.'), $oldloc_locale ), 'success' );
 				}
 				$q = $DB->query( $query );
