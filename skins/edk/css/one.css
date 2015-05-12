@@ -5,3 +5,23 @@ body.disp_single #credit,
 body.disp_single #nav {
   display: none;
 }
+
+#content {
+  margin: auto;
+  width: 99%;
+}
+
+#credit {
+  margin-left: 1%;
+  width: 97.5%;
+}
+
+#nav {
+  margin-left: -1%;
+  width: 100%;
+}
+
+.meta,
+.storytitle {
+  text-align: center;
+}

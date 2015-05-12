@@ -8,6 +8,10 @@ body,
   overflow: visible;
 }
 
+div[role="article"] {
+  border: none;
+}
+
 #content {
   margin-left: 0.5%;
   width: 99%;
