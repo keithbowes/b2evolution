@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net\n"
-"POT-Creation-Date: 2015-05-10 23:48-0400\n"
-"PO-Revision-Date: 2015-05-11 13:27-0400\n"
+"POT-Creation-Date: 2015-05-11 21:15-0400\n"
+"PO-Revision-Date: 2015-05-11 21:32-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -2131,8 +2131,8 @@ msgstr "Ekspluatado de serĉiloj"
 #: ../../../inc/collections/views/_coll_group_perm.form.php:158
 #: ../../../inc/collections/views/_coll_user_perm.form.php:161
 #: ../../../inc/items/item_types.ctrl.php:276
-msgid "Item Types"
-msgstr "Ero-tipoj"
+msgid "Post Types"
+msgstr "Afiŝo-tipoj"
 
 #: ../../../inc/_core/__core.init.php:1127
 #: ../../../inc/collections/_collections.init.php:807
@@ -2140,8 +2140,8 @@ msgstr "Ero-tipoj"
 #: ../../../inc/collections/views/_coll_user_perm.form.php:147
 #: ../../../inc/items/item_statuses.ctrl.php:41
 #: ../../../inc/items/item_statuses.ctrl.php:45
-msgid "Item Statuses"
-msgstr "Eraj statoj"
+msgid "Post Statuses"
+msgstr "Afiŝo-statoj"
 
 #: ../../../inc/_core/__core.init.php:1133
 #: ../../../inc/collections/_collections.init.php:817
@@ -5606,12 +5606,12 @@ msgid "Manage skins"
 msgstr "Administri etosojn"
 
 #: ../../../inc/collections/_collections.init.php:803
-msgid "Item Types Management"
-msgstr "Administrado pri eraj tipoj"
+msgid "Post Types Management"
+msgstr "Administrado pri afiŝo-tipoj"
 
 #: ../../../inc/collections/_collections.init.php:808
-msgid "Item Statuses Management"
-msgstr "Administrado de eraj statoj"
+msgid "Post Statuses Management"
+msgstr "Administrado de afiŝo-statoj"
 
 #: ../../../inc/collections/_collections.init.php:881
 #: ../../../inc/files/model/_fileroot.class.php:187
@@ -12932,60 +12932,60 @@ msgid "%d related items"
 msgstr "%d rilataj eroj"
 
 #: ../../../inc/items/item_statuses.ctrl.php:59
-msgid "Cannot delete item status"
-msgstr "Ne eblas forigi eran staton"
+msgid "Cannot delete Post Status"
+msgstr "Ne eblas forigi afiŝo-staton"
 
 #: ../../../inc/items/item_types.ctrl.php:108
 #, php-format
-msgid "Item types with ID from %d to %d are reserved. Please use another ID."
-msgstr "Ero-tipoj kun identigiloj de %d ĝis %d ne eblas uziĝi. Bonvolu uzi alian."
+msgid "Post types with ID from %d to %d are reserved. Please use another ID."
+msgstr "Afiŝo-tipoj kun identigiloj de %d ĝis %d ne eblas uziĝi. Bonvolu uzi alian."
 
 #: ../../../inc/items/item_types.ctrl.php:131
 #, php-format
-msgid "This item type already exists. Do you want to <a %s>edit the existing item type</a>?"
-msgstr "Ĉi tiu ero-tipo jam ekzistas. Ĉu vi volas <a %s>redakti la jaman ero-tipon</a>?"
+msgid "This post type already exists. Do you want to <a %s>edit the existing post type</a>?"
+msgstr "Ĉi tiu afiŝo-tipo jam ekzistas. Ĉu vi volas <a %s>redakti la jaman afiŝo-tipon</a>?"
 
 #: ../../../inc/items/item_types.ctrl.php:137
-msgid "New item type created."
-msgstr "Nova ero-tipo kreiĝis."
+msgid "New Post Type created."
+msgstr "Nova afiŝo-tipo kreiĝis."
 
 #: ../../../inc/items/item_types.ctrl.php:185
 #, php-format
-msgid "Item types with IDs = ( %d ) are reserved. You can not edit this item type."
-msgstr "Ero-tipoj kun identigiloj de %d estas rezervitaj. Vi ne rajtas redakti tiun ero-tipon."
+msgid "Post types with IDs = ( %d ) are reserved. You can not edit this post type."
+msgstr "Afiŝo-tipoj kun identigiloj de %d estas rezervitaj. Vi ne rajtas redakti tiun afiŝo-tipon."
 
 #: ../../../inc/items/item_types.ctrl.php:193
-msgid "Item type updated."
-msgstr "Ero-tipo aktualiĝis."
+msgid "Post type updated."
+msgstr "Afiŝo-tipo aktualiĝis."
 
 #: ../../../inc/items/item_types.ctrl.php:220
 #, php-format
-msgid "Item types with ID from %d to %d are reserved. You can not delete this item type."
-msgstr "Ero-tipoj kun identigiloj de %d ĝis %d estas rezervitaj. Vi ne rajtas forigi tiun ero-tipon"
+msgid "Post types with ID from %d to %d are reserved. You can not delete this post type."
+msgstr "Afiŝö-tipoj kun identigiloj de %d ĝis %d estas rezervitaj. Vi ne rajtas forigi tiun afiŝo-tipon"
 
 #: ../../../inc/items/item_types.ctrl.php:228
-msgid "This item type is default of all blogs. You can not delete this item type."
-msgstr "Tiu ero-tipo estas apriora por ĉiuj kolektoj. Vi ne rajtas forigi tiun ero-tipon."
+msgid "This Post Type is the default for all collections. You can not delete this Post Type."
+msgstr "Tiu afiŝo-tipo estas apriora por ĉiuj kolektoj. Vi ne rajtas forigi tiun afiŝo-tipon."
 
 #: ../../../inc/items/item_types.ctrl.php:241
 #, php-format
-msgid "This item type is default of the blogs: %s. You can not delete this item type."
-msgstr "Tiu ero-tipoj estas apriora por la kolektoj: %s. Vi ne rajtas forigi ĉi tiun ero-tipon"
+msgid "This Post Type is default for the collections: %s. You can not delete this Post Type."
+msgstr "Tiu afiŝo-tipoj estas apriora por la kolektoj: %s. Vi ne rajtas forigi ĉi tiun afiŝo-tipon"
 
 #: ../../../inc/items/item_types.ctrl.php:250
 #, php-format
-msgid "Item type &laquo;%s&raquo; deleted."
-msgstr "Ero-tipo «%s» forigita."
+msgid "Post type &laquo;%s&raquo; deleted."
+msgstr "Afiŝo-tipo «%s» forigita."
 
 #: ../../../inc/items/item_types.ctrl.php:261
 #, php-format
-msgid "Cannot delete item type &laquo;%s&raquo;"
-msgstr "Ne eblas forigi ero-tipon «%s»."
+msgid "Cannot delete Post Type &laquo;%s&raquo;"
+msgstr "Ne eblas forigi afiŝo-tipon «%s»."
 
 #: ../../../inc/items/item_types.ctrl.php:301
 #, php-format
-msgid "Delete item type &laquo;%s&raquo;?"
-msgstr "Ĉu forigi ero-tipon «%s»?"
+msgid "Delete Post Type &laquo;%s&raquo;?"
+msgstr "Ĉu forigi afiŝo-tipon «%s»?"
 
 #: ../../../inc/items/items.ctrl.php:178
 msgid "Sorry, you have no permission to post yet."
@@ -13651,8 +13651,8 @@ msgid "Updated post"
 msgstr "Ĝisdatigita afiŝo"
 
 #: ../../../inc/items/model/_item.class.php:7305
-msgid "Do you want to save your changes before changing the item type?"
-msgstr "Ĉu vi volas konservi viajn ŝanĝojn antaŭ ol ŝanĝi la ero-tipon?"
+msgid "Do you want to save your changes before changing the Post Type?"
+msgstr "Ĉu vi volas konservi viajn ŝanĝojn antaŭ ol ŝanĝi la afiŝo-tipon?"
 
 #: ../../../inc/items/model/_item.funcs.php:480
 #, php-format
@@ -13974,7 +13974,7 @@ msgstr "inf"
 
 #: ../../../inc/items/model/_item.funcs.php:3683
 msgid "Item history information"
-msgstr "Informoj pri la era historio"
+msgstr "Informoj pri la ero-historio"
 
 #: ../../../inc/items/model/_item.funcs.php:3759
 msgid "View this post..."
@@ -14040,12 +14040,12 @@ msgstr "%d ligiloj al etikedoj"
 #: ../../../inc/items/model/_itemlight.class.php:190
 #, php-format
 msgid "%d items settings"
-msgstr "%d eraj agordaĵoj"
+msgstr "%d ero-agordaĵoj"
 
 #: ../../../inc/items/model/_itemlight.class.php:191
 #, php-format
 msgid "%d items subscriptions"
-msgstr "%d eraj abonoj"
+msgstr "%d ero-abonoj"
 
 #: ../../../inc/items/model/_itemlight.class.php:193
 #: ../../../inc/users/model/_user.class.php:301
@@ -14218,8 +14218,8 @@ msgid "Make posts"
 msgstr "Krei afiŝojn"
 
 #: ../../../inc/items/views/_item_edit_type.form.php:31
-msgid "Change item type"
-msgstr "Ŝanĝi ero-tipon"
+msgid "Change Post Type"
+msgstr "Ŝanĝi afiŝo-tipon"
 
 #: ../../../inc/items/views/_item_edit_type.form.php:41
 msgid "Do NOT change the type"
@@ -14456,7 +14456,7 @@ msgstr "Arkivita eldono"
 
 #: ../../../inc/items/views/_item_history.view.php:66
 msgid "Item history (experimental) for:"
-msgstr "Era historio (eksperimenta) por:"
+msgstr "Ero-historio (eksperimenta) por:"
 
 #: ../../../inc/items/views/_item_history.view.php:182
 #: ../../../inc/items/views/_item_history_details.view.php:33
@@ -14730,8 +14730,8 @@ msgstr "<title>-etikedo"
 
 #: ../../../inc/items/views/_itemtype.form.php:35
 #: ../../../inc/items/views/_itemtypes.view.php:50
-msgid "Delete this item type!"
-msgstr "Forigi ĉi tiun ero-tipon."
+msgid "Delete this Post Type!"
+msgstr "Forigi ĉi tiun afiŝo-tipon."
 
 #: ../../../inc/items/views/_itemtype.form.php:40
 msgid "Edit post type"
@@ -14742,15 +14742,15 @@ msgid "New post type"
 msgstr "Nova afiŝo-tipo"
 
 #: ../../../inc/items/views/_itemtype.form.php:45
-#: ../../../inc/widgets/widgets/_coll_item_list.widget.php:81
-#: ../../../inc/widgets/widgets/_coll_media_index.widget.php:75
-msgid "Item type"
-msgstr "Ero-tipo"
+#: ../../../inc/items/views/_itemtypes.view.php:105
+msgid "New Post Type"
+msgstr "Nova afiŝo-tipo"
 
 #: ../../../inc/items/views/_itemtype.form.php:45
-#: ../../../inc/items/views/_itemtypes.view.php:105
-msgid "New item type"
-msgstr "Nova ero-tipo"
+#: ../../../inc/widgets/widgets/_coll_item_list.widget.php:81
+#: ../../../inc/widgets/widgets/_coll_media_index.widget.php:75
+msgid "Post type"
+msgstr "Afiŝo-tipo"
 
 #: ../../../inc/items/views/_itemtype.form.php:66
 msgid "Back-office tab"
@@ -14925,12 +14925,12 @@ msgid "Item/Post/Page types"
 msgstr "Tipoj era/afiŝa/paĝa"
 
 #: ../../../inc/items/views/_itemtypes.view.php:38
-msgid "Duplicate this item type..."
-msgstr "Kopii ĉi tiun ero-tipon…"
+msgid "Duplicate this Post Type..."
+msgstr "Duobligi ĉi tiun afiŝo-tipon…"
 
 #: ../../../inc/items/views/_itemtypes.view.php:43
-msgid "Edit this item type..."
-msgstr "Redakti ĉi tiun ero-tipon…"
+msgid "Edit this Post Type..."
+msgstr "Redakti ĉi tiun afiŝo-tipon…"
 
 #: ../../../inc/links/links.ctrl.php:83
 msgid "Requested link owner object does not exist any longer."
@@ -19983,7 +19983,7 @@ msgstr "Devas esti cifero"
 #: ../../../inc/tools/views/_broken_slugs.view.php:47
 #: ../../../inc/widgets/widgets/_menu_link.widget.php:149
 msgid "Item ID"
-msgstr "Era identigilo"
+msgstr "Ero-identigilo"
 
 #: ../../../inc/slugs/views/_slug_list.view.php:133
 #: ../../../inc/slugs/views/_slug_list.view.php:198
@@ -20272,7 +20272,7 @@ msgstr "Analizi tabelojn…"
 # TRANS: "more", "teaserbreak", "nextpage" and "pagebreak" must NOT be translated.
 #: ../../../inc/tools/model/_dbmaintenance.funcs.php:844
 msgid "Convert item content separators from &lt;!--more--&gt; to [teaserbreak] and &lt;!--nextpage--&gt; to [pagebreak]..."
-msgstr "Konverti apartigilojn de era enhavo de &lt;--more--&gt; al [teaserbreak] kaj &lt;!--nextpage--&gt; al [pagebreak]…"
+msgstr "Konverti apartigilojn de ero-enhavo de &lt;--more--&gt; al [teaserbreak] kaj &lt;!--nextpage--&gt; al [pagebreak]…"
 
 #: ../../../inc/tools/model/_dbmaintenance.funcs.php:865
 #, php-format
@@ -21205,7 +21205,7 @@ msgstr "Forigi ĉi tiujn afiŝojn"
 
 #: ../../../inc/tools/views/_broken_slugs.view.php:27
 msgid "Broken item slugs with no matching item"
-msgstr "Rompitaj eraj URL-titoloj, kiuj havas neniun kongruantan eron"
+msgstr "Fuŝaj URL-titoloj, kiuj havas neniun kongruantan eron"
 
 #: ../../../inc/tools/views/_broken_slugs.view.php:31
 msgid "Slug ID"
@@ -26279,7 +26279,7 @@ msgstr "Ŝablono"
 
 #: ../../../inc/widgets/widgets/_coll_featured_intro.widget.php:54
 msgid "Item class"
-msgstr "Era klaso"
+msgstr "Ero-klaso"
 
 #: ../../../inc/widgets/widgets/_coll_featured_intro.widget.php:59
 #: ../../../inc/widgets/widgets/_coll_item_list.widget.php:143
@@ -26311,7 +26311,7 @@ msgstr "Daŭrligilo de la ero"
 #: ../../../inc/widgets/widgets/_coll_item_list.widget.php:154
 #: ../../../inc/widgets/widgets/_coll_item_list.widget.php:189
 msgid "Item URL"
-msgstr "Era URL"
+msgstr "Ero-URL"
 
 #: ../../../inc/widgets/widgets/_coll_featured_intro.widget.php:71
 #: ../../../inc/widgets/widgets/_coll_item_list.widget.php:155
@@ -26391,12 +26391,12 @@ msgstr "Ĉu ligi la blokan titolon al la kolekto?"
 #: ../../../inc/widgets/widgets/_coll_item_list.widget.php:71
 #: ../../../inc/widgets/widgets/_coll_media_index.widget.php:65
 msgid "Item visibility"
-msgstr "Era konigo"
+msgstr "Ero-konigo"
 
 #: ../../../inc/widgets/widgets/_coll_item_list.widget.php:72
 #: ../../../inc/widgets/widgets/_coll_media_index.widget.php:66
-msgid "What item statuses should be included in the list?"
-msgstr "Kiuj eraj statoj devas esti en la listo?"
+msgid "What post statuses should be included in the list?"
+msgstr "Kiuj afiŝo-statoj devas esti en la listo?"
 
 #: ../../../inc/widgets/widgets/_coll_item_list.widget.php:76
 msgid "show public posts"
@@ -26604,7 +26604,7 @@ msgstr "Paĝa listo simpla"
 
 #: ../../../inc/widgets/widgets/_coll_page_list.widget.php:89
 msgid "Simplified Item list for listing pages."
-msgstr "Simpligita era listo por listaj paĝoj."
+msgstr "Simpligita ero-listo por listaj paĝoj."
 
 #: ../../../inc/widgets/widgets/_coll_post_list.widget.php:70
 msgid "Simple Post list"
@@ -26612,7 +26612,7 @@ msgstr "Afiŝa listo simpla"
 
 #: ../../../inc/widgets/widgets/_coll_post_list.widget.php:88
 msgid "Simplified Item list for listing posts."
-msgstr "Era listo simpligita por listaj afiŝoj."
+msgstr "Ero-listo simpligita por listaj afiŝoj."
 
 #: ../../../inc/widgets/widgets/_coll_related_post_list.widget.php:48
 msgid "Related posts"
@@ -26624,7 +26624,7 @@ msgstr "Simpla listo pri rilataj afiŝoj"
 
 #: ../../../inc/widgets/widgets/_coll_related_post_list.widget.php:88
 msgid "Simplified Item list for listing posts related to the Main list."
-msgstr "Era listo simpligita por listigi afiŝojn rilatajn al la ĉefa listo."
+msgstr "Ero-listo simpligita por listigi afiŝojn rilatajn al la ĉefa listo."
 
 #: ../../../inc/widgets/widgets/_coll_search_form.widget.php:42
 msgid "Search Form"
@@ -26880,7 +26880,7 @@ msgstr "Simpla listo de la ligiloj de ligila kolekto"
 
 #: ../../../inc/widgets/widgets/_linkblog.widget.php:88
 msgid "Simplified Item list for listing links from another blog."
-msgstr "Era listo simpligita por listigi ligilojn de alia kolekto."
+msgstr "Ero-listo simpligita por listigi ligilojn de alia kolekto."
 
 #: ../../../inc/widgets/widgets/_member_count.widget.php:42
 msgid "Member count"
@@ -26982,7 +26982,7 @@ msgstr "Teksto uzi por la ligilo (vaka por apriora)."
 
 #: ../../../inc/widgets/widgets/_menu_link.widget.php:150
 msgid "ID of post, page, etc. for \"Item\" type links."
-msgstr "Identigilo por afiŝo, paĝo ktp por \"Era\" specoj."
+msgstr "Identigilo por afiŝo, paĝo ktp por ligiloj kun la speco \"Item\"."
 
 #: ../../../inc/widgets/widgets/_menu_link.widget.php:158
 msgid "Destination URL for \"URL\" type links."
@@ -27046,7 +27046,7 @@ msgstr "Menua ligilo por mesaĝado"
 
 #: ../../../inc/widgets/widgets/_msg_menu_link.widget.php:75
 msgid "Messages or Contacts menu entry/link"
-msgstr "Era/ligila menuo por mesaĝoj aŭ kontaktotoj"
+msgstr "Ero-/ligilo-menuo por mesaĝoj aŭ kontaktotoj"
 
 #: ../../../inc/widgets/widgets/_msg_menu_link.widget.php:126
 msgid "Show to"
@@ -29682,8 +29682,8 @@ msgstr "Mapa alto en la paĝo"
 
 #: ../../../plugins/_google_maps.plugin.php:182
 #, php-format
-msgid "You must turn on the <b>\"Use coordinates\"</b> setting in Item Type settings <a %s>Features</a> tab so the Google Maps plugin can save its coordinates."
-msgstr "Vi devas ŝalti la agordaĵon <b>\"Montri loko-koordinatojn\"</b> en la folio <a %s>Trajtoj</a> por ke la kromprogramo de Google-Mapoj povu konservi siajn koordinatojn."
+msgid "You must turn on the <b>\"Use coordinates\"</b> setting in Post Type settings <a %s>Features</a> tab so the Google Maps plugin can save its coordinates."
+msgstr "Vi devas ŝalti la agordaĵon <b>\"Montri loko-koordinatojn\"</b> en la afiŝo-tipa agordo <a %s>Trajtoj</a> por ke la kromprogramo de Google-Mapoj povu konservi siajn koordinatojn."
 
 #: ../../../plugins/_google_maps.plugin.php:285
 msgid "<b>Search for an address</b> (may be approximate)"
@@ -32226,13 +32226,6 @@ msgstr "Ankoraŭ neniuj bildoj"
 msgid "Click to see contents"
 msgstr "Alklaki por vidi enhavon"
 
-#: ../../../skins/photoalbums/_front.disp.php:24
-#: ../../../skins/touch/_front.disp.php:23
-#: ../../../skins_fallback_v5/_front.disp.php:29
-#: ../../../skins_fallback_v6/_front.disp.php:34
-msgid "Front Page Main Area"
-msgstr "Unuaranga areo de la frontpaĝo"
-
 #: ../../../skins/photoalbums/_item_comment.inc.php:58
 #: ../../../skins_fallback_v5/_item_comment.inc.php:80
 #: ../../../skins_fallback_v6/_item_comment.inc.php:80
@@ -32391,6 +32384,12 @@ msgstr "Poŝtelefono: Iloj"
 #: ../../../skins/touch/_body_header.inc.php:141
 msgid "Search..."
 msgstr "Serĉi…"
+
+#: ../../../skins/touch/_front.disp.php:23
+#: ../../../skins_fallback_v5/_front.disp.php:29
+#: ../../../skins_fallback_v6/_front.disp.php:34
+msgid "Front Page Main Area"
+msgstr "Unuaranga areo de la frontpaĝo"
 
 #: ../../../skins/touch/_item_feedback.inc.php:43
 msgid "Preview comment"
@@ -33659,6 +33658,285 @@ msgstr "afiŝita en "
 msgid "in"
 msgstr "en"
 
+#~ msgid "<i class=\"fa fa-tags\"></i>"
+#~ msgstr "<i class=\"fa fa-tags\"></i>"
+
+#~ msgid "Recommended widget set"
+#~ msgstr "Rekomendita umaĵaro"
+
+#~ msgid "Alternative widget set"
+#~ msgstr "Alternativa umaĵaro"
+
+#~ msgid "Full widget set"
+#~ msgstr "Plena umaĵaro"
+
+#~ msgid "Posted by"
+#~ msgstr "Afiŝita de"
+
+#~ msgid "No comments"
+#~ msgstr "Neniuj komentoj"
+
+#~ msgid "comment"
+#~ msgstr "komento"
+
+#~ msgid "comments"
+#~ msgstr "komentoj"
+
+#~ msgid "Print article"
+#~ msgstr "Printi artikolon"
+
+#~ msgid "This %1$s was posted by %2$s on %3$s at %4$s. Follow any responses to this post through %5$s."
+#~ msgstr "La %1$s estis afiŝita de %2$s je %3$s je %4$s. Respondoj al la afiŝoj estas sekveblaj per %5$s."
+
+#~ msgid "entry"
+#~ msgstr "afiŝo"
+
+#~ msgid "Posts by"
+#~ msgstr "Afiŝita de"
+
+#~ msgid "Post bottom"
+#~ msgstr "Afiŝa fundo"
+
+#~ msgid "Linkback"
+#~ msgstr "Mencio"
+
+#~ msgid "Attending this event"
+#~ msgstr "Ĉeestanta la okazaĵon"
+
+#~ msgid "Related Links"
+#~ msgstr "Rilataj ligiloj"
+
+#~ msgid "Related Posts"
+#~ msgstr "Rilataj afiŝoj"
+
+#~ msgid "Enter image URL to display a logo"
+#~ msgstr "Enmeti bildon-URL-on por montri devizon."
+
+#~ msgid "Skin color"
+#~ msgstr "Etosa koloro"
+
+#~ msgid "Green"
+#~ msgstr "Verda"
+
+#~ msgid "Blue"
+#~ msgstr "Blua"
+
+#~ msgid "Red"
+#~ msgstr "Ruĝa"
+
+#~ msgid "Grey"
+#~ msgstr "Griza"
+
+#~ msgid "Skin width"
+#~ msgstr "Etosa larĝo"
+
+#~ msgid "Fixed"
+#~ msgstr "Fiksita"
+
+#~ msgid "Fluid"
+#~ msgstr "Fluanta"
+
+#~ msgid "Skin layout"
+#~ msgstr "Etosa prezento"
+
+#~ msgid "1 column"
+#~ msgstr "1 kolumno"
+
+#~ msgid "2 columns: Sidebar to the right"
+#~ msgstr "2 kolumnoj: flankaĵo dekstra"
+
+#~ msgid "2 columns: Sidebar to the left"
+#~ msgstr "2 kolumnoj: flankaĵo maldekstra"
+
+#~ msgid "3 columns"
+#~ msgstr "3 kolumnoj"
+
+#~ msgid "3 columns: Sidebars to the right"
+#~ msgstr "3 kolumnoj: flankaĵoj dekstraj"
+
+#~ msgid "3 columns: Sidebars to the left"
+#~ msgstr "3 kolumnoj: flankaĵoj maldekstraj"
+
+#~ msgid "Skin font"
+#~ msgstr "Etosa tiparo"
+
+#~ msgid "Tabbed widget settings"
+#~ msgstr "Kunlageta umaĵo-agordo"
+
+#~ msgid "Tabbed widget"
+#~ msgstr "Kunlagetaj umaĵoj"
+
+#~ msgid "Display javascript tabbed widget on the sidebar"
+#~ msgstr "Montri la JavaSCript-langeta umaĵo en la flankaĵo"
+
+#~ msgid "Recent comments"
+#~ msgstr "Freŝaj komentoj"
+
+#~ msgid "The number of recent comments"
+#~ msgstr "La nombro da freŝaj komentoj"
+
+#~ msgid "Popular posts"
+#~ msgstr "Popularaj afiŝoj"
+
+#~ msgid "The number of popular posts"
+#~ msgstr "La nombro da popularaj afiŝoj"
+
+#~ msgid "The number of months in archive"
+#~ msgstr "La nombro da monatoj en arkivo"
+
+#~ msgid "The number of tags"
+#~ msgstr "La nombro da etikedoj"
+
+#~ msgid "Misc settings"
+#~ msgstr "Alia agordo"
+
+#~ msgid "The number of related articles in single post mode"
+#~ msgstr "La nombro da rilataj artikoloj en apartafiŝa reĝimo"
+
+#~ msgid "Twitter widget"
+#~ msgstr "Twitter-umaĵo"
+
+#~ msgid "The number of items in \"My latest tweets\" widget. Select 0 to disable."
+#~ msgstr "La nombro da eroj en la umaĵo \"Miaj plej freŝaj Twitter-afiŝoj\". Elekti 0 por malaktivigi."
+
+#~ msgid "Enable/disable features"
+#~ msgstr "Aktivigi/malaktivigi trajtojn"
+
+#~ msgid "FancyBox Helper"
+#~ msgstr "FancyBox-helpilo"
+
+#~ msgid "See <a href=\""
+#~ msgstr "Vidi je <a href=\""
+
+#~ msgid "Post metadata"
+#~ msgstr "Afiŝaj metadatumoj"
+
+#~ msgid "Display post metadata block in single post mode"
+#~ msgstr "Montri afiŝo-menadatuma bloko en apartafiŝa reĝimo"
+
+#~ msgid "Author avatar (list)"
+#~ msgstr "Verkisto-avataro (listo)"
+
+#~ msgid "Display author avatar next to post title in <u>post list mode</u>"
+#~ msgstr "Montri la verkisto-avataron apud la afiŝa titolo en <u>afiŝlista reĝimo</u>"
+
+#~ msgid "Author avatar (single)"
+#~ msgstr "Verkisto-avataro (aparta)"
+
+#~ msgid "Display author avatar next to post title in <u>single post mode</u>"
+#~ msgstr "Montri verkisto-avataron apud la afiŝa titolo en <u>apartafiŝa reĝimo</u>"
+
+#~ msgid "Display thumbshots"
+#~ msgstr "Montri miniaturojn"
+
+#~ msgid "Display website previews on external post links."
+#~ msgstr "Montri TTT-ejajn antaŭvidojn ĉe eksteraj afiŝo-ligiloj."
+
+#~ msgid "Display footer credits"
+#~ msgstr "Montri piedajn dankesprimojn"
+
+#~ msgid "You get this skin for free. We do appreciate you giving us credit. <b>Thank you for your support!</b>"
+#~ msgstr "Vi akiris la etoson senkoste. Ni aprezas viajn dankesprimojn. <strong>Dankon pro via subteno.</strong>"
+
+#~ msgid "Social buttons"
+#~ msgstr "Interkonaj butonoj"
+
+#~ msgid "Facebook"
+#~ msgstr "Facebook"
+
+#~ msgid "Username. Leave empty to hide the button"
+#~ msgstr "Salutonomo. Lasu vaka por kaŝi la butonon"
+
+#~ msgid "Flickr"
+#~ msgstr "Flickr"
+
+#~ msgid "Myspace"
+#~ msgstr "MySpace"
+
+#~ msgid "LinkedIn"
+#~ msgstr "LinkedIn"
+
+#~ msgid "Twitter"
+#~ msgstr "Twitter"
+
+#~ msgid "Youtube"
+#~ msgstr "YouTube"
+
+#~ msgid "Updates"
+#~ msgstr "Ĝisdatigoj"
+
+#~ msgid "My latest tweets"
+#~ msgstr "Miaj plej freŝaj Twitter-afiŝoj"
+
+#~ msgid "Follow me on Twitter!"
+#~ msgstr "Sekvi min en Twitter"
+
+#~ msgid "Share this post!"
+#~ msgstr "Konigi la afiŝon"
+
+#~ msgid "No related Links yet"
+#~ msgstr "Ankoraŭ neniuj rilataj ligiloj"
+
+#~ msgid "No related posts yet"
+#~ msgstr "Ankoraŭ neniuj rilataj afiŝoj"
+
+#~ msgid "Twitter consumer key"
+#~ msgstr "Twitter-klienta ŝlosilo"
+
+#~ msgid "Your Twitter App Consumer Key."
+#~ msgstr "Via Twitter-programo-klienta ŝlosilo."
+
+#~ msgid "Twitter consumer secret"
+#~ msgstr "Twitter-klienta sekreto"
+
+#~ msgid "Your Twitter App Consumer Secret."
+#~ msgstr "Via Twitter-programo-klienta sekreto."
+
+#~ msgid "Twitter user token"
+#~ msgstr "Twitter-uzanto-sigelo"
+
+#~ msgid "Your Twitter App Access Token."
+#~ msgstr "Via Twitter-programo-atingo-ŝlosilo."
+
+#~ msgid "Twitter Token Secret"
+#~ msgstr "Twitter-sigela sekreto"
+
+#~ msgid "Your Twitter App Access Token Secret."
+#~ msgstr "Via Twitter-programo-atingo-sigela sekreto"
+
+#~ msgid "View RSS Feed"
+#~ msgstr "Vidi RSS-fluon"
+
+#~ msgid "Follow me on Twitter"
+#~ msgstr "Sekvi min en Twitter"
+
+#~ msgid "Find me on Flickr"
+#~ msgstr "Trovi min en  Flickr"
+
+#~ msgid "Find me on Facebook"
+#~ msgstr "Trovi min en Facebook"
+
+#~ msgid "Find me on MySpace"
+#~ msgstr "Trovi min en MySpace"
+
+#~ msgid "Follow me on LinkedIn"
+#~ msgstr "Sekvi min en LinkedIn"
+
+#~ msgid "Follow me on Youtube"
+#~ msgstr "Sekvi min en Youtube"
+
+#~ msgid "After posts"
+#~ msgstr "Post afiŝoj"
+
+#~ msgid "Portuguese (PT)"
+#~ msgstr "Portugala (PT)"
+
+#~ msgid "Russian (RU) utf8"
+#~ msgstr "Rusa (RU) laŭ UTF-8"
+
+#~ msgid "Posted on "
+#~ msgstr "Afiŝita je "
+
 #~ msgid ""
 #~ "<p>This is page 1 of a multipage post.</p>\n"
 #~ "\n"
@@ -33668,281 +33946,17 @@ msgstr "en"
 #~ "\n"
 #~ "<p>Vi povas vidi la aliajn paĝojn per alklakado de la ligiloj sube de la teksto.</p>"
 
-#~ msgid "Posted on "
-#~ msgstr "Afiŝita je "
+#~ msgid "Edit this item type..."
+#~ msgstr "Redakti ĉi tiun ero-tipon…"
 
-#~ msgid "Russian (RU) utf8"
-#~ msgstr "Rusa (RU) laŭ UTF-8"
+#~ msgid "Duplicate this item type..."
+#~ msgstr "Kopii ĉi tiun ero-tipon…"
 
-#~ msgid "Portuguese (PT)"
-#~ msgstr "Portugala (PT)"
+#~ msgid "New item type"
+#~ msgstr "Nova ero-tipo"
 
-#~ msgid "After posts"
-#~ msgstr "Post afiŝoj"
+#~ msgid "Item type"
+#~ msgstr "Ero-tipo"
 
-#~ msgid "Follow me on Youtube"
-#~ msgstr "Sekvi min en Youtube"
-
-#~ msgid "Follow me on LinkedIn"
-#~ msgstr "Sekvi min en LinkedIn"
-
-#~ msgid "Find me on MySpace"
-#~ msgstr "Trovi min en MySpace"
-
-#~ msgid "Find me on Facebook"
-#~ msgstr "Trovi min en Facebook"
-
-#~ msgid "Find me on Flickr"
-#~ msgstr "Trovi min en  Flickr"
-
-#~ msgid "Follow me on Twitter"
-#~ msgstr "Sekvi min en Twitter"
-
-#~ msgid "View RSS Feed"
-#~ msgstr "Vidi RSS-fluon"
-
-#~ msgid "Your Twitter App Access Token Secret."
-#~ msgstr "Via Twitter-programo-atingo-sigela sekreto"
-
-#~ msgid "Twitter Token Secret"
-#~ msgstr "Twitter-sigela sekreto"
-
-#~ msgid "Your Twitter App Access Token."
-#~ msgstr "Via Twitter-programo-atingo-ŝlosilo."
-
-#~ msgid "Twitter user token"
-#~ msgstr "Twitter-uzanto-sigelo"
-
-#~ msgid "Your Twitter App Consumer Secret."
-#~ msgstr "Via Twitter-programo-klienta sekreto."
-
-#~ msgid "Twitter consumer secret"
-#~ msgstr "Twitter-klienta sekreto"
-
-#~ msgid "Your Twitter App Consumer Key."
-#~ msgstr "Via Twitter-programo-klienta ŝlosilo."
-
-#~ msgid "Twitter consumer key"
-#~ msgstr "Twitter-klienta ŝlosilo"
-
-#~ msgid "No related posts yet"
-#~ msgstr "Ankoraŭ neniuj rilataj afiŝoj"
-
-#~ msgid "No related Links yet"
-#~ msgstr "Ankoraŭ neniuj rilataj ligiloj"
-
-#~ msgid "Share this post!"
-#~ msgstr "Konigi la afiŝon"
-
-#~ msgid "Follow me on Twitter!"
-#~ msgstr "Sekvi min en Twitter"
-
-#~ msgid "My latest tweets"
-#~ msgstr "Miaj plej freŝaj Twitter-afiŝoj"
-
-#~ msgid "Updates"
-#~ msgstr "Ĝisdatigoj"
-
-#~ msgid "Youtube"
-#~ msgstr "YouTube"
-
-#~ msgid "Twitter"
-#~ msgstr "Twitter"
-
-#~ msgid "LinkedIn"
-#~ msgstr "LinkedIn"
-
-#~ msgid "Myspace"
-#~ msgstr "MySpace"
-
-#~ msgid "Flickr"
-#~ msgstr "Flickr"
-
-#~ msgid "Username. Leave empty to hide the button"
-#~ msgstr "Salutonomo. Lasu vaka por kaŝi la butonon"
-
-#~ msgid "Facebook"
-#~ msgstr "Facebook"
-
-#~ msgid "Social buttons"
-#~ msgstr "Interkonaj butonoj"
-
-#~ msgid "You get this skin for free. We do appreciate you giving us credit. <b>Thank you for your support!</b>"
-#~ msgstr "Vi akiris la etoson senkoste. Ni aprezas viajn dankesprimojn. <strong>Dankon pro via subteno.</strong>"
-
-#~ msgid "Display footer credits"
-#~ msgstr "Montri piedajn dankesprimojn"
-
-#~ msgid "Display website previews on external post links."
-#~ msgstr "Montri TTT-ejajn antaŭvidojn ĉe eksteraj afiŝo-ligiloj."
-
-#~ msgid "Display thumbshots"
-#~ msgstr "Montri miniaturojn"
-
-#~ msgid "Display author avatar next to post title in <u>single post mode</u>"
-#~ msgstr "Montri verkisto-avataron apud la afiŝa titolo en <u>apartafiŝa reĝimo</u>"
-
-#~ msgid "Author avatar (single)"
-#~ msgstr "Verkisto-avataro (aparta)"
-
-#~ msgid "Display author avatar next to post title in <u>post list mode</u>"
-#~ msgstr "Montri la verkisto-avataron apud la afiŝa titolo en <u>afiŝlista reĝimo</u>"
-
-#~ msgid "Author avatar (list)"
-#~ msgstr "Verkisto-avataro (listo)"
-
-#~ msgid "Display post metadata block in single post mode"
-#~ msgstr "Montri afiŝo-menadatuma bloko en apartafiŝa reĝimo"
-
-#~ msgid "Post metadata"
-#~ msgstr "Afiŝaj metadatumoj"
-
-#~ msgid "See <a href=\""
-#~ msgstr "Vidi je <a href=\""
-
-#~ msgid "FancyBox Helper"
-#~ msgstr "FancyBox-helpilo"
-
-#~ msgid "Enable/disable features"
-#~ msgstr "Aktivigi/malaktivigi trajtojn"
-
-#~ msgid "The number of items in \"My latest tweets\" widget. Select 0 to disable."
-#~ msgstr "La nombro da eroj en la umaĵo \"Miaj plej freŝaj Twitter-afiŝoj\". Elekti 0 por malaktivigi."
-
-#~ msgid "Twitter widget"
-#~ msgstr "Twitter-umaĵo"
-
-#~ msgid "The number of related articles in single post mode"
-#~ msgstr "La nombro da rilataj artikoloj en apartafiŝa reĝimo"
-
-#~ msgid "Misc settings"
-#~ msgstr "Alia agordo"
-
-#~ msgid "The number of tags"
-#~ msgstr "La nombro da etikedoj"
-
-#~ msgid "The number of months in archive"
-#~ msgstr "La nombro da monatoj en arkivo"
-
-#~ msgid "The number of popular posts"
-#~ msgstr "La nombro da popularaj afiŝoj"
-
-#~ msgid "Popular posts"
-#~ msgstr "Popularaj afiŝoj"
-
-#~ msgid "The number of recent comments"
-#~ msgstr "La nombro da freŝaj komentoj"
-
-#~ msgid "Recent comments"
-#~ msgstr "Freŝaj komentoj"
-
-#~ msgid "Display javascript tabbed widget on the sidebar"
-#~ msgstr "Montri la JavaSCript-langeta umaĵo en la flankaĵo"
-
-#~ msgid "Tabbed widget"
-#~ msgstr "Kunlagetaj umaĵoj"
-
-#~ msgid "Tabbed widget settings"
-#~ msgstr "Kunlageta umaĵo-agordo"
-
-#~ msgid "Skin font"
-#~ msgstr "Etosa tiparo"
-
-#~ msgid "3 columns: Sidebars to the left"
-#~ msgstr "3 kolumnoj: flankaĵoj maldekstraj"
-
-#~ msgid "3 columns: Sidebars to the right"
-#~ msgstr "3 kolumnoj: flankaĵoj dekstraj"
-
-#~ msgid "3 columns"
-#~ msgstr "3 kolumnoj"
-
-#~ msgid "2 columns: Sidebar to the left"
-#~ msgstr "2 kolumnoj: flankaĵo maldekstra"
-
-#~ msgid "2 columns: Sidebar to the right"
-#~ msgstr "2 kolumnoj: flankaĵo dekstra"
-
-#~ msgid "1 column"
-#~ msgstr "1 kolumno"
-
-#~ msgid "Skin layout"
-#~ msgstr "Etosa prezento"
-
-#~ msgid "Fluid"
-#~ msgstr "Fluanta"
-
-#~ msgid "Fixed"
-#~ msgstr "Fiksita"
-
-#~ msgid "Skin width"
-#~ msgstr "Etosa larĝo"
-
-#~ msgid "Grey"
-#~ msgstr "Griza"
-
-#~ msgid "Red"
-#~ msgstr "Ruĝa"
-
-#~ msgid "Blue"
-#~ msgstr "Blua"
-
-#~ msgid "Green"
-#~ msgstr "Verda"
-
-#~ msgid "Skin color"
-#~ msgstr "Etosa koloro"
-
-#~ msgid "Enter image URL to display a logo"
-#~ msgstr "Enmeti bildon-URL-on por montri devizon."
-
-#~ msgid "Related Posts"
-#~ msgstr "Rilataj afiŝoj"
-
-#~ msgid "Related Links"
-#~ msgstr "Rilataj ligiloj"
-
-#~ msgid "Attending this event"
-#~ msgstr "Ĉeestanta la okazaĵon"
-
-#~ msgid "Linkback"
-#~ msgstr "Mencio"
-
-#~ msgid "Post bottom"
-#~ msgstr "Afiŝa fundo"
-
-#~ msgid "Posts by"
-#~ msgstr "Afiŝita de"
-
-#~ msgid "entry"
-#~ msgstr "afiŝo"
-
-#~ msgid "This %1$s was posted by %2$s on %3$s at %4$s. Follow any responses to this post through %5$s."
-#~ msgstr "La %1$s estis afiŝita de %2$s je %3$s je %4$s. Respondoj al la afiŝoj estas sekveblaj per %5$s."
-
-#~ msgid "Print article"
-#~ msgstr "Printi artikolon"
-
-#~ msgid "comments"
-#~ msgstr "komentoj"
-
-#~ msgid "comment"
-#~ msgstr "komento"
-
-#~ msgid "No comments"
-#~ msgstr "Neniuj komentoj"
-
-#~ msgid "Posted by"
-#~ msgstr "Afiŝita de"
-
-#~ msgid "Full widget set"
-#~ msgstr "Plena umaĵaro"
-
-#~ msgid "Alternative widget set"
-#~ msgstr "Alternativa umaĵaro"
-
-#~ msgid "Recommended widget set"
-#~ msgstr "Rekomendita umaĵaro"
-
-#~ msgid "<i class=\"fa fa-tags\"></i>"
-#~ msgstr "<i class=\"fa fa-tags\"></i>"
+#~ msgid "Change item type"
+#~ msgstr "Ŝanĝi ero-tipon"
