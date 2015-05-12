@@ -758,7 +758,7 @@ function locale_overwritefromDB()
 			$loc_charset = 'utf-8';
 		}
 
-		if( ( $ctrl == 'locales' || $ctrl == 'regional' ) && $row['loc_enabled'] && strtolower($loc_charset) != 'utf-8' )
+		if( ( $ctrl == 'locales' || $ctrl == 'regional' ) && $row['loc_enabled'] && strcasecmp($loc_charset, 'utf-8') != 0 )
 		{ // Check wrong non utf-8 locales in order to deactivate them
 			$Messages->add( sprintf( T_('The locale %s has been deactivated because it\'s not UTF-8'), '<b>'.$row['loc_locale'].'</b>' ) );
 			if( $Settings->get( 'default_locale' ) == $row['loc_locale'] && $default_locale != $row['loc_locale'] )

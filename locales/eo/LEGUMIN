@@ -33,6 +33,8 @@ Se la blogo jam estas instalita, kreu la lokaĵaron per:
 5. En la paĝo Regional ŝanĝu la sekvan kampon:
   * Default locale: Esperanto UTF-8
 6. Proksime al la subo de la paĝo alklaku la butonon Save !
+Noto: En iuj versioj de b2evolution la valoro de la kampo Locale
+devas esti eo-EO, malgraŭe ke EO ne estas valida lando-kodo.
 
 Por aktivigi la lokaĵaron por via blogo (jam kreita):
 1. Iru al Admin > Collections
@@ -43,7 +45,7 @@ Por aktivigi la lokaĵaron por via blogo (jam kreita):
 
 Por aktivigi la lokaĵaron en la stirilo (se ankoraŭ en la angla):
 1. Iru al Admin > Users
-2. Alklaku la ligilon kun via salutnomo (sub User Name).
+2. Alklaku la ligilon kun via salutnomo (sub Login).
 3. Alklaku sur la langeto Settings
 4. Ĉe Preferred Language ŝanĝu al Esperanto UTF-8
 5. Alklaku la butonon Save !
@@ -58,5 +60,5 @@ sekvi la jenan procedon:
 3. Tajpu: make
 4. Tajpu: make xz
 
-En la patra dosierujo vi tiam povos trovi la dosieron eo.tar.xz
+En la patra dosierujo troveblos la dosiero eo.tar.xz
 enhavante elŝuteblan lingvopakon.

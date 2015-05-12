@@ -1,15 +1,19 @@
 @import url(transitional.css);
 
-:lang(de) {
+:lang(de),
+[hreflang|="de"] {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-:lang(eo) {
-  font-family: 'Lucida Sans Unicode', 'Times New Roman', Arial, 'Courier New', monospace;
+:lang(eo),
+[hreflang="eo"] {
+  font-family: FreeSerif, 'DejaVu Serif', 'Times New Roman', serif;
+  line-height: 1.1em;
 }
 
-:lang(es) {
-  font-family: 'Comic Sans MS', 'Nimbus Sans L', fantasy;
+:lang(es),
+[hreflang|="es"] {
+  font-family: 'Comic Sans MS', TSCu_Comic, Geneva, fantasy;
 }
 
 #content {
@@ -22,6 +26,10 @@
 
 #nav {
   float: right;
+}
+
+.meta:lang(eo) {
+  height: 1.2em;
 }
 
 @media (max-width: 640px) {

@@ -1,5 +1,5 @@
 * {
-  font-family: 'DejaVu Sans', 'Helvetica Neue', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+  font-family: 'Helvetica Neue', 'Lucida Grande', 'Lucida Sans Unicode', Malayalam, 'Mukti Narrow', Verdana, sans-serif;
 }
 
 a {
@@ -396,7 +396,7 @@ table summary {
 .bCalendarTable th {
   border-width: 0 0 thin 0;
   color: black;
-  font-family: "Comic Sans MS", "Nimbus Sans L", fantasy;
+  font-family: 'Comic Sans MS', TSCu_Comic, Geneva, sans-serif;
   font-size: 0.8em;
   font-weight: bold;
   text-align: center;
