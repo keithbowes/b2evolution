@@ -203,7 +203,7 @@ if( ! $use_locale_from_request )
 		$default_locale = locale_from_httpaccept();
 	}
 	// echo 'detected locale: ' . $default_locale. '<br />';
-	if( isset( $locales[ $default_locale ] ) && $evo_charset != $locales[ $default_locale ]['charset'] )
+	if( isset( $locales[ $default_locale ] ) && strcasecmp($evo_charset, $locales[ $default_locale ]['charset']) != 0 )
 	{ // Redirect to install page with correct defined locale in order to avoid broken chars, e.g. when db locale has utf8 encoding and default locale - latin1
 		header_redirect( 'index.php?locale='.$default_locale );
 		// Exit here.

@@ -496,7 +496,7 @@ function locale_flag( $locale = '', $collection = 'deprecated_param', $class = '
 
 	// extract flag name:
 	$locale_parts = explode('-', $locale);
-	$country_code = strtolower($locale_parts[1]);
+	$country_code = @strtolower($locale_parts[1]);
 
 	/* If no country code is provided, use the language code.
 	 * For most languages, they're the same. */
