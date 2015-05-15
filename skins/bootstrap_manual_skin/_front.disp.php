@@ -22,13 +22,13 @@ $intro_Item = & get_featured_Item( 'front' ); // $intro_Item is used below for c
 $Item = $intro_Item;
 if( !empty( $Item ) )
 { // We have a featured/intro post to display:
-	echo '<div id="styled_content_block">'; // Beginning of posts display
+	echo '<div id="styled_content_block">'; // Beginning of posts display TODO: get rid of this ID, use class .evo_content_block instead
 	// ---------------------- ITEM BLOCK INCLUDED HERE ------------------------
 	skin_include( '_item_block.inc.php', array(
 			'feature_block'     => true,
 			'content_mode'      => 'auto',		// 'auto' will auto select depending on $disp-detail
 			'intro_mode'        => 'normal',	// Intro posts will be displayed in normal mode
-			'item_class'        => 'jumbotron evo_post',
+			'item_class'        => 'jumbotron evo_content_block evo_post',
 			'disp_comment_form' => false,
 			'item_link_type'    => 'none',
 		) );
@@ -55,7 +55,7 @@ if( ! empty( $intro_Item ) )
 {
 	global $c, $ReqURI;
 	$c = 1; // Display comments
-	echo '<div id="styled_content_block">'; // Beginning of posts display
+	echo '<div id="styled_content_block">'; // Beginning of posts display TODO: get rid of this ID, use class .evo_content_block instead
 	// ------------------ FEEDBACK (COMMENTS/TRACKBACKS) INCLUDED HERE ------------------
 	skin_include( '_item_feedback.inc.php', array_merge( array(
 			'before_section_title' => '<h3 class="comments_list_title">',

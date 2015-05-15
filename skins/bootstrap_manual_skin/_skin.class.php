@@ -18,6 +18,11 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 class bootstrap_manual_Skin extends Skin
 {
 	/**
+	 * Do we want to use style.min.css instead of style.css ?
+	 */
+	var $use_min_css = 'true';  // true|false|'check' Set this to true for better optimization
+
+	/**
 	 * Get default name for the skin.
 	 * Note: the admin can customize it.
 	 */
@@ -57,6 +62,7 @@ class bootstrap_manual_Skin extends Skin
 	function get_param_definitions( $params )
 	{
 		$r = array_merge( array(
+				// Colorbox
 				'colorbox' => array(
 					'label' => T_('Colorbox Image Zoom'),
 					'note' => T_('Check to enable javascript zooming on images (using the colorbox script)'),
@@ -99,6 +105,7 @@ class bootstrap_manual_Skin extends Skin
 					'defaultvalue' => 1,
 					'type' => 'checkbox',
 				),
+				// Other settings
 				'gender_colored' => array(
 					'label' => T_('Display gender'),
 					'note' => T_('Use colored usernames to differentiate men & women.'),
@@ -156,7 +163,9 @@ class bootstrap_manual_Skin extends Skin
 		}
 		
 		// Make sure standard CSS is called ahead of custom CSS generated below:
-		if( $debug )
+		if( $this->use_min_css == false 
+			|| $debug 
+			|| ( $this->use_min_css == 'check' && !file_exists(dirname(__FILE__).'/style.min.css' ) ) )
 		{	// Use readable CSS:
 			require_css( 'style.css', 'relative' );	// Relative to <base> tag (current skin folder)
 		}
@@ -535,12 +544,12 @@ class bootstrap_manual_Skin extends Skin
 					'author_link_text' => 'preferredname',
 					// Profile tabs to switch between user edit forms
 					'profile_tabs' => array(
-						'block_start'         => '<ul class="nav nav-tabs profile_tabs">',
+						'block_start'         => '<nav><ul class="nav nav-tabs profile_tabs">',
 						'item_start'          => '<li>',
 						'item_end'            => '</li>',
 						'item_selected_start' => '<li class="active">',
 						'item_selected_end'   => '</li>',
-						'block_end'           => '</ul>',
+						'block_end'           => '</ul></nav>',
 					),
 					// Pagination
 					'pagination' => array(

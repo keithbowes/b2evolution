@@ -324,14 +324,14 @@ div.action_messages,
 div.log_container {
   margin: 0;
 }
-div#skin_wrapper div.sitewide_header {
+div#skin_wrapper .sitewide_header {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 10000;
   -webkit-font-smoothing: subpixel-antialiased;
 }
-div#skin_wrapper.skin_wrapper_loggedin div.sitewide_header {
+div#skin_wrapper.skin_wrapper_loggedin .sitewide_header {
   top: 27px;
 }
 .chapters_list ul {
@@ -370,17 +370,17 @@ div#skin_wrapper.skin_wrapper_loggedin div.sitewide_header {
 ol.breadcrumb {
   margin-left: 0;
 }
-.post_title,
+.evo_post_title,
 .cat_title {
   display: table;
 }
-.post_title h1,
+.evo_post_title h1,
 .cat_title h1 {
   display: table-cell;
   margin: 0;
   padding: 20px 0 10px;
 }
-.post_title .btn-group,
+.evo_post_title .btn-group,
 .cat_title .btn-group {
   display: table-cell;
   padding: 20px 0 10px 30px;

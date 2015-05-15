@@ -2652,7 +2652,7 @@ class Item extends ItemLight
 				'gallery_image_limit'        => 1000,
 				'gallery_colls'              => 5,
 				'gallery_order'              => '', // 'ASC', 'DESC', 'RAND'
-				'restrict_to_image_position' => 'cover,teaser,teaserperm,teaserlink,aftermore', // 'teaser'|'teaserperm'|'teaserlink'|'aftermore'|'inline'|'cover'
+				'restrict_to_image_position' => 'teaser,teaserperm,teaserlink,aftermore', // 'teaser'|'teaserperm'|'teaserlink'|'aftermore'|'inline'|'cover'
 				'data'                       =>  & $r,
 				'get_rendered_attachments'   => true,
 				'links_sql_select'           => '',
@@ -4454,18 +4454,12 @@ class Item extends ItemLight
 				'item_class'        => 'bPost',
 				'item_type_class'   => 'bPost_ptyp',
 				'item_status_class' => 'bPost',
-				'item_disp_class'   => 'bPost_disp_', // NULL - to don't use this class
 			), $params );
 
 		$classes = array( $params['item_class'],
 				$params['item_type_class'].$this->ityp_ID,
 				$params['item_status_class'].$this->status,
 			);
-
-		if( $params['item_disp_class'] !== NULL )
-		{ // Use disp class only when it is requested
-			$classes[] = $params['item_disp_class'].$disp;
-		}
 
 		$r = implode( ' ', $classes );
 

@@ -3,7 +3,7 @@
  * This is the main/default page template.
  *
  * For a quick explanation of b2evo 2.0 skins, please start here:
- * {@link http://b2evolution.net/man/skin-structure}
+ * {@link http://b2evolution.net/man/skin-development-primer}
  *
  * The main page template is used to display the blog when no specific page template is available
  * to handle the request (based on $disp).
@@ -24,9 +24,7 @@ skin_init( $disp );
 
 
 // -------------------------- HTML HEADER INCLUDED HERE --------------------------
-skin_include( '_html_header.inc.php' );
-// Note: You can customize the default HTML header by copying the generic
-// /skins/_html_header.inc.php file into the current skin folder.
+skin_include( '_html_header.inc.php', array() );
 // -------------------------------- END OF HEADER --------------------------------
 ?>
 
@@ -57,16 +55,23 @@ skin_include( '_body_header.inc.php' );
 		display_if_empty();
 
 		echo '<div id="styled_content_block">'; // Beginning of posts display
+
+		$item_class_params = array(
+				'item_class'        => 'post',
+				'item_type_class'   => 'post_ptyp',
+				'item_status_class' => 'post',
+			);
+
 		while( $Item = & mainlist_get_item() )
-		{	// For each blog post, do everything below up to the closing curly brace "}"
+		{ // For each blog post, do everything below up to the closing curly brace "}"
 			?>
-		
+
 			<?php
 				$Item->locale_temp_switch(); // Temporarily switch to post locale (useful for multilingual blogs)
 			?>
-		
-			<div id="<?php $Item->anchor_id() ?>" class="post post<?php $Item->status_raw() ?>" lang="<?php $Item->lang() ?>">
-		
+
+			<div id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( $item_class_params ) ?>" lang="<?php $Item->lang() ?>">
+
 				<?php
 				if( $Item->status != 'published' )
 				{
@@ -78,7 +83,7 @@ skin_include( '_body_header.inc.php' );
 							'link_type' => 'permalink'
 						) );
 				?></h2>
-		
+
 				<?php
 					// ---------------------- POST CONTENT INCLUDED HERE ----------------------
 					skin_include( '_item_content.inc.php', array(
