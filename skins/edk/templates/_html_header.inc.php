@@ -20,7 +20,7 @@ global $first_item, $last_item, $next_item, $prev_item;
 function edk_css_include()
 {
 	global $Skin;
-	global $current_locale, $edk_base, $headlines, $io_charset;
+	global $current_locale, $edk_base, $headlines, $io_charset, $locales;
 
 	$default_style = array(
 		'file' => $edk_base . 'css/transitional.css',
@@ -48,8 +48,9 @@ function edk_css_include()
 
 	/* Sort the alternate styles based on locale */
 	$locales_to_try = array(
-		$io_charset,
+		$locales[$current_locale]['charset'],
 		str_replace('-', '_', $current_locale) . '.' . $io_charset,
+		'en_US.' . $io_charset,
 		'',
 	);
 	$old_locale = setlocale(LC_ALL, 0);
