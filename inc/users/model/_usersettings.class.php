@@ -144,7 +144,7 @@ class UserSettings extends AbstractSettings
 	 * @param string name of setting
 	 * @param integer User ID (by default $current_User->ID will be used)
 	 */
-	function get( $setting, $user_ID = NULL )
+	function get( $setting, $user_ID = NULL, $data = NULL )
 	{
 		global $Settings;
 
@@ -181,7 +181,7 @@ class UserSettings extends AbstractSettings
 	 * @param mixed new value
 	 * @param integer User ID (by default $current_User->ID will be used)
 	 */
-	function set( $setting, $value, $user_ID = NULL )
+	function set( $setting = NULL, $value = NULL, $user_ID = NULL )
 	{
 		if( ! isset($user_ID) )
 		{

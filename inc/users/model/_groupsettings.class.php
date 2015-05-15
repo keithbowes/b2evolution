@@ -127,7 +127,7 @@ class GroupSettings extends AbstractSettings
 	 * @param string name of permission
 	 * @param integer Group
 	 */
-	function get( $permission, $grp_ID )
+	function get( $permission = NULL, $grp_ID = NULL, $data = NULL )
 	{
 		if( $grp_ID != 0 )
 		{	// We can get permission from database, because the current group setting are available in database
@@ -144,7 +144,7 @@ class GroupSettings extends AbstractSettings
 	 * @param mixed new value
 	 * @param integer Group ID
 	 */
-	function set( $permission, $value, $grp_ID )
+	function set( $permission = NULL, $value = NULL, $grp_ID = NULL )
 	{
 		if( $grp_ID != 0 )
 		{	// We can set permission, because the current group is already in database
@@ -161,7 +161,7 @@ class GroupSettings extends AbstractSettings
 	 *
 	 * @param integer Group ID
 	 */
-	function dbupdate( $grp_ID )
+	function dbupdate( $grp_ID = NULL )
 	{
 		if( ! empty( $this->_permissions ) )
 		{	// Set temporary permissions. It is only for the new creating group

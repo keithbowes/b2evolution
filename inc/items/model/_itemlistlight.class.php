@@ -743,7 +743,7 @@ class ItemListLight extends DataObjectList2
 	 * Contrary to ItemList2, we only do 1 query here and we extract only a few selected params.
 	 * Basically all we want is being able to generate permalinks.
 	 */
-	function query()
+	function query($create_default_cols_if_needed = TRUE, $append_limit = TRUE, $append_order_by = TRUE, $query_title = 'Results::Q...')
 	{
 		global $DB;
 

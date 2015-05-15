@@ -69,31 +69,8 @@ if (supports_xhtml())
 <li><a href="<?php echo "https://plus.google.com/share?url=$_item_url"; ?>" onclick="window.open(this.href); return false;" class="button" id="gplus" title="[<?php echo $Skin->T_('Share on Google+'); ?>]"><?php echo preg_replace('/^(.*)G(oogle)\+/', '<span class="button-sf">$1</span>G<span class="button-sf">$2+</span>', $Skin->T_('Share on Google+')); ?></a></li>
 <li><a href="<?php echo "https://twitter.com/intent/tweet?original_referer=$_item_url&amp;url=$_item_url&amp;text=" . urlencode($_item_title); ?>" onclick="window.open(this.href); return false;" class="button" id="twitter" title="[<?php echo $Skin->T_('Share on Twitter'); ?>]"><?php echo preg_replace('/^(.*)T(witter.*)$/', '<span class="button-sf">$1</span>T<span class="button-sf">$2</span>', $Skin->T_('Share on Twitter')); ?></a></li>
 <li>
-<script type="text/javascript">
-/*<![CDATA[*/
-function getPod(pod)
-{
-	/* Use the hidden field rather than the select in the <noscript> in Gecko;
-	 * this is probably a bug. */
-	if (pod.length)
-		return pod[1].value;
-	/* Other browsing engines seem fine though */
-	else
-		return pod.value;
-}
 
-function getUri(form, pod)
-{
-	return pod + '/bookmarklet?url=' + form.url.value + '&amp;title=' + form.title.value;
-}
-/*]]>*/
-</script>
-
-<form id="diaspform" action="<?php echo $_SERVER['PHP_SELF']; ?>" onsubmit="var pod = localStorage.getItem('diasporapod'); if (!pod) pod = '<?php echo $pod; ?>'; pod = prompt('<?php echo $Skin->T_('Enter the URL of a Diaspora* pod where you want to share (e.g. https://joindiaspora.com)'); ?>', pod); if (!pod || pod.indexOf('https://') != 0) { /* Alert for empty string, but not for canceled operation */ if (pod != null) alert('<?php echo $Skin->T_('Invalid entry!'); ?>'); return false; } localStorage.setItem('diasporapod', pod); this['diaspora-pod'].value = pod; window.open(getUri(this, pod)); return false;">
-<div>
-<input type="hidden" name="diaspora-url" value="<?php echo urlencode($_item_url); ?>" />
-<input type="hidden" name="diaspora-title" value="<?php echo urlencode($_item_title); ?>" />
-<input type="hidden" name="redir" value="no" />
+<!-- Diaspora section -->
 <?php
 $pods = array();
 if (class_exists('DOMDocument'))
@@ -159,13 +136,41 @@ $ger_pods = array('https://despora.de', 'https://wk3.org', 'https://socializer.c
 $std_pods = array('https://joindiaspora.com', 'https://pod.geraspora.de', 'https://diasp.de', 'https://diasp.eu', 'https://diasporabrazil.org', 'https://podricing.org', 'https://diasp.org', 'https://diaspora-fr.org', 'https://poddery.com', 'https://nerdpol.ch');
 $pods = array_merge($std_pods, $ger_pods, $pods);
 
-$pod = $_COOKIE['Diaspora-Pod']; if (!$pod) $pod = $pods[0];
+if (array_key_exists('Diaspora-Pod', $_COOKIE))
+	$pod = $_COOKIE['Diaspora-Pod'];
+else
+	$pod = $pods[0];
 
 /* For some reason, array_unique() must be called before sort()
  * in order to keep one of the duplicate elements */
 $pods = array_unique($pods);
 sort($pods);
 ?>
+<script type="text/javascript">
+/*<![CDATA[*/
+function getPod(pod)
+{
+	/* Use the hidden field rather than the select in the <noscript> in Gecko;
+	 * this is probably a bug. */
+	if (pod.length)
+		return pod[1].value;
+	/* Other browsing engines seem fine though */
+	else
+		return pod.value;
+}
+
+function getUri(form, pod)
+{
+	return pod + '/bookmarklet?url=' + form.url.value + '&amp;title=' + form.title.value;
+}
+/*]]>*/
+</script>
+
+<form id="diaspform" action="<?php echo $_SERVER['PHP_SELF']; ?>" onsubmit="var pod = localStorage.getItem('diasporapod'); if (!pod) pod = '<?php echo $pod; ?>'; pod = prompt('<?php echo $Skin->T_('Enter the URL of a Diaspora* pod where you want to share (e.g. https://joindiaspora.com)'); ?>', pod); if (!pod || pod.indexOf('https://') != 0) { /* Alert for empty string, but not for canceled operation */ if (pod != null) alert('<?php echo $Skin->T_('Invalid entry!'); ?>'); return false; } localStorage.setItem('diasporapod', pod); this['diaspora-pod'].value = pod; window.open(getUri(this, pod)); return false;">
+<div>
+<input type="hidden" name="diaspora-url" value="<?php echo urlencode($_item_url); ?>" />
+<input type="hidden" name="diaspora-title" value="<?php echo urlencode($_item_title); ?>" />
+<input type="hidden" name="redir" value="no" />
 <script type="text/javascript">
 var elem = document.createElement('input');
 elem.type = 'hidden';

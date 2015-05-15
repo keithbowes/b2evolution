@@ -791,7 +791,7 @@ class ItemQuery extends SQL
 	 * @param mixed Search for entire phrase or for individual words
 	 * @param mixed Require exact match of title or contents
 	 */
-	function where_keywords( $keywords, $phrase, $exact )
+	function where_keywords( $keywords, $phrase, $exact = FALSE )
 	{
 		global $DB;
 

@@ -109,7 +109,7 @@ function edk_css_include()
 	}
 }
 
-function edk_get_meta($type, $value, $content, $extra = array())
+function edk_get_meta($type, $value, $content = '', $extra = array())
 {
 	if (supports_xhtml())
 	{
@@ -180,6 +180,8 @@ if (supports_xhtml())
 	echo '<?xml version="1.0" encoding="' . $io_charset . '"?' . '>';
 	echo "\n";
 	edk_css_include();
+
+	$space = '';
 	for ($i = 0; $i < 23; $i++)
 		$space .= ' ';
 

@@ -442,7 +442,7 @@ class CommentQuery extends SQL
 	 * @param mixed Search for entire phrase or for individual words
 	 * @param mixed Require exact match of author or contents
 	 */
-	function where_keywords( $keywords, $phrase, $exact )
+	function where_keywords( $keywords, $phrase, $exact = FALSE )
 	{
 		global $DB;
 

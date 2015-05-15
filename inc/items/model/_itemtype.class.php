@@ -358,7 +358,7 @@ class ItemType extends DataObject
 	 *
 	 * @return int ID if post type exists otherwise NULL/false
 	 */
-	function dbexists()
+	function dbexists($unique_fields = array(), $values = array())
 	{
 		global $DB;
 
@@ -392,7 +392,7 @@ class ItemType extends DataObject
 	/**
 	 * Update the DB based on previously recorded changes
 	 */
-	function dbupdate()
+	function dbupdate($atuo_track_modification = TRUE)
 	{
 		global $DB;
 
@@ -410,7 +410,7 @@ class ItemType extends DataObject
 	/**
 	 * Update the DB based on previously recorded changes
 	 */
-	function dbdelete()
+	function dbdelete($ignore_restrictions = array())
 	{
 		global $DB;
 

@@ -82,7 +82,7 @@ class ItemTypeCache extends DataObjectCache
 	/**
 	 * For use by Universal Item List widget
 	 */
-	function get_option_array()
+	function get_option_array($method = 'get_name', $ignore_IDs = array())
 	{
 		global $posttypes_reserved_IDs;
 

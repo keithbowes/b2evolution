@@ -711,6 +711,7 @@ class Calendar
 			echo '<td colspan="3" id="next">';
 			
 			/* Right amount of padding */
+			$hdl = 0;
 			for ($i = 5; $i < 8; $i++)
 			{
 				switch ($this->headerdisplay)

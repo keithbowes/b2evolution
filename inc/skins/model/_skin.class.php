@@ -411,7 +411,7 @@ class Skin extends DataObject
 	 *
 	 * @return boolean true
 	 */
-	function dbupdate()
+	function dbupdate($auto_track_modification = TRUE)
 	{
 		global $DB;
 

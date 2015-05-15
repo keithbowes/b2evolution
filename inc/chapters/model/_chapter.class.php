@@ -462,7 +462,7 @@ class Chapter extends GenericCategory
 	 *
 	 * @return boolean true on success
 	 */
-	function dbupdate()
+	function dbupdate($auto_track_modification = TRUE)
 	{
 		global $DB;
 

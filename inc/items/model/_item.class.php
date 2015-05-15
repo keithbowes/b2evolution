@@ -5361,7 +5361,7 @@ class Item extends ItemLight
 	 *
 	 * @return boolean true on success
 	 */
-	function dbdelete()
+	function dbdelete($ignore_restrictions = array())
 	{
 		global $DB, $Plugins;
 

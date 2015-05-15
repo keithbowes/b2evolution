@@ -43,7 +43,7 @@ class ChapterCache extends GenericCategoryCache
 	/**
 	 * Empty/reset the cache
 	 */
-	function clear()
+	function clear($keep_shadow = FALSE)
 	{
 		$this->urlname_index = array();
 		parent::clear();

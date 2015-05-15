@@ -361,7 +361,8 @@ class Group extends DataObject
 			default:
 
 				// Check pluggable permissions using group permission check function
-				$perm = Module::check_perm( $permname, $permlevel, $perm_target, 'group_func', $this );
+				$module = new Module();
+				$perm = $module->check_perm( $permname, $permlevel, $perm_target, 'group_func', $this );
 				if( $perm === NULL )
 				{	// Even if group permisson check function doesn't exist we should return false value
 					$perm = false;
@@ -478,7 +479,7 @@ class Group extends DataObject
 	/**
 	 * Update the DB based on previously recorded changes
 	 */
-	function dbupdate()
+	function dbupdate($auto_track_modification = TRUE)
 	{
 		global $DB;
 

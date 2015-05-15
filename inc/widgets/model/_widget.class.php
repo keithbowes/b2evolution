@@ -796,7 +796,7 @@ class ComponentWidget extends DataObject
 	/**
 	 * Update the DB based on previously recorded changes
 	 */
-	function dbupdate()
+	function dbupdate($auto_track_modification = TRUE)
 	{
 		global $DB;
 

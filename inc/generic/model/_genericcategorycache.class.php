@@ -84,7 +84,7 @@ class GenericCategoryCache extends GenericCache
 	/**
 	 * Empty/reset the cache
 	 */
-	function clear()
+	function clear($keep_shadow = FALSE)
 	{
 		$this->subset_cache = array();
 		$this->loaded_subsets = array();

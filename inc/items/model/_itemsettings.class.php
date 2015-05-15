@@ -64,7 +64,7 @@ class ItemSettings extends AbstractSettings
 	 * @param string Second column key
 	 * @return boolean
 	 */
-	function _load( $item_ID, $arg )
+	function _load( $item_ID = NULL, $arg = NULL, $data = NULL )
 	{
 		if( empty( $item_ID ) )
 		{

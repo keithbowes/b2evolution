@@ -2730,7 +2730,8 @@ class User extends DataObject
 			default:
 				// Check pluggable permissions using user permission check function
 				$this->get_Group();
-				$perm = Module::check_perm( $permname, $permlevel, $perm_target, 'user_func', $this->Group );
+				$module = new Module();
+				$perm = $module->check_perm( $permname, $permlevel, $perm_target, 'user_func', $this->Group );
 				if( $perm === true || $perm === NULL )
 				{ // If user_func or user perm not exists in the corresponding module then $perm value will be NULL and we have to check the group permission.
 					// If user_func exists and returns true, then we have to check group permission to make sure it does not restrict the user perm.
@@ -3222,7 +3223,7 @@ class User extends DataObject
 	 *
 	 * Triggers the plugin event AfterUserUpdate.
 	 */
-	function dbupdate()
+	function dbupdate($auto_track_modification = TRUE)
 	{
 		global $DB, $Plugins, $current_User, $localtimenow;
 
@@ -3349,7 +3350,7 @@ class User extends DataObject
 	 *
 	 * @param Log Log object where output gets added (by reference).
 	 */
-	function dbdelete( & $Log )
+	function dbdelete( $Log = NULL )
 	{
 		global $DB, $Plugins;
 

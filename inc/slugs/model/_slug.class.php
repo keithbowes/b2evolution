@@ -262,7 +262,7 @@ class Slug extends DataObject
 	 *
 	 * @return boolean true on success
 	 */
-	function dbupdate()
+	function dbupdate($auto_track_modification = TRUE)
 	{
 		global $DB, $Messages;
 		$ItemCache = & get_ItemCache();

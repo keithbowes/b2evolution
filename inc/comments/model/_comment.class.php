@@ -3645,7 +3645,7 @@ class Comment extends DataObject
 	 *
 	 * @return boolean true on success
 	 */
-	function dbupdate()
+	function dbupdate($auto_track_modification = TRUE)
 	{
 		global $Plugins, $DB;
 
