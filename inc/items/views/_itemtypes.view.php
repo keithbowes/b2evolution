@@ -26,7 +26,9 @@ $Results->title = T_('Item/Post/Page types');
 
 // get reserved and default ids
 global $default_ids;
-$default_ids = ItemType::get_default_ids();
+global $item_type;
+$item_type = new ItemType();
+$default_ids = $item_type->get_default_ids();
 
 /**
  * Callback to build possible actions depending on post type id
@@ -34,18 +36,18 @@ $default_ids = ItemType::get_default_ids();
  */
 function get_actions_for_itemtype( $id )
 {
-	global $default_ids;
+	global $default_ids, $item_type;
 	$action = action_icon( T_('Duplicate this Post Type...'), 'copy',
 										regenerate_url( 'action', 'ityp_ID='.$id.'&amp;action=new') );
 
-	if( ! ItemType::is_reserved( $id ) )
+	if( ! $item_type->is_reserved( $id ) )
 	{ // Edit all post types except of not reserved post type
 		$action = action_icon( T_('Edit this Post Type...'), 'edit',
 										regenerate_url( 'action', 'ityp_ID='.$id.'&amp;action=edit') )
 							.$action;
 	}
 
-	if( ! ItemType::is_special( $id ) && ! in_array( $id, $default_ids ) )
+	if( ! $item_type->is_special( $id ) && ! in_array( $id, $default_ids ) )
 	{ // Delete only the not reserved and not default post types
 		$action .= action_icon( T_('Delete this Post Type!'), 'delete',
 									regenerate_url( 'action', 'ityp_ID='.$id.'&amp;action=delete&amp;'.url_crumb('itemtype').'') );
@@ -59,7 +61,8 @@ function get_actions_for_itemtype( $id )
  */
 function get_name_for_itemtype( $id, $name )
 {
-	if( ! ItemType::is_reserved( $id ) )
+	global $item_type;
+	if( ! $item_type->is_reserved( $id ) )
 	{ // not reserved id
 		$ret_name = '<strong><a href="'.regenerate_url( 'action,ID', 'ityp_ID='.$id.'&amp;action=edit' ).'">'.$name.'</a></strong>';
 	}

@@ -512,7 +512,7 @@ class UserList extends DataObjectList2
 	/**
 	 * Run Query: GET DATA ROWS *** HEAVY ***
 	 */
-	function query()
+	function query($create_default_cols_if_needed = TRUE, $append_limit = TRUE, $append_order_by = TRUE, $query_title = 'Results::Q...')
 	{
 		global $DB, $Session, $localtimenow;
 

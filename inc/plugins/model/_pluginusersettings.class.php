@@ -44,7 +44,7 @@ class PluginUserSettings extends AbstractSettings
 	 * @param integer User ID (by default $current_User->ID will be used - make sure that it is available already in your event!)
 	 * @return mixed|NULL|false False in case of error, NULL if not found, the value otherwise.
 	 */
-	function get( $setting, $user_ID = NULL )
+	function get( $setting, $user_ID = NULL, $data = NULL )
 	{
 		if( ! isset($user_ID) )
 		{
@@ -69,7 +69,7 @@ class PluginUserSettings extends AbstractSettings
 	 * @param integer User ID (by default $current_User->ID will be used - make sure that it is available already in your event!)
 	 * @return boolean true, if the value has been set, false if it has not changed.
 	 */
-	function set( $setting, $value, $user_ID = NULL )
+	function set( $setting = NULL, $value = NULL, $user_ID = NULL )
 	{
 		if( ! isset($user_ID) )
 		{

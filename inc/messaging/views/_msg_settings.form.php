@@ -94,7 +94,8 @@ while( $loop_Plugin = & $Plugins->get_next() )
 	// We use output buffers here to display the fieldset only if there's content in there
 	ob_start();
 
-	$plugin_settings = $loop_Plugin->get_msg_setting_definitions( $tmp_params = array( 'for_editing' => true ) );
+	$tmp_params = array( 'for_editing' => true );
+	$plugin_settings = $loop_Plugin->get_msg_setting_definitions( $tmp_params );
 	if( is_array( $plugin_settings ) )
 	{
 		foreach( $plugin_settings as $l_name => $l_meta )

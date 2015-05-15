@@ -159,7 +159,7 @@ class UserQuery extends SQL
 	 *
 	 * @param string Keyword search string
 	 */
-	function where_keywords( $keywords )
+	function where_keywords( $keywords, $combine = FALSE )
 	{
 		global $DB;
 

@@ -1813,7 +1813,7 @@ class File extends DataObject
 	 *
 	 * @return boolean true on success, false on failure / no changes
 	 */
-	function dbupdate( )
+	function dbupdate( $auto_track_modification = TRUE )
 	{
 		if( $this->meta == 'unknown' )
 		{

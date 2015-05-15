@@ -286,7 +286,7 @@ else
 
 	<?php
 	$i = 0; // counter to distinguish POSTed locales later
-	foreach( $locales as $lkey => $lval )
+	foreach( $locales as $lkey => $locale_data )
 	{
 		$i++;
 

@@ -1816,7 +1816,8 @@ function display_skin_fieldset( & $Form, $skin_ID, $display_params )
 
 		echo '<div class="skin_settings">';
 		$disp_params = array( 'skinshot_class' => 'coll_settings_skinshot' );
-		Skin::disp_skinshot( $edited_Skin->folder, $edited_Skin->name, $disp_params );
+		$skin = new Skin();
+		$skin->disp_skinshot( $edited_Skin->folder, $edited_Skin->name, $disp_params );
 
 		$Form->info( T_('Skin name'), $edited_Skin->name );
 
