@@ -33,6 +33,14 @@ form.bComment {
   display: block;
 }
 
+form.bComment a {
+  color: #201;
+}
+
+form.bComment a:hover {
+  background-color: azure;
+}
+
 form.bComment fieldset {
   border: 0;
 }

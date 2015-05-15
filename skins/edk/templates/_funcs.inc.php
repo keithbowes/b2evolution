@@ -106,7 +106,6 @@ function get_item($dir)
 function get_license($params = array())
 {
 	global $Skin;
-	global $locale;
 
 	$params = array_merge(
 		array(
@@ -116,7 +115,7 @@ function get_license($params = array())
 		$params
 	);
 
-	$fmt ='<a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.' . $locale . '"><span class="button" id="cc"><span id="cc-lic" title="' . $Skin->T_('Creative Commons') . '">' . $Skin->T_('C<span class="button-sf">reative </span>C<span class="button-sf">ommons</span>') . '</span> <span id="cc-lim" title="' . $Skin->T_('Attribution, Sharealike license') . '">' . $Skin->T_('BY-SA') . '</span></span></a>';
+	$fmt ='<a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.' . preg_replace('/^([^-]+).*$/', '$1', locale_lang(FALSE)) . '"><span class="button" id="cc"><span id="cc-lic" title="' . $Skin->T_('Creative Commons') . '">' . $Skin->T_('C<span class="button-sf">reative </span>C<span class="button-sf">ommons</span>') . '</span> <span id="cc-lim" title="' . $Skin->T_('Attribution, Sharealike license') . '">' . $Skin->T_('BY-SA') . '</span></span></a>';
 	$func = $params['display'] ? 'printf' : 'sprintf';
 	return $func(($params['format'] == 'html') ? $fmt : $Skin->T_('Creative Commons'));
 }

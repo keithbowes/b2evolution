@@ -71,7 +71,7 @@ function edk_css_include()
 
 	/* Determine the default style sheet from the Style cookie if available.
 	 * If not, use the above arrays. */
-	$default_style = ($s = $_COOKIE['Style']) ? preg_replace('/\?v=.+$/', '', $s) :
+	$default_style = (array_key_exists('Style', $_COOKIE) && $s = $_COOKIE['Style']) ? preg_replace('/\?v=.+$/', '', $s) :
 		(supports_xhtml() ? $default_style['file'] : $html5_style['file']);
 
 	/* In XHTML, it needs to be outputted as XML processing instructions,
@@ -100,7 +100,7 @@ function edk_css_include()
 	{
 		/* Get the default style sheet array from the file name */
 		foreach ($alternate_styles as $title => $file)
-			if (array_search($default_style, $file))
+			if ($default_style == $file)
 				break;
 
 		/* Set the default style sheet, for browsers that support it
@@ -194,7 +194,7 @@ else
 {
 	edk_css_include();
 	$dtd = '<!DOCTYPE html>';
-	$htmlelem = '<html lang="' . locale_lang(FALSE) . '"';
+	$htmlelem = '<html lang="' . locale_lang(FALSE) . '">';
 }
 
 $params = array_merge( array(
