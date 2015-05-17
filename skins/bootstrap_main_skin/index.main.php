@@ -27,7 +27,7 @@ skin_init( $disp );
 
 
 // Check if current page has a big picture as background
-$is_pictured_page = in_array( $disp, array( 'front', 'login', 'register', 'lostpassword', 'activateinfo', 'access_denied', 'access_requires_login' ) );
+$is_pictured_page = in_array( $disp, array( 'login', 'register', 'lostpassword', 'activateinfo', 'access_denied', 'access_requires_login' ) );
 
 // -------------------------- HTML HEADER INCLUDED HERE --------------------------
 skin_include( '_html_header.inc.php', array(
@@ -57,10 +57,6 @@ if( $is_pictured_page )
 
 <div class="container main_page_wrapper">
 
-<?php
-if( $disp != 'front' )
-{ // Don't display header on disp=front
-?>
 <header class="row">
 
 	<div class="coll-xs-12 coll-sm-12 col-md-4 col-md-push-8">
@@ -101,14 +97,11 @@ if( $disp != 'front' )
 	</div><!-- .col -->
 
 </header><!-- .row -->
-<?php
-}
-?>
 
 
 <div class="row">
 
-	<div class="col-md-12<?php echo $disp == 'front' ? ' front_main_area' : ''; ?>">
+	<div class="col-md-12">
 
 		<main><!-- This is were a link like "Jump to main content" would land -->
 
@@ -123,11 +116,6 @@ if( $disp != 'front' )
 					'block_end'   => '</div>',
 				) );
 			// --------------------------------- END OF MESSAGES ---------------------------------
-		}
-
-		if( $disp == 'front' )
-		{ // Start of wrapper for front page area, in order to have the $Messages outside this block
-			echo '<div class="front_main_content">';
 		}
 		?>
 
@@ -182,7 +170,7 @@ if( $disp != 'front' )
 		?>
 
 		<?php
-		if( $disp != 'front' && $disp != 'download' && $disp != 'search' )
+		if( $disp != 'download' && $disp != 'search' )
 		{
 			// -------------------- PREV/NEXT PAGE LINKS (POST LIST MODE) --------------------
 			mainlist_page_links( array(
@@ -303,13 +291,6 @@ if( $disp != 'front' )
 			// ------------------------- END OF MAIN CONTENT TEMPLATE ---------------------------
 		?>
 
-		<?php
-			if( $disp == 'front' )
-			{ // End of wrapper for front page area, in order to have the $Messages outside this block
-				echo '</div>';// END OF <div class="front_main_content">
-			}
-		?>
-
 		</main>
 
 	</div><!-- .col -->
@@ -324,33 +305,9 @@ if( $disp != 'front' )
 <div class="container">
 
 	<div class="row">
-		
-		<?php
-		if( $disp == 'front' )
-		{
-		?>
-		<div class="col-md-12">
-			<div class="evo_container evo_container__front_page_secondary">
-			<?php
-				// ------------------------- "Front Page Secondary Area" CONTAINER EMBEDDED HERE --------------------------
-				// Display container and contents:
-				skin_container( NT_('Front Page Secondary Area'), array(
-						// The following params will be used as defaults for widgets included in this container:
-						'block_start'       => '<div class="widget $wi_class$">',
-						'block_end'         => '</div>',
-						'block_title_start' => '<h2 class="page-header">',
-						'block_title_end'   => '</h2>',
-					) );
-				// ----------------------------- END OF "Front Page Secondary Area" CONTAINER -----------------------------
-			?>
-			</div>
-		</div><!-- .col -->
-		<?php
-		}
-		?>
 
 		<footer class="col-md-12 center">
-	
+
 			<div class="evo_container evo_container__footer">
 			<?php
 				// ------------------------- "Footer" CONTAINER EMBEDDED HERE --------------------------
@@ -361,7 +318,7 @@ if( $disp != 'front' )
 				// ----------------------------- END OF "Footer" CONTAINER -----------------------------
 			?>
 			</div>
-	
+
 			<p>
 			<?php
 				// Display footer text (text can be edited in Blog Settings):
