@@ -69,6 +69,9 @@ function edk_css_include()
 	/* Don't embed style.css, as it doesn't exist in this theme */
 	unset($headlines['style.css']);
 
+	/* Don't embed the invalid minimal CSS file */
+	unset($headlines['b2evo_base.bmin.css']);
+
 	/* Determine the default style sheet from the Style cookie if available.
 	 * If not, use the above arrays. */
 	$default_style = (array_key_exists('Style', $_COOKIE) && $s = $_COOKIE['Style']) ? preg_replace('/\?v=.+$/', '', $s) :

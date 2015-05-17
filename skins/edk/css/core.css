@@ -1,5 +1,9 @@
+@import url(../../../rsc/css/basic.css); /* Import standard basic elements styles */
+@import url(../../../rsc/css/basic_styles.css); /* Import basic styles */
+@import url(../../../rsc/css/blog_base.css); /* Import standard blog base styles */
 @import url(../../../rsc/css/blog_elements.css); /* Import standard blog elements styles */
 @import url(../../../rsc/css/comments.css); /* Import default comment styles */
 @import url(../../../rsc/css/forms.css); /* Import default form styles */
 @import url(../../../rsc/css/fp02.css); /* Import François styles */
 @import url(../../../rsc/css/img.css); /* Import standard image styles */
+@import url(../../../rsc/css/item_base.css); /* Import standard item base styles */
