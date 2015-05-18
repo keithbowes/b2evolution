@@ -51,9 +51,9 @@ Por aktivigi la lokaĵaron en la stirilo (se ankoraŭ en la angla):
 5. Alklaku la butonon Save !
 
 DISVOLVADO
-Por aktualigi la lingvopakon al nova eldono de b2evolution
+Por ĝisdatigi la lingvopakon al nova eldono de b2evolution
 sekvi la jenan procedon:
-1. Tajpu: make aktualigi
+1. Tajpu: make ĝisdatigi
 2. Malfermu la dosieron LC_MESSAGES/messages.po kaj korekti
    svagajn ĉenojn (markite per #, fuzzy) kaj vakajn ĉenojn
    (en Vim oni povas trovi tiujn per la regulesprimo \s""\n$)

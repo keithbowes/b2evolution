@@ -52,7 +52,7 @@ $display_errors_on_production = true;
  *
  * @var boolean - set to 1 to display the dev menu in the evobar.
  */
-$dev_menu = 0;
+$dev_menu = 1;
 
 
 // If you get blank pages or missing thumbnail images, PHP may be crashing because it doesn't have enough memory.
