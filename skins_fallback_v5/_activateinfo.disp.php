@@ -23,6 +23,18 @@ if( empty( $redirect_to ) )
 	$redirect_to = regenerate_url( 'disp' );
 }
 
+// Default params:
+$params = array_merge( array(
+		'skin_form_before'     => '',
+		'skin_form_after'      => '',
+		'activate_form_title'  => '',
+		'activate_page_before' => '',
+		'activate_page_after'  => '',
+		'activate_form_params' => NULL,
+		'use_form_wrapper'     => true,
+		'display_form_messages'=> false,
+	), $params );
+
 $display_params = array(
 	'form_action' => $secure_htsrv_url.'login.php',
 	'form_name' => 'activateinfo_form',
