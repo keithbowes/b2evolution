@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: b 2e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-10 22:22-0400\n"
-"PO-Revision-Date: 2015-05-10 22:24-0400\n"
+"POT-Creation-Date: 2015-05-19 00:34-0400\n"
+"PO-Revision-Date: 2015-05-19 00:44-0400\n"
 "Last-Translator: Keith Bowes <keith@localhost>\n"
 "Language-Team: Esperanto\n"
 "Language: eo \n"
@@ -93,23 +93,31 @@ msgstr "Intertempa aspekto"
 msgid "Clear Look"
 msgstr "Klara aspekto"
 
-#: templates/_html_header.inc.php:45
+#: templates/_html_header.inc.php:43
 msgid "Classic Look"
 msgstr "Konata aspekto"
 
-#: templates/_html_header.inc.php:53
+#: templates/_html_header.inc.php:44
 msgid "One-column Look"
 msgstr "Unukolumna aspekto"
 
-#: templates/_html_header.inc.php:201
+#: templates/_html_header.inc.php:206
 msgid "Please leave this for stats"
 msgstr "Bonvolu restigi tion pro statistikaĵoj"
 
-#: templates/_html_header.inc.php:252
+#: templates/_html_header.inc.php:249
+msgid "Canonical Permalink"
+msgstr "Kanona daŭrligilo"
+
+#: templates/_html_header.inc.php:250
+msgid "Shortened Permalink"
+msgstr "Mallongigita daŭrligilo"
+
+#: templates/_html_header.inc.php:257
 msgid "Main Content"
 msgstr "Ĉefa enhavo"
 
-#: templates/_html_header.inc.php:253
+#: templates/_html_header.inc.php:258
 msgid "Menu"
 msgstr "Menuo"
 
@@ -160,23 +168,23 @@ msgstr "Konigi en Google+"
 msgid "Share on Twitter"
 msgstr "Konigi en Twitter"
 
-#: templates/_sidebar.inc.php:92
+#: templates/_sidebar.inc.php:169
 msgid "Enter the URL of a Diaspora* pod where you want to share (e.g. https://joindiaspora.com)"
 msgstr "Enmeti la URL-on de Diaspora*-guŝo al kiu vi deziras konigi (ekz-e https://joindiaspora.com)"
 
-#: templates/_sidebar.inc.php:92
+#: templates/_sidebar.inc.php:169
 msgid "Invalid entry!"
 msgstr "Nevalidan enmetaĵon!"
 
-#: templates/_sidebar.inc.php:196
+#: templates/_sidebar.inc.php:201
 msgid "Select a pod to use above or enter one below."
 msgstr "Elekti guŝon uzotan ĉi-supre aŭ enmeti alian ĉi-malsupre."
 
-#: templates/_sidebar.inc.php:208
+#: templates/_sidebar.inc.php:213
 msgid "Share on Diaspora*"
 msgstr "Konigi en Diaspora*"
 
-#: templates/_sidebar.inc.php:218
+#: templates/_sidebar.inc.php:223
 msgid "Back-office"
 msgstr "Stirilo"
 

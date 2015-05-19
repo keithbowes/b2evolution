@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b 2e\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2015-05-10 22:22-0400\nPO-Revision-Date: 2015-05-10 22:24-0400\nLast-Translator: Keith Bowes <keith@localhost>\nLanguage-Team: Esperanto\nLanguage: eo \nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b 2e\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2015-05-19 00:34-0400\nPO-Revision-Date: 2015-05-19 00:44-0400\nLast-Translator: Keith Bowes <keith@localhost>\nLanguage-Team: Esperanto\nLanguage: eo \nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 '403 Forbidden' => '403: Malpermesita',
 '<p><a href="%s">%s</a> cannot resolve the requested URL.</p>' => '<p><a href="%s">%s</a> ne povis solvi la petitan URL-on.</p>',
 '404 Not Found' => '404: Ne trovita',
@@ -29,6 +29,8 @@ $trans['eo'] = array(
 'Classic Look' => 'Konata aspekto',
 'One-column Look' => 'Unukolumna aspekto',
 'Please leave this for stats' => 'Bonvolu restigi tion pro statistikaĵoj',
+'Canonical Permalink' => 'Kanona daŭrligilo',
+'Shortened Permalink' => 'Mallongigita daŭrligilo',
 'Main Content' => 'Ĉefa enhavo',
 'Menu' => 'Menuo',
 ' (in response to <a href="%s">%s</a>)' => ' (responde al <a href="%s">%s</a>)',

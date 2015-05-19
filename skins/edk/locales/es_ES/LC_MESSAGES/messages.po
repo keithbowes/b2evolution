@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: b 2e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-10 22:22-0400\n"
-"PO-Revision-Date: 2015-05-10 22:29-0400\n"
+"POT-Creation-Date: 2015-05-19 00:34-0400\n"
+"PO-Revision-Date: 2015-05-19 00:45-0400\n"
 "Last-Translator: Keith Bowes <keith@localhost>\n"
 "Language-Team: Spanish\n"
 "Language: es_ES \n"
@@ -93,23 +93,31 @@ msgstr "Apariencia transicional"
 msgid "Clear Look"
 msgstr "Apariencia Clara"
 
-#: templates/_html_header.inc.php:45
+#: templates/_html_header.inc.php:43
 msgid "Classic Look"
 msgstr "Apariencia Clásica"
 
-#: templates/_html_header.inc.php:53
+#: templates/_html_header.inc.php:44
 msgid "One-column Look"
 msgstr "Apariencia de una sola columna"
 
-#: templates/_html_header.inc.php:201
+#: templates/_html_header.inc.php:206
 msgid "Please leave this for stats"
 msgstr "Deje eso por estadísticas por favor"
 
-#: templates/_html_header.inc.php:252
+#: templates/_html_header.inc.php:249
+msgid "Canonical Permalink"
+msgstr "Permalink canónico"
+
+#: templates/_html_header.inc.php:250
+msgid "Shortened Permalink"
+msgstr "Permalink acortado"
+
+#: templates/_html_header.inc.php:257
 msgid "Main Content"
 msgstr "Contendidos principales"
 
-#: templates/_html_header.inc.php:253
+#: templates/_html_header.inc.php:258
 msgid "Menu"
 msgstr "Menú"
 
@@ -160,23 +168,23 @@ msgstr "Compartir en Google+"
 msgid "Share on Twitter"
 msgstr "Compartir en Twitter"
 
-#: templates/_sidebar.inc.php:92
+#: templates/_sidebar.inc.php:169
 msgid "Enter the URL of a Diaspora* pod where you want to share (e.g. https://joindiaspora.com)"
 msgstr "Entra el URL de una pod de Diaspora* a donde desea compartir (por ejemplo https://joindiaspora.com)"
 
-#: templates/_sidebar.inc.php:92
+#: templates/_sidebar.inc.php:169
 msgid "Invalid entry!"
 msgstr "¡Entrada inválida!"
 
-#: templates/_sidebar.inc.php:196
+#: templates/_sidebar.inc.php:201
 msgid "Select a pod to use above or enter one below."
 msgstr "Elegir un pod de usar de encima o entrar un pod bajo."
 
-#: templates/_sidebar.inc.php:208
+#: templates/_sidebar.inc.php:213
 msgid "Share on Diaspora*"
 msgstr "Compartir en Diaspora*"
 
-#: templates/_sidebar.inc.php:218
+#: templates/_sidebar.inc.php:223
 msgid "Back-office"
 msgstr "Back-office"
 

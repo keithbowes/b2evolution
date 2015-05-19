@@ -246,8 +246,8 @@ if (!supports_xhtml())
 	$canonical_url = get_full_url(get_post_urltitle());
 	if ('single' == $disp)
 	{
-		printf('<link rel="canonical" href="%s" />%s', $canonical_url, "\n");
-		printf('<link rel="shortlink" href="%s" />%s', get_tinyurl(), "\n");
+		printf('<link rel="canonical" href="%s" title="%s" />%s', $canonical_url, $Skin->T_('Canonical Permalink'), "\n");
+		printf('<link rel="shortlink" href="%s" title="%s" />%s', get_tinyurl(), $Skin->T_('Shortened Permalink'),  "\n");
 	}
 
 	if (supports_xhtml() || supports_link_toolbar())
@@ -277,7 +277,7 @@ if ('posts' != $disp)
 else
 {
 foreach (get_other_blogs() as $blog)
-	printf('<link rel="alternate" href="%s%s" title="%s" %s="%s" hreflang="%s" />%s', $baseurl, $blog['blog_siteurl'], $blog['blog_name'], supports_xhtml() ? 'xml:lang' : 'lang', $blog['blog_locale'], $blog['blog_locale'], "\n");
+	printf('<link rel="alternate" href="%1$s%2$s" title="%3$s" %4$s="%5$s" hreflang="%5$s" />%6$s', $baseurl, $blog['blog_siteurl'], $blog['blog_name'], supports_xhtml() ? 'xml:lang' : 'lang', $blog['blog_locale'], "\n");
 }
 
 if (NULL !== $first_item)
