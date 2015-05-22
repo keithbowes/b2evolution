@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net\n"
-"POT-Creation-Date: 2015-05-21 17:28-0400\n"
-"PO-Revision-Date: 2015-05-21 17:48-0400\n"
+"POT-Creation-Date: 2015-05-21 22:57-0400\n"
+"PO-Revision-Date: 2015-05-21 22:58-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -589,8 +589,8 @@ msgstr "Favori"
 msgid "Thumb Down"
 msgstr "Malfavori"
 
-#: ../../../conf/_icons.php:998 ../../../inc/_core/_template.funcs.php:2276
-#: ../../../inc/_core/_template.funcs.php:2505
+#: ../../../conf/_icons.php:998 ../../../inc/_core/_template.funcs.php:2277
+#: ../../../inc/_core/_template.funcs.php:2506
 #: ../../../inc/antispam/views/_antispam_ban.form.php:200
 #: ../../../inc/collections/views/_coll_user_perm.form.php:126
 #: ../../../inc/maintenance/views/_upgrade_svn.form.php:28
@@ -615,7 +615,7 @@ msgid "Login"
 msgstr "Salutnomo"
 
 #: ../../../conf/_icons.php:1003 ../../../inc/_core/_template.funcs.php:391
-#: ../../../inc/_core/_template.funcs.php:2308
+#: ../../../inc/_core/_template.funcs.php:2309
 #: ../../../inc/users/model/_user.funcs.php:592
 #: ../../../inc/widgets/widgets/_menu_link.widget.php:381
 #: ../../../skins/bootstrap_blog_skin/index.main.php:283
@@ -1065,8 +1065,8 @@ msgid "Not accepted"
 msgstr "Ne akceptita"
 
 #: ../../../htsrv/async.php:896 ../../../htsrv/async.php:917
-#: ../../../inc/_core/_template.funcs.php:2068
-#: ../../../inc/_core/_template.funcs.php:2877
+#: ../../../inc/_core/_template.funcs.php:2069
+#: ../../../inc/_core/_template.funcs.php:2878
 #: ../../../inc/comments/model/_comment_js.funcs.php:368
 #: ../../../inc/items/model/_item.funcs.php:2989
 #: ../../../inc/items/views/_item_expert.form.php:626
@@ -1437,7 +1437,7 @@ msgid "You have no email address with your profile, therefore we cannot validate
 msgstr "Vi havas neniun retpoŝtadreson kun via profilo; tiel ni ne eblas validigi ĝin. Bonvolu tajpi vian retpoŝtadreson sube."
 
 #: ../../../htsrv/login.php:638 ../../../inc/_core/_template.funcs.php:394
-#: ../../../inc/_core/_template.funcs.php:2291
+#: ../../../inc/_core/_template.funcs.php:2292
 msgid "Lost your password?"
 msgstr "Ĉu vi forgesis la pasvorton?"
 
@@ -1951,38 +1951,19 @@ msgstr "Mesaĝoj"
 msgid "Allow to contact users from other countries"
 msgstr "Permesi kontakti uzantojn el aliaj landoj"
 
+# TRANS: evobar menu link. <u>...</u> marks the part to hide on small screens
 #: ../../../inc/_core/__core.init.php:923
-#: ../../../inc/collections/model/_blog.class.php:279
-#: ../../../inc/widgets/widgets/_coll_common_links.widget.php:183
-#: ../../../install/_functions_create.php:1501 ../../../install/index.php:631
-#: ../../../skins_fallback_v5/_register.disp.php:59
-#: ../../../skins_fallback_v6/_register.disp.php:59
-msgid "Home"
-msgstr "Hejmo"
+msgid "Front<u>-office</u>"
+msgstr "Publika vido"
 
 #: ../../../inc/_core/__core.init.php:925
-msgid "Go to the home page (Front-office)"
-msgstr "Iri la ĉefpaĝo (publika vido)"
+msgid "Go to the site home page (Front-office)"
+msgstr "Iri la kolektara ĉefpaĝo (publika vido)"
 
+# TRANS: evobar menu link. <u>...</u> marks the part to hide on small screens
 #: ../../../inc/_core/__core.init.php:928
-#: ../../../inc/collections/views/_coll_advanced.form.php:106
-#: ../../../inc/collections/views/_coll_advanced.form.php:111
-#: ../../../inc/collections/views/_coll_advanced.form.php:124
-#: ../../../inc/collections/views/_coll_advanced.form.php:136
-#: ../../../inc/collections/views/_coll_advanced.form.php:196
-#: ../../../inc/collections/views/_coll_comments.form.php:131
-#: ../../../inc/collections/views/_coll_comments.form.php:179
-#: ../../../inc/collections/views/_coll_urls.form.php:78
-#: ../../../inc/sessions/views/_stats_browserhits.view.php:149
-#: ../../../inc/sessions/views/_stats_browserhits.view.php:203
-#: ../../../inc/sessions/views/_stats_summary.view.php:139
-#: ../../../inc/sessions/views/_stats_summary.view.php:187
-#: ../../../inc/users/model/_user.funcs.php:803
-#: ../../../inc/users/model/_user.funcs.php:2393
-#: ../../../inc/users/user.ctrl.php:777
-#: ../../../inc/widgets/widgets/_menu_link.widget.php:496
-msgid "Admin"
-msgstr "Administri"
+msgid "Back<u>-office</u>"
+msgstr "Stirilo"
 
 #: ../../../inc/_core/__core.init.php:930
 msgid "Go to the site dashboard (Back-office)"
@@ -3381,35 +3362,35 @@ msgstr "ĵaŭ"
 msgid "Wed"
 msgstr "mer"
 
-#: ../../../inc/_core/_template.funcs.php:2054
+#: ../../../inc/_core/_template.funcs.php:2055
 msgid "This section can't be displayed because wrong params were created by the skin."
 msgstr "Ĉi tiu sekcio ne povas montriĝi ĉar malpravaj parametroj kreiĝis de la etoso."
 
-#: ../../../inc/_core/_template.funcs.php:2068
+#: ../../../inc/_core/_template.funcs.php:2069
 msgid "Form is loading..."
 msgstr "Formulario ŝargiĝas…"
 
-#: ../../../inc/_core/_template.funcs.php:2119
+#: ../../../inc/_core/_template.funcs.php:2120
 msgid "This section can only be displayed by javascript enabled browsers."
 msgstr "Ĉi tiu sekcio povas nur montriĝi de TTT-legiloj kun Javaskripto aktivigita."
 
-#: ../../../inc/_core/_template.funcs.php:2157
+#: ../../../inc/_core/_template.funcs.php:2158
 #: ../../../skins_fallback_v5/_login.disp.php:62
 #: ../../../skins_fallback_v6/_login.disp.php:62
 msgid "Abort login!"
 msgstr "Nuligi ensalutadon."
 
-#: ../../../inc/_core/_template.funcs.php:2276
+#: ../../../inc/_core/_template.funcs.php:2277
 msgid "Enter your username (or email address)."
 msgstr "Tajpu vian salutnomon (aŭ retpoŝtadreson)."
 
-#: ../../../inc/_core/_template.funcs.php:2283
-#: ../../../inc/_core/_template.funcs.php:2509
+#: ../../../inc/_core/_template.funcs.php:2284
+#: ../../../inc/_core/_template.funcs.php:2510
 msgid "Username (or email address)"
 msgstr "Salutnomon (aŭ retpoŝtadreson)"
 
-#: ../../../inc/_core/_template.funcs.php:2296
-#: ../../../inc/_core/_template.funcs.php:2301
+#: ../../../inc/_core/_template.funcs.php:2297
+#: ../../../inc/_core/_template.funcs.php:2302
 #: ../../../inc/maintenance/views/_upgrade_svn.form.php:29
 #: ../../../inc/settings/views/_eblog.form.php:98
 #: ../../../inc/tools/views/_email_returned.form.php:104
@@ -3425,150 +3406,150 @@ msgstr "Salutnomon (aŭ retpoŝtadreson)"
 msgid "Password"
 msgstr "Pasvorto"
 
-#: ../../../inc/_core/_template.funcs.php:2311
+#: ../../../inc/_core/_template.funcs.php:2312
 #: ../../../skins_fallback_v5/_widget_login.form.php:48
 msgid "Log in!"
 msgstr "Ensaluti"
 
-#: ../../../inc/_core/_template.funcs.php:2319
+#: ../../../inc/_core/_template.funcs.php:2320
 msgid "No account yet? Register here"
 msgstr "Ĉu ankoraŭ neniu konto? Registriĝu!"
 
 # TRANS: Text for submit button to request an activation link by email
-#: ../../../inc/_core/_template.funcs.php:2512
+#: ../../../inc/_core/_template.funcs.php:2513
 msgid "Send me a recovery email!"
 msgstr "Sendi al mi instrukcia retpoŝtmesaĝo"
 
-#: ../../../inc/_core/_template.funcs.php:2514
+#: ../../../inc/_core/_template.funcs.php:2515
 msgid "How to recover your password:"
 msgstr "Kiel reatingi vian pasvorton:"
 
-#: ../../../inc/_core/_template.funcs.php:2516
+#: ../../../inc/_core/_template.funcs.php:2517
 msgid "Please enter you login (or email address) above."
 msgstr "Bonvolu enmeti vian salutnomon (aŭ retpoŝtadreson) supre."
 
-#: ../../../inc/_core/_template.funcs.php:2517
+#: ../../../inc/_core/_template.funcs.php:2518
 msgid "An email will be sent to your registered email address immediately."
 msgstr "Retpoŝtmesaĝo tuj sendiĝos al via registrita retpoŝtadreso."
 
-#: ../../../inc/_core/_template.funcs.php:2518
+#: ../../../inc/_core/_template.funcs.php:2519
 msgid "As soon as you receive the email, click on the link therein to change your password."
 msgstr "Tuj kiam vi ricevas la retpoŝtmesaĝon alklaki la ligilon en tio por ŝanĝi vian pasvorton."
 
-#: ../../../inc/_core/_template.funcs.php:2519
+#: ../../../inc/_core/_template.funcs.php:2520
 msgid "Your browser will open a page where you can chose a new password."
 msgstr "Via TTT-legilo malfermos paĝon en kiu vi povas restarigi la pasvorton."
 
-#: ../../../inc/_core/_template.funcs.php:2521
+#: ../../../inc/_core/_template.funcs.php:2522
 msgid "Important: for security reasons, you must do steps 1 and 4 on the same computer and same web browser. Do not close your browser in between."
 msgstr "Grava: Pro sekureco vi devas fari paŝojn 1 kaj 4 en la sama komputilo kaj per la sama TTT-legilo. Ne fermu vian TTT-legilon inter la paŝoj."
 
-#: ../../../inc/_core/_template.funcs.php:2523
+#: ../../../inc/_core/_template.funcs.php:2524
 msgid "Back to login form"
 msgstr "Reen al ensaluta formulario"
 
-#: ../../../inc/_core/_template.funcs.php:2612
+#: ../../../inc/_core/_template.funcs.php:2613
 msgid "Please confirm your email address below:"
 msgstr "Bonvolu konfirmi vian retpoŝtadreson sube:"
 
-#: ../../../inc/_core/_template.funcs.php:2618
+#: ../../../inc/_core/_template.funcs.php:2619
 #: ../../../inc/widgets/widgets/_user_register.widget.php:214
 #: ../../../install/index.php:537
 msgid "Your email"
 msgstr "Via retpoŝtadreso"
 
-#: ../../../inc/_core/_template.funcs.php:2622
+#: ../../../inc/_core/_template.funcs.php:2623
 msgid "Send me a new activation email now!"
 msgstr "Tuj sendi al mi retpoŝtmesaĝon pri aktivigado."
 
-#: ../../../inc/_core/_template.funcs.php:2657
+#: ../../../inc/_core/_template.funcs.php:2658
 #, php-format
 msgid "Open your email account for %s and find a message we sent you on %s at %s with the following title:"
 msgstr "Malfermu vian retpoŝtan konton por %s kaj trovu mesaĝon, kiun vi sendis al vi je %s je %s kun la sekva titolo:"
 
-#: ../../../inc/_core/_template.funcs.php:2658
+#: ../../../inc/_core/_template.funcs.php:2659
 #, php-format
 msgid "Activate your account: %s"
 msgstr "Aktivigi vian konton: %s"
 
-#: ../../../inc/_core/_template.funcs.php:2660
+#: ../../../inc/_core/_template.funcs.php:2661
 #, php-format
 msgid "NOTE: If you don't find it, check your \"Junk\", \"Spam\" or \"Unsolicited email\" folders. If you really can't find it, <a %s>request a new activation email</a>."
 msgstr "NOTO: Se vi ne trovas ĝin, kontroli en spammesaĝojn. Se vi post tio ne povas trovi ĝin, <a %s>petu novan aktivigadon retpoŝtmesaĝon</a>."
 
-#: ../../../inc/_core/_template.funcs.php:2661
+#: ../../../inc/_core/_template.funcs.php:2662
 #, php-format
 msgid "Add us (%s) to your contacts to make sure you receive future email notifications, especially when someone sends you a private message."
 msgstr "Aldoni nin (%s) al viaj kontaktatoj por certigi, ke vi ricevos estontajn retpoŝtajn sciigojn, precipe kiam iu sendas al vi privatan mesaĝon.."
 
-#: ../../../inc/_core/_template.funcs.php:2662
+#: ../../../inc/_core/_template.funcs.php:2663
 msgid "Click on the activation link in the email."
 msgstr "Alklaku la aktivigan ligilon en la retpoŝtmesaĝo."
 
-#: ../../../inc/_core/_template.funcs.php:2663
+#: ../../../inc/_core/_template.funcs.php:2664
 #: ../../../skins_email/account_activate.html.php:91
 #: ../../../skins_email/account_activate.txt.php:91
 msgid "If this does not work, please copy/paste that link into the address bar of your browser."
 msgstr "Se tio ne funkcios, bonvolu enmeti tiun ligilon en la URL-kampon de via TTT-legilo."
 
-#: ../../../inc/_core/_template.funcs.php:2664
+#: ../../../inc/_core/_template.funcs.php:2665
 #, php-format
 msgid "If you need assistance, please send an email to %s"
 msgstr "Se vi bezonas helpon, bonvolu sendi retpoŝtmesaĝon al %s"
 
-#: ../../../inc/_core/_template.funcs.php:2705
+#: ../../../inc/_core/_template.funcs.php:2706
 #, php-format
 msgid "Since you are an admin user, you can activate your account (%s) by a single click."
 msgstr "Ĉar vi estas estro, vi povas aktivigi vian konton (%s) per unuopa alklako."
 
-#: ../../../inc/_core/_template.funcs.php:2709
+#: ../../../inc/_core/_template.funcs.php:2710
 msgid "Activate my account!"
 msgstr "Aktivigi mian konton"
 
-#: ../../../inc/_core/_template.funcs.php:2806
+#: ../../../inc/_core/_template.funcs.php:2807
 msgid "Very weak"
 msgstr "Tre malforta"
 
-#: ../../../inc/_core/_template.funcs.php:2821
+#: ../../../inc/_core/_template.funcs.php:2822
 msgid "Weak"
 msgstr "Malforta"
 
-#: ../../../inc/_core/_template.funcs.php:2825
+#: ../../../inc/_core/_template.funcs.php:2826
 msgid "So-so"
 msgstr "Mezkvalita"
 
-#: ../../../inc/_core/_template.funcs.php:2829
+#: ../../../inc/_core/_template.funcs.php:2830
 #: ../../../inc/comments/model/_comment.class.php:2992
 msgid "Good"
 msgstr "Bona"
 
-#: ../../../inc/_core/_template.funcs.php:2833
+#: ../../../inc/_core/_template.funcs.php:2834
 msgid "Great!"
 msgstr "Bonege!"
 
-#: ../../../inc/_core/_template.funcs.php:2844
+#: ../../../inc/_core/_template.funcs.php:2845
 msgid "Estimated crack time"
 msgstr "Divenata tempo por rompiĝo"
 
-#: ../../../inc/_core/_template.funcs.php:2852
+#: ../../../inc/_core/_template.funcs.php:2853
 msgid "The second password is different from the first."
 msgstr "La pasvorto estas malsama de la unua."
 
-#: ../../../inc/_core/_template.funcs.php:2878
-#: ../../../inc/_core/_template.funcs.php:2882
+#: ../../../inc/_core/_template.funcs.php:2879
+#: ../../../inc/_core/_template.funcs.php:2883
 msgid "This username is available."
 msgstr "Tiu salutnomo ne disponeblas."
 
-#: ../../../inc/_core/_template.funcs.php:2879
-#: ../../../inc/_core/_template.funcs.php:2883
+#: ../../../inc/_core/_template.funcs.php:2880
+#: ../../../inc/_core/_template.funcs.php:2884
 msgid "This username is already in use. Please choose another one."
 msgstr "Tiu salutnomo jam uziĝis. Bonvolu elekti alian."
 
-#: ../../../inc/_core/_template.funcs.php:2881
+#: ../../../inc/_core/_template.funcs.php:2882
 msgid "Choose an username."
 msgstr "Elekti salutnomon."
 
-#: ../../../inc/_core/_template.funcs.php:2938
+#: ../../../inc/_core/_template.funcs.php:2939
 msgid "Do you want discard your changes for this order field?"
 msgstr "Ĉu vi volas forviŝi viajn ŝanĝojn por tiu ordona kampo?"
 
@@ -5997,6 +5978,14 @@ msgstr "%d rezultoj"
 msgid "Homepage Title"
 msgstr "Titolo de la ĉefpaĝo"
 
+#: ../../../inc/collections/model/_blog.class.php:279
+#: ../../../inc/widgets/widgets/_coll_common_links.widget.php:183
+#: ../../../install/_functions_create.php:1501 ../../../install/index.php:631
+#: ../../../skins_fallback_v5/_register.disp.php:59
+#: ../../../skins_fallback_v6/_register.disp.php:59
+msgid "Home"
+msgstr "Hejmo"
+
 #: ../../../inc/collections/model/_blog.class.php:288
 msgid "My photoblog"
 msgstr "Mia foto-kolekto"
@@ -6762,6 +6751,25 @@ msgstr "URL de la RSS2-fluo"
 #: ../../../inc/collections/views/_coll_advanced.form.php:96
 msgid "Example: Your Feedburner RSS2 URL which should replace the original feed URL."
 msgstr "Ekzemplo: La URL de via RSS-fluo, kio anstataŭu la komencan fluan URL-on."
+
+#: ../../../inc/collections/views/_coll_advanced.form.php:106
+#: ../../../inc/collections/views/_coll_advanced.form.php:111
+#: ../../../inc/collections/views/_coll_advanced.form.php:124
+#: ../../../inc/collections/views/_coll_advanced.form.php:136
+#: ../../../inc/collections/views/_coll_advanced.form.php:196
+#: ../../../inc/collections/views/_coll_comments.form.php:131
+#: ../../../inc/collections/views/_coll_comments.form.php:179
+#: ../../../inc/collections/views/_coll_urls.form.php:78
+#: ../../../inc/sessions/views/_stats_browserhits.view.php:149
+#: ../../../inc/sessions/views/_stats_browserhits.view.php:203
+#: ../../../inc/sessions/views/_stats_summary.view.php:139
+#: ../../../inc/sessions/views/_stats_summary.view.php:187
+#: ../../../inc/users/model/_user.funcs.php:803
+#: ../../../inc/users/model/_user.funcs.php:2393
+#: ../../../inc/users/user.ctrl.php:777
+#: ../../../inc/widgets/widgets/_menu_link.widget.php:496
+msgid "Admin"
+msgstr "Administri"
 
 #: ../../../inc/collections/views/_coll_advanced.form.php:106
 msgid "Aggregation"
@@ -34011,299 +34019,26 @@ msgstr "afiŝita en "
 msgid "in"
 msgstr "en"
 
-#~ msgid "Change &raquo;"
-#~ msgstr "Ŝanĝi →"
+#~ msgid "Different ways of listing the blog contents"
+#~ msgstr "Diversaj metodoj por listigado de la kolekto-enhavo"
 
-#~ msgid "Upload now &raquo;"
-#~ msgstr "Tuj alŝuti →"
+#~ msgid "Meta info for the blog"
+#~ msgstr "Metadatumaj informoj por la kolekto"
 
-#~ msgid "Next &raquo;"
-#~ msgstr "Sekva →"
+#~ msgid "Are you sure want to reset skin params to defaults?"
+#~ msgstr "Ĉu vi efektive volas reapriorigi la etoso-parametrojn?"
 
-#~ msgid "Image / Blog logo"
-#~ msgstr "Bildo / Bloga emblemo"
+#~ msgid "Change item type"
+#~ msgstr "Ŝanĝi ero-tipon"
 
-#~ msgid "Item Single"
-#~ msgstr "Unuopa afiŝo"
+#~ msgid "New item type"
+#~ msgstr "Nova ero-tipo"
 
-#~ msgid "Menu Top"
-#~ msgstr "Menua supraĵo"
+#~ msgid "Duplicate this item type..."
+#~ msgstr "Kopii ĉi tiun ero-tipon…"
 
-#~ msgid "<i class=\"fa fa-tags\"></i>"
-#~ msgstr "<i class=\"fa fa-tags\"></i>"
-
-#~ msgid "Recommended widget set"
-#~ msgstr "Rekomendita umaĵaro"
-
-#~ msgid "Alternative widget set"
-#~ msgstr "Alternativa umaĵaro"
-
-#~ msgid "Full widget set"
-#~ msgstr "Plena umaĵaro"
-
-#~ msgid "Posted by"
-#~ msgstr "Afiŝita de"
-
-#~ msgid "No comments"
-#~ msgstr "Neniuj komentoj"
-
-#~ msgid "comment"
-#~ msgstr "komento"
-
-#~ msgid "comments"
-#~ msgstr "komentoj"
-
-#~ msgid "Print article"
-#~ msgstr "Printi artikolon"
-
-#~ msgid "This %1$s was posted by %2$s on %3$s at %4$s. Follow any responses to this post through %5$s."
-#~ msgstr "La %1$s estis afiŝita de %2$s je %3$s je %4$s. Respondoj al la afiŝoj estas sekveblaj per %5$s."
-
-#~ msgid "entry"
-#~ msgstr "afiŝo"
-
-#~ msgid "Posts by"
-#~ msgstr "Afiŝita de"
-
-#~ msgid "Post bottom"
-#~ msgstr "Afiŝa fundo"
-
-#~ msgid "Linkback"
-#~ msgstr "Mencio"
-
-#~ msgid "Attending this event"
-#~ msgstr "Ĉeestanta la okazaĵon"
-
-#~ msgid "Related Links"
-#~ msgstr "Rilataj ligiloj"
-
-#~ msgid "Related Posts"
-#~ msgstr "Rilataj afiŝoj"
-
-#~ msgid "Enter image URL to display a logo"
-#~ msgstr "Enmeti bildon-URL-on por montri devizon."
-
-#~ msgid "Skin color"
-#~ msgstr "Etosa koloro"
-
-#~ msgid "Green"
-#~ msgstr "Verda"
-
-#~ msgid "Blue"
-#~ msgstr "Blua"
-
-#~ msgid "Red"
-#~ msgstr "Ruĝa"
-
-#~ msgid "Grey"
-#~ msgstr "Griza"
-
-#~ msgid "Skin width"
-#~ msgstr "Etosa larĝo"
-
-#~ msgid "Fixed"
-#~ msgstr "Fiksita"
-
-#~ msgid "Fluid"
-#~ msgstr "Fluanta"
-
-#~ msgid "Skin layout"
-#~ msgstr "Etosa prezento"
-
-#~ msgid "1 column"
-#~ msgstr "1 kolumno"
-
-#~ msgid "2 columns: Sidebar to the right"
-#~ msgstr "2 kolumnoj: flankaĵo dekstra"
-
-#~ msgid "2 columns: Sidebar to the left"
-#~ msgstr "2 kolumnoj: flankaĵo maldekstra"
-
-#~ msgid "3 columns"
-#~ msgstr "3 kolumnoj"
-
-#~ msgid "3 columns: Sidebars to the right"
-#~ msgstr "3 kolumnoj: flankaĵoj dekstraj"
-
-#~ msgid "3 columns: Sidebars to the left"
-#~ msgstr "3 kolumnoj: flankaĵoj maldekstraj"
-
-#~ msgid "Skin font"
-#~ msgstr "Etosa tiparo"
-
-#~ msgid "Tabbed widget settings"
-#~ msgstr "Kunlageta umaĵo-agordo"
-
-#~ msgid "Tabbed widget"
-#~ msgstr "Kunlagetaj umaĵoj"
-
-#~ msgid "Display javascript tabbed widget on the sidebar"
-#~ msgstr "Montri la JavaSCript-langeta umaĵo en la flankaĵo"
-
-#~ msgid "Recent comments"
-#~ msgstr "Freŝaj komentoj"
-
-#~ msgid "The number of recent comments"
-#~ msgstr "La nombro da freŝaj komentoj"
-
-#~ msgid "Popular posts"
-#~ msgstr "Popularaj afiŝoj"
-
-#~ msgid "The number of popular posts"
-#~ msgstr "La nombro da popularaj afiŝoj"
-
-#~ msgid "The number of months in archive"
-#~ msgstr "La nombro da monatoj en arkivo"
-
-#~ msgid "The number of tags"
-#~ msgstr "La nombro da etikedoj"
-
-#~ msgid "Misc settings"
-#~ msgstr "Alia agordo"
-
-#~ msgid "The number of related articles in single post mode"
-#~ msgstr "La nombro da rilataj artikoloj en apartafiŝa reĝimo"
-
-#~ msgid "Twitter widget"
-#~ msgstr "Twitter-umaĵo"
-
-#~ msgid "The number of items in \"My latest tweets\" widget. Select 0 to disable."
-#~ msgstr "La nombro da eroj en la umaĵo \"Miaj plej freŝaj Twitter-afiŝoj\". Elekti 0 por malaktivigi."
-
-#~ msgid "Enable/disable features"
-#~ msgstr "Aktivigi/malaktivigi trajtojn"
-
-#~ msgid "FancyBox Helper"
-#~ msgstr "FancyBox-helpilo"
-
-#~ msgid "See <a href=\""
-#~ msgstr "Vidi je <a href=\""
-
-#~ msgid "Post metadata"
-#~ msgstr "Afiŝaj metadatumoj"
-
-#~ msgid "Display post metadata block in single post mode"
-#~ msgstr "Montri afiŝo-menadatuma bloko en apartafiŝa reĝimo"
-
-#~ msgid "Author avatar (list)"
-#~ msgstr "Verkisto-avataro (listo)"
-
-#~ msgid "Display author avatar next to post title in <u>post list mode</u>"
-#~ msgstr "Montri la verkisto-avataron apud la afiŝa titolo en <u>afiŝlista reĝimo</u>"
-
-#~ msgid "Author avatar (single)"
-#~ msgstr "Verkisto-avataro (aparta)"
-
-#~ msgid "Display author avatar next to post title in <u>single post mode</u>"
-#~ msgstr "Montri verkisto-avataron apud la afiŝa titolo en <u>apartafiŝa reĝimo</u>"
-
-#~ msgid "Display thumbshots"
-#~ msgstr "Montri miniaturojn"
-
-#~ msgid "Display website previews on external post links."
-#~ msgstr "Montri TTT-ejajn antaŭvidojn ĉe eksteraj afiŝo-ligiloj."
-
-#~ msgid "Display footer credits"
-#~ msgstr "Montri piedajn dankesprimojn"
-
-#~ msgid "You get this skin for free. We do appreciate you giving us credit. <b>Thank you for your support!</b>"
-#~ msgstr "Vi akiris la etoson senkoste. Ni aprezas viajn dankesprimojn. <strong>Dankon pro via subteno.</strong>"
-
-#~ msgid "Social buttons"
-#~ msgstr "Interkonaj butonoj"
-
-#~ msgid "Facebook"
-#~ msgstr "Facebook"
-
-#~ msgid "Username. Leave empty to hide the button"
-#~ msgstr "Salutonomo. Lasu vaka por kaŝi la butonon"
-
-#~ msgid "Flickr"
-#~ msgstr "Flickr"
-
-#~ msgid "Myspace"
-#~ msgstr "MySpace"
-
-#~ msgid "LinkedIn"
-#~ msgstr "LinkedIn"
-
-#~ msgid "Twitter"
-#~ msgstr "Twitter"
-
-#~ msgid "Youtube"
-#~ msgstr "YouTube"
-
-#~ msgid "Updates"
-#~ msgstr "Ĝisdatigoj"
-
-#~ msgid "My latest tweets"
-#~ msgstr "Miaj plej freŝaj Twitter-afiŝoj"
-
-#~ msgid "Follow me on Twitter!"
-#~ msgstr "Sekvi min en Twitter"
-
-#~ msgid "No related Links yet"
-#~ msgstr "Ankoraŭ neniuj rilataj ligiloj"
-
-#~ msgid "No related posts yet"
-#~ msgstr "Ankoraŭ neniuj rilataj afiŝoj"
-
-#~ msgid "Twitter consumer key"
-#~ msgstr "Twitter-klienta ŝlosilo"
-
-#~ msgid "Your Twitter App Consumer Key."
-#~ msgstr "Via Twitter-programo-klienta ŝlosilo."
-
-#~ msgid "Twitter consumer secret"
-#~ msgstr "Twitter-klienta sekreto"
-
-#~ msgid "Your Twitter App Consumer Secret."
-#~ msgstr "Via Twitter-programo-klienta sekreto."
-
-#~ msgid "Twitter user token"
-#~ msgstr "Twitter-uzanto-sigelo"
-
-#~ msgid "Your Twitter App Access Token."
-#~ msgstr "Via Twitter-programo-atingo-ŝlosilo."
-
-#~ msgid "Twitter Token Secret"
-#~ msgstr "Twitter-sigela sekreto"
-
-#~ msgid "Your Twitter App Access Token Secret."
-#~ msgstr "Via Twitter-programo-atingo-sigela sekreto"
-
-#~ msgid "View RSS Feed"
-#~ msgstr "Vidi RSS-fluon"
-
-#~ msgid "Follow me on Twitter"
-#~ msgstr "Sekvi min en Twitter"
-
-#~ msgid "Find me on Flickr"
-#~ msgstr "Trovi min en  Flickr"
-
-#~ msgid "Find me on Facebook"
-#~ msgstr "Trovi min en Facebook"
-
-#~ msgid "Find me on MySpace"
-#~ msgstr "Trovi min en MySpace"
-
-#~ msgid "Follow me on LinkedIn"
-#~ msgstr "Sekvi min en LinkedIn"
-
-#~ msgid "Follow me on Youtube"
-#~ msgstr "Sekvi min en Youtube"
-
-#~ msgid "After posts"
-#~ msgstr "Post afiŝoj"
-
-#~ msgid "Portuguese (PT)"
-#~ msgstr "Portugala (PT)"
-
-#~ msgid "Russian (RU) utf8"
-#~ msgstr "Rusa (RU) laŭ UTF-8"
-
-#~ msgid "Posted on "
-#~ msgstr "Afiŝita je "
+#~ msgid "Edit this item type..."
+#~ msgstr "Redakti ĉi tiun ero-tipon…"
 
 #~ msgid ""
 #~ "<p>This is page 1 of a multipage post.</p>\n"
@@ -34314,23 +34049,296 @@ msgstr "en"
 #~ "\n"
 #~ "<p>Vi povas vidi la aliajn paĝojn per alklakado de la ligiloj sube de la teksto.</p>"
 
-#~ msgid "Edit this item type..."
-#~ msgstr "Redakti ĉi tiun ero-tipon…"
+#~ msgid "Posted on "
+#~ msgstr "Afiŝita je "
 
-#~ msgid "Duplicate this item type..."
-#~ msgstr "Kopii ĉi tiun ero-tipon…"
+#~ msgid "Russian (RU) utf8"
+#~ msgstr "Rusa (RU) laŭ UTF-8"
 
-#~ msgid "New item type"
-#~ msgstr "Nova ero-tipo"
+#~ msgid "Portuguese (PT)"
+#~ msgstr "Portugala (PT)"
 
-#~ msgid "Change item type"
-#~ msgstr "Ŝanĝi ero-tipon"
+#~ msgid "After posts"
+#~ msgstr "Post afiŝoj"
 
-#~ msgid "Are you sure want to reset skin params to defaults?"
-#~ msgstr "Ĉu vi efektive volas reapriorigi la etoso-parametrojn?"
+#~ msgid "Follow me on Youtube"
+#~ msgstr "Sekvi min en Youtube"
 
-#~ msgid "Meta info for the blog"
-#~ msgstr "Metadatumaj informoj por la kolekto"
+#~ msgid "Follow me on LinkedIn"
+#~ msgstr "Sekvi min en LinkedIn"
 
-#~ msgid "Different ways of listing the blog contents"
-#~ msgstr "Diversaj metodoj por listigado de la kolekto-enhavo"
+#~ msgid "Find me on MySpace"
+#~ msgstr "Trovi min en MySpace"
+
+#~ msgid "Find me on Facebook"
+#~ msgstr "Trovi min en Facebook"
+
+#~ msgid "Find me on Flickr"
+#~ msgstr "Trovi min en  Flickr"
+
+#~ msgid "Follow me on Twitter"
+#~ msgstr "Sekvi min en Twitter"
+
+#~ msgid "View RSS Feed"
+#~ msgstr "Vidi RSS-fluon"
+
+#~ msgid "Your Twitter App Access Token Secret."
+#~ msgstr "Via Twitter-programo-atingo-sigela sekreto"
+
+#~ msgid "Twitter Token Secret"
+#~ msgstr "Twitter-sigela sekreto"
+
+#~ msgid "Your Twitter App Access Token."
+#~ msgstr "Via Twitter-programo-atingo-ŝlosilo."
+
+#~ msgid "Twitter user token"
+#~ msgstr "Twitter-uzanto-sigelo"
+
+#~ msgid "Your Twitter App Consumer Secret."
+#~ msgstr "Via Twitter-programo-klienta sekreto."
+
+#~ msgid "Twitter consumer secret"
+#~ msgstr "Twitter-klienta sekreto"
+
+#~ msgid "Your Twitter App Consumer Key."
+#~ msgstr "Via Twitter-programo-klienta ŝlosilo."
+
+#~ msgid "Twitter consumer key"
+#~ msgstr "Twitter-klienta ŝlosilo"
+
+#~ msgid "No related posts yet"
+#~ msgstr "Ankoraŭ neniuj rilataj afiŝoj"
+
+#~ msgid "No related Links yet"
+#~ msgstr "Ankoraŭ neniuj rilataj ligiloj"
+
+#~ msgid "Follow me on Twitter!"
+#~ msgstr "Sekvi min en Twitter"
+
+#~ msgid "My latest tweets"
+#~ msgstr "Miaj plej freŝaj Twitter-afiŝoj"
+
+#~ msgid "Updates"
+#~ msgstr "Ĝisdatigoj"
+
+#~ msgid "Youtube"
+#~ msgstr "YouTube"
+
+#~ msgid "Twitter"
+#~ msgstr "Twitter"
+
+#~ msgid "LinkedIn"
+#~ msgstr "LinkedIn"
+
+#~ msgid "Myspace"
+#~ msgstr "MySpace"
+
+#~ msgid "Flickr"
+#~ msgstr "Flickr"
+
+#~ msgid "Username. Leave empty to hide the button"
+#~ msgstr "Salutonomo. Lasu vaka por kaŝi la butonon"
+
+#~ msgid "Facebook"
+#~ msgstr "Facebook"
+
+#~ msgid "Social buttons"
+#~ msgstr "Interkonaj butonoj"
+
+#~ msgid "You get this skin for free. We do appreciate you giving us credit. <b>Thank you for your support!</b>"
+#~ msgstr "Vi akiris la etoson senkoste. Ni aprezas viajn dankesprimojn. <strong>Dankon pro via subteno.</strong>"
+
+#~ msgid "Display footer credits"
+#~ msgstr "Montri piedajn dankesprimojn"
+
+#~ msgid "Display website previews on external post links."
+#~ msgstr "Montri TTT-ejajn antaŭvidojn ĉe eksteraj afiŝo-ligiloj."
+
+#~ msgid "Display thumbshots"
+#~ msgstr "Montri miniaturojn"
+
+#~ msgid "Display author avatar next to post title in <u>single post mode</u>"
+#~ msgstr "Montri verkisto-avataron apud la afiŝa titolo en <u>apartafiŝa reĝimo</u>"
+
+#~ msgid "Author avatar (single)"
+#~ msgstr "Verkisto-avataro (aparta)"
+
+#~ msgid "Display author avatar next to post title in <u>post list mode</u>"
+#~ msgstr "Montri la verkisto-avataron apud la afiŝa titolo en <u>afiŝlista reĝimo</u>"
+
+#~ msgid "Author avatar (list)"
+#~ msgstr "Verkisto-avataro (listo)"
+
+#~ msgid "Display post metadata block in single post mode"
+#~ msgstr "Montri afiŝo-menadatuma bloko en apartafiŝa reĝimo"
+
+#~ msgid "Post metadata"
+#~ msgstr "Afiŝaj metadatumoj"
+
+#~ msgid "See <a href=\""
+#~ msgstr "Vidi je <a href=\""
+
+#~ msgid "FancyBox Helper"
+#~ msgstr "FancyBox-helpilo"
+
+#~ msgid "Enable/disable features"
+#~ msgstr "Aktivigi/malaktivigi trajtojn"
+
+#~ msgid "The number of items in \"My latest tweets\" widget. Select 0 to disable."
+#~ msgstr "La nombro da eroj en la umaĵo \"Miaj plej freŝaj Twitter-afiŝoj\". Elekti 0 por malaktivigi."
+
+#~ msgid "Twitter widget"
+#~ msgstr "Twitter-umaĵo"
+
+#~ msgid "The number of related articles in single post mode"
+#~ msgstr "La nombro da rilataj artikoloj en apartafiŝa reĝimo"
+
+#~ msgid "Misc settings"
+#~ msgstr "Alia agordo"
+
+#~ msgid "The number of tags"
+#~ msgstr "La nombro da etikedoj"
+
+#~ msgid "The number of months in archive"
+#~ msgstr "La nombro da monatoj en arkivo"
+
+#~ msgid "The number of popular posts"
+#~ msgstr "La nombro da popularaj afiŝoj"
+
+#~ msgid "Popular posts"
+#~ msgstr "Popularaj afiŝoj"
+
+#~ msgid "The number of recent comments"
+#~ msgstr "La nombro da freŝaj komentoj"
+
+#~ msgid "Recent comments"
+#~ msgstr "Freŝaj komentoj"
+
+#~ msgid "Display javascript tabbed widget on the sidebar"
+#~ msgstr "Montri la JavaSCript-langeta umaĵo en la flankaĵo"
+
+#~ msgid "Tabbed widget"
+#~ msgstr "Kunlagetaj umaĵoj"
+
+#~ msgid "Tabbed widget settings"
+#~ msgstr "Kunlageta umaĵo-agordo"
+
+#~ msgid "Skin font"
+#~ msgstr "Etosa tiparo"
+
+#~ msgid "3 columns: Sidebars to the left"
+#~ msgstr "3 kolumnoj: flankaĵoj maldekstraj"
+
+#~ msgid "3 columns: Sidebars to the right"
+#~ msgstr "3 kolumnoj: flankaĵoj dekstraj"
+
+#~ msgid "3 columns"
+#~ msgstr "3 kolumnoj"
+
+#~ msgid "2 columns: Sidebar to the left"
+#~ msgstr "2 kolumnoj: flankaĵo maldekstra"
+
+#~ msgid "2 columns: Sidebar to the right"
+#~ msgstr "2 kolumnoj: flankaĵo dekstra"
+
+#~ msgid "1 column"
+#~ msgstr "1 kolumno"
+
+#~ msgid "Skin layout"
+#~ msgstr "Etosa prezento"
+
+#~ msgid "Fluid"
+#~ msgstr "Fluanta"
+
+#~ msgid "Fixed"
+#~ msgstr "Fiksita"
+
+#~ msgid "Skin width"
+#~ msgstr "Etosa larĝo"
+
+#~ msgid "Grey"
+#~ msgstr "Griza"
+
+#~ msgid "Red"
+#~ msgstr "Ruĝa"
+
+#~ msgid "Blue"
+#~ msgstr "Blua"
+
+#~ msgid "Green"
+#~ msgstr "Verda"
+
+#~ msgid "Skin color"
+#~ msgstr "Etosa koloro"
+
+#~ msgid "Enter image URL to display a logo"
+#~ msgstr "Enmeti bildon-URL-on por montri devizon."
+
+#~ msgid "Related Posts"
+#~ msgstr "Rilataj afiŝoj"
+
+#~ msgid "Related Links"
+#~ msgstr "Rilataj ligiloj"
+
+#~ msgid "Attending this event"
+#~ msgstr "Ĉeestanta la okazaĵon"
+
+#~ msgid "Linkback"
+#~ msgstr "Mencio"
+
+#~ msgid "Post bottom"
+#~ msgstr "Afiŝa fundo"
+
+#~ msgid "Posts by"
+#~ msgstr "Afiŝita de"
+
+#~ msgid "entry"
+#~ msgstr "afiŝo"
+
+#~ msgid "This %1$s was posted by %2$s on %3$s at %4$s. Follow any responses to this post through %5$s."
+#~ msgstr "La %1$s estis afiŝita de %2$s je %3$s je %4$s. Respondoj al la afiŝoj estas sekveblaj per %5$s."
+
+#~ msgid "Print article"
+#~ msgstr "Printi artikolon"
+
+#~ msgid "comments"
+#~ msgstr "komentoj"
+
+#~ msgid "comment"
+#~ msgstr "komento"
+
+#~ msgid "No comments"
+#~ msgstr "Neniuj komentoj"
+
+#~ msgid "Posted by"
+#~ msgstr "Afiŝita de"
+
+#~ msgid "Full widget set"
+#~ msgstr "Plena umaĵaro"
+
+#~ msgid "Alternative widget set"
+#~ msgstr "Alternativa umaĵaro"
+
+#~ msgid "Recommended widget set"
+#~ msgstr "Rekomendita umaĵaro"
+
+#~ msgid "<i class=\"fa fa-tags\"></i>"
+#~ msgstr "<i class=\"fa fa-tags\"></i>"
+
+#~ msgid "Menu Top"
+#~ msgstr "Menua supraĵo"
+
+#~ msgid "Item Single"
+#~ msgstr "Unuopa afiŝo"
+
+#~ msgid "Image / Blog logo"
+#~ msgstr "Bildo / Bloga emblemo"
+
+#~ msgid "Next &raquo;"
+#~ msgstr "Sekva →"
+
+#~ msgid "Upload now &raquo;"
+#~ msgstr "Tuj alŝuti →"
+
+#~ msgid "Change &raquo;"
+#~ msgstr "Ŝanĝi →"
