@@ -45,7 +45,8 @@ cite {
   font-style: normal;
 }
 
-div[role="article"] {
+div[role="article"],
+.result_content {
   background-color: azure;
   border: medium lightblue dotted;
   margin: 0 0 1em 0;
@@ -455,7 +456,8 @@ table summary {
   width: 48%;
 }
 
-.meta {
+.meta,
+.search_info {
   background-color: black;
   color: #FDA;
   font-weight: normal;
@@ -464,12 +466,15 @@ table summary {
   overflow: hidden;
 }
 
-.meta a {
+.meta a,
+.search_info a {
   background-color: black;
   color: goldenrod;
+  font-weight: normal;
 }
 
-.meta a:hover {
+.meta a:hover,
+.search_info a:hover {
   background-color: aqua;
   color: fuchsia;
 }
@@ -497,6 +502,7 @@ table summary {
   position: relative;
 }
 
+.search_title,
 .storytitle {
   border: none;
   color: brown;

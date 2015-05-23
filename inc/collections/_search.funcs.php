@@ -235,7 +235,7 @@ function search_result_block( $params = array() )
 	{
 		echo '<p class="msg_nothing" style="margin: 2em 0">';
 		echo T_('Sorry, we could not find anything matching your request, please try to broaden your search.');
-		echo '<p>';
+		echo '</p>';
 		return;
 	}
 
