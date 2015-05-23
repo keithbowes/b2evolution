@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net/\n"
 "POT-Creation-Date: 2004-04-26 03:00+0200\n"
-"PO-Revision-Date: 2015-03-30 21:18-0400\n"
+"PO-Revision-Date: 2015-05-23 16:04-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/"
 "language/eo/)\n"
@@ -23,7 +23,7 @@ msgstr ""
 #: ../../doc/upgradefrom_b2.src.html:6 ../../doc/upgradefrom_b2evo.src.html:6
 #: ../../doc/upgradefrom_mt.src.html:6 ../../doc/upgradefrom_wp.src.html:6
 msgid "b2evo package"
-msgstr "b2evolution-pakaĵo"
+msgstr "b2evolution-pako"
 
 #: ../../index.src.html:6
 msgid "Start page"
@@ -48,7 +48,7 @@ msgstr "Post instalado"
 #: ../../doc/upgradefrom_b2evo.src.html:25
 #: ../../doc/upgradefrom_mt.src.html:25 ../../doc/upgradefrom_wp.src.html:25
 msgid "Blogs"
-msgstr "Blogoj"
+msgstr "Kolektoj"
 
 #: ../../index.src.html:25 ../../doc/install_new.src.html:25
 #: ../../doc/upgradefrom_b2.src.html:25
@@ -458,7 +458,7 @@ msgid ""
 "version to the new one."
 msgstr ""
 "Plenumigu la instalan/promocian skripton en via servilo. Ĝi troviĝas en "
-"<code>http://viaretejo.com/viablogodosierujo/install</code>/. Poste nur faru "
+"<code>http://viaretejo.com/viakolektarodosierujo/install</code>/. Poste nur faru "
 "la surekranajn instrukciojn.<br /> <br /> La instalilo/promociilo lasos, ke "
 "vi plenumigu datumbazan promocion disde <strong>ĉiu ajn</strong> eldono de "
 "b2evolution al la nova."
@@ -545,7 +545,7 @@ msgid ""
 msgstr ""
 "La proceduro estas provita kun eldono 2.3 de WordPress. Ĝi ne funkcias kun "
 "pli fruaj eldonoj. Ĝi eble funkcias kun pli malfruaj eldonoj. Provoj ne "
-"rompos vian WordPress-blogon…"
+"fuŝos vian WordPress-blogon…"
 
 #: ../../doc/upgradefrom_wp.src.html:37
 msgid ""
