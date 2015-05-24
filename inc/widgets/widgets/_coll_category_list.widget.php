@@ -559,9 +559,7 @@ class coll_category_list_Widget extends ComponentWidget
 
 		if( $level > 0 )
 		{ // If this is not the root:
-			return $this->disp_params['group_end']
-				// End current (parent) line:
-				.$this->disp_params['item_end'];
+			return $this->disp_params['group_end']; 
 		}
 	}
 
