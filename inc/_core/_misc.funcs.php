@@ -801,7 +801,7 @@ function callback_on_non_matching_blocks( $text, $pattern, $callback, $params = 
 	{	// $pattern matches, call the callback method on full text except of matching blocks
 
 		// Create an unique string in order to replace all matching blocks temporarily
-		$unique_replacement = md5( mktime() + rand() );
+		$unique_replacement = md5( time() + rand() );
 
 		$matches_search = array();
 		$matches_replace = array();
