@@ -521,7 +521,7 @@ function get_icon_info($name)
 			'color' => '#000'
 		);
 		case 'bullet_empty_grey': return array(
-			'alt'  => '&nbsp;',
+			'alt'  => '&#160;',
 			'size' => array( 9, 9 ),
 			'xy' => array( 112, 176 ),
 			'fa' => 'circle-o',

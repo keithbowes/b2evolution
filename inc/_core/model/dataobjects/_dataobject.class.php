@@ -804,7 +804,10 @@ class DataObject
 	 */
 	function get( $parname )
 	{
-		return $this->$parname;
+		if (isset($this->parrame))
+			return $this->$parname;
+		else
+			return '';
 	}
 
 
