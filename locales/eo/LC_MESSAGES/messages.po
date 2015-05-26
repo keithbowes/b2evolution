@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net\n"
-"POT-Creation-Date: 2015-05-25 19:18-0400\n"
-"PO-Revision-Date: 2015-05-25 19:27-0400\n"
+"POT-Creation-Date: 2015-05-25 21:13-0400\n"
+"PO-Revision-Date: 2015-05-25 21:13-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -326,7 +326,7 @@ msgstr "Malligi"
 #: ../../../conf/_icons.php:640 ../../../conf/_icons.php:655
 #: ../../../inc/collections/views/_coll_home.form.php:42
 #: ../../../inc/plugins/plugins.ctrl.php:994
-#: ../../../inc/plugins/views/_plugin_list.view.php:190
+#: ../../../inc/plugins/views/_plugin_list.view.php:209
 #: ../../../inc/plugins/views/_plugin_list_available.view.php:38
 #: ../../../inc/plugins/views/_plugin_settings.form.php:66
 #: ../../../inc/slugs/views/_slug.form.php:40
@@ -462,9 +462,8 @@ msgstr "Dekstro"
 #: ../../../skins/asevo/index.main.php:159
 #: ../../../skins/basic/index.main.php:260
 #: ../../../skins/bootstrap_blog_skin/_skin.class.php:257
-#: ../../../skins/bootstrap_forums_skin/_item_block.inc.php:246
-#: ../../../skins/bootstrap_forums_skin/_posts.disp.php:180
-#: ../../../skins/bootstrap_forums_skin/_posts.disp.php:237
+#: ../../../skins/bootstrap_forums_skin/_posts.disp.php:181
+#: ../../../skins/bootstrap_forums_skin/_posts.disp.php:236
 #: ../../../skins/bootstrap_forums_skin/_search.disp.php:52
 #: ../../../skins/bootstrap_forums_skin/_skin.class.php:484
 #: ../../../skins/bootstrap_gallery_skin/_skin.class.php:408
@@ -499,9 +498,8 @@ msgstr "Antaŭa"
 #: ../../../skins/asevo/index.main.php:160
 #: ../../../skins/basic/index.main.php:261
 #: ../../../skins/bootstrap_blog_skin/_skin.class.php:258
-#: ../../../skins/bootstrap_forums_skin/_item_block.inc.php:247
-#: ../../../skins/bootstrap_forums_skin/_posts.disp.php:181
-#: ../../../skins/bootstrap_forums_skin/_posts.disp.php:238
+#: ../../../skins/bootstrap_forums_skin/_posts.disp.php:182
+#: ../../../skins/bootstrap_forums_skin/_posts.disp.php:237
 #: ../../../skins/bootstrap_forums_skin/_search.disp.php:53
 #: ../../../skins/bootstrap_forums_skin/_skin.class.php:485
 #: ../../../skins/bootstrap_gallery_skin/_skin.class.php:409
@@ -1674,7 +1672,7 @@ msgstr "Titolo"
 #: ../../../inc/collections/views/_coll_general.form.php:184
 #: ../../../inc/items/views/_itemtype.form.php:65
 #: ../../../inc/maintenance/views/_upgrade.form.php:41
-#: ../../../inc/plugins/views/_plugin_list.view.php:165
+#: ../../../inc/plugins/views/_plugin_list.view.php:184
 #: ../../../inc/plugins/views/_plugin_list_available.view.php:36
 #: ../../../inc/widgets/views/_widget.form.php:43
 msgid "Description"
@@ -2783,7 +2781,7 @@ msgstr "URL  \"dosiernomo\""
 #: ../../../inc/locales/_locale_settings.form.php:109
 #: ../../../inc/locales/_locale_settings.form.php:267
 #: ../../../inc/locales/_locale_settings.form.php:302
-#: ../../../inc/plugins/views/_plugin_list.view.php:149
+#: ../../../inc/plugins/views/_plugin_list.view.php:168
 #: ../../../inc/plugins/views/_plugin_settings.form.php:103
 msgid "Priority"
 msgstr "Prioritato"
@@ -4897,7 +4895,7 @@ msgstr "Forigi ĉi tiun IP-adresa grupon."
 #: ../../../inc/maintenance/views/_upgrade_export.form.php:32
 #: ../../../inc/maintenance/views/_upgrade_ready.form.php:34
 #: ../../../inc/maintenance/views/_upgrade_unzip.form.php:32
-#: ../../../inc/plugins/views/_plugin_list.view.php:218
+#: ../../../inc/plugins/views/_plugin_list.view.php:237
 #: ../../../inc/plugins/views/_plugin_list_available.view.php:40
 #: ../../../inc/regional/views/_city_list.view.php:253
 #: ../../../inc/regional/views/_country_list.view.php:230
@@ -8792,7 +8790,6 @@ msgstr "Kolektara kodo"
 
 #: ../../../inc/collections/views/_coll_settings_site.form.php:57
 #: ../../../inc/sessions/views/_stats_goalcats.form.php:40
-#: ../../../skins/bootstrap_forums_skin/_skin.class.php:80
 #: ../../../skins/bootstrap_gallery_skin/_skin.class.php:94
 #: ../../../skins/bootstrap_main_skin/_skin.class.php:74
 #: ../../../skins/bootstrap_main_skin/_skin.class.php:98
@@ -13187,7 +13184,7 @@ msgstr "Forigi ĉi tiun afiŝon"
 
 #: ../../../inc/items/items.ctrl.php:1429
 #: ../../../inc/items/model/_item.class.php:3711
-#: ../../../skins/bootstrap_forums_skin/_item_block.inc.php:195
+#: ../../../skins/bootstrap_forums_skin/_item_block.inc.php:200
 #: ../../../skins/forums/_item_block.inc.php:176
 #: ../../../skins/pureforums/_item_block.inc.php:179
 msgid "You are about to delete this post!\\nThis cannot be undone!"
@@ -13587,7 +13584,7 @@ msgstr "Malaprobi ĉi tiun afiŝon."
 #: ../../../inc/items/views/_item_expert.form.php:368
 #: ../../../inc/items/views/_item_list_full.view.php:261
 #: ../../../skins/asevo/_item_block.inc.php:83
-#: ../../../skins/bootstrap_forums_skin/_item_block.inc.php:177
+#: ../../../skins/bootstrap_forums_skin/_item_block.inc.php:182
 #: ../../../skins/bootstrap_manual_skin/_item_block.inc.php:122
 #: ../../../skins/colourise/_item_block.inc.php:95
 #: ../../../skins/colourise/single.main.php:145
@@ -15100,6 +15097,8 @@ msgid "Below comment"
 msgstr "Suba komento"
 
 #: ../../../inc/links/model/_linkcomment.class.php:163
+#: ../../../skins/bootstrap_forums_skin/_item_comment.inc.php:85
+#: ../../../skins/bootstrap_forums_skin/_item_comment.inc.php:130
 #: ../../../skins_fallback_v5/_item_comment.inc.php:87
 #: ../../../skins_fallback_v5/_item_comment_wp.inc.php:57
 #: ../../../skins_fallback_v6/_item_comment.inc.php:85
@@ -15280,7 +15279,7 @@ msgstr "La unuaj du literoj estu <a %s>lingva kodo laŭ ISO 639</a>. La lastaj d
 
 #: ../../../inc/locales/_locale_settings.form.php:86
 #: ../../../inc/locales/_locale_settings.form.php:259
-#: ../../../inc/plugins/views/_plugin_list.view.php:112
+#: ../../../inc/plugins/views/_plugin_list.view.php:131
 #: ../../../inc/regional/views/_city_list.view.php:112
 #: ../../../inc/regional/views/_country_list.view.php:85
 #: ../../../inc/regional/views/_currency_list.view.php:63
@@ -17211,7 +17210,7 @@ msgstr "Klaku sur %s por atingi la tutan dokumentaron por la kromprogramo"
 
 #: ../../../inc/plugins/_plugin.class.php:3347
 #: ../../../inc/plugins/plugins.ctrl.php:963
-#: ../../../inc/plugins/views/_plugin_list.view.php:129
+#: ../../../inc/plugins/views/_plugin_list.view.php:148
 msgid "Edit plugin settings!"
 msgstr "Redakti kromprograman agordon."
 
@@ -17586,7 +17585,7 @@ msgstr "Fermi informojn."
 
 # TRANS: Code of a plugin
 #: ../../../inc/plugins/plugins.ctrl.php:973
-#: ../../../inc/plugins/views/_plugin_list.view.php:174
+#: ../../../inc/plugins/views/_plugin_list.view.php:193
 #: ../../../inc/plugins/views/_plugin_settings.form.php:102
 #: ../../../inc/regional/views/_country.form.php:37
 #: ../../../inc/regional/views/_country_list.view.php:141
@@ -17642,24 +17641,24 @@ msgstr "Instalitaj kromprogramoj"
 msgid "Un-Classified"
 msgstr "Ne klasifikita"
 
-#: ../../../inc/plugins/views/_plugin_list.view.php:88
+#: ../../../inc/plugins/views/_plugin_list.view.php:94
 msgid "The plugin is enabled."
 msgstr "La kromprogramo estas aktivigita."
 
-#: ../../../inc/plugins/views/_plugin_list.view.php:93
+#: ../../../inc/plugins/views/_plugin_list.view.php:99
 msgid "The plugin is broken."
 msgstr "La kromprogramo estas rompita."
 
-#: ../../../inc/plugins/views/_plugin_list.view.php:103
+#: ../../../inc/plugins/views/_plugin_list.view.php:109
 msgid "The plugin is not installed completely."
 msgstr "La kromprogramo ne estas plene instalita."
 
-#: ../../../inc/plugins/views/_plugin_list.view.php:107
+#: ../../../inc/plugins/views/_plugin_list.view.php:117
 msgid "The plugin is disabled."
 msgstr "La kromprogramo estas malaktivigita."
 
 # TRANS: shortcut for enabled
-#: ../../../inc/plugins/views/_plugin_list.view.php:111
+#: ../../../inc/plugins/views/_plugin_list.view.php:130
 #: ../../../inc/regional/views/_city_list.view.php:111
 #: ../../../inc/regional/views/_country_list.view.php:84
 #: ../../../inc/regional/views/_currency_list.view.php:62
@@ -17669,50 +17668,50 @@ msgstr "La kromprogramo estas malaktivigita."
 msgid "En"
 msgstr "Akt"
 
-#: ../../../inc/plugins/views/_plugin_list.view.php:140
+#: ../../../inc/plugins/views/_plugin_list.view.php:159
 #: ../../../inc/plugins/views/_plugin_list_available.view.php:35
 #: ../../../inc/widgets/model/_widget.class.php:194
 msgid "Plugin"
 msgstr "Kromprogramo"
 
-#: ../../../inc/plugins/views/_plugin_list.view.php:175
+#: ../../../inc/plugins/views/_plugin_list.view.php:194
 msgid "The code to call the plugin by code (SkinTag) or as Renderer."
 msgstr "La kodo voki la kromprogramon de kodo (SkinTag) aŭ kiel montrilo."
 
-#: ../../../inc/plugins/views/_plugin_list.view.php:185
+#: ../../../inc/plugins/views/_plugin_list.view.php:204
 #: ../../../inc/plugins/views/_plugin_list_available.view.php:107
 #: ../../../inc/plugins/views/_plugin_list_available.view.php:133
 #: ../../../inc/plugins/views/_plugin_settings.form.php:43
 msgid "Display info"
 msgstr "Montri informojn"
 
-#: ../../../inc/plugins/views/_plugin_list.view.php:205
+#: ../../../inc/plugins/views/_plugin_list.view.php:224
 msgid "Disable the plugin!"
 msgstr "Malaktivigi la kromprogramon"
 
-#: ../../../inc/plugins/views/_plugin_list.view.php:209
+#: ../../../inc/plugins/views/_plugin_list.view.php:228
 msgid "Enable the plugin!"
 msgstr "Aktivigi la kromprogramon"
 
-#: ../../../inc/plugins/views/_plugin_list.view.php:212
+#: ../../../inc/plugins/views/_plugin_list.view.php:231
 msgid "Un-install this plugin!"
 msgstr "Malinstali ĉi tiun kromprogramon"
 
-#: ../../../inc/plugins/views/_plugin_list.view.php:228
+#: ../../../inc/plugins/views/_plugin_list.view.php:247
 msgid "Reload events and codes for installed plugins."
 msgstr "Reŝargi eventojn kaj kodojn por instalitaj kromprogramoj."
 
-#: ../../../inc/plugins/views/_plugin_list.view.php:228
+#: ../../../inc/plugins/views/_plugin_list.view.php:247
 msgid "Reload plugins"
 msgstr "Reŝargi kromprogramojn"
 
-#: ../../../inc/plugins/views/_plugin_list.view.php:231
+#: ../../../inc/plugins/views/_plugin_list.view.php:250
 #: ../../../inc/skins/views/_coll_skin.view.php:53
 #: ../../../inc/skins/views/_skin_list.view.php:87
 msgid "Install new"
 msgstr "Instali novan"
 
-#: ../../../inc/plugins/views/_plugin_list.view.php:231
+#: ../../../inc/plugins/views/_plugin_list.view.php:250
 msgid "Install new plugin..."
 msgstr "Instali novan kromprogramon…"
 
@@ -31099,7 +31098,6 @@ msgstr ""
 #: ../../../skins/_atom/comments.main.php:87
 #: ../../../skins/_rdf/comments.main.php:97
 #: ../../../skins/_rss/comments.main.php:81
-#: ../../../skins/bootstrap_forums_skin/_item_comment.inc.php:70
 #: ../../../skins/forums/_item_comment.inc.php:68
 #: ../../../skins/pureforums/_item_comment.inc.php:70
 #: ../../../skins_fallback_v5/_item_comment.inc.php:66
@@ -31680,8 +31678,8 @@ msgstr "Flankaĵo 2"
 msgid "No replies yet..."
 msgstr "Ankoraŭ neniuj respondoj…"
 
-#: ../../../skins/bootstrap_forums_skin/_front.disp.php:62
-#: ../../../skins/bootstrap_forums_skin/_posts.disp.php:101
+#: ../../../skins/bootstrap_forums_skin/_front.disp.php:61
+#: ../../../skins/bootstrap_forums_skin/_posts.disp.php:100
 #: ../../../skins/bootstrap_forums_skin/_skin.class.php:300
 #: ../../../skins/forums/_front.disp.php:55
 #: ../../../skins/forums/_posts.disp.php:105
@@ -31692,13 +31690,13 @@ msgstr "Ankoraŭ neniuj respondoj…"
 msgid "This forum is locked: you cannot post, reply to, or edit topics."
 msgstr "Tiu temo estas fiksita: vi ne rajtas afiŝi, respondi aŭ redakti temojn."
 
-#: ../../../skins/bootstrap_forums_skin/_front.disp.php:67
+#: ../../../skins/bootstrap_forums_skin/_front.disp.php:66
 #: ../../../skins/bootstrap_forums_skin/_item_list.inc.php:38
 #: ../../../skins/bootstrap_forums_skin/_legend.inc.php:25
 #: ../../../skins/bootstrap_forums_skin/_legend.inc.php:39
 #: ../../../skins/bootstrap_forums_skin/_legend.inc.php:43
 #: ../../../skins/bootstrap_forums_skin/_legend.inc.php:47
-#: ../../../skins/bootstrap_forums_skin/_posts.disp.php:106
+#: ../../../skins/bootstrap_forums_skin/_posts.disp.php:105
 #: ../../../skins/forums/_front.disp.php:60
 #: ../../../skins/forums/_item_list.inc.php:38
 #: ../../../skins/forums/_legend.inc.php:24
@@ -31716,8 +31714,8 @@ msgstr "Tiu temo estas fiksita: vi ne rajtas afiŝi, respondi aŭ redakti temojn
 msgid "No new posts"
 msgstr "Neniu nova afiŝo"
 
-#: ../../../skins/bootstrap_forums_skin/_front.disp.php:82
-#: ../../../skins/bootstrap_forums_skin/_posts.disp.php:121
+#: ../../../skins/bootstrap_forums_skin/_front.disp.php:81
+#: ../../../skins/bootstrap_forums_skin/_posts.disp.php:122
 #: ../../../skins/forums/_front.disp.php:75
 #: ../../../skins/forums/_posts.disp.php:125
 #: ../../../skins/pureforums/_front.disp.php:72
@@ -31725,17 +31723,17 @@ msgstr "Neniu nova afiŝo"
 msgid "Subforums"
 msgstr "Suborumoj"
 
-#: ../../../skins/bootstrap_forums_skin/_front.disp.php:94
-#: ../../../skins/bootstrap_forums_skin/_posts.disp.php:133
+#: ../../../skins/bootstrap_forums_skin/_front.disp.php:93
+#: ../../../skins/bootstrap_forums_skin/_posts.disp.php:134
 #: ../../../skins/pureforums/_front.disp.php:84
 #: ../../../skins/pureforums/_posts.disp.php:108
 #, php-format
 msgid "%s topics"
 msgstr "%s temoj"
 
-#: ../../../skins/bootstrap_forums_skin/_front.disp.php:95
+#: ../../../skins/bootstrap_forums_skin/_front.disp.php:94
 #: ../../../skins/bootstrap_forums_skin/_item_list.inc.php:96
-#: ../../../skins/bootstrap_forums_skin/_posts.disp.php:134
+#: ../../../skins/bootstrap_forums_skin/_posts.disp.php:135
 #: ../../../skins/pureforums/_front.disp.php:85
 #: ../../../skins/pureforums/_item_list.inc.php:106
 #: ../../../skins/pureforums/_posts.disp.php:109
@@ -31743,15 +31741,14 @@ msgstr "%s temoj"
 msgid "%s replies"
 msgstr "%s respondoj"
 
-#: ../../../skins/bootstrap_forums_skin/_item_block.inc.php:75
+#: ../../../skins/bootstrap_forums_skin/_item_block.inc.php:77
 #: ../../../skins/bootstrap_forums_skin/_item_list.inc.php:84
 #: ../../../skins/pureforums/_item_block.inc.php:64
 #: ../../../skins/pureforums/_item_list.inc.php:94
 msgid "Started by"
 msgstr "Komencita de"
 
-#: ../../../skins/bootstrap_forums_skin/_item_block.inc.php:153
-#: ../../../skins/bootstrap_forums_skin/_item_comment.inc.php:137
+#: ../../../skins/bootstrap_forums_skin/_item_block.inc.php:159
 #: ../../../skins/forums/_item_block.inc.php:134
 #: ../../../skins/forums/_item_comment.inc.php:135
 #: ../../../skins/pureforums/_item_block.inc.php:137
@@ -31759,8 +31756,7 @@ msgstr "Komencita de"
 msgid "Back to top"
 msgstr "Reen al supro"
 
-#: ../../../skins/bootstrap_forums_skin/_item_block.inc.php:171
-#: ../../../skins/bootstrap_forums_skin/_item_comment.inc.php:159
+#: ../../../skins/bootstrap_forums_skin/_item_block.inc.php:176
 #: ../../../skins/forums/_item_block.inc.php:152
 #: ../../../skins/forums/_item_comment.inc.php:157
 #: ../../../skins/pureforums/_item_block.inc.php:155
@@ -31768,8 +31764,7 @@ msgstr "Reen al supro"
 msgid "Quote"
 msgstr "Citi"
 
-#: ../../../skins/bootstrap_forums_skin/_item_block.inc.php:171
-#: ../../../skins/bootstrap_forums_skin/_item_comment.inc.php:159
+#: ../../../skins/bootstrap_forums_skin/_item_block.inc.php:176
 #: ../../../skins/forums/_item_block.inc.php:152
 #: ../../../skins/forums/_item_comment.inc.php:157
 #: ../../../skins/pureforums/_item_block.inc.php:155
@@ -31777,164 +31772,56 @@ msgstr "Citi"
 msgid "Reply with quote"
 msgstr "Respondi kun citaĵo"
 
-#: ../../../skins/bootstrap_forums_skin/_item_block.inc.php:186
+#: ../../../skins/bootstrap_forums_skin/_item_block.inc.php:191
 #: ../../../skins/forums/_item_block.inc.php:167
 #: ../../../skins/pureforums/_item_block.inc.php:170
 msgid "Edit this topic"
 msgstr "Redakti la temon"
 
-#: ../../../skins/bootstrap_forums_skin/_item_block.inc.php:195
+#: ../../../skins/bootstrap_forums_skin/_item_block.inc.php:200
 #: ../../../skins/forums/_item_block.inc.php:176
 #: ../../../skins/pureforums/_item_block.inc.php:179
 msgid "Delete this topic"
 msgstr "Forigi la temon"
 
-#: ../../../skins/bootstrap_forums_skin/_item_block.inc.php:218
-#: ../../../skins/forums/_item_block.inc.php:208
-#: ../../../skins/pureforums/_item_block.inc.php:204
-msgid "This is your topic. You are receiving notifications when anyone posts a reply on your topics."
-msgstr "Ĉi tiu estas via temo. Vi ricevos sciigojn kiam iu respondas iun el viaj temoj."
+#: ../../../skins/bootstrap_forums_skin/_item_comment.inc.php:78
+#: ../../../skins/bootstrap_forums_skin/_item_comment.inc.php:123
+#: ../../../skins/photoalbums/_item_comment.inc.php:58
+#: ../../../skins_fallback_v5/_item_comment.inc.php:80
+#: ../../../skins_fallback_v6/_item_comment.inc.php:78
+msgid "PREVIEW Comment from:"
+msgstr "<strong>Antaŭvidi</strong> komenton de:"
 
-#: ../../../skins/bootstrap_forums_skin/_item_block.inc.php:219
-#: ../../../skins/forums/_item_block.inc.php:209
-#: ../../../skins/pureforums/_item_block.inc.php:205
-msgid "You will be notified by email when someone posts a reply here."
-msgstr "Vi sciiĝos per retpoŝto kiam iu respondas."
-
-#: ../../../skins/bootstrap_forums_skin/_item_block.inc.php:220
-#: ../../../skins/forums/_item_block.inc.php:210
-#: ../../../skins/pureforums/_item_block.inc.php:206
-msgid "Notify me by email when someone posts a reply here."
-msgstr "Sciigi min per retpoŝto kiam iu respondas."
-
-#: ../../../skins/bootstrap_forums_skin/_item_block.inc.php:226
-#: ../../../skins/forums/_edit.disp.php:242
-#: ../../../skins/forums/_item_block.inc.php:221
-#: ../../../skins/pureforums/_edit.disp.php:243
-#: ../../../skins/pureforums/_item_block.inc.php:217
-msgid "Message body"
-msgstr "Mesaĝa korpo"
-
-#: ../../../skins/bootstrap_forums_skin/_item_block.inc.php:227
-#: ../../../skins/forums/_item_block.inc.php:222
-#: ../../../skins/pureforums/_item_block.inc.php:218
-msgid "Submit"
-msgstr "Sendi"
-
-#: ../../../skins/bootstrap_forums_skin/_item_block.inc.php:228
-#: ../../../skins/forums/_item_block.inc.php:224
-#: ../../../skins/pureforums/_item_block.inc.php:220
-#: ../../../skins/pureforums/_item_comment_form.inc.php:50
-msgid "Post a reply"
-msgstr "Afiŝi respondon"
-
-#: ../../../skins/bootstrap_forums_skin/_item_block.inc.php:229
-#: ../../../skins/forums/_item_block.inc.php:237
-#: ../../../skins/pureforums/_item_block.inc.php:233
-msgid "You must be a member of this blog to post a reply."
-msgstr "Vi devas esti ano antaŭ ol respondi."
-
-#: ../../../skins/bootstrap_forums_skin/_item_block.inc.php:230
-#: ../../../skins/forums/_item_block.inc.php:238
-#: ../../../skins/pureforums/_item_block.inc.php:234
-msgid "You must be logged in to post a reply."
-msgstr "Vi devas esti ensalutita por respondi."
-
-#: ../../../skins/bootstrap_forums_skin/_item_block.inc.php:231
-#: ../../../skins/forums/_item_block.inc.php:239
-#: ../../../skins/pureforums/_item_block.inc.php:235
-msgid "You must activate your account before you can post a reply."
-msgstr "Vi devas aktivigi vian konton antaŭ ol vi povas respondi."
-
-#: ../../../skins/bootstrap_forums_skin/_item_block.inc.php:232
-#: ../../../skins/forums/_item_block.inc.php:240
-#: ../../../skins/pureforums/_item_block.inc.php:236
-msgid "RSS feed for replies to this topic"
-msgstr "RSS-fluo por respondoj al la temo"
-
-#: ../../../skins/bootstrap_forums_skin/_item_block.inc.php:234
-#: ../../../skins/forums/_item_block.inc.php:242
-#: ../../../skins/pureforums/_item_block.inc.php:238
-msgid "This topic is closed."
-msgstr "Tiu temo estas fermita"
-
-#: ../../../skins/bootstrap_forums_skin/_item_comment.inc.php:165
-#: ../../../skins/forums/_item_comment.inc.php:163
-#: ../../../skins/pureforums/_item_comment.inc.php:165
-msgid "Is this reply helpful?"
-msgstr "Ĉu la respondo efektive estas helpa?"
-
+#: ../../../skins/bootstrap_forums_skin/_item_comment.inc.php:84
+#: ../../../skins/bootstrap_forums_skin/_item_comment.inc.php:129
+#: ../../../skins/bootstrap_forums_skin/_item_comment.inc.php:155
 #: ../../../skins/bootstrap_forums_skin/_item_comment.inc.php:166
-#: ../../../skins/forums/_item_comment.inc.php:164
-#: ../../../skins/pureforums/_item_comment.inc.php:166
-msgid "Mark this reply as helpful!"
-msgstr "Marki la respondon helpa."
+#: ../../../skins_fallback_v5/_item_comment.inc.php:86
+#: ../../../skins_fallback_v5/_item_comment.inc.php:112
+#: ../../../skins_fallback_v5/_item_comment.inc.php:123
+#: ../../../skins_fallback_v6/_item_comment.inc.php:84
+#: ../../../skins_fallback_v6/_item_comment.inc.php:110
+#: ../../../skins_fallback_v6/_item_comment.inc.php:121
+msgid "from:"
+msgstr "de:"
+
+#: ../../../skins/bootstrap_forums_skin/_item_comment.inc.php:105
+msgid " in response to:"
+msgstr " responde al:"
+
+#: ../../../skins/bootstrap_forums_skin/_item_comment.inc.php:156
+#: ../../../skins_fallback_v5/_item_comment.inc.php:113
+#: ../../../skins_fallback_v5/_item_comment_wp.inc.php:73
+#: ../../../skins_fallback_v6/_item_comment.inc.php:111
+msgid "Trackback"
+msgstr "Spuro"
 
 #: ../../../skins/bootstrap_forums_skin/_item_comment.inc.php:167
-#: ../../../skins/forums/_item_comment.inc.php:165
-#: ../../../skins/pureforums/_item_comment.inc.php:167
-msgid "You think this reply is helpful"
-msgstr "Vi opinias la respondon helpa."
-
-#: ../../../skins/bootstrap_forums_skin/_item_comment.inc.php:168
-#: ../../../skins/forums/_item_comment.inc.php:166
-#: ../../../skins/pureforums/_item_comment.inc.php:168
-msgid "Mark this reply as not helpful!"
-msgstr "Marki la respondon ne helpa."
-
-#: ../../../skins/bootstrap_forums_skin/_item_comment.inc.php:169
-#: ../../../skins/forums/_item_comment.inc.php:167
-#: ../../../skins/pureforums/_item_comment.inc.php:169
-msgid "You think this reply is not helpful"
-msgstr "Vi opinias la respondon ne helpa."
-
-#: ../../../skins/bootstrap_forums_skin/_item_comment.inc.php:176
-#: ../../../skins/forums/_item_comment.inc.php:174
-#: ../../../skins/pureforums/_item_comment.inc.php:176
-msgid "Mark this reply as spam!"
-msgstr "Marki la respondon spamo."
-
-#: ../../../skins/bootstrap_forums_skin/_item_comment.inc.php:177
-#: ../../../skins/forums/_item_comment.inc.php:175
-#: ../../../skins/pureforums/_item_comment.inc.php:177
-msgid "You think this reply is spam"
-msgstr "Vi opinias la respondon spama"
-
-#: ../../../skins/bootstrap_forums_skin/_item_comment.inc.php:178
-#: ../../../skins/forums/_item_comment.inc.php:176
-#: ../../../skins/pureforums/_item_comment.inc.php:178
-msgid "Mark this reply as not sure!"
-msgstr "Marki la respondon ebla."
-
-#: ../../../skins/bootstrap_forums_skin/_item_comment.inc.php:179
-#: ../../../skins/forums/_item_comment.inc.php:177
-#: ../../../skins/pureforums/_item_comment.inc.php:179
-msgid "You are not sure in this reply"
-msgstr "La respondo estas eble spama"
-
-#: ../../../skins/bootstrap_forums_skin/_item_comment.inc.php:180
-#: ../../../skins/forums/_item_comment.inc.php:178
-#: ../../../skins/pureforums/_item_comment.inc.php:180
-msgid "Mark this reply as OK!"
-msgstr "Aprobi la respondon."
-
-#: ../../../skins/bootstrap_forums_skin/_item_comment.inc.php:181
-#: ../../../skins/forums/_item_comment.inc.php:179
-#: ../../../skins/pureforums/_item_comment.inc.php:181
-msgid "You think this reply is OK"
-msgstr "Vi opinias la respondo aprobinda"
-
-#: ../../../skins/bootstrap_forums_skin/_item_comment.inc.php:187
-#: ../../../skins/forums/_item_comment.inc.php:185
-#: ../../../skins/pureforums/_item_comment.inc.php:187
-msgid "Edit this reply"
-msgstr "Redakti la respondon"
-
-#: ../../../skins/bootstrap_forums_skin/_item_comment.inc.php:196
-#: ../../../skins/forums/_item_comment.inc.php:194
-#: ../../../skins/pureforums/_item_comment.inc.php:196
-msgid "Delete this reply"
-msgstr "Forigi ĉi tiun respondon"
+#: ../../../skins_fallback_v5/_item_comment.inc.php:124
+#: ../../../skins_fallback_v5/_item_comment_wp.inc.php:83
+#: ../../../skins_fallback_v6/_item_comment.inc.php:122
+msgid "Pingback"
+msgstr "Mencio"
 
 #: ../../../skins/bootstrap_forums_skin/_item_list.inc.php:42
 #: ../../../skins/bootstrap_forums_skin/_legend.inc.php:51
@@ -31958,6 +31845,8 @@ msgstr "Tiu temo estas fiksita: vi ne rajtas redakti afiŝojn kaj komenti."
 
 #: ../../../skins/bootstrap_forums_skin/_item_list.inc.php:119
 #: ../../../skins/bootstrap_forums_skin/_item_list.inc.php:136
+#: ../../../skins/bootstrap_forums_skin/_item_list.inc.php:148
+#: ../../../skins/bootstrap_forums_skin/_item_list.inc.php:156
 #: ../../../skins/forums/_item_list.inc.php:120
 #: ../../../skins/forums/_item_list.inc.php:129
 #: ../../../skins/pureforums/_item_list.inc.php:129
@@ -31999,47 +31888,6 @@ msgstr "Respondo: "
 #: ../../../skins/pureforums/_search.disp.php:40
 msgid "Forum: "
 msgstr "Forumo: "
-
-#: ../../../skins/bootstrap_forums_skin/_skin.class.php:67
-#: ../../../skins/bootstrap_gallery_skin/_skin.class.php:81
-msgid "Page link color"
-msgstr "Ligila koloro de paĝo"
-
-#: ../../../skins/bootstrap_forums_skin/_skin.class.php:68
-#: ../../../skins/bootstrap_gallery_skin/_skin.class.php:76
-#: ../../../skins/bootstrap_gallery_skin/_skin.class.php:82
-#: ../../../skins/bootstrap_main_skin/_skin.class.php:80
-#: ../../../skins/bootstrap_main_skin/_skin.class.php:92
-#: ../../../skins/evopress/_skin.class.php:56
-#: ../../../skins/forums/_skin.class.php:56
-#: ../../../skins/forums/_skin.class.php:68
-#: ../../../skins/manual/_skin.class.php:56
-#: ../../../skins/manual/_skin.class.php:68
-#: ../../../skins/photoalbums/_skin.class.php:84
-#: ../../../skins/photoblog/_skin.class.php:72
-msgid "E-g: #00ff00 for green"
-msgstr "Ekz-e: #00ff00 por verdo"
-
-#: ../../../skins/bootstrap_forums_skin/_skin.class.php:73
-#: ../../../skins/bootstrap_gallery_skin/_skin.class.php:87
-msgid "Current tab text color"
-msgstr "Teksta koloro de la nuna langeto"
-
-#: ../../../skins/bootstrap_forums_skin/_skin.class.php:74
-#: ../../../skins/bootstrap_gallery_skin/_skin.class.php:88
-#: ../../../skins/photoalbums/_skin.class.php:72
-#: ../../../skins/photoalbums/_skin.class.php:96
-#: ../../../skins/photoblog/_skin.class.php:60
-#: ../../../skins/photoblog/_skin.class.php:84
-msgid "E-g: #ff6600 for orange"
-msgstr "Ekz-e: #ff6600 por oranĝkoloro"
-
-#: ../../../skins/bootstrap_forums_skin/_skin.class.php:79
-#: ../../../skins/bootstrap_gallery_skin/_skin.class.php:93
-#: ../../../skins/photoalbums/_skin.class.php:77
-#: ../../../skins/photoblog/_skin.class.php:65
-msgid "Page background color"
-msgstr "Fona koloro de paĝo"
 
 #: ../../../skins/bootstrap_forums_skin/_skin.class.php:86
 #: ../../../skins/pureforums/_skin.class.php:49
@@ -32201,6 +32049,42 @@ msgstr "La apriora valoro estas 14 rastrumeroj."
 #: ../../../skins/photoblog/_skin.class.php:71
 msgid "Page text color"
 msgstr "Teksta koloro de paĝo"
+
+#: ../../../skins/bootstrap_gallery_skin/_skin.class.php:76
+#: ../../../skins/bootstrap_gallery_skin/_skin.class.php:82
+#: ../../../skins/bootstrap_main_skin/_skin.class.php:80
+#: ../../../skins/bootstrap_main_skin/_skin.class.php:92
+#: ../../../skins/evopress/_skin.class.php:56
+#: ../../../skins/forums/_skin.class.php:56
+#: ../../../skins/forums/_skin.class.php:68
+#: ../../../skins/manual/_skin.class.php:56
+#: ../../../skins/manual/_skin.class.php:68
+#: ../../../skins/photoalbums/_skin.class.php:84
+#: ../../../skins/photoblog/_skin.class.php:72
+msgid "E-g: #00ff00 for green"
+msgstr "Ekz-e: #00ff00 por verdo"
+
+#: ../../../skins/bootstrap_gallery_skin/_skin.class.php:81
+msgid "Page link color"
+msgstr "Ligila koloro de paĝo"
+
+#: ../../../skins/bootstrap_gallery_skin/_skin.class.php:87
+msgid "Current tab text color"
+msgstr "Teksta koloro de la nuna langeto"
+
+#: ../../../skins/bootstrap_gallery_skin/_skin.class.php:88
+#: ../../../skins/photoalbums/_skin.class.php:72
+#: ../../../skins/photoalbums/_skin.class.php:96
+#: ../../../skins/photoblog/_skin.class.php:60
+#: ../../../skins/photoblog/_skin.class.php:84
+msgid "E-g: #ff6600 for orange"
+msgstr "Ekz-e: #ff6600 por oranĝkoloro"
+
+#: ../../../skins/bootstrap_gallery_skin/_skin.class.php:93
+#: ../../../skins/photoalbums/_skin.class.php:77
+#: ../../../skins/photoblog/_skin.class.php:65
+msgid "Page background color"
+msgstr "Fona koloro de paĝo"
 
 #: ../../../skins/bootstrap_gallery_skin/_skin.class.php:167
 #: ../../../skins/photoalbums/_skin.class.php:167
@@ -32464,6 +32348,13 @@ msgstr "Ĉefa forumo"
 msgid "Additional forum"
 msgstr "Aldonaj forumoj"
 
+#: ../../../skins/forums/_edit.disp.php:242
+#: ../../../skins/forums/_item_block.inc.php:221
+#: ../../../skins/pureforums/_edit.disp.php:243
+#: ../../../skins/pureforums/_item_block.inc.php:217
+msgid "Message body"
+msgstr "Mesaĝa korpo"
+
 #: ../../../skins/forums/_edit.disp.php:320
 #: ../../../skins/pureforums/_edit.disp.php:321
 msgid "Make this topic sticky (featured at the top of the list)"
@@ -32540,6 +32431,122 @@ msgstr "Tema resumo"
 #: ../../../skins/forums/_item_block.inc.php:203
 msgid "PREVIEW Message"
 msgstr "Antaŭvida mesaĝo"
+
+#: ../../../skins/forums/_item_block.inc.php:208
+#: ../../../skins/pureforums/_item_block.inc.php:204
+msgid "This is your topic. You are receiving notifications when anyone posts a reply on your topics."
+msgstr "Ĉi tiu estas via temo. Vi ricevos sciigojn kiam iu respondas iun el viaj temoj."
+
+#: ../../../skins/forums/_item_block.inc.php:209
+#: ../../../skins/pureforums/_item_block.inc.php:205
+msgid "You will be notified by email when someone posts a reply here."
+msgstr "Vi sciiĝos per retpoŝto kiam iu respondas."
+
+#: ../../../skins/forums/_item_block.inc.php:210
+#: ../../../skins/pureforums/_item_block.inc.php:206
+msgid "Notify me by email when someone posts a reply here."
+msgstr "Sciigi min per retpoŝto kiam iu respondas."
+
+#: ../../../skins/forums/_item_block.inc.php:222
+#: ../../../skins/pureforums/_item_block.inc.php:218
+msgid "Submit"
+msgstr "Sendi"
+
+#: ../../../skins/forums/_item_block.inc.php:224
+#: ../../../skins/pureforums/_item_block.inc.php:220
+#: ../../../skins/pureforums/_item_comment_form.inc.php:50
+msgid "Post a reply"
+msgstr "Afiŝi respondon"
+
+#: ../../../skins/forums/_item_block.inc.php:237
+#: ../../../skins/pureforums/_item_block.inc.php:233
+msgid "You must be a member of this blog to post a reply."
+msgstr "Vi devas esti ano antaŭ ol respondi."
+
+#: ../../../skins/forums/_item_block.inc.php:238
+#: ../../../skins/pureforums/_item_block.inc.php:234
+msgid "You must be logged in to post a reply."
+msgstr "Vi devas esti ensalutita por respondi."
+
+#: ../../../skins/forums/_item_block.inc.php:239
+#: ../../../skins/pureforums/_item_block.inc.php:235
+msgid "You must activate your account before you can post a reply."
+msgstr "Vi devas aktivigi vian konton antaŭ ol vi povas respondi."
+
+#: ../../../skins/forums/_item_block.inc.php:240
+#: ../../../skins/pureforums/_item_block.inc.php:236
+msgid "RSS feed for replies to this topic"
+msgstr "RSS-fluo por respondoj al la temo"
+
+#: ../../../skins/forums/_item_block.inc.php:242
+#: ../../../skins/pureforums/_item_block.inc.php:238
+msgid "This topic is closed."
+msgstr "Tiu temo estas fermita"
+
+#: ../../../skins/forums/_item_comment.inc.php:163
+#: ../../../skins/pureforums/_item_comment.inc.php:165
+msgid "Is this reply helpful?"
+msgstr "Ĉu la respondo efektive estas helpa?"
+
+#: ../../../skins/forums/_item_comment.inc.php:164
+#: ../../../skins/pureforums/_item_comment.inc.php:166
+msgid "Mark this reply as helpful!"
+msgstr "Marki la respondon helpa."
+
+#: ../../../skins/forums/_item_comment.inc.php:165
+#: ../../../skins/pureforums/_item_comment.inc.php:167
+msgid "You think this reply is helpful"
+msgstr "Vi opinias la respondon helpa."
+
+#: ../../../skins/forums/_item_comment.inc.php:166
+#: ../../../skins/pureforums/_item_comment.inc.php:168
+msgid "Mark this reply as not helpful!"
+msgstr "Marki la respondon ne helpa."
+
+#: ../../../skins/forums/_item_comment.inc.php:167
+#: ../../../skins/pureforums/_item_comment.inc.php:169
+msgid "You think this reply is not helpful"
+msgstr "Vi opinias la respondon ne helpa."
+
+#: ../../../skins/forums/_item_comment.inc.php:174
+#: ../../../skins/pureforums/_item_comment.inc.php:176
+msgid "Mark this reply as spam!"
+msgstr "Marki la respondon spamo."
+
+#: ../../../skins/forums/_item_comment.inc.php:175
+#: ../../../skins/pureforums/_item_comment.inc.php:177
+msgid "You think this reply is spam"
+msgstr "Vi opinias la respondon spama"
+
+#: ../../../skins/forums/_item_comment.inc.php:176
+#: ../../../skins/pureforums/_item_comment.inc.php:178
+msgid "Mark this reply as not sure!"
+msgstr "Marki la respondon ebla."
+
+#: ../../../skins/forums/_item_comment.inc.php:177
+#: ../../../skins/pureforums/_item_comment.inc.php:179
+msgid "You are not sure in this reply"
+msgstr "La respondo estas eble spama"
+
+#: ../../../skins/forums/_item_comment.inc.php:178
+#: ../../../skins/pureforums/_item_comment.inc.php:180
+msgid "Mark this reply as OK!"
+msgstr "Aprobi la respondon."
+
+#: ../../../skins/forums/_item_comment.inc.php:179
+#: ../../../skins/pureforums/_item_comment.inc.php:181
+msgid "You think this reply is OK"
+msgstr "Vi opinias la respondo aprobinda"
+
+#: ../../../skins/forums/_item_comment.inc.php:185
+#: ../../../skins/pureforums/_item_comment.inc.php:187
+msgid "Edit this reply"
+msgstr "Redakti la respondon"
+
+#: ../../../skins/forums/_item_comment.inc.php:194
+#: ../../../skins/pureforums/_item_comment.inc.php:196
+msgid "Delete this reply"
+msgstr "Forigi ĉi tiun respondon"
 
 #: ../../../skins/forums/_item_comment_form.inc.php:281
 #: ../../../skins/pureforums/_item_comment_form.inc.php:298
@@ -32679,12 +32686,6 @@ msgstr "Atom-fluo"
 #: ../../../skins/photoblog/_body_footer.inc.php:49
 msgid "What is RSS?"
 msgstr "Kio estas RSS?"
-
-#: ../../../skins/photoalbums/_item_comment.inc.php:58
-#: ../../../skins_fallback_v5/_item_comment.inc.php:80
-#: ../../../skins_fallback_v6/_item_comment.inc.php:78
-msgid "PREVIEW Comment from:"
-msgstr "<strong>Antaŭvidi</strong> komenton de:"
 
 #: ../../../skins/photoalbums/_skin.class.php:65
 #: ../../../skins/photoblog/_skin.class.php:53
@@ -33720,27 +33721,6 @@ msgstr "Okaze de zorgoj pri la enhavo de la kolektaro/sekcio, bonvolu <a %s>kont
 msgid "What to do if the owner doesn't respond"
 msgstr "Tio, kion fari se la blogestro ne respondas"
 
-#: ../../../skins_fallback_v5/_item_comment.inc.php:86
-#: ../../../skins_fallback_v5/_item_comment.inc.php:112
-#: ../../../skins_fallback_v5/_item_comment.inc.php:123
-#: ../../../skins_fallback_v6/_item_comment.inc.php:84
-#: ../../../skins_fallback_v6/_item_comment.inc.php:110
-#: ../../../skins_fallback_v6/_item_comment.inc.php:121
-msgid "from:"
-msgstr "de:"
-
-#: ../../../skins_fallback_v5/_item_comment.inc.php:113
-#: ../../../skins_fallback_v5/_item_comment_wp.inc.php:73
-#: ../../../skins_fallback_v6/_item_comment.inc.php:111
-msgid "Trackback"
-msgstr "Spuro"
-
-#: ../../../skins_fallback_v5/_item_comment.inc.php:124
-#: ../../../skins_fallback_v5/_item_comment_wp.inc.php:83
-#: ../../../skins_fallback_v6/_item_comment.inc.php:122
-msgid "Pingback"
-msgstr "Mencio"
-
 #: ../../../skins_fallback_v5/_item_comment_wp.inc.php:50
 msgid "PREVIEW Comment by"
 msgstr "ANTAŬVIDI komenton de:"
@@ -34020,29 +34000,305 @@ msgstr "afiŝita en "
 msgid "in"
 msgstr "en"
 
-#~ msgid "Convert your DB to UTF-8 - DB only."
-#~ msgstr "Ĝisdatigi vian datumbazon al UTF-8 - nurdatumbaze"
+#~ msgid "Blog tagline"
+#~ msgstr "Bloga devizo"
 
-#~ msgid "Different ways of listing the blog contents"
-#~ msgstr "Diversaj metodoj por listigado de la kolekto-enhavo"
+#~ msgid "Blog title"
+#~ msgstr "Bloga titolo"
 
-#~ msgid "Meta info for the blog"
-#~ msgstr "Metadatumaj informoj por la kolekto"
+#~ msgid "Change &raquo;"
+#~ msgstr "Ŝanĝi →"
 
-#~ msgid "Are you sure want to reset skin params to defaults?"
-#~ msgstr "Ĉu vi efektive volas reapriorigi la etoso-parametrojn?"
+#~ msgid "Upload now &raquo;"
+#~ msgstr "Tuj alŝuti →"
 
-#~ msgid "Change item type"
-#~ msgstr "Ŝanĝi ero-tipon"
+#~ msgid "Next &raquo;"
+#~ msgstr "Sekva →"
 
-#~ msgid "New item type"
-#~ msgstr "Nova ero-tipo"
+#~ msgid "Image / Blog logo"
+#~ msgstr "Bildo / Bloga emblemo"
 
-#~ msgid "Duplicate this item type..."
-#~ msgstr "Kopii ĉi tiun ero-tipon…"
+#~ msgid "Item Single"
+#~ msgstr "Unuopa afiŝo"
 
-#~ msgid "Edit this item type..."
-#~ msgstr "Redakti ĉi tiun ero-tipon…"
+#~ msgid "Menu Top"
+#~ msgstr "Menua supraĵo"
+
+#~ msgid "<i class=\"fa fa-tags\"></i>"
+#~ msgstr "<i class=\"fa fa-tags\"></i>"
+
+#~ msgid "Recommended widget set"
+#~ msgstr "Rekomendita umaĵaro"
+
+#~ msgid "Alternative widget set"
+#~ msgstr "Alternativa umaĵaro"
+
+#~ msgid "Full widget set"
+#~ msgstr "Plena umaĵaro"
+
+#~ msgid "Posted by"
+#~ msgstr "Afiŝita de"
+
+#~ msgid "No comments"
+#~ msgstr "Neniuj komentoj"
+
+#~ msgid "comment"
+#~ msgstr "komento"
+
+#~ msgid "comments"
+#~ msgstr "komentoj"
+
+#~ msgid "Print article"
+#~ msgstr "Printi artikolon"
+
+#~ msgid "This %1$s was posted by %2$s on %3$s at %4$s. Follow any responses to this post through %5$s."
+#~ msgstr "La %1$s estis afiŝita de %2$s je %3$s je %4$s. Respondoj al la afiŝoj estas sekveblaj per %5$s."
+
+#~ msgid "entry"
+#~ msgstr "afiŝo"
+
+#~ msgid "Posts by"
+#~ msgstr "Afiŝita de"
+
+#~ msgid "Post bottom"
+#~ msgstr "Afiŝa fundo"
+
+#~ msgid "Linkback"
+#~ msgstr "Mencio"
+
+#~ msgid "Attending this event"
+#~ msgstr "Ĉeestanta la okazaĵon"
+
+#~ msgid "Related Links"
+#~ msgstr "Rilataj ligiloj"
+
+#~ msgid "Related Posts"
+#~ msgstr "Rilataj afiŝoj"
+
+#~ msgid "Enter image URL to display a logo"
+#~ msgstr "Enmeti bildon-URL-on por montri devizon."
+
+#~ msgid "Skin color"
+#~ msgstr "Etosa koloro"
+
+#~ msgid "Green"
+#~ msgstr "Verda"
+
+#~ msgid "Blue"
+#~ msgstr "Blua"
+
+#~ msgid "Red"
+#~ msgstr "Ruĝa"
+
+#~ msgid "Grey"
+#~ msgstr "Griza"
+
+#~ msgid "Skin width"
+#~ msgstr "Etosa larĝo"
+
+#~ msgid "Fixed"
+#~ msgstr "Fiksita"
+
+#~ msgid "Fluid"
+#~ msgstr "Fluanta"
+
+#~ msgid "Skin layout"
+#~ msgstr "Etosa prezento"
+
+#~ msgid "1 column"
+#~ msgstr "1 kolumno"
+
+#~ msgid "2 columns: Sidebar to the right"
+#~ msgstr "2 kolumnoj: flankaĵo dekstra"
+
+#~ msgid "2 columns: Sidebar to the left"
+#~ msgstr "2 kolumnoj: flankaĵo maldekstra"
+
+#~ msgid "3 columns"
+#~ msgstr "3 kolumnoj"
+
+#~ msgid "3 columns: Sidebars to the right"
+#~ msgstr "3 kolumnoj: flankaĵoj dekstraj"
+
+#~ msgid "3 columns: Sidebars to the left"
+#~ msgstr "3 kolumnoj: flankaĵoj maldekstraj"
+
+#~ msgid "Skin font"
+#~ msgstr "Etosa tiparo"
+
+#~ msgid "Tabbed widget settings"
+#~ msgstr "Kunlageta umaĵo-agordo"
+
+#~ msgid "Tabbed widget"
+#~ msgstr "Kunlagetaj umaĵoj"
+
+#~ msgid "Display javascript tabbed widget on the sidebar"
+#~ msgstr "Montri la JavaSCript-langeta umaĵo en la flankaĵo"
+
+#~ msgid "Recent comments"
+#~ msgstr "Freŝaj komentoj"
+
+#~ msgid "The number of recent comments"
+#~ msgstr "La nombro da freŝaj komentoj"
+
+#~ msgid "Popular posts"
+#~ msgstr "Popularaj afiŝoj"
+
+#~ msgid "The number of popular posts"
+#~ msgstr "La nombro da popularaj afiŝoj"
+
+#~ msgid "The number of months in archive"
+#~ msgstr "La nombro da monatoj en arkivo"
+
+#~ msgid "The number of tags"
+#~ msgstr "La nombro da etikedoj"
+
+#~ msgid "Misc settings"
+#~ msgstr "Alia agordo"
+
+#~ msgid "The number of related articles in single post mode"
+#~ msgstr "La nombro da rilataj artikoloj en apartafiŝa reĝimo"
+
+#~ msgid "Twitter widget"
+#~ msgstr "Twitter-umaĵo"
+
+#~ msgid "The number of items in \"My latest tweets\" widget. Select 0 to disable."
+#~ msgstr "La nombro da eroj en la umaĵo \"Miaj plej freŝaj Twitter-afiŝoj\". Elekti 0 por malaktivigi."
+
+#~ msgid "Enable/disable features"
+#~ msgstr "Aktivigi/malaktivigi trajtojn"
+
+#~ msgid "FancyBox Helper"
+#~ msgstr "FancyBox-helpilo"
+
+#~ msgid "See <a href=\""
+#~ msgstr "Vidi je <a href=\""
+
+#~ msgid "Post metadata"
+#~ msgstr "Afiŝaj metadatumoj"
+
+#~ msgid "Display post metadata block in single post mode"
+#~ msgstr "Montri afiŝo-menadatuma bloko en apartafiŝa reĝimo"
+
+#~ msgid "Author avatar (list)"
+#~ msgstr "Verkisto-avataro (listo)"
+
+#~ msgid "Display author avatar next to post title in <u>post list mode</u>"
+#~ msgstr "Montri la verkisto-avataron apud la afiŝa titolo en <u>afiŝlista reĝimo</u>"
+
+#~ msgid "Author avatar (single)"
+#~ msgstr "Verkisto-avataro (aparta)"
+
+#~ msgid "Display author avatar next to post title in <u>single post mode</u>"
+#~ msgstr "Montri verkisto-avataron apud la afiŝa titolo en <u>apartafiŝa reĝimo</u>"
+
+#~ msgid "Display thumbshots"
+#~ msgstr "Montri miniaturojn"
+
+#~ msgid "Display website previews on external post links."
+#~ msgstr "Montri TTT-ejajn antaŭvidojn ĉe eksteraj afiŝo-ligiloj."
+
+#~ msgid "Display footer credits"
+#~ msgstr "Montri piedajn dankesprimojn"
+
+#~ msgid "You get this skin for free. We do appreciate you giving us credit. <b>Thank you for your support!</b>"
+#~ msgstr "Vi akiris la etoson senkoste. Ni aprezas viajn dankesprimojn. <strong>Dankon pro via subteno.</strong>"
+
+#~ msgid "Social buttons"
+#~ msgstr "Interkonaj butonoj"
+
+#~ msgid "Facebook"
+#~ msgstr "Facebook"
+
+#~ msgid "Username. Leave empty to hide the button"
+#~ msgstr "Salutonomo. Lasu vaka por kaŝi la butonon"
+
+#~ msgid "Flickr"
+#~ msgstr "Flickr"
+
+#~ msgid "Myspace"
+#~ msgstr "MySpace"
+
+#~ msgid "LinkedIn"
+#~ msgstr "LinkedIn"
+
+#~ msgid "Twitter"
+#~ msgstr "Twitter"
+
+#~ msgid "Youtube"
+#~ msgstr "YouTube"
+
+#~ msgid "Updates"
+#~ msgstr "Ĝisdatigoj"
+
+#~ msgid "My latest tweets"
+#~ msgstr "Miaj plej freŝaj Twitter-afiŝoj"
+
+#~ msgid "Follow me on Twitter!"
+#~ msgstr "Sekvi min en Twitter"
+
+#~ msgid "No related Links yet"
+#~ msgstr "Ankoraŭ neniuj rilataj ligiloj"
+
+#~ msgid "No related posts yet"
+#~ msgstr "Ankoraŭ neniuj rilataj afiŝoj"
+
+#~ msgid "Twitter consumer key"
+#~ msgstr "Twitter-klienta ŝlosilo"
+
+#~ msgid "Your Twitter App Consumer Key."
+#~ msgstr "Via Twitter-programo-klienta ŝlosilo."
+
+#~ msgid "Twitter consumer secret"
+#~ msgstr "Twitter-klienta sekreto"
+
+#~ msgid "Your Twitter App Consumer Secret."
+#~ msgstr "Via Twitter-programo-klienta sekreto."
+
+#~ msgid "Twitter user token"
+#~ msgstr "Twitter-uzanto-sigelo"
+
+#~ msgid "Your Twitter App Access Token."
+#~ msgstr "Via Twitter-programo-atingo-ŝlosilo."
+
+#~ msgid "Twitter Token Secret"
+#~ msgstr "Twitter-sigela sekreto"
+
+#~ msgid "Your Twitter App Access Token Secret."
+#~ msgstr "Via Twitter-programo-atingo-sigela sekreto"
+
+#~ msgid "View RSS Feed"
+#~ msgstr "Vidi RSS-fluon"
+
+#~ msgid "Follow me on Twitter"
+#~ msgstr "Sekvi min en Twitter"
+
+#~ msgid "Find me on Flickr"
+#~ msgstr "Trovi min en  Flickr"
+
+#~ msgid "Find me on Facebook"
+#~ msgstr "Trovi min en Facebook"
+
+#~ msgid "Find me on MySpace"
+#~ msgstr "Trovi min en MySpace"
+
+#~ msgid "Follow me on LinkedIn"
+#~ msgstr "Sekvi min en LinkedIn"
+
+#~ msgid "Follow me on Youtube"
+#~ msgstr "Sekvi min en Youtube"
+
+#~ msgid "After posts"
+#~ msgstr "Post afiŝoj"
+
+#~ msgid "Portuguese (PT)"
+#~ msgstr "Portugala (PT)"
+
+#~ msgid "Russian (RU) utf8"
+#~ msgstr "Rusa (RU) laŭ UTF-8"
+
+#~ msgid "Posted on "
+#~ msgstr "Afiŝita je "
 
 #~ msgid ""
 #~ "<p>This is page 1 of a multipage post.</p>\n"
@@ -34053,302 +34309,26 @@ msgstr "en"
 #~ "\n"
 #~ "<p>Vi povas vidi la aliajn paĝojn per alklakado de la ligiloj sube de la teksto.</p>"
 
-#~ msgid "Posted on "
-#~ msgstr "Afiŝita je "
+#~ msgid "Edit this item type..."
+#~ msgstr "Redakti ĉi tiun ero-tipon…"
 
-#~ msgid "Russian (RU) utf8"
-#~ msgstr "Rusa (RU) laŭ UTF-8"
+#~ msgid "Duplicate this item type..."
+#~ msgstr "Kopii ĉi tiun ero-tipon…"
 
-#~ msgid "Portuguese (PT)"
-#~ msgstr "Portugala (PT)"
+#~ msgid "New item type"
+#~ msgstr "Nova ero-tipo"
 
-#~ msgid "After posts"
-#~ msgstr "Post afiŝoj"
+#~ msgid "Change item type"
+#~ msgstr "Ŝanĝi ero-tipon"
 
-#~ msgid "Follow me on Youtube"
-#~ msgstr "Sekvi min en Youtube"
+#~ msgid "Are you sure want to reset skin params to defaults?"
+#~ msgstr "Ĉu vi efektive volas reapriorigi la etoso-parametrojn?"
 
-#~ msgid "Follow me on LinkedIn"
-#~ msgstr "Sekvi min en LinkedIn"
+#~ msgid "Meta info for the blog"
+#~ msgstr "Metadatumaj informoj por la kolekto"
 
-#~ msgid "Find me on MySpace"
-#~ msgstr "Trovi min en MySpace"
+#~ msgid "Different ways of listing the blog contents"
+#~ msgstr "Diversaj metodoj por listigado de la kolekto-enhavo"
 
-#~ msgid "Find me on Facebook"
-#~ msgstr "Trovi min en Facebook"
-
-#~ msgid "Find me on Flickr"
-#~ msgstr "Trovi min en  Flickr"
-
-#~ msgid "Follow me on Twitter"
-#~ msgstr "Sekvi min en Twitter"
-
-#~ msgid "View RSS Feed"
-#~ msgstr "Vidi RSS-fluon"
-
-#~ msgid "Your Twitter App Access Token Secret."
-#~ msgstr "Via Twitter-programo-atingo-sigela sekreto"
-
-#~ msgid "Twitter Token Secret"
-#~ msgstr "Twitter-sigela sekreto"
-
-#~ msgid "Your Twitter App Access Token."
-#~ msgstr "Via Twitter-programo-atingo-ŝlosilo."
-
-#~ msgid "Twitter user token"
-#~ msgstr "Twitter-uzanto-sigelo"
-
-#~ msgid "Your Twitter App Consumer Secret."
-#~ msgstr "Via Twitter-programo-klienta sekreto."
-
-#~ msgid "Twitter consumer secret"
-#~ msgstr "Twitter-klienta sekreto"
-
-#~ msgid "Your Twitter App Consumer Key."
-#~ msgstr "Via Twitter-programo-klienta ŝlosilo."
-
-#~ msgid "Twitter consumer key"
-#~ msgstr "Twitter-klienta ŝlosilo"
-
-#~ msgid "No related posts yet"
-#~ msgstr "Ankoraŭ neniuj rilataj afiŝoj"
-
-#~ msgid "No related Links yet"
-#~ msgstr "Ankoraŭ neniuj rilataj ligiloj"
-
-#~ msgid "Follow me on Twitter!"
-#~ msgstr "Sekvi min en Twitter"
-
-#~ msgid "My latest tweets"
-#~ msgstr "Miaj plej freŝaj Twitter-afiŝoj"
-
-#~ msgid "Updates"
-#~ msgstr "Ĝisdatigoj"
-
-#~ msgid "Youtube"
-#~ msgstr "YouTube"
-
-#~ msgid "Twitter"
-#~ msgstr "Twitter"
-
-#~ msgid "LinkedIn"
-#~ msgstr "LinkedIn"
-
-#~ msgid "Myspace"
-#~ msgstr "MySpace"
-
-#~ msgid "Flickr"
-#~ msgstr "Flickr"
-
-#~ msgid "Username. Leave empty to hide the button"
-#~ msgstr "Salutonomo. Lasu vaka por kaŝi la butonon"
-
-#~ msgid "Facebook"
-#~ msgstr "Facebook"
-
-#~ msgid "Social buttons"
-#~ msgstr "Interkonaj butonoj"
-
-#~ msgid "You get this skin for free. We do appreciate you giving us credit. <b>Thank you for your support!</b>"
-#~ msgstr "Vi akiris la etoson senkoste. Ni aprezas viajn dankesprimojn. <strong>Dankon pro via subteno.</strong>"
-
-#~ msgid "Display footer credits"
-#~ msgstr "Montri piedajn dankesprimojn"
-
-#~ msgid "Display website previews on external post links."
-#~ msgstr "Montri TTT-ejajn antaŭvidojn ĉe eksteraj afiŝo-ligiloj."
-
-#~ msgid "Display thumbshots"
-#~ msgstr "Montri miniaturojn"
-
-#~ msgid "Display author avatar next to post title in <u>single post mode</u>"
-#~ msgstr "Montri verkisto-avataron apud la afiŝa titolo en <u>apartafiŝa reĝimo</u>"
-
-#~ msgid "Author avatar (single)"
-#~ msgstr "Verkisto-avataro (aparta)"
-
-#~ msgid "Display author avatar next to post title in <u>post list mode</u>"
-#~ msgstr "Montri la verkisto-avataron apud la afiŝa titolo en <u>afiŝlista reĝimo</u>"
-
-#~ msgid "Author avatar (list)"
-#~ msgstr "Verkisto-avataro (listo)"
-
-#~ msgid "Display post metadata block in single post mode"
-#~ msgstr "Montri afiŝo-menadatuma bloko en apartafiŝa reĝimo"
-
-#~ msgid "Post metadata"
-#~ msgstr "Afiŝaj metadatumoj"
-
-#~ msgid "See <a href=\""
-#~ msgstr "Vidi je <a href=\""
-
-#~ msgid "FancyBox Helper"
-#~ msgstr "FancyBox-helpilo"
-
-#~ msgid "Enable/disable features"
-#~ msgstr "Aktivigi/malaktivigi trajtojn"
-
-#~ msgid "The number of items in \"My latest tweets\" widget. Select 0 to disable."
-#~ msgstr "La nombro da eroj en la umaĵo \"Miaj plej freŝaj Twitter-afiŝoj\". Elekti 0 por malaktivigi."
-
-#~ msgid "Twitter widget"
-#~ msgstr "Twitter-umaĵo"
-
-#~ msgid "The number of related articles in single post mode"
-#~ msgstr "La nombro da rilataj artikoloj en apartafiŝa reĝimo"
-
-#~ msgid "Misc settings"
-#~ msgstr "Alia agordo"
-
-#~ msgid "The number of tags"
-#~ msgstr "La nombro da etikedoj"
-
-#~ msgid "The number of months in archive"
-#~ msgstr "La nombro da monatoj en arkivo"
-
-#~ msgid "The number of popular posts"
-#~ msgstr "La nombro da popularaj afiŝoj"
-
-#~ msgid "Popular posts"
-#~ msgstr "Popularaj afiŝoj"
-
-#~ msgid "The number of recent comments"
-#~ msgstr "La nombro da freŝaj komentoj"
-
-#~ msgid "Recent comments"
-#~ msgstr "Freŝaj komentoj"
-
-#~ msgid "Display javascript tabbed widget on the sidebar"
-#~ msgstr "Montri la JavaSCript-langeta umaĵo en la flankaĵo"
-
-#~ msgid "Tabbed widget"
-#~ msgstr "Kunlagetaj umaĵoj"
-
-#~ msgid "Tabbed widget settings"
-#~ msgstr "Kunlageta umaĵo-agordo"
-
-#~ msgid "Skin font"
-#~ msgstr "Etosa tiparo"
-
-#~ msgid "3 columns: Sidebars to the left"
-#~ msgstr "3 kolumnoj: flankaĵoj maldekstraj"
-
-#~ msgid "3 columns: Sidebars to the right"
-#~ msgstr "3 kolumnoj: flankaĵoj dekstraj"
-
-#~ msgid "3 columns"
-#~ msgstr "3 kolumnoj"
-
-#~ msgid "2 columns: Sidebar to the left"
-#~ msgstr "2 kolumnoj: flankaĵo maldekstra"
-
-#~ msgid "2 columns: Sidebar to the right"
-#~ msgstr "2 kolumnoj: flankaĵo dekstra"
-
-#~ msgid "1 column"
-#~ msgstr "1 kolumno"
-
-#~ msgid "Skin layout"
-#~ msgstr "Etosa prezento"
-
-#~ msgid "Fluid"
-#~ msgstr "Fluanta"
-
-#~ msgid "Fixed"
-#~ msgstr "Fiksita"
-
-#~ msgid "Skin width"
-#~ msgstr "Etosa larĝo"
-
-#~ msgid "Grey"
-#~ msgstr "Griza"
-
-#~ msgid "Red"
-#~ msgstr "Ruĝa"
-
-#~ msgid "Blue"
-#~ msgstr "Blua"
-
-#~ msgid "Green"
-#~ msgstr "Verda"
-
-#~ msgid "Skin color"
-#~ msgstr "Etosa koloro"
-
-#~ msgid "Enter image URL to display a logo"
-#~ msgstr "Enmeti bildon-URL-on por montri devizon."
-
-#~ msgid "Related Posts"
-#~ msgstr "Rilataj afiŝoj"
-
-#~ msgid "Related Links"
-#~ msgstr "Rilataj ligiloj"
-
-#~ msgid "Attending this event"
-#~ msgstr "Ĉeestanta la okazaĵon"
-
-#~ msgid "Linkback"
-#~ msgstr "Mencio"
-
-#~ msgid "Post bottom"
-#~ msgstr "Afiŝa fundo"
-
-#~ msgid "Posts by"
-#~ msgstr "Afiŝita de"
-
-#~ msgid "entry"
-#~ msgstr "afiŝo"
-
-#~ msgid "This %1$s was posted by %2$s on %3$s at %4$s. Follow any responses to this post through %5$s."
-#~ msgstr "La %1$s estis afiŝita de %2$s je %3$s je %4$s. Respondoj al la afiŝoj estas sekveblaj per %5$s."
-
-#~ msgid "Print article"
-#~ msgstr "Printi artikolon"
-
-#~ msgid "comments"
-#~ msgstr "komentoj"
-
-#~ msgid "comment"
-#~ msgstr "komento"
-
-#~ msgid "No comments"
-#~ msgstr "Neniuj komentoj"
-
-#~ msgid "Posted by"
-#~ msgstr "Afiŝita de"
-
-#~ msgid "Full widget set"
-#~ msgstr "Plena umaĵaro"
-
-#~ msgid "Alternative widget set"
-#~ msgstr "Alternativa umaĵaro"
-
-#~ msgid "Recommended widget set"
-#~ msgstr "Rekomendita umaĵaro"
-
-#~ msgid "<i class=\"fa fa-tags\"></i>"
-#~ msgstr "<i class=\"fa fa-tags\"></i>"
-
-#~ msgid "Menu Top"
-#~ msgstr "Menua supraĵo"
-
-#~ msgid "Item Single"
-#~ msgstr "Unuopa afiŝo"
-
-#~ msgid "Image / Blog logo"
-#~ msgstr "Bildo / Bloga emblemo"
-
-#~ msgid "Next &raquo;"
-#~ msgstr "Sekva →"
-
-#~ msgid "Upload now &raquo;"
-#~ msgstr "Tuj alŝuti →"
-
-#~ msgid "Change &raquo;"
-#~ msgstr "Ŝanĝi →"
-
-#~ msgid "Blog title"
-#~ msgstr "Bloga titolo"
-
-#~ msgid "Blog tagline"
-#~ msgstr "Bloga devizo"
+#~ msgid "Convert your DB to UTF-8 - DB only."
+#~ msgstr "Ĝisdatigi vian datumbazon al UTF-8 - nurdatumbaze"
