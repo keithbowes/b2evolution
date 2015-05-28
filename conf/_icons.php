@@ -507,7 +507,7 @@ function get_icon_info( $name )
 
 		case 'bullet_black':
 		case 'bullet_full': return array(
-			'alt'  => '&bull;',
+			'alt'  => '&#149;',
 			'size' => array( 9, 9 ),
 			'xy' => array( 96, 176 ),
 			'fa' => 'circle',
@@ -528,56 +528,56 @@ function get_icon_info( $name )
 			'color' => '#999'
 		);
 		case 'bullet_blue': return array(
-			'alt'  => '&bull;',
+			'alt'  => '&#149;',
 			'size' => array( 9, 9 ),
 			'xy' => array( 32, 192 ),
 			'fa' => 'circle',
 			'color' => '#00F'
 		);
 		case 'bullet_red': return array(
-			'alt'  => '&bull;',
+			'alt'  => '&#149;',
 			'size' => array( 9, 9 ),
 			'xy' => array( 48, 192 ),
 			'fa' => 'circle',
 			'color' => '#F00'
 		);
 		case 'bullet_orange': return array(
-			'alt'  => '&bull;',
+			'alt'  => '&#149;',
 			'size' => array( 9, 9 ),
 			'xy' => array( 64, 192 ),
 			'fa' => 'circle',
 			'color' => '#F60'
 		);
 		case 'bullet_green': return array(
-			'alt'  => '&bull;',
+			'alt'  => '&#149;',
 			'size' => array( 9, 9 ),
 			'xy' => array( 80, 192 ),
 			'fa' => 'circle',
 			'color' => '#5cb85c'
 		);
 		case 'bullet_yellow': return array(
-			'alt'  => '&bull;',
+			'alt'  => '&#149;',
 			'size' => array( 9, 9 ),
 			'xy' => array( 96, 192 ),
 			'fa' => 'circle',
 			'color' => '#FFF000'
 		);
 		case 'bullet_brown': return array(
-			'alt'  => '&bull;',
+			'alt'  => '&#149;',
 			'size' => array( 9, 9 ),
 			'xy' => array( 112, 192 ),
 			'fa' => 'circle',
 			'color' => '#900'
 		);
 		case 'bullet_white': return array(
-			'alt'  => '&bull;',
+			'alt'  => '&#149;',
 			'size' => array( 9, 9 ),
 			'xy' => array( 0, 192 ),
 			'fa' => 'circle-thin',
 			'color' => '#CCC'
 		);
 		case 'bullet_magenta': return array(
-			'alt'  => '&bull;',
+			'alt'  => '&#149;',
 			'size' => array( 9, 9 ),
 			'xy' => array( 16, 192 ),
 			'fa' => 'circle',
