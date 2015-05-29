@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2015-05-28 22:43-0400\nPO-Revision-Date: 2015-05-28 22:47-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2015-05-29 00:01-0400\nPO-Revision-Date: 2015-05-29 00:04-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 'Adm' => '[A]',
 'Blg' => '^',
 'Folder' => 'Dosierujo',
@@ -235,7 +235,7 @@ $trans['eo'] = array(
 'Back to profile' => 'Reen al profilo',
 'You must activate your account before you can report another user. <b>See below:</b>' => 'Vi devas aktivigi vian konton antaŭ ol vi povas denunci uzanton. <b>Vidi sube:</b>',
 'Please select the correct report reason!' => 'Bonvolu elekti ĝustan kialon.',
-'You have also blocked this user from contacting you in the future.' => 'Vi baris tiun uzanton, ke tiu uzanto ne plu povas kontakti vin.',
+'You have also blocked this user from contacting you in the future.' => 'Vi baris por ke tiu uzanto ne plu povu kontakti vin.',
 'The user was reported.' => 'La uzanto denunciĝis.',
 'You have also unblocked this user. He will be able to contact you again in the future.' => 'Vi ankaŭ malbaris la uzanton. La uzanto denove povos kontakti vin.',
 'The report was removed.' => 'La denunco foriĝis.',
@@ -3232,7 +3232,7 @@ $trans['eo'] = array(
 'You have successfuly left the &laquo;%s&raquo; conversation!' => 'Vi sukcese forlasis la kunparolon «%s».',
 'You have successfuly closed the &laquo;%s&raquo; conversation!' => 'Vi sukcese fermis la kunparolon «%s».',
 '&laquo;%s&raquo; was blocked.' => '«%s» estis barita.',
-'You have blocked this user from contacting you.' => 'Vi baris tiun uzanton, ke tiu uzanto ne plu povas kontakti vin.',
+'You have blocked this user from contacting you.' => 'Vi baris por ke tiu uzanto ne plu povu kontakti vin.',
 'You have unblocked this user so he can contact you again.' => 'Vi malbaris la uzanton. La uzanto denove povos kontakti vin.',
 'Message deleted.' => 'Mesaĝo forigita.',
 'You are about to delete this message. ' => 'Vi estas forigonta ĉi tiun mesaĝon.',
