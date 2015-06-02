@@ -196,11 +196,12 @@ function autoform_display_field( $parname, $parmeta, & $Form, $set_type, $Obj, $
 			case 'Settings':
 				// NOTE: this assumes we come here only on recursion or with $use_value set..!
 				$set_value = $Obj->Settings->get( $parname );
-				$error_value = $Obj->PluginSettingsValidateSet( $tmp_params = array(
+				$tmp_params = array(
 					'name' => $parname,
 					'value' => & $set_value,
 					'meta' => $parmeta,
-					'action' => 'display' ) );
+					'action' => 'display' );
+				$error_value = $Obj->PluginSettingsValidateSet( $tmp_params ); 
 				break;
 
 			default:

@@ -77,12 +77,12 @@ title: <?php
 link: <?php
 			$Blog->disp( 'lastcommentsurl', 'xml' );
 			param('p');
-			if (p)
+			if ($p)
 				echo "&p=$p";
 
 ?>
 
-language: <?php $Blog->disp( 'locale', 'xml' ) ?>
+language: <?php $Item->disp( 'locale', 'xml' ) ?>
 
 generator: <?php printf("%s %s\n", $app_name, $app_version); ?>
 docs: http://www.aaronsw.com/2002/rss30
@@ -124,6 +124,6 @@ guid: c<?php $Comment->ID() ?>@<?php echo $baseurl ?>
 
 description: <?php echo $content; ?>
 
-link: <?php $Comment->permanent_url(); ?>
+link: <?php echo html_entity_decode($Comment->get_permanent_url(), ENT_QUOTES, 'UTF-8'); ?>
 
 		<?php } /* End of comment loop. */ ?>

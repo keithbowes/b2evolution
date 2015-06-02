@@ -3839,6 +3839,7 @@ class Comment extends DataObject
 	 */
 	function reply_link( $before = ' ', $after = ' ', $text = '#', $title = '#', $class = '' )
 	{
+		global $use_strict;
 		if( ! is_logged_in( false ) )
 		{
 			//return false;
@@ -3886,7 +3887,8 @@ class Comment extends DataObject
 		echo $before;
 
 		// Display a link
-		echo '<a href="'.$url.'" title="'.$title.'"'.$class.' rel="'.$this->ID.'">'.$text.'</a>';
+		$relattr = $use_strict ? 'rel' : 'data-link-id';
+		echo '<a href="'.$url.'" title="'.$title.'"'.$class.' ' . $relattr . '="'.$this->ID.'">'.$text.'</a>';
 
 		echo $after;
 

@@ -130,7 +130,7 @@ if( $params['disp_comment_form'] && $Item->can_comment( NULL, NULL, '#', $params
 			}
 			if( empty($comment_author_url) )
 			{	// Even if we have a blank cookie, let's reset this to remind the bozos what it's for
-				$comment_author_url = 'http://';
+				$comment_author_url = supports_xhtml() ? 'http://' : '';
 			}
 
 			$comment_content =  $params['default_text'];

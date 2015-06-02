@@ -77,5 +77,5 @@ while( $Comment = & $CommentList->get_next( false ) )
 		html_entity_decode($Comment->Item->title, ENT_QUOTES, 'UTF-8')
 	);
 	echo "\t";
-	$Comment->permanent_url();
+	echo html_entity_decode($Comment->get_permanent_url(), ENT_QUOTES, 'UTF-8');
 }

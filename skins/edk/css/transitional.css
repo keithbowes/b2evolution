@@ -13,6 +13,10 @@
   padding: 0.23em;
 }
 
+a:hover {
+  color: fuchsia;
+}
+
 body,
 html {
   height: 100%;
@@ -206,6 +210,12 @@ input[type="search"]:hover {
   border-top: thin dotted black;
   font-family: monospace;
   padding-top: 0.2em;
+}
+
+.meta a:hover,
+.search_info a:hover {
+  background-color: aqua;
+  color: fuchsia;
 }
 
 .note,
