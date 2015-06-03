@@ -498,7 +498,7 @@ class Group extends DataObject
 	/**
 	 * Delete object from DB.
 	 */
-	function dbdelete()
+	function dbdelete($ignore_restrictions = array())
 	{
 		global $DB;
 
@@ -509,7 +509,7 @@ class Group extends DataObject
 		$GroupSettings->delete( $this->ID );
 		$GroupSettings->dbupdate( $this->ID );
 
-		parent::dbdelete();
+		parent::dbdelete($ignore_restrictions);
 
 		$DB->commit();
 	}
