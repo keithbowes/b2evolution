@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net\n"
-"POT-Creation-Date: 2015-06-08 16:00-0400\n"
-"PO-Revision-Date: 2015-06-08 16:13-0400\n"
+"POT-Creation-Date: 2015-06-09 19:20-0400\n"
+"PO-Revision-Date: 2015-06-09 19:31-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -211,7 +211,7 @@ msgstr "TTT-ejo"
 #: ../../../conf/_icons.php:378 ../../../conf/_icons.php:386
 #: ../../../conf/_icons.php:394
 #: ../../../inc/_core/ui/forms/_form.class.php:2588
-#: ../../../inc/collections/collections.ctrl.php:53
+#: ../../../inc/collections/collections.ctrl.php:58
 #: ../../../inc/files/views/_file_browse.view.php:349
 #: ../../../inc/items/views/_file_create_posts.form.php:154
 #: ../../../inc/users/model/_user.funcs.php:3303
@@ -472,7 +472,7 @@ msgstr "Dekstro"
 #: ../../../skins/bootstrap_forums_skin/_search.disp.php:52
 #: ../../../skins/bootstrap_forums_skin/_skin.class.php:484
 #: ../../../skins/bootstrap_gallery_skin/_skin.class.php:408
-#: ../../../skins/bootstrap_main_skin/_skin.class.php:454
+#: ../../../skins/bootstrap_main_skin/_skin.class.php:459
 #: ../../../skins/bootstrap_manual_skin/_skin.class.php:270
 #: ../../../skins/forums/_posts.disp.php:62
 #: ../../../skins/forums/_posts.disp.php:201
@@ -508,7 +508,7 @@ msgstr "Antaŭa"
 #: ../../../skins/bootstrap_forums_skin/_search.disp.php:53
 #: ../../../skins/bootstrap_forums_skin/_skin.class.php:485
 #: ../../../skins/bootstrap_gallery_skin/_skin.class.php:409
-#: ../../../skins/bootstrap_main_skin/_skin.class.php:455
+#: ../../../skins/bootstrap_main_skin/_skin.class.php:460
 #: ../../../skins/bootstrap_manual_skin/_skin.class.php:271
 #: ../../../skins/forums/_posts.disp.php:63
 #: ../../../skins/forums/_posts.disp.php:202
@@ -713,68 +713,68 @@ msgstr "Forigi spamon"
 msgid "English (US) utf-8"
 msgstr "Angla (US) laŭ UTF-8"
 
-#: ../../../default.php:77 ../../../install/debug.php:282
+#: ../../../default.php:86 ../../../install/debug.php:282
 #: ../../../install/index.php:310 ../../../skins_adm/conf_error.main.php:41
 #: ../../../skins_adm/conf_error.main.template.php:41
 msgid "Your site"
 msgstr "Via kolektaro"
 
-#: ../../../default.php:94
+#: ../../../default.php:103
 msgid "Welcome to b2evolution"
 msgstr "Bonvenon al b2evolution"
 
-#: ../../../default.php:104
+#: ../../../default.php:113
 msgid "b2evolution is installed and ready but you haven't created any content collection on this system yet."
 msgstr "b2evolution estas instalita kaj preta, sed vi ankoraŭ ne kreis enhavan kolekton en la sistemo."
 
-#: ../../../default.php:108
+#: ../../../default.php:116
 msgid "Create a first collection"
 msgstr "Krei unuan kolekton"
 
-#: ../../../default.php:113
+#: ../../../default.php:120
 msgid "You have successfully installed b2evolution."
 msgstr "Vi sukcese instalis b2evolution-on."
 
-#: ../../../default.php:115
+#: ../../../default.php:122
 msgid "You haven't set a default collection yet. Thus, you see this default page."
 msgstr "Vi ankoraŭ ne elektis aŭtomatan kolekton. Tial vi vidas ĉi tiun aprioran paĝon."
 
-#: ../../../default.php:120
+#: ../../../default.php:127
 msgid "Set a default collection"
 msgstr "Agordi aŭtomatan kolekton"
 
-#: ../../../default.php:129
+#: ../../../default.php:136
 msgid "Collections on this system"
 msgstr "Kolektoj en la sistemo"
 
-#: ../../../default.php:139
+#: ../../../default.php:146
 #, php-format
 msgid "Blog #%d"
 msgstr "Kolekto n-ro %d"
 
-#: ../../../default.php:152
+#: ../../../default.php:159
 msgid "Add a new collection"
 msgstr "Aldoni novan kolekton"
 
-#: ../../../default.php:158 ../../../install/index.php:1148
+#: ../../../default.php:165 ../../../install/index.php:1148
 #: ../../../skins_adm/conf_error.main.php:74
 #: ../../../skins_adm/conf_error.main.template.php:69
 msgid "GitHub page"
 msgstr "Github-paĝo"
 
-#: ../../../default.php:160 ../../../install/index.php:1150
+#: ../../../default.php:167 ../../../install/index.php:1150
 #: ../../../skins_adm/conf_error.main.php:76
 #: ../../../skins_adm/conf_error.main.template.php:71
 msgid "Find a host"
 msgstr "Trovi gastiganton"
 
-#: ../../../default.php:161 ../../../install/debug.php:385
+#: ../../../default.php:168 ../../../install/debug.php:385
 #: ../../../install/index.php:1151 ../../../skins_adm/conf_error.main.php:77
 #: ../../../skins_adm/conf_error.main.template.php:72
 msgid "Online manual"
 msgstr "Reta manlibro"
 
-#: ../../../default.php:162 ../../../install/index.php:1152
+#: ../../../default.php:169 ../../../install/index.php:1152
 #: ../../../skins_adm/conf_error.main.php:78
 #: ../../../skins_adm/conf_error.main.template.php:73
 msgid "Help forums"
@@ -1567,30 +1567,30 @@ msgstr "La dosiero tro grandas: %s. La maksimumo permesita estas: %s."
 msgid "We cannot open the folder %s. PHP needs execute permissions on this folder."
 msgstr "Ne eblas malfermi la dosierujon %s. PHP postulas plenumajn permesojn por tiu dosierujo."
 
-#: ../../../htsrv/quick_upload.php:391
+#: ../../../htsrv/quick_upload.php:397
 #, php-format
 msgid "%s was renamed to %s. Would you like to replace %s with the new version instead?"
 msgstr "%s alinomiĝis al %s. Ĉu vi ŝatus anstataŭe anstataŭigi %s per la nova eldono?"
 
 # TRANS: will be displayed as title in case of renamed file uploads
-#: ../../../htsrv/quick_upload.php:393
+#: ../../../htsrv/quick_upload.php:399
 #: ../../../inc/files/views/_file_upload.view.php:220
 msgid "File name changed."
 msgstr "Dosiernomo ŝanĝiĝis."
 
-#: ../../../htsrv/quick_upload.php:396
+#: ../../../htsrv/quick_upload.php:402
 #: ../../../inc/files/views/_file_upload.view.php:263
 #, php-format
 msgid "Replace the old version %s with the new version %s and keep old version as %s."
 msgstr "Anstataŭigi la malnovan eldonon %s per la nova %s kaj konservi la malnovan al %s."
 
-#: ../../../htsrv/quick_upload.php:399
+#: ../../../htsrv/quick_upload.php:405
 #: ../../../inc/files/views/_file_upload.view.php:267
 #, php-format
 msgid "Don't touch the old version and keep the new version as %s."
 msgstr "Teni la malnovan eldonan kaj konservi la novan al %s."
 
-#: ../../../htsrv/quick_upload.php:455
+#: ../../../htsrv/quick_upload.php:459
 msgid "The file could not be saved!"
 msgstr "La novan dosieron ne eblis konserviĝi!"
 
@@ -1846,7 +1846,7 @@ msgstr "Foliumi / vidi uzantojn estas nune permesite por anonimaj uzantoj"
 #: ../../../inc/collections/coll_settings.ctrl.php:441
 #: ../../../inc/collections/coll_settings.ctrl.php:448
 #: ../../../inc/collections/coll_settings.ctrl.php:455
-#: ../../../inc/collections/collections.ctrl.php:346
+#: ../../../inc/collections/collections.ctrl.php:351
 #: ../../../inc/files/file_settings.ctrl.php:189
 #: ../../../inc/files/file_types.ctrl.php:194
 #: ../../../inc/files/model/_file.funcs.php:1157
@@ -2200,7 +2200,7 @@ msgstr "Grupaj atingopermesoj"
 
 #: ../../../inc/_core/__core.init.php:1152
 #: ../../../inc/collections/_collections.init.php:863
-#: ../../../inc/collections/collections.ctrl.php:347
+#: ../../../inc/collections/collections.ctrl.php:352
 msgid "Common Settings"
 msgstr "Kutima agordo"
 
@@ -3721,7 +3721,7 @@ msgstr "AVIZO: Forigi ĉi tiu objekto ankaŭ forigos:"
 
 #: ../../../inc/_core/model/dataobjects/_dataobject.class.php:768
 #: ../../../inc/_core/ui/results/_resultsel.class.php:522
-#: ../../../inc/collections/collections.ctrl.php:459
+#: ../../../inc/collections/collections.ctrl.php:464
 #: ../../../inc/plugins/plugins.ctrl.php:947
 msgid "THIS CANNOT BE UNDONE!"
 msgstr "Ne Malfareble!"
@@ -3729,7 +3729,7 @@ msgstr "Ne Malfareble!"
 #: ../../../inc/_core/model/dataobjects/_dataobject.class.php:781
 #: ../../../inc/_core/ui/results/_resultsel.class.php:536
 #: ../../../inc/collections/_collections.init.php:1052
-#: ../../../inc/collections/collections.ctrl.php:476
+#: ../../../inc/collections/collections.ctrl.php:481
 #: ../../../inc/messaging/_messaging.init.php:535
 #: ../../../inc/messaging/_messaging.init.php:642
 #: ../../../inc/plugins/plugins.ctrl.php:949 ../../../install/index.php:1070
@@ -3738,7 +3738,7 @@ msgstr "Mi certas."
 
 #: ../../../inc/_core/model/dataobjects/_dataobject.class.php:791
 #: ../../../inc/_core/ui/results/_resultsel.class.php:544
-#: ../../../inc/collections/collections.ctrl.php:488
+#: ../../../inc/collections/collections.ctrl.php:493
 #: ../../../install/index.php:1075
 msgid "CANCEL"
 msgstr "NULIGI"
@@ -5295,9 +5295,9 @@ msgstr "La kategorio «%s» ne povis esti malfiksita."
 #: ../../../inc/chapters/chapters.ctrl.php:467
 #: ../../../inc/collections/_collections.init.php:674
 #: ../../../inc/collections/coll_settings.ctrl.php:364
-#: ../../../inc/collections/collections.ctrl.php:345
-#: ../../../inc/collections/collections.ctrl.php:360
-#: ../../../inc/collections/collections.ctrl.php:369
+#: ../../../inc/collections/collections.ctrl.php:350
+#: ../../../inc/collections/collections.ctrl.php:365
+#: ../../../inc/collections/collections.ctrl.php:374
 #: ../../../inc/comments/_comments.ctrl.php:180
 #: ../../../inc/dashboard/dashboard.ctrl.php:49
 #: ../../../inc/items/item_statuses.ctrl.php:39
@@ -5550,7 +5550,7 @@ msgid "Can use APIs"
 msgstr "Povas uzi API-ojn"
 
 #: ../../../inc/collections/_collections.init.php:472
-#: ../../../inc/collections/model/_blog.funcs.php:1700
+#: ../../../inc/collections/model/_blog.funcs.php:1702
 #: ../../../inc/collections/views/_coll_comments.form.php:206
 #: ../../../inc/collections/views/_coll_general.form.php:175
 #: ../../../inc/items/views/_itemtype.form.php:77
@@ -5558,7 +5558,7 @@ msgid "Never"
 msgstr "Neniam"
 
 #: ../../../inc/collections/_collections.init.php:473
-#: ../../../inc/collections/model/_blog.funcs.php:1694
+#: ../../../inc/collections/model/_blog.funcs.php:1696
 msgid "Always"
 msgstr "Ĉiam"
 
@@ -5595,7 +5595,7 @@ msgid "b2evolution on facebook"
 msgstr "b2evolution en Facebook"
 
 #: ../../../inc/collections/_collections.init.php:633
-#: ../../../inc/collections/collections.ctrl.php:334
+#: ../../../inc/collections/collections.ctrl.php:339
 #: ../../../inc/dashboard/dashboard.ctrl.php:57
 #: ../../../inc/items/item_tags.ctrl.php:234
 #: ../../../inc/slugs/slugs.ctrl.php:146
@@ -5608,7 +5608,7 @@ msgid "Site Dashboard"
 msgstr "Kolektaro-stirilo"
 
 #: ../../../inc/collections/_collections.init.php:646
-#: ../../../inc/collections/collections.ctrl.php:335
+#: ../../../inc/collections/collections.ctrl.php:340
 msgid "Site Settings"
 msgstr "Kolektara agordo"
 
@@ -5936,81 +5936,85 @@ msgstr "Uzanto-atingopermesoj"
 msgid "Group permissions"
 msgstr "Grupaj atingopermesoj"
 
+#: ../../../inc/collections/collections.ctrl.php:53
+msgid "You don't have permission to create a collection."
+msgstr "Vi ne rajtas krei kolekton."
+
 # TRANS: %s can become "Standard blog", "Photoblog", "Group blog" or "Forum"
-#: ../../../inc/collections/collections.ctrl.php:64
-#: ../../../inc/collections/collections.ctrl.php:81
+#: ../../../inc/collections/collections.ctrl.php:69
+#: ../../../inc/collections/collections.ctrl.php:86
 #: ../../../inc/collections/views/_coll_general.form.php:32
 #: ../../../inc/skins/views/_coll_sel_skin.view.php:22
 #, php-format
 msgid "New %s"
 msgstr "Nova %s"
 
-#: ../../../inc/collections/collections.ctrl.php:133
+#: ../../../inc/collections/collections.ctrl.php:138
 #, php-format
 msgid "Blog &laquo;%s&raquo; deleted."
 msgstr "Kolekto «%s» forigita."
 
-#: ../../../inc/collections/collections.ctrl.php:156
+#: ../../../inc/collections/collections.ctrl.php:161
 #, php-format
 msgid "Cannot delete Blog &laquo;%s&raquo;"
 msgstr "Ne eblas forigi kolekton «%s»."
 
-#: ../../../inc/collections/collections.ctrl.php:223
+#: ../../../inc/collections/collections.ctrl.php:228
 msgid "Blog settings updated."
 msgstr "Dosiera agordo aktualiĝis."
 
-#: ../../../inc/collections/collections.ctrl.php:253
+#: ../../../inc/collections/collections.ctrl.php:258
 #: ../../../inc/sessions/model/_goalcat.class.php:71
 #: ../../../inc/skins/model/_skin.class.php:191
 msgid "Invalid color code."
 msgstr "Nevalida kolora kodo."
 
-#: ../../../inc/collections/collections.ctrl.php:296
+#: ../../../inc/collections/collections.ctrl.php:301
 #, php-format
 msgid "Reload-page timeout must be between %d and %d seconds."
 msgstr "Tempoj de reŝargo devas esti inter %d kaj %d sekundoj."
 
-#: ../../../inc/collections/collections.ctrl.php:316
+#: ../../../inc/collections/collections.ctrl.php:321
 #: ../../../inc/tools/tools.ctrl.php:319
 msgid "Site settings updated."
 msgstr "Kolektara agordo aktualiĝis."
 
-#: ../../../inc/collections/collections.ctrl.php:361
+#: ../../../inc/collections/collections.ctrl.php:366
 #: ../../../inc/collections/model/_blog.funcs.php:1400
 msgid "New Collection"
 msgstr "Nova kolekto"
 
-#: ../../../inc/collections/collections.ctrl.php:422
+#: ../../../inc/collections/collections.ctrl.php:427
 msgid "WARNING: You are about to delete the default collection."
 msgstr "Averto: Vi estas forigonta ĉi tiun aprioran kolekton."
 
-#: ../../../inc/collections/collections.ctrl.php:426
+#: ../../../inc/collections/collections.ctrl.php:431
 msgid "WARNING: You are about to delete the collection used for info pages."
 msgstr "Averto: Vi estas forigonta la kolekton uzatan por informaj paĝoj."
 
-#: ../../../inc/collections/collections.ctrl.php:430
+#: ../../../inc/collections/collections.ctrl.php:435
 msgid "WARNING: You are about to delete the collection used for login/registration pages."
 msgstr "Averto: Vi estas forigonta la kolekton uzatan por ensalutaj kaj registriĝaj paĝoj."
 
-#: ../../../inc/collections/collections.ctrl.php:434
+#: ../../../inc/collections/collections.ctrl.php:439
 msgid "WARNING: You are about to delete the collection used for messaging pages."
 msgstr "Averto: Vi estas forigonta la kolekton uzatan por mesaĝo-paĝoj."
 
-#: ../../../inc/collections/collections.ctrl.php:441
+#: ../../../inc/collections/collections.ctrl.php:446
 #, php-format
 msgid "Deleting this collection will also delete ALL its categories, posts, comments and ALL its attached files in the collection's <a %s>fileroot</a> !"
 msgstr "Forigi la kolekton ankaŭ forigos ĉiujn el siaj kategorioj, afiŝoj, komentoj, kaj almetaĵoj en la <a %s>kolekto-dosierradiko</a>."
 
-#: ../../../inc/collections/collections.ctrl.php:446
+#: ../../../inc/collections/collections.ctrl.php:451
 msgid "Deleting this collection will also delete ALL its categories, posts, comments and ALL its attached files in the collection's fileroot !"
 msgstr "Forigi la kolekton ankaŭ forigos ĉiujn el siaj kategorioj, afiŝoj, komentoj, almetaĵoj en la kolekto-dosierradiko."
 
-#: ../../../inc/collections/collections.ctrl.php:451
+#: ../../../inc/collections/collections.ctrl.php:456
 #, php-format
 msgid "Delete collection [%s]?"
 msgstr "Cu forigi la kolekton [%s]?"
 
-#: ../../../inc/collections/collections.ctrl.php:457
+#: ../../../inc/collections/collections.ctrl.php:462
 msgid "Note: Some files in this collection's fileroot may be linked to users or to other collections posts and comments. Those files will ALSO be deleted, which may be undesirable!"
 msgstr "Noto: Iuj dosieroj en la kolekto-dosierradiko eble ligiĝos al uzantoj aŭ aliaj afiŝoj kaj komentoj de diversaj kolektoj. Ankaŭ tiuj dosieroj foriĝos, kio eble ne estas dezirinda."
 
@@ -6492,7 +6496,7 @@ msgstr "Nur anoj"
 #: ../../../inc/collections/model/_blog.funcs.php:967
 #: ../../../inc/collections/model/_blog.funcs.php:988
 #: ../../../inc/collections/model/_blog.funcs.php:1055
-#: ../../../inc/collections/model/_blog.funcs.php:1698
+#: ../../../inc/collections/model/_blog.funcs.php:1700
 #: ../../../inc/collections/views/_coll_general.form.php:159
 #: ../../../inc/collections/views/_coll_group_perm.form.php:115
 #: ../../../inc/collections/views/_coll_user_perm.form.php:119
@@ -6745,7 +6749,7 @@ msgid "Caching"
 msgstr "Tenejo"
 
 #: ../../../inc/collections/model/_blog.funcs.php:1586
-#: ../../../inc/collections/model/_blog.funcs.php:1776
+#: ../../../inc/collections/model/_blog.funcs.php:1778
 #: ../../../inc/files/views/_file_list.inc.php:436
 msgid "Edit properties..."
 msgstr "Redakti ecojn…"
@@ -6766,19 +6770,19 @@ msgstr "La bloka tenejo estas aktivigita. Iuj umaĵoj eble ne tuj ĝisdatiĝos."
 msgid "Block caching is off. Server performance will not be optimal."
 msgstr "La bloka tenejo estas malaktivigita. Servila rendimento ne estas plej bona."
 
-#: ../../../inc/collections/model/_blog.funcs.php:1696
+#: ../../../inc/collections/model/_blog.funcs.php:1698
 msgid "Logged in"
 msgstr "Ensalutita"
 
-#: ../../../inc/collections/model/_blog.funcs.php:1725
+#: ../../../inc/collections/model/_blog.funcs.php:1727
 msgid "The blog is a favorite."
 msgstr "La kolekto estas favorata."
 
-#: ../../../inc/collections/model/_blog.funcs.php:1726
+#: ../../../inc/collections/model/_blog.funcs.php:1728
 msgid "The blog is not a favorite."
 msgstr "La kolekto ne estas favorata."
 
-#: ../../../inc/collections/model/_blog.funcs.php:1781
+#: ../../../inc/collections/model/_blog.funcs.php:1783
 msgid "Delete this blog..."
 msgstr "Forigi ĉi tiun kolekton…"
 
@@ -12155,6 +12159,14 @@ msgid "Create!"
 msgstr "Krei."
 
 #: ../../../inc/files/views/_file_browse.view.php:396
+msgid "Choose File"
+msgstr "Elekti dosieron"
+
+#: ../../../inc/files/views/_file_browse.view.php:398
+msgid "no file selected"
+msgstr "neniu dosiero elektita"
+
+#: ../../../inc/files/views/_file_browse.view.php:399
 msgid "Quick upload!"
 msgstr "Rapida alŝutado."
 
@@ -19859,6 +19871,10 @@ msgstr "Ujoj"
 msgid "This skin does not provide any configurable settings."
 msgstr "Ĉi tiu etoso ne donas ajnan agordon."
 
+#: ../../../inc/skins/_skin.funcs.php:1884
+msgid "Skin settings"
+msgstr "Etosa agordo"
+
 #: ../../../inc/skins/model/_skin.class.php:87
 #, php-format
 msgid "%d blogs using this skin"
@@ -19924,8 +19940,8 @@ msgstr "Antaŭvidi kolekton kun ĉi tiu etoso en nova fenestro"
 #: ../../../skins/bootstrap_forums_skin/_skin.class.php:489
 #: ../../../skins/bootstrap_gallery_skin/_skin.class.php:412
 #: ../../../skins/bootstrap_gallery_skin/_skin.class.php:413
-#: ../../../skins/bootstrap_main_skin/_skin.class.php:458
-#: ../../../skins/bootstrap_main_skin/_skin.class.php:459
+#: ../../../skins/bootstrap_main_skin/_skin.class.php:463
+#: ../../../skins/bootstrap_main_skin/_skin.class.php:464
 #: ../../../skins/bootstrap_manual_skin/_skin.class.php:274
 #: ../../../skins/bootstrap_manual_skin/_skin.class.php:275
 #: ../../../skins/pureforums/_skin.class.php:461
@@ -32455,8 +32471,8 @@ msgid "E-g: #0000ff for blue"
 msgstr "Ekz-e: #0000ff por bluo"
 
 #: ../../../skins/bootstrap_main_skin/_skin.class.php:94
-msgid "Note color"
-msgstr "Noto-koloro"
+msgid "Muted text color"
+msgstr "Koloro de negrava teksto"
 
 #: ../../../skins/bootstrap_main_skin/_skin.class.php:104
 msgid "Front Page Main Area Overlay"
@@ -34301,74 +34317,77 @@ msgstr "afiŝita en "
 msgid "in"
 msgstr "en"
 
-#~ msgid "The blog setting has been updated."
-#~ msgstr "La kolekto-agordo aktualiĝis."
-
-#~ msgid "Widget block caching has been enabled."
-#~ msgstr "La bloka tenejo umaĵa estas aktivigita."
-
-#~ msgid "Front page background image"
-#~ msgstr "Fona bildo de la frontpaĝo"
-
-#~ msgid "Front page title color"
-#~ msgstr "Titola koloro de la frontpaĝo"
-
-#~ msgid "Front page text color"
-#~ msgstr "Teksta koloro de la frontpaĝo"
-
-#~ msgid "Front page link color"
-#~ msgstr "Ligila koloro de la frontpaĝo"
-
-#~ msgid "Front page main area background color"
-#~ msgstr "Fona koloro de la ĉefa areo de la frontpaĝo"
-
-#~ msgid "Front page main area background opacity"
-#~ msgstr "Maldiafanonivelo de la ĉefa areo de la frontpaĝo"
-
-#~ msgid "Main Area Width"
-#~ msgstr "Larĝo de la unuaranga areo"
-
-#~ msgid "Main Area Position"
-#~ msgstr "Pozicio de la unuaranga areo"
-
-#~ msgid "A correct SVN folder path must ends with \"/blogs/\""
-#~ msgstr "Gusta SVN-dosieruja vojo devas finiĝi per \"/blogs\""
-
-#~ msgid "Block this contact from contacting you."
-#~ msgstr "Baru, ke tiu uzanto plu povu kontakti vin."
-
-#~ msgid "new"
-#~ msgstr "nova"
-
-#~ msgid "Import messages"
-#~ msgstr "Importi mesaĝojn"
-
-#~ msgid "Import replies"
-#~ msgstr "Importi respondojn"
-
-#~ msgid "Import topics"
-#~ msgstr "Importi temojn"
-
-#~ msgid "Import forums"
-#~ msgstr "Importi forumojn"
-
-#~ msgid "Import users"
-#~ msgstr "Importi uzantojn"
-
-#~ msgid "User group mapping"
-#~ msgstr "Asignado de uzanto-grupoj"
-
-#~ msgid "Database connection"
-#~ msgstr "Datumbaza konekto"
-
-#~ msgid "This import step has already been processed."
-#~ msgstr "Tiu importo-paŝo jam estas farita."
-
-#~ msgid "The file %s is not writable."
-#~ msgstr "La dosiero %s ne estas skribebla."
+#~ msgid "emails through a message form that will NOT reveal my email address. [Admin]"
+#~ msgstr "retpoŝtmesaĝoj per mesaĝilo, kiu <strong>ne</strong> eldonos mian retpoŝtadreson."
 
 #~ msgid "Extracting language file for %s..."
 #~ msgstr "Malpakiĝo de la lingvo-dosiero por %s…"
 
-#~ msgid "emails through a message form that will NOT reveal my email address. [Admin]"
-#~ msgstr "retpoŝtmesaĝoj per mesaĝilo, kiu <strong>ne</strong> eldonos mian retpoŝtadreson."
+#~ msgid "The file %s is not writable."
+#~ msgstr "La dosiero %s ne estas skribebla."
+
+#~ msgid "This import step has already been processed."
+#~ msgstr "Tiu importo-paŝo jam estas farita."
+
+#~ msgid "Database connection"
+#~ msgstr "Datumbaza konekto"
+
+#~ msgid "User group mapping"
+#~ msgstr "Asignado de uzanto-grupoj"
+
+#~ msgid "Import users"
+#~ msgstr "Importi uzantojn"
+
+#~ msgid "Import forums"
+#~ msgstr "Importi forumojn"
+
+#~ msgid "Import topics"
+#~ msgstr "Importi temojn"
+
+#~ msgid "Import replies"
+#~ msgstr "Importi respondojn"
+
+#~ msgid "Import messages"
+#~ msgstr "Importi mesaĝojn"
+
+#~ msgid "new"
+#~ msgstr "nova"
+
+#~ msgid "Block this contact from contacting you."
+#~ msgstr "Baru, ke tiu uzanto plu povu kontakti vin."
+
+#~ msgid "A correct SVN folder path must ends with \"/blogs/\""
+#~ msgstr "Gusta SVN-dosieruja vojo devas finiĝi per \"/blogs\""
+
+#~ msgid "Main Area Position"
+#~ msgstr "Pozicio de la unuaranga areo"
+
+#~ msgid "Main Area Width"
+#~ msgstr "Larĝo de la unuaranga areo"
+
+#~ msgid "Front page main area background opacity"
+#~ msgstr "Maldiafanonivelo de la ĉefa areo de la frontpaĝo"
+
+#~ msgid "Front page main area background color"
+#~ msgstr "Fona koloro de la ĉefa areo de la frontpaĝo"
+
+#~ msgid "Front page link color"
+#~ msgstr "Ligila koloro de la frontpaĝo"
+
+#~ msgid "Front page text color"
+#~ msgstr "Teksta koloro de la frontpaĝo"
+
+#~ msgid "Front page title color"
+#~ msgstr "Titola koloro de la frontpaĝo"
+
+#~ msgid "Front page background image"
+#~ msgstr "Fona bildo de la frontpaĝo"
+
+#~ msgid "Widget block caching has been enabled."
+#~ msgstr "La bloka tenejo umaĵa estas aktivigita."
+
+#~ msgid "The blog setting has been updated."
+#~ msgstr "La kolekto-agordo aktualiĝis."
+
+#~ msgid "Note color"
+#~ msgstr "Noto-koloro"
