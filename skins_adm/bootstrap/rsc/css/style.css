@@ -284,6 +284,7 @@ div.bPost {
   margin-left: 10px;
 }
 #comments_container div.bComment {
+  overflow: hidden;
   padding: 0;
   margin: 1ex;
   border: 1px solid #ddd;
@@ -854,7 +855,7 @@ h2.user_title {
   font-size: 14px;
   font-weight: normal;
   color: #999;
-  margin: 20px 0 10px;
+  margin: 40px 0 30px;
   display: flex;
   display: -webkit-flex;
   justify-content: space-around;
@@ -889,6 +890,10 @@ h2.user_title {
   background-color: #337ab7;
   color: #FFF;
 }
+.tool_steps .step.completed div {
+  background-color: #5cb85c;
+  color: #FFF;
+}
 .page_size_selector select {
   width: auto;
   display: inline-block;
@@ -911,6 +916,13 @@ h2.user_title {
 }
 #itemform_edit_workflow div.tile label {
   float: none;
+}
+#itemform_edit_workflow .form-group {
+  display: inline-block;
+  margin-right: 20px;
+}
+#itemform_edit_workflow .form-group .controls {
+  display: inline-block;
 }
 span.loader_img.loader_user_report,
 span.loader_img.loader_user_deldata {
