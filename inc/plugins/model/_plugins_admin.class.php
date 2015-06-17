@@ -1042,7 +1042,6 @@ class Plugins_admin extends Plugins
 				$DB->query( 'DELETE FROM T_items__prerendering WHERE 1=1' );
 				$ItemCache = & get_ItemCache();
 				$ItemCache->clear();
-				break;
 			}
 
 			return true;
