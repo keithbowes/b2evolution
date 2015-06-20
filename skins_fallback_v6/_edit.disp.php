@@ -171,10 +171,14 @@ $Form->begin_form( 'inskin', '', $form_params );
 		}
 	}
 
-?>
+	$Form->begin_fieldset( get_request_title( array_merge( array(
+			'edit_links_template' => array(
+				'before'              => '<span class="pull-right">',
+				'after'               => '</span>',
+				'advanced_link_class' => 'btn btn-info btn-sm',
+				'close_link_class'    => 'btn btn-default btn-sm',
+			) ), $params ) ) );
 
-
-	<?php
 	// ############################ POST CONTENTS #############################
 	// Title input:
 	$use_title = $edited_Item->get_type_setting( 'use_title' );
@@ -232,44 +236,51 @@ $Form->begin_form( 'inskin', '', $form_params );
 		$Form->hidden( 'content', $item_content );
 	}
 
-	global $display_item_settings_is_defined;
-	$display_item_settings_is_defined = false;
-	modules_call_method( 'display_item_settings', array( 'Form' => & $Form, 'Blog' => & $Blog, 'edited_Item' => & $edited_Item ) );
+	$Form->end_fieldset();
 
-	if( ! $display_item_settings_is_defined )
-	{
-		// ################### VISIBILITY / SHARING ###################
-		// Get those statuses which are not allowed for the current User to create posts in this blog
-		$exclude_statuses = array_merge( get_restricted_statuses( $Blog->ID, 'blog_post!', 'create' ), array( 'trash' ) );
-		// Get allowed visibility statuses
-		$sharing_options = get_visibility_statuses( 'radio-options', $exclude_statuses );
-		if( count( $sharing_options ) == 1 )
-		{ // Only one visibility status is available, don't show radio but set hidden field
-			$Form->hidden( 'post_status', $sharing_options[0][0] );
-		}
-		else
-		{ // Display visibiliy options
-			$Form->begin_fieldset( T_('Visibility / Sharing'), array( 'id' => 'itemform_visibility' ) );
-			$Form->switch_layout( 'linespan' );
-			visibility_select( $Form, $edited_Item->status );
-			$Form->switch_layout( NULL );
-			$Form->end_fieldset();
-		}
+	// ################### TEXT RENDERERS & CATEGORIES ###################
+	$item_renderer_checkboxes = $edited_Item->get_renderer_checkboxes();
+
+	if( ! empty( $item_renderer_checkboxes ) && $disp_edit_categories )
+	{ // Use two columns layout when we display text renderer checkboxes and categories blocks
+		$two_columns_layout = array(
+				'before'       => '<div class="row">',
+				'column_start' => '<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">',
+				'column_end'   => '</div>',
+				'after'        => '</div>',
+			);
+	}
+	else
+	{ // Don't use two columns layout 
+		$two_columns_layout = array(
+				'before'       => '',
+				'column_start' => '',
+				'column_end'   => '',
+				'after'        => '',
+			);
 	}
 
-	if( $disp_edit_categories )
-	{	// Display categories
-		cat_select( $Form, true, false );
-	}
+	echo $two_columns_layout['before'];
 
 	// ################### TEXT RENDERERS ###################
-	$item_renderer_checkboxes = $edited_Item->get_renderer_checkboxes();
-	if( !empty( $item_renderer_checkboxes ) )
+	if( ! empty( $item_renderer_checkboxes ) )
 	{
+		echo $two_columns_layout['column_start'];
 		$Form->begin_fieldset( T_('Text Renderers'), array( 'id' => 'itemform_renderers' ) );
 		echo $item_renderer_checkboxes;
 		$Form->end_fieldset();
+		echo $two_columns_layout['column_end'];
 	}
+
+	// ################### CATEGORIES ###################
+	if( $disp_edit_categories )
+	{ // Display categories
+		echo $two_columns_layout['column_start'];
+		cat_select( $Form, true, false );
+		echo $two_columns_layout['column_end'];
+	}
+
+	echo $two_columns_layout['after'];
 ?>
 
 <div class="clear"></div>
@@ -355,7 +366,7 @@ $Plugins->trigger_event( 'DisplayItemFormFieldset', array( 'Form' => & $Form, 'I
 <div class="center margin2ex">
 <?php // ------------------------------- ACTIONS ----------------------------------
 	echo '<div class="edit_actions">';
-	echo_publish_buttons( $Form, $creating, $edited_Item, true );
+	echo_item_status_buttons( $Form, $edited_Item );
 	echo '</div>';
 ?>
 </div>
@@ -365,7 +376,8 @@ $Form->end_form();
 
 
 // ####################### JS BEHAVIORS #########################
-echo_publishnowbutton_js();
+// JS code for status dropdown submit button
+echo_status_dropdown_button_js( 'post' );
 // New category input box:
 echo_onchange_newcat();
 echo_autocomplete_tags();
