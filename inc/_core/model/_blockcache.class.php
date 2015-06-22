@@ -249,7 +249,37 @@ class BlockCache
 		ob_end_flush();
 
 		// We use servertimenow because we may have used data that was loaded at the very start of this page
-		cacheproviderstore( $this->serialized_keys, $servertimenow.' '.$this->cached_page_content );
+		$this->cacheproviderstore( $this->serialized_keys, $servertimenow.' '.$this->cached_page_content );
+	}
+
+
+	/**
+	 * Store payload/data into the cache provider.
+	 *
+	 * @todo dh> This method should get removed from here, it's not limited to BlockCache.
+	 * @param mixed $key
+	 * @param mixed $payload
+	 * @param int Time to live in seconds (default: 86400; 0 means "as long as possible")
+	 */
+	static function cacheproviderstore( $key, $payload, $ttl = 86400 )
+	{
+		return set_to_mem_cache($key, $payload, $ttl);
+	}
+
+
+	/**
+	 * Fetch key from the cache provider.
+	 *
+	 * {@internal JFI: apc_fetch supports fetching an array of keys}}
+	 *
+	 * @todo dh> This method should get removed from here, it's not limited to BlockCache.
+	 * @todo dh> Add $default param, defaulting to NULL. This will be used on lookup failures.
+	 * @param mixed $key
+	 * @param boolean $success (by reference)
+	 */
+	static function cacheproviderretrieve( $key, & $success )
+	{
+		return get_from_mem_cache($key, $success);
 	}
 
 }
