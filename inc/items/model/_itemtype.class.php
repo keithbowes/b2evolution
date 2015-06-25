@@ -532,11 +532,12 @@ class ItemType extends DataObject
 	 *
 	 * @return array ( key => Blog ID, value => ItemType ID )
 	 */
-	function get_default_ids()
+	static function get_default_ids()
 	{
 		global $DB;
 
 		// Get default value of blog setting "default_post_type"
+		load_class( 'collections/model/_collsettings.class.php', 'CollectionSettings' );
 		$CollectionSettings = new CollectionSettings();
 		$item_types['default'] = $CollectionSettings->get_default( 'default_post_type' );
 

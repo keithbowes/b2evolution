@@ -6571,8 +6571,15 @@ function evo_flush()
 	if( empty( $zlib_output_compression ) || $zlib_output_compression == 'Off' )
 	{ // This function helps to turn off output buffering
 		// But do NOT use it when zlib.output_compression is ON, because it creates the die errors
-		if (version_compare(sprintf("%d.%d", PHP_MAJOR_VERSION, PHP_MINOR_VERSION), '5.4') === 0)
-			@ob_end_flush(); // This function helps to turn off output buffering on PHP 5.4.x
+
+		// fp/yura TODO: we need to optimize this: We want to flush to screen and continue caching.
+		//               This needs investigation and checking other similar places.
+		global $PageCache;
+		if( ! ( isset( $PageCache ) && ! empty( $PageCache->is_collecting ) ) )
+		{ // Only when page cache is not running now because a notice error can appears in function PageCache->end_collect()
+			if (version_compare(sprintf("%d.%d", PHP_MAJOR_VERSION, PHP_MINOR_VERSION), '5.4') === 0)
+				@ob_end_flush(); // This function helps to turn off output buffering on PHP 5.4.x
+		}
 	}
 	flush();
 

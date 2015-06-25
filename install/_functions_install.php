@@ -1412,8 +1412,8 @@ jQuery( document ).ready( function()
 				var btn_class = 'btn-primary';
 				break;
 
-			case 'utf8upgrade':
-				var btn_title = '<?php echo TS_('CONVERT DB!'); ?>';
+			case 'utf8check':
+				var btn_title = '<?php echo TS_('CHECK DB!'); ?>';
 				var btn_class = 'btn-primary';
 				break;
 

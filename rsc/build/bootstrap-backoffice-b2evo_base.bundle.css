@@ -1073,10 +1073,23 @@ table.widget_grid .note {
 #sidebar table.widget_grid .note {
   margin: 0;
 }
-.widget_flow_blocks > div {
-  display: inline-block;
-  margin: 2px;
-  padding: 0;
+.widget_flow_blocks,
+table.widget_grid {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+.widget_flow_blocks div,
+table.widget_grid div {
+  margin-bottom: 15px;
+}
+.widget_flow_blocks div:last-child,
+table.widget_grid div:last-child {
+  margin-bottom: 0px !important;
 }
 .widget_flow_blocks > div img {
   border-radius: 3px;
@@ -1190,6 +1203,20 @@ div.debug td {
 }
 div.debug td.odd {
   background-color: #eee;
+}
+.table_scroll table.table tr td {
+  vertical-align: middle;
+}
+.table_scroll table.table tr td.firstcol.shrinkwrap {
+  padding: 1px 5px;
+}
+.table_scroll table.table tr td.firstcol.shrinkwrap a img,
+.table_scroll table.table tr td.firstcol.shrinkwrap span img {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
 }
 a.jslog_switcher {
   cursor: pointer;
