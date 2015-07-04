@@ -310,13 +310,13 @@ if ($Blog->get_setting('feed_content') != 'none')
 	if (file_exists("$skins_path/_esf"))
 	{
 ?>
-  <link rel="alternate" type="text/plain" title="ESF 1.0" href="<?php echo $baseurl . $Blog->siteurl; ?>?tempskin=_esf" />
+	<link rel="alternate" type="text/plain" title="ESF 1.0" href="<?php echo $baseurl . $Blog->siteurl; ?>?blog=<?php echo $Blog->ID; ?>&amp;tempskin=_esf" />
 <?php
 	}
 	if (file_exists("$skins_path/_rss3"))
 	{
 ?>
-  <link rel="alternate" type="text/plain" title="RSS 3.0" href="<?php echo $baseurl . $Blog->siteurl; ?>?tempskin=_rss3" />
+  <link rel="alternate" type="text/plain" title="RSS 3.0" href="<?php echo $baseurl . $Blog->siteurl; ?>?blog=<?php echo $Blog->ID; ?>&amp;tempskin=_rss3" />
 <?php
 	}
 	if (!file_exists("$skins_path/_esf") && !file_exists("$skins_path/_rss3"))

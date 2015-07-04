@@ -47,13 +47,13 @@ if ($Blog->get_setting('feed_content') != 'none')
 	if (file_exists("$skins_path/_esf"))
 	{
 ?>
-<li><a rel="alternate" <?php echo $type ?>="text/plain" href="<?php echo $baseurl . $Blog->siteurl; ?>?tempskin=_esf" class="button feed" id="esf" title="[<?php printf($Skin->T_('%s Feed'), 'ESF')?>]"><?php printf($Skin->T_('%s <span class="button-sf">Feed</span>'), 'ESF');?></a></li>
+<li><a rel="alternate" <?php echo $type ?>="text/plain" href="<?php echo $baseurl . $Blog->siteurl; ?>?blog=<?php echo $Blog->ID ?>&amp;tempskin=esf" class="button feed" id="esf" title="[<?php printf($Skin->T_('%s Feed'), 'ESF')?>]"><?php printf($Skin->T_('%s <span class="button-sf">Feed</span>'), 'ESF');?></a></li>
 <?php
 	}
 	if (file_exists("$skins_path/_rss3"))
 	{
 ?>
-<li><a rel="alternate" <?php echo $type ?>="text/plain" href="<?php echo $baseurl . $Blog->siteurl; ?>?tempskin=_rss3" class="button feed" id="rss3" title="[<?php printf($Skin->T_('%s Feed'), 'RSS 3.0')?>]"><?php printf($Skin->T_('%s <span class="button-sf">Feed</span>'), 'RSS 3.0');?></a></li>
+<li><a rel="alternate" <?php echo $type ?>="text/plain" href="<?php echo $baseurl . $Blog->siteurl; ?>?blog=<?php echo $Blog->ID ?>&amp;tempskin=_rss3" class="button feed" id="rss3" title="[<?php printf($Skin->T_('%s Feed'), 'RSS 3.0')?>]"><?php printf($Skin->T_('%s <span class="button-sf">Feed</span>'), 'RSS 3.0');?></a></li>
 <?php
 	}
 }

@@ -190,7 +190,7 @@ class Cronjob extends DataObject
 	 *
 	 * @return boolean true
 	 */
-	function dbupdate()
+	function dbupdate($auto_track_modification = TRUE)
 	{
 		global $DB;
 
@@ -198,7 +198,7 @@ class Cronjob extends DataObject
 
 		if( $this->get_status() == 'pending' )
 		{	// Update crob jobs only with "pending" status
-			$result = parent::dbupdate();
+			$result = parent::dbupdate($auto_track_modification);
 		}
 		else
 		{	// Don't update this cron job
