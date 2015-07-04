@@ -340,11 +340,11 @@ class DB
 			$this->log_queries = (bool)$debug;
 		}
 
+		$mysql_ext_file = is_windows() ? 'php_mysqli.dll' : 'mysqli.so';
 		if( ! extension_loaded('mysqli') )
 		{ // The mysql extension is not loaded, try to dynamically load it:
 			if( function_exists('dl') )
 			{
-				$mysql_ext_file = is_windows() ? 'php_mysqli.dll' : 'mysqli.so';
 				$php_errormsg = null;
 				$old_track_errors = ini_set('track_errors', 1);
 				$old_html_errors = ini_set('html_errors', 0);
