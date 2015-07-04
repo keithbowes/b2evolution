@@ -4035,35 +4035,14 @@ class User extends DataObject
 			global $thumbnail_sizes;
 			if( isset( $thumbnail_sizes[ $thumb_size ] ) )
 			{ // Set a sizes
-				$thumb_width = $thumbnail_sizes[ $thumb_size ][1];
-				$thumb_height = $thumbnail_sizes[ $thumb_size ][2];
-				if( is_null( $File ) )
-				{ // Use the size of thumbnail config if File is not defined
-					$width = $thumb_width;
-					$height = $thumb_height;
+				if( ! is_null( $File ) && $thumb_sizes = $File->get_thumb_size( $thumb_size ) )
+				{ // Get sizes that are used for thumbnail really
+					list( $width, $height ) = $thumb_sizes;
 				}
 				else
-				{ // Try to calculate what sizes are used for thumbnail really
-					list( $orig_width, $orig_height ) = $File->get_image_size( 'widthheight' );
-
-					load_funcs('files/model/_image.funcs.php');
-					if( check_thumbnail_sizes( $thumbnail_sizes[ $thumb_size ][0], $thumb_width, $thumb_height, $orig_width, $orig_height ) )
-					{ // Use the sizes of the original image
-						$width = $orig_width;
-						$height = $orig_height;
-					}
-					else
-					{ // Calculate the sizes depending on thumbnail type
-						if( $thumbnail_sizes[ $thumb_size ][0] == 'fit' )
-						{
-							list( $width, $height ) = scale_to_constraint( $orig_width, $orig_height, $thumb_width, $thumb_height );
-						}
-						else
-						{ // crop & crop-top
-							$width = $thumb_width;
-							$height = $thumb_height;
-						}
-					}
+				{ // Use the size of thumbnail config if File is not defined
+					$width = $thumbnail_sizes[ $thumb_size ][1];
+					$height = $thumbnail_sizes[ $thumb_size ][2];
 				}
 			}
 		}
@@ -4791,14 +4770,16 @@ class User extends DataObject
 		{ // user is only allowed to update him/herself
 			$Messages->add( T_('You are only allowed to update your own profile!'), 'error' );
 			$error_code = 'only_own_profile';
-			return false;
+			$r = false;
+			return $r;
 		}
 
 		if( empty( $file_ID ) )
 		{ // File ID is empty
 			$Messages->add( T_('You did not specify a file.'), 'error' );
 			$error_code = 'wrong_file';
-			return false;
+			$r = false;
+			return $r;
 		}
 
 		$FileCache = & get_FileCache();
@@ -4807,14 +4788,16 @@ class User extends DataObject
 		{ // File does't exist
 			$Messages->add( T_('The requested file does not exist!'), 'error' );
 			$error_code = 'wrong_file';
-			return false;
+			$r = false;
+			return $r;
 		}
 
 		if( $File->_FileRoot->type != 'user' || ( $File->_FileRoot->in_type_ID != $this->ID && ! $can_moderate_user ) )
 		{ // don't allow use the pictures from other users
 			$Messages->add( T_('The requested file doesn\'t belong to this user.'), 'error' );
 			$error_code = 'other_user';
-			return false;
+			$r = false;
+			return $r;
 		}
 
 		return $File;
