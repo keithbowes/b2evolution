@@ -2280,10 +2280,9 @@ class User extends DataObject
 			case 'cats_post!draft':
 			case 'cats_post!deprecated':
 			case 'cats_post!redirected':
-			case 'cats_page':
-			case 'cats_intro':
-			case 'cats_podcast':
-			case 'cats_sidebar':
+			case 'cats_item_type_standard':
+			case 'cats_item_type_restricted':
+			case 'cats_item_type_admin':
 				// Category permissions...
 				if( ! is_array( $perm_target ) )
 				{	// We need an array here:
@@ -2368,10 +2367,9 @@ class User extends DataObject
 			case 'blog_comment!draft':
 			case 'blog_properties':
 			case 'blog_cats':
-			case 'blog_page':
-			case 'blog_intro':
-			case 'blog_podcast':
-			case 'blog_sidebar':
+			case 'blog_item_type_standard':
+			case 'blog_item_type_restricted':
+			case 'blog_item_type_admin':
 			case 'blog_edit_ts':
 				// Blog permission to edit its properties...
 				if( $this->check_perm_blogowner( $perm_target_ID ) )
@@ -2763,7 +2761,7 @@ class User extends DataObject
 		if( ! $perm && $assert )
 		{ // We can't let this go on!
 			global $app_name;
-			debug_die( sprintf( /* %s is the application name, usually "b2evolution" */ T_('Group/user permission denied by %s!'), $app_name )." ($permname:$permlevel:".( is_object( $perm_target ) ? get_class( $perm_target ).'('.$perm_target_ID.')' : $perm_target ).")" );
+			debug_die( sprintf( /* %s is the application name, usually "b2evolution" */ T_('Group/user permission denied by %s!'), $app_name )." ($permname:$permlevel:".( is_object( $perm_target ) ? get_class( $perm_target ).'('.$perm_target_ID.')' : ( is_array( $perm_target ) ? implode( ', ', $perm_target ) : $perm_target ) ).")" );
 		}
 
 		if( isset($perm_target_ID) )
@@ -5795,10 +5793,10 @@ class User extends DataObject
 	{
 		// Make sure we are not missing any param:
 		$params = array_merge( array(
-				'text' => T_( '%s successfully reported %s spams!' ),
+				'text' => T_( '%s successfully reported %s spams and/or spammers!' ),
 			), $params );
 
-		global $DB;
+		global $DB, $UserSettings;
 
 		$comments_SQL = new SQL( 'Get number of spam votes on comments by this user' );
 		$comments_SQL->SELECT( 'COUNT(*) AS cnt' );
@@ -5814,6 +5812,9 @@ class User extends DataObject
 
 		$votes = $DB->get_var( 'SELECT SUM( cnt )
 			FROM ('.$comments_SQL->get().' UNION ALL '.$links_SQL->get().') AS tbl' );
+
+		// Get spam fighter score for the users that were reported and deleted
+		$votes += intval( $UserSettings->get( 'spam_fighter_score', $this->ID ) );
 
 		return sprintf( $params['text'], $this->login, '<b>'.$votes.'</b>' );
 	}

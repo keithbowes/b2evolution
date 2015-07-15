@@ -166,7 +166,7 @@ class bootstrap_blog_Skin extends Skin
 
 				'section_access_start' => array(
 					'layout' => 'begin_fieldset',
-					'label'  => T_('When access requires login...')
+					'label'  => T_('When access is denied or requires login...')
 				),
 					'access_login_containers' => array(
 						'label' => T_('Display on login screen'),
@@ -201,14 +201,15 @@ class bootstrap_blog_Skin extends Skin
 
 		// Request some common features that the parent function (Skin::display_init()) knows how to provide:
 		parent::display_init( array(
-				'jquery', 							// Load jQuery
-				'font_awesome', 					// Load Font Awesome (and use its icons as a priority over the Bootstrap glyphicons)
-				'bootstrap', 						// Load Bootstrap (without 'bootstrap_theme_css')
-				'bootstrap_evo_css', 			// Load the b2evo_base styles for Bootstrap (instead of the old b2evo_base styles)
-				'bootstrap_messages',			// Initialize $Messages Class to use Bootstrap styles
-				'style_css', 						// Load the style.css file of the current skin
-				'colorbox',							// Load Colorbox (a lightweight Lightbox alternative + customizations for b2evo)
-				'bootstrap_init_tooltips', 	// Inline JS to init Bootstrap tooltips (E.g. on comment form for allowed file extensions)
+				'jquery',                  // Load jQuery
+				'font_awesome',            // Load Font Awesome (and use its icons as a priority over the Bootstrap glyphicons)
+				'bootstrap',               // Load Bootstrap (without 'bootstrap_theme_css')
+				'bootstrap_evo_css',       // Load the b2evo_base styles for Bootstrap (instead of the old b2evo_base styles)
+				'bootstrap_messages',      // Initialize $Messages Class to use Bootstrap styles
+				'style_css',               // Load the style.css file of the current skin
+				'colorbox',                // Load Colorbox (a lightweight Lightbox alternative + customizations for b2evo)
+				'bootstrap_init_tooltips', // Inline JS to init Bootstrap tooltips (E.g. on comment form for allowed file extensions)
+				'disp_auto',               // Automatically include additional CSS and/or JS required by certain disps (replace with 'disp_off' to disable this)
 			) );
 
 		// Skin specific initializations:
@@ -575,13 +576,26 @@ class bootstrap_blog_Skin extends Skin
 	/**
 	 * Check if we can display a sidebar for the current layout
 	 *
+	 * @param boolean TRUE to check if at least one sidebar container is visible
 	 * @return boolean TRUE to display a sidebar
 	 */
-	function is_visible_sidebar()
+	function is_visible_sidebar( $check_containers = false )
 	{
 		$layout = $this->get_setting( 'layout' );
 
-		return ( $layout == 'left_sidebar' || $layout == 'right_sidebar' );
+		if( $layout != 'left_sidebar' && $layout != 'right_sidebar' )
+		{ // Sidebar is not displayed for selected skin layout
+			return false;
+		}
+
+		if( $check_containers )
+		{ // Check if at least one sidebar container is visible
+			return ( $this->is_visible_container( 'sidebar' ) ||  $this->is_visible_container( 'sidebar2' ) );
+		}
+		else
+		{ // We should not check the visibility of the sidebar containers for this case
+			return true;
+		}
 	}
 
 

@@ -147,6 +147,7 @@ class evopress_Skin extends Skin
 		parent::display_init( array(
 				'b2evo_base_css', // Include the b2evo_base CSS (OLD / v5 style) - Use this when you DON'T use Bootstrap:
 				'colorbox',       // Load Colorbox (a lightweight Lightbox alternative + customizations for b2evo)
+				'disp_auto',      // Automatically include additional CSS and/or JS required by certain disps (replace with 'disp_off' to disable this)
 			) );
 
 		// require_css( 'style.css', 'relative' );
