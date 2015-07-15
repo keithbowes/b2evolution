@@ -23,7 +23,7 @@ $trans['eo'] = array(
 'Ascending order' => 'Supren ordigi',
 'New window' => 'Nova fenestro',
 'Expand' => 'Etendi',
-'Collapse' => 'Kolapsi',
+'Collapse' => 'Kolapsigi',
 'Refresh' => 'Refreŝigi',
 'Reload' => 'Reŝargi',
 'Download' => 'Elŝuti',
@@ -6879,7 +6879,7 @@ $trans['eo'] = array(
 'Comment on:' => 'Komenti pri:',
 'Posts created by %s' => 'Afiŝoj kreitaj de %s',
 'Login now...' => 'Ensaluti…',
-'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2015-07-04 01:15-0400\nPO-Revision-Date: 2015-07-04 01:23-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2015-07-04 01:15-0400\nPO-Revision-Date: 2015-07-15 17:30-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 'posted on ' => 'afiŝita en ',
 'in' => 'en',
 

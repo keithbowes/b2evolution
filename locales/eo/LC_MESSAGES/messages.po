@@ -99,7 +99,7 @@ msgstr "Etendi"
 #: ../../../conf/_icons.php:277 ../../../conf/_icons.php:298
 #: ../../../inc/_core/_misc.funcs.php:7158
 msgid "Collapse"
-msgstr "Kolapsi"
+msgstr "Kolapsigi"
 
 #: ../../../conf/_icons.php:308
 #: ../../../inc/chapters/views/_chapter_list.view.php:228
@@ -34586,7 +34586,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net\n"
 "POT-Creation-Date: 2015-07-04 01:15-0400\n"
-"PO-Revision-Date: 2015-07-04 01:23-0400\n"
+"PO-Revision-Date: 2015-07-15 17:30-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
