@@ -116,7 +116,7 @@ class evocamp_Skin extends Skin
 	 *
 	 * This may register some CSS or JS...
 	 */
-	function display_init()
+	function display_init($features = array())
 	{
 		// call parent:
 		parent::display_init();		// We pass NO params. This gives up the default Skins API v5 behavior.
