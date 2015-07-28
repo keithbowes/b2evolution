@@ -17,14 +17,14 @@ if( $feed_content == 'none' )
 
 $Item = mainlist_get_item();
 /* Weird random code to make an entity tag. */
-$etag = '"' . preg_replace('/(.*)[\n\r].*/', '$1', $Item->content | $app_version << $Item->wordcount) . '"';
+$etag = '"' . @preg_replace('/(.*)[\n\r].*/', '$1', $Item->content | $app_version << $Item->wordcount) . '"';
 
 if (@strstr($_SERVER['HTTP_IF_NONE_MATCH'], $etag))
 {
-  header('HTTP/1.1 304 Not Modified');
-  header("ETag: $etag");
-  
-  exit();
+	header('HTTP/1.1 304 Not Modified');
+	header("ETag: $etag");
+	
+	exit();
 }
 
 header('Cache-Control: cache', true);
@@ -43,12 +43,13 @@ echo "\n";
 
 do
 {
-  echo "\n";
-  echo strtotime($Item->issue_date);
-  echo "\t";
-  echo html_entity_decode($Item->title, ENT_QUOTES, 'UTF-8');
-  echo "\t";
-  $Item->permanent_url('single');
+	if (!is_object($Item)) break;
+	echo "\n";
+	echo strtotime($Item->issue_date);
+	echo "\t";
+	echo html_entity_decode($Item->title, ENT_QUOTES, 'UTF-8');
+	echo "\t";
+	$Item->permanent_url('single');
 } while ($Item = mainlist_get_item() );
 
 $Hit->log();

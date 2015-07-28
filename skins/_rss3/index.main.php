@@ -17,14 +17,14 @@ if( $feed_content == 'none' )
 
 $Item = mainlist_get_item();
 /* Weird random code to make an entity tag. */
-$etag = '"' . preg_replace('/(.*)[\n\r].*/', '$1', $Item->content | $app_version << $Item->wordcount) . '"';
+$etag = '"' . @preg_replace('/(.*)[\n\r].*/', '$1', $Item->content | $app_version << $Item->wordcount) . '"';
 
 if (@strstr($_SERVER['HTTP_IF_NONE_MATCH'], $etag))
 {
-  header('HTTP/1.1 304 Not Modified');
-  header("ETag: $etag");
-  
-  exit();
+	header('HTTP/1.1 304 Not Modified');
+	header("ETag: $etag");
+	
+	exit();
 }
 
 header('Cache-Control: cache', true);
@@ -44,14 +44,15 @@ echo "\n";
 
 do
 {
-  echo "\ncreated:";
-  echo $Item->issue_date(array('date_format' => 'Y-m-d\TH:i:s\Z', 'use_GMT' => true));
-  echo "\ntitle: ";
-  echo html_entity_decode($Item->title, ENT_QUOTES, 'UTF-8');
+	if (!is_object($Item)) break;
+	echo "\ncreated:";
+	echo $Item->issue_date(array('date_format' => 'Y-m-d\TH:i:s\Z', 'use_GMT' => true));
+	echo "\ntitle: ";
+	echo html_entity_decode($Item->title, ENT_QUOTES, 'UTF-8');
 	echo "\ndescription: ";
 	echo wordwrap(html_entity_decode(preg_replace('/(\n)(.?)/m', '$1  $2', preg_replace('/^([^\.\?!]+.?).*$/', '$1', $Item->excerpt)), ENT_QUOTES, 'UTF-8'), 68, "\n\t");
-  echo "\nlink: ";
-  $Item->permanent_url('single');
+	echo "\nlink: ";
+	$Item->permanent_url('single');
 	echo "\nlanguage: ";
 	echo preg_replace('/-\w+/', '', $Item->locale);
 	echo "\nguid: ";
