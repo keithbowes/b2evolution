@@ -2629,8 +2629,9 @@ function echo_item_comments( $blog_ID, $item_ID, $statuses = NULL, $currentpage 
  * @param int comment id
  * @param string where to redirect after comment edit
  * @param boolean true to set the new redirect param, false otherwise
+ * @param integer Comment index in the current list
  */
-function echo_comment( $comment_ID, $redirect_to = NULL, $save_context = false )
+function echo_comment( $comment_ID, $redirect_to = NULL, $save_context = false, $comment_index = NULL )
 {
 	global $current_User, $localtimenow;
 
@@ -2671,7 +2672,7 @@ function echo_comment( $comment_ID, $redirect_to = NULL, $save_context = false )
 
 		if( $Comment->is_meta() )
 		{ // Display ID for each meta comment
-			echo '<span class="badge badge-info">'.$Comment->ID.'</span> ';
+			echo '<span class="badge badge-info">'.$comment_index.'</span> ';
 		}
 
 		echo '<div class="bSmallHeadRight">';
@@ -3953,8 +3954,8 @@ function item_type_global_icons( $object_Widget )
 			{
 				if( $current_User->check_perm( 'blog_item_type_'.$item_type->perm_level, 'edit', false, $Blog->ID ) )
 				{ // We have the permission to create posts with this post type:
-					$object_Widget->global_icon( T_('Create multiple posts...'), 'new', $admin_url.'?ctrl=items&amp;action=new_mass&amp;blog='.$Blog->ID.'&amp;item_typ_ID='.$item_type->ID, ' '.sprintf( T_('Mass create "%s"'), $item_type->name ), 3, 4, array( 'class' => 'btn-default' ), $icon_group_create_mass );
-					$object_Widget->global_icon( T_('Write a new post...'), 'new', $admin_url.'?ctrl=items&amp;action=new&amp;blog='.$Blog->ID.'&amp;item_typ_ID='.$item_type->ID, ' '.$item_type->name, 3, 4, array( 'class' => 'btn-primary' ), $icon_group_create_type );
+					$object_Widget->global_icon( T_('Create multiple posts...'), 'new', $admin_url.'?ctrl=items&amp;action=new_mass&amp;blog='.$Blog->ID.'&amp;item_typ_ID='.$item_type->ID, ' '.sprintf( T_('Mass create "%s"'), $item_type->name ), 3, 4, array( 'class' => 'action_icon btn-default' ), $icon_group_create_mass );
+					$object_Widget->global_icon( T_('Write a new post...'), 'new', $admin_url.'?ctrl=items&amp;action=new&amp;blog='.$Blog->ID.'&amp;item_typ_ID='.$item_type->ID, ' '.$item_type->name, 3, 4, array( 'class' => 'action_icon btn-primary' ), $icon_group_create_type );
 				}
 			}
 		}
