@@ -212,12 +212,12 @@ function & get_ItemTagsCache()
  */
 function & get_ItemStatusCache()
 {
-	global $Plugins;
 	global $ItemStatusCache;
 
 	if( ! isset( $ItemStatusCache ) )
 	{	// Cache doesn't exist yet:
-		$Plugins->get_object_from_cacheplugin_or_create( 'ItemStatusCache', 'new GenericCache( \'GenericElement\', true, \'T_items__status\', \'pst_\', \'pst_ID\', NULL, \'\', NT_(\'No status\') )' );
+		load_class( 'items/model/_itemstatus.class.php', 'ItemStatus' );
+		$ItemStatusCache = new DataObjectCache( 'ItemStatus', false, 'T_items__status', 'pst_', 'pst_ID', 'pst_name' );
 	}
 
 	return $ItemStatusCache;
@@ -429,7 +429,7 @@ class collections_Module extends Module
 				$permgetblog = 'denied';
 				break;
 
-			case 3:		// Trusted Users (group ID 3) have permission by default:
+			case 3:		// Editors (group ID 3) have permission by default:
 			case 4: 	// Normal Users (group ID 4) have permission by default:
 				$permapi = 'always';
 				$permcreateblog = 'denied';

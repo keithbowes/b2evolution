@@ -16,14 +16,14 @@
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 
-echo '<div class="forums_table_search panel panel-default">';
+echo '<div class="forums_table_search">';
 
 // --------------------------------- START OF COMMON LINKS --------------------------------
 skin_widget( array(
 		// CODE for the widget:
 		'widget' => 'coll_search_form',
 		// Optional display params
-		'block_start' => '<div class="panel-heading">',
+		'block_start' => '<div class="panel panel-default"><div class="panel-heading">',
 		'block_end' => '</div></div>',
 		'block_display_title' => false,
 		'disp_search_options' => 0,
@@ -39,21 +39,11 @@ search_result_block( array(
 		'title_prefix_comment'  => T_('Reply: '),
 		'title_prefix_category' => T_('Forum: '),
 		'title_prefix_tag'      => T_('Tag: '),
-		'block_start' => '<div class="panel panel-default">',
+		'block_start' => '<div class="evo_search_list">',
 		'block_end'   => '</div>',
-		'row_start'   => '<div class="panel-body">',
+		'row_start'   => '<div class="evo_search_list__row">',
 		'row_end'     => '</div>',
-		'pagination'  => array(
-				'block_start' => '<div class="evo_search_navigation center">',
-				'block_end' => '</div>',
-				'page_current_template' => '<strong class="current_page">$page_num$</strong>',
-				'page_item_before'      => '',
-				'page_item_after'       => '',
-				'prev_text'             => T_('Previous'),
-				'next_text'             => T_('Next'),
-				'prev_class'            => 'prev',
-				'next_class'            => 'next',
-			)
+		'pagination'  => $params['pagination']
 	) );
 
 echo '</div>';

@@ -83,7 +83,7 @@ if( $tab == 'skin' && $skinpage != 'selection' )	// If not screen selection => s
 if( ( $tab == 'perm' || $tab == 'permgroup' )
 	&& ( empty($blog) || ! $Blog->advanced_perms ) )
 {	// We're trying to access advanced perms but they're disabled!
-	$tab = 'features';	// the screen where you can enable advanced perms
+	$tab = 'general';	// the screen where you can enable advanced perms
 	if( $action == 'update' )
 	{ // make sure we don't update anything here
 		$action = 'edit';
@@ -420,6 +420,7 @@ switch( $AdminUI->get_path(1) )
 			init_colorpicker_js();
 			$AdminUI->breadcrumbpath_add( T_('Skins for this blog'), '?ctrl=coll_settings&amp;blog=$blog$&amp;tab='.$tab );
 		}
+		$AdminUI->set_page_manual_link( 'skins-for-this-blog' );
 		break;
 
 	case 'plugin_settings':
@@ -431,18 +432,21 @@ switch( $AdminUI->get_path(1) )
 		$AdminUI->set_path( 'collections', 'settings', $tab );
 		$AdminUI->breadcrumbpath_add( T_('Settings'), '?ctrl=coll_settings&amp;blog=$blog$&amp;tab=general' );
 		$AdminUI->breadcrumbpath_add( T_('URLs'), '?ctrl=coll_settings&amp;blog=$blog$&amp;tab='.$tab );
+		$AdminUI->set_page_manual_link( 'url-settings' );
 		break;
 
 	case 'seo':
 		$AdminUI->set_path( 'collections', 'settings', $tab );
 		$AdminUI->breadcrumbpath_add( T_('Settings'), '?ctrl=coll_settings&amp;blog=$blog$&amp;tab=general' );
 		$AdminUI->breadcrumbpath_add( T_('SEO'), '?ctrl=coll_settings&amp;blog=$blog$&amp;tab='.$tab );
+		$AdminUI->set_page_manual_link( 'seo-settings' );
 		break;
 
 	case 'advanced':
 		$AdminUI->set_path( 'collections', 'settings', $tab );
 		$AdminUI->breadcrumbpath_add( T_('Settings'), '?ctrl=coll_settings&amp;blog=$blog$&amp;tab=general' );
 		$AdminUI->breadcrumbpath_add( T_('Advanced settings'), '?ctrl=coll_settings&amp;blog=$blog$&amp;tab='.$tab );
+		$AdminUI->set_page_manual_link( 'advanced-collection-settings' );
 		break;
 
 	case 'perm':
@@ -450,6 +454,7 @@ switch( $AdminUI->get_path(1) )
 		load_funcs( 'collections/views/_coll_perm_view.funcs.php' );
 		$AdminUI->breadcrumbpath_add( T_('Settings'), '?ctrl=coll_settings&amp;blog=$blog$&amp;tab=general' );
 		$AdminUI->breadcrumbpath_add( T_('User permissions'), '?ctrl=coll_settings&amp;blog=$blog$&amp;tab='.$tab );
+		$AdminUI->set_page_manual_link( 'advanced-user-permissions' );
 		break;
 
 	case 'permgroup':
@@ -457,6 +462,7 @@ switch( $AdminUI->get_path(1) )
 		load_funcs( 'collections/views/_coll_perm_view.funcs.php' );
 		$AdminUI->breadcrumbpath_add( T_('Settings'), '?ctrl=coll_settings&amp;blog=$blog$&amp;tab=general' );
 		$AdminUI->breadcrumbpath_add( T_('Group permissions'), '?ctrl=coll_settings&amp;blog=$blog$&amp;tab='.$tab );
+		$AdminUI->set_page_manual_link( 'advanced-group-permissions' );
 		break;
 }
 

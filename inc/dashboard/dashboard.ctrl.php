@@ -49,6 +49,9 @@ if( $blog )
 	$AdminUI->breadcrumbpath_init( true, array( 'text' => T_('Collections'), 'url' => $admin_url.'?ctrl=dashboard&amp;blog=$blog$' ) );
 	$AdminUI->breadcrumbpath_add( T_('Collection Dashboard'), $admin_url.'?ctrl=dashboard&amp;blog=$blog$' );
 
+	// Set an url for manual page:
+	$AdminUI->set_page_manual_link( 'collection-dashboard' );
+
 	// We should activate toolbar menu items for this controller and action
 	$activate_collection_toolbar = true;
 }
@@ -59,6 +62,9 @@ else
 	$AdminUI->breadcrumbpath_init( false );
 	$AdminUI->breadcrumbpath_add( T_('Site'), $admin_url.'?ctrl=dashboard' );
 	$AdminUI->breadcrumbpath_add( T_('Site Dashboard'), $admin_url.'?ctrl=dashboard' );
+
+	// Set an url for manual page:
+	$AdminUI->set_page_manual_link( 'site-dashboard' );
 }
 
 // Load jquery UI to animate background color on change comment status and to transfer a comment to recycle bin
@@ -163,9 +169,10 @@ if( $blog )
 		$show_statuses_param = $param_prefix.'show_statuses[]='.implode( '&amp;'.$param_prefix.'show_statuses[]=', $user_modeartion_statuses );
 		$block_item_Widget->title = $refresh_link.$opentrash_link.T_('Comments awaiting moderation').
 			' <a href="'.$admin_url.'?ctrl=comments&amp;blog='.$Blog->ID.'&amp;'.$show_statuses_param.'" style="text-decoration:none">'.
-			'<span id="badge" class="badge badge-important">'.$CommentList->get_total_rows().'</span></a>';
+			'<span id="badge" class="badge badge-important">'.$CommentList->get_total_rows().'</span></a>'.
+			get_manual_link( 'collection-dashboard' );
 
-		echo '<div id="styled_content_block" class="evo_content_block">';
+		echo '<div class="evo_content_block">';
 		echo '<div id="comments_block" class="dashboard_comments_block">';
 
 		$block_item_Widget->disp_template_replaced( 'block_start' );
@@ -200,7 +207,7 @@ if( $blog )
 	ob_clean();
 	if( ! empty( $posts_awaiting_moderation_content ) )
 	{
-		echo '<div id="styled_content_block" class="items_container evo_content_block">';
+		echo '<div class="items_container evo_content_block">';
 		echo $posts_awaiting_moderation_content;
 		echo '</div>';
 	}
@@ -229,10 +236,10 @@ if( $blog )
 
 		if( $current_User->check_perm( 'blog_post_statuses', 'edit', false, $Blog->ID ) )
 		{	// We have permission to add a post with at least one status:
-			$block_item_Widget->global_icon( T_('Write a new post...'), 'new', '?ctrl=items&amp;action=new&amp;blog='.$Blog->ID, T_('New post').' &raquo;', 3, 4 );
+			$block_item_Widget->global_icon( T_('Write a new post...'), 'new', '?ctrl=items&amp;action=new&amp;blog='.$Blog->ID, T_('New post').' &raquo;', 3, 4, array( 'class' => 'action_icon btn-primary' ) );
 		}
 
-		echo '<div id="styled_content_block" class="items_container evo_content_block">';
+		echo '<div class="items_container evo_content_block">';
 
 		$block_item_Widget->title = T_('Recently edited');
 		$block_item_Widget->disp_template_replaced( 'block_start' );

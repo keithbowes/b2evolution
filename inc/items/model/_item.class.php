@@ -224,6 +224,18 @@ class Item extends ItemLight
 	var $city_ID = NULL;
 
 	/**
+	 * ID of parent Item.
+	 * @var integer
+	 */
+	var $parent_ID = NULL;
+
+	/**
+	 * Parent Item.
+	 * @var object
+	 */
+	var $parent_Item = NULL;
+
+	/**
 	 * Additional settings for the items.  lazy filled.
  	 *
 	 * @see Item::get_setting()
@@ -317,6 +329,7 @@ class Item extends ItemLight
 			$this->comment_status = $db_row->post_comment_status;			// Comments status
 			$this->order = $db_row->post_order;
 			$this->featured = $db_row->post_featured;
+			$this->parent_ID = $db_row->post_parent_ID;
 
 			// echo 'renderers=', $db_row->post_renderers;
 			$this->renderers = $db_row->post_renderers;
@@ -594,6 +607,32 @@ class Item extends ItemLight
 		if( empty( $post_url ) && $this->get_type_setting( 'use_url' ) == 'required' )
 		{ // URL must be entered
 			param_check_not_empty( 'post_url', T_('Please provide a "Link To" URL.'), '' );
+		}
+
+		// Item parent ID:
+		$post_parent_ID = param( 'post_parent_ID', 'integer', NULL );
+		if( $post_parent_ID !== NULL )
+		{	// If item parent ID is entered:
+			$ItemCache = & get_ItemCache();
+			if( $ItemCache->get_by_ID( $post_parent_ID, false, false ) )
+			{	// Save only ID of existing item:
+				$this->set_from_Request( 'parent_ID' );
+			}
+			else
+			{	// Display an error of the entered item parent ID is incorrect:
+				param_error( 'post_parent_ID', T_('The parent ID is not a correct Item ID.') );
+			}
+		}
+		if( empty( $post_parent_ID ) )
+		{	// If empty parent ID is entered:
+			if( $this->get_type_setting( 'use_parent' ) == 'required' )
+			{	// Item parent ID must be entered:
+				param_check_not_empty( 'post_parent_ID', T_('Please provide a parent ID.'), '' );
+			}
+			else
+			{	// Remove parent ID:
+				$this->set_from_Request( 'parent_ID' );
+			}
 		}
 
 		if( $this->status == 'redirected' && empty( $this->url ) )
@@ -1637,11 +1676,11 @@ class Item extends ItemLight
 		if( ! empty( $r ) )
 		{
 			echo $params['before'];
-			echo format_to_output( $this->excerpt, $params['format'] );
+			echo format_to_output( $r, $params['format'] );
 			if( !empty( $params['excerpt_more_text'] ) )
 			{
 				echo $params['excerpt_before_more'];
-				echo '<a href="'.$this->get_permanent_url().'">'.$params['excerpt_more_text'].'</a>';
+				echo '<a href="'.$this->get_permanent_url().'" class="nowrap">'.$params['excerpt_more_text'].'</a>';
 				echo $params['excerpt_after_more'];
 			}
 			echo $params['after'];
@@ -1650,10 +1689,8 @@ class Item extends ItemLight
 
 
 	/**
-	 * Get item excerpt.
-	 *
-	 * @todo fp>blueyed WTF? Same function name as in ItemLight but different params!
-	 * fp> NOTE: I think we can't move this code to ItemLight because we can't update the excerpt there since we don't have the post text there
+	 * Template tag: get excerpt 2 (Full version)
+	 * This full version may auto-generate an excerpt if it is found to be empty.
 	 *
 	 * @param array Associative list of params
 	 *   - allow_empty: force generation if excert is empty (Default: false)
@@ -1674,7 +1711,9 @@ class Item extends ItemLight
 				$this->dbupdate( false );		// Do not auto track modification date.
 			}
 		}
-		return $this->excerpt;
+
+		// Old DBs may have tags in exceprts, so we strip them:
+		return utf8_strip_tags( $this->excerpt );
 	}
 
 
@@ -3527,8 +3566,7 @@ class Item extends ItemLight
 		$average_real = number_format( $ratings["summary"] / $ratings_count, 1, ".", "" );
 		$active_average_real = ( $active_ratings_count == 0 ) ? 0 : ( number_format( $active_ratings["summary"] / $active_ratings_count, 1, ".", "" ) );
 
-		$result = '<table class="ratings_table" cellspacing="2">';
-		$result .= '<tr>';
+		$result = '';
 		$expiry_delay = $this->get_setting( 'comment_expiry_delay' );
 		if( empty( $expiry_delay ) )
 		{
@@ -3537,16 +3575,16 @@ class Item extends ItemLight
 		else
 		{
 			$all_ratings_title = T_('Overall user ratings');
-			$result .= '<td><div><strong>'.get_duration_title( $expiry_delay ).'</strong></div>';
+			$result .= '<div class="ratings_table">';
+			$result .= '<div><strong>'.get_duration_title( $expiry_delay ).'</strong></div>';
 			$result .= $this->get_rating_table( $active_ratings, $params );
-			$result .= '</td>';
-			$result .= '<td width="2px"></td>';
+			$result .= '</div>';
 		}
 
-		$result .= '<td><div><strong>'.$all_ratings_title.'</strong></div>';
+		$result .= '<div class="ratings_table">';
+		$result .= '<div><strong>'.$all_ratings_title.'</strong></div>';
 		$result .= $this->get_rating_table( $ratings, $params );
-		$result .= '</td>';
-		$result .= '</tr></table>';
+		$result .= '</div>';
 
 		return $result;
 	}
@@ -4054,7 +4092,7 @@ class Item extends ItemLight
 			return false;
 		}
 
-		if( $text == '#' ) $text = get_icon( 'publish', 'imgtag' ).' '.T_('Publish NOW!');
+		if( $text == '#' ) $text = get_icon( 'post', 'imgtag' ).' '.T_('Publish NOW!');
 		if( $title == '#' ) $title = T_('Publish now using current date and time.');
 
 		$r = $before;
@@ -6463,6 +6501,7 @@ class Item extends ItemLight
 			$SQL->SELECT( 'comment_ID' );
 			$SQL->FROM( 'T_comments' );
 			$SQL->WHERE( 'comment_item_ID = '.$DB->quote( $this->ID ) );
+			$SQL->WHERE_and( 'comment_type != "meta"' );
 			$SQL->ORDER_BY( 'comment_date DESC' );
 			$SQL->LIMIT( '1' );
 
@@ -7046,11 +7085,6 @@ class Item extends ItemLight
 			$this->dbupdate( false, false, false );
 		}
 
-		if( is_logged_in() && ( $this->content_read_status == 'read' ) )
-		{ // Update current user post read date because it was read before this modifications as well
-			$this->update_read_date( 'post' );
-		}
-
 		// Also update last touched date of all categories of this Item
 		$chapters = $this->get_Chapters();
 		if( count( $chapters ) > 0 )
@@ -7079,10 +7113,16 @@ class Item extends ItemLight
 	/**
 	 * Update field uprs_read_post_ts for current User
 	 *
-	 * @param string Type of date field: 'post' | 'comment'
+	 * @param boolean TRUE to update a post read timestamp
+	 * @param boolean TRUE to update a comments read timestamp
 	 */
-	function update_read_date( $date_type = 'post' )
+	function update_read_timestamps( $read_post = true, $read_comments = true )
 	{
+		if( ! $read_post && ! $read_comments )
+		{ // Nothing to update
+			return;
+		}
+
 		if( $this->ID == 0 )
 		{ // Item is not saved in DB
 			return;
@@ -7093,35 +7133,68 @@ class Item extends ItemLight
 			return;
 		}
 
+		$this->load_Blog();
+		if( ! $this->Blog->get_setting( 'track_unread_content' ) )
+		{	// The tracking of unread content is turned off for the collection
+			return;
+		}
+
 		global $DB, $current_User, $localtimenow, $user_post_read_statuses;
 
 		$timestamp = date2mysql( $localtimenow );
 
-		$read_dates = $this->get_read_dates();
+		$read_date = $this->get_read_date();
 
-		if( $timestamp == $read_dates[ $date_type ] )
-		{ // The read status is already updated, Don't repeat it
+		if( $timestamp == $read_date )
+		{	// The read status is already updated, Don't repeat it:
 			return;
 		}
 
-		// Set what date field we should update
-		$date_field_name = $date_type == 'post' ? 'uprs_read_post_ts' : 'uprs_read_comment_ts';
-
-		if( !empty( $read_dates[ 'post' ] ) || !empty( $read_dates[ 'comment' ] ) )
-		{ // Update the read status
+		if( ! empty( $read_date ) )
+		{	// Update the read status:
+			$update_fields = '';
+			if( $read_post )
+			{	// Update a post read timestamp:
+				$update_fields = 'uprs_read_post_ts = '.$DB->quote( $timestamp );
+			}
+			if( $read_comments )
+			{	// Update a comments read timestamp:
+				if( $read_post )
+				{
+					$update_fields .= ', ';
+				}
+				$update_fields .= 'uprs_read_comment_ts = '.$DB->quote( $timestamp );
+			}
 			$DB->query( 'UPDATE T_users__postreadstatus
-				  SET '.$date_field_name.' = '.$DB->quote( $timestamp ).'
+				  SET '.$update_fields.'
 				WHERE uprs_user_ID = '.$DB->quote( $current_User->ID ).'
 				  AND uprs_post_ID = '.$DB->quote( $this->ID ) );
 		}
 		else
-		{ // Insert new read status
-			$DB->query( 'INSERT INTO T_users__postreadstatus ( uprs_user_ID, uprs_post_ID, '.$date_field_name.' )
-				VALUES ( '.$DB->quote( $current_User->ID ).', '.$DB->quote( $this->ID ).', '.$DB->quote( $timestamp ).' )' );
+		{	// Insert new read status:
+			$insert_fields = '';
+			$insert_values = '';
+			if( $read_post )
+			{	// Update a post read timestamp:
+				$insert_fields = 'uprs_read_post_ts';
+				$insert_values = $DB->quote( $timestamp );
+			}
+			if( $read_comments )
+			{	// Update a comments read timestamp:
+				if( $read_post )
+				{
+					$insert_fields .= ', ';
+					$insert_values .= ', ';
+				}
+				$insert_fields .= 'uprs_read_comment_ts';
+				$insert_values .= $DB->quote( $timestamp );
+			}
+			$DB->query( 'INSERT INTO T_users__postreadstatus ( uprs_user_ID, uprs_post_ID, '.$insert_fields.' )
+				VALUES ( '.$DB->quote( $current_User->ID ).', '.$DB->quote( $this->ID ).', '.$insert_values.' )' );
 		}
 
-		// Update the cached date
-		$user_post_read_statuses[ $this->ID ][ $date_type ] = $timestamp;
+		// Update the cached date:
+		$user_post_read_statuses[ $this->ID ] = $timestamp;
 	}
 
 
@@ -7130,8 +7203,6 @@ class Item extends ItemLight
 	 */
 	function load_content_read_status()
 	{
-		global $localtimenow;
-
 		if( !is_logged_in() )
 		{
 			return;
@@ -7142,11 +7213,7 @@ class Item extends ItemLight
 			return;
 		}
 
-		$read_dates = $this->get_read_dates();
-		if( $read_dates['post'] >= $this->last_touched_ts )
-		{
-			$this->content_read_status = 'read';
-		}
+		$this->content_read_status = $this->get_read_status();
 	}
 
 
@@ -7169,23 +7236,27 @@ class Item extends ItemLight
 			return 'read';
 		}
 
+		$this->load_Blog();
+		if( ! $this->Blog->get_setting( 'track_unread_content' ) )
+		{	// The tracking of unread content is turned off for the collection
+			return 'read';
+		}
+
 		global $DB, $current_User;
 
-		$read_dates = $this->get_read_dates();
+		$read_date = $this->get_read_date();
 
-		if( empty( $read_dates['post'] ) )
-		{ // This post is recent for current user
+		if( empty( $read_date ) )
+		{	// This post is recent for current user
 			return 'new';
 		}
 
-		// A post is read if the post was seen after the latest update and the last updated comment was also seen by this user.
-		if( $read_dates['post'] >= $this->last_touched_ts )
-		{ // This post was read by current user
-			$max_comment_last_touched = load_comments_last_touched( array( $this->ID ) );
-			if( empty( $max_comment_last_touched ) || $read_dates['comment'] >= $max_comment_last_touched[$this->ID] )
-			{ // Comments read ts is higher the the max last_touched_ts value between the available comments
-				return 'read';
-			}
+		// In theory, it would be more safe to use this comparison:
+		// if( $read_date > $this->last_touched_ts )
+		// But until we have milli- or micro-second precision on timestamps, we decided it was a better trade-off to never see our own edits as unread. So we use:
+		if( $read_date >= $this->last_touched_ts )
+		{	// This post was read by current user
+			return 'read';
 		}
 
 		// This post is Unread by current user
@@ -7196,10 +7267,9 @@ class Item extends ItemLight
 	/**
 	 * Get the read dates from DB or from Cached array of this post for current User
 	 *
-	 * @return array 'post' => the read date of post
-	 *               'comment' => the read date of comment
+	 * @return string The read date of this post
 	 */
-	function get_read_dates()
+	function get_read_date()
 	{
 		global $DB, $current_User, $user_post_read_statuses;
 
@@ -7211,16 +7281,16 @@ class Item extends ItemLight
 		if( !isset( $user_post_read_statuses[ $this->ID ] ) )
 		{ // Get the read post date only one time from DB and store it in cache array
 			$SQL = new SQL();
-			$SQL->SELECT( 'uprs_read_post_ts AS `post`, uprs_read_comment_ts AS `comment`' );
+			$SQL->SELECT( 'uprs_read_post_ts' );
 			$SQL->FROM( 'T_users__postreadstatus' );
 			$SQL->WHERE( 'uprs_user_ID = '.$DB->quote( $current_User->ID ) );
 			$SQL->WHERE_and( 'uprs_post_ID = '.$DB->quote( $this->ID ) );
-			$user_post_read_statuses[ $this->ID ] = $DB->get_row( $SQL->get(), ARRAY_A );
+			$user_post_read_statuses[ $this->ID ] = $DB->get_var( $SQL->get() );
 		}
 
-		if( empty( $user_post_read_statuses[ $this->ID ] ) )
-		{ // Init empty array keys
-			$user_post_read_statuses[ $this->ID ] = array( 'post' => 0, 'comment' => 0 );
+		if( ! isset( $user_post_read_statuses[ $this->ID ] ) )
+		{	// Init empty read date:
+			$user_post_read_statuses[ $this->ID ] = 0;
 		}
 
 		return $user_post_read_statuses[ $this->ID ];
@@ -7234,8 +7304,13 @@ class Item extends ItemLight
 	 */
 	function display_unread_status( $params = array() )
 	{
-		// Set titles by Blog type
 		$this->load_Blog();
+		if( ! $this->Blog->get_setting( 'track_unread_content' ) )
+		{	// The tracking of unread content is turned off for the collection
+			return;
+		}
+
+		// Set titles by Blog type:
 		if( $this->Blog->get( 'type' ) == 'forum' )
 		{
 			$title_new = T_('New topic');
@@ -7336,11 +7411,15 @@ class Item extends ItemLight
 			if( $attr != 'onclick' )
 			{ // Init an url
 				if( $this->ID > 0 )
-				{
+				{	// URL when item is editing:
 					$attr_href = $admin_url.'?ctrl=items&amp;action=edit_type&amp;post_ID='.$this->ID;
 				}
+				elseif( get_param( 'p' ) > 0 )
+				{	// URL when item is duplicating:
+					$attr_href = $admin_url.'?ctrl=items&amp;action=new_type&amp;p='.get_param( 'p' );
+				}
 				else
-				{
+				{	// URL when item is creating:
 					$attr_href = $admin_url.'?ctrl=items&amp;action=new_type';
 				}
 			}
@@ -7516,6 +7595,37 @@ class Item extends ItemLight
 	function city_visible()
 	{
 		return $this->get_type_setting( 'use_city' ) != 'never';
+	}
+
+
+	/**
+	 * Get the parent Item
+	 *
+	 * @return object Item
+	 */
+	function & get_parent_Item()
+	{
+		if( ! empty( $this->parent_Item ) )
+		{	// Return the initialized parent Item:
+			return $this->parent_Item;
+		}
+
+		if( empty( $this->parent_ID ) )
+		{	// No defined parent Item
+			$this->parent_Item = NULL;
+			return $this->parent_Item;
+		}
+
+		if( $this->get_type_setting( 'use_parent' ) == 'never' )
+		{	// Parent Item is not allowed for current item type
+			$this->parent_Item = NULL;
+			return $this->parent_Item;
+		}
+
+		$ItemCache = & get_ItemCache();
+		$this->parent_Item = & $ItemCache->get_by_ID( $this->parent_ID, false, false );
+
+		return $this->parent_Item;
 	}
 }
 ?>

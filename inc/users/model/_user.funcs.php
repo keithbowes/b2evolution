@@ -350,7 +350,7 @@ function get_notifications_url( $glue = '&amp;', $user_ID = NULL )
 
 	if( $use_admin_page_url )
 	{ // Use backoffice form of notifications form
-		return $admin_url.'?ctrl=user'.$glue.'user_tab=subs#subs';
+		return $admin_url.'?ctrl=user'.$glue.'user_tab=subs';
 	}
 	else
 	{ // Use in-skin form of notifications form:
@@ -360,7 +360,7 @@ function get_notifications_url( $glue = '&amp;', $user_ID = NULL )
 			if( empty( $url_Blog ) )
 			{ // No default blog, Use base url:
 				global $baseurl;
-				return url_add_param( $baseurl, 'disp=subs#subs' );
+				return url_add_param( $baseurl, 'disp=subs' );
 			}
 		}
 		else
@@ -1992,15 +1992,12 @@ function load_user_read_statuses( $post_ids = NULL )
 
 	// SELECT current User's post and comment read statuses for all post with the given ids
 	$SQL = new SQL();
-	$SQL->SELECT( 'uprs_post_ID as post_ID, uprs_read_post_ts AS `post`, uprs_read_comment_ts AS `comment`' );
+	$SQL->SELECT( 'uprs_post_ID, uprs_read_post_ts' );
 	$SQL->FROM( 'T_users__postreadstatus' );
 	$SQL->WHERE( 'uprs_user_ID = '.$DB->quote( $current_User->ID ) );
 	$SQL->WHERE_and( $post_condition );
-	// Set those post read statuses which were opened before
-	foreach( $DB->get_results( $SQL->get() ) as $row )
-	{ // Load $user_post_read_statuses by post
-		$user_post_read_statuses[$row->post_ID] = array( 'post' => $row->post, 'comment' => $row->comment );
-	}
+	// Set those post read statuses which were opened before:
+	$user_post_read_statuses = $DB->get_assoc( $SQL->get() );
 
 	if( empty( $post_ids ) )
 	{ // The load was not requested for specific posts, so we have loaded all information what we have, ther rest of the posts were not read by this user
@@ -2010,9 +2007,9 @@ function load_user_read_statuses( $post_ids = NULL )
 	// Set new posts read statuses
 	foreach( $post_ids as $post_ID )
 	{ // Make sure to set read statuses for each requested post ID
-		if( ! isset( $user_post_read_statuses[$post_ID] ) )
+		if( ! isset( $user_post_read_statuses[ $post_ID ] ) )
 		{ // Set each read status to 0
-			$user_post_read_statuses[$post_ID] = array( 'post' => 0, 'comment' => 0 );
+			$user_post_read_statuses[ $post_ID ] = 0;
 		}
 	}
 }
@@ -2875,13 +2872,18 @@ function userfields_display( $userfields, $Form, $new_field_name = 'new', $add_g
 	$group_ID = 0;
 	foreach( $userfields as $userfield )
 	{
-		if( $group_ID != $userfield->ufgp_ID && $add_group_fieldset )
+		if( empty( $userfield->ufgp_ID ) )
+		{	// Don't display user field without group, because the user field definition was deleted from DB incorrectly:
+			continue;
+		}
+
+		if( $group_ID !== $userfield->ufgp_ID && $add_group_fieldset )
 		{	// Start new group
-			if( $group_ID > 0 )
+			if( $group_ID !== 0  )
 			{	// End previous group
 				$Form->end_fieldset();
 			}
-			$Form->begin_fieldset( $userfield->ufgp_name, array( 'id' => $userfield->ufgp_ID ) );
+			$Form->begin_fieldset( $userfield->ufgp_name.( is_admin_page() ? get_manual_link( 'user-profile-tab-userfields' ) : '' ) , array( 'id' => $userfield->ufgp_ID ) );
 		}
 
 		$uf_val = param( 'uf_'.$userfield->uf_ID, 'string', NULL );
@@ -3015,7 +3017,7 @@ function userfield_prepare( & $userfield )
  */
 function callback_filter_userlist( & $Form )
 {
-	global $Settings, $current_User, $Blog;
+	global $Settings, $current_User, $Blog, $edited_Organization;
 
 	$Form->hidden( 'filter', 'new' );
 
@@ -3095,11 +3097,14 @@ function callback_filter_userlist( & $Form )
 
 	$Form->interval( 'level_min', get_param('level_min'), 'level_max', get_param('level_max'), 3, T_('Level') );
 
-	$OrganizationCache = & get_OrganizationCache( T_('All') );
-	$OrganizationCache->load_all();
-	if( count( $OrganizationCache->cache ) > 0 )
-	{
-		$Form->select_input_object( 'org', get_param( 'org' ), $OrganizationCache, T_('Organization'), array( 'allow_none' => true ) );
+	if( empty( $edited_Organization ) )
+	{ // Show organization filter only when organization form is not selected
+		$OrganizationCache = & get_OrganizationCache( T_('All') );
+		$OrganizationCache->load_all();
+		if( count( $OrganizationCache->cache ) > 0 )
+		{
+			$Form->select_input_object( 'org', get_param('org'), $OrganizationCache, T_('Organization'), array( 'allow_none' => true ) );
+		}
 	}
 	echo '<br />';
 
@@ -4826,7 +4831,7 @@ function users_results_block( $params = array() )
 			'where_status_closed' => $params['where_status_closed'],
 			'where_org_ID'        => $params['org_ID'],
 		) );
-	$default_filters = array( 'order' => $params['results_order'] );
+	$default_filters = array( 'order' => $params['results_order'], 'org' => $params['org_ID'] );
 	$UserList->title = $params['results_title'];
 	$UserList->no_results_text = $params['results_no_text'];
 
@@ -4885,7 +4890,7 @@ function users_results_block( $params = array() )
 	{
 		if( $params['display_btn_adduser'] )
 		{ // Display a button to add user
-			$UserList->global_icon( T_('Create a new user...'), 'new', $admin_url.'?ctrl=user&amp;action=new&amp;user_tab=profile', T_('Add user').' &raquo;', 3, 4 );
+			$UserList->global_icon( T_('Create a new user...'), 'new', $admin_url.'?ctrl=user&amp;action=new&amp;user_tab=profile', T_('Add user').' &raquo;', 3, 4, array( 'class' => 'action_icon btn-primary' ) );
 		}
 		if( $params['display_btn_adduser'] )
 		{ // Display a button to add group
@@ -5081,7 +5086,7 @@ function users_results( & $UserList, $params = array() )
 	if( $params['display_blogs'] && isset( $collections_Module ) )
 	{ // We are handling blogs:
 		$UserList->cols[] = array(
-				'th' => T_('Blogs'),
+				'th' => T_('Collections'),
 				'order' => 'nb_blogs',
 				'th_class' => 'shrinkwrap small',
 				'td_class' => 'center small',

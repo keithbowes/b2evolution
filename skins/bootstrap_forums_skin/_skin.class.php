@@ -62,6 +62,36 @@ class bootstrap_forums_Skin extends Skin
 	function get_param_definitions( $params )
 	{
 		$r = array_merge( array(
+				'section_layout_start' => array(
+					'layout' => 'begin_fieldset',
+					'label'  => T_('Layout Settings')
+				),
+					'layout_general' => array(
+						'label' => T_('General Layout'),
+						'note' => '',
+						'defaultvalue' => 'no_sidebar',
+						'options' => array(
+								'no_sidebar'    => T_('No Sidebar'),
+								'left_sidebar'  => T_('Left Sidebar'),
+								'right_sidebar' => T_('Right Sidebar'),
+							),
+						'type' => 'select',
+					),
+					'layout_single' => array(
+						'label' => T_('Single Thread Layout'),
+						'note' => '',
+						'defaultvalue' => 'no_sidebar',
+						'options' => array(
+								'no_sidebar'    => T_('No Sidebar'),
+								'left_sidebar'  => T_('Left Sidebar'),
+								'right_sidebar' => T_('Right Sidebar'),
+							),
+						'type' => 'select',
+					),
+				'section_layout_end' => array(
+					'layout' => 'end_fieldset',
+				),
+
 				'section_forum_start' => array(
 					'layout' => 'begin_fieldset',
 					'label'  => T_('Forum Display Settings')
@@ -719,6 +749,133 @@ class bootstrap_forums_Skin extends Skin
 		return ( ! empty( $access ) && ! empty( $access[ $container_key ] ) );
 	}
 
+
+	/**
+	 * Check if we can display a sidebar for the current layout
+	 *
+	 * @param boolean TRUE to check if at least one sidebar container is visible
+	 * @return boolean TRUE to display a sidebar
+	 */
+	function is_visible_sidebar( $check_containers = false )
+	{
+		$layout = $this->get_setting_layout();
+
+		if( $layout != 'left_sidebar' && $layout != 'right_sidebar' )
+		{ // Sidebar is not displayed for selected skin layout
+			return false;
+		}
+
+		if( $check_containers )
+		{ // Check if at least one sidebar container is visible
+			return ( $this->is_visible_container( 'sidebar' ) ||  $this->is_visible_container( 'sidebar2' ) );
+		}
+		else
+		{ // We should not check the visibility of the sidebar containers for this case
+			return true;
+		}
+	}
+
+
+	/**
+	 * Get value for attbiute "class" of column block
+	 * depending on skin setting "Layout"
+	 *
+	 * @return string
+	 */
+	function get_column_class()
+	{
+		switch( $this->get_setting_layout() )
+		{
+			case 'no_sidebar':
+				// No Sidebar (Single large column)
+				return 'col-md-12';
+
+			case 'left_sidebar':
+				// Left Sidebar
+				return 'col-md-9 pull-right';
+
+			case 'right_sidebar':
+				// Right Sidebar
+			default:
+				return 'col-md-9';
+		}
+	}
+
+
+	/**
+	 * Get a layout setting value depending on $disp
+	 *
+	 * @return string
+	 */
+	function get_setting_layout()
+	{
+		global $disp;
+
+		if( $disp == 'single' )
+		{	// Single post page has a separate setting for layout:
+			return $this->get_setting( 'layout_single' );
+		}
+		else
+		{	// Use this settings for all other pages:
+			return $this->get_setting( 'layout_general' );
+		}
+	}
+
+
+	/**
+	 * Display a button to view the Recent/New Topics
+	 */
+	function display_button_recent_topics()
+	{
+		global $Blog;
+
+		if( ! is_logged_in() || ! $Blog->get_setting( 'track_unread_content' ) )
+		{	// For not logged in users AND if the tracking of unread content is turned off for the collection
+			$btn_class = 'btn-info';
+			$btn_title = T_('Recent Topics');
+		}
+		else
+		{	// For logged in users:
+			global $current_User, $DB, $localtimenow;
+
+			// Initialize SQL query to get only the posts which are displayed by global $MainList on disp=posts:
+			$ItemList2 = new ItemList2( $Blog, $Blog->get_timestamp_min(), $Blog->get_timestamp_max(), NULL, 'ItemCache', 'recent_topics' );
+			$ItemList2->set_default_filters( array(
+					'unit' => 'all', // set this to don't calculate total rows
+				) );
+			$ItemList2->query_init();
+
+			// Get a count of the unread topics for current user:
+			$unread_posts_SQL = new SQL();
+			$unread_posts_SQL->SELECT( 'COUNT( post_ID )' );
+			$unread_posts_SQL->FROM( 'T_items__item' );
+			$unread_posts_SQL->FROM_add( 'LEFT JOIN T_users__postreadstatus ON post_ID = uprs_post_ID AND uprs_user_ID = '.$DB->quote( $current_User->ID ) );
+			$unread_posts_SQL->FROM_add( 'INNER JOIN T_categories ON post_main_cat_ID = cat_ID' );
+			$unread_posts_SQL->WHERE( $ItemList2->ItemQuery->get_where( '' ) );
+			$unread_posts_SQL->WHERE_and( 'post_last_touched_ts > '.$DB->quote( date2mysql( $localtimenow - 30 * 86400 ) ) );
+			// In theory, it would be more safe to use this comparison:
+			// $unread_posts_SQL->WHERE_and( 'uprs_post_ID IS NULL OR uprs_read_post_ts <= post_last_touched_ts' );
+			// But until we have milli- or micro-second precision on timestamps, we decided it was a better trade-off to never see our own edits as unread. So we use:
+			$unread_posts_SQL->WHERE_and( 'uprs_post_ID IS NULL OR uprs_read_post_ts < post_last_touched_ts' );
+
+			// Execute a query with to know if current user has new data to view:
+			$unread_posts_count = $DB->get_var( $unread_posts_SQL->get(), 0, NULL, 'Get a count of the unread topics for current user' );
+
+			if( $unread_posts_count > 0 )
+			{	// If at least one new unread topic exists
+				$btn_class = 'btn-warning';
+				$btn_title = T_('New Topics').' <span class="badge">'.$unread_posts_count.'</span>';
+			}
+			else
+			{	// Current user already have read all topics
+				$btn_class = 'btn-info';
+				$btn_title = T_('Recent Topics');
+			}
+		}
+
+		// Print out the button:
+		echo '<a href="'.$Blog->get( 'recentpostsurl' ).'" class="btn '.$btn_class.' pull-right btn_recent_topics">'.$btn_title.'</a>';
+	}
 }
 
 ?>

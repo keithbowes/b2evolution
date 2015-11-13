@@ -385,7 +385,7 @@ function get_collection_kinds( $kind = NULL )
 				'note' => T_('Besides displaying a nice homepage, this can also be used as a central home for cross-collection features such as private messaging, user profile editing, etc.'),
 			),
 		'std' => array(
-				'name' => T_('Blog'),
+				'name' => T_('Blog'), // NOTE: this is a REAL usage of the word 'Blog'. Do NOT change to 'collection'.
 				'class' => 'btn-info',
 				'desc' => T_('A collection optimized to be used as a standard blog (with the most common features).'),
 				'note' => T_('Many users start with a blog and add other features later.'),
@@ -938,11 +938,12 @@ function get_inskin_statuses_options( & $edited_Blog, $type )
 
 	// Get all available statuses except 'deprecated', 'trash' and 'redirected'
 	$statuses = get_visibility_statuses( '', array( 'deprecated', 'trash', 'redirected' ) );
+	$status_icons = get_visibility_statuses( 'icons', array( 'deprecated', 'trash', 'redirected' ) );
 	$inskin_statuses = $edited_Blog->get_setting( $type.'_inskin_statuses' );
 	foreach( $statuses as $status => $status_text )
 	{ // Add a checklist option for each possible front office post/comment status
 		$is_checked = ( strpos( $inskin_statuses, $status ) !== false );
-		$checklist_options[] = array( $type.'_inskin_'.$status, 1, $status_text, $is_checked );
+		$checklist_options[] = array( $type.'_inskin_'.$status, 1, $status_icons[ $status ].' '.$status_text, $is_checked );
 	}
 
 	return $checklist_options;
@@ -1051,6 +1052,19 @@ function get_visibility_statuses( $format = '', $exclude = array('trash'), $chec
 		case 'moderation': // these statuses may need moderation
 			$r = array( 'community', 'protected', 'review', 'draft' );
 			return $r;
+
+		case 'icons': // colored icons
+			$r = array (
+					'published'  => '<span class="fa fa-circle status_color_published"></span>',
+					'community'  => '<span class="fa fa-circle status_color_community"></span>',
+					'protected'  => '<span class="fa fa-circle status_color_protected"></span>',
+					'private'    => '<span class="fa fa-circle status_color_private"></span>',
+					'review'     => '<span class="fa fa-circle status_color_review"></span>',
+					'draft'      => '<span class="fa fa-circle status_color_draft"></span>',
+					'deprecated' => '<span class="fa fa-circle status_color_deprecated"></span>',
+					'redirected' => '<span class="fa fa-circle status_color_redirected"></span>',
+				);
+			break;
 
 		case 'raw':
 		default:

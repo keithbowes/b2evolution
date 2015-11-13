@@ -306,10 +306,11 @@ function format_to_output( $content, $format = 'htmlbody' )
 			break;
 
 		case 'htmlfeed':
-			// For use in RSS <content:encoded>, allow full HTML + absolute URLs
+			// For use in RSS <content:encoded><![CDATA[ ... ]]></content:encoded>
+			// allow full HTML + absolute URLs...
 			$content = make_rel_links_abs($content);
 			$content = convert_chars($content, 'html');
-			$content = str_replace(']]>', ']]&gt;', $content); // encode CDATA closing tag
+			$content = str_replace(']]>', ']]&gt;', $content); // encode CDATA closing tag to prevent injection/breaking of the <![CDATA[ ... ]]>
 			break;
 
 		case 'htmlhead':
@@ -865,7 +866,7 @@ function callback_on_non_matching_blocks( $text, $pattern, $callback, $params = 
 
 
 /**
- * Replace content outside blocks <code></code> & <pre></pre>
+ * Replace content outside blocks <code></code>, <pre></pre> and markdown codeblocks
  *
  * @param array|string Search list
  * @param array|string Replace list
@@ -878,10 +879,10 @@ function replace_content_outcode( $search, $replace, $content, $replace_function
 {
 	if( !empty( $search ) )
 	{
-		if( stristr( $content, '<code' ) !== false || stristr( $content, '<pre' ) !== false )
-		{ // Call replace_content() on everything outside code/pre:
+		if( stristr( $content, '<code' ) !== false || stristr( $content, '<pre' ) !== false || strstr( $content, '`' ) !== false )
+		{ // Call replace_content() on everything outside code/pre and markdown codeblocks:
 			$content = callback_on_non_matching_blocks( $content,
-				'~<(code|pre)[^>]*>.*?</\1>~is',
+				'~(`|<(code|pre)[^>]*>).*?(\1|</\2>)~is',
 				$replace_function_callback, array( $search, $replace, $replace_function_type ) );
 		}
 		else
@@ -7391,6 +7392,75 @@ function save_fieldset_folding_values( $blog_ID = NULL )
 
 
 /**
+ * Get html code of bootstrap dropdown element
+ * 
+ * @param array Params
+ */
+function get_status_dropdown_button( $params = array() )
+{
+	$params = array_merge( array(
+			'name'         => '',
+			'value'        => '',
+			'title_format' => '',
+			'options'      => NULL,
+		), $params );
+
+	if( $params['options'] === NULL )
+	{	// Get status options by title format:
+		$status_options = get_visibility_statuses( $params['title_format'] );
+	}
+	else
+	{	// Use status options from params:
+		$status_options = $params['options'];
+	}
+	$status_icon_options = get_visibility_statuses( 'icons' );
+
+	$r = '<div class="btn-group dropdown autoselected">';
+	$r .= '<button type="button" class="btn btn-status-'.$params['value'].' dropdown-toggle" data-toggle="dropdown" aria-expanded="false">'
+					.'<span>'.$status_options[ $params['value'] ].'</span>'
+				.' <span class="caret"></span></button>';
+	$r .= '<ul class="dropdown-menu" role="menu" aria-labelledby="'.$params['name'].'">';
+	foreach( $status_options as $status_key => $status_title )
+	{
+		$r .= '<li rel="'.$status_key.'" role="presentation"><a href="#" role="menuitem" tabindex="-1">'.$status_icon_options[ $status_key ].' <span>'.$status_title.'</span></a></li>';
+	}
+	$r .= '</ul>';
+	$r .= '</div>';
+
+	return $r;
+}
+
+/**
+ * Output JavaScript code to work with dropdown bootstrap element
+ */
+function echo_form_dropdown_js()
+{
+?>
+<script type="text/javascript">
+jQuery( '.btn-group.dropdown.autoselected li a' ).click( function()
+{
+	var item = jQuery( this ).parent();
+	var status = item.attr( 'rel' );
+	var button = jQuery( this ).parent().parent().prev();
+	var field_name = jQuery( this ).parent().parent().attr( 'aria-labelledby' );
+
+	// Change status class name to new changed for all buttons:
+	button.attr( 'class', button.attr( 'class' ).replace( /btn-status-[^\s]+/, 'btn-status-' + status ) );
+	// Update selector button to status title:
+	button.find( 'span:first' ).html( item.find( 'span:last' ).html() );
+	// Update hidden field to new status value:
+	jQuery( 'input[type=hidden][name=' + field_name + ']' ).val( status );
+	// Hide dropdown menu:
+	item.parent().parent().removeClass( 'open' );
+
+	return false;
+} );
+</script>
+<?php
+}
+
+
+/**
  * Get baseurl depending on current called script
  *
  * @return string URL
@@ -7426,5 +7496,74 @@ function get_script_baseurl()
 	}
 
 	return $temp_baseurl;
+}
+
+
+/**
+ * Get badge to inform the settings are edited only by collection/user admins
+ *
+ * @param string Type: 'coll', 'user'
+ * @param string Manual URL, '#' - default, false - don't set URL
+ * @return string
+ */
+function get_admin_badge( $type = 'coll', $manual_url = '#', $text = '#', $title = '#' )
+{
+	switch( $type )
+	{
+		case 'coll':
+			if( $text == '#' )
+			{	// Use default text:
+				$text = T_('Coll. Admin');
+			}
+			if( $title == '#' )
+			{	// Use default title:
+				$title = T_('This can only be edited by users with the Collection Admin permission.');
+			}
+			if( $manual_url == '#' )
+			{	// Use default manual url:
+				$manual_url = 'collection-admin';
+			}
+			break;
+
+		case 'user':
+			if( $text == '#' )
+			{	// Use default text:
+				$text = T_('User Admin');
+			}
+			if( $title == '#' )
+			{	// Use default title:
+				$title = T_('This can only be edited by users with the User Admin permission.');
+			}
+			if( $manual_url == '#' )
+			{	// Use default manual url:
+				$manual_url = 'user-admin';
+			}
+			break;
+
+		default:
+			// Unknown badge type:
+			return '';
+	}
+
+	if( empty( $manual_url ) )
+	{	// Don't use a link:
+		$r = ' <b';
+	}
+	else
+	{	// Use link:
+		$r = ' <a href="'.get_manual_url( $manual_url ).'" target="_blank"';
+	}
+	$r .= ' class="badge badge-warning" data-toggle="tooltip" data-placement="top" title="'.format_to_output( $title, 'htmlattr' ).'">';
+	$r .= $text;
+	if( empty( $manual_url ) )
+	{	// End of text formatted badge:
+		$r .= '</b>';
+	}
+	else
+	{	// End of the link:
+		$r .= '</a>';
+	}
+
+	return $r;
 }
 ?>

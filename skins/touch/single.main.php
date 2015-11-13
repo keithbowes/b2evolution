@@ -56,7 +56,7 @@ skin_include( '_body_header.inc.php' );
 // Display message if no post:
 display_if_empty();
 
-echo '<div id="styled_content_block">'; // Beginning of posts display
+echo '<div class="evo_content_block">'; // Beginning of posts display
 while( $Item = & mainlist_get_item() )
 {	// For each blog post, do everything below up to the closing curly brace "}"
 	?>
@@ -117,7 +117,7 @@ while( $Item = & mainlist_get_item() )
 			}
 			// ---------------------- POST CONTENT INCLUDED HERE ----------------------
 			skin_include( '_item_content.inc.php', array(
-					'image_size' => 'fit-400x320',
+					'image_size' => 'fit-256x256',
 				) );
 			// Note: You can customize the default item content by copying the generic
 			// /skins/_item_content.inc.php file into the current skin folder.

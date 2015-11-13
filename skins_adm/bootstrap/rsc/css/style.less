@@ -165,8 +165,15 @@ div.avatartag {
 
 .edit_actions {
 	clear: both;
-	padding-top: 7px;
-	.PreviewButton {
+	.btn {
+		margin-top: 7px;
+	}
+	.edit_actions_text {
+		margin: 7px 7px 0 0;
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.PreviewButton, .pull-left {
 		margin-right: 10px;
 	}
 }
@@ -252,6 +259,13 @@ div.bPost {
 		padding: 0;
 		margin: 4px 10px 10px 0;
 		float: left;
+	}
+}
+#comments_container.full_comment_list {
+	border: none;
+	div.bComment {
+		margin-left: 0;
+		margin-right: 0;
 	}
 }
 .bFeedback {
@@ -399,7 +413,7 @@ div.PostActionsArea, div.CommentActionsArea {
 	}
 }
 // Status banner
-#styled_content_block span[class*="status_"] {
+.evo_content_block span[class*="status_"] {
 	left: 8px;
 	top: -8px;
 }
@@ -581,7 +595,7 @@ fieldset ul {
 	}
 }
 .dashboard_comments_block {
-	#styled_content_block {
+	.evo_content_block {
 		a.user img, img.user {
 			.border-radius(50%);
 		}
@@ -807,6 +821,13 @@ form#FilesForm {
 		}
 	}
 }
+#fmbar_filter {
+	display: inline;
+	white-space: nowrap;
+	em.filter {
+		color: #F00;
+	}
+}
 #fmbar_filter_checkchanges {
 	float: right;
 	label {
@@ -979,7 +1000,7 @@ span[id^=title_folding_] {
 
 // Dashboard
 .browse {
-	#styled_content_block {
+	.evo_content_block {
 		margin-right: 0;
 	}
 }
@@ -1394,4 +1415,66 @@ input[name=new_cat_order] {
 // Fix space under submit button on blog permission pages
 form#blogperm_checkchanges {
 	padding-bottom: 20px;
+}
+
+// Fix label color from white invisible:
+.control-label.label {
+	color: #333;
+}
+
+// Table to display a difference between post revisions:
+table.diff {
+	border: medium none;
+	border-spacing: 4px;
+	table-layout: fixed;
+	width: 100%;
+	background-color: white;
+	border-collapse: initial;
+	td {
+		padding: 0;
+		div {
+			overflow: auto;
+			word-wrap: break-word;
+		}
+	}
+	col.diff-marker {
+		width: 2%;
+	}
+	col.diff-content {
+		width: 48%;
+	}
+	td.diff-otitle, td.diff-ntitle {
+		background-color: white;
+		text-align: center;
+		width: 50%;
+	}
+	td.diff-marker {
+		text-align: right;
+	}
+	td.diff-lineno {
+		font-weight: bold;
+	}
+	td.diff-addedline {
+		background: none repeat scroll 0 0 #CCFFCC;
+		font-size: smaller;
+	}
+	td.diff-deletedline {
+		background: none repeat scroll 0 0 #FFFFAA;
+		font-size: smaller;
+	}
+	td.diff-context {
+		background: none repeat scroll 0 0 #EEEEEE;
+		font-size: smaller;
+	}
+	.diffchange {
+		color: red;
+		font-weight: bold;
+		text-decoration: none;
+		white-space: pre-wrap;
+	}
+	td.diff-title-deletedline, td.diff-title-addedline {
+		text-align: center;
+		font-size: 120%;
+		font-weight: bold;
+	}
 }

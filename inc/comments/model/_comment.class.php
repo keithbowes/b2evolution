@@ -2377,22 +2377,25 @@ class Comment extends DataObject
 	 * Note: This actually only returns the URL, to get a real link, use Comment::get_permanent_link()
 	 *
 	 * @param string glue between url params
+	 * @param string Anchor for meta comment
 	 */
-	function get_permanent_url( $glue = '&amp;' )
+	function get_permanent_url( $glue = '&amp;', $meta_anchor = '#' )
 	{
 		$this->get_Item();
 
 		if( $this->is_meta() )
 		{ // Meta comment is not published on front-office, Get url to back-office
 			global $admin_url;
-			$post_permalink = $admin_url.'?ctrl=items&amp;blog='.$this->Item->get_blog_ID().'&amp;p='.$this->Item->ID.'&amp;comment_type=meta';
+			if( $meta_anchor == '#' )
+			{	// Use default anchor:
+				$meta_anchor = '#'.$this->get_anchor();
+			}
+			return $admin_url.'?ctrl=items'.$glue.'blog='.$this->Item->get_blog_ID().$glue.'p='.$this->Item->ID.$glue.'comment_type=meta'.$meta_anchor;
 		}
 		else
 		{ // Normal comment
-			$post_permalink = $this->Item->get_single_url( 'auto', '', $glue );
+			return $this->Item->get_single_url( 'auto', '', $glue ).'#'.$this->get_anchor();
 		}
-
-		return $post_permalink.'?show=comments&amp;redir=no#'.$this->get_anchor();
 	}
 
 
@@ -2678,7 +2681,7 @@ class Comment extends DataObject
 			}
 			else
 			{ // Set default position for preview files
-				$link_position = ( $index == 0 ) ? 'teaser' : 'aftermore';
+				$link_position = 'aftermore';
 			}
 
 			$File = $attachment;
@@ -4078,16 +4081,6 @@ class Comment extends DataObject
 		{ // If the comment was not deleted then update last touched date
 			$this->set_param( 'last_touched_ts', 'date', $timestamp );
 			$this->dbupdate();
-		}
-
-		if( is_logged_in() )
-		{
-			$max_comment_last_touched = load_comments_last_touched( array( $this->item_ID ), $this->ID );
-			$user_read_dates = $comment_Item->get_read_dates();
-			if( empty( $max_comment_last_touched[$this->item_ID] ) || ( ( $user_read_dates['comment'] < $timestamp ) && ( $user_read_dates['comment'] >= $max_comment_last_touched[$this->item_ID] ) ) )
-			{ // Update current user comments read date on this comment's post
-				$comment_Item->update_read_date( 'comment' );
-			}
 		}
 
 		if( $update_item_date )

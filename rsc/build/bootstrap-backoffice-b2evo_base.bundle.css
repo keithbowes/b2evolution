@@ -1326,15 +1326,6 @@ ul.jslog_error {
   background: #fbf2ee;
   color: #e00;
 }
-.item_custom_fields {
-  border: none;
-  margin-bottom: 10px;
-  border-collapse: collapse;
-}
-.item_custom_fields th,
-.item_custom_fields td {
-  padding: 0 10px 0 0;
-}
 .item_custom_fields th {
   text-align: left;
 }
@@ -1526,6 +1517,9 @@ ul,
 ol {
   margin: 0 0 10px 25px;
   padding: 0;
+}
+.table-hover > tbody > tr:hover {
+  background-color: #ffc;
 }
 .btn.btn-success .fa,
 .btn.btn-danger .fa {
@@ -2080,6 +2074,17 @@ div.message_toolbars {
   background-color: #5bc0de !important;
   color: #FFF !important;
 }
+.badge-warning {
+  background-color: #f0ad4e !important;
+  color: #fff !important;
+}
+.badge-meta {
+  background-color: #5133ab !important;
+  color: #fff !important;
+}
+.dropdown-menu > li > a .tooltip {
+  white-space: normal;
+}
 .panel-heading .badge {
   position: relative;
   top: -1px;
@@ -2250,14 +2255,14 @@ div.message_toolbars {
 .mce-container label.mce-label {
   max-width: none;
 }
-#styled_content_block {
+.evo_content_block {
   /*
 	a.user img { // bubbletip
 		.border-radius(0);
 	}
 	*/
 }
-#styled_content_block img {
+.evo_content_block img {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -2292,4 +2297,38 @@ div.message_toolbars {
   font-size: 20px;
   line-height: 40px;
   display: block;
+}
+.evo_private_messages_list .messages_navigation {
+  padding: 5px;
+}
+.evo_private_messages_list > h2 {
+  margin-top: 0;
+}
+.evo_private_messages_list .messages_list_actions {
+  text-align: center;
+  padding: 10px 0;
+}
+.evo_private_messages_list .messages_list_actions p {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.evo_private_messages_list .messages_list_actions a {
+  display: inline-block;
+}
+.evo_private_messages_list .messages_list_actions a:last-child {
+  margin-bottom: 0;
+}
+.evo_private_messages_list span.error {
+  border: 1px solid #BBB;
+  border-bottom: none;
+  padding: 10px;
+  text-align: center;
+  display: block;
+}
+.evo_private_messages_list .panel {
+  margin-bottom: 0;
+}
+.evo_private_messages_list .panel.results {
+  margin-bottom: 20px;
 }

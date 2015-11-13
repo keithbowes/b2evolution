@@ -99,7 +99,7 @@ if( $is_admin )
 	}
 	else
 	{
-		$form_text_title = T_( 'Edit profile' ); // used for js confirmation message on leave the changed form
+		$form_text_title = T_( 'Edit profile' ).get_manual_link( 'user-profile-tab' ); // used for js confirmation message on leave the changed form
 		$form_title = get_usertab_header( $edited_User, 'profile', $form_text_title );
 		$Form->title_fmt = '<span style="float:right">$global_icons$</span><div>$title$</div>'."\n";
 	}
@@ -135,7 +135,7 @@ if( $new_user_creating )
 	$current_User->check_perm( 'users', 'edit', true );
 	$edited_User->get_Group();
 
-	$Form->begin_fieldset( T_( 'New user' ), array( 'class' => 'fieldset clear' ) );
+	$Form->begin_fieldset( T_( 'New user' ).get_manual_link( 'user-edit' ), array( 'class' => 'fieldset clear' ) );
 
 	$chosengroup = ( $edited_User->Group === NULL ) ? $Settings->get( 'newusers_grp_ID' ) : $edited_User->grp_ID;
 	$GroupCache = & get_GroupCache();
@@ -153,7 +153,7 @@ if( $new_user_creating )
 
 	/***************  Identity  **************/
 
-$Form->begin_fieldset( T_('Identity') );
+$Form->begin_fieldset( T_('Identity').( is_admin_page() ? get_manual_link( 'user-profile-tab' ) : '' ) );
 
 if( ($url = $edited_User->get('url')) != '' )
 {
@@ -550,7 +550,7 @@ userfields_display( $userfields, $Form );
 if( $action != 'view' )
 {	// Edit mode
 // ------------------- Add new field: -------------------------------
-$Form->begin_fieldset( T_('Add new fields') );
+$Form->begin_fieldset( T_('Add new fields').( is_admin_page() ? get_manual_link( 'user-profile-tab-addnewfields' ) : '' ) );
 
 	// -------------------  Display new added userfields: -------------------------------
 	global $add_field_types, $Messages;

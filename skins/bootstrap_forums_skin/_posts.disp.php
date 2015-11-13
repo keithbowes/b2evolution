@@ -42,19 +42,20 @@ if( $cat > 0 )
 
 	// Load read statuses if required
 	$MainList->load_content_read_statuses();
-
-	// Breadcrumbs
-	skin_widget( array(
-			// CODE for the widget:
-			'widget' => 'breadcrumb_path',
-			// Optional display params
-			'block_start'      => '<ol class="breadcrumb">',
-			'block_end'        => '</ol><div class="clear"></div>',
-			'separator'        => '',
-			'item_mask'        => '<li><a href="$url$">$title$</a></li>',
-			'item_active_mask' => '<li class="active">$title$</li>',
-		) );
 }
+
+// Breadcrumbs
+skin_widget( array(
+		// CODE for the widget:
+		'widget' => 'breadcrumb_path',
+		// Optional display params
+		'block_start'      => '<ol class="breadcrumb">',
+		'block_end'        => '</ol><div class="clear"></div>',
+		'separator'        => '',
+		'item_mask'        => '<li><a href="$url$">$title$</a></li>',
+		'item_active_mask' => '<li class="active">$title$</li>',
+		'suffix_text'      => empty( $cat ) ? T_('Latest topics') : '',
+	) );
 
 if( !empty( $cat ) && ( $cat > 0 ) )
 { // Display sub-chapters
@@ -107,8 +108,17 @@ if( count( $chapters ) > 0 )
 			else
 			{ // Set icon for unlocked chapter
 				$chapter_icon = 'fa-folder big';
-				$chapter_icon_title = T_('No new posts');
-				$legend_icons['forum_default'] = 1;
+				global $disp_detail;
+				if( $disp_detail == 'posts-subcat' )
+				{
+					$chapter_icon_title = T_('Sub-forum (contains several topics)');
+					$legend_icons['forum_sub'] = 1;
+				}
+				else
+				{
+					$chapter_icon_title = T_('Forum (contains several topics)');
+					$legend_icons['forum_default'] = 1;
+				}
 			}
 
 ?>
@@ -140,8 +150,8 @@ if( count( $chapters ) > 0 )
 				?>
 				</div>
 			</div>
-			<div class="ft_count col-lg-1 col-md-1 col-sm-1 col-xs-2"><?php printf( T_('%s topics'), '<b>'.get_postcount_in_category( $Chapter->ID ).'</b>' ); ?></div>
-			<div class="ft_count second_of_class col-lg-1 col-md-1 col-sm-1 col-xs-2"><?php printf( T_('%s replies'), '<b>'.get_commentcount_in_category( $Chapter->ID ).'</b>' ); ?></div>
+			<div class="ft_count col-lg-1 col-md-1 col-sm-1 col-xs-2"><?php printf( T_('%s topics'), '<div><a href="'. $Chapter->get_permanent_url() .'">'.get_postcount_in_category( $Chapter->ID ).'</a></div>' ); ?></div>
+			<div class="ft_count second_of_class col-lg-1 col-md-1 col-sm-1 col-xs-2"><?php printf( T_('%s replies'), '<div><a href="'. $Chapter->get_permanent_url() .'">'.get_postcount_in_category( $Chapter->ID ).'</a></div>' ); ?></div>
 			<div class="ft_date col-lg-2 col-md-3 col-sm-3"><?php echo $Chapter->get_last_touched_date( 'D M j, Y H:i' ); ?></div>
 			<!-- Apply this on XS size -->
 			<div class="ft_date_shrinked col-xs-2"><?php echo $Chapter->get_last_touched_date( 'm/j/y' ); ?></div>
