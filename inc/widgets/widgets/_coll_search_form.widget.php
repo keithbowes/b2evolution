@@ -174,9 +174,9 @@ class coll_search_form_Widget extends ComponentWidget
 		echo '<input type="submit" name="submit" class="search_submit submit btn btn-primary" value="'.format_to_output( $this->disp_params['button'], 'htmlattr' ).'" />';
 		echo $this->disp_params['search_submit_after'];
 
-		echo '</div>';
-
 		echo '<input type="hidden" name="disp" value="search" />';
+
+		echo '</div>';
 
 		echo '</form>';
 

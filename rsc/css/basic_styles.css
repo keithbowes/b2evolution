@@ -375,11 +375,6 @@ span.roundbutton.rbtn_black:hover,
 .notes a.roundbutton {
   top: -2px;
 }
-@-moz-document url-prefix() {
-  .notes a.roundbutton {
-    top: 0;
-  }
-}
 .btn {
   background-image: none;
   border: 1px solid transparent;
@@ -402,7 +397,7 @@ span.roundbutton.rbtn_black:hover,
 }
 .btn-default:hover,
 .btn-default:focus {
-  color: 333;
+  color: #333;
   background-color: #e6e6e6;
   border-color: #adadad;
 }
