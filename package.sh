@@ -6,8 +6,9 @@ rm -f package.json
 rm -f readme.md
 rm -f readme.template.html
 rm -f .bower.json
+./cleanup.sh
 echo Removing myself now
-rm -f cleanup.sh
+rm -f cleanup.sh package.sh
 echo Stepping out
 cd ..
 echo Compressing
