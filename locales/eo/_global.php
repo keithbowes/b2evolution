@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2015-11-21 14:34-0500\nPO-Revision-Date: 2015-11-27 19:22-0500\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2015-11-21 14:34-0500\nPO-Revision-Date: 2015-11-29 13:03-0500\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 'Folder' => 'Dosierujo',
 'Unknown file' => 'Nekonata dosiero',
 'Empty file' => 'Vaka dosiero',
@@ -6732,7 +6732,7 @@ $trans['eo'] = array(
 '(EXPERIMENTAL)' => '(EKSPERIMENTA)',
 'Check this to show previous/next page links to navigate inside the <b>current</b> chapter.' => 'Marki por montri ligilojn por la antaŭa kaj sekva paĝoj por navigi en la <strong>nuna</strong> ĉapitro.',
 'Filed under' => 'Afiŝita en',
-'This entry was posted on ' => 'Ĉi tiu afiŝo estis afiŝita je',
+'This entry was posted on ' => 'Ĉi tiu afiŝo estis afiŝita je ',
 'at ' => 'je ',
 'by ' => 'de ',
 'This entry was posted by ' => 'Ĉi tiu afiŝo estis afiŝita de ',

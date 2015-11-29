@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net\n"
 "POT-Creation-Date: 2015-11-21 14:34-0500\n"
-"PO-Revision-Date: 2015-11-27 19:22-0500\n"
+"PO-Revision-Date: 2015-11-29 13:03-0500\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -33944,7 +33944,7 @@ msgstr "Afiŝita en"
 #: ../../../skins/colourise/single.main.php:113
 #: ../../../skins/evopress/single.main.php:156
 msgid "This entry was posted on "
-msgstr "Ĉi tiu afiŝo estis afiŝita je"
+msgstr "Ĉi tiu afiŝo estis afiŝita je "
 
 # TRANS: time
 #: ../../../skins/colourise/single.main.php:117
