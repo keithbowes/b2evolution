@@ -19,7 +19,6 @@ This is [a fork](https://github.com/keithbowes/b2evolution) of the [upstream pro
 1.  Includes my Esperanto translation, including an eo.locale.php that uses the proper locale name, formats, surrogates, etc.
 1.  Includes changes to validate as XHTML.  In general that means replaces the entities &amp;nbsp;, &amp;raquo;, &amp;laquo;, &amp;middot;, and &amp;hellip; with their UTF-8 literals or numerical references.
 1.  Sorting of categories.  Categories are sorted alphabetically rather than based on ID.
-1.  I'm using the mysqli API, where upstream continues to use the deprecated mysql API.
 1.  I still use xg.php (where upstream seems to have settled for xgmac.sh and completely removed xg.php), though I've made several changes.
 
 The rest of this document is from upstream and should apply equally to both this fork and upstream.
