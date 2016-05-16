@@ -107,7 +107,7 @@ function get_item($dir)
 	global $Blog, $DB, $Item;
 	$blogid = $Item ? $Item->blog_ID : $Blog ? $Blog->ID : -1;
 	$blogslug = $Item ? $Item->urltitle : '';
-	$categorytablename = isset($Item) && isset($Item->main_Chapter) ? $Item->main_Chapter->dbtablename : 'T_categories';
+	$categorytablename = is_object($Item) && is_object($Item->main_Chapter) ? $Item->main_Chapter->dbtablename : 'T_categories';
 	$itemtablename = $Item ? $Item->dbtablename : 'T_items__item';
 	if (!$categorytablename || !$itemtablename) return;
 	$row = 0;
@@ -186,15 +186,15 @@ function get_post_urltitle($dir = '', $row = 0)
 {
 	global $Blog, $DB, $Item;
 
-	$blogid = isset($Item) ? $Item->blog_ID : isset($Blog) ? $Blog->ID : -1;
-	$blogslug = isset($Item) ? $Item->urltitle : '';
-	$categorytablename = isset($Item) && isset($Item->main_Chapter) ? $Item->main_Chapter->dbtablename : 'T_categories';
-	$itemtablename = isset($Item) && isset($Item->dbtablename) ? $Item->dbtablename : 'T_items__item';
-	$postid = isset($Item) && isset($Item->ID) ? $Item->ID : 0;
+	$blogid = is_object($Item) ? $Item->blog_ID : is_object($Blog) ? $Blog->ID : -1;
+	$blogslug = is_object($Item) ? $Item->urltitle : '';
+	$categorytablename = is_object($Item) && is_object($Item->main_Chapter) ? $Item->main_Chapter->dbtablename : 'T_categories';
+	$itemtablename = is_object($Item) && isset($Item->dbtablename) ? $Item->dbtablename : 'T_items__item';
+	$postid = is_object($Item) && isset($Item->ID) ? $Item->ID : 0;
 
 	if (!empty($dir))
 		$item_data = $DB->get_row('SELECT post_datestart, post_ID, post_main_cat_ID, post_title, post_urltitle FROM ' . $itemtablename . ' ORDER BY UNIX_TIMESTAMP(post_datestart) ' . $dir, ARRAY_A, $row);
-	elseif (isset($Item))
+	elseif (is_object($Item))
 		$item_data = $DB->get_row('SELECT post_datestart, post_ID, post_main_cat_ID, post_title, post_urltitle FROM ' . $itemtablename . ' WHERE post_ID=' . $postid, ARRAY_A, 0);
 	else
 		return '';
@@ -252,14 +252,14 @@ function get_tinyurl()
 	global $Item;
 	global $disp;
 
-	if (!isset($Item)) 
+	if (!is_object($Item)) 
 	{
 		global $MainList;
-		if (isset($MainList))
+		if (is_object($MainList))
 			$Item = $MainList->get_Item();
 	}
 
-	if (isset($Item) && 'single' == $disp)
+	if (is_object($Item) && 'single' == $disp)
 		return $Item->get_tinyurl();
 	else
 		return '';
