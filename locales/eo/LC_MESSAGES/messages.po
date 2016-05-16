@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net\n"
 "POT-Creation-Date: 2016-05-16 11:22-0400\n"
-"PO-Revision-Date: 2016-05-16 14:50-0400\n"
+"PO-Revision-Date: 2016-05-16 16:23-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -9832,7 +9832,7 @@ msgstr "URL agordita en la baza agordo"
 #: ../../../inc/collections/views/_coll_urls.form.php:242
 #, php-format
 msgid "%s folder relative to current collection"
-msgstr "dosierujo %s relativa al nuna kolekto"
+msgstr "Dosierujo %s relativa al la nuna kolekto"
 
 #: ../../../inc/collections/views/_coll_urls.form.php:245
 #, php-format
@@ -9842,7 +9842,7 @@ msgstr "Enmeti vojon al la dosierujo %s finiĝinta per /. Tio eble troveblas en 
 #: ../../../inc/collections/views/_coll_urls.form.php:249
 #: ../../../inc/collections/views/_coll_urls.form.php:307
 msgid "Load generic /rsc/ assets from"
-msgstr "Ŝargi ĝeneralan /rsc/-valoraĵon el"
+msgstr "Ŝargi ĝeneralan /rsc/-valoraĵojn el"
 
 #: ../../../inc/collections/views/_coll_urls.form.php:257
 #: ../../../inc/collections/views/_coll_urls.form.php:308
@@ -9862,7 +9862,7 @@ msgstr "Personigita loko jam agordiĝis en la <a %s>altnivelaj ecoj</a>"
 #: ../../../inc/collections/views/_coll_urls.form.php:278
 #: ../../../inc/collections/views/_coll_urls.form.php:309
 msgid "Load /skins/ assets from"
-msgstr "Ŝargi /skins/-valoraĵo el"
+msgstr "Ŝargi /skins/-valoraĵojn el"
 
 #: ../../../inc/collections/views/_coll_urls.form.php:434
 #: ../../../inc/collections/views/_coll_urls.form.php:454
