@@ -770,6 +770,7 @@ class Comment extends DataObject
 	 */
 	function get_author_name_anonymous( $format = 'htmlbody', $params = array() )
 	{
+		global $use_strict;
 		// Make sure we are not missing any param:
 		$params = array_merge( array(
 				'before' => '',
@@ -777,7 +778,6 @@ class Comment extends DataObject
 				'rel'    => NULL,
 			), $params );
 
-		global $use_strict;
 		$gender_class = '';
 		if( check_setting( 'gender_colored' ) )
 		{ // Set a gender class if the setting is ON
@@ -785,16 +785,18 @@ class Comment extends DataObject
 		}
 
 		$author_name = $this->dget( 'author', $format );
-		$attr = $use_strict ? 'rel' : 'data-bubbletip';
 
 		if( is_null( $params['rel'] ) )
 		{ // Set default rel:
-			$params['rel'] = 'bubbletip_comment_'.$this->ID;
+			if ($use_strict)
+				$params['rel'] = 'bubbletip_comment_';
+			$params['rel'] .= $this->ID;
 		}
 
 		if( ! empty( $params['rel'] ) )
 		{ // Initialize attribure "rel"
-			$params['rel'] = ' rel="'.$params['rel'].'"';
+			$attr = $use_strict ? 'rel' : 'data-bubbletip-comment';
+			$params['rel'] = ' ' . $attr . '="'.$params['rel'].'"';
 		}
 
 		$author_name = '<span class="user anonymous'.$gender_class.'"'.$params['rel'].'>'

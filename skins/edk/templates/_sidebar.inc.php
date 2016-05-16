@@ -220,27 +220,19 @@ $diaform->hidden('redir', 'no');
 <div>
 
 <datalist id="pods-list">
+<select name="diaspora-pod-select">
 <?php
-function pods_callback($pods)
+for ($i = 0; $i < count($pods); $i++)
 {
-	global $diaform, $pod;
-	$r = "\n";
-
-	for ($i = 0; $i < count($pods); $i++)
+	if (!empty($pods[$i]))
 	{
-		if (!empty($pods[$i]))
-		{
-			// I couldn't find a method to make options, so I'm just doing it manually
-			$attrs = ($pods[$i] != $pod) ? '' : ' selected="selected" id="selected-option"';
-			$r .= '<option value="' . $pods[$i] . '"' . $attrs . '>' . $pods[$i] . '</option>' . "\n";
-		}
+		// I couldn't find a method to make options, so I'm just doing it manually
+		$attrs = ($pods[$i] != $pod) ? '' : ' selected="selected" id="selected-option"';
+		echo '<option value="' . $pods[$i] . '"' . $attrs . '>' . $pods[$i] . '</option>' . "\n";
 	}
-
-	return $r;
 }
-
-$diaform->select('diaspora-pod-select', $pods, 'pods_callback', NULL);
 ?>
+</select>
 
 <br />
 <span class="note">(<?php echo $Skin->T_('Select a pod to use above or enter one below.'); ?>)</span>
@@ -248,18 +240,7 @@ $diaform->select('diaspora-pod-select', $pods, 'pods_callback', NULL);
 </datalist>
 
 <label>
-<?php
-$diaform->input_field(array(
-	'name' => 'diaspora-pod',
-	'value' => $pod,
-	'list' => 'pods-list',
-	'role' => 'combobox',
-	'aria-expanded' => 'true',
-	'aria-autocomplete' => 'both',
-	'aria-owns' => 'pods-list',
-	'aria-activedescendent' => 'selected-option',
-));
-?>
+<input name="diaspora-pod" value="" list="pods-list" role="combobox" aria-expanded="true" aria-autocomplete="both" aria-owns="pods-list" aria-activedescendant="selected-option" />
 <br />
 
 </label>
