@@ -283,13 +283,13 @@ foreach (get_other_blogs() as $blog)
 if (NULL !== $first_item)
 {
 ?>
-	<link rel="first" href="<?php echo get_full_url($first_item['post_urltitle']) ?>" title="↑ <?php echo htmlspecialchars($first_item['post_title']); ?>" />
+	<link rel="first" href="<?php echo get_full_url($first_item['post_urltitle']) ?>" title="↓ <?php echo htmlspecialchars($first_item['post_title']); ?>" />
 <?php
 }
 if (NULL !== $last_item)
 {
 ?>
-	<link rel="last" href="<?php echo get_full_url($last_item['post_urltitle']) ?>" title="<?php echo htmlspecialchars($last_item['post_title']) ?> ↓" />
+	<link rel="last" href="<?php echo get_full_url($last_item['post_urltitle']) ?>" title="<?php echo htmlspecialchars($last_item['post_title']) ?> ↑" />
 <?php
 }
 
