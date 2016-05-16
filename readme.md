@@ -1,6 +1,8 @@
-# b2evolution CCMS
+![b2evolution CMS](media/shared/global/logos/b2evolution_1016x208_wbg.png)
 
-This is version **6.6.6-stable**.
+# b2evolution CMS
+
+This is version **6.6.8-stable**.
 
 ## A complete engine for your website !
 

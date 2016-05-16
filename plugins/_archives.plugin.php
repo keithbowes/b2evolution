@@ -8,7 +8,7 @@
  *
  * @license GNU GPL v2 - {@link http://b2evolution.net/about/gnu-gpl-license}
  *
- * @copyright (c)2003-2015 by Francois Planque - {@link http://fplanque.com/}
+ * @copyright (c)2003-2016 by Francois Planque - {@link http://fplanque.com/}
  * Parts of this file are copyright (c)2004-2006 by Daniel HAHLER - {@link http://thequod.de/contact}.
  *
  * @package plugins
@@ -137,6 +137,10 @@ class archives_plugin extends Plugin
 		if( $params['mode'] != 'postbypost' )
 		{
 			$params['sort_order'] = 'date';
+		}
+		if( ! isset( $params['sort_order'] ) )
+		{	// Set default sort order:
+			$params['sort_order'] = $Blog->get_setting( 'archives_sort_order' );
 		}
 
 		// Daily archive date format?

@@ -4,7 +4,7 @@
  *
  * b2evolution - {@link http://b2evolution.net/}
  * Released under GNU GPL License - {@link http://b2evolution.net/about/gnu-gpl-license}
- * @copyright (c)2003-2015 by Francois Planque - {@link http://fplanque.com/}
+ * @copyright (c)2003-2016 by Francois Planque - {@link http://fplanque.com/}
  *
  * @package admin
  */
@@ -402,8 +402,13 @@ switch( $action )
 
 			$Messages->add( T_('Comment has been updated.'), 'success' );
 
-			if( $action != 'update_edit' )
-			{ // Redirect to previous page(e.g. comments list) after updating except of action "Save & Edit"
+			if( $action == 'update_edit' )
+			{	// Redirect back to the edit comment form in order to see the updated content correctly:
+				header_redirect( $admin_url.'?ctrl=comments&blog='.$blog.'&action=edit&comment_ID='.$edited_Comment->ID.'&redirect_to='.rawurlencode( $redirect_to ) );
+				/* exited */
+			}
+			else
+			{	// Redirect to previous page(e.g. comments list) after updating:
 				header_redirect( $redirect_to );
 				/* exited */
 			}

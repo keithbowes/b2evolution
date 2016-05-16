@@ -226,10 +226,17 @@ input[type="search"]:hover {
   width: auto;
 }
 
-.search_submit {
-  margin: 0.5em;
-  vertical-align: middle;
-  width: 25%;
+.search_submit, .search_submit:focus, .search_submit:hover {
+  color: ButtonText;
+  font-size: 0.7em;
+}
+
+.search_submit, .search_submit:focus {
+  background-color: ButtonFace;
+}
+
+.search_submit:hover {
+  background-color: ButtonHighlight
 }
 
 .storytitle {

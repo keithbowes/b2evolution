@@ -17,7 +17,7 @@
  *
  * @license GNU GPL v2 - {@link http://b2evolution.net/about/gnu-gpl-license}
  *
- * @copyright (c)2003-2015 by Francois Planque - {@link http://fplanque.com/}.
+ * @copyright (c)2003-2016 by Francois Planque - {@link http://fplanque.com/}.
  * Parts of this file are copyright (c)2004 by Justin Vincent - {@link http://php.justinvincent.com}
  * Parts of this file are copyright (c)2004-2005 by Daniel HAHLER - {@link http://thequod.de/contact}.
  *
@@ -371,16 +371,16 @@ class DB
 
 		if( ! $this->dbhandle )
 		{ // Connect to the Database:
-			// echo "mysqli_real_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $this->dbname, $this->dbport, $this->dbsocket, $client_flags  )";
 			// mysqli::$connect_error is tied to an established connection
 			// if the connection fails we need a different method to get the error message
 			$php_errormsg = null;
 			$old_track_errors = ini_set('track_errors', 1);
 			$old_html_errors = ini_set('html_errors', 0);
 			$this->dbhandle = mysqli_init();
+			/* Persistent connections are only available in PHP 5.3+ */
+			$this->is_persistent = !$new_link && version_compare(PHP_VERSION, '5.3', '>=');
 			@mysqli_real_connect($this->dbhandle,
-				/* Persistent connections are only available in PHP 5.3+ */
-				($new_link || version_compare(PHP_VERSION, '5.3', '<')) ? $this->dbhost : 'p:'.$this->dbhost,
+				($this->is_persistent) ? 'p:'.$this->dbhost : $this->dbhost,
 				$this->dbuser, $this->dbpassword,
 				'', ini_get('mysqli.default_port'), ini_get('mysqli.default_socket'),
 				$client_flags );
@@ -446,6 +446,8 @@ class DB
 	function __destruct()
 	{
 		@$this->flush();
+		if (!$this->is_persistent)
+			$this->dbhandle->kill($this->dbhandle->thread_id);
 		@mysqli_close($this->dbhandle);
 	}
 

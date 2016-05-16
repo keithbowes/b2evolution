@@ -9,7 +9,7 @@
  *
  * @license GNU GPL v2 - {@link http://b2evolution.net/about/gnu-gpl-license}
  *
- * @copyright (c)2003-2015 by Francois Planque - {@link http://fplanque.com/}.
+ * @copyright (c)2003-2016 by Francois Planque - {@link http://fplanque.com/}.
  *
  * @package evoskins
  */
@@ -62,11 +62,7 @@ $Form->begin_form( 'bComment' );
 	ob_start();
 	echo '<div class="comment_toolbars">';
 	// CALL PLUGINS NOW:
-	$Plugins->trigger_event( 'AdminDisplayToolbar', array(
-			'target_type' => 'Comment',
-			'edit_layout' => NULL,
-			'Comment' => $edited_Comment,
-		) );
+	$Plugins->trigger_event( 'DisplayCommentToolbar', array( 'Comment' => & $edited_Comment, 'Item' => & $comment_Item ) );
 	echo '</div>';
 	$comment_toolbar = ob_get_clean();
 

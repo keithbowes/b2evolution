@@ -307,7 +307,35 @@ class bootstrap_forums_Skin extends Skin
 		{ // Load jquery UI to animate background color on change comment status or on vote
 			require_js( '#jqueryUI#', 'blog' );
 		}
-	}
+		
+		// Add custom CSS:
+		$custom_css = '';
+		
+		// If sidebar == true + col-lg
+		if( $layout = $this->get_setting( 'layout_general' ) != 'no_sidebar' )
+		{
+			$custom_css = "@media screen and (min-width: 1200px) {
+				.forums_list .ft_date { 
+					white-space: normal;
+					margin-top: 11px;
+				}
+				.disp_single .single_topic .evo_content_block .panel-body .evo_post__full, .disp_single .evo_comment .panel-body .evo_comment_text p, .disp_single .post_tags {
+					padding-left: 15px;
+				}\n
+			}";
+		}
+		
+		if( ! empty( $custom_css ) )
+		{ // Function for custom_css:
+		$custom_css = '<style type="text/css">
+<!--
+'.$custom_css.'
+-->
+	</style>';
+	add_headline( $custom_css );
+	}			
+
+}
 
 
 	/**
@@ -769,12 +797,13 @@ class bootstrap_forums_Skin extends Skin
 	/**
 	 * Check if we can display a sidebar for the current layout
 	 *
+	 * @param string Layout: 'general' or 'single'
 	 * @param boolean TRUE to check if at least one sidebar container is visible
 	 * @return boolean TRUE to display a sidebar
 	 */
-	function is_visible_sidebar( $check_containers = false )
+	function is_visible_sidebar( $layout = 'general', $check_containers = false )
 	{
-		$layout = $this->get_setting_layout();
+		$layout = $this->get_setting_layout( $layout );
 
 		if( $layout != 'left_sidebar' && $layout != 'right_sidebar' )
 		{ // Sidebar is not displayed for selected skin layout
@@ -796,24 +825,25 @@ class bootstrap_forums_Skin extends Skin
 	 * Get value for attbiute "class" of column block
 	 * depending on skin setting "Layout"
 	 *
+	 * @param string Layout: 'general' or 'single'
 	 * @return string
 	 */
-	function get_column_class()
+	function get_column_class( $layout = 'general' )
 	{
-		switch( $this->get_setting_layout() )
+		switch( $this->get_setting_layout( $layout ) )
 		{
-			case 'no_sidebar':
-				// No Sidebar (Single large column)
-				return 'col-md-12';
-
 			case 'left_sidebar':
 				// Left Sidebar
 				return 'col-md-9 pull-right';
 
 			case 'right_sidebar':
 				// Right Sidebar
-			default:
 				return 'col-md-9';
+
+			case 'no_sidebar':
+				// No Sidebar (Single large column)
+			default:
+				return 'col-md-12';
 		}
 	}
 
@@ -821,20 +851,27 @@ class bootstrap_forums_Skin extends Skin
 	/**
 	 * Get a layout setting value depending on $disp
 	 *
+	 * @param string Layout: 'general' or 'single'
 	 * @return string
 	 */
-	function get_setting_layout()
+	function get_setting_layout( $layout = 'general' )
 	{
 		global $disp;
 
 		if( $disp == 'single' )
 		{	// Single post page has a separate setting for layout:
-			return $this->get_setting( 'layout_single' );
+			if( $layout == 'single' )
+			{
+				return $this->get_setting( 'layout_single' );
+			}
 		}
-		else
+		elseif( $layout == 'general' )
 		{	// Use this settings for all other pages:
 			return $this->get_setting( 'layout_general' );
 		}
+
+		// Hide sidebar by default:
+		return 'no_sidebar';
 	}
 
 

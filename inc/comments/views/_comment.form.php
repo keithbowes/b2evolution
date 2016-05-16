@@ -7,7 +7,7 @@
  *
  * @license GNU GPL v2 - {@link http://b2evolution.net/about/gnu-gpl-license}
  *
- * @copyright (c)2003-2015 by Francois Planque - {@link http://fplanque.com/}.
+ * @copyright (c)2003-2016 by Francois Planque - {@link http://fplanque.com/}.
  *
  * @package admin
  */
@@ -151,11 +151,7 @@ $Form->hidden( 'comment_ID', $edited_Comment->ID );
 	<div class="edit_toolbars">
 	<?php // --------------------------- TOOLBARS ------------------------------------
 		// CALL PLUGINS NOW:
-		$Plugins->trigger_event( 'AdminDisplayToolbar', array(
-				'target_type' => 'Comment',
-				'edit_layout' => NULL,
-				'Comment' => $edited_Comment,
-			) );
+		$Plugins->trigger_event( 'DisplayCommentToolbar', array( 'Comment' => & $edited_Comment, 'Item' => & $comment_Item ) );
 	?>
 	</div>
 

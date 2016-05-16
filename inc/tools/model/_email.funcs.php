@@ -7,7 +7,7 @@
  *
  * @license GNU GPL v2 - {@link http://b2evolution.net/about/gnu-gpl-license}
  *
- * @copyright (c)2003-2015 by Francois Planque - {@link http://fplanque.com/}.
+ * @copyright (c)2003-2016 by Francois Planque - {@link http://fplanque.com/}.
  *
  * @package evocore
  */
@@ -604,11 +604,6 @@ function check_smtp_mailer()
 		return T_( 'PHP version must be 5.2 or higher to enable SMTP gateway.' );
 	}
 
-	if( ! function_exists( 'proc_open' ) )
-	{ // Swift Mailer requires proc_* functions
-		return T_( 'The proc_* PHP functions are not available on this server.' );
-	}
-
 	$smtp_server_host = $Settings->get( 'smtp_server_host' );
 	$smtp_server_port = $Settings->get( 'smtp_server_port' );
 	if( empty( $smtp_server_host ) || empty( $smtp_server_port ) )
@@ -827,18 +822,18 @@ function evo_mail_smtp( $to, $subject, $message, $headers = array(), $additional
 					// HTML:
 				case 'text/plain':
 					// TEXT:
-					$Swift_Message->setBody( $message, $content_type, $charset );
+					$Swift_Message->setBody( $message['full'], $content_type, $charset );
 					break;
 
 				default:
 					// Unknown content type
-					$Swift_Message->setBody( $message, null, $charset );
+					$Swift_Message->setBody( $message['full'], null, $charset );
 					break;
 			}
 		}
 		else
 		{ // Unknown content type
-			$Swift_Message->setBody( $message, null, $charset );
+			$Swift_Message->setBody( $message['full'], null, $charset );
 		}
 		// From:
 		if( ! empty( $message['from_email'] ) )

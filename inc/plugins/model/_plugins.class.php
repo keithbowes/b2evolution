@@ -9,7 +9,7 @@
  *
  * @license GNU GPL v2 - {@link http://b2evolution.net/about/gnu-gpl-license}
  *
- * @copyright (c)2003-2015 by Francois Planque - {@link http://fplanque.com/}
+ * @copyright (c)2003-2016 by Francois Planque - {@link http://fplanque.com/}
  * Parts of this file are copyright (c)2004-2006 by Daniel HAHLER - {@link http://thequod.de/contact}.
  *
  * @package plugins
@@ -145,7 +145,7 @@ class Plugins
 	/**
 	 * Constructor. Sets {@link $plugins_path} and load events.
 	 */
-	function Plugins()
+	function __construct()
 	{
 		global $basepath, $plugins_subdir, $Timer;
 
@@ -740,7 +740,7 @@ class Plugins
 			{
 				$set_Obj->_defaults[$l_name] = $l_meta['defaultvalue'];
 			}
-			elseif( isset( $l_meta['type'] ) && $l_meta['type'] == 'array' )
+			elseif( isset( $l_meta['type'] ) && strpos( $l_meta['type'], 'array' ) === 0 )
 			{
 				$set_Obj->_defaults[$l_name] = array();
 			}

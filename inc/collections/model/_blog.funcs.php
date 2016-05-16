@@ -7,7 +7,7 @@
  *
  * @license GNU GPL v2 - {@link http://b2evolution.net/about/gnu-gpl-license}
  *
- * @copyright (c)2003-2015 by Francois Planque - {@link http://fplanque.com/}
+ * @copyright (c)2003-2016 by Francois Planque - {@link http://fplanque.com/}
  * Parts of this file are copyright (c)2004-2006 by Daniel HAHLER - {@link http://thequod.de/contact}.
  *
  * @package evocore
@@ -1058,8 +1058,8 @@ function get_visibility_statuses( $format = '', $exclude = array('trash'), $chec
 					'published'  => '<span class="fa fa-circle status_color_published"></span>',
 					'community'  => '<span class="fa fa-circle status_color_community"></span>',
 					'protected'  => '<span class="fa fa-circle status_color_protected"></span>',
-					'private'    => '<span class="fa fa-circle status_color_private"></span>',
 					'review'     => '<span class="fa fa-circle status_color_review"></span>',
+					'private'    => '<span class="fa fa-circle status_color_private"></span>',
 					'draft'      => '<span class="fa fa-circle status_color_draft"></span>',
 					'deprecated' => '<span class="fa fa-circle status_color_deprecated"></span>',
 					'redirected' => '<span class="fa fa-circle status_color_redirected"></span>',
@@ -1072,8 +1072,8 @@ function get_visibility_statuses( $format = '', $exclude = array('trash'), $chec
 					'published'  => NT_('Public'),
 					'community'  => NT_('Community'),
 					'protected'  => NT_('Members'),
-					'private'    => NT_('Private'),
 					'review'     => NT_('Review'),
+					'private'    => NT_('Private'),
 					'draft'      => NT_('Draft'),
 					'deprecated' => NT_('Deprecated'),
 					'redirected' => NT_('Redirected'),

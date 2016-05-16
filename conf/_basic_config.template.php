@@ -91,11 +91,12 @@ $allow_evodb_reset = 0;	// Set to 1 to enable. Do not leave this on 1 on product
 
 /**
  * If you are a developer and you are making repeated installs of b2evolution, you might want to
- * automatically set a very easy password for the admin.
+ * automatically force the install of the .htaccess file that matches the current version without
+ * requiring an extra confirmation.
  *
- * DO THIS ON DEVELOPMENT MACHINES ONLY! NEVER USE THIS SETTING ON A PRODUCTION SERVER!
+ * DO THIS ON DEVELOPMENT MACHINES ONLY! MAY BE DANGEROUS ON A PRODUCTION SERVER!
  */
-// $install_password = 'easy';
+// $htaccess = 'force';
 
 
 /**

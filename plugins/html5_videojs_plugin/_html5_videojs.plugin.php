@@ -4,7 +4,7 @@
  *
  * b2evolution - {@link http://b2evolution.net/}
  * Released under GNU GPL License - {@link http://b2evolution.net/about/gnu-gpl-license}
- * @copyright (c)2003-2015 by Francois Planque - {@link http://fplanque.com/}
+ * @copyright (c)2003-2016 by Francois Planque - {@link http://fplanque.com/}
  *
  * @author fplanque: Francois PLANQUE.
  *
@@ -261,9 +261,9 @@ class html5_videojs_plugin extends Plugin
 		if( !empty( $skin ) && $skin != 'vjs-default-skin' )
 		{
 			$skins_path = dirname( $this->classfile_path ).'/skins';
-			if( file_exists( $skins_path.'/'.$skin.'/style.css' ) )
-			{ // Require css file only if it exists
-				require_css( $this->get_plugin_url().'skins/'.$skin.'/style.css', 'relative' );
+			if( file_exists( $skins_path.'/'.$skin.'/style.min.css' ) )
+			{	// Require css file only if it exists:
+				require_css( $this->get_plugin_url().'skins/'.$skin.'/style.min.css', 'relative' );
 			}
 		}
 	}

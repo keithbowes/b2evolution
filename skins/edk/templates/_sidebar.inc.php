@@ -137,6 +137,7 @@ $ger_pods = array('https://despora.de', 'https://wk3.org', 'https://socializer.c
 $std_pods = array('https://joindiaspora.com', 'https://pod.geraspora.de', 'https://diasp.de', 'https://diasp.eu', 'https://diasporabrazil.org', 'https://podricing.org', 'https://diasp.org', 'https://diaspora-fr.org', 'https://poddery.com', 'https://nerdpol.ch');
 $pods = array_merge($std_pods, $ger_pods, $pods);
 
+global $pod;
 if (array_key_exists('Diaspora-Pod', $_COOKIE))
 	$pod = $_COOKIE['Diaspora-Pod'];
 else
@@ -147,56 +148,99 @@ else
 $pods = array_unique($pods);
 sort($pods);
 ?>
+
 <script type="text/javascript">
-/*<![CDATA[*/
-function getPod(pod)
+//<![CDATA[
+var dia_text, mod_dia_text;
+
+function get_inner_text(node, text)
 {
-	/* Use the hidden field rather than the select in the <noscript> in Gecko;
-	 * this is probably a bug. */
-	if (pod.length)
-		return pod[1].value;
-	/* Other browsing engines seem fine though */
+	if (node.innerHTML)
+		return node.innerHTML;
+
+	if (node.hasChildNodes())
+		for (var i = 0; i < node.childNodes.length; i++)
+			text = get_inner_text(node.childNodes[i], text);
 	else
-		return pod.value;
+		text += node.nodeValue;
+
+	return text;
 }
 
-function getUri(form, pod)
+function diaspform_submit(obj, submit)
 {
-	return pod + '/bookmarklet?url=' + form.url.value + '&amp;title=' + form.title.value;
-}
-/*]]>*/
-</script>
+	var dia = obj.elements['diaspora'];
+	var elem = document.getElementById('diafields');
 
-<form id="diaspform" action="<?php echo $_SERVER['PHP_SELF']; ?>" onsubmit="var pod = localStorage.getItem('diasporapod'); if (!pod) pod = '<?php echo $pod; ?>'; pod = prompt('<?php echo $Skin->T_('Enter the URL of a Diaspora* pod where you want to share (e.g. https://joindiaspora.com)'); ?>', pod); if (!pod || pod.indexOf('https://') != 0) { /* Alert for empty string, but not for canceled operation */ if (pod != null) alert('<?php echo $Skin->T_('Invalid entry!'); ?>'); return false; } localStorage.setItem('diasporapod', pod); this['diaspora-pod'].value = pod; window.open(getUri(this, pod)); return false;">
-<div>
-<input type="hidden" name="diaspora-url" value="<?php echo urlencode($_item_url); ?>" />
-<input type="hidden" name="diaspora-title" value="<?php echo urlencode($_item_title); ?>" />
-<input type="hidden" name="redir" value="no" />
-<script type="text/javascript">
-var elem = document.createElement('input');
-elem.type = 'hidden';
-elem.name = 'diaspora-pod';
-elem.value = '<?php echo $pod; ?>';
-document.forms.diaspform.appendChild(elem);
+	if (!dia_text)
+		dia_text = get_inner_text(dia, ''); 
+
+	if ('diahide' == elem.className)
+	{
+		elem.className = 'diashow';
+
+		if (!mod_dia_text)
+		{
+			mod_dia_text = dia_text;
+			while (mod_dia_text != (mod_dia_text = mod_dia_text.replace(/<[^>]+>/, '')));
+		}
+		dia.textContent = mod_dia_text;
+
+		return false;
+	}
+	else
+	{
+		elem.className = 'diahide';
+		if (dia.innerHTML)
+			dia.innerHTML = dia_text;
+		else
+			// Not 100% right, but the closest we can get without innerHTML support
+			// (which is pretty much universal in HTML5-capable browsers)
+			dia.textContent = dia_text;
+		return submit;
+	}
+}
+//]]>
 </script>
-<noscript>
+<?php
+global $diaform;
+$diaform = new Form($_SERVER['PHP_SELF'], 'diaspform');
+$diaform->begin_form(NULL, NULL, array(
+	'onsubmit' => 'return diaspform_submit(this, true);',
+));
+?>
+
+<div class="diahide" id="diafields">
+
+<?php
+$diaform->hidden('diaspora-url', urlencode($_item_url));
+$diaform->hidden('diaspora-title', urlencode($_item_title));
+$diaform->hidden('redir', 'no');
+?>
 <div>
 
 <datalist id="pods-list">
-<select name="diaspora-pod-select">
 <?php
-for ($i = 0; $i < count($pods); $i++)
+function pods_callback($pods)
 {
-	if (!empty($pods[$i]))
+	global $diaform, $pod;
+	$r = "\n";
+
+	for ($i = 0; $i < count($pods); $i++)
 	{
-		echo '<option value="' . $pods[$i] . '"';
-		if ($pods[$i] == $pod)
-			echo ' selected="selected" id="selected-option"';
-		echo '>' . $pods[$i] . "</option>\n";
+		if (!empty($pods[$i]))
+		{
+			// I couldn't find a method to make options, so I'm just doing it manually
+			$attrs = ($pods[$i] != $pod) ? '' : ' selected="selected" id="selected-option"';
+			$r .= '<option value="' . $pods[$i] . '"' . $attrs . '>' . $pods[$i] . '</option>' . "\n";
+		}
 	}
+
+	return $r;
 }
+
+$diaform->select('diaspora-pod-select', $pods, 'pods_callback', NULL);
 ?>
-</select>
 
 <br />
 <span class="note">(<?php echo $Skin->T_('Select a pod to use above or enter one below.'); ?>)</span>
@@ -204,16 +248,75 @@ for ($i = 0; $i < count($pods); $i++)
 </datalist>
 
 <label>
-<input name="diaspora-pod" value="<?php $pod; ?>" list="pods-list" role="combobox" aria-expanded="true" aria-autocomplete="both" aria-owns="pods-list" aria-activedescendant="selected-option" />
+<?php
+$diaform->input_field(array(
+	'name' => 'diaspora-pod',
+	'value' => $pod,
+	'list' => 'pods-list',
+	'role' => 'combobox',
+	'aria-expanded' => 'true',
+	'aria-autocomplete' => 'both',
+	'aria-owns' => 'pods-list',
+	'aria-activedescendent' => 'selected-option',
+));
+?>
 <br />
 
 </label>
+<noscript>
+<?php
+global $Session;
+global $diaspora_api;
+if (isset($diaspora_api))
+{
+	$diaform->input_field(array(
+		'name' => 'diaspora-username',
+		'value' => $Session->get('diaspora-username'),
+		'label' => $Skin->T_('Diaspora* user name'),
+	));
+
+	$diaform->input_field(array(
+		'type' => 'password',
+		'name' => 'diaspora-password',
+		'value' => $Session->get('diaspora-password'),
+		'label' => $Skin->T_('Diaspora* password'),
+	));
+
+	$diaform->input_field(array(
+		'name' => 'diaspora-aspect',
+		'value' => $Session->get('diaspora-aspect', 'public'),
+		'label' => $Skin->T_('Diaspora* aspects'),
+	));
+}
+
+?>
+</noscript>
 
 </div>
-</noscript>
-<button type="submit" class="button" id="diaspora" title="[<?php echo $Skin->T_('Share on Diaspora*'); ?>]" onmouseover="status=getUri(this.form, getPod(this.form['diaspora-pod']));" onfocus="status=getURi(this.form, getPod(this.form['diaspora-pod']));" onmouseout="status=defaultStatus" onblur="status=defaultStatus"><?php echo preg_replace('/^(.+Diaspora)(\*)$/', '<span class="button-sf">$1</span>$2', $Skin->T_('Share on Diaspora*')); ?></button>
+<?php
+$diaform->button(array(
+	'tag' => 'button',
+	'type' => 'submit',
+	'class' => 'button dia',
+	'id' => 'diaspora',
+	'title' => $Skin->T_('Share on Diaspora*'),
+	'value' => preg_replace('/^(.+Diaspora)(\*)$/', '<span class="button-sf">$1</span>$2', $Skin->T_('Share on Diaspora*')),
+));
+?>
 </div>
-</form>
+<script type="text/javascript">
+//<![CDATA[
+var nopost = document.createElement('input');
+nopost.className = 'button dia';
+nopost.type = 'button';
+nopost.value = '<?php echo __('Cancel'); ?>';
+nopost.setAttribute('onclick', 'return diaspform_submit(this.form, false);');
+document.getElementById('diafields').appendChild(nopost);
+//]]>
+</script>
+<?php
+$diaform->end_form();
+?>
 </li>
 	  </ul>
  </li>

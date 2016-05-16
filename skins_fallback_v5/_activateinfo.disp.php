@@ -4,7 +4,9 @@
  *
  * This file is not meant to be called directly.
  *
- * @copyright (c)2003-2014 by Francois Planque - {@link http://fplanque.com/}.
+ * @license GNU GPL v2 - {@link http://b2evolution.net/about/gnu-gpl-license}
+ *
+ * @copyright (c)2003-2016 by Francois Planque - {@link http://fplanque.com/}.
  *
  * @package evocore
  *

@@ -1,23 +1,21 @@
 <?php
-$nine_weeks = time() + 9 * 7 * 24 * 60 * 60;
-
-/*
- * Use the value of diaspora-pod-select if available.  It won't be in HTML5 browsers with <datalist> support.
- * Otherwise use the value of diaspora-pod in HTML5 browsers.
- * However, in browsers without <datalist>, we don't want to use diaspora-pod.
- */
-if (!($diaspora_pod = param('diaspora-pod-select')))
-	$diaspora_pod = param('diaspora-pod');
-
-if ($diaspora_pod)
-{
-	setcookie('Diaspora-Pod', $diaspora_pod,  $nine_weeks);
-	header('Location: ' . $diaspora_pod . '/bookmarklet?url=' . param('diaspora-url') . '&title=' . param('diaspora-title'));
-	die();
-}
 
 skin_init( $disp );
 skin_include('templates/_funcs.inc.php');
+
+/*
+ * Use the value of diaspora-pod if a pod was manually entered.
+ * Otherwise use the value of diaspora-pod-select.
+ */
+if (!($diaspora_pod = param('diaspora-pod')))
+	$diaspora_pod = param('diaspora-pod-select');
+
+diaspora_init();
+if ($diaspora_pod)
+{
+	global $diaspora_pod;
+	diaspora_share();
+}
 
 if (param('delete_cookies'))
 {

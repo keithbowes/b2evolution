@@ -7,7 +7,7 @@
  *
  * @license GNU GPL v2 - {@link http://b2evolution.net/about/gnu-gpl-license}
  *
- * @copyright (c)2003-2015 by Francois Planque - {@link http://fplanque.com/}
+ * @copyright (c)2003-2016 by Francois Planque - {@link http://fplanque.com/}
  * Parts of this file are copyright (c)2004-2006 by Daniel HAHLER - {@link http://thequod.de/contact}.
  *
  * @package evocore
@@ -183,6 +183,36 @@ function header_redirect( $redirect_to = NULL, $status = false, $redirected_post
 		$redirect_to = preg_replace( '~(?<=\?|&) (confirm(ed)?) = [^&]+ ~x', '', $redirect_to );
 	}
 
+
+	$allow_collection_redirect = false;
+	if( $external_redirect && $allow_redirects_to_different_domain == 'all_collections_and_redirected_posts' && ! $redirected_post )
+	{ // If a redirect is external and we allow to redirect to all collection domains:
+		global $basedomain;
+
+		$redirect_to_domain = preg_replace( '~https?://([^/]+)/?.*~i', '$1', $redirect_to );
+
+		if( preg_match( '~\.'.str_replace( '.', '\.', $basedomain ).'$~', $redirect_to_domain ) )
+		{ // Current redirect goes to subdomain, Allow this:
+			$allow_collection_redirect = true;
+		}
+		else
+		{ // Check if current redirect domain is used as absolute url at least for one collection in system:
+			global $DB;
+
+			$abs_url_coll_SQL = new SQL();
+			$abs_url_coll_SQL->SELECT( 'blog_ID' );
+			$abs_url_coll_SQL->FROM( 'T_blogs' );
+			$abs_url_coll_SQL->WHERE( 'blog_access_type = "absolute"' );
+			$abs_url_coll_SQL->WHERE_and( 'blog_siteurl LIKE '.$DB->quote( '%://'.str_replace( '_', '\_', $redirect_to_domain.'/%' ) ) );
+			$abs_url_coll_SQL->LIMIT( '1' );
+
+			$abs_url_coll_ID = $DB->get_var( $abs_url_coll_SQL->get() );
+			if( ! empty( $abs_url_coll_ID ) )
+			{ // We found current redirect goes to a collection domain, so it is not external
+				$allow_collection_redirect = true;
+			}
+		}
+	}
 
 	$allow_collection_redirect = false;
 	if( $external_redirect && $allow_redirects_to_different_domain == 'all_collections_and_redirected_posts' && ! $redirected_post )
@@ -1918,7 +1948,7 @@ function credits( $params = array() )
 		), $params );
 
 
-	$cred_links = $global_Cache->get( 'creds' );
+	$cred_links = $global_Cache->getx( 'creds' );
 	if( empty( $cred_links ) )
 	{	// Use basic default:
 		$cred_links = unserialize('a:2:{i:0;a:2:{i:0;s:24:"http://b2evolution.net/r";i:1;s:3:"CMS";}i:1;a:2:{i:0;s:36:"http://b2evolution.net/web-hosting/r";i:1;s:19:"quality web hosting";}}');
@@ -1989,7 +2019,7 @@ function powered_by( $params = array() )
 
 	$img_url = str_replace( '$rsc$', $rsc_uri, $params['img_url'] );
 
-	$evo_links = $global_Cache->get( 'evo_links' );
+	$evo_links = $global_Cache->getx( 'evo_links' );
 	if( empty( $evo_links ) )
 	{	// Use basic default:
 		$evo_links = unserialize('a:1:{s:0:"";a:1:{i:0;a:3:{i:0;i:100;i:1;s:23:"http://b2evolution.net/";i:2;a:2:{i:0;a:2:{i:0;i:55;i:1;s:26:"powered by b2evolution CMS";}i:1;a:2:{i:0;i:100;i:1;s:29:"powered by an open-source CMS";}}}}}');
@@ -2132,12 +2162,11 @@ function display_ajax_form( $params )
 
 	// Needs json_encode function to create json type params
 	$json_params = evo_json_encode( $params );
-	$ajax_loader = '<p class="ajax-loader"><span class="loader_img loader_ajax_form" title="'.T_('Loading...').'"></span><br />'.T_( 'Form is loading...' ).'</p>';
+
+	// Display loader gif until the ajax call returns:
+	echo '<p class="ajax-loader"><span class="loader_img loader_ajax_form" title="'.T_('Loading...').'"></span><br />'.T_( 'Form is loading...' ).'</p>';
 	?>
 	<script type="text/javascript">
-		// display loader gif until the ajax call returns
-		document.write( <?php echo "'".$ajax_loader."'"; ?> );
-
 		var ajax_form_offset_<?php echo $ajax_form_number; ?> = jQuery('#ajax_form_number_<?php echo $ajax_form_number; ?>').offset().top;
 		var request_sent_<?php echo $ajax_form_number; ?> = false;
 
@@ -3183,7 +3212,7 @@ function init_fontawesome_icons( $icons_type = 'fontawesome' )
 	$b2evo_icons_type = $icons_type;
 
 	// Load main CSS file of font-awesome icons
-	require_css( '//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' );
+	require_css( '#fontawesome#', 'rsc_url' );
 }
 
 ?>

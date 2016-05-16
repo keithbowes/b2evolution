@@ -30,6 +30,41 @@ function delete_cookies()
 	exit;
 }
 
+global $diaspora_api;
+function diaspora_init()
+{
+	global $diaspora_api, $diaspora_pod, $plugins_path;
+	$diaspora_api_file = $plugins_path . '/diaspora_plugin/class-api.php';
+	if (file_exists($diaspora_api_file))
+	{
+		require_once($diaspora_api_file);
+		$diaspora_api = new WP2D_API($diaspora_pod);
+	}
+}
+
+function diaspora_share()
+{
+	global $cookie_path, $diaspora_api, $diaspora_pod;
+
+	if (param('pod-username'))
+	{
+		$diaspora_api->login(param('diaspora-username'), param('diaspora-password'));
+		$diaspora_api->post(param('diaspora-title') . ' - ' . param('diaspora-url'), param('diaspora-aspect'));
+
+		global $Session;
+		$Session->set('diaspora-aspect', param('diaspora-aspect'));
+		$Session->set('diaspora-password', param('diaspora-password'));
+		$Session->set('diaspora-username', param('diaspora-username'));
+	}
+	else
+	{
+		$nine_weeks = time() + 9 * 7 * 24 * 60 * 60;
+		setcookie('Diaspora-Pod', $diaspora_pod,  $nine_weeks, $cookie_path);
+		header('Location: ' . $diaspora_pod . '/bookmarklet?url=' . param('diaspora-url') . '&title=' . param('diaspora-title'));
+		die();
+	}
+}
+
 function get_copyright($params = array())
 {
 	global $Blog, $Skin;
@@ -48,9 +83,9 @@ function get_copyright($params = array())
 		array('©', '–'),
 		$params['license'] ?
 		# TRANS: Params: Start year, end year, author, license
-		$Skin->T_('(C) %1$d-%2$d %3$s under %4$s') :
+		$Skin->T_('(C) %1$d-%2$d under %3$s') :
 		# TRANS: Params: Start year, end year, author
-		$Skin->T_('(C) %1$d-%2$d %3$s')
+		$Skin->T_('(C) %1$d-%2$d')
 	);
 
 	if ($params['display'])
@@ -58,7 +93,7 @@ function get_copyright($params = array())
 	else
 		$func = 'sprintf';
 
-	return $func($fmt, strftime('%Y', $first_item['post_datestart']), strftime('%Y'), $Blog->get_owner_User()->get('fullname'), get_license(array('display' => FALSE)));
+	return $func($fmt, strftime('%Y', $first_item['post_datestart']), strftime('%Y'), get_license(array('display' => FALSE)));
 }
 
 /* Get the DB info about the first or last item of the current blog.

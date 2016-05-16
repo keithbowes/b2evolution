@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: b 2e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-19 00:34-0400\n"
-"PO-Revision-Date: 2015-05-19 00:45-0400\n"
+"POT-Creation-Date: 2016-05-04 17:27-0400\n"
+"PO-Revision-Date: 2016-05-04 17:30-0400\n"
 "Last-Translator: Keith Bowes <keith@localhost>\n"
 "Language-Team: Spanish\n"
 "Language: es_ES \n"
@@ -12,224 +12,232 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: templates/_403_forbidden.disp.php:20
+#: ../../../templates/_403_forbidden.disp.php:20
 msgid "403 Forbidden"
 msgstr "403 Prohibido"
 
-#: templates/_403_forbidden.disp.php:22 templates/_404_not_found.disp.php:22
+#: ../../../templates/_403_forbidden.disp.php:22
+#: ../../../templates/_404_not_found.disp.php:22
 #, php-format
 msgid "<p><a href=\"%s\">%s</a> cannot resolve the requested URL.</p>"
 msgstr "<p><a href=\"%s\">%s</a> no pudo resolver el pedido URL.</p>"
 
-#: templates/_404_not_found.disp.php:20
+#: ../../../templates/_404_not_found.disp.php:20
 msgid "404 Not Found"
 msgstr "404 No Encontrado"
 
-#: templates/_funcs.inc.php:26
+#: ../../../templates/_funcs.inc.php:26
 #, php-format
 msgid "Deleting cookie %s.<br />\n"
 msgstr "Borrando la cookie %s.<br />\n"
 
-#: templates/_funcs.inc.php:29
+#: ../../../templates/_funcs.inc.php:29
 msgid "Cookies deleted!"
 msgstr "Cookies borradas!"
 
-#: templates/_funcs.inc.php:29
+#: ../../../templates/_funcs.inc.php:29
 msgid "There were no cookies to delete."
 msgstr "No hay cookies a borrar."
 
 # TRANS: Params: Start year, end year, author, license
-#: templates/_funcs.inc.php:51
+#: ../../../templates/_funcs.inc.php:86
 #, php-format
 msgid "(C) %1$d-%2$d %3$s under %4$s"
 msgstr "(C) %1$d-%2$d %3$s bajo %4$s"
 
 # TRANS: Params: Start year, end year, author
-#: templates/_funcs.inc.php:53
+#: ../../../templates/_funcs.inc.php:88
 #, php-format
 msgid "(C) %1$d-%2$d %3$s"
 msgstr "(C) %1$d-%2$d %3$s"
 
-#: templates/_funcs.inc.php:118
+#: ../../../templates/_funcs.inc.php:153
 msgid "Attribution, Sharealike license"
 msgstr "Licencia de atribución, compartir igual"
 
-#: templates/_funcs.inc.php:118
+#: ../../../templates/_funcs.inc.php:153
 msgid "BY-SA"
 msgstr "BY-SA"
 
-#: templates/_funcs.inc.php:118
+#: ../../../templates/_funcs.inc.php:153
 msgid "C<span class=\"button-sf\">reative </span>C<span class=\"button-sf\">ommons</span>"
 msgstr "C<span class=\"button-sf\">reative </span>C<span class=\"button-sf\">ommons</span>"
 
-#: templates/_funcs.inc.php:118 templates/_funcs.inc.php:120
+#: ../../../templates/_funcs.inc.php:153 ../../../templates/_funcs.inc.php:155
 msgid "Creative Commons"
 msgstr "Licencia Creative Commons"
 
 # TRANS: The last two %s are icons
-#: templates/_funcs.inc.php:130
+#: ../../../templates/_funcs.inc.php:165
 #, php-format
 msgid "Posted in %s by <a href=\"%s\">%s</a> on %s at %s %s %s"
 msgstr "Publicado en %s por <a href=\"%s\">%s</a> en %s a las %s %s %s"
 
-#: templates/_funcs.inc.php:337
+#: ../../../templates/_funcs.inc.php:372
 #, php-format
 msgid "<div>Powered by <cite><a href=\"http://www.duckduckgo.com/?q=!+%1$s\">%1$s</a> %2$s</cite>.</div>"
 msgstr "<div>Creado por <cite><a href=\"http://www.duckduckgo.com/?q=!+%1$s\">%1$s</a> %2$s</cite>.</div>"
 
-#: templates/_funcs.inc.php:339
+#: ../../../templates/_funcs.inc.php:374
 msgid "Delete Cookies!"
 msgstr "Borrar cookies!"
 
-#: templates/_funcs.inc.php:339
+#: ../../../templates/_funcs.inc.php:374
 msgid "This site uses <a href=\"http://en.wikipedia.org/wiki/HTTP_cookie\">cookies</a>."
 msgstr "Ese situo usa <a href=\"http://es.wikipedia.org/wiki/Cookie_(inform%E1tica)\">cookies</a>."
 
-#: templates/_html_header.inc.php:27
+#: ../../../templates/_html_header.inc.php:27
 msgid "Transitional Look"
 msgstr "Apariencia transicional"
 
-#: templates/_html_header.inc.php:32
+#: ../../../templates/_html_header.inc.php:32
 msgid "Clear Look"
 msgstr "Apariencia Clara"
 
-#: templates/_html_header.inc.php:43
+#: ../../../templates/_html_header.inc.php:43
 msgid "Classic Look"
 msgstr "Apariencia Clásica"
 
-#: templates/_html_header.inc.php:44
+#: ../../../templates/_html_header.inc.php:44
 msgid "One-column Look"
 msgstr "Apariencia de una sola columna"
 
-#: templates/_html_header.inc.php:206
+#: ../../../templates/_html_header.inc.php:205
 msgid "Please leave this for stats"
 msgstr "Deje eso por estadísticas por favor"
 
-#: templates/_html_header.inc.php:249
+#: ../../../templates/_html_header.inc.php:249
 msgid "Canonical Permalink"
 msgstr "Permalink canónico"
 
-#: templates/_html_header.inc.php:250
+#: ../../../templates/_html_header.inc.php:250
 msgid "Shortened Permalink"
 msgstr "Permalink acortado"
 
-#: templates/_html_header.inc.php:257
+#: ../../../templates/_html_header.inc.php:257
 msgid "Main Content"
 msgstr "Contendidos principales"
 
-#: templates/_html_header.inc.php:258
+#: ../../../templates/_html_header.inc.php:258
 msgid "Menu"
 msgstr "Menú"
 
-#: templates/_item_comment.inc.php:78
+#: ../../../templates/_item_comment.inc.php:78
 #, php-format
 msgid " (in response to <a href=\"%s\">%s</a>)"
 msgstr " (en repuesta a <a href=\"%s\">%s</a>)"
 
-#: templates/_item_comment.inc.php:84
+#: ../../../templates/_item_comment.inc.php:84
 msgid "from"
 msgstr "por"
 
-#: templates/_item_comment.inc.php:135
+#: ../../../templates/_item_comment.inc.php:135
 msgid " at "
 msgstr " a los "
 
-#: templates/_item_comment_form.inc.php:278
+#: ../../../templates/_item_comment_form.inc.php:278
 msgid "<a href=\"http://en.wikipedia.org/wiki/Markdown\">Markdown</a> is enabled."
 msgstr "<a href=\"http://es.wikipedia.org/wiki/Markdown\">Markdown</a> está habilitado."
 
-#: templates/_item_comment_form.inc.php:286
+#: ../../../templates/_item_comment_form.inc.php:286
 msgid "<a href=\"http://en.wikipedia.org/wiki/BBCode\">BBCode</a> is enabled."
 msgstr "<a href=\"http://es.wikipedia.org/wiki/BBCode\">BBCode</a> está habilitado."
 
-#: templates/_sidebar.inc.php:49 templates/_sidebar.inc.php:55
+#: ../../../templates/_sidebar.inc.php:50
+#: ../../../templates/_sidebar.inc.php:56
 #, php-format
 msgid "%s <span class=\"button-sf\">Feed</span>"
 msgstr "<span class=\"button-sf\">Alimentación de</span> %s"
 
-#: templates/_sidebar.inc.php:49 templates/_sidebar.inc.php:55
+#: ../../../templates/_sidebar.inc.php:50
+#: ../../../templates/_sidebar.inc.php:56
 #, php-format
 msgid "%s Feed"
 msgstr "Alimentación de %s"
 
-#: templates/_sidebar.inc.php:64
+#: ../../../templates/_sidebar.inc.php:65
 msgid "Valid XHTML"
 msgstr "XHTML Válido"
 
-#: templates/_sidebar.inc.php:68
+#: ../../../templates/_sidebar.inc.php:69
 msgid "Share on Facebook"
 msgstr "Compartir en Facebook"
 
-#: templates/_sidebar.inc.php:69
+#: ../../../templates/_sidebar.inc.php:70
 msgid "Share on Google+"
 msgstr "Compartir en Google+"
 
-#: templates/_sidebar.inc.php:70
+#: ../../../templates/_sidebar.inc.php:71
 msgid "Share on Twitter"
 msgstr "Compartir en Twitter"
 
-#: templates/_sidebar.inc.php:169
-msgid "Enter the URL of a Diaspora* pod where you want to share (e.g. https://joindiaspora.com)"
-msgstr "Entra el URL de una pod de Diaspora* a donde desea compartir (por ejemplo https://joindiaspora.com)"
-
-#: templates/_sidebar.inc.php:169
-msgid "Invalid entry!"
-msgstr "¡Entrada inválida!"
-
-#: templates/_sidebar.inc.php:201
+#: ../../../templates/_sidebar.inc.php:246
 msgid "Select a pod to use above or enter one below."
 msgstr "Elegir un pod de usar de encima o entrar un pod bajo."
 
-#: templates/_sidebar.inc.php:213
+#: ../../../templates/_sidebar.inc.php:275
+msgid "Diaspora* user name"
+msgstr "Nombre de usuario de Diaspora*"
+
+#: ../../../templates/_sidebar.inc.php:282
+msgid "Diaspora* password"
+msgstr "Contraseña de Diaspora*"
+
+#: ../../../templates/_sidebar.inc.php:288
+msgid "Diaspora* aspects"
+msgstr "Aspectos de Diaspora*"
+
+#: ../../../templates/_sidebar.inc.php:302
+#: ../../../templates/_sidebar.inc.php:303
 msgid "Share on Diaspora*"
 msgstr "Compartir en Diaspora*"
 
-#: templates/_sidebar.inc.php:223
+#: ../../../templates/_sidebar.inc.php:327
 msgid "Back-office"
 msgstr "Back-office"
 
-#: templates/_user.disp.php:43
+#: ../../../templates/_user.disp.php:43
 msgid "Edit this user in the Back-office"
 msgstr "Editar ese usuario en el Back-office"
 
-#: templates/_user.disp.php:132
+#: ../../../templates/_user.disp.php:132
 msgid "Not activated"
 msgstr "No activado"
 
-#: templates/_user.disp.php:139
+#: ../../../templates/_user.disp.php:139
 msgid "First Name"
 msgstr "Nombre"
 
-#: templates/_user.disp.php:144
+#: ../../../templates/_user.disp.php:144
 msgid "Last Name"
 msgstr "Apellido"
 
-#: templates/_user.disp.php:175
+#: ../../../templates/_user.disp.php:175
 #, php-format
 msgid "from %d to %d years old"
 msgstr "de %d a %d años de edad"
 
-#: templates/_user.disp.php:224
+#: ../../../templates/_user.disp.php:224
 #, php-format
 msgid "You and %s..."
 msgstr "Usted y %s…"
 
-#: templates/_user.disp.php:237
+#: ../../../templates/_user.disp.php:237
 msgid "Unblock"
 msgstr "Desbloquear"
 
-#: templates/_user.disp.php:237
+#: ../../../templates/_user.disp.php:237
 msgid "You have blocked this user"
 msgstr "Ha bloqueado a este usuario"
 
-#: templates/_user.disp.php:273
+#: ../../../templates/_user.disp.php:273
 msgid "You can organize your contacts into groups. You can decide in which groups to put this user here:"
 msgstr "Puede organizar sus contactos en grupos. Puede decidir in qué grupos poner a ese usuario de aquí:"
 
-#: templates/_user.disp.php:278
+#: ../../../templates/_user.disp.php:278
 msgid "Create a new group"
 msgstr "Crear un grupo nuevo"
 
-#: templates/_user.disp.php:282
+#: ../../../templates/_user.disp.php:282
 msgid "Add this user to a group"
 msgstr "Añadir este usuario a un grupo"

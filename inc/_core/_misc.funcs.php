@@ -7,7 +7,7 @@
  *
  * @license GNU GPL v2 - {@link http://b2evolution.net/about/gnu-gpl-license}
  *
- * @copyright (c)2003-2015 by Francois Planque - {@link http://fplanque.com/}
+ * @copyright (c)2003-2016 by Francois Planque - {@link http://fplanque.com/}
  * Parts of this file are copyright (c)2004-2006 by Daniel HAHLER - {@link http://thequod.de/contact}.
  * Parts of this file are copyright (c)2005-2006 by PROGIDISTRI - {@link http://progidistri.com/}.
  *
@@ -89,7 +89,7 @@ function load_db_schema( $inlcude_plugins = false )
 	// Load modules:
 	foreach( $modules as $module )
 	{
-		echo 'Loading module: <code>'.$module.'/model/_'.$module.'.install.php</code><br />';
+		echo get_install_format_text( 'Loading module: <code>'.$module.'/model/_'.$module.'.install.php</code><br />', 'br' );
 		require_once $inc_path.$module.'/model/_'.$module.'.install.php';
 	}
 
@@ -329,8 +329,8 @@ function format_to_output( $content, $format = 'htmlbody' )
 
 		case 'htmlspecialchars':
 		case 'formvalue':
-			// use as a form value: escapes &, quotes and < > but leaves code alone
-			$content = htmlspecialchars( $content, ENT_QUOTES, $evo_charset );  // Handles &, ", ', < and >
+			// Replace special chars to &amp;, &quot;, &apos;, &lt; and &gt; :
+			$content = htmlspecialchars( $content, ENT_QUOTES | ENT_HTML5, $evo_charset );  // Handles &, ", ', < and >
 			break;
 
 		case 'xml':
@@ -428,7 +428,7 @@ function zeroise( $number, $threshold )
  * @param int Maximum length
  * @return string
  */
-function excerpt( $str, $maxlen = 254, $tail = '&hellip;' )
+function excerpt( $str, $maxlen = 254, $tail = '&#8230;' )
 {
 	// Add spaces
 	$str = str_replace( array( '<p>', '<br' ), array( ' <p>', ' <br' ), $str );
@@ -3459,7 +3459,7 @@ function send_mail( $to, $to_name, $subject, $message, $from = NULL, $from_name 
 	$NL = "\r\n";
 
 	if( $demo_mode )
-	{ // Debug mode restriction: Sending email in debug mode is not allowed
+	{ // Debug mode restriction: Sending email in demo mode is not allowed
 		return false;
 	}
 
@@ -5010,7 +5010,7 @@ function get_field_attribs_as_string( $field_attribs, $format_to_output = true )
 
 		if( $format_to_output )
 		{
-			$r .= ' '.$l_attr.'="'.htmlspecialchars($l_value).'"';
+			$r .= ' '.$l_attr.'="'.format_to_output( $l_value, 'formvalue' ).'"';
 		}
 		else
 		{
@@ -5401,8 +5401,12 @@ function send_javascript_message( $methods = array(), $send_as_html = false, $ta
 			}
 			foreach( $param_list as $param )
 			{	// add each parameter to the output
-				if( !is_numeric( $param ) )
-				{	// this is a string, quote it
+				if( is_array( $param ) )
+				{	// This is an array:
+					$param = json_encode( $param );
+				}
+				elseif( !is_numeric( $param ) )
+				{	// this is a string, quote it:
 					$param = '\''.format_to_js( $param ).'\'';
 				}
 				$params[] = $param;// add param to the list
@@ -5414,14 +5418,20 @@ function send_javascript_message( $methods = array(), $send_as_html = false, $ta
 
 	if( $send_as_html )
 	{	// we want to send as a html document
-		headers_content_mightcache( 'text/html', 0 );		// Do NOT cache interactive communications.
+		if( ! headers_sent() )
+		{	// Send headers only when they are not send yet to avoid an error:
+			headers_content_mightcache( 'text/html', 0 );		// Do NOT cache interactive communications.
+		}
 		echo '<html><head></head><body><script type="text/javascript">'."\n";
 		echo $output;
 		echo '</script></body></html>';
 	}
 	else
 	{	// we want to send as js
-		headers_content_mightcache( 'text/javascript', 0 );		// Do NOT cache interactive communications.
+		if( ! headers_sent() )
+		{	// Send headers only when they are not send yet to avoid an error:
+			headers_content_mightcache( 'text/javascript', 0 );		// Do NOT cache interactive communications.
+		}
 		echo $output;
 	}
 
@@ -5729,7 +5739,7 @@ function get_active_opcode_cache()
 	{
 		// fp>blueyed? why did you remove the following 2 lines? your comment above is not clear.
 		$apc_info = apc_cache_info( '', true );
-		if( isset( $apc_info['num_entries'] ) && ( $apc_info['num_entries'] ) )
+		if( isset( $apc_info['num_slots'] ) && ( $apc_info['num_slots'] ) )
 		{
 			return 'APC';
 		}
@@ -6936,6 +6946,7 @@ function echo_modalwindow_js()
  *
  * @param string HTML content
  * @param string Width value in css format
+ * @param string Height value in css format
  * @param boolean TRUE - to use transparent template
  * @param string Title of modal window (Used in bootstrap)
  * @param string|boolean Button to submit a form (Used in bootstrap), FALSE - to hide bottom panel with buttons
@@ -7035,8 +7046,9 @@ var modal_window_js_initialized = false;
  * @param string|boolean Button to submit a form (Used in bootstrap), FALSE - to hide bottom panel with buttons
  * @param boolean FALSE by default, TRUE - to don't remove bootstrap panels
  * @param boolean TRUE - to clear all previous windows
+ * @param string ID of iframe where all contents
  */
-function openModalWindow( body_html, width, height, transparent, title, buttons, is_new_window, keep_panels )
+function openModalWindow( body_html, width, height, transparent, title, buttons, is_new_window, keep_panels, iframe_id )
 {
 	var style_width = ( typeof( width ) == 'undefined' || width == 'auto' ) ? '' : 'width:' + width + ';';
 	var style_height = ( typeof( height ) == 'undefined' || height == 0 || height == '' ) ? '': 'height:' + height;
@@ -7094,57 +7106,18 @@ function openModalWindow( body_html, width, height, transparent, title, buttons,
 		jQuery( '#modal_window .modal-body' ).html( body_html );
 	}
 
-	if( use_buttons )
+	if( typeof( iframe_id ) != 'undefined' )
 	{
-		if( typeof( keep_panels ) == 'undefined' || ! keep_panels )
-		{ // Remove these elements, they are displayed as title and button of modal window
-			jQuery( '#modal_window legend' ).remove();
-			jQuery( '#modal_window #close_button' ).remove();
-			jQuery( '#modal_window .panel, #modal_window .panel-body' ).removeClass( 'panel panel-default panel-body' );
-		}
-
-		if( jQuery( '#modal_window ' + button_form + ' input[type=submit]' ).length == 0 )
-		{ // Hide a submit button in the footer if real submit input doesn't exist
-			jQuery( '#modal_window .modal-footer button[type=submit]' ).hide();
-		}
-		else
-		{
-			jQuery( '#modal_window ' + button_form + ' input[type=submit]' ).hide();
-			jQuery( '#modal_window .modal-footer button[type=submit]' ).show();
-		}
-
-		jQuery( '#modal_window' + button_form ).change( function()
-		{ // Find the submit inputs when html is changed
-			var input_submit = jQuery( this ).find( 'input[type=submit]' )
-			if( input_submit.length > 0 )
-			{ // Hide a real submit input and Show button of footer
-				input_submit.hide();
-				jQuery( '#modal_window .modal-footer button[type=submit]' ).show();
-			}
-			else
-			{ // Hide button of footer if real submit input doesn't exist
-				jQuery( '#modal_window .modal-footer button[type=submit]' ).hide();
-			}
-		} );
-
-		jQuery( '#modal_window .modal-footer button[type=submit]' ).click( function()
-		{ // Copy a click event from real submit input to button of footer
-			jQuery( '#modal_window ' + button_form + ' input[type=submit]' ).click();
+		jQuery( '#' + iframe_id ).load( function()
+		{	// Prepare modal window only after loading full content:
+			prepareModalWindow( jQuery( this ).contents(), button_form, use_buttons, keep_panels );
+			jQuery( '#modal_window .loader_img' ).remove();
+			jQuery( '#' + iframe_id ).show();
 		} );
 	}
-
-	jQuery( '#modal_window ' + button_form + ' a.btn' ).each( function()
-	{ // Move all buttons to the footer
-		jQuery( '#modal_window .modal-footer' ).prepend( '<a href=' + jQuery( this ).attr( 'href' ) + '>' +
-			'<button type="button" class="' + jQuery( this ).attr( 'class' ) + '">' +
-			jQuery( this ).html() +
-			'</button></a>' );
-		jQuery( this ).remove();
-	} );
-
-	if( jQuery( '#modal_window ' + button_form + ' #current_modal_title' ).length > 0 )
-	{ // Change window title
-		jQuery( '#modal_window .modal-title' ).html( jQuery( '#modal_window ' + button_form + ' #current_modal_title' ).html() );
+	else
+	{
+		prepareModalWindow( '#modal_window', button_form, use_buttons, keep_panels );
 	}
 
 	// Init modal window and show
@@ -7166,6 +7139,62 @@ function openModalWindow( body_html, width, height, transparent, title, buttons,
 	} );
 
 	modal_window_js_initialized = true;
+}
+
+function prepareModalWindow( modal_document, button_form, use_buttons, keep_panels )
+{
+	if( use_buttons )
+	{
+		if( typeof( keep_panels ) == 'undefined' || ! keep_panels )
+		{ // Remove these elements, they are displayed as title and button of modal window
+			jQuery( 'legend', modal_document ).remove();
+			jQuery( '#close_button', modal_document ).remove();
+			jQuery( '.panel, .panel-body', modal_document ).removeClass( 'panel panel-default panel-body' );
+		}
+
+		if( jQuery( button_form + ' input[type=submit]', modal_document ).length == 0 )
+		{ // Hide a submit button in the footer if real submit input doesn't exist
+			jQuery( '#modal_window .modal-footer button[type=submit]' ).hide();
+		}
+		else
+		{
+			jQuery( button_form + ' input[type=submit]', modal_document ).hide();
+			jQuery( '#modal_window .modal-footer button[type=submit]' ).show();
+		}
+
+		jQuery( button_form, modal_document ).change( function()
+		{ // Find the submit inputs when html is changed
+			var input_submit = jQuery( this ).find( 'input[type=submit]' )
+			if( input_submit.length > 0 )
+			{ // Hide a real submit input and Show button of footer
+				input_submit.hide();
+				jQuery( '#modal_window .modal-footer button[type=submit]' ).show();
+			}
+			else
+			{ // Hide button of footer if real submit input doesn't exist
+				jQuery( '#modal_window .modal-footer button[type=submit]' ).hide();
+			}
+		} );
+
+		jQuery( '#modal_window .modal-footer button[type=submit]' ).click( function()
+		{ // Copy a click event from real submit input to button of footer
+			jQuery( button_form + ' input[type=submit]', modal_document ).click();
+		} );
+	}
+
+	jQuery( button_form + ' a.btn', modal_document ).each( function()
+	{ // Move all buttons to the footer
+		jQuery( '#modal_window .modal-footer' ).prepend( '<a href=' + jQuery( this ).attr( 'href' ) + '>' +
+			'<button type="button" class="' + jQuery( this ).attr( 'class' ) + '">' +
+			jQuery( this ).html() +
+			'</button></a>' );
+		jQuery( this ).remove();
+	} );
+
+	if( jQuery( button_form + ' #current_modal_title', modal_document ).length > 0 )
+	{ // Change window title
+		jQuery( '#modal_window .modal-title' ).html( jQuery( button_form + ' #current_modal_title', modal_document ).html() );
+	}
 }
 
 /**
@@ -7203,7 +7232,7 @@ function evo_error_handler()
 		$evo_last_handled_error = $error;
 	}
 
-	// fp> WTF?!? and what about warnings? 
+	// fp> WTF?!? and what about warnings?
 	// fp> And where do we die()? why is there not a debug_die() here?
 	// There should be ONE MILLION COMMENTS in this function to explain what we do!
 
@@ -7401,7 +7430,7 @@ function save_fieldset_folding_values( $blog_ID = NULL )
 
 /**
  * Get html code of bootstrap dropdown element
- * 
+ *
  * @param array Params
  */
 function get_status_dropdown_button( $params = array() )
@@ -7573,5 +7602,110 @@ function get_admin_badge( $type = 'coll', $manual_url = '#', $text = '#', $title
 	}
 
 	return $r;
+}
+
+
+/**
+ * Compares two "PHP-standardized" version number strings
+ *
+ * @param string First version number
+ * @param string Second version number
+ * @param string If the third optional operator argument is specified, test for a particular relationship.
+ *               The possible operators are: <, lt, <=, le, >, gt, >=, ge, ==, =, eq, !=, <>, ne respectively.
+ *               This parameter is case-sensitive, values should be lowercase.
+ * @return integer|boolean -1 if the first version is lower than the second, 0 if they are equal, and 1 if the second is lower.
+ *                         When using the optional operator argument, the function will return TRUE if the relationship is the one specified by the operator, FALSE otherwise.
+ */
+function evo_version_compare( $version1, $version2, $operator = NULL )
+{
+	// Remove part after "-" from versions like "6.6.6-stable":
+	$version1 = preg_replace( '/(-.+)?/', '', $version1 );
+
+	if( is_null( $operator ) )
+	{	// To return integer
+		return version_compare( $version1, $version2 );
+	}
+	else
+	{ // To return boolean
+		return version_compare( $version1, $version2, $operator );
+	}
+}
+
+
+/**
+ * Get text for install page depending on param $display == 'cli'
+ *
+ * @param string Original text
+ * @param string Format (Used for CLI mode)
+ * @return string Prepared text
+ */
+function get_install_format_text( $text, $format = 'string' )
+{
+	global $display;
+
+	if( empty( $display ) || $display != 'cli' )
+	{	// Don't touch text for non CLI modes:
+		return $text;
+	}
+
+	// Don't remove these HTML tags on CLI mode:
+	$allowable_html_tags = '<evo:error><evo:warning><evo:success><evo:note><evo:login><evo:password>';
+
+	// Remove all new lines because we build them from requested format:
+	$text = str_replace( array( "\n", "\r" ), '', $text );
+
+	// Keep all URLs and display them
+	$text = preg_replace( '/<a[^>]+href="([^"]+)"[^>]*>(.+)<\/a>/i', '$2(URL: $1)', $text );
+
+	// Remove HTML tags from text:
+	$text = strip_tags( $text, $allowable_html_tags );
+
+	switch( $format )
+	{
+		case 'h2':
+			// Header 2
+			$text = "\n\n----- ".$text." -----\n\n";
+			break;
+
+		case 'br':
+			// Paragraph:
+			$text = $text."\n";
+			break;
+
+		case 'p':
+			// Paragraph:
+			$text = "\n".$text."\n\n";
+			break;
+
+		case 'p-start':
+			// Start paragraph:
+			$text = "\n".$text;
+			break;
+
+		case 'p-start-br':
+			// Start paragraph:
+			$text = "\n".$text."\n";
+			break;
+
+		case 'p-end':
+			// End paragraph:
+			$text = $text."\n\n";
+			break;
+
+		case 'li':
+			// List item:
+			$text = "\n- ".$text."\n";
+			break;
+
+		case 'code':
+			// Code:
+			$text = "\n================\n".$text."\n================\n";
+			break;
+	}
+
+	// Replace all html entities like "&nbsp;", "&raquo;", "&laquo;" to readable chars:
+	$text = html_entity_decode( $text );
+
+	return $text;
 }
 ?>

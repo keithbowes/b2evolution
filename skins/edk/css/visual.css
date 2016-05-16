@@ -1,6 +1,6 @@
 * {
   font-family: 'Helvetica Neue', 'Lucida Grande', 'Lucida Sans Unicode', Malayalam, 'Mukti Narrow', Verdana, sans-serif;
-  font-size: 105%;
+  font-size: 104%;
 }
 
 a {
@@ -160,17 +160,6 @@ table summary {
   width: 70%;
 }
 
-#diaspora {
-  background-color: #505050 !important;
-  border: none;
-  border-radius: 0.4em;
-  color: white !important;
-  cursor: pointer;
-  line-height: 0.6em;
-  padding: 0.2em 0 0 0;
-  vertical-align: top;
-}
-
 #esf {
   margin-top: 0.2em;
 }
@@ -229,6 +218,15 @@ table summary {
 
 #nav form.search {
   margin: 0 0 0 1em;
+  padding: 0.25em 0;
+}
+
+#nav form.search .search_field {
+  font-size: 0.8em;
+}
+
+#nav form.search .search_submit {
+  vertical-align: middle;
 }
 
 #nav li {
@@ -417,7 +415,7 @@ table summary {
 }
 
 .button {
-  display: inline-block !important;
+  display: inline-block;
   font-family: sans-serif;
   font-size: 0.7em;
   font-weight: bold;
@@ -427,6 +425,36 @@ table summary {
 
 .button-sf {
   display: none !important;
+}
+
+.dia {
+  background-color: #505050 !important;
+  border: none;
+  border-radius: 0.4em;
+  color: white !important;
+  cursor: pointer;
+  line-height: 0.6em;
+  padding: 0.2em 0 0 0;
+  vertical-align: top;
+}
+
+.diahide *:not(#diaspora) {
+  display: none;
+}
+
+.diashow {
+  background-color: silver;
+  color: black;
+  display: block;
+  height: 50%;
+  left: 25%;
+  position: fixed;
+  top: 25%;
+  width: 50%;
+}
+
+.diashow .input {
+  float: left;
 }
 
 .feed {

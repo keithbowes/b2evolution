@@ -7,7 +7,7 @@
  *
  * @license GNU GPL v2 - {@link http://b2evolution.net/about/gnu-gpl-license}
  *
- * @copyright (c)2003-2015 by Francois Planque - {@link http://fplanque.com/}
+ * @copyright (c)2003-2016 by Francois Planque - {@link http://fplanque.com/}
  * Parts of this file are copyright (c)2004-2006 by Daniel HAHLER - {@link http://thequod.de/contact}.
  *
  * @package evocore
@@ -1974,7 +1974,7 @@ function get_available_filetype_icons()
  */
 function copy_file( $file_path, $root_ID, $path, $check_perms = true )
 {
-	global $current_User;
+	global $current_User, $force_upload_forbiddenext;
 
 	$FileRootCache = & get_FileRootCache();
 	$fm_FileRoot = & $FileRootCache->get_by_ID($root_ID, true);

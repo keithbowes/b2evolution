@@ -9,7 +9,7 @@
  *
  * @license GNU GPL v2 - {@link http://b2evolution.net/about/gnu-gpl-license}
  *
- * @copyright (c)2003-2015 by Francois Planque - {@link http://fplanque.com/}.
+ * @copyright (c)2003-2016 by Francois Planque - {@link http://fplanque.com/}.
  *
  * @package evoskins
  */
@@ -222,7 +222,6 @@ $Form->begin_form( 'inskin', '', $params );
 		echo '<div class="edit_toolbars">';
 		// CALL PLUGINS NOW:
 		$Plugins->trigger_event( 'AdminDisplayToolbar', array(
-				'target_type' => 'Item',
 				'edit_layout' => 'expert',
 				'Item' => $edited_Item,
 			) );
