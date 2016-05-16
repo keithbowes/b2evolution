@@ -1276,6 +1276,7 @@ class DB
 
 		if( $html )
 		{ // poor man's indent
+			$sql = htmlspecialchars( $sql );
 			$sql = preg_replace_callback("~^(\s+)~m", create_function('$m', 'return str_replace(" ", "&#160;", $m[1]);'), $sql);
 			$sql = nl2br($sql);
 		}

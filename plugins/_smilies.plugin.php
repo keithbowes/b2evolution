@@ -66,9 +66,14 @@ Optionally, it will also display a toolbar for quick insertion of smilies into a
 
 
 	/**
-	* Defaults for user specific settings: "Display toolbar"
+	 * Define the GLOBAL settings of the plugin here. These can then be edited in the backoffice in System > Plugins.
 	 *
-	 * @return array
+	 * @param array Associative array of parameters (since v1.9).
+	 *    'for_editing': true, if the settings get queried for editing;
+	 *                   false, if they get queried for instantiating {@link Plugin::$Settings}.
+	 * @return array see {@link Plugin::GetDefaultSettings()}.
+	 * The array to be returned should define the names of the settings as keys (max length is 30 chars)
+	 * and assign an array with the following keys to them (only 'label' is required):
 	 */
 	function GetDefaultSettings( & $params )
 	{
@@ -138,13 +143,17 @@ XX(      graydead.gif
  :wave:  icon_wave.gif',
 				),
 			);
-}
+	}
 
 
 	/**
-	 * Allowing the user to override the display of the toolbar.
+	 * Define the PER-USER settings of the plugin here. These can then be edited by each user.
 	 *
-	 * @return array
+	 * @see Plugin::GetDefaultSettings()
+	 * @param array Associative array of parameters.
+	 *    'for_editing': true, if the settings get queried for editing;
+	 *                   false, if they get queried for instantiating
+	 * @return array See {@link Plugin::GetDefaultSettings()}.
 	 */
 	function GetDefaultUserSettings( & $params )
 	{
@@ -240,6 +249,25 @@ XX(      graydead.gif
 	function DisplayMessageToolbar( & $params )
 	{
 		$apply_rendering = $this->get_msg_setting( 'msg_apply_rendering' );
+		if( ! empty( $apply_rendering ) && $apply_rendering != 'never'
+		&& ( ( is_logged_in() && $this->UserSettings->get( 'use_toolbar' ) )
+			|| ( !is_logged_in() && $this->Settings->get( 'use_toolbar_default' ) ) ) )
+		{
+			return $this->display_smiley_bar();
+		}
+		return false;
+	}
+
+
+	/**
+	 * Event handler: Called when displaying editor toolbars for email.
+	 *
+	 * @param array Associative array of parameters
+	 * @return boolean did we display a toolbar?
+	 */
+	function DisplayEmailToolbar( & $params )
+	{
+		$apply_rendering = $this->get_email_setting( 'email_apply_rendering' );
 		if( ! empty( $apply_rendering ) && $apply_rendering != 'never'
 		&& ( ( is_logged_in() && $this->UserSettings->get( 'use_toolbar' ) )
 			|| ( !is_logged_in() && $this->Settings->get( 'use_toolbar_default' ) ) ) )

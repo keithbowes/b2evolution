@@ -76,7 +76,7 @@ if( $edit_Plugin->Settings ) // NOTE: this triggers PHP5 autoloading through Plu
 	// We use output buffers here to only display the fieldset if there's content in there
 	// (either from PluginSettings or PluginSettingsEditDisplayAfter).
 	ob_start();
-	$tmp_params = array('for_editing' => true);
+	$tmp_params = array( 'for_editing' => true );
 	foreach( $edit_Plugin->GetDefaultSettings( $tmp_params ) as $l_name => $l_meta )
 	{
 		// Display form field for this setting:
@@ -84,7 +84,7 @@ if( $edit_Plugin->Settings ) // NOTE: this triggers PHP5 autoloading through Plu
 	}
 
 	// This can be used add custom input fields or display custom output (e.g. a test link):
-	$tmp_params = array( 'Form' => & $Form);
+	$tmp_params = array( 'Form' => & $Form );
 	$admin_Plugins->call_method( $edit_Plugin->ID, 'PluginSettingsEditDisplayAfter', $tmp_params );
 
 	$setting_contents = ob_get_contents();
