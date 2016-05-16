@@ -238,7 +238,6 @@ $country_flags_bg = array(
 	'eg' => '-192px -33px',
 	'eh' => '-208px -33px',
 	'england' => '-224px -33px',
-	'eo' => '-192px -165px',
 	'er' => '-240px -33px',
 	'es' => '0 -44px',
 	'et' => '-16px -44px',

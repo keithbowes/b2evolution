@@ -53,7 +53,7 @@ $display_errors_on_production = true;
  *
  * @var boolean - set to 1 to display the dev menu in the evobar.
  */
-$dev_menu = 1;
+$dev_menu = 0;
 
 
 // If you get blank pages or missing thumbnail images, PHP may be crashing because it doesn't have enough memory.
@@ -894,8 +894,6 @@ $library_cdn_urls = array(
 		//'#videojs_css#' => array( 'http://vjs.zencdn.net/4.2.0/video-js.css' ),
 		'#fontawesome#' => array('//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', '//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'),
 	);
-
-$library_cdn_urls = NULL; // Maybe if they'd work…
 
 /**
  * The aliases for all local JS and CSS files that are used when CDN url is not defined in $library_cdn_urls

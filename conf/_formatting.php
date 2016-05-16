@@ -34,7 +34,7 @@ $use_balanceTags = 1;
  *
  * @todo fp> Should probably be an additional radio option in group permissions.
  */
-$use_strict =  true;
+$use_strict =  false;
 
 /**
  * Do we want to use XHTML validation for comments?
@@ -57,7 +57,7 @@ $comments_allow_css_tweaks = false;
  * If XHTML validation is disabled all tags not in this list will be filtered out anyway before we do any checking
  * @deprecated
  */
-$comment_allowed_tags = '<a><abbr><address><blockquote><br><cite><code><dd><del><dfn><dl><dt><em><ins><li><ol><p><q><samp><span><strong><ul><var>';
+$comment_allowed_tags = '<p><ul><ol><li><dl><dt><dd><address><blockquote><ins><del><span><bdo><br><em><strong><dfn><code><samp><kdb><var><cite><abbr><acronym><q><sub><sup><tt><i><b><big><small>';
 
 
 

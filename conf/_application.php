@@ -85,13 +85,4 @@ $modules = array(
 		'messaging',
 		'maintenance',
 	);
-
-/* Overrides */
-
-$app_footer_text = sprintf('<a href="https://duckduckgo.com/?q=!+%1$s" title="Viziti la TTT-ejon de %1$s"><b>%1$s %2$s</b></a>
-		&#183;
-		<a href="http://www.esperanto.mv.ru/Cetero/gpl.html" class="nobr">la Ĝenerala Publika Permesilo de GNU</a>', $app_name, $app_version);
-
-$copyright_text = sprintf('<span class="nobr">Kopirajto &#169; de 2003 ĝis %d de <a href="http://fplanque.net/" hreflang="fr">François Planque</a> kaj <a href="http://b2evolution.net/about/about-us" hreflang="en">aliuloj</a>. Plibonigoj kaj plivastigoj estas faritaj de <a href="https://github.com/keithbowes/b2evolution/graphs/contributors" hreflang="en" title="Kontribuintoj en Github">mutaj aliaj</a>.</span>', date('Y'));
-
 ?>
