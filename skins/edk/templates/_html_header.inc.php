@@ -161,12 +161,15 @@ function get_full_url($part = '')
 function get_other_blogs()
 {
 	global $Blog, $DB;
-	$DB->query('SELECT blog_locale, blog_name, blog_siteurl FROM ' . $Blog->dbtablename . ' WHERE blog_ID <> ' . $Blog->ID . ' AND blog_in_bloglist = 1');
+	$DB->query('SELECT * FROM ' . $Blog->dbtablename . ' WHERE blog_ID <> ' . $Blog->ID . ' AND blog_in_bloglist = 1');
 
-	$blogs = array();
-
-	while ($row = $DB->get_row(NULL, ARRAY_A))
-		array_push($blogs, $row);
+	while ($row = $DB->get_row())
+	{
+		$curblog = new Blog($row);
+		$blogs[$curblog->ID]['blog_locale'] = $curblog->locale;
+		$blogs[$curblog->ID]['blog_name'] = $curblog->name;
+		$blogs[$curblog->ID]['blog_siteurl'] = $curblog->get('url');
+	}
 
 	return $blogs;
 }
@@ -277,7 +280,7 @@ if ('posts' != $disp)
 else
 {
 foreach (get_other_blogs() as $blog)
-	printf('<link rel="alternate" href="%1$s%2$s" title="%3$s" %4$s="%5$s" hreflang="%5$s" />%6$s', $baseurl, $blog['blog_siteurl'], $blog['blog_name'], supports_xhtml() ? 'xml:lang' : 'lang', $blog['blog_locale'], "\n");
+	printf('<link rel="alternate" href="%1$s" title="%2$s" %3$s="%4$s" hreflang="%4$s" />%5$s', $blog['blog_siteurl'], $blog['blog_name'], supports_xhtml() ? 'xml:lang' : 'lang', $blog['blog_locale'], "\n");
 }
 
 if (NULL !== $first_item)
