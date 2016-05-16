@@ -1491,6 +1491,9 @@ class User extends DataObject
 				case 'preferredname':
 					$link_login = $this->get_preferred_name();
 					break;
+				case 'auto':
+					$link_login = $this->get_username();
+					break;
 				// default: 'avatar_name' | 'avatar' | 'name'
 			}
 			$link_login = trim( $link_login );

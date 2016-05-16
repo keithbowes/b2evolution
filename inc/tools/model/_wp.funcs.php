@@ -7,7 +7,7 @@
  *
  * @license GNU GPL v2 - {@link http://b2evolution.net/about/gnu-gpl-license}
  *
- * @copyright (c)2003-2015 by Francois Planque - {@link http://fplanque.com/}
+ * @copyright (c)2003-2016 by Francois Planque - {@link http://fplanque.com/}
  *
  * @package admin
  */
@@ -304,7 +304,7 @@ function wpxml_import()
 
 				$User = new User();
 				$User->set( 'login', $author['author_login'] );
-				$User->set( 'email', $author['author_email'] );
+				$User->set( 'email', trim( $author['author_email'] ) );
 				$User->set( 'firstname', $author['author_first_name'] );
 				$User->set( 'lastname', $author['author_last_name'] );
 				$User->set( 'pass', $author['author_pass'] );

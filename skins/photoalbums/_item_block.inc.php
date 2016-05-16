@@ -7,14 +7,14 @@
  *
  * b2evolution - {@link http://b2evolution.net/}
  * Released under GNU GPL License - {@link http://b2evolution.net/about/gnu-gpl-license}
- * @copyright (c)2003-2015 by Francois Planque - {@link http://fplanque.com/}
+ * @copyright (c)2003-2016 by Francois Planque - {@link http://fplanque.com/}
  *
  * @package evoskins
  * @subpackage photoalbums
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 
-global $Item;
+global $Item, $disp;
 
 // Default params:
 $params = array_merge( array(
@@ -64,6 +64,24 @@ $params = array_merge( array(
 		?>
 
 		<?php
+		if( $disp == 'single' )
+		{
+			// ------------------------- "Item Single" CONTAINER EMBEDDED HERE --------------------------
+			// Display container contents:
+			skin_container( /* TRANS: Widget container name */ NT_('Item Single'), array(
+					// The following (optional) params will be used as defaults for widgets included in this container:
+					// This will enclose each widget in a block:
+					'block_start' => '<div class="$wi_class$">',
+					'block_end' => '</div>',
+					// This will enclose the title of each widget:
+					'block_title_start' => '<h3>',
+					'block_title_end' => '</h3>',
+			) );
+			// ----------------------------- END OF "Item Single" CONTAINER -----------------------------
+		}
+		?>
+
+		<?php
 			// URL link, if the post has one:
 			$Item->url_link( array(
 					'before'        => '<div class="bSmallPrint">'.T_('Link').': ',
@@ -81,7 +99,7 @@ $params = array_merge( array(
 				skin_include( '_item_feedback.inc.php', array(
 						'before_section_title' => '<h4>',
 						'after_section_title'  => '</h4>',
-						'author_link_text'     => 'preferredname',
+						'author_link_text'     => 'auto',
 						'comment_image_size'   => 'fit-256x256',
 					) );
 				// Note: You can customize the default item feedback by copying the generic

@@ -7,7 +7,7 @@
  *
  * b2evolution - {@link http://b2evolution.net/}
  * Released under GNU GPL License - {@link http://b2evolution.net/about/gnu-gpl-license}
- * @copyright (c)2003-2015 by Francois Planque - {@link http://fplanque.com/}
+ * @copyright (c)2003-2016 by Francois Planque - {@link http://fplanque.com/}
  *
  * @package evoskins
  * @subpackage colourise
@@ -66,7 +66,7 @@ echo '<div id="styled_content_block">'; // Beginning of posts display
 				'before'       => T_('Posted by '),
 				'after'        => ' ',
 				'link_to'      => 'userpage',
-				'link_text'    => 'preferredname',
+				'link_text'    => 'auto',
 				'link_rel'     => '',
 				'link_class'   => '',
 				'thumb_size'   => 'crop-top-32x32',
@@ -149,7 +149,7 @@ echo '<div id="styled_content_block">'; // Beginning of posts display
 		skin_include( '_item_feedback.inc.php', array(
 				'before_section_title' => '<h4>',
 				'after_section_title'  => '</h4>',
-				'author_link_text'     => 'preferredname',
+				'author_link_text'     => 'auto',
 			) );
 		// Note: You can customize the default item feedback by copying the generic
 		// /skins/_item_feedback.inc.php file into the current skin folder.

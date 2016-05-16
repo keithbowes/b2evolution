@@ -7,7 +7,7 @@
  *
  * b2evolution - {@link http://b2evolution.net/}
  * Released under GNU GPL License - {@link http://b2evolution.net/about/gnu-gpl-license}
- * @copyright (c)2003-2015 by Francois Planque - {@link http://fplanque.com/}
+ * @copyright (c)2003-2016 by Francois Planque - {@link http://fplanque.com/}
  *
  * @package evoskins
  * @subpackage evocamp
@@ -56,7 +56,7 @@ $params = array_merge( array(
 			$Item->author( array(
 				'before'    => T_('By').' ',
 				'after'     => ' ',
-				'link_text' => 'preferredname',
+				'link_text' => 'auto',
 			) );
 			$Item->issue_time( array(
 					'before'      => /* TRANS: date */ T_('on '),

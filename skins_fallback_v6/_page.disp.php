@@ -23,7 +23,6 @@ while( mainlist_get_item() )
 {	// For each blog post, do everything below up to the closing curly brace "}"
 
 	// ---------------------- ITEM BLOCK INCLUDED HERE ------------------------
-<<<<<<< HEAD:skins/bootstrap_forums_skin/_single.disp.php
 	skin_include( '_item_block.inc.php', array_merge( array(
 			'content_mode' => 'auto',		// 'auto' will auto select depending on $disp-detail
 			'image_size'   => 'fit-1280x720',
