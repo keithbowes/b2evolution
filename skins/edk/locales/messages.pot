@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edk \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-04 17:27-0400\n"
+"POT-Creation-Date: 2016-05-16 10:23-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,233 +17,228 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../templates/_403_forbidden.disp.php:20
+#: templates/_403_forbidden.disp.php:20
 msgid "403 Forbidden"
 msgstr ""
 
-#: ../../../templates/_403_forbidden.disp.php:22
-#: ../../../templates/_404_not_found.disp.php:22
+#: templates/_403_forbidden.disp.php:22 templates/_404_not_found.disp.php:22
 #, php-format
 msgid "<p><a href=\"%s\">%s</a> cannot resolve the requested URL.</p>"
 msgstr ""
 
-#: ../../../templates/_404_not_found.disp.php:20
+#: templates/_404_not_found.disp.php:20
 msgid "404 Not Found"
 msgstr ""
 
-#: ../../../templates/_funcs.inc.php:26
+#: templates/_funcs.inc.php:26
 #, php-format
 msgid "Deleting cookie %s.<br />\n"
 msgstr ""
 
-#: ../../../templates/_funcs.inc.php:29
+#: templates/_funcs.inc.php:29
 msgid "Cookies deleted!"
 msgstr ""
 
-#: ../../../templates/_funcs.inc.php:29
+#: templates/_funcs.inc.php:29
 msgid "There were no cookies to delete."
 msgstr ""
 
 #. TRANS: Params: Start year, end year, author, license
-#: ../../../templates/_funcs.inc.php:86
+#: templates/_funcs.inc.php:86
 #, php-format
-msgid "(C) %1$d-%2$d %3$s under %4$s"
+msgid "(C) %1$d-%2$d under %3$s"
 msgstr ""
 
 #. TRANS: Params: Start year, end year, author
-#: ../../../templates/_funcs.inc.php:88
+#: templates/_funcs.inc.php:88
 #, php-format
-msgid "(C) %1$d-%2$d %3$s"
+msgid "(C) %1$d-%2$d"
 msgstr ""
 
-#: ../../../templates/_funcs.inc.php:153
+#: templates/_funcs.inc.php:153
 msgid "Attribution, Sharealike license"
 msgstr ""
 
-#: ../../../templates/_funcs.inc.php:153
+#: templates/_funcs.inc.php:153
 msgid "BY-SA"
 msgstr ""
 
-#: ../../../templates/_funcs.inc.php:153
+#: templates/_funcs.inc.php:153
 msgid "C<span class=\"button-sf\">reative </span>C<span class=\"button-sf\">ommons</span>"
 msgstr ""
 
-#: ../../../templates/_funcs.inc.php:153
-#: ../../../templates/_funcs.inc.php:155
+#: templates/_funcs.inc.php:153 templates/_funcs.inc.php:155
 msgid "Creative Commons"
 msgstr ""
 
 #. TRANS: The last two %s are icons
-#: ../../../templates/_funcs.inc.php:165
+#: templates/_funcs.inc.php:165
 #, php-format
 msgid "Posted in %s by <a href=\"%s\">%s</a> on %s at %s %s %s"
 msgstr ""
 
-#: ../../../templates/_funcs.inc.php:372
+#: templates/_funcs.inc.php:372
 #, php-format
 msgid "<div>Powered by <cite><a href=\"http://www.duckduckgo.com/?q=!+%1$s\">%1$s</a> %2$s</cite>.</div>"
 msgstr ""
 
-#: ../../../templates/_funcs.inc.php:374
+#: templates/_funcs.inc.php:374
 msgid "Delete Cookies!"
 msgstr ""
 
-#: ../../../templates/_funcs.inc.php:374
+#: templates/_funcs.inc.php:374
 msgid "This site uses <a href=\"http://en.wikipedia.org/wiki/HTTP_cookie\">cookies</a>."
 msgstr ""
 
-#: ../../../templates/_html_header.inc.php:27
+#: templates/_html_header.inc.php:27
 msgid "Transitional Look"
 msgstr ""
 
-#: ../../../templates/_html_header.inc.php:32
+#: templates/_html_header.inc.php:32
 msgid "Clear Look"
 msgstr ""
 
-#: ../../../templates/_html_header.inc.php:43
+#: templates/_html_header.inc.php:43
 msgid "Classic Look"
 msgstr ""
 
-#: ../../../templates/_html_header.inc.php:44
+#: templates/_html_header.inc.php:44
 msgid "One-column Look"
 msgstr ""
 
-#: ../../../templates/_html_header.inc.php:205
+#: templates/_html_header.inc.php:208
 msgid "Please leave this for stats"
 msgstr ""
 
-#: ../../../templates/_html_header.inc.php:249
+#: templates/_html_header.inc.php:253
 msgid "Canonical Permalink"
 msgstr ""
 
-#: ../../../templates/_html_header.inc.php:250
+#: templates/_html_header.inc.php:254
 msgid "Shortened Permalink"
 msgstr ""
 
-#: ../../../templates/_html_header.inc.php:257
+#: templates/_html_header.inc.php:261
 msgid "Main Content"
 msgstr ""
 
-#: ../../../templates/_html_header.inc.php:258
+#: templates/_html_header.inc.php:262
 msgid "Menu"
 msgstr ""
 
-#: ../../../templates/_item_comment.inc.php:78
+#: templates/_item_comment.inc.php:78
 #, php-format
 msgid " (in response to <a href=\"%s\">%s</a>)"
 msgstr ""
 
-#: ../../../templates/_item_comment.inc.php:84
+#: templates/_item_comment.inc.php:84
 msgid "from"
 msgstr ""
 
-#: ../../../templates/_item_comment.inc.php:135
+#: templates/_item_comment.inc.php:135
 msgid " at "
 msgstr ""
 
-#: ../../../templates/_item_comment_form.inc.php:278
+#: templates/_item_comment_form.inc.php:278
 msgid "<a href=\"http://en.wikipedia.org/wiki/Markdown\">Markdown</a> is enabled."
 msgstr ""
 
-#: ../../../templates/_item_comment_form.inc.php:286
+#: templates/_item_comment_form.inc.php:286
 msgid "<a href=\"http://en.wikipedia.org/wiki/BBCode\">BBCode</a> is enabled."
 msgstr ""
 
-#: ../../../templates/_sidebar.inc.php:50
-#: ../../../templates/_sidebar.inc.php:56
+#: templates/_sidebar.inc.php:50 templates/_sidebar.inc.php:56
 #, php-format
 msgid "%s <span class=\"button-sf\">Feed</span>"
 msgstr ""
 
-#: ../../../templates/_sidebar.inc.php:50
-#: ../../../templates/_sidebar.inc.php:56
+#: templates/_sidebar.inc.php:50 templates/_sidebar.inc.php:56
 #, php-format
 msgid "%s Feed"
 msgstr ""
 
-#: ../../../templates/_sidebar.inc.php:65
+#: templates/_sidebar.inc.php:65
 msgid "Valid XHTML"
 msgstr ""
 
-#: ../../../templates/_sidebar.inc.php:69
+#: templates/_sidebar.inc.php:69
 msgid "Share on Facebook"
 msgstr ""
 
-#: ../../../templates/_sidebar.inc.php:70
+#: templates/_sidebar.inc.php:70
 msgid "Share on Google+"
 msgstr ""
 
-#: ../../../templates/_sidebar.inc.php:71
+#: templates/_sidebar.inc.php:71
 msgid "Share on Twitter"
 msgstr ""
 
-#: ../../../templates/_sidebar.inc.php:246
+#: templates/_sidebar.inc.php:238
 msgid "Select a pod to use above or enter one below."
 msgstr ""
 
-#: ../../../templates/_sidebar.inc.php:275
+#: templates/_sidebar.inc.php:256
 msgid "Diaspora* user name"
 msgstr ""
 
-#: ../../../templates/_sidebar.inc.php:282
+#: templates/_sidebar.inc.php:263
 msgid "Diaspora* password"
 msgstr ""
 
-#: ../../../templates/_sidebar.inc.php:288
+#: templates/_sidebar.inc.php:269
 msgid "Diaspora* aspects"
 msgstr ""
 
-#: ../../../templates/_sidebar.inc.php:302
-#: ../../../templates/_sidebar.inc.php:303
+#: templates/_sidebar.inc.php:283 templates/_sidebar.inc.php:284
 msgid "Share on Diaspora*"
 msgstr ""
 
-#: ../../../templates/_sidebar.inc.php:327
+#: templates/_sidebar.inc.php:308
 msgid "Back-office"
 msgstr ""
 
-#: ../../../templates/_user.disp.php:43
+#: templates/_user.disp.php:43
 msgid "Edit this user in the Back-office"
 msgstr ""
 
-#: ../../../templates/_user.disp.php:132
+#: templates/_user.disp.php:132
 msgid "Not activated"
 msgstr ""
 
-#: ../../../templates/_user.disp.php:139
+#: templates/_user.disp.php:139
 msgid "First Name"
 msgstr ""
 
-#: ../../../templates/_user.disp.php:144
+#: templates/_user.disp.php:144
 msgid "Last Name"
 msgstr ""
 
-#: ../../../templates/_user.disp.php:175
+#: templates/_user.disp.php:175
 #, php-format
 msgid "from %d to %d years old"
 msgstr ""
 
-#: ../../../templates/_user.disp.php:224
+#: templates/_user.disp.php:224
 #, php-format
 msgid "You and %s..."
 msgstr ""
 
-#: ../../../templates/_user.disp.php:237
+#: templates/_user.disp.php:237
 msgid "Unblock"
 msgstr ""
 
-#: ../../../templates/_user.disp.php:237
+#: templates/_user.disp.php:237
 msgid "You have blocked this user"
 msgstr ""
 
-#: ../../../templates/_user.disp.php:273
+#: templates/_user.disp.php:273
 msgid "You can organize your contacts into groups. You can decide in which groups to put this user here:"
 msgstr ""
 
-#: ../../../templates/_user.disp.php:278
+#: templates/_user.disp.php:278
 msgid "Create a new group"
 msgstr ""
 
-#: ../../../templates/_user.disp.php:282
+#: templates/_user.disp.php:282
 msgid "Add this user to a group"
 msgstr ""
