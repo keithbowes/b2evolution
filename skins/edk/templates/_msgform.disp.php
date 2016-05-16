@@ -161,7 +161,7 @@ else
 				SELECT post_title
 				  FROM T_items__item, T_comments
 				 WHERE comment_ID = '.$DB->quote($comment_id).'
-				   AND post_ID = comment_post_ID' );
+				   AND post_ID = comment_item_ID' );
 
 			if( $row )
 			{
