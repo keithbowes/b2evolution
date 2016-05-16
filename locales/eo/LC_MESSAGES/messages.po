@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net\n"
 "POT-Creation-Date: 2016-05-16 11:22-0400\n"
-"PO-Revision-Date: 2016-05-16 16:23-0400\n"
+"PO-Revision-Date: 2016-05-20 13:17-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -30,7 +30,7 @@ msgstr "Vaka dosiero"
 
 #: ../../../conf/_icons.php:57
 msgid "Parent folder"
-msgstr "Superdosierujo"
+msgstr "Patra dosierujo"
 
 #: ../../../conf/_icons.php:63 ../../../conf/_icons.php:410
 #: ../../../inc/files/views/_file_list.inc.php:476
@@ -6697,7 +6697,7 @@ msgstr "Nevalida subdosierujo «%s»."
 #: ../../../inc/collections/model/_blog.class.php:1906
 #, php-format
 msgid "The blog's media directory &laquo;%s&raquo; could not be created, because the parent directory is not writable or does not exist."
-msgstr "La median dosierujon «%s» de la kolekto ne eblis krei, ĉar la superdosierujo ne estas skribebla aŭ ne ekzistas."
+msgstr "La median dosierujon «%s» de la kolekto ne eblis krei, ĉar la patra dosierujo ne skribeblas aŭ ne ekzistas."
 
 #: ../../../inc/collections/model/_blog.class.php:1915
 #, php-format

@@ -7,11 +7,11 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2016-05-16 11:22-0400\nPO-Revision-Date: 2016-05-16 16:23-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2016-05-16 11:22-0400\nPO-Revision-Date: 2016-05-20 13:17-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 'Folder' => 'Dosierujo',
 'Unknown file' => 'Nekonata dosiero',
 'Empty file' => 'Vaka dosiero',
-'Parent folder' => 'Superdosierujo',
+'Parent folder' => 'Patra dosierujo',
 'Copy' => 'Kopii',
 'Move' => 'Movi',
 'Del' => 'For',
@@ -1118,7 +1118,7 @@ $trans['eo'] = array(
 'You must provide an absolute URL (starting with <code>http://</code> or <code>https://</code>)!' => 'Vi devas doni absolutan URL-on (komenciĝanta per <code>http://</code> aŭ <code>https://</code>).',
 'You must provide the media subdirectory.' => 'Vi devas doni la median subdosierujon.',
 'Invalid subdirectory &laquo;%s&raquo;.' => 'Nevalida subdosierujo «%s».',
-'The blog\'s media directory &laquo;%s&raquo; could not be created, because the parent directory is not writable or does not exist.' => 'La median dosierujon «%s» de la kolekto ne eblis krei, ĉar la superdosierujo ne estas skribebla aŭ ne ekzistas.',
+'The blog\'s media directory &laquo;%s&raquo; could not be created, because the parent directory is not writable or does not exist.' => 'La median dosierujon «%s» de la kolekto ne eblis krei, ĉar la patra dosierujo ne skribeblas aŭ ne ekzistas.',
 'The blog\'s media directory &laquo;%s&raquo; could not be created.' => 'La median dosierujon «%s» de la kolekto ne eblis krei.',
 'The blog\'s media directory &laquo;%s&raquo; has been created with permissions %s.' => 'La dosierujo «%s» de la kolekto kreiĝis kun la atingopermesoj %s.',
 'ATTENTION: advanced <a href="%s">user</a> & <a href="%s">group</a> permissions are enabled and some logged in users may have less permissions than anonymous users.' => 'ATENTO: Altnivela <a href="%s">uzanto-</a> kaj <a href="%s">grupo-</a> permesoj estas aktivigitaj kaj iuj ensalutintaj uzatoj eble havas malpliajn permesojn ol anonimaj uzantoj.',
