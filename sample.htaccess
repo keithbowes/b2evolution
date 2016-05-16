@@ -73,3 +73,7 @@ AcceptPathInfo On
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteRule ^[^.]+(\.(html|htm))?$ index.php [L]
 </IfModule>
+
+<IfModule mod_headers.c>
+    Header set "X-UA-Compatible" "IE=edge"
+</IfModule>

@@ -232,9 +232,6 @@ if (!supports_xhtml())
 	edk_meta('property', 'copyright', get_copyright(array('display' =>  FALSE, 'license' =>  FALSE)));
 	edk_meta('property', 'license', get_license(array('display' => FALSE, 'format' =>  'text')));
 
-	if (supports_xhtml())
-		edk_meta('http-equiv', 'X-UA-Compatible', 'IE=edge');
-
 	global $collection_path;
 	add_js_headline('var collection_path = "' .  $collection_path . '";');
 	require_js($edk_base . 'js/styleprefs.js', NULL, TRUE);
