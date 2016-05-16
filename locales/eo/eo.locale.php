@@ -16,24 +16,30 @@
 
 /* Display the encoded transliteration to insert in the database when running from CLI.
  * Otherwise, display nothing. */
-if (function_exists('NT_'))
+global $is_cli;
+if (isset($is_cli) && !$is_cli && !function_exists('get_encoded_translit'))
 {
 	function get_encoded_translit($str)
 	{
 	}
 }
-else
+elseif (!isset($is_cli) || $is_cli)
 {
-	function NT_($str)
+	if (!function_exists('NT_'))
 	{
-		return $str;
+		function NT_($str)
+		{
+			return $str;
+		}
 	}
 
-	function get_encoded_translit($str)
+	if (!function_exists('get_encoded_translit'))
 	{
-		echo base64_encode(serialize($str)) . "\n";
+		function get_encoded_translit($str)
+		{
+			echo base64_encode(serialize($str)) . "\n";
+		}
 	}
-
 }
 
 $locale_defs['eo'] = array(
