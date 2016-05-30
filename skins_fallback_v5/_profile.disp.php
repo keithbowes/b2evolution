@@ -82,7 +82,7 @@ if( $params['display_profile_tabs'] )
 		{
 			echo $params['profile_tabs']['item_start'];
 		}
-		echo '<a href='.$entry_data['href'].'>'.$entry_data['text'].'</a>';
+		echo '<a href="'.$entry_data['href'].'">'.$entry_data['text'].'</a>';
 		if( $entry == $disp )
 		{
 			echo $params['profile_tabs']['item_selected_end'];
