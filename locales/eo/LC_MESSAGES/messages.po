@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net\n"
-"POT-Creation-Date: 2016-05-16 11:22-0400\n"
-"PO-Revision-Date: 2016-05-20 13:17-0400\n"
+"POT-Creation-Date: 2016-05-30 20:03-0400\n"
+"PO-Revision-Date: 2016-05-30 20:04-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -266,7 +266,7 @@ msgstr "Redakti"
 #: ../../../inc/files/views/_file_properties.form.php:39
 #: ../../../inc/items/views/_item_expert.form.php:612
 #: ../../../inc/widgets/views/_widget.form.php:43
-#: ../../../skins_fallback_v5/_edit.disp.php:307
+#: ../../../skins_fallback_v5/_edit.disp.php:312
 msgid "Properties"
 msgstr "Ecoj"
 
@@ -341,7 +341,7 @@ msgstr "Malligi"
 #: ../../../conf/_icons.php:650 ../../../conf/_icons.php:665
 #: ../../../inc/collections/views/_coll_home.form.php:43
 #: ../../../inc/plugins/plugins.ctrl.php:1039
-#: ../../../inc/plugins/views/_plugin_list.view.php:213
+#: ../../../inc/plugins/views/_plugin_list.view.php:227
 #: ../../../inc/plugins/views/_plugin_list_available.view.php:38
 #: ../../../inc/plugins/views/_plugin_settings.form.php:66
 #: ../../../inc/slugs/views/_slug.form.php:40
@@ -1643,7 +1643,7 @@ msgstr "Bonvolu ne sendi vakan komenton"
 #: ../../../inc/items/views/_item_list_full.view.php:664
 #: ../../../inc/messaging/views/_message_list.view.php:337
 #: ../../../inc/messaging/views/_thread.form.php:140
-#: ../../../inc/skins/model/_skin.class.php:648
+#: ../../../inc/skins/model/_skin.class.php:647
 #: ../../../skins/pureforums/_item_comment_form.inc.php:417
 #: ../../../skins/touch/_item_comment_form.inc.php:358
 #: ../../../skins_fallback_v5/_item_comment_form.inc.php:419
@@ -1685,7 +1685,7 @@ msgstr "Dosiero"
 #: ../../../inc/widgets/widgets/_item_small_print.widget.php:101
 #: ../../../inc/widgets/widgets/_item_tags.widget.php:97
 #: ../../../inc/widgets/widgets/_mobile_skin_switcher.widget.php:94
-#: ../../../plugins/_quicktags.plugin.php:432
+#: ../../../plugins/_quicktags.plugin.php:446
 #: ../../../plugins/cookie_consent_plugin/_cookie_consent.plugin.php:54
 #: ../../../plugins/markdown_plugin/_markdown.plugin.php:661
 #: ../../../skins_email/post_new.html.php:39
@@ -3455,7 +3455,7 @@ msgstr "Uzanto-komentoj"
 #: ../../../skins/evopress/_item_block.inc.php:79
 #: ../../../skins/photoalbums/_item_block.inc.php:71
 #: ../../../skins/photoblog/_item_block.inc.php:183
-#: ../../../skins/pureforums/_edit.disp.php:375
+#: ../../../skins/pureforums/_edit.disp.php:380
 #: ../../../skins/pureforums/_item_block.inc.php:182
 #: ../../../skins/touch/_item_block.inc.php:96
 #: ../../../skins/touch/single.main.php:159
@@ -3536,8 +3536,8 @@ msgstr "bildo {current} el {total}"
 #: ../../../inc/_core/_template.funcs.php:1199
 #: ../../../inc/items/model/_item.funcs.php:2972
 #: ../../../inc/messaging/model/_messaging.funcs.php:1849
-#: ../../../inc/skins/model/_skin.class.php:1350
-#: ../../../inc/skins/model/_skin.class.php:1678
+#: ../../../inc/skins/model/_skin.class.php:1349
+#: ../../../inc/skins/model/_skin.class.php:1677
 #: ../../../skins/asevo/index.main.php:159
 #: ../../../skins/basic/index.main.php:282
 #: ../../../skins/photoblog/index.main.php:103
@@ -3559,8 +3559,8 @@ msgstr "Antaŭa"
 #: ../../../inc/_core/_template.funcs.php:1200
 #: ../../../inc/items/model/_item.funcs.php:2973
 #: ../../../inc/messaging/model/_messaging.funcs.php:1850
-#: ../../../inc/skins/model/_skin.class.php:1351
-#: ../../../inc/skins/model/_skin.class.php:1679
+#: ../../../inc/skins/model/_skin.class.php:1350
+#: ../../../inc/skins/model/_skin.class.php:1678
 #: ../../../install/_functions_install.php:1512
 #: ../../../skins/asevo/index.main.php:160
 #: ../../../skins/basic/index.main.php:283
@@ -4329,8 +4329,8 @@ msgstr "Linioj je ĉiu paĝo"
 #: ../../../inc/_core/ui/results/_results.class.php:2359
 #: ../../../inc/items/model/_item.funcs.php:1612
 #: ../../../inc/items/model/_item.funcs.php:2974
-#: ../../../inc/skins/model/_skin.class.php:1616
-#: ../../../inc/skins/model/_skin.class.php:1672
+#: ../../../inc/skins/model/_skin.class.php:1615
+#: ../../../inc/skins/model/_skin.class.php:1671
 #: ../../../inc/widgets/widgets/_coll_page_list.widget.php:60
 #: ../../../install/_functions_evoupgrade.php:5923
 #: ../../../skins/pureforums/_skin.class.php:336
@@ -5079,8 +5079,8 @@ msgstr "Kaŝnomo"
 #: ../../../inc/users/views/_user_identity.form.php:451
 #: ../../../inc/users/views/_user_identity.form.php:502
 #: ../../../inc/widgets/widgets/_menu_link.widget.php:169
-#: ../../../plugins/_quicktags.plugin.php:412
-#: ../../../plugins/_quicktags.plugin.php:427
+#: ../../../plugins/_quicktags.plugin.php:426
+#: ../../../plugins/_quicktags.plugin.php:441
 #: ../../../plugins/markdown_plugin/_markdown.plugin.php:656
 msgid "URL"
 msgstr "URL"
@@ -5281,7 +5281,7 @@ msgstr "Forigi la IP-adresa grupon."
 #: ../../../inc/maintenance/views/_upgrade_export.form.php:32
 #: ../../../inc/maintenance/views/_upgrade_ready.form.php:34
 #: ../../../inc/maintenance/views/_upgrade_unzip.form.php:32
-#: ../../../inc/plugins/views/_plugin_list.view.php:241
+#: ../../../inc/plugins/views/_plugin_list.view.php:255
 #: ../../../inc/plugins/views/_plugin_list_available.view.php:40
 #: ../../../inc/polls/views/_poll.form.php:177
 #: ../../../inc/polls/views/_polls.view.php:170
@@ -10829,14 +10829,14 @@ msgstr "Informoj pri reagoj"
 #: ../../../inc/messaging/views/_message_list.view.php:333
 #: ../../../inc/messaging/views/_thread.form.php:123
 #: ../../../inc/settings/views/_eblog.form.php:138
-#: ../../../skins/pureforums/_edit.disp.php:361
+#: ../../../skins/pureforums/_edit.disp.php:366
 #: ../../../skins/pureforums/_edit_comment.disp.php:159
 #: ../../../skins/pureforums/_item_comment_form.inc.php:344
 #: ../../../skins/touch/_item_comment_form.inc.php:346
-#: ../../../skins_fallback_v5/_edit.disp.php:276
+#: ../../../skins_fallback_v5/_edit.disp.php:281
 #: ../../../skins_fallback_v5/_edit_comment.disp.php:122
 #: ../../../skins_fallback_v5/_item_comment_form.inc.php:411
-#: ../../../skins_fallback_v6/_edit.disp.php:275
+#: ../../../skins_fallback_v6/_edit.disp.php:280
 #: ../../../skins_fallback_v6/_edit_comment.disp.php:110
 #: ../../../skins_fallback_v6/_item_comment_form.inc.php:421
 msgid "Text Renderers"
@@ -14497,17 +14497,17 @@ msgstr "Paĝoj:"
 #: ../../../skins/bootstrap_gallery_skin/_item_content.inc.php:95
 #: ../../../skins/bootstrap_manual_skin/_item_content.inc.php:97
 #: ../../../skins/bootstrap_photoblog_skin/_item_content.inc.php:101
-#: ../../../skins/pureforums/_edit.disp.php:390
+#: ../../../skins/pureforums/_edit.disp.php:395
 #: ../../../skins/pureforums/_edit_comment.disp.php:169
 #: ../../../skins_email/comment_new.html.php:93
 #: ../../../skins_email/comment_new.txt.php:102
 #: ../../../skins_email/post_new.html.php:59
 #: ../../../skins_email/post_new.txt.php:64
-#: ../../../skins_fallback_v5/_edit.disp.php:343
+#: ../../../skins_fallback_v5/_edit.disp.php:348
 #: ../../../skins_fallback_v5/_edit_comment.disp.php:131
 #: ../../../skins_fallback_v5/_edit_comment.disp.php:137
 #: ../../../skins_fallback_v5/_item_content.inc.php:82
-#: ../../../skins_fallback_v6/_edit.disp.php:372
+#: ../../../skins_fallback_v6/_edit.disp.php:377
 #: ../../../skins_fallback_v6/_edit_comment.disp.php:121
 #: ../../../skins_fallback_v6/_edit_comment.disp.php:130
 #: ../../../skins_fallback_v6/_item_content.inc.php:99
@@ -14807,17 +14807,17 @@ msgid "Intros"
 msgstr "Enkondukoj"
 
 #: ../../../inc/items/model/_item.funcs.php:1714
-#: ../../../skins/pureforums/_edit.disp.php:287
+#: ../../../skins/pureforums/_edit.disp.php:292
 msgid "Issue date"
 msgstr "Eldona dato"
 
 #: ../../../inc/items/model/_item.funcs.php:1721
-#: ../../../skins/pureforums/_edit.disp.php:284
+#: ../../../skins/pureforums/_edit.disp.php:289
 msgid "Update to NOW"
 msgstr "Agordi al NUN"
 
 #: ../../../inc/items/model/_item.funcs.php:1730
-#: ../../../skins/pureforums/_edit.disp.php:285
+#: ../../../skins/pureforums/_edit.disp.php:290
 msgid "Set to"
 msgstr "Agordi al"
 
@@ -15530,8 +15530,8 @@ msgstr "Montri komencan eltiraĵon dum montriĝo de -- plu --"
 
 #: ../../../inc/items/views/_item_expert.form.php:637
 #: ../../../inc/items/views/_item_expert.form.php:665
-#: ../../../skins_fallback_v5/_edit.disp.php:324
-#: ../../../skins_fallback_v6/_edit.disp.php:328
+#: ../../../skins_fallback_v5/_edit.disp.php:329
+#: ../../../skins_fallback_v6/_edit.disp.php:333
 msgid "can be decimal"
 msgstr "povas esti dekuma"
 
@@ -15549,39 +15549,39 @@ msgstr "Longitudo"
 
 #: ../../../inc/items/views/_item_expert.form.php:696
 #: ../../../inc/items/views/_item_mass.form.php:188
-#: ../../../skins/pureforums/_edit.disp.php:329
+#: ../../../skins/pureforums/_edit.disp.php:334
 msgid "Visitors can leave comments on this post."
 msgstr "Vizitantoj povas komenti la afiŝon."
 
 #: ../../../inc/items/views/_item_expert.form.php:697
 #: ../../../inc/items/views/_item_mass.form.php:189
-#: ../../../skins/pureforums/_edit.disp.php:329
+#: ../../../skins/pureforums/_edit.disp.php:334
 msgid "Open"
 msgstr "Malfermita"
 
 #: ../../../inc/items/views/_item_expert.form.php:702
 #: ../../../inc/items/views/_item_mass.form.php:194
-#: ../../../skins/pureforums/_edit.disp.php:332
+#: ../../../skins/pureforums/_edit.disp.php:337
 msgid "Visitors can NOT leave comments on this post."
 msgstr "Vizitantoj NE povas komenti la afiŝon."
 
 #: ../../../inc/items/views/_item_expert.form.php:703
 #: ../../../inc/items/views/_item_mass.form.php:195
 #: ../../../inc/users/model/_user.funcs.php:3487
-#: ../../../skins/pureforums/_edit.disp.php:332
+#: ../../../skins/pureforums/_edit.disp.php:337
 msgid "Closed"
 msgstr "Fermita"
 
 #: ../../../inc/items/views/_item_expert.form.php:710
 #: ../../../inc/items/views/_item_mass.form.php:202
-#: ../../../skins/pureforums/_edit.disp.php:336
+#: ../../../skins/pureforums/_edit.disp.php:341
 msgid "Visitors cannot see nor leave comments on this post."
 msgstr "Vizitantoj povas nek vidi nek komenti la afiŝon."
 
 #: ../../../inc/items/views/_item_expert.form.php:711
 #: ../../../inc/items/views/_item_mass.form.php:203
 #: ../../../inc/tools/system.ctrl.php:238
-#: ../../../skins/pureforums/_edit.disp.php:336
+#: ../../../skins/pureforums/_edit.disp.php:341
 msgid "Disabled"
 msgstr "Malaktivigita"
 
@@ -16011,8 +16011,8 @@ msgid "Create posts"
 msgstr "Krei afiŝojn"
 
 #: ../../../inc/items/views/_item_mass.form.php:163
-#: ../../../skins/pureforums/_edit.disp.php:351
-#: ../../../skins_fallback_v5/_edit.disp.php:259
+#: ../../../skins/pureforums/_edit.disp.php:356
+#: ../../../skins_fallback_v5/_edit.disp.php:264
 msgid "Visibility / Sharing"
 msgstr "Konigo"
 
@@ -17359,55 +17359,55 @@ msgstr "Sekurkopio finita. Dosierujo: «%s»."
 msgid "Creating folders/files backup..."
 msgstr "Kreanta dosier(uj)ajn sekurkopiojn…"
 
-#: ../../../inc/maintenance/model/_backup.class.php:371
+#: ../../../inc/maintenance/model/_backup.class.php:372
 #, php-format
 msgid "Config file %s cannot be read."
 msgstr "Agordo-dosiero %s ne legeblas."
 
-#: ../../../inc/maintenance/model/_backup.class.php:394
+#: ../../../inc/maintenance/model/_backup.class.php:395
 #, php-format
 msgid "Archiving files to &laquo;<strong>%s</strong>&raquo;..."
 msgstr "Arkivanta dosierojn al  «<strong>%s</strong>…"
 
-#: ../../../inc/maintenance/model/_backup.class.php:399
-#: ../../../inc/maintenance/model/_backup.class.php:677
+#: ../../../inc/maintenance/model/_backup.class.php:400
+#: ../../../inc/maintenance/model/_backup.class.php:678
 #, php-format
 msgid "Backing up &laquo;<strong>%s</strong>&raquo; ..."
 msgstr "Sekurkopianta je «<strong>%s</strong> …"
 
-#: ../../../inc/maintenance/model/_backup.class.php:409
-#: ../../../inc/maintenance/model/_backup.class.php:620
+#: ../../../inc/maintenance/model/_backup.class.php:410
+#: ../../../inc/maintenance/model/_backup.class.php:621
 #: ../../../inc/maintenance/model/_maintenance.funcs.php:302
 #, php-format
 msgid "Error: %s"
 msgstr "Eraro: %s"
 
-#: ../../../inc/maintenance/model/_backup.class.php:410
-#: ../../../inc/maintenance/model/_backup.class.php:621
+#: ../../../inc/maintenance/model/_backup.class.php:411
+#: ../../../inc/maintenance/model/_backup.class.php:622
 #, php-format
 msgid "Unable to create &laquo;%s&raquo;"
 msgstr "Ne eblis krei: «%s»."
 
-#: ../../../inc/maintenance/model/_backup.class.php:446
+#: ../../../inc/maintenance/model/_backup.class.php:447
 msgid "Creating database backup..."
 msgstr "Kreanta datumbazan sekurkopion…"
 
-#: ../../../inc/maintenance/model/_backup.class.php:505
+#: ../../../inc/maintenance/model/_backup.class.php:506
 #, php-format
 msgid "Unable to write database dump. Database dump already exists: &laquo;%s&raquo;"
 msgstr "Ne eblis skribi datumbazan ŝuton. Datumbaza ŝuto jam ekzistas: «%s»"
 
-#: ../../../inc/maintenance/model/_backup.class.php:514
+#: ../../../inc/maintenance/model/_backup.class.php:515
 #, php-format
 msgid "Unable to write database dump. Could not open &laquo;%s&raquo; for writing."
 msgstr "Ne eblis skribi datumbazan ŝuton. Ne eblis malfermi «%s»-on por skribi."
 
-#: ../../../inc/maintenance/model/_backup.class.php:520
+#: ../../../inc/maintenance/model/_backup.class.php:521
 #, php-format
 msgid "Dumping tables to &laquo;<strong>%s</strong>&raquo;..."
 msgstr "Ŝutanta tabelojn al  «<strong>%s</strong>»…"
 
-#: ../../../inc/maintenance/model/_backup.class.php:527
+#: ../../../inc/maintenance/model/_backup.class.php:528
 #, php-format
 msgid "Backing up table &laquo;<strong>%s</strong>&raquo; ..."
 msgstr "Sekurkopianta la tabelon «<strong>%s</strong>»…"
@@ -17857,6 +17857,7 @@ msgstr "Ne ekzistas novaj ĝisdatigoj."
 
 #: ../../../inc/maintenance/views/_upgrade.form.php:42
 #: ../../../inc/plugins/plugins.ctrl.php:1027
+#: ../../../inc/plugins/views/_plugin_list.view.php:213
 #: ../../../inc/plugins/views/_plugin_list_available.view.php:37
 #: ../../../inc/skins/views/_skin_list.view.php:51
 msgid "Version"
@@ -18618,8 +18619,8 @@ msgid "No description available"
 msgstr "Neniu priskribo disponebla"
 
 #: ../../../inc/plugins/_plugin.class.php:587
-#: ../../../inc/plugins/_plugin.class.php:633
-#: ../../../inc/plugins/_plugin.class.php:671
+#: ../../../inc/plugins/_plugin.class.php:659
+#: ../../../inc/plugins/_plugin.class.php:697
 msgid "Note: The plugin code is empty, so this plugin will not work as an \"opt-out\", \"opt-in\" or \"lazy\" renderer."
 msgstr "Noto: La kromprograma kodo vakas, do ĉi tiu kromprogramo ne funkcios en la reĝimoj \"malŝaltebla\", \"ŝaltebla\" aŭ \"pigra\"."
 
@@ -18631,28 +18632,36 @@ msgstr "Apliki al afiŝa montriĝo"
 msgid "Apply rendering to comments"
 msgstr "Apliki al komenta montriĝo"
 
-#: ../../../inc/plugins/_plugin.class.php:640
+#: ../../../inc/plugins/_plugin.class.php:617
+msgid "Use for posts"
+msgstr "Uzi por afiŝoj"
+
+#: ../../../inc/plugins/_plugin.class.php:627
+msgid "Use for comments"
+msgstr "Uzi por komentoj"
+
+#: ../../../inc/plugins/_plugin.class.php:666
 msgid "Apply rendering to messages"
 msgstr "Apliki modifilojn al mesaĝoj"
 
-#: ../../../inc/plugins/_plugin.class.php:678
+#: ../../../inc/plugins/_plugin.class.php:704
 msgid "Apply rendering to emails"
 msgstr "Apliki modifilojn al retpoŝtmesaĝojn"
 
-#: ../../../inc/plugins/_plugin.class.php:897
+#: ../../../inc/plugins/_plugin.class.php:923
 msgid "My Tab"
 msgstr "Mia folio"
 
-#: ../../../inc/plugins/_plugin.class.php:3393
+#: ../../../inc/plugins/_plugin.class.php:3419
 msgid "Homepage of the plugin"
 msgstr "TTT-paĝo de la kromprogramo"
 
-#: ../../../inc/plugins/_plugin.class.php:3402
+#: ../../../inc/plugins/_plugin.class.php:3428
 #, php-format
 msgid "Click %s to access full documentation for this plugin"
 msgstr "Klaku sur %s por atingi la tutan dokumentaron por la kromprogramo"
 
-#: ../../../inc/plugins/_plugin.class.php:3523
+#: ../../../inc/plugins/_plugin.class.php:3549
 #: ../../../inc/plugins/plugins.ctrl.php:1008
 #: ../../../inc/plugins/views/_plugin_list.view.php:152
 msgid "Edit plugin settings!"
@@ -19061,9 +19070,9 @@ msgstr "Klasa dosiero"
 
 #: ../../../inc/plugins/plugins.ctrl.php:1054
 #: ../../../inc/skins/model/_skin.class.php:553
+#: ../../../inc/skins/model/_skin.class.php:622
 #: ../../../inc/skins/model/_skin.class.php:623
-#: ../../../inc/skins/model/_skin.class.php:624
-#: ../../../inc/skins/model/_skin.class.php:636
+#: ../../../inc/skins/model/_skin.class.php:635
 msgid "Install NOW!"
 msgstr "Tuj instali."
 
@@ -19113,40 +19122,40 @@ msgstr "Kromprogramo"
 msgid "The code to call the plugin by code (SkinTag) or as Renderer."
 msgstr "La kodo voki la kromprogramon de kodo (SkinTag) aŭ kiel montrilo."
 
-#: ../../../inc/plugins/views/_plugin_list.view.php:208
+#: ../../../inc/plugins/views/_plugin_list.view.php:222
 #: ../../../inc/plugins/views/_plugin_list_available.view.php:107
 #: ../../../inc/plugins/views/_plugin_list_available.view.php:133
 #: ../../../inc/plugins/views/_plugin_settings.form.php:43
 msgid "Display info"
 msgstr "Montri informojn"
 
-#: ../../../inc/plugins/views/_plugin_list.view.php:228
+#: ../../../inc/plugins/views/_plugin_list.view.php:242
 msgid "Disable the plugin!"
 msgstr "Malaktivigi la kromprogramon"
 
-#: ../../../inc/plugins/views/_plugin_list.view.php:232
+#: ../../../inc/plugins/views/_plugin_list.view.php:246
 msgid "Enable the plugin!"
 msgstr "Aktivigi la kromprogramon"
 
-#: ../../../inc/plugins/views/_plugin_list.view.php:235
+#: ../../../inc/plugins/views/_plugin_list.view.php:249
 msgid "Un-install this plugin!"
 msgstr "Malinstali la kromprogramon"
 
-#: ../../../inc/plugins/views/_plugin_list.view.php:251
+#: ../../../inc/plugins/views/_plugin_list.view.php:265
 msgid "Reload events and codes for installed plugins."
 msgstr "Reŝargi eventojn kaj kodojn por instalitaj kromprogramoj."
 
-#: ../../../inc/plugins/views/_plugin_list.view.php:251
+#: ../../../inc/plugins/views/_plugin_list.view.php:265
 msgid "Reload plugins"
 msgstr "Reŝargi kromprogramojn"
 
-#: ../../../inc/plugins/views/_plugin_list.view.php:254
+#: ../../../inc/plugins/views/_plugin_list.view.php:268
 #: ../../../inc/skins/views/_coll_skin.view.php:53
 #: ../../../inc/skins/views/_skin_list.view.php:94
 msgid "Install new"
 msgstr "Instali novan"
 
-#: ../../../inc/plugins/views/_plugin_list.view.php:254
+#: ../../../inc/plugins/views/_plugin_list.view.php:268
 msgid "Install new plugin..."
 msgstr "Instali novan kromprogramon…"
 
@@ -21477,30 +21486,30 @@ msgstr "Neniuj ujoj trovitaj en ĉi tiu etoso."
 msgid "Select this skin!"
 msgstr "Elekti la etoso"
 
-#: ../../../inc/skins/model/_skin.class.php:592
+#: ../../../inc/skins/model/_skin.class.php:591
 msgid "No skinshot available for"
 msgstr "Neniu etosa antaŭvido disponebla por"
 
-#: ../../../inc/skins/model/_skin.class.php:612
+#: ../../../inc/skins/model/_skin.class.php:611
 msgid "Broken."
 msgstr "Rompita."
 
-#: ../../../inc/skins/model/_skin.class.php:637
+#: ../../../inc/skins/model/_skin.class.php:636
 msgid "Wrong Type!"
 msgstr "Erara tipo!"
 
-#: ../../../inc/skins/model/_skin.class.php:639
+#: ../../../inc/skins/model/_skin.class.php:638
 msgid "This skin does not fit the blog type you are trying to create."
 msgstr "La etoso ne kongruas kun la blogtipo, kiun vi provas krei."
 
-#: ../../../inc/skins/model/_skin.class.php:647
+#: ../../../inc/skins/model/_skin.class.php:646
 msgid "Preview blog with this skin in a new window"
 msgstr "Antaŭvidi kolekton kun ĉi tiu etoso en nova fenestro"
 
+#: ../../../inc/skins/model/_skin.class.php:1353
 #: ../../../inc/skins/model/_skin.class.php:1354
-#: ../../../inc/skins/model/_skin.class.php:1355
+#: ../../../inc/skins/model/_skin.class.php:1681
 #: ../../../inc/skins/model/_skin.class.php:1682
-#: ../../../inc/skins/model/_skin.class.php:1683
 #: ../../../skins/pureforums/_skin.class.php:408
 #: ../../../skins/pureforums/_skin.class.php:409
 #: ../../../skins_adm/_adminUI_general.class.php:1030
@@ -32315,7 +32324,7 @@ msgid "BB code:"
 msgstr "BB-kodo:"
 
 #: ../../../plugins/_bbcode.plugin.php:683
-#: ../../../plugins/_quicktags.plugin.php:345
+#: ../../../plugins/_quicktags.plugin.php:359
 #: ../../../plugins/markdown_plugin/_markdown.plugin.php:598
 msgid "Close all tags"
 msgstr "Fermi ĉiujn etikedojn"
@@ -32718,67 +32727,67 @@ msgstr "Facila enmetado de HTML-etikedoj"
 msgid "This plugin will display a toolbar with buttons to quickly insert HTML tags around selected text in a post."
 msgstr "Ĉi tiu kromprogramo montros ilobreton kun butonoj por rapide enmeti HTML-etikedojn ĉirkaŭ elektita teksto en afiŝo."
 
-#: ../../../plugins/_quicktags.plugin.php:133
+#: ../../../plugins/_quicktags.plugin.php:147
 msgid "Bold [Alt-B]"
 msgstr "GRASa [Alt-B]"
 
-#: ../../../plugins/_quicktags.plugin.php:141
+#: ../../../plugins/_quicktags.plugin.php:155
 msgid "Italic [Alt-I]"
 msgstr "ITALa [Alt-I]"
 
-#: ../../../plugins/_quicktags.plugin.php:153
+#: ../../../plugins/_quicktags.plugin.php:167
 msgid "INSerted"
 msgstr "ENmetita"
 
-#: ../../../plugins/_quicktags.plugin.php:161
+#: ../../../plugins/_quicktags.plugin.php:175
 msgid "DELeted"
 msgstr "FORigita [Alt-D]"
 
-#: ../../../plugins/_quicktags.plugin.php:169
+#: ../../../plugins/_quicktags.plugin.php:183
 msgid "STRong [Alt-S]"
 msgstr "FOrta [Alt-S]"
 
-#: ../../../plugins/_quicktags.plugin.php:177
+#: ../../../plugins/_quicktags.plugin.php:191
 msgid "EMphasis [Alt-E]"
 msgstr "EMfazo [Alt-E]"
 
-#: ../../../plugins/_quicktags.plugin.php:185
+#: ../../../plugins/_quicktags.plugin.php:199
 msgid "CODE [Alt-C]"
 msgstr "KODO [Alt-C]"
 
-#: ../../../plugins/_quicktags.plugin.php:193
+#: ../../../plugins/_quicktags.plugin.php:207
 msgid "Paragraph [Alt-P]"
 msgstr "Alineo [Alt-P]"
 
-#: ../../../plugins/_quicktags.plugin.php:201
+#: ../../../plugins/_quicktags.plugin.php:215
 msgid "BLOCKQUOTE [Alt-B]"
 msgstr "BLOKA CITAĴO [Alt-B]"
 
-#: ../../../plugins/_quicktags.plugin.php:209
+#: ../../../plugins/_quicktags.plugin.php:223
 msgid "PREformatted text [Alt-R]"
 msgstr "ANTAŬformatita teksto [Alt-R]"
 
-#: ../../../plugins/_quicktags.plugin.php:217
+#: ../../../plugins/_quicktags.plugin.php:231
 msgid "Unordered List [Alt-U]"
 msgstr "Malordigita listo [Alt-U]"
 
-#: ../../../plugins/_quicktags.plugin.php:225
+#: ../../../plugins/_quicktags.plugin.php:239
 msgid "Ordered List [Alt-O]"
 msgstr "Ordigita listo [Alt-O]"
 
-#: ../../../plugins/_quicktags.plugin.php:233
+#: ../../../plugins/_quicktags.plugin.php:247
 msgid "List Item [Alt-L]"
 msgstr "Lista ero [ALT-L]"
 
-#: ../../../plugins/_quicktags.plugin.php:245
+#: ../../../plugins/_quicktags.plugin.php:259
 msgid "IMaGe [Alt-G]"
 msgstr "Bildo [Alt-G]"
 
-#: ../../../plugins/_quicktags.plugin.php:254
+#: ../../../plugins/_quicktags.plugin.php:268
 msgid "A href [Alt-A]"
 msgstr "A href [Alt-A]"
 
-#: ../../../plugins/_quicktags.plugin.php:431
+#: ../../../plugins/_quicktags.plugin.php:445
 msgid "ALTernate text"
 msgstr "ALterna teksto"
 
@@ -32790,16 +32799,16 @@ msgstr "Insertas mallongajn kodojn"
 msgid "This plugin will display a toolbar with buttons to quickly insert short codes."
 msgstr "Ĉi tiu kromprogramo montros ilobreton kun butonoj por rapide enmeti HTML-etikedojn ĉirkaŭ elektita teksto en afiŝo."
 
-#: ../../../plugins/_shortcodes.plugin.php:82
+#: ../../../plugins/_shortcodes.plugin.php:105
 #: ../../../plugins/widescroll_plugin/_widescroll.plugin.php:98
 msgid "Teaser break"
 msgstr "Interrompo de komenca eltiraĵo"
 
-#: ../../../plugins/_shortcodes.plugin.php:86
+#: ../../../plugins/_shortcodes.plugin.php:109
 msgid "Page break"
 msgstr "Paĝrompo"
 
-#: ../../../plugins/_shortcodes.plugin.php:118
+#: ../../../plugins/_shortcodes.plugin.php:141
 msgid "Shortcodes:"
 msgstr "Mallongaj kodoj:"
 
@@ -33547,7 +33556,7 @@ msgstr "Enmeti markobloko"
 
 #: ../../../plugins/prism_plugin/_prism.plugin.php:438
 #: ../../../plugins/prism_plugin/_prism.plugin.php:449
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:302
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:323
 msgid "Markup"
 msgstr "Markado"
 
@@ -33670,97 +33679,97 @@ msgstr "Jen libera plura elekto. Vi povas elekti nulon aŭ unu aŭ pli da eroj"
 msgid "Javascript WYSIWYG editor"
 msgstr "Vida javaskripta redaktilo"
 
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:64
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:78
 msgid "Use TinyMCE (Default)"
 msgstr "Uzi la funkcion de TinyMCE (apriore)"
 
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:67
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:81
 msgid "This is the default, which users can override in their profile."
 msgstr "Jen apriora, kiun uzantoj povas superregi en siaj profiloj."
 
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:70
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:84
 msgid "Use compressor"
 msgstr "Uzi kunpremilon"
 
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:73
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:87
 msgid "Use the TinyMCE compressor, which improves loading time."
 msgstr "Uzi la kunpremilon de TinyMCE, kion plibonigas ŝargadan tempon."
 
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:82
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:188
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:96
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:202
 msgid "Context menu"
 msgstr "Kunteksta menuo"
 
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:85
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:191
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:99
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:205
 msgid "Enable this to use an extra context menu in the editor"
 msgstr "Aktivigi ĉi tion por uzi kiel aldonan kuntekstan menuon en redaktilo"
 
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:88
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:194
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:102
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:208
 msgid "Advanced paste support"
 msgstr "Altnivela alglua subteno"
 
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:91
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:105
 msgid "Enable this to add support for pasting easily word and plain text files"
 msgstr "Aktivigi por facila algluado"
 
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:94
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:200
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:108
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:214
 msgid "Directionality support"
 msgstr "Direkta regado"
 
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:97
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:111
 msgid "Enable to add directionality icons to TinyMCE for better handling of right-to-left languages"
 msgstr "Aktivigi por aldoni direktaj piktogramoj al TinyMCE por pli bona traktado de almaldekstraj lingvoj"
 
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:105
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:119
 msgid "Custom TinyMCE init"
 msgstr "Personigita starto por TinyMCE"
 
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:109
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:123
 #, php-format
 msgid "Custom parameters to tinymce.init(). See the <a %s>TinyMCE manual</a>."
 msgstr "Personigitaj parametroj al tinyMCE.init(). Legi pri ili en la <a %s>TinyMCE-manlibro</a>."
 
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:173
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:187
 msgid "Use TinyMCE"
 msgstr "Uzi TinyMCE-on"
 
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:176
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:190
 msgid "Check this to enable the extended Javascript editor (TinyMCE)."
 msgstr "Montri por aktivigi TinyMCE-on"
 
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:197
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:211
 msgid "Enable this to add support for easily pasting word and plain text files"
 msgstr "Aktivigi por aldoni facilan algluadon"
 
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:203
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:217
 msgid "Enable to add directionality icons to TinyMCE that enables TinyMCE to better handle languages that is written from right to left."
 msgstr "Aktivigi por aldoni direktajn piktogramojn al TinyMC por aktivigi, ke TinyMCE pli bone traktu lingvojn, kiuj skribiĝas de dekstro al maldekstro."
 
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:303
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:324
 msgid "Toggle to the markup/pro editor."
 msgstr "Ŝanĝi al ordinara HTML-redaktilo"
 
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:305
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:326
 msgid "Toggle to the WYSIWYG editor."
 msgstr "Ŝanĝi al faksimila redaktilo"
 
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:311
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:332
 msgid "WARNING: By switching to WYSIWYG, you might lose newline and paragraph marks as well as some other formatting. Your text is safe though! Are you sure you want to switch?"
 msgstr "AVERTO: Se vi ŝanĝos al la faksimila reĝimo, vi eble perdos novliniajn kaj alineajn markojn kaj ankaŭ iujn aliajn aranĝojn. Via teksto restos neŝanĝita. Cu vi certas, ke vi volas ŝanĝi la reĝimon."
 
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:414
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:435
 #, php-format
 msgid "TinyMCE javascript could not be loaded. Check the \"%s\" plugin setting."
 msgstr "Javaskriptaĵo de TinyMC ne eblis ŝargiĝi. Kontroli la kromprograman agordaĵon \"%s\"."
 
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:415
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:436
 msgid "URL to TinyMCE"
 msgstr "URL al TinyMCE"
 
-#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:977
+#: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:998
 #, php-format
 msgid "TinyMCE plugin cannot uses the compressor because folder %s is not writable"
 msgstr "La kromprogramo TinyMCE ne povas uzi kunpremilon ĉar la dosierujo %s ne estas skribebla"
@@ -35047,7 +35056,7 @@ msgid "Sticky topic / Announcement"
 msgstr "Fiksita temo / Anonco"
 
 #: ../../../skins/bootstrap_forums_skin/_item_list.inc.php:49
-#: ../../../skins/pureforums/_edit.disp.php:320
+#: ../../../skins/pureforums/_edit.disp.php:325
 #: ../../../skins/pureforums/_item_list.inc.php:47
 msgid "Sticky"
 msgstr "Gluema"
@@ -35695,29 +35704,29 @@ msgstr "Ĉefa forumo"
 msgid "Additional forum"
 msgstr "Aldonaj forumoj"
 
-#: ../../../skins/pureforums/_edit.disp.php:242
+#: ../../../skins/pureforums/_edit.disp.php:247
 #: ../../../skins/pureforums/_item_block.inc.php:238
 msgid "Message body"
 msgstr "Mesaĝa korpo"
 
-#: ../../../skins/pureforums/_edit.disp.php:320
+#: ../../../skins/pureforums/_edit.disp.php:325
 msgid "Make this topic sticky (featured at the top of the list)"
 msgstr "Igu, ke la temo estu gluema (je la supro de la listo)"
 
-#: ../../../skins/pureforums/_edit.disp.php:339
+#: ../../../skins/pureforums/_edit.disp.php:344
 msgid "Allow replies"
 msgstr "Permesi respondojn"
 
-#: ../../../skins/pureforums/_edit.disp.php:371
+#: ../../../skins/pureforums/_edit.disp.php:376
 msgid "Check this to let b2evolution auto-suggest tags as you type, based on the tags existing on other posts."
 msgstr "Marki por ke b2evolution aŭtomate proponu etikedojn dum vi tajpas, bazitan sur la etikedoj en aliaj afiŝoj."
 
-#: ../../../skins/pureforums/_edit.disp.php:373
+#: ../../../skins/pureforums/_edit.disp.php:378
 msgid "suggest"
 msgstr "proponi"
 
-#: ../../../skins/pureforums/_edit.disp.php:397
-#: ../../../skins_fallback_v5/_edit.disp.php:350
+#: ../../../skins/pureforums/_edit.disp.php:402
+#: ../../../skins_fallback_v5/_edit.disp.php:355
 msgid "You do not have permission to edit file attachments for this post"
 msgstr "Vi ne rajtas redakti la kunsendaĵojn de la afiŝo"
 
@@ -37045,25 +37054,25 @@ msgstr "Afiŝoj kreitaj de %s"
 msgid "Login now..."
 msgstr "Ensaluti…"
 
-#: ../../../skins_fallback_v6/_edit.disp.php:317
+#: ../../../skins_fallback_v6/_edit.disp.php:322
 msgid "Additional fields"
 msgstr "Aldonaj kampoj"
 
-#: ../../../skins_fallback_v6/_edit.disp.php:348
+#: ../../../skins_fallback_v6/_edit.disp.php:353
 #, php-format
 msgid "If you need to attach files, please use <a %s>Advanced Edit</a>."
 msgstr "Se vi devas almeti dosierojn, bonvolu uzi <a %s>altnivelan redaktadon</a>."
 
-#: ../../../skins_fallback_v6/_edit.disp.php:352
+#: ../../../skins_fallback_v6/_edit.disp.php:357
 #, php-format
 msgid "If you need to attach additional files, please use <a %s>Advanced Edit</a>."
 msgstr "Se vi devas almeti aldonajn dosierojn, bonvolu uzi <a %s>altnivelan redaktadon</a>."
 
-#: ../../../skins_fallback_v6/_edit.disp.php:359
+#: ../../../skins_fallback_v6/_edit.disp.php:364
 msgid "If you need to attach files, please add a comment right after you post this."
 msgstr "Se vi devas almeti dosierojn, bonvolu aldoni komenton ĝuste post kiam vi afiŝas ĉi tion."
 
-#: ../../../skins_fallback_v6/_edit.disp.php:363
+#: ../../../skins_fallback_v6/_edit.disp.php:368
 msgid "If you need to attach additional files, please add a comment right after you edit this."
 msgstr "Se vi devas almeti aldonajn dosierojn, bonvolu aldoni komenton ĝuste post kiam vi redaktas ĉi tion."
 

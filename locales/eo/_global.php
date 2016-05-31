@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2016-05-16 11:22-0400\nPO-Revision-Date: 2016-05-20 13:17-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2016-05-30 20:03-0400\nPO-Revision-Date: 2016-05-30 20:04-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 'Folder' => 'Dosierujo',
 'Unknown file' => 'Nekonata dosiero',
 'Empty file' => 'Vaka dosiero',
@@ -3586,6 +3586,8 @@ $trans['eo'] = array(
 'Note: The plugin code is empty, so this plugin will not work as an "opt-out", "opt-in" or "lazy" renderer.' => 'Noto: La kromprograma kodo vakas, do ĉi tiu kromprogramo ne funkcios en la reĝimoj "malŝaltebla", "ŝaltebla" aŭ "pigra".',
 'Apply rendering to posts' => 'Apliki al afiŝa montriĝo',
 'Apply rendering to comments' => 'Apliki al komenta montriĝo',
+'Use for posts' => 'Uzi por afiŝoj',
+'Use for comments' => 'Uzi por komentoj',
 'Apply rendering to messages' => 'Apliki modifilojn al mesaĝoj',
 'Apply rendering to emails' => 'Apliki modifilojn al retpoŝtmesaĝojn',
 'My Tab' => 'Mia folio',
