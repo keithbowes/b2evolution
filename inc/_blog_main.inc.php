@@ -55,6 +55,9 @@ if( empty( $Blog ) )
 	require $siteskins_path.'_404_blog_not_found.main.php'; // error & exit
 	// EXIT.
 }
+/* If using clean URLs and a spammer tries to access index.php, redirect them to their local computer */
+if('extrabase' ==  $Blog->access_type && FALSE !== strpos($_SERVER['REQUEST_URI'], 'index.php'))
+	header_redirect('http://localhost', 301);
 
 
 // Show/Hide the containers:
