@@ -2900,7 +2900,6 @@ function callback_options_user_new_fields( $value = 0 )
 			$field_options .= '>'.$fielddef->ufdf_name.'</option>';
 			$current_group_ID = $fielddef->ufgp_ID;
 		}
-		$field_options .= "\n".'</optgroup>';
 	}
 
 	return $field_options;
@@ -4403,6 +4402,7 @@ function echo_user_organization_js()
 	}
 ?>
 <script type="text/javascript">
+//<![CDATA[
 jQuery( document ).on( 'click', 'span[rel^=org_status_]', function()
 { // Change an accept status of organization
 	var this_obj = jQuery( this );
@@ -4422,6 +4422,7 @@ jQuery( document ).on( 'click', 'span[rel^=org_status_]', function()
 		}
 	} );
 } );
+//]]>
 </script>
 <?php
 }

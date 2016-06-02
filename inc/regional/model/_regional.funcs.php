@@ -400,6 +400,7 @@ function echo_regional_js( $prefix, $region_visible )
 	}
 ?>
 <script type="text/javascript">
+//<![CDATA[
 <?php /*jQuery( document ).ready( function()
 {
 	if( jQuery( '#<?php echo $prefix; ?>_ctry_ID' ).val() > 0 && jQuery( '#<?php echo $prefix; ?>_rgn_ID option' ).length == 1 )
@@ -498,6 +499,7 @@ function load_cities( country_ID, region_ID, subregion_ID )
 		}
 	} );
 }
+//]]>
 </script>
 <?php
 }

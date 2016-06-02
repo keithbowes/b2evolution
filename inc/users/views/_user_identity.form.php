@@ -633,6 +633,7 @@ $Form->end_form();
 
 ?>
 <script type="text/javascript">
+//<![CDATA[
 	function replace_form_params( result, field_id )
 	{
 		field_id = ( typeof( field_id ) == 'undefined' ? '' : ' id="' + field_id + '"' );
@@ -882,6 +883,7 @@ $Form->end_form();
 			jQuery( 'span.remove_org' ).show() :
 			jQuery( 'span.remove_org' ).hide();
 	} );
+	//]]>
 </script>
 
 <script type="text/javascript">
