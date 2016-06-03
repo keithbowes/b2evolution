@@ -226,7 +226,7 @@ input[type="search"]:hover {
   width: auto;
 }
 
-.search_submit, .search_submit:focus, .search_submit:hover {
+.search_submit {
   font-size: 0.7em;
 }
 
