@@ -591,8 +591,6 @@ span.roundbutton {
   background: -ms-linear-gradient(top, #f5f5f5, #bababa);
   /* Opera 11.10+ */
   background: -o-linear-gradient(top, #f5f5f5, #bababa);
-  /* IE 8 */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#bababa');
 }
 a.roundbutton.middle {
   vertical-align: middle;
@@ -614,8 +612,6 @@ a.roundbutton_text:hover {
   background: -ms-linear-gradient(top, #a0a0a0, #d2d2d2);
   /* Opera 11.10+ */
   background: -o-linear-gradient(top, #a0a0a0, #d2d2d2);
-  /* IE 8 */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a0a0a0', endColorstr='#d2d2d2');
 }
 a.roundbutton.roundbutton_selected,
 a.roundbutton_text.roundbutton_selected,
@@ -633,8 +629,6 @@ span.roundbutton {
   background: -ms-linear-gradient(top, #6b6b6b, #989898);
   /* Opera 11.10+ */
   background: -o-linear-gradient(top, #6b6b6b, #989898);
-  /* IE 8 */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6b6b6b', endColorstr='#989898');
 }
 a.roundbutton_green,
 span.roundbutton_green,
@@ -653,8 +647,6 @@ span.roundbutton_green:hover {
   background: -ms-linear-gradient(top, #00b46e, #09f197);
   /* Opera 11.10+ */
   background: -o-linear-gradient(top, #00b46e, #09f197);
-  /* IE 8 */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00b46e', endColorstr='#09f197');
 }
 a.roundbutton_red,
 span.roundbutton_red,
@@ -673,8 +665,6 @@ span.roundbutton_red:hover {
   background: -ms-linear-gradient(top, #e62020, #fa7171);
   /* Opera 11.10+ */
   background: -o-linear-gradient(top, #e62020, #fa7171);
-  /* IE 8 */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e62020', endColorstr='#fa7171');
 }
 .roundbutton span,
 .roundbutton_text span {
@@ -782,11 +772,7 @@ span.roundbutton.rbtn_black:hover,
 }
 .notes a.roundbutton {
   top: -2px;
-}
-@-moz-document url-prefix() {
-  .notes a.roundbutton {
-    top: 0;
-  }
+  -moz-top: 0;
 }
 .btn {
   background-image: none;
@@ -810,7 +796,7 @@ span.roundbutton.rbtn_black:hover,
 }
 .btn-default:hover,
 .btn-default:focus {
-  color: 333;
+  color: #333;
   background-color: #e6e6e6;
   border-color: #adadad;
 }
