@@ -825,7 +825,7 @@ class ComponentWidget extends DataObject
 					$link_class = $this->disp_params['link_default_class'];;
 				}
 
-				echo '<a href="'.$l_Blog->gen_blogurl().'" class="'.$link_class.'" title="'
+				echo '<a href="'.$l_Blog->gen_blogurl().'" hreflang="'.$l_Blog->locale.'" class="'.$link_class.'" title="'
 											.$l_Blog->dget( 'name', 'htmlattr' ).'">';
 
 				if( $Blog && $l_blog_ID == $Blog->ID )
