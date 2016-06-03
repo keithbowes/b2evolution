@@ -208,14 +208,14 @@ else
 
 		<?php
 		// Note: we use funky field name in order to defeat the most basic guestbook spam bots:
-		$Form->text( 'd', $email_author, 40, T_('From'),  '<br />' . T_('Your name.'), 50, 'bComment' );
+		$Form->text( 'd', $email_author, 40, T_('From'),  '(' . T_('Your name.') . ')', 50, 'bComment' );
 		$subject_note = T_('Subject of your message.');
 		if( $allow_msgform == 'email' )
 		{
-			$Form->text( 'f', $email_author_address, 40, T_('Email'), '<br />' . T_('Your email address. (Will <strong>not</strong> be displayed on this site.)'), 100, 'bComment' );
+			$Form->text( 'f', $email_author_address, 40, T_('Email'), '(' . T_('Your email address. (Will <strong>not</strong> be displayed on this site.)') . ')', 100, 'bComment' );
 		}
-		$Form->text( 'g', $subject, 40, T_('Subject'), '<br />' . $subject_note, 255, 'bComment' );
-		$Form->textarea( 'h', '', 15, T_('Message'), '<br />' . T_('Plain text only.'), 40, 'bComment' );
+		$Form->text( 'g', $subject, 40, T_('Subject'), '(' . $subject_note . ')', 255, 'bComment' );
+		$Form->textarea( 'h', '', 15, T_('Message'), '(' . T_('Plain text only.') . ')', 40, 'bComment' );
 
 		$Plugins->trigger_event( 'DisplayMessageFormFieldset', array( 'Form' => & $Form,
 			'recipient_ID' => & $recipient_id, 'item_ID' => $post_id, 'comment_ID' => $comment_id ) );
