@@ -26,20 +26,4 @@ printf($Skin->T_('<p><a href="%s">%s</a> cannot resolve the requested URL.</p>')
 
 echo '</div>';
 
-
-echo '<div class="error_additional_content">';
-// --------------------------------- START OF CLOUD TAG --------------------------------
-// Call the coll_search_form widget:
-skin_widget( array(
-		// CODE for the widget:
-		'widget' => 'coll_tag_cloud',
-		// Optional display params:
-		'block_start' => '<div class="tag_cloud">',
-		'block_end' => '</div>',
-		'block_title_start' => '<h2>',
-		'block_title_end' => '</h2>',
-	) );
-// ---------------------------------- END OF CLOUD TAG ---------------------------------
-echo '</div>';
-
 ?>
