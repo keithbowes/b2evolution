@@ -469,6 +469,7 @@ table summary {
   vertical-align: text-top;
 }
 
+.info,
 .input {
   float: right;
   width: 48%;
