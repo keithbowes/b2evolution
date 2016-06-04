@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2016-05-30 20:03-0400\nPO-Revision-Date: 2016-05-30 20:04-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2016-05-30 20:03-0400\nPO-Revision-Date: 2016-06-04 09:39-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 'Folder' => 'Dosierujo',
 'Unknown file' => 'Nekonata dosiero',
 'Empty file' => 'Vaka dosiero',
@@ -6529,7 +6529,7 @@ $trans['eo'] = array(
 'Next year (%04d-%02d)' => 'Sekva jaro (%04d-%02d)',
 'Next year (%04d)' => 'Sekva jaro (%04d)',
 'Captcha questions' => 'CAPTCHA-demandoj',
-'Use questions to tell humans and robots apart.' => 'Uzi demandojn por distingi homojn kaj robotojn.',
+'Use questions to tell humans and robots apart.' => 'Uzi demandojn por distingi homojn de robotoj.',
 'Use for anonymous comment forms' => 'Uzi por la anonimaj komentaj formularioj',
 'Should this plugin be used for anonymous users on comment forms?' => 'Ĉu tiu kromprogramo uziĝos por anonimaj uzantoj en komentaj formularioj?',
 'Use for new registration forms' => 'Uzi por la registriĝo-formulario',

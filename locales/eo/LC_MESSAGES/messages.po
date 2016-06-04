@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net\n"
 "POT-Creation-Date: 2016-05-30 20:03-0400\n"
-"PO-Revision-Date: 2016-05-30 20:04-0400\n"
+"PO-Revision-Date: 2016-06-04 09:39-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -32472,7 +32472,7 @@ msgstr "CAPTCHA-demandoj"
 
 #: ../../../plugins/_captcha_qstn.plugin.php:50
 msgid "Use questions to tell humans and robots apart."
-msgstr "Uzi demandojn por distingi homojn kaj robotojn."
+msgstr "Uzi demandojn por distingi homojn de robotoj."
 
 #: ../../../plugins/_captcha_qstn.plugin.php:70
 msgid "Use for anonymous comment forms"
