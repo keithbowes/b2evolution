@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net\n"
 "POT-Creation-Date: 2016-05-30 20:03-0400\n"
-"PO-Revision-Date: 2016-06-04 09:39-0400\n"
+"PO-Revision-Date: 2016-06-06 15:25-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -1627,7 +1627,7 @@ msgstr "Vi sukcese registriĝis en ĉi tiu kolektaro. Bonvenon!"
 #: ../../../skins_fallback_v5/_register.disp.php:41
 #: ../../../skins_fallback_v6/_register.disp.php:41
 msgid "Registration Currently Disabled"
-msgstr "Registriĝo aktuale malaktivigita"
+msgstr "Registriĝo nune malaktivigita"
 
 #: ../../../htsrv/trackback.php:114
 #: ../../../inc/users/model/_user.funcs.php:1524
@@ -3263,7 +3263,7 @@ msgstr "Nevalida CSS-kodo: "
 
 #: ../../../inc/_core/_param.funcs.php:2412
 msgid "Illegal javascript markup found: "
-msgstr "Nevalida kodo javaskripta: "
+msgstr "Nevalida kodo JavaScript-a: "
 
 #: ../../../inc/_core/_param.funcs.php:2419
 msgid "Illegal frame markup found: "
@@ -3705,7 +3705,7 @@ msgstr "Formulario ŝargiĝas…"
 
 #: ../../../inc/_core/_template.funcs.php:2242
 msgid "This section can only be displayed by javascript enabled browsers."
-msgstr "Ĉi tiu sekcio povas nur montriĝi de TTT-legiloj kun Javaskripto aktivigita."
+msgstr "Ĉi tiu sekcio povas nur montriĝi de TTT-legiloj kun JavaScript aktivigita."
 
 #: ../../../inc/_core/_template.funcs.php:2281
 #: ../../../skins_fallback_v5/_login.disp.php:64
@@ -4198,7 +4198,7 @@ msgstr "Ŝanĝanta la aprioran kodoprezenton de la datumbazo…"
 
 #: ../../../inc/_core/model/db/_upgrade.funcs.php:1825
 msgid "Upgrading done!"
-msgstr "Aktualiĝo finita"
+msgstr "Ĝisdatigo finita"
 
 #: ../../../inc/_core/ui/_iconlegend.class.php:61
 #: ../../../skins/bootstrap_forums_skin/_legend.inc.php:78
@@ -5857,7 +5857,7 @@ msgstr "Ordigi kategoriojn"
 #: ../../../inc/items/views/_item_list_manual.view.php:52
 #, php-format
 msgid "<strong>Note:</strong> Moving categories across blogs is currently disabled in the %sblogs settings%s."
-msgstr "<strong>Noto:</strong> Movi kategoriojn inter kolektoj aktuale estas malaktivigita en la %sagordo bloga%s."
+msgstr "<strong>Noto:</strong> Movi kategoriojn inter kolektoj nune estas malaktivigita en la %sagordo bloga%s."
 
 #: ../../../inc/chapters/views/_chapter_move.form.php:30
 msgid "Cancel move!"
@@ -6604,7 +6604,7 @@ msgstr "Nevalida personigita meta-etikeda/CSS-sekcio. Vi povas malstriktigi la l
 #: ../../../inc/collections/model/_blog.class.php:940
 #, php-format
 msgid "Invalid Custom javascript section. You can loosen this restriction in the <a %s>group settings</a>."
-msgstr "Nevalida personigita Javascript-sekcio. Vi povas malstriktigi la limigon en la <a %s>grupa agordo</>."
+msgstr "Nevalida personigita JavaScript-sekcio. Vi povas malstriktigi la limigon en la <a %s>grupa agordo</>."
 
 #: ../../../inc/collections/model/_blog.class.php:950
 #: ../../../inc/polls/model/_poll.class.php:97
@@ -7393,15 +7393,15 @@ msgstr "Noto: Nuna kolekto ankaŭ estas parto de la agrego."
 
 #: ../../../inc/collections/views/_coll_advanced.form.php:112
 msgid "Also use JS forms for logged in users"
-msgstr "Ankaŭ uzi javaskriptajn formulariojn por ensalutitaj uzantoj"
+msgstr "Ankaŭ uzi JavaScript-ajn formulariojn por ensalutitaj uzantoj"
 
 #: ../../../inc/collections/views/_coll_advanced.form.php:117
 msgid "Comment and contacts forms will be fetched by javascript"
-msgstr "Komentaj kaj kontaktaj formularioj estos atingitaj per Javaskripto"
+msgstr "Komentaj kaj kontaktaj formularioj estos atingitaj per JavaScript"
 
 #: ../../../inc/collections/views/_coll_advanced.form.php:117
 msgid "Enable AJAX forms"
-msgstr "Aktivigi javaskriptajn formulariojn"
+msgstr "Aktivigi JavaScript-ajn formulariojn"
 
 #: ../../../inc/collections/views/_coll_advanced.form.php:119
 msgid "Cache rendered blog pages"
@@ -7588,11 +7588,11 @@ msgstr "Aldoni personigitajn JavaScript-tekstojn post la komenca &lt;body&gt;-et
 
 #: ../../../inc/collections/views/_coll_advanced.form.php:206
 msgid "Custom javascript section (before &lt;/body&gt;)"
-msgstr "Personigitaj javaskriptaĵoj (antaŭ &lt;/body&gt;)"
+msgstr "Personigitaj JavaScript-aĵoj (antaŭ &lt;/body&gt;)"
 
 #: ../../../inc/collections/views/_coll_advanced.form.php:207
 msgid "Add custom javascript before the closing &lt;/body&gt; tag in order to avoid any issues with page loading delays for visitors with slow connection speeds.<br />Example use: tracking scripts, javascript libraries..."
-msgstr "Aldoni personigitajn javaskriptaĵojn antaŭ la finiga &lt;/body&gt; por eviti problemojn kun paĝo-ŝargantaj prokrastoj por vizitantoj kun malrapidaj konektoj.<br />Ekzempla uzo: spuraj skriptoj, javaskriptaj bibliotekoj ktp"
+msgstr "Aldoni personigitajn JavaScript-aĵojn antaŭ la finiga &lt;/body&gt; por eviti problemojn kun paĝo-ŝargantaj prokrastoj por vizitantoj kun malrapidaj konektoj.<br />Ekzempla uzo: spuraj skriptoj, JavaScript-aj bibliotekoj ktp"
 
 #: ../../../inc/collections/views/_coll_comments.form.php:42
 msgid "Warning: this makes your site a preferred target for spammers!"
@@ -9008,7 +9008,7 @@ msgstr "Limigita"
 
 #: ../../../inc/collections/views/_coll_perm_view.funcs.php:507
 msgid "(un)selects all checkboxes using Javascript"
-msgstr "(Mal)markas ĉiujn markobutonojn per Javaskripto"
+msgstr "(Mal)markas ĉiujn markobutonojn per JavaScript"
 
 #: ../../../inc/collections/views/_coll_perm_view.funcs.php:508
 msgid "(un)check all"
@@ -15683,7 +15683,7 @@ msgstr "Restarigi la aprioraĵojn por la ekrano."
 #: ../../../inc/items/views/_item_history_details.view.php:24
 #: ../../../inc/items/views/_item_history_details.view.php:33
 msgid "Current version"
-msgstr "Aktuala eldono"
+msgstr "Nuna eldono"
 
 #: ../../../inc/items/views/_item_history.view.php:45
 #: ../../../inc/items/views/_item_history_details.view.php:33
@@ -22838,7 +22838,7 @@ msgstr "Malpermesita"
 
 #: ../../../inc/tools/system.ctrl.php:190
 msgid "Currently, anyone who accesses your install folder could entirely reset your b2evolution database."
-msgstr "Aktuale iu ajn, kiu atingas vian dosierujon install povus tute restarigi vian tutan b2evolution-datumbazon."
+msgstr "Nune ĉiu, kiu atingas vian dosierujon install povus tute restarigi vian tutan b2evolution-datumbazon."
 
 #: ../../../inc/tools/system.ctrl.php:191
 msgid "ALL YOUR DATA WOULD BE LOST!"
@@ -23495,11 +23495,11 @@ msgstr "Agordo malkodi la revenintajn retpoŝtmesaĝojn"
 
 #: ../../../inc/tools/views/_email_return_settings.form.php:68
 msgid "(currently loaded)"
-msgstr "(aktuale ŝargitaj)"
+msgstr "(nune ŝargitaj)"
 
 #: ../../../inc/tools/views/_email_return_settings.form.php:72
 msgid "(currently NOT loaded)"
-msgstr "(aktuale ne ŝargita)"
+msgstr "(nune ne ŝargita)"
 
 #: ../../../inc/tools/views/_email_return_settings.form.php:101
 msgid "Port number of your incoming mail server (Defaults: IMAP4/SSL: 993, IMAP4 with or without TLS: 143, POP3/SSL: 995, POP3 with or without TLS: 110)."
@@ -25361,7 +25361,7 @@ msgstr "Via retpoŝtadreso %s ne ĝuste funkcias aŭ malakceptas retpoŝtmesaĝo
 #: ../../../inc/users/model/_user.funcs.php:4206
 #, php-format
 msgid "We are currently trying to send email to your address: %s again."
-msgstr "Ni aktuale provas resendi retpoŝtmesaĝon al via retpoŝtadreso %s."
+msgstr "Ni nune provas resendi retpoŝtmesaĝon al via retpoŝtadreso %s."
 
 #: ../../../inc/users/model/_user.funcs.php:4228
 #: ../../../inc/users/model/_user.funcs.php:4352
@@ -26373,7 +26373,7 @@ msgstr "AVERTO: Se permesata, uzantoj eble troŝargos vian servilon, ŝtelos pas
 
 #: ../../../inc/users/views/_group.form.php:209
 msgid "Prevent javascript"
-msgstr "Preventi Javaskripton"
+msgstr "Preventi JavaScript-on"
 
 #: ../../../inc/users/views/_group.form.php:210
 msgid "WARNING: if allowed, users can easily do XSS hacks, steal passwords from other users, etc."
@@ -26809,7 +26809,7 @@ msgstr "signoj."
 
 #: ../../../inc/users/views/_registration.form.php:150
 msgid "Check to enable the login form to hash the password with Javascript before transmitting it. This provides extra security on non-SSL connections."
-msgstr "Marki por aktivigi, ke la ensalutilo ĉifru la pasvorton per Javaskripto antaŭ ol elsendi ĝin. Tio donas aldonan sekurecon je ne-SSL-aj konektoj."
+msgstr "Marki por aktivigi, ke la ensalutilo ĉifru la pasvorton per JavaScript antaŭ ol elsendi ĝin. Tio donas aldonan sekurecon je ne-SSL-aj konektoj."
 
 #: ../../../inc/users/views/_registration.form.php:150
 msgid "Login password hashing"
@@ -27021,7 +27021,7 @@ msgstr "Uzos la aprioran sendadreson, kiu estas:"
 
 #: ../../../inc/users/views/_user_admin.form.php:186
 msgid "This is different from the new sender address which is currently:"
-msgstr "Tio malsamas ol la nova sendadreso, kiu aktuale estas:"
+msgstr "Tio malsamas ol la nova sendadreso, kiu nune estas:"
 
 #: ../../../inc/users/views/_user_admin.form.php:196
 msgid "Will use the default sender name which is:"
@@ -27029,7 +27029,7 @@ msgstr "Uzos la aprioran sendonomo, kiu estas:"
 
 #: ../../../inc/users/views/_user_admin.form.php:200
 msgid "This is different from the new sender name which is currently:"
-msgstr "Tio estas malsama ol la nova sendonomo, kiu aktuale estas:"
+msgstr "Tio estas malsama ol la nova sendonomo, kiu nune estas:"
 
 #: ../../../inc/users/views/_user_admin.form.php:214
 msgid " Scheduled job responsible for reminders is \"Send reminders about unread messages\"."
@@ -27323,11 +27323,11 @@ msgstr "Redakti profilbildon"
 
 #: ../../../inc/users/views/_user_avatar.form.php:106
 msgid "You currently have no profile picture."
-msgstr "Vi aktuale ne havas profilbildon."
+msgstr "Vi nune ne havas profilbildon."
 
 #: ../../../inc/users/views/_user_avatar.form.php:110
 msgid "This user currently has no profile picture."
-msgstr "Ĉi tiu uzanto ne aktuale havas profilbildon."
+msgstr "Ĉi tiu uzanto ne nune havas profilbildon."
 
 #: ../../../inc/users/views/_user_avatar.form.php:134
 #: ../../../inc/users/views/_user_identity.form.php:219
@@ -27400,7 +27400,7 @@ msgstr "Pliaj funkcioj"
 
 #: ../../../inc/users/views/_user_crop.form.php:101
 msgid "Please activate Javascript in your browser in order to use this feature."
-msgstr "Bonvolu aktivigi Javaskripton en via TTT-legilo por uzi tiun trajton."
+msgstr "Bonvolu aktivigi JavaScript en via TTT-legilo por uzi tiun trajton."
 
 #: ../../../inc/users/views/_user_crop.form.php:129
 #: ../../../inc/users/views/_user_deldata.form.php:76
@@ -31813,7 +31813,7 @@ msgstr "Ne eblas instali b2evolution-on pro la jenaj eraroj:"
 
 #: ../../../install/index.php:514
 msgid "Resetting the base configuration is currently disabled for security reasons."
-msgstr "Restarigi la bazan agordon aktuale estas malaktivigita pro sekurecaj kialoj."
+msgstr "Restarigi la bazan agordon nune estas malaktivigita pro sekurecaj kialoj."
 
 #: ../../../install/index.php:515 ../../../install/index.php:1117
 #, php-format
@@ -31901,7 +31901,7 @@ msgstr "<strong>Nova instalado</strong>: Instali datumbazajn tabelojn de b2evolu
 
 #: ../../../install/index.php:661
 msgid "<strong>Upgrade from a previous version of b2evolution</strong>: Upgrade your b2evolution database tables in order to make them compatible with the current version. <strong>WARNING:</strong> If you have modified your database, this operation may fail. Make sure you have a backup."
-msgstr "<strong>Ĝisdatigi disde antaŭa eldono de b2evolution</strong>: Ĝisdatigi viajn datumbazajn tabelojn por konformigi ilin kun la aktuala eldono. <strong>AVERTO:</strong> Se vi modifis vian datumbazon ĉi tiu funkciigo eble malsukcesos. Certigi, ke vi havas sekurkopion."
+msgstr "<strong>Ĝisdatigi disde antaŭa eldono de b2evolution</strong>: Ĝisdatigi viajn datumbazajn tabelojn por konformigi ilin kun la ĝisdata eldono. <strong>AVERTO:</strong> Se vi modifis vian datumbazon ĉi tiu funkciigo eble malsukcesos. Certigi, ke vi havas sekurkopion."
 
 #: ../../../install/index.php:672
 msgid "<strong>Delete b2evolution tables &amp; cache files. WARNING:</strong> All your b2evolution tables and data will be lost! Any non-b2evolution tables will remain untouched."
@@ -32331,11 +32331,11 @@ msgstr "Fermi ĉiujn etikedojn"
 
 #: ../../../plugins/_bookmarklet.plugin.php:36
 msgid "Allow bookmarklet blogging."
-msgstr "Permesi blogadon per javaskriptaj legosignoj."
+msgstr "Permesi blogadon per JavaScript-legosignoj."
 
 #: ../../../plugins/_bookmarklet.plugin.php:37
 msgid "Adds a tool allowing blogging through a bookmarklet."
-msgstr "Aldonas ilon por permesi blogi per javaskripta legosigno."
+msgstr "Aldonas ilon por permesi blogi per JavaScript-legosigno."
 
 #: ../../../plugins/_bookmarklet.plugin.php:55
 #: ../../../plugins/_bookmarklet.plugin.php:63
@@ -32351,7 +32351,7 @@ msgstr "Aldoni al viaj legosignoj ĉi tiun ligilon:"
 #: ../../../plugins/_bookmarklet.plugin.php:81
 #: ../../../plugins/_bookmarklet.plugin.php:89
 msgid "b2evo bookmarklet"
-msgstr "Javaskripta legosigno de b2evolution"
+msgstr "JavaScript-legosigno de b2evolution"
 
 #: ../../../plugins/_calendar.plugin.php:48
 msgid "Calendar Widget"
@@ -32900,7 +32900,7 @@ msgstr "Kromprogramo kiu estas konektita?"
 
 #: ../../../plugins/_whosonline.plugin.php:44
 msgid "This skin tag displays a list of whos is online."
-msgstr "La etosa etikedo montras liston da tiuj, kiuj aktuale uzas la kolektaron."
+msgstr "La etosa etikedo montras liston da tiuj, kiuj nune uzas la kolektaron."
 
 #: ../../../plugins/_whosonline.plugin.php:45
 msgid "All logged in users and guest users who have requested a page in the last 5 minutes are listed."
@@ -33548,7 +33548,7 @@ msgstr "Montri fontotekston."
 
 #: ../../../plugins/prism_plugin/_prism.plugin.php:34
 msgid "Display computer code rendered by JavaScript plugin Prism."
-msgstr "Montri fontotekston farita de la javaskripta kromprogramo Prism."
+msgstr "Montri fontotekston farita de la JavaScript-a kromprogramo Prism."
 
 #: ../../../plugins/prism_plugin/_prism.plugin.php:438
 msgid "Insert Markup codespan"
@@ -33566,7 +33566,7 @@ msgstr "Enmeti CSS-kodblokon"
 
 #: ../../../plugins/prism_plugin/_prism.plugin.php:440
 msgid "Insert JavaScript codespan"
-msgstr "Enmeti javaskriptan kodblokon"
+msgstr "Enmeti JavaScript-kodblokon"
 
 #: ../../../plugins/prism_plugin/_prism.plugin.php:441
 msgid "Insert PHP codespan"
@@ -33590,7 +33590,7 @@ msgstr "Enmeti markoblokon"
 
 #: ../../../plugins/prism_plugin/_prism.plugin.php:451
 msgid "Insert JavaScript codeblock"
-msgstr "Enmeti javaskriptan kodblokon"
+msgstr "Enmeti JavaScript-kodblokon"
 
 #: ../../../plugins/prism_plugin/_prism.plugin.php:453
 msgid "Insert SQL codeblock"
@@ -33677,7 +33677,7 @@ msgstr "Jen libera plura elekto. Vi povas elekti nulon aŭ unu aŭ pli da eroj"
 
 #: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:46
 msgid "Javascript WYSIWYG editor"
-msgstr "Vida javaskripta redaktilo"
+msgstr "Vida JavaScript-a faksimila redaktilo"
 
 #: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:78
 msgid "Use TinyMCE (Default)"
@@ -33763,7 +33763,7 @@ msgstr "AVERTO: Se vi ŝanĝos al la faksimila reĝimo, vi eble perdos novliniaj
 #: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:435
 #, php-format
 msgid "TinyMCE javascript could not be loaded. Check the \"%s\" plugin setting."
-msgstr "Javaskriptaĵo de TinyMC ne eblis ŝargiĝi. Kontroli la kromprograman agordaĵon \"%s\"."
+msgstr "JavaScript-aĵo de TinyMC ne eblis ŝargiĝi. Kontroli la kromprograman agordaĵon \"%s\"."
 
 #: ../../../plugins/tinymce_plugin/_tinymce.plugin.php:436
 msgid "URL to TinyMCE"
@@ -34126,7 +34126,7 @@ msgstr "Bilda zomado en kolora kampo"
 #: ../../../skins/pureforums/_skin.class.php:66
 #: ../../../skins/touch/_skin.class.php:62
 msgid "Check to enable javascript zooming on images (using the colorbox script)"
-msgstr "Marki por aktivigi zomadon de bildoj per Javaskripto (per la skripto \"kolora kampo\")"
+msgstr "Marki por aktivigi zomadon de bildoj per JavaScript (per la skripto \"kolora kampo\")"
 
 #: ../../../skins/asevo/_skin.class.php:61
 #: ../../../skins/bootstrap_blog_skin/_skin.class.php:138
@@ -35901,7 +35901,7 @@ msgstr "Sciigo"
 
 #: ../../../skins/touch/_body_header.inc.php:24
 msgid "JavaScript for Mobile Safari is currently turned off."
-msgstr "Javaskripto por poŝtelefona Safari aktuale estas malŝaltita."
+msgstr "JavaScript por poŝtelefona Safari nune estas malŝaltita."
 
 #: ../../../skins/touch/_body_header.inc.php:25
 msgid "Turn it on in <em> Settings &rsaquo; Safari </em><br /> to view this website."
@@ -36925,7 +36925,7 @@ msgstr "Poŝtelefona piedo"
 #: ../../../skins_fallback_v5/_register.disp.php:55
 #: ../../../skins_fallback_v6/_register.disp.php:55
 msgid "User registration is currently not allowed."
-msgstr "Uzanto-registriĝo aktuale ne estas permesata."
+msgstr "Uzanto-registriĝo nune ne estas permesata."
 
 #: ../../../skins_fallback_v5/_register.disp.php:137
 #: ../../../skins_fallback_v5/_register.disp.php:141
