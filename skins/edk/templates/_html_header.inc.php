@@ -32,7 +32,7 @@ function edk_css_include()
 		'title' => $Skin->T_('Clear Look'),
 	);
 
-	$visual_media = 'handheld, print, projection, screen, tty, tv';
+	$visual_media = supports_xhtml() ? 'handheld, print, projection, screen, tty, tv' : 'not speech';
 
 	/* Main styles */
 	require_css($edk_base . 'css/core.css', 'relative', NULL, 'all');
@@ -338,4 +338,3 @@ if ($Blog->get_setting('feed_content') != 'none')
 </head>
 
 <body<?php skin_body_attrs( array( 'class' => $params['body_class'] ) ); ?>>
-
