@@ -320,12 +320,16 @@ function is_valid_query($result)
 	return ($result !== FALSE && is_array($result) && count($result) > 0);
 }
 
-function lang_to_xml($str)
+function links_to_xhtml2($str)
 {
 	if (!supports_xhtml())
 		return $str;
 	else
-		return preg_replace('/\s+lang/', ' xml:lang', $str);
+	{
+		$str = preg_replace('/\s+lang=/', ' xml:lang=', $str);
+		$str = preg_replace('/(<a\s+[^>]+\s*)type=/', '$1hreftype=', $str);
+		return $str;
+	}
 }
 
 function parse_accept()
