@@ -110,9 +110,21 @@ if (class_exists('DOMDocument'))
 	else
 	{
 		$fh = fopen($locfile, 'w');
-
 		$dom = new DOMDocument();
-		if ($dom->loadHTML(file_get_contents($file)))
+
+		if (ini_get('allow_url_fopen'))
+			$file_contents = file_get_contents($file);
+		elseif (extension_loaded('curl'))
+		{
+			$curl = curl_init($file);	
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+			$file_contents = curl_exec($curl);
+			curl_close($curl);
+		}
+		else
+			$file_contents = '';
+
+		if ($dom->loadHTML($file_contents))
 		{
 			$rows = $dom->getElementById('myTable')->getElementsByTagName('tbody')->item(0)->getElementsByTagName('tr');
 
