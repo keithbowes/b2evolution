@@ -24,8 +24,6 @@ if (param('delete_cookies'))
 
 $show_mode = param('show', 'string', 'post');
 
-$hl = 'single' != $disp ? 'h3' : 'h2';
-
 /* Output the end of HTML */
 function end_html()
 {
@@ -43,7 +41,6 @@ skin_include( 'templates/_html_header.inc.php' );
 skin_include( 'templates/_body_header.inc.php' );
 
 $footer_elem = supports_xhtml() ? 'div' : 'footer';
-$last_date = '';
 
 if (is_text_browser() && 'menu' == $show_mode)
 {
@@ -56,21 +53,11 @@ while( $Item = & mainlist_get_item() ):
 
 $_item_title = ($disp == 'single') ? $Item->title : '';
 $_item_url = get_tinyurl();
-
-preg_match('/^(\S*)\s*(\S*)$/', $Item->issue_date, $matches);
-list($match, $date, $time) = $matches;
-if ($last_date != $date && 'single' != $disp)
-{
-	echo '<h2 class="post-date">';
-	$Item->issue_date();
-	echo '</h2>';
-	$last_date = $date;
-}
 ?>
 	<div role="article" id="<?php $Item->anchor_id(); ?>" <?php printf('%s="%s"', supports_xhtml() ? 'xml:lang' : 'lang', locale_lang(FALSE)); ?>>
 <?php
 	$Item->locale_temp_switch();
-	printf('<%4$s class="storytitle"><a rel="%5$s" href="%1$s"  title="%3$s">%2$s</a></%4$s>', $Item->get_single_url(), $Item->title, __('Permanent link to full entry'), $hl, supports_xhtml() ? 'permalink' : 'bookmark');
+	printf('<h2 class="storytitle"><a rel="%4$s" href="%1$s"  title="%3$s">%2$s</a></h2>', $Item->get_single_url(), $Item->title, __('Permanent link to full entry'), supports_xhtml() ? 'permalink' : 'bookmark');
 ?>
 	<div class="meta"><?php get_meta($Item); ?></div>
 
@@ -128,13 +115,10 @@ if ($show_mode != 'comments')
 	</div>
 
 <?php
-	if ('single' == $disp)
-		$hl[1] = $hl[1] + 1;
-
 	$Item->tags(
 		array(
 			'after' => "\n</li>\n</ul>\n</div>\n",
-			'before' => "<div class=\"meta\">\n<$hl class=\"tag-list-header\">" . __('Tags') . "</$hl>\n<ul class=\"tag-list\">\n<li>",
+			'before' => "<div class=\"meta\">\n<h3 class=\"tag-list-header\">" . __('Tags') . "</h3>\n<ul class=\"tag-list\">\n<li>",
 			'separator' => '</li><li>',
 		)
 	);

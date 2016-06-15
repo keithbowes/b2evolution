@@ -42,10 +42,6 @@ div[role="article"] {
   color: inherit;
 }
 
-.post-date {
-  display: none;
-}
-
 .search * {
   min-width: 50%;
   padding: 0 0.25em;

@@ -93,6 +93,10 @@ input[type="search"]:hover {
   width: 74.5%;
 }
 
+#content > :first-child {
+  margin-top: 0.5em;
+}
+
 #content .bComment * {
   text-align: left;
 }
