@@ -223,7 +223,7 @@ if( $action == 'extract' )
 	unset($cmd);
 
 	if (!($copyright_holder = getenv('COPYRIGHT_HOLDER')))
-		$copyright_holder = ($mode == 'CORE') ? 'François FLANQUE' : 
+		$copyright_holder = ($mode == 'CORE') ? 'François FLANQUE' :
 		explode(',', posix_getpwuid(posix_geteuid())['gecos'])[0];
 
 	if (!($msgid_bugs_address = getenv('MSGID_BUGS_ADDRESS')))
@@ -255,7 +255,13 @@ if( $action == 'extract' )
 
 	$data = str_replace( "\r", '', $data );
 	// Make paths relative:
-	$data = preg_replace( '~^#: .*$~me', 'str_replace( \' '.$dir_root.'\', \' ../../../\', \'$0\' )', $data );
+	function get_relative_path($matches)
+	{
+		global $dir_root;
+		return str_replace( ' '.$dir_root.'', ' ../../../', $matches[0] );
+	}
+
+	$data = preg_replace_callback( '~^#: .*$~m', 'get_relative_path', $data );
 
 	file_put_contents( $file_pot, $data );
 	unset($data);
@@ -338,7 +344,7 @@ if( $action == 'merge' )
 			array('/#\s+TRANS:.+' . PHP_EOL . '/', '/#\. TRANS:/'),
 			array('', '# TRANS:'),
 			$file_contents);
-		file_put_contents($l_file_po, $file_contents);	
+		file_put_contents($l_file_po, $file_contents);
 		unset($file_contents);
 
 		echo "Written $l_file_po .\n";
