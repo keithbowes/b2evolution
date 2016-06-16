@@ -108,15 +108,18 @@ function load_db_schema( $inlcude_plugins = false )
 		while( $loop_Plugin = & $admin_Plugins->get_next() )
 		{ // loop through all installed plugins
 			$create_table_queries = $loop_Plugin->GetDbLayout();
-			foreach( $create_table_queries as $create_table_query )
+			if ($create_table_queries)
 			{
-				if( ! preg_match( '|^\s*CREATE TABLE\s+(IF NOT EXISTS\s+)?([^\s(]+).*$|is', $create_table_query, $match) )
-				{ // Could not parse the CREATE TABLE command
-					continue;
+				foreach( $create_table_queries as $create_table_query )
+				{
+					if( ! preg_match( '|^\s*CREATE TABLE\s+(IF NOT EXISTS\s+)?([^\s(]+).*$|is', $create_table_query, $match) )
+					{ // Could not parse the CREATE TABLE command
+						continue;
+					}
+					$schema_queries[$match[2]] = array( 'Creating table for plugin', $create_table_query );
+					$DB->dbaliases[] = '#\b'.$match[2].'\b#';
+					$DB->dbreplaces[] = $match[2];
 				}
-				$schema_queries[$match[2]] = array( 'Creating table for plugin', $create_table_query );
-				$DB->dbaliases[] = '#\b'.$match[2].'\b#';
-				$DB->dbreplaces[] = $match[2];
 			}
 		}
 	}
