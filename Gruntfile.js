@@ -96,6 +96,18 @@ module.exports = function(grunt) {
 			}
 		},
 
+		// Configuration for Autoprefixing tasks:
+		autoprefixer: {
+			options: {
+				// by default autoprefixer will remove old, no longer needed, prefixes:
+				browsers: ['last 5 versions']
+			},
+			dist: {
+				src: ['rsc/build/*.css','rsc/css/*.css','rsc/css/colorbox/*.css','skins/**/*.css','skins_adm/**/*.css', // INCLUDE patterns
+						'!**/*.bundle.css','!**/*.bmin.css','!**/*.min.css'] // EXCLUDE patterns
+			}
+		},
+
 		// Configuration for the concatenate tasks:
 		concat: {
 			options: { 
@@ -171,6 +183,72 @@ module.exports = function(grunt) {
 			skin_pureforums: {
 				src: 'skins/pureforums/pureforums.bundle.css',
 				dest: 'skins/pureforums/pureforums.bmin.css',
+			},
+			// JS files that are used on front-office standard skins:
+			evo_frontoffice: {
+				options: {
+					banner: '/* This includes 4 files: src/evo_modal_window.js, src/evo_user_crop.js, src/evo_user_report.js, src/evo_user_contact_groups.js, src/evo_rest_api.js */\n'
+				},
+				nonull: true, // Display missing files
+				src: ['rsc/js/src/evo_modal_window.js',
+							'rsc/js/src/evo_user_crop.js',
+							'rsc/js/src/evo_user_report.js',
+							'rsc/js/src/evo_user_contact_groups.js',
+							'rsc/js/src/evo_rest_api.js'],
+				dest: 'rsc/js/build/evo_frontoffice.bmin.js'
+			},
+			// JS files that are used on front-office bootstrap skins:
+			evo_frontoffice_bootstrap: {
+				options: {
+					banner: '/* This includes 4 files: src/bootstrap-evo_modal_window.js, src/evo_user_crop.js, src/evo_user_report.js, src/evo_user_contact_groups.js, src/evo_rest_api.js */\n'
+				},
+				nonull: true, // Display missing files
+				src: ['rsc/js/src/bootstrap-evo_modal_window.js',
+							'rsc/js/src/evo_user_crop.js',
+							'rsc/js/src/evo_user_report.js',
+							'rsc/js/src/evo_user_contact_groups.js',
+							'rsc/js/src/evo_rest_api.js'],
+				dest: 'rsc/js/build/bootstrap-evo_frontoffice.bmin.js'
+			},
+			// JS files that are used on back-office standard skins:
+			evo_backoffice: {
+				options: {
+					banner: '/* This includes 11 files: functions.js, ajax.js, form_extensions.js, backoffice.js, extracats.js, dynamic_select.js, src/evo_modal_window.js, src/evo_user_crop.js, src/evo_user_report.js, src/evo_user_deldata.js, src/evo_user_org.js, src/evo_rest_api.js */\n'
+				},
+				nonull: true, // Display missing files
+				src: ['rsc/js/functions.js',
+							'rsc/js/ajax.js',
+							'rsc/js/form_extensions.js',
+							'rsc/js/extracats.js',
+							'rsc/js/dynamic_select.js',
+							'rsc/js/backoffice.js',
+							'rsc/js/src/evo_modal_window.js',
+							'rsc/js/src/evo_user_crop.js',
+							'rsc/js/src/evo_user_report.js',
+							'rsc/js/src/evo_user_deldata.js',
+							'rsc/js/src/evo_user_org.js',
+							'rsc/js/src/evo_rest_api.js'],
+				dest: 'rsc/js/build/evo_backoffice.bmin.js'
+			},
+			// JS files that are used on back-office bootstrap skins:
+			evo_backoffice_bootstrap: {
+				options: {
+					banner: '/* This includes 11 files: functions.js, ajax.js, form_extensions.js, backoffice.js, extracats.js, dynamic_select.js, src/bootstrap-evo_modal_window.js, src/evo_user_crop.js, src/evo_user_report.js, src/evo_user_deldata.js, src/evo_user_org.js, src/evo_rest_api.js */\n'
+				},
+				nonull: true, // Display missing files
+				src: ['rsc/js/functions.js',
+							'rsc/js/ajax.js',
+							'rsc/js/form_extensions.js',
+							'rsc/js/extracats.js',
+							'rsc/js/dynamic_select.js',
+							'rsc/js/backoffice.js',
+							'rsc/js/src/bootstrap-evo_modal_window.js',
+							'rsc/js/src/evo_user_crop.js',
+							'rsc/js/src/evo_user_report.js',
+							'rsc/js/src/evo_user_deldata.js',
+							'rsc/js/src/evo_user_org.js',
+							'rsc/js/src/evo_rest_api.js'],
+				dest: 'rsc/js/build/bootstrap-evo_backoffice.bmin.js'
 			},
 		},
 

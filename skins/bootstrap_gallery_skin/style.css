@@ -611,6 +611,15 @@ div.evo_print a {
 div.evo_print a:hover {
   color: #337ab7 !important;
 }
+.evo_post .evo_details .panel .nav_album_number {
+  display: inline;
+}
+div.evo_print a {
+  color: #777 !important;
+}
+div.evo_print a:hover {
+  color: #337ab7 !important;
+}
 div.bSideItem {
   background: #F7F5FA;
   border-radius: 5px;
@@ -1001,6 +1010,9 @@ div.evo_image_index div:hover {
     margin-right: 0px;
     margin-top: 0px;
     margin-bottom: 0px;
+  }
+  .nav_album .nav_album_title .evo_status {
+    top: -1px;
   }
   .nav_album .nav_album_title .evo_status {
     top: -1px;

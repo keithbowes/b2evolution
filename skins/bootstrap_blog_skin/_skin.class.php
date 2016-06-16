@@ -222,6 +222,27 @@ class bootstrap_blog_Skin extends Skin
 					'layout' => 'end_fieldset',
 				),
 
+
+				'section_access_start' => array(
+					'layout' => 'begin_fieldset',
+					'label'  => T_('When access is denied or requires login...')
+				),
+					'access_login_containers' => array(
+						'label' => T_('Display on login screen'),
+						'note' => '',
+						'type' => 'checklist',
+						'options' => array(
+							array( 'header',   sprintf( T_('"%s" container'), NT_('Header') ),    1 ),
+							array( 'page_top', sprintf( T_('"%s" container'), NT_('Page Top') ),  1 ),
+							array( 'menu',     sprintf( T_('"%s" container'), NT_('Menu') ),      0 ),
+							array( 'sidebar',  sprintf( T_('"%s" container'), NT_('Sidebar') ),   0 ),
+							array( 'sidebar2', sprintf( T_('"%s" container'), NT_('Sidebar 2') ), 0 ),
+							array( 'footer',   sprintf( T_('"%s" container'), NT_('Footer') ),    1 ) ),
+						),
+				'section_access_end' => array(
+					'layout' => 'end_fieldset',
+				),
+
 			), parent::get_param_definitions( $params ) );
 
 		return $r;

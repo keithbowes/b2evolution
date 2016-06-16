@@ -487,6 +487,9 @@ div.widget_core_user_avatars.evo_layout_rwd img {
 div.powered_by p {
   margin: 4px auto;
 }
+div.powered_by p {
+  margin: 4px auto;
+}
 ul.profile_tabs {
   margin: 0 2ex 2ex;
   position: relative;
@@ -551,6 +554,9 @@ div.bSideItem {
 }
 div.bSideItem h4 {
   margin-top: 0;
+}
+.pager {
+  margin-bottom: 0;
 }
 .pager {
   margin-bottom: 0;

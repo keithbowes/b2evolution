@@ -523,6 +523,9 @@ ol.breadcrumb {
 .forums_list .panel-heading .btn {
   margin: -6px 0 0 6px;
 }
+.forums_list .panel-heading .btn {
+  margin: -6px 0 0 6px;
+}
 .forums_list.panel > a + .table {
   border-top: 1px solid #ddd;
 }
@@ -718,6 +721,10 @@ ol.breadcrumb {
 }
 .forums_list .ft_author_avatar img {
   border-radius: 3px;
+}
+.forums_list .ft_author_avatar .ft_author_avatar {
+  float: none;
+  margin-right: 0;
 }
 .forums_list .ft_author_avatar .ft_author_avatar {
   float: none;
@@ -1349,6 +1356,7 @@ a.to_top {
   font-size: 14px !important;
   margin-right: 5px;
   float: left;
+  line-height: 22px;
 }
 .evo_post_title {
   display: table;
@@ -1397,4 +1405,31 @@ a.to_top {
 }
 .thumbnail img {
   min-height: auto !important;
+}
+.popover img {
+  -webkit-border-radius: 4px !important;
+  -moz-border-radius: 4px !important;
+  -ms-border-radius: 4px !important;
+  -o-border-radius: 4px !important;
+  border-radius: 4px !important;
+}
+.forums_list.front_panel {
+  border-bottom: 0px !important;
+}
+.forums_list.front_panel .table {
+  border-bottom: 1px solid #ddd;
+}
+.forums_list.front_panel .table:nth-last-child(1) {
+  border-radius: 0px 0px 4px 4px;
+}
+.ft_avatar > a > img,
+.ft_avatar > span > img {
+  border-radius: 50% !important;
+}
+.evo_comment_avatar > a:hover {
+  background-color: transparent !important;
+}
+.comments_link__pagination .alert {
+  margin: 0;
+  text-align: left;
 }

@@ -117,6 +117,24 @@ echo '<div id="styled_content_block">'; // Beginning of post display
 	}
 	?>
 
+	<?php
+	if( $disp == 'single' )
+	{
+		// ------------------------- "Item Single" CONTAINER EMBEDDED HERE --------------------------
+		// Display container contents:
+		skin_container( /* TRANS: Widget container name */ NT_('Item Single'), array(
+				// The following (optional) params will be used as defaults for widgets included in this container:
+				// This will enclose each widget in a block:
+				'block_start' => '<div class="$wi_class$">',
+				'block_end' => '</div>',
+				// This will enclose the title of each widget:
+				'block_title_start' => '<h3>',
+				'block_title_end' => '</h3>',
+		) );
+		// ----------------------------- END OF "Item Single" CONTAINER -----------------------------
+	}
+	?>
+
 	<div class="evo_post_foot">
 		<?php
 			// Link to comments, trackbacks, etc.:

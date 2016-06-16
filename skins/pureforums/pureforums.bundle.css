@@ -810,9 +810,9 @@ ul.legend span.note {
   display: inline-block;
   padding: 0 12px;
   background-color: #A3ACBE;
-  background-image: -webkit-linear-gradient(#b5bdcb, #929bb1);
-  background-image: -moz-linear-gradient(#b5bdcb, #929bb1);
-  background-image: linear-gradient(#b5bdcb, #929bb1);
+  background-image: -webkit-linear-gradient(#B5BDCB, #929BB1);
+  background-image: -moz-linear-gradient(#B5BDCB, #929BB1);
+  background-image: linear-gradient(#B5BDCB, #929BB1);
   border: 1px solid #000;
   border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.3);
   border-right: none;
