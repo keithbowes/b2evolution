@@ -131,7 +131,7 @@ siteskin_include( '_site_body_header.inc.php' );
 		request_title( array(
 				'title_before'      => '<h2>',
 				'title_after'       => '</h2>',
-				'title_none'        => '<h2>&#160;</h2>',
+				'title_none'        => '<h2>&nbsp;</h2>',
 				'glue'              => ' - ',
 				'title_single_disp' => false,
 				'format'            => 'htmlbody',

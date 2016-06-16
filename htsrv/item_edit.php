@@ -139,9 +139,9 @@ switch( $action )
 		$edited_Item->load_from_Request ( true ); // needs Blog set
 
 		// Check if new category was started to create. If yes then set up parameters for next page
-		check_categories_nosave( $post_category, $post_extracats );
+		check_categories_nosave ( $post_category, $post_extracats );
 
-		$edited_Item->set( 'main_cat_ID', $post_category );
+		$edited_Item->set ( 'main_cat_ID', $post_category );
 		if( $edited_Item->main_cat_ID && ( get_allow_cross_posting() < 2 ) && $edited_Item->get_blog_ID() != $blog )
 		{ // the main cat is not in the list of categories; this happens, if the user switches blogs during editing:
 			$edited_Item->set('main_cat_ID', $Blog->get_default_cat_ID());

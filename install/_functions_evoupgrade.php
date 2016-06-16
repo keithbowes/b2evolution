@@ -854,7 +854,7 @@ function upgrade_b2evo_tables( $upgrade_action = 'evoupgrade' )
 			$newname = ( isset($newarr[1]) ? $newarr[1] : $oldkey );
 			if( !isset( $row[$oldkey] ) )
 			{
-				echo '&#160;&middot;Setting '.$oldkey.' not found, using defaults.<br />';
+				echo '&nbsp;&middot;Setting '.$oldkey.' not found, using defaults.<br />';
 				$_trans[ $newname ] = $newarr[0];
 			}
 			else
@@ -4055,11 +4055,6 @@ function upgrade_b2evo_tables( $upgrade_action = 'evoupgrade' )
 			MODIFY dom_name VARCHAR(250) COLLATE utf8_bin NOT NULL DEFAULT ''" );
 		task_end();
 
-		task_begin( 'Upgrading base domains table...' );
-		$DB->query( "ALTER TABLE T_basedomains
-			MODIFY dom_name VARCHAR(250) COLLATE utf8_bin NOT NULL DEFAULT ''" );
-		task_end();
-
 		/*** Update user_email_dom_ID for all already existing users ***/
 		task_begin( 'Upgrading users email domains...' );
 		$DB->begin();
@@ -4982,7 +4977,7 @@ function upgrade_b2evo_tables( $upgrade_action = 'evoupgrade' )
 			DROP INDEX file,
 			ADD COLUMN file_path_hash char(32) default NULL' );
 		// Change file path length to the max allowed value
-		$DB->query( "ALTER TABLE T_files CHANGE COLUMN file_path file_path VARCHAR(255) NOT NULL DEFAULT ''" );
+		$DB->query( "ALTER TABLE T_files CHANGE COLUMN file_path file_path VARCHAR(767) NOT NULL DEFAULT ''" );
 		$DB->query( 'UPDATE T_files SET file_path_hash = MD5( CONCAT( file_root_type, file_root_ID, file_path ) )');
 		$DB->query( 'ALTER TABLE T_files ADD UNIQUE file_path (file_path_hash)' );
 		task_end();
@@ -5924,12 +5919,12 @@ function upgrade_b2evo_tables( $upgrade_action = 'evoupgrade' )
 			ADD ityp_use_comment_expiration   ENUM( 'required', 'optional', 'never' ) COLLATE ascii_general_ci DEFAULT 'optional'" );
 		$DB->query( 'UPDATE T_items__type SET
 			ityp_backoffice_tab = CASE
-				WHEN ityp_ID = 1    THEN "' . T_('Posts') . '"
-				WHEN ityp_ID = 1000 THEN "' . T_('Pages') . '"
-				WHEN ityp_ID >= 1400 AND ityp_ID <= 1600 THEN "' . T_('Intros') . '"
-				WHEN ityp_ID = 2000 THEN "' . T_('Podcasts') . '"
-				WHEN ityp_ID = 3000 THEN "' . T_('Sidebar links') . '"
-				WHEN ityp_ID = 4000 THEN "' . T_('Advertisement') . '"
+				WHEN ityp_ID = 1    THEN "Posts"
+				WHEN ityp_ID = 1000 THEN "Pages"
+				WHEN ityp_ID >= 1400 AND ityp_ID <= 1600 THEN "Intros"
+				WHEN ityp_ID = 2000 THEN "Podcasts"
+				WHEN ityp_ID = 3000 THEN "Sidebar links"
+				WHEN ityp_ID = 4000 THEN "Advertisement"
 				WHEN ityp_ID = 5000 THEN NULL
 				ELSE "Posts"
 			END,

@@ -57,7 +57,7 @@ siteskin_include( '_site_body_header.inc.php' );
 		// ----------------------------- END OF "Menu" CONTAINER -----------------------------
 	?>
 	</ul>
-	&#160;
+	&nbsp;
 </div>
 </div>
 </div>

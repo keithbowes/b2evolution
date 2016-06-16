@@ -24,7 +24,7 @@ $params = array_merge( array(
 		'author_link_text' => 'auto',
 	), $params );
 
-echo '<div id="styled_content_block">'; // Beginning of post display
+echo '<div class="evo_content_block">'; // Beginning of post display
 ?>
 <div id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( $params ) ?>" lang="<?php $Item->lang() ?>">
 
@@ -114,24 +114,6 @@ echo '<div id="styled_content_block">'; // Beginning of post display
 		// Note: You can customize the default item content by copying the generic
 		// /skins/_item_content.inc.php file into the current skin folder.
 		// -------------------------- END OF POST CONTENT -------------------------
-	}
-	?>
-
-	<?php
-	if( $disp == 'single' )
-	{
-		// ------------------------- "Item Single" CONTAINER EMBEDDED HERE --------------------------
-		// Display container contents:
-		skin_container( /* TRANS: Widget container name */ NT_('Item Single'), array(
-				// The following (optional) params will be used as defaults for widgets included in this container:
-				// This will enclose each widget in a block:
-				'block_start' => '<div class="$wi_class$">',
-				'block_end' => '</div>',
-				// This will enclose the title of each widget:
-				'block_title_start' => '<h3>',
-				'block_title_end' => '</h3>',
-		) );
-		// ----------------------------- END OF "Item Single" CONTAINER -----------------------------
 	}
 	?>
 

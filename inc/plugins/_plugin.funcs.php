@@ -182,11 +182,6 @@ function autoform_display_field( $parname, $parmeta, & $Form, $set_type, $Obj, $
 				$error_value = NULL;
 				break;
 
-			case 'EmailSettings':
-				$set_value = $Obj->get_email_setting( $parname );
-				$error_value = NULL;
-				break;
-
 			case 'Skin':
 				$set_value = $Obj->get_setting( $parname );
 				$error_value = NULL;
@@ -461,11 +456,6 @@ function autoform_display_field( $parname, $parmeta, & $Form, $set_type, $Obj, $
 			else
 			{ // do not use size as maxlength, if not given!
 				$params['maxlength'] = '';
-			}
-
-			if( isset( $parmeta['hide_label'] ) )
-			{ // This param is used to hide a label
-				$params['hide_label'] = $parmeta['hide_label'];
 			}
 
 			if( isset( $parmeta['hide_label'] ) )

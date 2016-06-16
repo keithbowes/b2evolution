@@ -147,14 +147,14 @@ class evopress_Skin extends Skin
 	 *
 	 * This may register some CSS or JS...
 	 */
-	function display_init($features = array(
+	function display_init()
+	{
+		// Request some common features that the parent function (Skin::display_init()) knows how to provide:
+		parent::display_init( array(
 				'b2evo_base_css', // Include the b2evo_base CSS (OLD / v5 style) - Use this when you DON'T use Bootstrap:
 				'colorbox',       // Load Colorbox (a lightweight Lightbox alternative + customizations for b2evo)
 				'disp_auto',      // Automatically include additional CSS and/or JS required by certain disps (replace with 'disp_off' to disable this)
-			) )
-	{
-		// Request some common features that the parent function (Skin::display_init()) knows how to provide:
-		parent::display_init( $features );
+			) );
 
 		// require_css( 'style.css', 'relative' );
 		// require_css( 'item.css', 'relative' );

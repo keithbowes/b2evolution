@@ -104,7 +104,7 @@ echo '<div class="evo_content_block">'; // Beginning of post display
 
 		// We want to display the post time:
 		$Item->issue_time( array(
-				'before'      => ' '.T_('posted on').' ',
+				'before'      => ' '.T_('posted on '),
 				'after'       => ' ',
 				'time_format' => 'M j, Y',
 			) );
@@ -175,24 +175,6 @@ echo '<div class="evo_content_block">'; // Beginning of post display
 		// /skins/_item_content.inc.php file into the current skin folder.
 		// -------------------------- END OF POST CONTENT -------------------------
 	// this will end a </section>
-	}
-	?>
-
-	<?php
-	if( $disp == 'single' )
-	{
-		// ------------------------- "Item Single" CONTAINER EMBEDDED HERE --------------------------
-		// Display container contents:
-		skin_container( /* TRANS: Widget container name */ NT_('Item Single'), array(
-				// The following (optional) params will be used as defaults for widgets included in this container:
-				// This will enclose each widget in a block:
-				'block_start' => '<div class="$wi_class$">',
-				'block_end' => '</div>',
-				// This will enclose the title of each widget:
-				'block_title_start' => '<h3>',
-				'block_title_end' => '</h3>',
-		) );
-		// ----------------------------- END OF "Item Single" CONTAINER -----------------------------
 	}
 	?>
 

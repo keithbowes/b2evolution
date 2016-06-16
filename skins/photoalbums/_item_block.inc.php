@@ -87,24 +87,6 @@ $params = array_merge( array(
 		?>
 
 		<?php
-		if( $disp == 'single' )
-		{
-			// ------------------------- "Item Single" CONTAINER EMBEDDED HERE --------------------------
-			// Display container contents:
-			skin_container( /* TRANS: Widget container name */ NT_('Item Single'), array(
-					// The following (optional) params will be used as defaults for widgets included in this container:
-					// This will enclose each widget in a block:
-					'block_start' => '<div class="$wi_class$">',
-					'block_end' => '</div>',
-					// This will enclose the title of each widget:
-					'block_title_start' => '<h3>',
-					'block_title_end' => '</h3>',
-			) );
-			// ----------------------------- END OF "Item Single" CONTAINER -----------------------------
-		}
-		?>
-
-		<?php
 			// URL link, if the post has one:
 			$Item->url_link( array(
 					'before'        => '<div class="bSmallPrint">'.T_('Link').': ',
@@ -175,7 +157,7 @@ function change_position_nav()
 
 var $nav = jQuery( '.nav_album' );
 var nav_size = $nav.size();
-var nav_top = <?php echo ( is_logged_in() ? 23 : 0 ) ; ?>;
+var nav_top = <?php echo ( show_toolbar() ? 23 : 0 ) ; ?>;
 var $navSpacer = $( '<div />', {
 		'class':  'nav_album_spacer',
 		'height': $nav.outerHeight( true ),
