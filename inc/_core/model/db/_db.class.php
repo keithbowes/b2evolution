@@ -200,7 +200,7 @@ class DB
 	 * @var string
 	 * @see DB::set_connection_charset()
 	 */
-	protected $connection_charset;
+	public $connection_charset;
 
 	/**
 	 * Is the connection persistent?
