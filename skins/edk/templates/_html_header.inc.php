@@ -29,7 +29,7 @@ function edk_css_include()
 
 	$mobile_style = array(
 		'file' => $edk_base . 'css/mobile.css',
-		'title' => $Skin->T_('One-Column Look'),
+		'title' => $Skin->T_('One-column Look'),
 	);
 
 	$old_style = array(

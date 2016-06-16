@@ -102,10 +102,12 @@ input[type="search"]:hover {
 }
 
 #credit {
+  bottom: 0;
   clear: left;
   height: 10%;
+  left: 0;
   overflow: auto;
-  position: static;
+  position: absolute;
   width: 23.5%;
 }
 
