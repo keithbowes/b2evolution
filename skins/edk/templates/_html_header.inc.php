@@ -22,14 +22,24 @@ function edk_css_include()
 	global $Skin;
 	global $current_locale, $edk_base, $headlines, $io_charset, $locales;
 
-	$default_style = array(
-		'file' => $edk_base . 'css/transitional.css',
-		'title' => $Skin->T_('Transitional Look'),
-	);
-
 	$html5_style = array(
 		'file' => $edk_base . 'css/clear.css',
 		'title' => $Skin->T_('Clear Look'),
+	);
+
+	$mobile_style = array(
+		'file' => $edk_base . 'css/mobile.css',
+		'title' => $Skin->T_('One-Column Look'),
+	);
+
+	$old_style = array(
+		'file' => $edk_base . 'css/classic.css',
+		'title' => $Skin->T_('Classic Look'),
+	);
+
+	$xhtml_style = array(
+		'file' => $edk_base . 'css/transitional.css',
+		'title' => $Skin->T_('Transitional Look'),
 	);
 
 	$visual_media = supports_xhtml() ? 'handheld, print, projection, screen, tty, tv' : 'not speech';
@@ -40,10 +50,10 @@ function edk_css_include()
 
 	/* Alternate styles */
 	$alternate_styles = array(
-		$Skin->T_('Classic Look') => $edk_base . 'css/classic.css',
-		$Skin->T_('One-column Look') => $edk_base . 'css/one.css',
-		$default_style['title'] => $default_style['file'],
 		$html5_style['title'] => $html5_style['file'],
+		$mobile_style['title'] => $mobile_style['file'],
+		$old_style['title'] => $old_style['file'],
+		$xhtml_style['title'] => $xhtml_style['file'],
 	);
 
 	/* Sort the alternate styles based on locale */
@@ -63,7 +73,6 @@ function edk_css_include()
 
 	/* Media-specific overrides */
 	require_css($edk_base . 'css/print.css', 'relative', NULL, 'print');
-	require_css($edk_base . 'css/smallscreen.css', 'relative', NULL, '(max-width: 640px)');
 	require_css($edk_base . 'css/speech.css', 'relative', NULL, 'speech');
 
 	/* Don't embed style.css, as it doesn't exist in this theme */
@@ -74,8 +83,20 @@ function edk_css_include()
 
 	/* Determine the default style sheet from the Style cookie if available.
 	 * If not, use the above arrays. */
-	$default_style = (array_key_exists('Style', $_COOKIE) && $s = $_COOKIE['Style']) ? preg_replace('/\?v=.+$/', '', $s) :
-		(supports_xhtml() ? $default_style['file'] : $html5_style['file']);
+	if ($s = @$_COOKIE['Style'])
+	{
+		$default_style = preg_replace('/\?.+$/', '', $s);
+	}
+	else
+	{
+		global $Session;
+		if (!$Session->is_desktop_session())
+			$default_style = $mobile_style['file'];
+		elseif (supports_xhtml())
+			$default_style = $xhtml_style['file'];
+		else
+			$default_style = $html5_style['file'];
+	}
 
 	/* In XHTML, it needs to be outputted as XML processing instructions,
 	 * so do that and remove it from the headlines to include. */
@@ -232,8 +253,8 @@ if (!supports_xhtml())
 	edk_meta('property', 'copyright', get_copyright(array('display' =>  FALSE, 'license' =>  FALSE)));
 	edk_meta('property', 'license', get_license(array('display' => FALSE, 'format' =>  'text')));
 
-	global $collection_path;
-	add_js_headline('var collection_path = "' .  $collection_path . '";');
+	global $cookie_path;
+	add_js_headline('var cookie_path = "' .  $cookie_path . '";');
 	require_js($edk_base . 'js/styleprefs.js', NULL, TRUE);
 
 	skin_description_tag();
