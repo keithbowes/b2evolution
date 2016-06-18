@@ -200,7 +200,21 @@ class DB
 	 * @var string
 	 * @see DB::set_connection_charset()
 	 */
-	public $connection_charset;
+	protected $connection_charset;
+
+	/**
+	 * The short MySQL version
+	 * @var string
+	 * @see DB::get_version
+	 */
+	protected $version;
+
+	/**
+	 * The long MySQL version
+	 * @var string
+	 * @see DB::get_version
+	 */
+	protected $version_long;
 
 	/**
 	 * Is the connection persistent?
@@ -447,12 +461,47 @@ class DB
 		}
 	}
 
+
 	function __destruct()
 	{
 		@$this->flush();
 		if (!$this->use_persistent)
 			@$this->dbhandle->kill($this->dbhandle->thread_id);
 		@$this->dbhandle->close();
+	}
+
+
+	function __get($name)
+	{
+		if ('connection_charset' == $name)
+			return $this->dbhandle->character_set_name();
+		elseif ('dbhandle' == $name || 'result' == $name || 'use_persistent' == $name)
+			throw new Exception("You're not allowed to access property $name");
+		elseif ('version' == $name)
+			return $this->get_version();
+		elseif ('version_long' == $name)
+		{
+			$this->get_version();
+			return $this->version_long;
+		}
+		elseif (property_exists($this, $this->{$name}))
+			return $this->{$name};
+		else
+			throw new Exception("Property $name doesn't exist");
+	}
+
+
+	function __set($name, $value)
+	{
+		if ('connection_charset' == $name)
+			$this->set_connection_charset($value);
+		elseif ('dbhandle' == $name || 'result' == $name || 'use_persistent' == $name ||
+			'version' == $name || 'version_long' == $name)
+				throw new Exception("You're not allowed to access property $name");
+		elseif (property_exists($this, $this->{$name}))
+			$this->{$name} = $value;
+		else
+			throw new Exception("Property $name doesn't exist");
 	}
 
 
@@ -706,7 +755,7 @@ class DB
 	/**
 	 * Get MYSQL version
 	 */
-	function get_version()
+	protected function get_version()
 	{
 		if( isset( $this->version ) )
 		{
@@ -1723,18 +1772,14 @@ class DB
 	 * @param boolean Use the "regular charset => mysql charset map"?
 	 * @return boolean true on success, false on failure
 	 */
-	function set_connection_charset( $charset, $use_map = true )
+	protected function set_connection_charset( $charset )
 	{
 		global $Debuglog;
 
 		// pre_dump( 'set_connection_charset', $charset );
 
 		$charset = strtolower($charset);
-
-		if( $use_map )
-		{	// We want to use the map
-			$charset = self::php_to_mysql_charmap( $charset );
-		}
+		$charset = self::php_to_mysql_charmap( $charset );
 
 		$r = true;
 		if( $charset != $this->connection_charset )
