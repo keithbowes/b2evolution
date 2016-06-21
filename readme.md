@@ -2,7 +2,7 @@
 
 # b2evolution CMS
 
-This is b2evolution CMS version **6.7.3-stable**.
+This is b2evolution CMS version **6.7.4-stable**.
 
 ## A complete engine for your website !
 
@@ -23,13 +23,11 @@ This is [a fork](https://github.com/keithbowes/b2evolution) of the [upstream pro
 1.  Sorting of categories.  Categories are sorted alphabetically rather than based on ID.
 1.  I still use xg.php (where upstream seems to have settled for xgmac.sh and completely removed xg.php), though I've made several changes.
 
-The rest of this document is from upstream and should apply equally to both this fork and upstream.
-
 ## Requirements
 
-Basically, all you need is a standard [web hosting plan](http://b2evolution.net/web-hosting/top-quality-best-webhosting.php).
+Basically, all you need is a standard web host with  PHP 5.2+ (5.5+ recommended), MySQL 5+ (5.5+ recommended), and a web server (Apache 2.4+ recommended for the automatic use of clean slugs).
 
-More specifically, your web server should support PHP 5.2+, MySQL 5+ & Apache 2+ (which is very common). More info about these requirements [here](http://b2evolution.net/man/installation-upgrade/system_requirements).
+b2evolution 6.6+ requires the mysqli extension.  If your host only offers the mysql extension (which has been deprecated in PHP 5.5 and removed in PHP 7.0), you'll have to use an older version.  You should be able to see which PHP extensions are supported by your web host in your host's control panel.
 
 ## Downloading
 
