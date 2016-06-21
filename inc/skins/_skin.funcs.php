@@ -2259,8 +2259,12 @@ function skin_content_header( $type = 'text/html' )
 function skin_content_meta( $type = 'text/html' )
 {
 	global $io_charset;
+	global $Skin;
 
-	echo '<meta http-equiv="Content-Type" content="'.$type.'; charset='.$io_charset.'" />'."\n";
+	if ($Skin->get_api_version() >= 5)
+		echo '<meta charset="' . $io_charset . '" />';
+	else
+		echo '<meta http-equiv="Content-Type" content="'.$type.'; charset='.$io_charset.'" />'."\n";
 }
 
 

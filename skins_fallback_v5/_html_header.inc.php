@@ -52,9 +52,13 @@ echo $params['html_tag'];
 			echo $params['viewport_tag'];
 		}
 	?>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<?php skin_content_meta(); /* Charset in case we can't trust the HTTP header or the page is saved to an .html file */ ?>
-	<?php skin_base_tag(); /* Base URL for this skin. You need this to fix relative links! */ ?>
+
+	<?php
+/* In XHTML, you should use xml:base instead */
+if ($Skin->get_api_version() != 5) 
+	skin_base_tag(); /* Base URL for this skin. You need this to fix relative links! */
+?>
 	<?php $Plugins->trigger_event( 'SkinBeginHtmlHead' ); ?>
 	<title><?php
 		// ------------------------- TITLE FOR THE CURRENT REQUEST -------------------------
