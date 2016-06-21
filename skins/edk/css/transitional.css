@@ -29,14 +29,17 @@ body.disp_single [role="article"] {
 }
 
 div#evo_toolbar {
-  height: 5%;
+  display: none;
+}
+
+div#evo_toolbar + #skin_wrapper #content,
+div#evo_toolbar + #skin_wrapper #nav {
+  position: absolute;
+  top: 0;
 }
 
 div#evo_toolbar + #skin_wrapper #content {
-  height: 95%;
-}
-div#evo_toolbar + #skin_wrapper #nav {
-  height: 85%;
+  left: 23.5%;
 }
 
 form.bComment {

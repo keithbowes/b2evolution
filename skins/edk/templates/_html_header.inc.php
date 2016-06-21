@@ -300,18 +300,23 @@ if ($Blog->get_setting('feed_content') != 'none')
 	{
   add_headline(sprintf('<link rel="alternate" type="text/plain" title="RSS 3.0" href="%s%s?blog=%d&amp;tempskin=_rss3" />', $baseurl, $Blog->siteurl, $Blog->ID));
 	}
-	if (!file_exists("$skins_path/_esf") && !file_exists("$skins_path/_rss3"))
-	{
-  add_headline(sprintf('<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="%s" />', $Blog->dget('atom_url', 'raw')));
-	}
 }
-	add_headline(sprintf('<link rel="EditURI" type="application/rsd+xml" title="RSD" href="%srsd.php?blog=%d" />', $xmlsrv_url, $Blog->ID));
 
-/* Must be included this way rather than skin_include so that $params will be correctly passed */
-$skin_version = $Skin->get_api_version();
-if (!is_int($skin_version) || $skin_version < 5)
-	$skin_version = 5;
+if (method_exists($Skin, 'get_api_version'))
+{
+	$skin_version = $Skin->get_api_version();
+	if (!is_int($skin_version) || $skin_version < 5)
+		$skin_version = 5;
 
-require_once $basepath . 'skins_fallback_v' . $skin_version . '/_html_header.inc.php';
+	$fallback_path = $basepath . 'skins_fallback_v' . $skin_version . '/';
+}
+/* Concession for pre-6.0 versions of b2evolution */
+else
+{
+	$fallback_path = $skins_path;
+}
+
+/* Must be included this way rather than by skin_include so that $params will be correctly passed */
+require_once $fallback_path . '_html_header.inc.php';
 
 ?>

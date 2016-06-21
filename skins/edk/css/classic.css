@@ -16,6 +16,14 @@
   font-family: 'Comic Sans MS', TSCu_Comic, Geneva, fantasy;
 }
 
+div#evo_toolbar + #skin_wrapper #content {
+  left: 0;
+}
+
+div#evo_toolbar + #skin_wrapper #nav {
+  right: 0;
+}
+
 #content {
   float: left;
 }

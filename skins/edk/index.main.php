@@ -2,6 +2,10 @@
 
 skin_init( $disp );
 
+/* Concession for pre-6.0 versions of b2evolution */
+if (!($Skin instanceof edk_Skin))
+	skin_include('templates/_funcs.inc.php');
+
 /*
  * Use the value of diaspora-pod if a pod was manually entered.
  * Otherwise use the value of diaspora-pod-select.
