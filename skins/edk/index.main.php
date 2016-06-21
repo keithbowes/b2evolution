@@ -1,7 +1,6 @@
 <?php
 
 skin_init( $disp );
-skin_include('templates/_funcs.inc.php');
 
 /*
  * Use the value of diaspora-pod if a pod was manually entered.
