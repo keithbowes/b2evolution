@@ -319,4 +319,8 @@ else
 /* Must be included this way rather than by skin_include so that $params will be correctly passed */
 require_once $fallback_path . '_html_header.inc.php';
 
+printf('%s<h1><a href="%s">%s</a></h1>', PHP_EOL, $Blog->dget('url'), $Blog->dget('name'));
+
 ?>
+
+<section id="content" role="main">

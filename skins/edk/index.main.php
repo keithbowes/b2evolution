@@ -31,17 +31,10 @@ $show_mode = param('show', 'string', 'post');
 function end_html()
 {
 	skin_include( 'templates/_sidebar.inc.php' );
-	skin_include( 'templates/_body_footer.inc.php' );
 	skin_include( 'templates/_html_footer.inc.php' );
 }
 
 skin_include( 'templates/_html_header.inc.php' );
-?>
-
-	<h1><?php bloginfo('name'); ?></h1>
-<?php
-
-skin_include( 'templates/_body_header.inc.php' );
 
 $footer_elem = prefers_xhtml() ? 'div' : 'footer';
 
