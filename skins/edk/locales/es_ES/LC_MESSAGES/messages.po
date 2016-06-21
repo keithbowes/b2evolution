@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: b 2e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-16 10:23-0400\n"
-"PO-Revision-Date: 2016-05-16 10:26-0400\n"
+"POT-Creation-Date: 2016-06-21 18:50-0400\n"
+"PO-Revision-Date: 2016-06-21 18:50-0400\n"
 "Last-Translator: Keith Bowes <keith@localhost>\n"
 "Language-Team: Spanish\n"
 "Language: es_ES \n"
@@ -72,38 +72,46 @@ msgstr "Licencia Creative Commons"
 msgid "Posted in %s by <a href=\"%s\">%s</a> on %s at %s %s %s"
 msgstr "Publicado en %s por <a href=\"%s\">%s</a> en %s a las %s %s %s"
 
-#: templates/_funcs.inc.php:372
+#: templates/_funcs.inc.php:376
 #, php-format
 msgid "<div>Powered by <cite><a href=\"http://www.duckduckgo.com/?q=!+%1$s\">%1$s</a> %2$s</cite>.</div>"
 msgstr "<div>Creado por <cite><a href=\"http://www.duckduckgo.com/?q=!+%1$s\">%1$s</a> %2$s</cite>.</div>"
 
-#: templates/_funcs.inc.php:374
+#: templates/_funcs.inc.php:378
 msgid "Delete Cookies!"
 msgstr "Borrar cookies!"
 
-#: templates/_funcs.inc.php:374
+#: templates/_funcs.inc.php:378
 msgid "This site uses <a href=\"http://en.wikipedia.org/wiki/HTTP_cookie\">cookies</a>."
 msgstr "Ese situo usa <a href=\"http://es.wikipedia.org/wiki/Cookie_(inform%E1tica)\">cookies</a>."
 
 #: templates/_html_header.inc.php:27
-msgid "Transitional Look"
-msgstr "Apariencia transicional"
-
-#: templates/_html_header.inc.php:32
 msgid "Clear Look"
 msgstr "Apariencia Clara"
 
-#: templates/_html_header.inc.php:43
-msgid "Classic Look"
-msgstr "Apariencia Clásica"
-
-#: templates/_html_header.inc.php:44
+#: templates/_html_header.inc.php:32
 msgid "One-column Look"
 msgstr "Apariencia de una sola columna"
 
-#: templates/_html_header.inc.php:208
+#: templates/_html_header.inc.php:37
+msgid "Classic Look"
+msgstr "Apariencia Clásica"
+
+#: templates/_html_header.inc.php:42
+msgid "Transitional Look"
+msgstr "Apariencia transicional"
+
+#: templates/_html_header.inc.php:229
 msgid "Please leave this for stats"
 msgstr "Deje eso por estadísticas por favor"
+
+#: templates/_html_header.inc.php:247
+msgid "GNU General Public License Version 3"
+msgstr "Licencia Pública General de GNU, Versión 3"
+
+#: templates/_html_header.inc.php:247
+msgid "https://www.gnu.org/licenses/lgpl-3.0.en.html"
+msgstr "https://cdn.rawgit.com/LSLSpanish/translation_GPLv3_to_spanish/master/GPLv3-spanish.html"
 
 #: templates/_html_header.inc.php:253
 msgid "Canonical Permalink"
@@ -113,11 +121,11 @@ msgstr "Permalink canónico"
 msgid "Shortened Permalink"
 msgstr "Permalink acortado"
 
-#: templates/_html_header.inc.php:261
+#: templates/_html_header.inc.php:260
 msgid "Main Content"
 msgstr "Contendidos principales"
 
-#: templates/_html_header.inc.php:262
+#: templates/_html_header.inc.php:261
 msgid "Menu"
 msgstr "Menú"
 
@@ -168,27 +176,27 @@ msgstr "Compartir en Google+"
 msgid "Share on Twitter"
 msgstr "Compartir en Twitter"
 
-#: templates/_sidebar.inc.php:238
+#: templates/_sidebar.inc.php:250
 msgid "Select a pod to use above or enter one below."
 msgstr "Elegir un pod de usar de encima o entrar un pod bajo."
 
-#: templates/_sidebar.inc.php:256
+#: templates/_sidebar.inc.php:268
 msgid "Diaspora* user name"
 msgstr "Nombre de usuario de Diaspora*"
 
-#: templates/_sidebar.inc.php:263
+#: templates/_sidebar.inc.php:275
 msgid "Diaspora* password"
 msgstr "Contraseña de Diaspora*"
 
-#: templates/_sidebar.inc.php:269
+#: templates/_sidebar.inc.php:281
 msgid "Diaspora* aspects"
 msgstr "Aspectos de Diaspora*"
 
-#: templates/_sidebar.inc.php:283 templates/_sidebar.inc.php:284
+#: templates/_sidebar.inc.php:295 templates/_sidebar.inc.php:296
 msgid "Share on Diaspora*"
 msgstr "Compartir en Diaspora*"
 
-#: templates/_sidebar.inc.php:308
+#: templates/_sidebar.inc.php:320
 msgid "Back-office"
 msgstr "Back-office"
 

@@ -243,6 +243,9 @@ $params = array_merge( array(
 	add_js_headline('var cookie_path = "' .  $cookie_path . '";');
 	require_js($edk_base . 'js/styleprefs.js', NULL, TRUE);
 
+	if (prefers_xhtml())
+		add_headline(sprintf('<link rel="jslicense" href="%s" title="%s" />', $Skin->T_('https://www.gnu.org/licenses/lgpl-3.0.en.html'), $Skin->T_('GNU General Public License Version 3')));
+
 	/* Hold this info in a variable instead of querying the DB multiple times */
 	$canonical_url = get_full_url(get_post_urltitle());
 	if ('single' == $disp)

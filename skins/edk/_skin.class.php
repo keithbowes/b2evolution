@@ -10,6 +10,8 @@
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 
+require_once('templates/_funcs.inc.php');
+
 /**
  * Specific code for this skin.
  *
@@ -207,7 +209,6 @@ class edk_Skin extends Skin
 	function display_init()
 	{
 		global $Messages, $debug;
-		skin_include('templates/_funcs.inc.php');
 
 		// Request some common features that the parent function (Skin::display_init()) knows how to provide:
 		parent::display_init( array(

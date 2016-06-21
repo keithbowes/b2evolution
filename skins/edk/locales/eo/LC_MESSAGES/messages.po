@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: b 2e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-16 10:23-0400\n"
-"PO-Revision-Date: 2016-05-16 10:27-0400\n"
+"POT-Creation-Date: 2016-06-21 18:50-0400\n"
+"PO-Revision-Date: 2016-06-21 18:28-0400\n"
 "Last-Translator: Keith Bowes <keith@localhost>\n"
 "Language-Team: Esperanto\n"
 "Language: eo \n"
@@ -72,38 +72,46 @@ msgstr "Permesilo Krea Komunaĵo"
 msgid "Posted in %s by <a href=\"%s\">%s</a> on %s at %s %s %s"
 msgstr "Afiŝita en %s de <a href=\"%s\">%s</a> je %s je %s %s %s"
 
-#: templates/_funcs.inc.php:372
+#: templates/_funcs.inc.php:376
 #, php-format
 msgid "<div>Powered by <cite><a href=\"http://www.duckduckgo.com/?q=!+%1$s\">%1$s</a> %2$s</cite>.</div>"
 msgstr "<div>Kreita pere de <cite><a href=\"http://www.duckduckgo.com/?q=!+%1$s\">%1$s</a> %2$s</cite>.</div>"
 
-#: templates/_funcs.inc.php:374
+#: templates/_funcs.inc.php:378
 msgid "Delete Cookies!"
 msgstr "Forigi kuketojn!"
 
-#: templates/_funcs.inc.php:374
+#: templates/_funcs.inc.php:378
 msgid "This site uses <a href=\"http://en.wikipedia.org/wiki/HTTP_cookie\">cookies</a>."
 msgstr "Ĉi tiu TTT-ejo uzas <a href=\"http://eo.wikipedia.org/wiki/Kuketo\">kuketojn</a>."
 
 #: templates/_html_header.inc.php:27
-msgid "Transitional Look"
-msgstr "Intertempa aspekto"
-
-#: templates/_html_header.inc.php:32
 msgid "Clear Look"
 msgstr "Klara aspekto"
 
-#: templates/_html_header.inc.php:43
-msgid "Classic Look"
-msgstr "Konata aspekto"
-
-#: templates/_html_header.inc.php:44
+#: templates/_html_header.inc.php:32
 msgid "One-column Look"
 msgstr "Unukolumna aspekto"
 
-#: templates/_html_header.inc.php:208
+#: templates/_html_header.inc.php:37
+msgid "Classic Look"
+msgstr "Konata aspekto"
+
+#: templates/_html_header.inc.php:42
+msgid "Transitional Look"
+msgstr "Intertempa aspekto"
+
+#: templates/_html_header.inc.php:229
 msgid "Please leave this for stats"
 msgstr "Bonvolu restigi tion pro statistikaĵoj"
+
+#: templates/_html_header.inc.php:247
+msgid "GNU General Public License Version 3"
+msgstr "Eldono 3 de la Ĝenerala Publika Permesilo de GNU"
+
+#: templates/_html_header.inc.php:247
+msgid "https://www.gnu.org/licenses/lgpl-3.0.en.html"
+msgstr "/eo/programado/gpl3.html"
 
 #: templates/_html_header.inc.php:253
 msgid "Canonical Permalink"
@@ -113,11 +121,11 @@ msgstr "Kanona daŭrligilo"
 msgid "Shortened Permalink"
 msgstr "Mallongigita daŭrligilo"
 
-#: templates/_html_header.inc.php:261
+#: templates/_html_header.inc.php:260
 msgid "Main Content"
 msgstr "Ĉefa enhavo"
 
-#: templates/_html_header.inc.php:262
+#: templates/_html_header.inc.php:261
 msgid "Menu"
 msgstr "Menuo"
 
@@ -168,27 +176,27 @@ msgstr "Konigi en Google+"
 msgid "Share on Twitter"
 msgstr "Konigi en Twitter"
 
-#: templates/_sidebar.inc.php:238
+#: templates/_sidebar.inc.php:250
 msgid "Select a pod to use above or enter one below."
 msgstr "Elekti guŝon uzotan ĉi-supre aŭ enmeti alian ĉi-malsupre."
 
-#: templates/_sidebar.inc.php:256
+#: templates/_sidebar.inc.php:268
 msgid "Diaspora* user name"
 msgstr "Diaspora*-salutnomo"
 
-#: templates/_sidebar.inc.php:263
+#: templates/_sidebar.inc.php:275
 msgid "Diaspora* password"
 msgstr "Diaspora*-pasworto"
 
-#: templates/_sidebar.inc.php:269
+#: templates/_sidebar.inc.php:281
 msgid "Diaspora* aspects"
 msgstr "Diaspora*-aspektoj"
 
-#: templates/_sidebar.inc.php:283 templates/_sidebar.inc.php:284
+#: templates/_sidebar.inc.php:295 templates/_sidebar.inc.php:296
 msgid "Share on Diaspora*"
 msgstr "Konigi en Diaspora*"
 
-#: templates/_sidebar.inc.php:308
+#: templates/_sidebar.inc.php:320
 msgid "Back-office"
 msgstr "Stirilo"
 

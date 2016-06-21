@@ -1,5 +1,5 @@
 # edk - Language file
-# Copyright (C) 2016 keith
+# Copyright (C) 2016 Keith
 # This file is distributed under the same license as the edk package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 #
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edk \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-16 10:23-0400\n"
+"POT-Creation-Date: 2016-06-21 18:50-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -77,37 +77,45 @@ msgstr ""
 msgid "Posted in %s by <a href=\"%s\">%s</a> on %s at %s %s %s"
 msgstr ""
 
-#: templates/_funcs.inc.php:372
+#: templates/_funcs.inc.php:376
 #, php-format
 msgid "<div>Powered by <cite><a href=\"http://www.duckduckgo.com/?q=!+%1$s\">%1$s</a> %2$s</cite>.</div>"
 msgstr ""
 
-#: templates/_funcs.inc.php:374
+#: templates/_funcs.inc.php:378
 msgid "Delete Cookies!"
 msgstr ""
 
-#: templates/_funcs.inc.php:374
+#: templates/_funcs.inc.php:378
 msgid "This site uses <a href=\"http://en.wikipedia.org/wiki/HTTP_cookie\">cookies</a>."
 msgstr ""
 
 #: templates/_html_header.inc.php:27
-msgid "Transitional Look"
-msgstr ""
-
-#: templates/_html_header.inc.php:32
 msgid "Clear Look"
 msgstr ""
 
-#: templates/_html_header.inc.php:43
-msgid "Classic Look"
-msgstr ""
-
-#: templates/_html_header.inc.php:44
+#: templates/_html_header.inc.php:32
 msgid "One-column Look"
 msgstr ""
 
-#: templates/_html_header.inc.php:208
+#: templates/_html_header.inc.php:37
+msgid "Classic Look"
+msgstr ""
+
+#: templates/_html_header.inc.php:42
+msgid "Transitional Look"
+msgstr ""
+
+#: templates/_html_header.inc.php:229
 msgid "Please leave this for stats"
+msgstr ""
+
+#: templates/_html_header.inc.php:247
+msgid "GNU General Public License Version 3"
+msgstr ""
+
+#: templates/_html_header.inc.php:247
+msgid "https://www.gnu.org/licenses/lgpl-3.0.en.html"
 msgstr ""
 
 #: templates/_html_header.inc.php:253
@@ -118,11 +126,11 @@ msgstr ""
 msgid "Shortened Permalink"
 msgstr ""
 
-#: templates/_html_header.inc.php:261
+#: templates/_html_header.inc.php:260
 msgid "Main Content"
 msgstr ""
 
-#: templates/_html_header.inc.php:262
+#: templates/_html_header.inc.php:261
 msgid "Menu"
 msgstr ""
 
@@ -173,27 +181,27 @@ msgstr ""
 msgid "Share on Twitter"
 msgstr ""
 
-#: templates/_sidebar.inc.php:238
+#: templates/_sidebar.inc.php:250
 msgid "Select a pod to use above or enter one below."
 msgstr ""
 
-#: templates/_sidebar.inc.php:256
+#: templates/_sidebar.inc.php:268
 msgid "Diaspora* user name"
 msgstr ""
 
-#: templates/_sidebar.inc.php:263
+#: templates/_sidebar.inc.php:275
 msgid "Diaspora* password"
 msgstr ""
 
-#: templates/_sidebar.inc.php:269
+#: templates/_sidebar.inc.php:281
 msgid "Diaspora* aspects"
 msgstr ""
 
-#: templates/_sidebar.inc.php:283 templates/_sidebar.inc.php:284
+#: templates/_sidebar.inc.php:295 templates/_sidebar.inc.php:296
 msgid "Share on Diaspora*"
 msgstr ""
 
-#: templates/_sidebar.inc.php:308
+#: templates/_sidebar.inc.php:320
 msgid "Back-office"
 msgstr ""
 
