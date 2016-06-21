@@ -28,7 +28,7 @@ function edk_css_include()
 	);
 
 	$mobile_style = array(
-		'file' => $edk_base . 'css/mobile.css',
+		'file' => $edk_base . 'css/one.css',
 		'title' => $Skin->T_('One-column Look'),
 	);
 
@@ -42,7 +42,7 @@ function edk_css_include()
 		'title' => $Skin->T_('Transitional Look'),
 	);
 
-	$visual_media = supports_xhtml() ? 'handheld, print, projection, screen, tty, tv' : 'not speech';
+	$visual_media = prefers_xhtml() ? 'handheld, print, projection, screen, tty, tv' : 'not speech';
 
 	/* Main styles */
 	require_css($edk_base . 'css/core.css', 'relative', NULL, 'all');
@@ -92,7 +92,7 @@ function edk_css_include()
 		global $Session;
 		if (!$Session->is_desktop_session())
 			$default_style = $mobile_style['file'];
-		elseif (supports_xhtml())
+		elseif (prefers_xhtml())
 			$default_style = $xhtml_style['file'];
 		else
 			$default_style = $html5_style['file'];
@@ -100,7 +100,7 @@ function edk_css_include()
 
 	/* In XHTML, it needs to be outputted as XML processing instructions,
 	 * so do that and remove it from the headlines to include. */
-	if (supports_xhtml())
+	if (prefers_xhtml())
 	{
 		foreach ($headlines as $file => $elem)
 		{
@@ -135,7 +135,7 @@ function edk_css_include()
 
 function edk_get_meta($type, $value, $content = '', $extra = array())
 {
-	if (supports_xhtml())
+	if (prefers_xhtml())
 	{
 		if ($type != 'charset')
 			$r = sprintf('<meta property="%s" content="%s" />', $value, $content);
@@ -201,7 +201,7 @@ $edk_base = $Blog->get_local_skins_url().$skin.'/';
 init_content_type();
 skin_content_header($content_type);
 
-if (supports_xhtml())
+if (prefers_xhtml())
 {
 	echo '<?xml version="1.0" encoding="' . $io_charset . '"?' . '>';
 	echo "\n";
@@ -237,7 +237,7 @@ echo $params['html_tag'];
 <head>
 <?php
 echo edk_get_meta('charset', $io_charset) . "\n";
-if (!supports_xhtml())
+if (!prefers_xhtml())
 	skin_base_tag(); /* Base URL for this skin. You need this to fix relative links! */
 	$Plugins->trigger_event( 'SkinBeginHtmlHead' );
 ?>
@@ -272,7 +272,7 @@ if (!supports_xhtml())
 		printf('<link rel="shortlink" href="%s" title="%s" />%s', get_tinyurl(), $Skin->T_('Shortened Permalink'),  "\n");
 	}
 
-	if (supports_xhtml() || supports_link_toolbar())
+	if (prefers_xhtml() || supports_link_toolbar())
 	{
 		$comment_args = is_text_browser() ? '?show=menu&amp;redir=no' : '';
 ?>
@@ -299,7 +299,7 @@ if ('posts' != $disp)
 else
 {
 foreach (get_other_blogs() as $blog)
-	printf('<link rel="alternate" href="%1$s" title="%2$s" %3$s="%4$s" hreflang="%4$s" />%5$s', $blog['blog_siteurl'], $blog['blog_name'], supports_xhtml() ? 'xml:lang' : 'lang', $blog['blog_locale'], "\n");
+	printf('<link rel="alternate" href="%1$s" title="%2$s" %3$s="%4$s" hreflang="%4$s" />%5$s', $blog['blog_siteurl'], $blog['blog_name'], prefers_xhtml() ? 'xml:lang' : 'lang', $blog['blog_locale'], "\n");
 }
 
 if (NULL !== $first_item)

@@ -39,7 +39,7 @@ skin_include( 'templates/_html_header.inc.php' );
 
 skin_include( 'templates/_body_header.inc.php' );
 
-$footer_elem = supports_xhtml() ? 'div' : 'footer';
+$footer_elem = prefers_xhtml() ? 'div' : 'footer';
 
 if (is_text_browser() && 'menu' == $show_mode)
 {
@@ -53,10 +53,10 @@ while( $Item = & mainlist_get_item() ):
 $_item_title = ($disp == 'single') ? $Item->title : '';
 $_item_url = get_tinyurl();
 ?>
-	<div role="article" id="<?php $Item->anchor_id(); ?>" <?php printf('%s="%s"', supports_xhtml() ? 'xml:lang' : 'lang', locale_lang(FALSE)); ?>>
+	<div role="article" id="<?php $Item->anchor_id(); ?>" <?php printf('%s="%s"', prefers_xhtml() ? 'xml:lang' : 'lang', locale_lang(FALSE)); ?>>
 <?php
 	$Item->locale_temp_switch();
-	printf('<h2 class="storytitle"><a rel="%4$s" href="%1$s"  title="%3$s">%2$s</a></h2>', $Item->get_single_url(), $Item->title, __('Permanent link to full entry'), supports_xhtml() ? 'permalink' : 'bookmark');
+	printf('<h2 class="storytitle"><a rel="%4$s" href="%1$s"  title="%3$s">%2$s</a></h2>', $Item->get_single_url(), $Item->title, __('Permanent link to full entry'), prefers_xhtml() ? 'permalink' : 'bookmark');
 ?>
 	<div class="meta"><?php get_meta($Item); ?></div>
 
@@ -64,7 +64,7 @@ $_item_url = get_tinyurl();
 if ($show_mode != 'comments')
 {
 	global $first_item, $last_item, $next_item, $prev_item;
-	if ((!supports_xhtml() && !supports_link_toolbar()) && 'single' == $disp &&
+	if ((!prefers_xhtml() && !supports_link_toolbar()) && 'single' == $disp &&
 		(NULL !== $first_item || NULL !== $last_item || NULL !== $next_item || NULL !== $prev_item))
 	{
 ?>
@@ -74,7 +74,7 @@ if ($show_mode != 'comments')
 		{
 ?>
 		<div id="firstitem">
-			<a <?php if (supports_xhtml()) echo 'rel="first" '; ?>href="<?php echo get_full_url($first_item['post_urltitle']) ?>">↓ <?php echo htmlspecialchars($first_item['post_title']) ?></a>
+			<a <?php if (prefers_xhtml()) echo 'rel="first" '; ?>href="<?php echo get_full_url($first_item['post_urltitle']) ?>">↓ <?php echo htmlspecialchars($first_item['post_title']) ?></a>
 		</div>
 <?php
 		}
@@ -82,7 +82,7 @@ if ($show_mode != 'comments')
 		{
 ?>
 		<div id="lastitem">
-			<a <?php if (supports_xhtml()) echo 'rel="last" '; ?>href="<?php echo get_full_url($last_item['post_urltitle']) ?>"><?php echo htmlspecialchars($last_item['post_title']) ?> ↑</a>
+			<a <?php if (prefers_xhtml()) echo 'rel="last" '; ?>href="<?php echo get_full_url($last_item['post_urltitle']) ?>"><?php echo htmlspecialchars($last_item['post_title']) ?> ↑</a>
 		</div>
 <?php
 		}
@@ -164,7 +164,7 @@ if ($MainList)
 		' WHERE cat_blog_ID=' . $Blog->ID . ')', ARRAY_A, 0);
 
 	$MainList->page_links(array(
-			'block_start' => "\n" . '<!-- begin footer -->' . "\n" . '<' . $footer_elem . ' id="page-links"' . (supports_xhtml() ? ' role="navigation"' : '') . '>',
+			'block_start' => "\n" . '<!-- begin footer -->' . "\n" . '<' . $footer_elem . ' id="page-links"' . (prefers_xhtml() ? ' role="navigation"' : '') . '>',
 			'block_end' => '</' . $footer_elem . '>' . "\n" . '<!-- end footer -->' . "\n",
 			'prev_text' => '<span class="sago">←</span>',
 			'next_text' => '<span class="sago">→</span>',

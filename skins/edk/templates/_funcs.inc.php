@@ -267,7 +267,7 @@ function get_tinyurl()
 
 function init_content_type()
 {
-	global $content_type, $supports_xhtml, $use_strict;
+	global $content_type, $prefers_xhtml, $use_strict;
 
 	if (!isset($content_type))
 	{
@@ -295,7 +295,7 @@ function init_content_type()
 			if (!empty($types['application/xhtml+xml']))
 			{
 				if (!empty($types['text/html']))
-					$r = $types['application/xhtml+xml'] >= $types['text/html'];
+					$r = $types['application/xhtml+xml'] > $types['text/html'];
 				else
 					$r = $types['application/xhtml+xml'] > 0;
 			}
@@ -306,8 +306,8 @@ function init_content_type()
 		$content_type = $r ? 'application/xhtml+xml' : 'text/html';
 	}
 
-	$supports_xhtml = 'text/html' != $content_type;
-	$use_strict = $supports_xhtml;
+	$prefers_xhtml = 'text/html' != $content_type;
+	$use_strict = $prefers_xhtml;
 }
 
 function is_text_browser()
@@ -322,7 +322,7 @@ function is_valid_query($result)
 
 function links_to_xhtml2($str)
 {
-	if (!supports_xhtml())
+	if (!prefers_xhtml())
 		return $str;
 	else
 	{
@@ -389,10 +389,10 @@ function supports_link_toolbar()
 	return $ret;
 }
 
-function supports_xhtml()
+function prefers_xhtml()
 {
-	global $supports_xhtml;
-	return $supports_xhtml;
+	global $prefers_xhtml;
+	return $prefers_xhtml;
 }
 
 global $baseurl, $collection_path;

@@ -5,7 +5,7 @@
 	locale_temp_switch($Blog->locale);
 ?>
 
-<section id="nav"<?php if (supports_xhtml()) echo ' role="navigation"'?>>
+<section id="nav"<?php if (prefers_xhtml()) echo ' role="navigation"'?>>
 	<ul id="menu">
 <li>
 <ul>
@@ -43,7 +43,7 @@ if (empty($_item_url))
 
 if ($Blog->get_setting('feed_content') != 'none')
 {
-	$type = supports_xhtml() ? 'hreftype' : 'type';
+	$type = prefers_xhtml() ? 'hreftype' : 'type';
 	if (file_exists("$skins_path/_esf"))
 	{
 ?>
@@ -58,7 +58,7 @@ if ($Blog->get_setting('feed_content') != 'none')
 	}
 }
 
-if (supports_xhtml())
+if (prefers_xhtml())
 {
 ?>
 
