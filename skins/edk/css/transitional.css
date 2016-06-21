@@ -18,13 +18,25 @@ a:hover {
 }
 
 body,
-html {
+html,
+#skin_wrapper {
   height: 100%;
   overflow: hidden;
 }
 
 body.disp_single [role="article"] {
   margin-top: 1em;
+}
+
+div#evo_toolbar {
+  height: 5%;
+}
+
+div#evo_toolbar + #skin_wrapper #content {
+  height: 95%;
+}
+div#evo_toolbar + #skin_wrapper #nav {
+  height: 85%;
 }
 
 form.bComment {

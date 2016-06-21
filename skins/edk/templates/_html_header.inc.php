@@ -14,7 +14,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 global $Skin;
 global $app_name, $app_version, $xmlsrv_url;
-global $baseurl, $content_type, $io_charset;
+global $basepath, $baseurl, $content_type, $io_charset;
 global $first_item, $last_item, $next_item, $prev_item;
 
 function edk_css_include()
@@ -228,25 +228,11 @@ $params = array_merge( array(
 	'body_class'    => NULL,
 	'generator_tag' => edk_get_meta('name', 'generator', sprintf('%s %s', $app_name, $app_version)) . '<!-- ' . $Skin->T_('Please leave this for stats') . " -->\n",
 	'html_tag'      => "$dtd\n$htmlelem\n",
+	'viewport_tag'  => prefers_xhtml() ? NULL : '#responsive#',
 ), $params );
 
-
-echo $params['html_tag'];
 ?>
 
-<head>
-<?php
-echo edk_get_meta('charset', $io_charset) . "\n";
-if (!prefers_xhtml())
-	skin_base_tag(); /* Base URL for this skin. You need this to fix relative links! */
-	$Plugins->trigger_event( 'SkinBeginHtmlHead' );
-?>
-
-  <title><?php
-		// ------------------------- TITLE FOR THE CURRENT REQUEST -------------------------
-		request_title($params);
-		// ------------------------------ END OF REQUEST TITLE -----------------------------
-	?></title>
 <?php
 	edk_meta('name', 'author', $Blog->get_owner_User()->get('fullname'));
 	edk_meta('property', 'DC.rights', get_copyright(array('display' => FALSE, 'license' =>  FALSE)));
@@ -257,105 +243,75 @@ if (!prefers_xhtml())
 	add_js_headline('var cookie_path = "' .  $cookie_path . '";');
 	require_js($edk_base . 'js/styleprefs.js', NULL, TRUE);
 
-	skin_description_tag();
-	skin_keywords_tag();
-	skin_opengraph_tags();
-	robots_tag();
-
-	echo $params['generator_tag'];
-
 	/* Hold this info in a variable instead of querying the DB multiple times */
 	$canonical_url = get_full_url(get_post_urltitle());
 	if ('single' == $disp)
 	{
-		printf('<link rel="canonical" href="%s" title="%s" />%s', $canonical_url, $Skin->T_('Canonical Permalink'), "\n");
-		printf('<link rel="shortlink" href="%s" title="%s" />%s', get_tinyurl(), $Skin->T_('Shortened Permalink'),  "\n");
+		add_headline(sprintf('<link rel="canonical" href="%s" title="%s" />%s', $canonical_url, $Skin->T_('Canonical Permalink'), "\n"));
+		add_headline(sprintf('<link rel="shortlink" href="%s" title="%s" />%s', get_tinyurl(), $Skin->T_('Shortened Permalink'),  "\n"));
 	}
 
 	if (prefers_xhtml() || supports_link_toolbar())
 	{
 		$comment_args = is_text_browser() ? '?show=menu&amp;redir=no' : '';
-?>
-  <link rel="bookmark" href="<?php echo $canonical_url; ?>#content" title="<?php echo $Skin->T_('Main Content'); ?>" />
-  <link rel="bookmark" href="<?php echo $canonical_url . $comment_args; ?>#menu" title="<?php echo $Skin->T_('Menu'); ?>" />
+		add_headline(sprintf('<link rel="bookmark" href="%s#content" title="%s" />', $canonical_url, $Skin->T_('Main Content')));
+		add_headline(sprintf('<link rel="bookmark" href="%s%s#menu" title="%s" />', $canonical_url, $comment_args, $Skin->T_('Menu')));
 
-<?php
 if ('single' == $disp)
 		{
-?>
-  <link rel="bookmark" href="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']); ?>?show=comments&amp;redir=no#comments" title="<?php echo __('Comments') ?>" />
-<?php
+  add_headline(sprintf('<link rel="bookmark" href="%s?show=comments&amp;redir=no#comments" title="%s" />', htmlspecialchars($_SERVER['REQUEST_URI']), __('Comments')));
 		}
-?>
-  <link rel="top" href="<?php echo $baseurl; ?>default.php" title="<?php echo __('Go back to home page'); ?>" />
+  add_headline(sprintf('<link rel="top" href="%sdefault.php" title="%s" />', $baseurl, __('Go back to home page')));
 
-<?php
 if ('posts' != $disp)
 {
-?>
-	<link rel="up" href="<?php echo $baseurl . $Blog->siteurl ?>" title="<?php echo htmlspecialchars($Blog->name); ?>" />
-<?php
+	add_headline(sprintf('<link rel="up" href="%s%s" title="%s" />', $baseurl, $Blog->siteurl, htmlspecialchars($Blog->name)));
 }
 else
 {
 foreach (get_other_blogs() as $blog)
-	printf('<link rel="alternate" href="%1$s" title="%2$s" %3$s="%4$s" hreflang="%4$s" />%5$s', $blog['blog_siteurl'], $blog['blog_name'], prefers_xhtml() ? 'xml:lang' : 'lang', $blog['blog_locale'], "\n");
+	add_headline(sprintf('<link rel="alternate" href="%1$s" title="%2$s" %3$s="%4$s" hreflang="%4$s" />%5$s', $blog['blog_siteurl'], $blog['blog_name'], prefers_xhtml() ? 'xml:lang' : 'lang', $blog['blog_locale'], "\n"));
 }
 
 if (NULL !== $first_item)
 {
-?>
-	<link rel="first" href="<?php echo get_full_url($first_item['post_urltitle']) ?>" title="↓ <?php echo htmlspecialchars($first_item['post_title']); ?>" />
-<?php
+	add_headline(sprintf('<link rel="first" href="%s" title="↓ %s" />', get_full_url($first_item['post_urltitle']), htmlspecialchars($first_item['post_title'])));
 }
 if (NULL !== $last_item)
 {
-?>
-	<link rel="last" href="<?php echo get_full_url($last_item['post_urltitle']) ?>" title="<?php echo htmlspecialchars($last_item['post_title']) ?> ↑" />
-<?php
+	add_headline(sprintf('<link rel="last" href="%s" title="%s ↑" />', get_full_url($last_item['post_urltitle']), htmlspecialchars($last_item['post_title'])));
 }
 
 if (NULL !== $prev_item)
 {
-?>
-  <link rel="prev" href="<?php echo $prev_item->get_permanent_url(); ?>" title="← <?php echo htmlspecialchars($prev_item->title); ?>" />
-<?php
+  add_headline(sprintf('<link rel="prev" href="%s" title="← %s" />', $prev_item->get_permanent_url(), htmlspecialchars($prev_item->title)));
 }
 if (NULL !== $next_item)
 {
-?>
-  <link rel="next" href="<?php echo $next_item->get_permanent_url(); ?>" title="<?php echo htmlspecialchars($next_item->title); ?> →" />
-<?php
+  add_headline(sprintf('<link rel="next" href="%s" title="%s →" />', $next_item->get_permanent_url(), htmlspecialchars($next_item->title)));
 }}
 if ($Blog->get_setting('feed_content') != 'none')
 {
 	if (file_exists("$skins_path/_esf"))
 	{
-?>
-	<link rel="alternate" type="text/plain" title="ESF 1.0" href="<?php echo $baseurl . $Blog->siteurl; ?>?blog=<?php echo $Blog->ID; ?>&amp;tempskin=_esf" />
-<?php
+	add_headline(sprintf('<link rel="alternate" type="text/plain" title="ESF 1.0" href="%s%s?blog=%d&amp;tempskin=_esf" />', $baseurl, $Blog->siteurl, $Blog->ID));
 	}
 	if (file_exists("$skins_path/_rss3"))
 	{
-?>
-  <link rel="alternate" type="text/plain" title="RSS 3.0" href="<?php echo $baseurl . $Blog->siteurl; ?>?blog=<?php echo $Blog->ID; ?>&amp;tempskin=_rss3" />
-<?php
+  add_headline(sprintf('<link rel="alternate" type="text/plain" title="RSS 3.0" href="%s%s?blog=%d&amp;tempskin=_rss3" />', $baseurl, $Blog->siteurl, $Blog->ID));
 	}
 	if (!file_exists("$skins_path/_esf") && !file_exists("$skins_path/_rss3"))
 	{
-?>
-  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="<?php $Blog->disp('atom_url', 'raw'); ?>" />
-<?php
+  add_headline(sprintf('<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="%s" />', $Blog->dget('atom_url', 'raw')));
 	}
 }
-	printf('<link rel="EditURI" type="application/rsd+xml" title="RSD" href="%srsd.php?blog=%d" />', $xmlsrv_url, $Blog->ID);
-	include_headlines(); /* Add javascript and css files included by plugins and the skin */
+	add_headline(sprintf('<link rel="EditURI" type="application/rsd+xml" title="RSD" href="%srsd.php?blog=%d" />', $xmlsrv_url, $Blog->ID));
 
-	$Blog->disp( 'blog_css', 'raw');
-	$Blog->disp( 'user_css', 'raw');
-	$Blog->disp_setting( 'head_includes', 'raw');
+/* Must be included this way rather than skin_include so that $params will be correctly passed */
+$skin_version = $Skin->get_api_version();
+if (!is_int($skin_version) || $skin_version < 5)
+	$skin_version = 5;
+
+require_once $basepath . 'skins_fallback_v' . $skin_version . '/_html_header.inc.php';
+
 ?>
-
-</head>
-
-<body<?php skin_body_attrs( array( 'class' => $params['body_class'] ) ); ?>>
