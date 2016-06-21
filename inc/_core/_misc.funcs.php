@@ -451,7 +451,7 @@ function zeroise( $number, $threshold )
  * @param int Maximum length
  * @return string
  */
-function excerpt( $str, $maxlen = 254, $tail = '&#8230;' )
+function excerpt( $str, $maxlen = 254, $tail = '…' )
 {
 	// Add spaces
 	$str = str_replace( array( '<p>', '<br' ), array( ' <p>', ' <br' ), $str );
@@ -504,7 +504,7 @@ function strmaxlen( $str, $maxlen = 50, $tail = NULL, $format = 'raw', $cut_at_w
 	if( utf8_strlen( $str ) > $maxlen )
 	{
 		// Replace all HTML entities by a single char. html_entity_decode for example
-		// would not handle &hellip;.
+		// would not handle ….
 		$tail_for_length = preg_replace('~&\w+?;~', '.', $tail);
 		$tail_length = utf8_strlen( html_entity_decode($tail_for_length) );
 		$len = $maxlen-$tail_length;
@@ -661,7 +661,7 @@ function convert_chars( $content, $flag = 'html' )
 		'&#130;' => '&#8218;',
 		'&#131;' => '&#402;',
 		'&#132;' => '&#8222;',
-		'&#133;' => '&#8230;',
+		'&#133;' => '…',
 		'&#134;' => '&#8224;',
 		'&#135;' => '&#8225;',
 		'&#136;' => '&#710;',
@@ -7811,7 +7811,7 @@ function get_install_format_text( $text, $format = 'string' )
 			break;
 	}
 
-	// Replace all html entities like "&nbsp;", "&raquo;", "&laquo;" to readable chars:
+	// Replace all html entities like "&#160;", "&raquo;", "&laquo;" to readable chars:
 	$text = html_entity_decode( $text );
 
 	return $text;

@@ -292,7 +292,7 @@ $Form->hidden( 'comment_ID', $edited_Comment->ID );
 						'mark' => T_('Mark as Notified')
 					);
 			}
-			$Form->select_input_array( 'comment_'.$notify_type, get_param( 'comment_'.$notify_type ), $notify_select_options, $notify_title, NULL, array( 'input_prefix' => $notify_status.' &nbsp; &nbsp; ' ) );
+			$Form->select_input_array( 'comment_'.$notify_type, get_param( 'comment_'.$notify_type ), $notify_select_options, $notify_title, NULL, array( 'input_prefix' => $notify_status.' &#160; &#160; ' ) );
 		}
 
 	$Form->end_fieldset();

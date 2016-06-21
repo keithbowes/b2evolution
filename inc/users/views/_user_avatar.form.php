@@ -204,7 +204,7 @@ if( ( $current_User->ID == $edited_User->ID ) || $can_moderate_user )
 				{ // Link to set picture as Main
 					$url_update = is_admin_page() ?
 						regenerate_url( '', 'user_tab=avatar&user_ID='.$edited_User->ID.'&action=update_avatar&file_ID='.$user_Link->File->ID.'&'.url_crumb( 'user' ), '', '&') :
-						get_secure_htsrv_url().'profile_update.php?user_tab=avatar&blog='.$Blog->ID.'&user_ID='.$edited_User->ID.'&action=update_avatar&file_ID='.$user_Link->File->ID.'&'.url_crumb( 'user' );
+						get_secure_htsrv_url().'profile_update.php?user_tab=avatar&amp;blog='.$Blog->ID.'&user_ID='.$edited_User->ID.'&action=update_avatar&file_ID='.$user_Link->File->ID.'&'.url_crumb( 'user' );
 					$info_content .= '<br />'.action_icon( T_('Use as main picture'), 'move_up', $url_update, T_('Main'), 3, 4, array(), array( 'style' => 'margin-right:4px' ) );
 				}
 				elseif( is_admin_page() && $can_moderate_user )
@@ -219,7 +219,7 @@ if( ( $current_User->ID == $edited_User->ID ) || $can_moderate_user )
 				// Link to Delete picture
 				$url_delete = is_admin_page() ?
 					regenerate_url( '', 'user_tab=avatar&user_ID='.$edited_User->ID.'&action=delete_avatar&file_ID='.$user_Link->File->ID.'&'.url_crumb( 'user' ), '', '&') :
-					get_secure_htsrv_url().'profile_update.php?user_tab=avatar&blog='.$Blog->ID.'&user_ID='.$edited_User->ID.'&action=delete_avatar&file_ID='.$user_Link->File->ID.'&'.url_crumb( 'user' );
+					get_secure_htsrv_url().'profile_update.php?user_tab=avatar&amp;blog='.$Blog->ID.'&user_ID='.$edited_User->ID.'&action=delete_avatar&file_ID='.$user_Link->File->ID.'&'.url_crumb( 'user' );
 				$info_content .= '<br />'.action_icon( T_('Delete this picture'), 'delete', $url_delete, T_('Delete'), 3, 4, array( 'onclick' => 'return confirm(\''.TS_('Are you sure want to delete this picture?').'\');' ), array( 'style' => 'margin-right:4px' ) );
 				// Links to rotate picture
 				$info_content .= $edited_User->get_rotate_avatar_icons( $user_Link->File->ID );

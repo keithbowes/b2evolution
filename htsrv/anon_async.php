@@ -1008,7 +1008,7 @@ switch( $action )
 
 		$Form->output = false;
 		$Form->switch_layout( 'none' );
-		$org_suffix = ' &nbsp; <strong>'.T_('Role').':</strong> '.$Form->text_input( 'org_roles[]', '', 20, '', '', array( 'maxlength' => 255 ) ).' &nbsp; ';
+		$org_suffix = ' &#160; <strong>'.T_('Role').':</strong> '.$Form->text_input( 'org_roles[]', '', 20, '', '', array( 'maxlength' => 255 ) ).' &#160; ';
 		$Form->switch_layout( NULL );
 		$Form->output = true;
 

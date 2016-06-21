@@ -96,7 +96,7 @@ switch( $action )
 		set_working_blog( $Blog->ID );
 
 		// Where are we going to redirect to?
-		param( 'redirect_to', 'url', url_add_param( $admin_url, 'ctrl=items&filter=restore&blog='.$Blog->ID.'&highlight='.$edited_Item->ID, '&' ) );
+		param( 'redirect_to', 'url', url_add_param( $admin_url, 'ctrl=items&filter=restore&amp;blog='.$Blog->ID.'&highlight='.$edited_Item->ID, '&' ) );
 		break;
 
 	case 'mass_edit':
@@ -144,7 +144,7 @@ switch( $action )
 		set_working_blog( $Blog->ID );
 
 		// Where are we going to redirect to?
-		param( 'redirect_to', 'url', url_add_param( $admin_url, 'ctrl=items&filter=restore&blog='.$Blog->ID.'&highlight='.$edited_Item->ID, '&' ) );
+		param( 'redirect_to', 'url', url_add_param( $admin_url, 'ctrl=items&filter=restore&amp;blog='.$Blog->ID.'&highlight='.$edited_Item->ID, '&' ) );
 
 		// What form button has been pressed?
 		param( 'save', 'string', '' );
@@ -155,7 +155,7 @@ switch( $action )
 		break;
 
 	case 'mass_save' :
-		param( 'redirect_to', 'url', url_add_param( $admin_url, 'ctrl=items&filter=restore&blog=' . $Blog->ID, '&' ) );
+		param( 'redirect_to', 'url', url_add_param( $admin_url, 'ctrl=items&filter=restore&amp;blog=' . $Blog->ID, '&' ) );
 		break;
 
 	case 'new':
@@ -196,7 +196,7 @@ switch( $action )
 			}
 
 			// Where are we going to redirect to?
-			param( 'redirect_to', 'url', url_add_param( $admin_url, 'ctrl=items&filter=restore&blog='.$Blog->ID, '&' ) );
+			param( 'redirect_to', 'url', url_add_param( $admin_url, 'ctrl=items&filter=restore&amp;blog='.$Blog->ID, '&' ) );
 
 			// What form buttton has been pressed?
 			param( 'save', 'string', '' );
@@ -363,7 +363,7 @@ switch( $action )
 
 		// Note: we redirect without restoring filter. This should allow to see the new files.
 		// &filter=restore
-		header_redirect( $dispatcher.'?ctrl=items&blog='.$blog );	// Will save $Messages
+		header_redirect( $dispatcher.'?ctrl=items&amp;blog='.$blog );	// Will save $Messages
 
 		// Note: we should have EXITED here. In case we don't (error, or sth...)
 
@@ -388,7 +388,7 @@ switch( $action )
 		$item_ID = param( 'p', 'integer', 0 );
 
 		// REDIRECT / EXIT
-		header_redirect( $admin_url.'?ctrl=items&action='.$prev_action.( $item_ID > 0 ? '&p='.$item_ID : '' ).'&blog='.$blog );
+		header_redirect( $admin_url.'?ctrl=items&action='.$prev_action.( $item_ID > 0 ? '&p='.$item_ID : '' ).'&amp;blog='.$blog );
 		break;
 
 	case 'reset_quick_settings':
@@ -406,7 +406,7 @@ switch( $action )
 		$item_ID = param( 'p', 'integer', 0 );
 
 		// REDIRECT / EXIT
-		header_redirect( $admin_url.'?ctrl=items&action='.$prev_action.( $item_ID > 0 ? '&p='.$item_ID : '' ).'&blog='.$blog );
+		header_redirect( $admin_url.'?ctrl=items&action='.$prev_action.( $item_ID > 0 ? '&p='.$item_ID : '' ).'&amp;blog='.$blog );
 		break;
 
 	default:
@@ -1154,21 +1154,21 @@ switch( $action )
 			}
 
 			// Set redirect back to items list with new item type tab
-			$redirect_to = $admin_url.'?ctrl=items&blog='.$Blog->ID.'&tab=type&tab_type='.$edited_Item->get_type_setting( 'usage' ).'&filter=restore';
+			$redirect_to = $admin_url.'?ctrl=items&amp;blog='.$Blog->ID.'&amp;tab=type&tab_type='.$edited_Item->get_type_setting( 'usage' ).'&filter=restore';
 		}
 		else
 		{ // Set default redirect urls (It goes from the item edit form)
 			if( $post_ID > 0 )
 			{ // Edit item form
-				$redirect_to = $admin_url.'?ctrl=items&blog='.$Blog->ID.'&action=edit&restore=1&p='.$edited_Item->ID;
+				$redirect_to = $admin_url.'?ctrl=items&amp;blog='.$Blog->ID.'&action=edit&restore=1&p='.$edited_Item->ID;
 			}
 			elseif( $duplicated_item_ID > 0 )
 			{ // Copy item form
-				$redirect_to = $admin_url.'?ctrl=items&blog='.$Blog->ID.'&action=new&restore=1&p='.$duplicated_item_ID;
+				$redirect_to = $admin_url.'?ctrl=items&amp;blog='.$Blog->ID.'&action=new&restore=1&p='.$duplicated_item_ID;
 			}
 			else
 			{ // New item form
-				$redirect_to = $admin_url.'?ctrl=items&blog='.$Blog->ID.'&action=new&restore=1';
+				$redirect_to = $admin_url.'?ctrl=items&amp;blog='.$Blog->ID.'&action=new&restore=1';
 			}
 		}
 
@@ -1199,7 +1199,7 @@ switch( $action )
 
 		if( param_errors_detected() )
 		{ // If errors then redirect to edit form
-			$redirect_to = $admin_url.'?ctrl=items&blog='.$Blog->ID.'&action=edit&restore=1&p='.$edited_Item->ID;
+			$redirect_to = $admin_url.'?ctrl=items&amp;blog='.$Blog->ID.'&action=edit&restore=1&p='.$edited_Item->ID;
 		}
 		else
 		{ // No errors, Update the item and redirect back to list
@@ -1213,7 +1213,7 @@ switch( $action )
 
 			// Set redirect back to items list with new item type tab:
 			$tab = get_tab_by_item_type_usage( $edited_Item->get_type_setting( 'usage' ) );
-			$redirect_to = $admin_url.'?ctrl=items&blog='.$Blog->ID.'&tab=type&tab_type='.( $tab ? $tab[0] : 'post' ).'&filter=restore';
+			$redirect_to = $admin_url.'?ctrl=items&amp;blog='.$Blog->ID.'&amp;tab=type&tab_type='.( $tab ? $tab[0] : 'post' ).'&filter=restore';
 
 			// Highlight the updated item in list
 			$Session->set( 'highlight_id', $edited_Item->ID );
@@ -1538,13 +1538,13 @@ function init_list_mode()
 			if( $Blog->get( 'type' ) != 'manual' )
 			{	// Display this tab only for manual blogs
 				global $admin_url;
-				header_redirect( $admin_url.'?ctrl=items&blog='.$Blog->ID.'&tab=type&tab_type=post&filter=restore' );
+				header_redirect( $admin_url.'?ctrl=items&amp;blog='.$Blog->ID.'&amp;tab=type&tab_type=post&filter=restore' );
 			}
 
 			global $ReqURI, $blog;
 
 			init_field_editor_js( array(
-					'action_url' => $ReqURI.'&blog='.$blog.'&order_action=update&order_data=',
+					'action_url' => $ReqURI.'&amp;blog='.$blog.'&order_action=update&order_data=',
 				) );
 
 			$AdminUI->breadcrumbpath_add( T_('Manual view'), '?ctrl=items&amp;blog=$blog$&amp;tab='.$tab.'&amp;filter=restore' );

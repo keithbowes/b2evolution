@@ -70,7 +70,7 @@ class coll_longdesc_Widget extends ComponentWidget
 	{
 		global $Blog;
 		return sprintf( T_('Long description from the blog\'s <a %s>general settings</a>.'),
-						'href="?ctrl=coll_settings&tab=general&blog='.$Blog->ID.'"' );
+						'href="?ctrl=coll_settings&amp;tab=general&amp;blog='.$Blog->ID.'"' );
 	}
 
 

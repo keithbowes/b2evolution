@@ -74,7 +74,7 @@ if( $params['notify_full'] )
 
 	if( $recipient_User->check_perm( 'item_post!CURSTATUS', 'edit', false, $Item ) )
 	{ // User has permission to edit this post
-		echo T_('Edit/Delete').': '.$admin_url.'?ctrl=items&blog='.$Item->get_blog_ID().'&p='.$Item->ID."\n";
+		echo T_('Edit/Delete').': '.$admin_url.'?ctrl=items&amp;blog='.$Item->get_blog_ID().'&p='.$Item->ID."\n";
 	}
 }
 else

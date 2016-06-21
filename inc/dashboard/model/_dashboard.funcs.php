@@ -352,7 +352,7 @@ function show_comments_awaiting_moderation( $blog_ID, $CommentList = NULL, $limi
 		if( ! $script )
 		{ // Set page, where to redirect, because the function is called from async.php (regenerate_url gives => async.php)
 			global $admin_url;
-			$redirect_to = $admin_url.'?ctrl=coll_settings&amp;tab=dashboard&blog='.$blog_ID;
+			$redirect_to = $admin_url.'?ctrl=coll_settings&amp;tab=dashboard&amp;blog='.$blog_ID;
 		}
 
 		echo '<div class="floatleft">';
@@ -480,7 +480,7 @@ function display_posts_awaiting_moderation( $status, & $block_item_Widget )
 	}
 	// erhsatingin> I am not sure if I should hard-code the $param_prefix or set it when $ItemList is instantiated above
 	$param_prefix = 'items_type_';
-	$block_title = $block_title.' <a href="'.$admin_url.'?ctrl=items&amp;blog='.$Blog->ID.'&amp;'.$param_prefix.'show_statuses[]='.$status.'&amp;'.$param_prefix.'sentence=AND&tab=type" style="text-decoration:none">'.
+	$block_title = $block_title.' <a href="'.$admin_url.'?ctrl=items&amp;blog='.$Blog->ID.'&amp;'.$param_prefix.'show_statuses[]='.$status.'&amp;'.$param_prefix.'sentence=AND&amp;tab=type" style="text-decoration:none">'.
 				'<span id="badge" class="badge badge-important">'.$ItemList->get_total_rows().'</span></a>'.get_manual_link( 'dashboard-posts-awaiting-moderation' );
 	$block_item_Widget->title = $block_title;
 	$block_item_Widget->disp_template_replaced( 'block_start' );

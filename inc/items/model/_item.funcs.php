@@ -115,7 +115,7 @@ function init_inskin_editing()
 
 	if( ! $Blog->get_setting( 'in_skin_editing' ) )
 	{	// Redirect to the Back-office editing (setting is OFF)
-		header_redirect( $admin_url.'?ctrl=items&action=new&blog='.$Blog->ID );
+		header_redirect( $admin_url.'?ctrl=items&action=new&amp;blog='.$Blog->ID );
 	}
 
 	$tab_switch_params = 'blog='.$Blog->ID;
@@ -2667,7 +2667,7 @@ function echo_item_comments( $blog_ID, $item_ID, $statuses = NULL, $currentpage 
 		}
 
 		// redirect to the items full view
-		param( 'redirect_to', 'url', url_add_param( $admin_url, 'ctrl=items&blog='.$blog_ID.'&p='.$item_ID, '&' ) );
+		param( 'redirect_to', 'url', url_add_param( $admin_url, 'ctrl=items&amp;blog='.$blog_ID.'&p='.$item_ID, '&' ) );
 		param( 'item_id', 'integer', $item_ID );
 		param( 'currentpage', 'integer', $currentpage );
 		if( count( $statuses ) == 1 )
@@ -2694,7 +2694,7 @@ function echo_item_comments( $blog_ID, $item_ID, $statuses = NULL, $currentpage 
 	}
 	else
 	{ // redirect to the comments full view
-		param( 'redirect_to', 'url', url_add_param( $admin_url, 'ctrl=comments&blog='.$blog_ID.'&filter=restore', '&' ) );
+		param( 'redirect_to', 'url', url_add_param( $admin_url, 'ctrl=comments&amp;blog='.$blog_ID.'&filter=restore', '&' ) );
 		// this is an ajax call we always have to restore the filterst (we can set filters only without ajax call)
 		$CommentList->set_filters( array(
 			'types' => $comment_type == 'meta' ? array( 'meta' ) : array( 'comment', 'trackback', 'pingback' ),
@@ -4492,8 +4492,8 @@ function manual_display_chapter_row( $Chapter, $level, $params = array() )
 		}
 		if( $perm_create_item )
 		{ // Create new item
-			$redirect_to = '&amp;redirect_to='.urlencode( $admin_url.'?ctrl=items&tab=manual&cat_ID='.$Chapter->ID );
-			$r .= action_icon( T_('New manual page...'), 'new', $admin_url.'?ctrl=items&action=new&blog='.$Chapter->blog_ID.'&amp;cat='.$Chapter->ID.$redirect_to, NULL, NULL, NULL, array(), array( 'style' => 'width:12px' ) );
+			$redirect_to = '&amp;redirect_to='.urlencode( $admin_url.'?ctrl=items&amp;tab=manual&cat_ID='.$Chapter->ID );
+			$r .= action_icon( T_('New manual page...'), 'new', $admin_url.'?ctrl=items&action=new&amp;blog='.$Chapter->blog_ID.'&amp;cat='.$Chapter->ID.$redirect_to, NULL, NULL, NULL, array(), array( 'style' => 'width:12px' ) );
 		}
 		if( $perm_edit )
 		{ // Delete chapter

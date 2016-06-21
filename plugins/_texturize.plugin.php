@@ -35,7 +35,7 @@ It will also perform the following replacements:
 <ul>
 	<li>--- to &#8212;</li>
 	<li>-- to &#8211;</li>
-	<li>... to &#8230;</li>
+	<li>... to …</li>
 </ul>' );
 	}
 
@@ -116,7 +116,7 @@ It will also perform the following replacements:
 			if (strlen($curl) && '<' != $curl{0} && $next) { // If it's not a tag
 				$curl = str_replace('---', '&#8212;', $curl);
 				$curl = str_replace('--', '&#8211;', $curl);
-				$curl = str_replace("...", '&#8230;', $curl);
+				$curl = str_replace("...", '…', $curl);
 				$curl = str_replace('``', '&#8220;', $curl);
 
 				// This is a hack, look at this more later. It works pretty well though.

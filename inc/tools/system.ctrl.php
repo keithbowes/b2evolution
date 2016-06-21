@@ -59,7 +59,7 @@ function disp_system_check( $condition, $message = '' )
 	echo '</div>';
 	echo '<div class="system_check_value_'.$condition.'">';
 	echo $syscheck_value;
-	echo '&nbsp;</div>';
+	echo '&#160;</div>';
 	if( !empty( $message ) )
 	{
 		echo '<div class="system_check_message_'.$condition.'">';

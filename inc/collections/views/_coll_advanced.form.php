@@ -123,7 +123,7 @@ if( $current_User->check_perm( 'blog_admin', 'edit', false, $edited_Blog->ID ) )
 	$Form->begin_fieldset( T_('In-skin Actions').get_admin_badge().get_manual_link('in_skin_action_settings') );
 		if( $login_Blog = & get_setting_Blog( 'login_blog_ID' ) )
 		{ // The login blog is defined in general settings
-			$Form->info( T_( 'In-skin login' ), sprintf( T_('All login/registration functions are delegated to the collection: %s'), '<a href="'.$admin_url.'?ctrl=collections&tab=site_settings">'.$login_Blog->get( 'shortname' ).'</a>' ) );
+			$Form->info( T_( 'In-skin login' ), sprintf( T_('All login/registration functions are delegated to the collection: %s'), '<a href="'.$admin_url.'?ctrl=collections&amp;tab=site_settings">'.$login_Blog->get( 'shortname' ).'</a>' ) );
 		}
 		else
 		{ // Allow to select in-skin login for this blog
@@ -160,7 +160,7 @@ if( $current_User->check_perm( 'blog_admin', 'edit', false, $edited_Blog->ID ) )
 			), T_('Media directory'), true
 		);
 	$Form->info( T_('URL preview'), '<span id="blog_media_url_preview">'.$edited_Blog->get_media_url().'</span>'
-		.' <a href="'.$admin_url.'?ctrl=coll_settings&tab=urls&blog='.$edited_Blog->ID.'" class="small">'.T_('CDN configuration').'</a>' );
+		.' <a href="'.$admin_url.'?ctrl=coll_settings&amp;tab=urls&amp;blog='.$edited_Blog->ID.'" class="small">'.T_('CDN configuration').'</a>' );
 	$Form->end_fieldset();
 
 }

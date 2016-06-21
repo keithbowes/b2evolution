@@ -72,7 +72,7 @@ $block_item_Widget->disp_template_replaced( 'block_start' );
 	if( $display_same_as_normal )
 	{
 		$skinshot_title = T_('Same as normal skin');
-		$select_url = '?ctrl=coll_settings&tab=skin&blog='.$edited_Blog->ID.'&amp;action=update&amp;skinpage=selection&amp;'.$skin_type.'_skin_ID=0&amp;'.url_crumb('collection');
+		$select_url = '?ctrl=coll_settings&amp;tab=skin&amp;blog='.$edited_Blog->ID.'&amp;action=update&amp;skinpage=selection&amp;'.$skin_type.'_skin_ID=0&amp;'.url_crumb('collection');
 		$disp_params = array(
 			'function'     => 'select',
 			'selected'     => $current_skin_ID == '0',
@@ -93,7 +93,7 @@ $block_item_Widget->disp_template_replaced( 'block_start' );
 
 		$selected = ( $current_skin_ID == $iterator_Skin->ID );
 		$blog_skin_param = $skin_type.'_skin_ID=';
-		$select_url = '?ctrl=coll_settings&tab=skin&blog='.$edited_Blog->ID.'&amp;action=update&amp;skinpage=selection&amp;'.$blog_skin_param.$iterator_Skin->ID.'&amp;'.url_crumb('collection');
+		$select_url = '?ctrl=coll_settings&amp;tab=skin&amp;blog='.$edited_Blog->ID.'&amp;action=update&amp;skinpage=selection&amp;'.$blog_skin_param.$iterator_Skin->ID.'&amp;'.url_crumb('collection');
 		$preview_url = url_add_param( $edited_Blog->gen_blogurl(), 'tempskin='.rawurlencode($iterator_Skin->folder) );
 
 		$disp_params = array(

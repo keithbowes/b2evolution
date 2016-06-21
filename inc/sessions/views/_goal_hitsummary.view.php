@@ -66,7 +66,7 @@ if( count( $goal_rows ) && count( $hitgroup_array ) )
 
 	// Initialize the data to open an url by click on bar item
 	$chart['link_data'] = array();
-	$chart['link_data']['url'] = $admin_url.'?ctrl=stats&tab=goals&tab3=hits&blog='.$blog.'&datestartinput=$date$&datestopinput=$date$&goal_name=$param1$';
+	$chart['link_data']['url'] = $admin_url.'?ctrl=stats&amp;tab=goals&tab3=hits&amp;blog='.$blog.'&datestartinput=$date$&datestopinput=$date$&goal_name=$param1$';
 	$chart['link_data']['params'] = array();
 
 	// Column mapping and colors

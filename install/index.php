@@ -698,7 +698,7 @@ switch( $action )
 			?>
 
 			<p class="evo_form__install_buttons" style="margin-top:24px">
-				<button id="install_button" type="submit" class="btn btn-primary btn-lg">&nbsp; <?php echo T_('GO!')?> &nbsp;</button>
+				<button id="install_button" type="submit" class="btn btn-primary btn-lg">&#160; <?php echo T_('GO!')?> &#160;</button>
 			</p>
 			</form>
 		<?php

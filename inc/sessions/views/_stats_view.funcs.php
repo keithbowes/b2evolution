@@ -372,7 +372,7 @@ function disp_clickable_log_IP( $hit_remote_addr )
 
 	if( $perm == true )
 	{
-		return '<a href="?ctrl=stats&tab='.get_param( 'tab' ).'&colselect_submit=Filter+list&sess_ID=&remote_IP='.$hit_remote_addr.'&blog='.$blog.'">'.$hit_remote_addr.'</a>';
+		return '<a href="?ctrl=stats&amp;tab='.get_param( 'tab' ).'&colselect_submit=Filter+list&sess_ID=&remote_IP='.$hit_remote_addr.'&amp;blog='.$blog.'">'.$hit_remote_addr.'</a>';
 	}
 	else
 	{

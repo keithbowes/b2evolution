@@ -132,7 +132,7 @@ switch( $action )
 			// We want to highlight the edited object on next list display:
 			// $Session->set( 'fadeout_array', array( 'blog_ID' => array($edited_Blog->ID) ) );
 
-			header_redirect( $admin_url.'?ctrl=coll_settings&tab=dashboard&blog='.$edited_Blog->ID ); // will save $Messages into Session
+			header_redirect( $admin_url.'?ctrl=coll_settings&amp;tab=dashboard&amp;blog='.$edited_Blog->ID ); // will save $Messages into Session
 		}
 		break;
 
@@ -149,7 +149,7 @@ switch( $action )
 		{	// The collection has been duplicated successfully:
 			$Messages->add( T_('The collection has been duplicated.'), 'success' );
 
-			header_redirect( $admin_url.'?ctrl=coll_settings&tab=dashboard&blog='.$edited_Blog->ID ); // will save $Messages into Session
+			header_redirect( $admin_url.'?ctrl=coll_settings&amp;tab=dashboard&amp;blog='.$edited_Blog->ID ); // will save $Messages into Session
 		}
 
 		//
@@ -260,7 +260,7 @@ switch( $action )
 			$Settings->dbupdate();
 			$Messages->add( T_('Blog settings updated.'), 'success' );
 			// Redirect so that a reload doesn't write to the DB twice:
-			header_redirect( '?ctrl=collections&tab=blog_settings', 303 ); // Will EXIT
+			header_redirect( '?ctrl=collections&amp;tab=blog_settings', 303 ); // Will EXIT
 			// We have EXITed already at this point!!
 		}
 		break;
@@ -358,7 +358,7 @@ switch( $action )
 			$Settings->dbupdate();
 			$Messages->add( T_('Site settings updated.'), 'success' );
 			// Redirect so that a reload doesn't write to the DB twice:
-			header_redirect( $admin_url.'?ctrl=collections&tab=site_settings', 303 ); // Will EXIT
+			header_redirect( $admin_url.'?ctrl=collections&amp;tab=site_settings', 303 ); // Will EXIT
 			// We have EXITed already at this point!!
 		}
 

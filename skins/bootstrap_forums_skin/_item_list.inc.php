@@ -251,7 +251,7 @@ $use_workflow = ( $disp == 'posts' ) &&
 		$latest_Comment->date( $use_workflow ? 'm/d/y' : 'D M j, Y H:i' );
 
 		echo ' <a href="'.$latest_Comment->get_permanent_url().'" title="'.T_('View latest post')
-				.'" class="icon_latest_reply"><i class="fa fa-arrow-right"></i>&nbsp;<i class="fa fa-file-o"></i></a>';
+				.'" class="icon_latest_reply"><i class="fa fa-arrow-right"></i>&#160;<i class="fa fa-file-o"></i></a>';
 		echo '</div>';
 	}
 	else
@@ -280,7 +280,7 @@ $use_workflow = ( $disp == 'posts' ) &&
 		echo $use_workflow ? $Item->get_mod_date( 'm/d/y' ) : $Item->get_mod_date( 'D M j, Y H:i' );
 
 		echo ' <a href="'.$Item->get_permanent_url().'" title="'.T_('View latest post')
-				.'" class="icon_latest_reply"><i class="fa fa-arrow-right"></i>&nbsp;<i class="fa fa-file-o"></i></a>';
+				.'" class="icon_latest_reply"><i class="fa fa-arrow-right"></i>&#160;<i class="fa fa-file-o"></i></a>';
 		echo '</div>';
 	}
 	echo '</div>';
@@ -316,7 +316,7 @@ $use_workflow = ( $disp == 'posts' ) &&
 
 			$latest_Comment->date('m/j/y ');
 			echo ' <a href="'.$latest_Comment->get_permanent_url().'" title="'.T_('View latest post')
-					.'" class="icon_latest_reply"><i class="fa fa-arrow-right"></i>&nbsp;<i class="fa fa-file-o"></i></a>';
+					.'" class="icon_latest_reply"><i class="fa fa-arrow-right"></i>&#160;<i class="fa fa-file-o"></i></a>';
 		}
 		else
 		{ // No comments, Display info of post
@@ -328,7 +328,7 @@ $use_workflow = ( $disp == 'posts' ) &&
 
 			echo $Item->get_mod_date( 'm/j/y' );
 			echo ' <a href="'.$Item->get_permanent_url().'" title="'.T_('View latest post').
-					'" class="icon_latest_reply"><i class="fa fa-arrow-right"></i>&nbsp;<i class="fa fa-file-o"></i></a>';
+					'" class="icon_latest_reply"><i class="fa fa-arrow-right"></i>&#160;<i class="fa fa-file-o"></i></a>';
 		}
 		?>
 	</div>

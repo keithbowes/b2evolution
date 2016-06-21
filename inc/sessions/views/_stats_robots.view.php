@@ -53,7 +53,7 @@ if( count($res_hits) )
 
 	// Initialize the data to open an url by click on bar item
 	$chart['link_data'] = array();
-	$chart['link_data']['url'] = $admin_url.'?ctrl=stats&tab=hits&datestartinput=$date$&datestopinput=$date$&blog='.$blog.'&agent_type=$param1$';
+	$chart['link_data']['url'] = $admin_url.'?ctrl=stats&amp;tab=hits&datestartinput=$date$&datestopinput=$date$&amp;blog='.$blog.'&agent_type=$param1$';
 	$chart['link_data']['params'] = array(
 			array( 'robot' )
 		);

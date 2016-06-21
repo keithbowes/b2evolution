@@ -25,7 +25,7 @@ $current_User->check_perm( 'options', 'view', true );
 param( 'action', 'string', 'list' );
 param( 'tab', 'string', 'manage_skins', true );
 
-param( 'redirect_to', 'url', $admin_url.'?ctrl=skins&tab='.$tab.( isset( $blog ) ? '&blog='.$blog : '' ) );
+param( 'redirect_to', 'url', $admin_url.'?ctrl=skins&amp;tab='.$tab.( isset( $blog ) ? '&amp;blog='.$blog : '' ) );
 
 if( $tab != 'system' )
 {	// Memorize this as the last "tab" used in the Blog Settings:
@@ -90,7 +90,7 @@ switch( $action )
 			}
 			else
 			{	// Redirect to admin skins page if we change the skin for another device type:
-				header_redirect( $admin_url.'?ctrl=coll_settings&tab=skin&blog='.$edited_Blog->ID );
+				header_redirect( $admin_url.'?ctrl=coll_settings&amp;tab=skin&amp;blog='.$edited_Blog->ID );
 			}
 		}
 		else
@@ -250,7 +250,7 @@ switch( $action )
 		$Messages->add( T_('Skin params have been reset to defaults.'), 'success' );
 
 		// Redirect so that a reload doesn't write to the DB twice:
-		header_redirect( '?ctrl=coll_settings&tab=skin&blog='.$blog, 303 ); // Will EXIT
+		header_redirect( '?ctrl=coll_settings&amp;tab=skin&amp;blog='.$blog, 303 ); // Will EXIT
 		// We have EXITed already at this point!!
 		break;
 }

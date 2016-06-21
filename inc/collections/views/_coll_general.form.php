@@ -68,7 +68,7 @@ $Form->begin_fieldset( T_('Collection type').get_manual_link( 'collection-type-p
 		.'</p>';
 		if( $edited_Blog->ID > 0 && $action != 'copy' )
 		{	// Display a link to change collection kind:
-			echo '<p><a href="'.$admin_url.'?ctrl=coll_settings&tab=general&action=type&blog='.$edited_Blog->ID.'">'
+			echo '<p><a href="'.$admin_url.'?ctrl=coll_settings&amp;tab=general&action=type&amp;blog='.$edited_Blog->ID.'">'
 					.T_('Change collection type / Reset')
 			.'</a></p>';
 		}
@@ -88,7 +88,7 @@ $Form->begin_fieldset( T_('General parameters').get_manual_link( 'blogs_general_
 	{ // Permission to edit advanced admin settings
 		$Form->text( 'blog_urlname', $edited_Blog->get( 'urlname' ), 20, T_('URL "filename"'),
 				sprintf( T_('"slug" used to uniquely identify this blog in URLs. Also used as <a %s>default media folder</a>.'),
-					'href="?ctrl=coll_settings&tab=advanced&blog='.$blog.'"'), 255 );
+					'href="?ctrl=coll_settings&amp;tab=advanced&amp;blog='.$blog.'"'), 255 );
 	}
 	else
 	{

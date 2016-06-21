@@ -145,7 +145,7 @@ function attachment_iframe( & $Form, & $LinkOwner, $iframe_name = NULL, $creatin
 				array( 'target' => '_blank' ) );
 	}
 
-	$fieldset_title .= '<span class="floatright">&nbsp;'
+	$fieldset_title .= '<span class="floatright">&#160;'
 			.action_icon( T_('Refresh'), 'refresh', $admin_url
 					.'?ctrl=links&amp;action=edit_links&amp;link_type='.$LinkOwner->type.'&amp;mode=iframe&amp;iframe_name='.$iframe_name.'&amp;link_object_ID='.$LinkOwner->get_ID(),
 					T_('Refresh'), 3, 4, array( 'target' => $iframe_name, 'class' => 'action_icon btn btn-default btn-sm' ) )

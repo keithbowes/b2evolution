@@ -336,7 +336,7 @@ function convert_lang_to_locale( $table, $columnlang, $columnID )
 	foreach( $languagestoconvert as $lkey => $lIDs)
 	{ // converting the languages we've found
 		$converted = false;
-		echo get_install_format_text( '&nbsp; Converting lang \''. $lkey. '\' ' ); // (with IDs: '. implode( ', ', $lIDs ). ').. ';
+		echo get_install_format_text( '&#160; Converting lang \''. $lkey. '\' ' ); // (with IDs: '. implode( ', ', $lIDs ). ').. ';
 
 		if( preg_match('/[a-z]{2}-[A-Z]{2}(-.{1,14})?/', $lkey) )
 		{ // Already valid
@@ -854,7 +854,7 @@ function upgrade_b2evo_tables( $upgrade_action = 'evoupgrade' )
 			$newname = ( isset($newarr[1]) ? $newarr[1] : $oldkey );
 			if( !isset( $row[$oldkey] ) )
 			{
-				echo '&nbsp;&middot;Setting '.$oldkey.' not found, using defaults.<br />';
+				echo '&#160;&middot;Setting '.$oldkey.' not found, using defaults.<br />';
 				$_trans[ $newname ] = $newarr[0];
 			}
 			else

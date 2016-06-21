@@ -81,7 +81,7 @@ if( count($res_hits) )
 
 	// Initialize the data to open an url by click on bar item
 	$chart['link_data'] = array();
-	$chart['link_data']['url'] = $admin_url.'?ctrl=stats&tab=hits&datestartinput=$date$&datestopinput=$date$&blog='.$blog.'&agent_type=browser&referer_type=$param1$&hit_type=$param2$';
+	$chart['link_data']['url'] = $admin_url.'?ctrl=stats&amp;tab=hits&datestartinput=$date$&datestopinput=$date$&amp;blog='.$blog.'&agent_type=browser&referer_type=$param1$&hit_type=$param2$';
 	$chart['link_data']['params'] = array(
 			array( 'search',  '' ),
 			array( 'referer', '' ),
@@ -211,8 +211,8 @@ if( count($res_hits) )
 
 			if( $last_date == 0 ) $last_date = $this_date;	// that'll be the first one
 
-			$link_text = $admin_url.'?ctrl=stats&tab=hits&datestartinput='.urlencode( date( locale_datefmt() , $last_date ) ).'&datestopinput='.urlencode( date( locale_datefmt(), $last_date ) ).'&blog='.$blog.'&agent_type=browser';
-			$link_text_total_day = $admin_url.'?ctrl=stats&tab=hits&datestartinput='.urlencode( date( locale_datefmt() , $last_date ) ).'&datestopinput='.urlencode( date( locale_datefmt(), $last_date ) ).'&blog='.$blog.'&agent_type=browser';
+			$link_text = $admin_url.'?ctrl=stats&amp;tab=hits&datestartinput='.urlencode( date( locale_datefmt() , $last_date ) ).'&datestopinput='.urlencode( date( locale_datefmt(), $last_date ) ).'&amp;blog='.$blog.'&agent_type=browser';
+			$link_text_total_day = $admin_url.'?ctrl=stats&amp;tab=hits&datestartinput='.urlencode( date( locale_datefmt() , $last_date ) ).'&datestopinput='.urlencode( date( locale_datefmt(), $last_date ) ).'&amp;blog='.$blog.'&agent_type=browser';
 
 			if( $last_date != $this_date )
 			{ // We just hit a new day, let's display the previous one:
@@ -282,8 +282,8 @@ if( count($res_hits) )
 		{ // We had a day pending:
 			$this_date = mktime( 0, 0, 0, $row_stats['month'], $row_stats['day'], $row_stats['year'] );
 
-			$link_text = $admin_url.'?ctrl=stats&tab=hits&datestartinput='.urlencode( date( locale_datefmt() , $last_date ) ).'&datestopinput='.urlencode( date( locale_datefmt(), $last_date ) ).'&blog='.$blog.'&agent_type=browser';
-			$link_text_total_day = $admin_url.'?ctrl=stats&tab=hits&datestartinput='.urlencode( date( locale_datefmt() , $last_date ) ).'&datestopinput='.urlencode( date( locale_datefmt(), $last_date ) ).'&blog='.$blog.'&agent_type=browser';
+			$link_text = $admin_url.'?ctrl=stats&amp;tab=hits&datestartinput='.urlencode( date( locale_datefmt() , $last_date ) ).'&datestopinput='.urlencode( date( locale_datefmt(), $last_date ) ).'&amp;blog='.$blog.'&agent_type=browser';
+			$link_text_total_day = $admin_url.'?ctrl=stats&amp;tab=hits&datestartinput='.urlencode( date( locale_datefmt() , $last_date ) ).'&datestopinput='.urlencode( date( locale_datefmt(), $last_date ) ).'&amp;blog='.$blog.'&agent_type=browser';
 			?>
 				<tr class="<?php echo ( $count%2 == 1 ) ? 'odd' : 'even'; ?>">
 				<td class="firstcol right"><?php
@@ -309,7 +309,7 @@ if( count($res_hits) )
 
 		// Total numbers:
 
-		$link_text_total = $admin_url.'?ctrl=stats&tab=hits&blog='.$blog.'&agent_type=browser';
+		$link_text_total = $admin_url.'?ctrl=stats&amp;tab=hits&amp;blog='.$blog.'&agent_type=browser';
 		?>
 
 		<tr class="total">

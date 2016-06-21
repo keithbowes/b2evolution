@@ -92,7 +92,7 @@ switch( $action )
 		$Plugins_admin->unfilter_contents( $comment_title /* by ref */, $comment_content /* by ref */, $edited_Comment->get_renderers_validated(), $params );
 
 		// Where are we going to redirect to?
-		param( 'redirect_to', 'url', url_add_param( $admin_url, 'ctrl=items&blog='.$blog.'&p='.$edited_Comment_Item->ID.( $edited_Comment->is_meta() ? '&comment_type=meta' : '' ), '&' ) );
+		param( 'redirect_to', 'url', url_add_param( $admin_url, 'ctrl=items&amp;blog='.$blog.'&p='.$edited_Comment_Item->ID.( $edited_Comment->is_meta() ? '&comment_type=meta' : '' ), '&' ) );
 		break;
 
 	case 'elevate':
@@ -171,7 +171,7 @@ switch( $action )
 		}
 
 		// Where are we going to redirect to?
-		param( 'redirect_to', 'url', url_add_param( $admin_url, 'ctrl=comments&blog='.$blog.'&filter=restore', '&' ) );
+		param( 'redirect_to', 'url', url_add_param( $admin_url, 'ctrl=comments&amp;blog='.$blog.'&filter=restore', '&' ) );
 
 		// Redirect so that a reload doesn't write to the DB twice:
 		header_redirect( $redirect_to, 303 ); // Will EXIT
@@ -437,7 +437,7 @@ switch( $action )
 
 			if( $action == 'update_edit' )
 			{	// Redirect back to the edit comment form in order to see the updated content correctly:
-				header_redirect( $admin_url.'?ctrl=comments&blog='.$blog.'&action=edit&comment_ID='.$edited_Comment->ID.'&redirect_to='.rawurlencode( $redirect_to ) );
+				header_redirect( $admin_url.'?ctrl=comments&amp;blog='.$blog.'&action=edit&comment_ID='.$edited_Comment->ID.'&redirect_to='.rawurlencode( $redirect_to ) );
 				/* exited */
 			}
 			else
@@ -662,7 +662,7 @@ switch( $action )
 		// Move all child comments to new created post
 		move_child_comments_to_item( $edited_Comment->ID, $new_Item->ID );
 
-		header_redirect( url_add_param( $admin_url, 'ctrl=items&blog='.$blog.'&action=edit&p='.$new_Item->ID, '&' ) );
+		header_redirect( url_add_param( $admin_url, 'ctrl=items&amp;blog='.$blog.'&action=edit&p='.$new_Item->ID, '&' ) );
 		break;
 
 	case 'list':

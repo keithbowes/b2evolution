@@ -96,7 +96,7 @@ else
 $param_tab = '';
 if( $perm_abuse_management )
 {	// After completing of the action ( create | delete ) we want back to the abuse managment
-	$param_tab = '&tab=abuse';
+	$param_tab = '&amp;tab=abuse';
 }
 
 switch( $action )

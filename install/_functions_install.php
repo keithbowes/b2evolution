@@ -235,9 +235,9 @@ function install_newdb()
 		.'</strong></p>', 'p' )
 		.get_install_format_text(
 		'<table>'
-			.'<tr><td>'.T_( 'Login' ).': &nbsp;</td><td><strong><evo:login>'.( isset( $install_login ) ? $install_login : 'admin' ).'</evo:login></strong></td></tr>', 'br' )
+			.'<tr><td>'.T_( 'Login' ).': &#160;</td><td><strong><evo:login>'.( isset( $install_login ) ? $install_login : 'admin' ).'</evo:login></strong></td></tr>', 'br' )
 		.get_install_format_text(
-			'<tr><td>'.T_( 'Password' ).': &nbsp;</td><td><strong><evo:password>'.$random_password.'</evo:password></strong></td></tr>'
+			'<tr><td>'.T_( 'Password' ).': &#160;</td><td><strong><evo:password>'.$random_password.'</evo:password></strong></td></tr>'
 		.'</table>', 'br' )
 		.get_install_format_text(
 		'<br /><p>'.T_('Note that password carefully! It is a <em>random</em> password that is given to you when you install b2evolution. If you lose it, you will have to delete the database tables and re-install anew.').'</p>', 'p' );

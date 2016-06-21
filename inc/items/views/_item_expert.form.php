@@ -828,7 +828,7 @@ $Form->begin_form( '', '', $params );
 							'mark' => ( $notify_type == 'pings_sent' ) ? T_('Mark as Sent') : T_('Mark as Notified')
 						);
 				}
-				$Form->select_input_array( 'item_'.$notify_type, get_param( 'item_'.$notify_type ), $notify_select_options, $notify_title, NULL, array( 'input_prefix' => $notify_status.' &nbsp; &nbsp; ' ) );
+				$Form->select_input_array( 'item_'.$notify_type, get_param( 'item_'.$notify_type ), $notify_select_options, $notify_title, NULL, array( 'input_prefix' => $notify_status.' &#160; &#160; ' ) );
 			}
 		}
 

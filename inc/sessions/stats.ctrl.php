@@ -103,7 +103,7 @@ switch( $action )
 			$Messages->add( sprintf( /* TRANS: %s is a date */ T_('No hits deleted for %s.'), date( locale_datefmt(), $date ) ), 'note' );
 		}
 		// Redirect so that a reload doesn't write to the DB twice:
-		header_redirect( '?ctrl=stats&blog='.$blog, 303 ); // Will EXIT
+		header_redirect( '?ctrl=stats&amp;blog='.$blog, 303 ); // Will EXIT
 		// We have EXITed already at this point!!
 		break;
 
@@ -144,7 +144,7 @@ switch( $action )
 			$Settings->dbupdate();
 			$Messages->add( T_( 'Settings updated.' ), 'success' );
 			// Redirect so that a reload doesn't write to the DB twice:
-			header_redirect( '?ctrl=stats&tab=settings&blog='.$blog, 303 ); // Will EXIT
+			header_redirect( '?ctrl=stats&amp;tab=settings&amp;blog='.$blog, 303 ); // Will EXIT
 			// We have EXITed already at this point!!
 		}
 		break;
@@ -218,7 +218,7 @@ switch( $action )
 			}
 			else
 			{ // Updating from analitics collection page
-				$redirect_to = $admin_url.'?ctrl=stats&tab=domains&tab3='.$tab3.'&blog='.$blog;
+				$redirect_to = $admin_url.'?ctrl=stats&amp;tab=domains&tab3='.$tab3.'&amp;blog='.$blog;
 			}
 			header_redirect( $redirect_to, 303 ); // Will EXIT
 			// We have EXITed already at this point!!

@@ -68,7 +68,7 @@ if( $current_User->check_perm( 'options', 'edit', false ) )
 	if( $fm_FileRoot->type == 'collection' )
 	{
 		echo '<p class="note">'.T_('See also:').' ';
-		echo T_('Blog Settings').' &gt; '.T_('Advanced').' &gt; <a href="?ctrl=coll_settings&tab=advanced&blog='.$fm_FileRoot->in_type_ID.'">'
+		echo T_('Blog Settings').' &gt; '.T_('Advanced').' &gt; <a href="?ctrl=coll_settings&amp;tab=advanced&amp;blog='.$fm_FileRoot->in_type_ID.'">'
 					.T_('Media directory location').'</a>';
 	}
 }

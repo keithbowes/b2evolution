@@ -1814,7 +1814,7 @@ function blog_row_type( $coll_type, $coll_ID )
 
 	if( $current_User->check_perm( 'blog_properties', 'edit', false, $coll_ID ) )
 	{ // Blog setting & can edit
-		$edit_url = $admin_url.'?ctrl=coll_settings&tab=general&action=type&blog='.$coll_ID;
+		$edit_url = $admin_url.'?ctrl=coll_settings&amp;tab=general&action=type&amp;blog='.$coll_ID;
 		$r = '<a href="'.$edit_url.'" title="'.T_('Edit properties...').'">';
 		$r .= $type_title;
 		$r .= '</a>';

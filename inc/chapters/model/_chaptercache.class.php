@@ -1004,7 +1004,7 @@ class ChapterCache extends DataObjectCache
 			$indent = '';
 			for($i = 0; $i < $level; $i++)
 			{
-				$indent .='&nbsp;&nbsp;';
+				$indent .='&#160;&#160;';
 			}
 			// Set category option:
 			$r .= '<option value="'.$Chapter->ID.'" ';

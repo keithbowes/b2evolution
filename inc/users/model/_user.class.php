@@ -3728,7 +3728,7 @@ class User extends DataObject
 
 		$request_id = generate_random_key(22);
 
-		$blog_param = ( empty( $blog ) ) ? '' : '&inskin=1&blog='.$blog;
+		$blog_param = ( empty( $blog ) ) ? '' : '&inskin=1&amp;blog='.$blog;
 
 		// Change locale here to localize the email subject and content
 		locale_temp_switch( $this->get( 'locale' ) );
@@ -4989,9 +4989,9 @@ class User extends DataObject
 		else
 		{ // Front-office
 			global $Blog;
-			$url_rotate_90_left = get_secure_htsrv_url().'profile_update.php?user_tab='.$params['user_tab'].'&blog='.$Blog->ID.'&user_ID='.$this->ID.'&action=rotate_avatar_90_left&file_ID='.$file_ID.'&'.url_crumb( 'user' );
-			$url_rotate_180 = get_secure_htsrv_url().'profile_update.php?user_tab='.$params['user_tab'].'&blog='.$Blog->ID.'&user_ID='.$this->ID.'&action=rotate_avatar_180&file_ID='.$file_ID.'&'.url_crumb( 'user' );
-			$url_rotate_90_right = get_secure_htsrv_url().'profile_update.php?user_tab='.$params['user_tab'].'&blog='.$Blog->ID.'&user_ID='.$this->ID.'&action=rotate_avatar_90_right&file_ID='.$file_ID.'&'.url_crumb( 'user' );
+			$url_rotate_90_left = get_secure_htsrv_url().'profile_update.php?user_tab='.$params['user_tab'].'&amp;blog='.$Blog->ID.'&user_ID='.$this->ID.'&action=rotate_avatar_90_left&file_ID='.$file_ID.'&'.url_crumb( 'user' );
+			$url_rotate_180 = get_secure_htsrv_url().'profile_update.php?user_tab='.$params['user_tab'].'&amp;blog='.$Blog->ID.'&user_ID='.$this->ID.'&action=rotate_avatar_180&file_ID='.$file_ID.'&'.url_crumb( 'user' );
+			$url_rotate_90_right = get_secure_htsrv_url().'profile_update.php?user_tab='.$params['user_tab'].'&amp;blog='.$Blog->ID.'&user_ID='.$this->ID.'&action=rotate_avatar_90_right&file_ID='.$file_ID.'&'.url_crumb( 'user' );
 		}
 
 		$html = $params['before'];

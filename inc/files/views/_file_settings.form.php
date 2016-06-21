@@ -223,9 +223,9 @@ $Form->begin_fieldset( T_('Image options').get_manual_link( 'image-options' ) );
 
 	$Form->begin_line( T_('Resize large images after upload'), 'fm_resize_enable' );
 		$Form->checkbox( 'fm_resize_enable', $Settings->get( 'fm_resize_enable' ), '' );
-		$Form->text( 'fm_resize_width', $Settings->get( 'fm_resize_width' ), 4, ' &nbsp; '.T_('Fit to') );
+		$Form->text( 'fm_resize_width', $Settings->get( 'fm_resize_width' ), 4, ' &#160; '.T_('Fit to') );
 		$Form->text( 'fm_resize_height', $Settings->get( 'fm_resize_height' ), 4, ' x ' );
-		$Form->text( 'fm_resize_quality', $Settings->get( 'fm_resize_quality' ), 3, T_('pixels').' &nbsp; ' );
+		$Form->text( 'fm_resize_quality', $Settings->get( 'fm_resize_quality' ), 3, T_('pixels').' &#160; ' );
 	$Form->end_line( ' % '.T_('quality') );
 
 $Form->end_fieldset();

@@ -401,7 +401,7 @@ if( $action != 'view' )
 			if( $org_ID > 0 && ! $perm_edit_orgs && $org_data['accepted'] )
 			{ // Display only info of the assigned organization
 				$Form->infostart = $Form->infostart.$inputstart_icon;
-				$org_role_input = ( empty( $org_data['role'] ) ? '' : ' &nbsp; <strong>'.T_('Role').':</strong> '.$org_data['role'] ).' &nbsp; ';
+				$org_role_input = ( empty( $org_data['role'] ) ? '' : ' &#160; <strong>'.T_('Role').':</strong> '.$org_data['role'] ).' &#160; ';
 				$org_hidden_fields = '<input type="hidden" name="organizations[]" value="'.$org_ID.'" />';
 				$Form->info_field( T_('Organization'), $org_data['name'], array(
 						'field_suffix' => $org_role_input.$org_add_icon.$org_remove_icon.$org_hidden_fields,
@@ -420,12 +420,12 @@ if( $action != 'view' )
 				$Form->switch_layout( 'none' );
 				if( $perm_edit_org_role )
 				{
-					$org_role_input = ' &nbsp; <strong>'.T_('Role').':</strong> '.
-							$Form->text_input( 'org_roles[]', $org_data['role'], 20, '', '', array( 'maxlength' => 255 ) ).' &nbsp; ';
+					$org_role_input = ' &#160; <strong>'.T_('Role').':</strong> '.
+							$Form->text_input( 'org_roles[]', $org_data['role'], 20, '', '', array( 'maxlength' => 255 ) ).' &#160; ';
 				}
 				else
 				{
-					$org_role_input = ( empty( $org_data['role'] ) ? '' : ' &nbsp; <strong>'.T_('Role').':</strong> '.$org_data['role'] ).' &nbsp; ';
+					$org_role_input = ( empty( $org_data['role'] ) ? '' : ' &#160; <strong>'.T_('Role').':</strong> '.$org_data['role'] ).' &#160; ';
 				}
 				$Form->switch_layout( NULL );
 				$Form->output = true;

@@ -146,17 +146,17 @@ switch( $action )
 			{
 				case 'create_copy':
 					// Redirect so that a reload doesn't write to the DB twice:
-					header_redirect( '?ctrl=goals&action=new'.( isset( $Blog ) ? '&blog='.$Blog->ID : '' ).'&goal_ID='.$edited_Goal->ID, 303 ); // Will EXIT
+					header_redirect( '?ctrl=goals&action=new'.( isset( $Blog ) ? '&amp;blog='.$Blog->ID : '' ).'&goal_ID='.$edited_Goal->ID, 303 ); // Will EXIT
 					// We have EXITed already at this point!!
 					break;
 				case 'create_new':
 					// Redirect so that a reload doesn't write to the DB twice:
-					header_redirect( '?ctrl=goals&action=new'.( isset( $Blog ) ? '&blog='.$Blog->ID : '' ), 303 ); // Will EXIT
+					header_redirect( '?ctrl=goals&action=new'.( isset( $Blog ) ? '&amp;blog='.$Blog->ID : '' ), 303 ); // Will EXIT
 					// We have EXITed already at this point!!
 					break;
 				case 'create':
 					// Redirect so that a reload doesn't write to the DB twice:
-					header_redirect( '?ctrl=goals'.( isset( $Blog ) ? '&blog='.$Blog->ID : '' ), 303 ); // Will EXIT
+					header_redirect( '?ctrl=goals'.( isset( $Blog ) ? '&amp;blog='.$Blog->ID : '' ), 303 ); // Will EXIT
 					// We have EXITed already at this point!!
 					break;
 			}
@@ -185,7 +185,7 @@ switch( $action )
 
 			$action = 'list';
 			// Redirect so that a reload doesn't write to the DB twice:
-			header_redirect( '?ctrl=goals'.( isset( $Blog ) ? '&blog='.$Blog->ID : '' ), 303 ); // Will EXIT
+			header_redirect( '?ctrl=goals'.( isset( $Blog ) ? '&amp;blog='.$Blog->ID : '' ), 303 ); // Will EXIT
 			// We have EXITed already at this point!!
 		}
 
@@ -212,7 +212,7 @@ switch( $action )
 			forget_param( 'goal_ID' );
 			$Messages->add( $msg, 'success' );
 			// Redirect so that a reload doesn't write to the DB twice:
-			header_redirect( '?ctrl=goals&blog='.$Blog->ID, 303 ); // Will EXIT
+			header_redirect( '?ctrl=goals&amp;blog='.$Blog->ID, 303 ); // Will EXIT
 			// We have EXITed already at this point!!
 		}
 		else
@@ -280,17 +280,17 @@ switch( $action )
 			{
 				case 'cat_create_copy':
 					// Redirect so that a reload doesn't write to the DB twice:
-					header_redirect( '?ctrl=goals&tab3=cats&action=cat_new&blog='.$Blog->ID.'&gcat_ID='.$edited_GoalCategory->ID, 303 ); // Will EXIT
+					header_redirect( '?ctrl=goals&tab3=cats&action=cat_new&amp;blog='.$Blog->ID.'&gcat_ID='.$edited_GoalCategory->ID, 303 ); // Will EXIT
 					// We have EXITed already at this point!!
 					break;
 				case 'cat_create_new':
 					// Redirect so that a reload doesn't write to the DB twice:
-					header_redirect( '?ctrl=goals&tab3=cats&action=cat_new&blog='.$Blog->ID, 303 ); // Will EXIT
+					header_redirect( '?ctrl=goals&tab3=cats&action=cat_new&amp;blog='.$Blog->ID, 303 ); // Will EXIT
 					// We have EXITed already at this point!!
 					break;
 				case 'cat_create':
 					// Redirect so that a reload doesn't write to the DB twice:
-					header_redirect( '?ctrl=goals&tab3=cats&blog='.$Blog->ID, 303 ); // Will EXIT
+					header_redirect( '?ctrl=goals&tab3=cats&amp;blog='.$Blog->ID, 303 ); // Will EXIT
 					// We have EXITed already at this point!!
 					break;
 			}
@@ -320,7 +320,7 @@ switch( $action )
 			$DB->commit();
 
 			// Redirect so that a reload doesn't write to the DB twice:
-			header_redirect( '?ctrl=goals&tab3=cats&blog='.$Blog->ID, 303 ); // Will EXIT
+			header_redirect( '?ctrl=goals&tab3=cats&amp;blog='.$Blog->ID, 303 ); // Will EXIT
 			// We have EXITed already at this point!!
 		}
 
@@ -354,7 +354,7 @@ switch( $action )
 			forget_param( 'gcat_ID' );
 			$Messages->add( $msg, 'success' );
 			// Redirect so that a reload doesn't write to the DB twice:
-			header_redirect( '?ctrl=goals&tab3=cats&blog='.$Blog->ID, 303 ); // Will EXIT
+			header_redirect( '?ctrl=goals&tab3=cats&amp;blog='.$Blog->ID, 303 ); // Will EXIT
 			// We have EXITed already at this point!!
 		}
 		else

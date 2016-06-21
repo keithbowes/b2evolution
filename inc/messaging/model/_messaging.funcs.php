@@ -2428,14 +2428,14 @@ function col_msg_actions( $thrd_ID, $msg_ID )
 		$tab = '';
 		if( $perm_abuse_management )
 		{	// We are in Abuse Management
-			$tab = '&tab=abuse';
+			$tab = '&amp;tab=abuse';
 		}
 		return action_icon( T_( 'Delete'), 'delete', regenerate_url( 'action', 'thrd_ID='.$thrd_ID.'&msg_ID='.$msg_ID.'&action=delete'.$tab.'&'.url_crumb( 'messaging_messages' ) ) );
 	}
 	else
 	{
 		$redirect_to = url_add_param( $Blog->gen_blogurl(), 'disp=messages&thrd_ID='.$thrd_ID );
-		$action_url = $samedomain_htsrv_url.'action.php?mname=messaging&disp=messages&thrd_ID='.$thrd_ID.'&msg_ID='.$msg_ID.'&action=delete&blog='.$Blog->ID;
+		$action_url = $samedomain_htsrv_url.'action.php?mname=messaging&disp=messages&thrd_ID='.$thrd_ID.'&msg_ID='.$msg_ID.'&action=delete&amp;blog='.$Blog->ID;
 		$action_url = url_add_param( $action_url, 'redirect_to='.rawurlencode( $redirect_to ), '&' );
 		return action_icon( T_( 'Delete'), 'delete', $action_url.'&'.url_crumb( 'messaging_messages' ) );
 	}

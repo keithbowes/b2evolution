@@ -146,22 +146,22 @@ class sessions_Module extends Module
 					'href' => $admin_url.'?ctrl=stats&amp;tab=summary&amp;tab3=global&amp;blog='.$Blog->ID,
 					'entries' => array(
 						'summary' => array(
-							'text' => T_('Hit summary').'&#8230;',
+							'text' => T_('Hit summary').'…',
 							'href' => $admin_url.'?ctrl=stats&amp;tab=summary&amp;tab3=global&amp;blog='.$Blog->ID ),
 						'refsearches' => array(
-							'text' => T_('Search B-hits').'&#8230;',
+							'text' => T_('Search B-hits').'…',
 							'href' => $admin_url.'?ctrl=stats&amp;tab=refsearches&amp;tab3=hits&amp;blog='.$Blog->ID ),
 						'referers' => array(
-							'text' => T_('Referered B-hits').'&#8230;',
+							'text' => T_('Referered B-hits').'…',
 							'href' => $admin_url.'?ctrl=stats&amp;tab=referers&amp;blog='.$Blog->ID ),
 						'other' => array(
-							'text' => T_('Direct B-hits').'&#8230;',
+							'text' => T_('Direct B-hits').'…',
 							'href' => $admin_url.'?ctrl=stats&amp;tab=other&amp;blog='.$Blog->ID ),
 						'hits' => array(
-							'text' => T_('All Hits').'&#8230;',
+							'text' => T_('All Hits').'…',
 							'href' => $admin_url.'?ctrl=stats&amp;tab=hits&amp;blog='.$Blog->ID ),
 						'domains' => array(
-							'text' => T_('Referring domains').'&#8230;',
+							'text' => T_('Referring domains').'…',
 							'href' => $admin_url.'?ctrl=stats&amp;tab=domains&amp;blog='.$Blog->ID ),
 						)
 				) );
@@ -198,7 +198,7 @@ class sessions_Module extends Module
 							'href' => $admin_url.'?ctrl=stats&amp;tab=hits&amp;blog=0' ),
 						array( 'separator' => true ),
 						'ips' => array(
-							'text' => T_('IPs').'&#8230;',
+							'text' => T_('IPs').'…',
 							'href' => $admin_url.'?ctrl=stats&amp;tab=ips&amp;blog=0' ),
 						'domains' => array(
 							'text' => T_('Referring domains').'…',
@@ -207,7 +207,7 @@ class sessions_Module extends Module
 							'text' => T_('Goals').'…',
 							'href' => $admin_url.'?ctrl=goals&amp;blog=0' ),
 						'settings' => array(
-							'text' => T_('Settings').'&#8230;',
+							'text' => T_('Settings').'…',
 							'href' => $admin_url.'?ctrl=stats&amp;tab=settings&amp;blog=0' ),
 						)
 				) );
@@ -217,7 +217,7 @@ class sessions_Module extends Module
 				$blog_ID = empty( $Blog ) ? 0 : $Blog->ID;
 				$entries['stats_page'] = array(
 						'text' => T_('Page stats').'…',
-						'href' => $admin_url.'?ctrl=stats&tab=hits&blog='.$blog_ID.'&reqURI='.rawurlencode( $_SERVER['REQUEST_URI'] ),
+						'href' => $admin_url.'?ctrl=stats&amp;tab=hits&amp;blog='.$blog_ID.'&amp;reqURI='.rawurlencode( $_SERVER['REQUEST_URI'] ),
 					);
 			}
 

@@ -461,7 +461,7 @@ while( $Item = & $ItemList->get_item() )
 
 			// We do not want to comment actions use new redirect
 			param( 'save_context', 'boolean', false );
-			param( 'redirect_to', 'url', url_add_param( $admin_url, 'ctrl=items&blog='.$blog.'&p='.$Item->ID, '&' ), false, true );
+			param( 'redirect_to', 'url', url_add_param( $admin_url, 'ctrl=items&amp;blog='.$blog.'&p='.$Item->ID, '&' ), false, true );
 			param( 'item_id', 'integer', $Item->ID );
 			param( 'show_comments', 'string', $show_comments, false, true );
 
@@ -732,7 +732,7 @@ while( $Item = & $ItemList->get_item() )
 				$Form->add_crumb( 'item' );
 				$Form->hidden( 'blog', $Blog->ID );
 				$Form->hidden( 'post_ID', $Item->ID );
-				$Form->hidden( 'redirect_to', $admin_url.'?ctrl=items&blog='.$Blog->ID.'&p='.$Item->ID );
+				$Form->hidden( 'redirect_to', $admin_url.'?ctrl=items&amp;blog='.$Blog->ID.'&p='.$Item->ID );
 
 				$Form->begin_form( 'evo_item_workflow_form' );
 

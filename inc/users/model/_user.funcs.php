@@ -4007,7 +4007,7 @@ function display_voting_form( $params = array() )
 
 	echo '<span class="vote_title">'.$vote_numbers.'<span class="vote_title_text">'.$params['title_text'].'</span></span>';
 
-	$blog_param = empty( $blog ) ? '' : '&blog='.$blog;
+	$blog_param = empty( $blog ) ? '' : '&amp;blog='.$blog;
 	// Set this url for case when JavaScript is not enabled
 	$url = get_secure_htsrv_url().'anon_async.php?action=voting&vote_type='.$params['vote_type'].'&vote_ID='.$params['vote_ID'].$blog_param.'&'.url_crumb( 'voting' );
 	// Save action url here in order to have new crumb on every voting form loading

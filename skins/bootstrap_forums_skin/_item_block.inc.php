@@ -129,7 +129,7 @@ skin_widget( array(
 						// We want to display the post date:
 						$Item->issue_time( array(
 								'before'      => '<span class="text-muted">',
-								'after'       => '</span> &nbsp; &nbsp; ',
+								'after'       => '</span> &#160; &#160; ',
 								'time_format' => 'M j, Y H:i',
 							) );
 					?>

@@ -233,7 +233,7 @@ function display_container( $container, $legend_suffix = '' )
 	$Table->display_list_end();
 }
 
-$Form = new Form( $admin_url.'?ctrl=widgets&blog='.$Blog->ID );
+$Form = new Form( $admin_url.'?ctrl=widgets&amp;blog='.$Blog->ID );
 
 $Form->add_crumb( 'widget' );
 

@@ -2258,7 +2258,7 @@ function display_dragdrop_upload_button( $params = array() )
 	}
 
 	$root_and_path = $params['fileroot_ID'].'::'.$params['path'];
-	$quick_upload_url = $htsrv_url.'quick_upload.php?upload=true'.( empty( $blog ) ? '' : '&blog='.$blog );
+	$quick_upload_url = $htsrv_url.'quick_upload.php?upload=true'.( empty( $blog ) ? '' : '&amp;blog='.$blog );
 
 	echo $params['before'];
 

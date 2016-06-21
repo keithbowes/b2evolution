@@ -651,7 +651,7 @@ class messaging_Module extends Module
 							$delete_url = $samedomain_htsrv_url.'action.php?mname=messaging&disp=messages&thrd_ID='.$thrd_ID.'&msg_ID='.$msg_ID.'&action=delete&confirmed=1';
 							if( ! empty( $Blog ) )
 							{ // Add blog ID to correctly redirect after deleting:
-								$delete_url .= '&blog='.$Blog->ID;
+								$delete_url .= '&amp;blog='.$Blog->ID;
 							}
 							$delete_url = url_add_param( $delete_url, 'redirect_to='.rawurlencode( $redirect_to ), '&' ).'&'.url_crumb( 'messaging_messages' );
 							$ok_button = '<a href="'.$delete_url.'" class="btn btn-danger">'.T_('I am sure!').'</a>';

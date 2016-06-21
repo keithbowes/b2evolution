@@ -65,7 +65,7 @@ $Form->switch_layout( NULL );
 <script>
 	jQuery( 'select[name="plugin_group"]' ).on( 'change', function()
 		{
-			window.location.replace( "<?php echo $admin_url.'?ctrl=coll_settings&tab=plugins&blog='.$Blog->ID.'&plugin_group=';?>" + $( this ).val() );
+			window.location.replace( "<?php echo $admin_url.'?ctrl=coll_settings&amp;tab=plugins&amp;blog='.$Blog->ID.'&plugin_group=';?>" + $( this ).val() );
 		} );
 </script>
 <?php

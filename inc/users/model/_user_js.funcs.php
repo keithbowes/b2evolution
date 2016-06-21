@@ -53,7 +53,7 @@ jQuery( document ).on( 'click', 'span[rel=add_criteria]', function()
 	var params = '<?php
 			global $b2evo_icons_type, $blog;
 			echo empty( $b2evo_icons_type ) ? '' : '&b2evo_icons_type='.$b2evo_icons_type;
-			echo is_admin_page() ? '&is_backoffice=1' : '&blog='.$blog;
+			echo is_admin_page() ? '&is_backoffice=1' : '&amp;blog='.$blog;
 		?>';
 
 	obj_this = jQuery( this ).parent().parent();

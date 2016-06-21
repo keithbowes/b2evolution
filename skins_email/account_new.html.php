@@ -90,7 +90,7 @@ if( ! empty( $params['initial_hit'] ) )
 	echo '<tr><th'.emailskin_style( 'table.email_table th' ).'>'.T_('Initial referer').':</th><td'.emailskin_style( 'table.email_table td' ).'>'.get_link_tag( $params['initial_hit']->hit_referer, '', '.a' ).'</td></tr>'."\n";
 }
 
-echo '<tr><td'.emailskin_style( 'table.email_table td' ).' colspan=2>&nbsp;</td></tr>'."\n";
+echo '<tr><td'.emailskin_style( 'table.email_table td' ).' colspan=2>&#160;</td></tr>'."\n";
 
 if( ! empty( $params['level'] ) )
 {	// User level:

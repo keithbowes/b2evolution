@@ -46,8 +46,8 @@ if( $current_User->check_perm( 'emails', 'edit' ) )
 
 		$url = '?ctrl=email&amp;tab='.get_param( 'tab' ).'&amp;tab2='.get_param( 'tab2' ).'&amp;tab3='.get_param( 'tab3' ).'&amp;'.url_crumb('emailsettings').'&amp;action=';
 		$Form->info_field( T_('Perform tests'),
-					'<a href="'.$url.'test_smtp">['.T_('server connection').']</a>&nbsp;&nbsp;'.
-					'<a href="'.$url.'test_email">['.T_('send test email').']</a>&nbsp;&nbsp;' );
+					'<a href="'.$url.'test_smtp">['.T_('server connection').']</a>&#160;&#160;'.
+					'<a href="'.$url.'test_email">['.T_('send test email').']</a>&#160;&#160;' );
 
 		if( !empty( $smtp_test_output ) )
 		{

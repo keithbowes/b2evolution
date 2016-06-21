@@ -99,7 +99,7 @@ $Skin->display_breadcrumbs( $cat );
 			// We want to display the post date:
 			$Item->issue_time( array(
 					'before'      => '',
-					'after'       => ' &nbsp; &nbsp; ',
+					'after'       => ' &#160; &#160; ',
 					'time_format' => 'D M j, Y H:i',
 				) );
 		?>

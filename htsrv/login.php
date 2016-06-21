@@ -201,7 +201,7 @@ switch( $action )
 			$blog_param = '';
 			if( !empty( $blog ) )
 			{
-				$blog_param = '&inskin=true&blog='.$blog;
+				$blog_param = '&inskin=true&amp;blog='.$blog;
 			}
 
 			$subject = sprintf( T_( 'Password change request for %s' ), $login );

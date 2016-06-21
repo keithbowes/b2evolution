@@ -370,7 +370,7 @@ switch( $action )
 			$Messages->add( T_('New IP Range created.'), 'success' );
 
 			// Redirect so that a reload doesn't write to the DB twice:
-			header_redirect( '?ctrl=antispam&tab='.$tab.'&tab3=ipranges', 303 ); // Will EXIT
+			header_redirect( '?ctrl=antispam&amp;tab='.$tab.'&tab3=ipranges', 303 ); // Will EXIT
 			// We have EXITed already at this point!!
 		}
 		$action = 'iprange_new';
@@ -396,7 +396,7 @@ switch( $action )
 			$Messages->add( T_('IP Range updated.'), 'success' );
 
 			// Redirect so that a reload doesn't write to the DB twice:
-			header_redirect( '?ctrl=antispam&tab='.$tab.'&tab3=ipranges', 303 ); // Will EXIT
+			header_redirect( '?ctrl=antispam&amp;tab='.$tab.'&tab3=ipranges', 303 ); // Will EXIT
 			// We have EXITed already at this point!!
 		}
 		$action = 'iprange_edit';
@@ -419,7 +419,7 @@ switch( $action )
 			$Messages->add( T_('IP Range deleted.'), 'success' );
 
 			// Redirect so that a reload doesn't write to the DB twice:
-			header_redirect( '?ctrl=antispam&tab='.$tab.'&tab3=ipranges', 303 ); // Will EXIT
+			header_redirect( '?ctrl=antispam&amp;tab='.$tab.'&tab3=ipranges', 303 ); // Will EXIT
 			// We have EXITed already at this point!!
 		}
 		break;

@@ -692,7 +692,7 @@ class collections_Module extends Module
 					'site' => $site_menu,
 					'collections' => array(
 						'text' => T_('Collections'),
-						'href' => $admin_url.'?ctrl=coll_settings&tab=dashboard&blog='.$working_blog
+						'href' => $admin_url.'?ctrl=coll_settings&amp;tab=dashboard&amp;blog='.$working_blog
 					)
 				)
 			);

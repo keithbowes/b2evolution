@@ -1193,7 +1193,7 @@ function require_js_helper( $helper = '', $relative_to = 'rsc_url' )
 				// Added by fplanque - (MIT License) - http://colorpowered.com/colorbox/
 
 				global $b2evo_icons_type, $blog;
-				$blog_param = empty( $blog ) ? '' : '&blog='.$blog;
+				$blog_param = empty( $blog ) ? '' : '&amp;blog='.$blog;
 				// Colorbox params to translate the strings:
 				$colorbox_strings_params = 'current: "'.TS_('image {current} of {total}').'",
 					previous: "'.TS_('Previous').'",

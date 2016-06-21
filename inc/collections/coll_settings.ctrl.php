@@ -109,7 +109,7 @@ switch( $action )
 
 		// Check permissions:
 		$current_User->check_perm( 'blog_properties', 'edit', true, $blog );
-		$update_redirect_url = '?ctrl=coll_settings&tab='.$tab.'&blog='.$blog;
+		$update_redirect_url = '?ctrl=coll_settings&amp;tab='.$tab.'&amp;blog='.$blog;
 
 		switch( $tab )
 		{
@@ -165,7 +165,7 @@ switch( $action )
 						}
 						else
 						{	// Redirect to admin skins page if we change the skin for another device type
-							header_redirect( $admin_url.'?ctrl=coll_settings&tab=skin&blog='.$edited_Blog->ID );
+							header_redirect( $admin_url.'?ctrl=coll_settings&amp;tab=skin&amp;blog='.$edited_Blog->ID );
 						}
 					}
 				}
@@ -269,7 +269,7 @@ switch( $action )
 				$edited_Blog->set_setting( 'category_ordering', get_param( 'category_ordering' ) );
 				$edited_Blog->dbupdate();
 				$Messages->add( T_('Category ordering has been changed.'), 'success' );
-				header_redirect( param( 'redirect_to', 'url', '?ctrl=chapters&blog='.$edited_Blog->ID ), 303 ); // Will EXIT
+				header_redirect( param( 'redirect_to', 'url', '?ctrl=chapters&amp;blog='.$edited_Blog->ID ), 303 ); // Will EXIT
 				break;
 		}
 
@@ -283,7 +283,7 @@ switch( $action )
 
 		// Check permissions:
 		$current_User->check_perm( 'blog_properties', 'edit', true, $blog );
-		$update_redirect_url = '?ctrl=coll_settings&tab='.$tab.'&blog='.$blog;
+		$update_redirect_url = '?ctrl=coll_settings&amp;tab='.$tab.'&amp;blog='.$blog;
 
 		param( 'reset', 'boolean', '' );
 		param( 'type', 'string', '' );
@@ -507,7 +507,7 @@ if( $action == 'dashboard' )
 		echo '<div class="first_payload_block">'."\n";
 
 		$AdminUI->disp_payload_begin();
-		echo '<h2 class="page-title">'.get_coll_fav_icon( $Blog->ID, array( 'class' => 'coll-fav' ) ).'&nbsp;'.$Blog->dget( 'name' ).'</h2>';
+		echo '<h2 class="page-title">'.get_coll_fav_icon( $Blog->ID, array( 'class' => 'coll-fav' ) ).'&#160;'.$Blog->dget( 'name' ).'</h2>';
 		load_funcs( 'collections/model/_blog_js.funcs.php' );
 		echo '<div class="row browse">';
 
