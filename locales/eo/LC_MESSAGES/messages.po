@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net\n"
-"POT-Creation-Date: 2016-06-22 02:44-0400\n"
-"PO-Revision-Date: 2016-06-22 02:54-0400\n"
+"POT-Creation-Date: 2016-06-22 12:52-0400\n"
+"PO-Revision-Date: 2016-06-22 13:11-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -2672,7 +2672,7 @@ msgstr "Lokaĵaroj"
 #: ../../../inc/_core/__core.init.php:1906
 #: ../../../inc/comments/views/_comment.form.php:226
 #: ../../../inc/regional/time.ctrl.php:92
-#: ../../../inc/tools/system.ctrl.php:259
+#: ../../../inc/tools/system.ctrl.php:258
 msgid "Time"
 msgstr "Tempo"
 
@@ -2810,9 +2810,9 @@ msgstr "1 minuto"
 #: ../../../inc/_core/_misc.funcs.php:1553
 #: ../../../inc/_core/_misc.funcs.php:1575
 #: ../../../inc/cron/views/_cronjob_list.view.php:272
-#: ../../../inc/tools/system.ctrl.php:476
-#: ../../../inc/tools/system.ctrl.php:481
-#: ../../../inc/tools/system.ctrl.php:486
+#: ../../../inc/tools/system.ctrl.php:475
+#: ../../../inc/tools/system.ctrl.php:480
+#: ../../../inc/tools/system.ctrl.php:485
 #, php-format
 msgid "%s seconds"
 msgstr "%s sekundoj"
@@ -7279,7 +7279,7 @@ msgstr "Publika listo"
 #: ../../../inc/collections/model/_blog.funcs.php:1713
 #: ../../../inc/collections/views/_coll_advanced.form.php:110
 #: ../../../inc/collections/views/_coll_settings_blog.form.php:48
-#: ../../../inc/tools/system.ctrl.php:216
+#: ../../../inc/tools/system.ctrl.php:215
 msgid "Caching"
 msgstr "Tenejo"
 
@@ -7511,7 +7511,7 @@ msgid "directory"
 msgstr "dosierujo"
 
 #: ../../../inc/collections/views/_coll_advanced.form.php:160
-#: ../../../inc/tools/system.ctrl.php:176
+#: ../../../inc/tools/system.ctrl.php:175
 msgid "Media directory"
 msgstr "Media dosierujo"
 
@@ -8172,12 +8172,12 @@ msgstr "Marki ĉi tion por rigardi liston da la afiŝoj."
 #: ../../../inc/collections/views/_coll_features.form.php:86
 #: ../../../inc/collections/views/_coll_features.form.php:92
 #: ../../../inc/files/views/_file_browse_set.form.php:39
-#: ../../../inc/tools/system.ctrl.php:292
-#: ../../../inc/tools/system.ctrl.php:582
-#: ../../../inc/tools/system.ctrl.php:593
-#: ../../../inc/tools/system.ctrl.php:614
-#: ../../../inc/tools/system.ctrl.php:617
-#: ../../../inc/tools/system.ctrl.php:631
+#: ../../../inc/tools/system.ctrl.php:291
+#: ../../../inc/tools/system.ctrl.php:581
+#: ../../../inc/tools/system.ctrl.php:592
+#: ../../../inc/tools/system.ctrl.php:613
+#: ../../../inc/tools/system.ctrl.php:616
+#: ../../../inc/tools/system.ctrl.php:630
 #: ../../../inc/users/views/_organization.form.php:61
 #: ../../../inc/widgets/widgets/_coll_item_list.widget.php:131
 #: ../../../inc/widgets/widgets/_user_register.widget.php:102
@@ -9551,10 +9551,10 @@ msgstr "Neniu sciigo pri via nova enhavo sendiĝos."
 
 #: ../../../inc/collections/views/_coll_settings_blog.form.php:65
 #: ../../../inc/sessions/views/_stats_settings.form.php:52
-#: ../../../inc/tools/system.ctrl.php:345
-#: ../../../inc/tools/system.ctrl.php:359
-#: ../../../inc/tools/system.ctrl.php:378
-#: ../../../inc/tools/system.ctrl.php:402
+#: ../../../inc/tools/system.ctrl.php:344
+#: ../../../inc/tools/system.ctrl.php:358
+#: ../../../inc/tools/system.ctrl.php:377
+#: ../../../inc/tools/system.ctrl.php:401
 msgid "Off"
 msgstr "Elŝaltita"
 
@@ -15635,6 +15635,7 @@ msgstr "Vizitantoj povas nek vidi nek komenti la afiŝon."
 
 #: ../../../inc/items/views/_item_expert.form.php:711
 #: ../../../inc/items/views/_item_mass.form.php:203
+#: ../../../inc/tools/system.ctrl.php:237
 #: ../../../skins/pureforums/_edit.disp.php:341
 msgid "Disabled"
 msgstr "Malaktivigita"
@@ -16763,6 +16764,7 @@ msgstr "La unuaj du literoj estu <a %s>lingva kodo laŭ ISO 639</a>. La lastaj d
 #: ../../../inc/regional/views/_currency_list.view.php:63
 #: ../../../inc/regional/views/_region_list.view.php:99
 #: ../../../inc/regional/views/_subregion_list.view.php:105
+#: ../../../inc/tools/system.ctrl.php:237
 #: ../../../inc/tools/views/_email_return_settings.form.php:75
 #: ../../../inc/tools/views/_email_smtp.form.php:76
 msgid "Enabled"
@@ -20370,7 +20372,7 @@ msgid "Refered browser hits"
 msgstr "Vizitoj de TTT-legiloj el aliaj kolektaroj"
 
 #: ../../../inc/sessions/model/_hitlog.funcs.php:480
-#: ../../../inc/tools/system.ctrl.php:442
+#: ../../../inc/tools/system.ctrl.php:441
 #: ../../../skins/bootstrap_forums_skin/_item_list.inc.php:148
 #: ../../../skins/bootstrap_forums_skin/_item_list.inc.php:211
 #: ../../../skins/bootstrap_forums_skin/_item_list.inc.php:297
@@ -20854,7 +20856,7 @@ msgstr "Aldirektitaj serĉoj"
 
 #: ../../../inc/sessions/views/_stats_search_keywords.view.php:258
 msgid "Internal searches"
-msgstr "Enaj serĉoj"
+msgstr "Internaj serĉoj"
 
 #: ../../../inc/sessions/views/_stats_search_keywords.view.php:275
 msgid "Cumulative"
@@ -22837,253 +22839,310 @@ msgstr "%s eldonita je %s"
 msgid "b2evolution version"
 msgstr "Eldono de b2evolution"
 
-#: ../../../inc/tools/system.ctrl.php:156
+#: ../../../inc/tools/system.ctrl.php:150
+msgid ""
+"<p>Updates from b2evolution.net are disabled!</p>\n"
+"\t\t\t<p>You will <b>NOT</b> be alerted if you are running an insecure configuration.</p>"
+msgstr ""
+"<p>Ĝisdatigoj el b2evolution.net estas malaktivigitaj.</p>\n"
+"\t\t\t<p>Vi <strong>ne</strong> estos sciigita se vi uzan nesekuran eldonon.</p>"
+
+#: ../../../inc/tools/system.ctrl.php:155
 #, php-format
 msgid "Furthermore, this version is old. You should check for newer releases on %s."
 msgstr "Plue ĉi tiu eldono estas malnova. Vi kontrolu pli novajn eldonojn en %s."
 
-#: ../../../inc/tools/system.ctrl.php:161
+#: ../../../inc/tools/system.ctrl.php:160
 #, php-format
 msgid "Furthermore, this version is aging. You may want to check for newer releases on %s."
 msgstr "Plue ĉi tiu eldono estas fariĝanta pli kaj pli malnova. Vi eble volos kontroli por pli novaj eldonoj en %s."
 
-#: ../../../inc/tools/system.ctrl.php:173
+#: ../../../inc/tools/system.ctrl.php:172
 msgid "You will not be able to upload files/images and b2evolution will not be able to generate thumbnails."
 msgstr "Vi ne povos alŝuti dosierojn/bildojn kaj b2evolution ne eblos generi miniaturojn."
 
-#: ../../../inc/tools/system.ctrl.php:174
+#: ../../../inc/tools/system.ctrl.php:173
 msgid "Your host requires that you set special file permissions on your media directory."
 msgstr "Via gastiganto postulas, ke vi elektu specialajn atingopermesojn por via media dosierujo."
 
-#: ../../../inc/tools/system.ctrl.php:181
+#: ../../../inc/tools/system.ctrl.php:180
 msgid "Deleted"
 msgstr "Forigita"
 
-#: ../../../inc/tools/system.ctrl.php:181
+#: ../../../inc/tools/system.ctrl.php:180
 msgid "Install folder"
 msgstr "Instala dosierujo"
 
-#: ../../../inc/tools/system.ctrl.php:181
+#: ../../../inc/tools/system.ctrl.php:180
 msgid "Not deleted"
 msgstr "Ne forigita"
 
-#: ../../../inc/tools/system.ctrl.php:184
+#: ../../../inc/tools/system.ctrl.php:183
 msgid "For maximum security, it is recommended that you delete your /blogs/install/ folder once you are done with install or upgrade."
 msgstr "Por maksimuma sekureco estas rekomendinde, ke vi forigi la dosierujon /blogs/install/ tuj post kiam vi finas la instaladon aŭ ĝisdatigon."
 
-#: ../../../inc/tools/system.ctrl.php:187
+#: ../../../inc/tools/system.ctrl.php:186
 msgid "Allowed!"
 msgstr "Permesata"
 
-#: ../../../inc/tools/system.ctrl.php:187
+#: ../../../inc/tools/system.ctrl.php:186
 msgid "Database reset"
 msgstr "Restarigi la datumbazon"
 
-#: ../../../inc/tools/system.ctrl.php:187
+#: ../../../inc/tools/system.ctrl.php:186
 #: ../../../inc/users/model/_userfield.class.php:130
 msgid "Forbidden"
 msgstr "Malpermesita"
 
-#: ../../../inc/tools/system.ctrl.php:190
+#: ../../../inc/tools/system.ctrl.php:189
 msgid "Currently, anyone who accesses your install folder could entirely reset your b2evolution database."
 msgstr "Nune ĉiu, kiu atingas vian dosierujon install povus tute restarigi vian tutan b2evolution-datumbazon."
 
-#: ../../../inc/tools/system.ctrl.php:191
+#: ../../../inc/tools/system.ctrl.php:190
 msgid "ALL YOUR DATA WOULD BE LOST!"
 msgstr "LA TUTO DE VIAJ DATUMOJ PERDIĜUS"
 
-#: ../../../inc/tools/system.ctrl.php:192
+#: ../../../inc/tools/system.ctrl.php:191
 msgid "As soon as possible, change the setting <code>$allow_evodb_reset = 0;</code> in your /conf/_basic.config.php."
 msgstr "Laŭeble ŝanĝi la agordaĵon <code>$allow_evodb_reset = 0;</code> en la dosiero /conf/_basic_config.php."
 
-#: ../../../inc/tools/system.ctrl.php:224
+#: ../../../inc/tools/system.ctrl.php:203
+msgid "Internal b2evo charset"
+msgstr "Interna b2evolution-kodoprezento"
+
+#: ../../../inc/tools/system.ctrl.php:206
+msgid "Blog count"
+msgstr "Kolekto-nombro"
+
+#: ../../../inc/tools/system.ctrl.php:223
 msgid "You will not be able to use page cache."
 msgstr "Vi ne povos uzi la paĝan tenejon."
 
-#: ../../../inc/tools/system.ctrl.php:225
+#: ../../../inc/tools/system.ctrl.php:224
 msgid "Your host requires that you set special file permissions on your cache directory."
 msgstr "Via gastiganto postulas, ke vi elektu specialajn atingopermesojn por via teneja dosierujo."
 
-#: ../../../inc/tools/system.ctrl.php:227
+#: ../../../inc/tools/system.ctrl.php:226
 msgid "Cache directory"
 msgstr "Teneja dosierujo"
 
-#: ../../../inc/tools/system.ctrl.php:238
+#: ../../../inc/tools/system.ctrl.php:237
 msgid "General caching"
 msgstr "Ĝenerala tenejo"
 
-#: ../../../inc/tools/system.ctrl.php:244
+#: ../../../inc/tools/system.ctrl.php:242
+#, php-format
+msgid "%d enabled / %d blogs"
+msgstr "%d aktivaj el %d kolektoj"
+
+#: ../../../inc/tools/system.ctrl.php:243
 msgid "Blog's cache setting"
 msgstr "Tenejo-agordo de la kolekto"
 
-#: ../../../inc/tools/system.ctrl.php:248
+#: ../../../inc/tools/system.ctrl.php:247
 msgid "Blog's cache errors"
 msgstr "Eraroj en la kolekto-tenejo"
 
-#: ../../../inc/tools/system.ctrl.php:262
+#: ../../../inc/tools/system.ctrl.php:261
 msgid "Server time"
 msgstr "Servila tempo"
 
-#: ../../../inc/tools/system.ctrl.php:265
+#: ../../../inc/tools/system.ctrl.php:264
 msgid "GMT / UTC time"
 msgstr "GMT/UTK tempo"
 
-#: ../../../inc/tools/system.ctrl.php:268
+#: ../../../inc/tools/system.ctrl.php:267
 msgid "b2evolution time"
 msgstr "Tempo de b2evolution"
 
-#: ../../../inc/tools/system.ctrl.php:281
+#: ../../../inc/tools/system.ctrl.php:280
 msgid "MySQL version"
 msgstr "Eldono de MySQL"
 
-#: ../../../inc/tools/system.ctrl.php:284
+#: ../../../inc/tools/system.ctrl.php:283
 #, php-format
 msgid "This version is too old. The minimum recommended MySQL version is %s."
 msgstr "Ĉi tiu eldono estas tro malnova. La minimuma rekomendita eldono de MySQL estas %s."
 
-#: ../../../inc/tools/system.ctrl.php:292
-#: ../../../inc/tools/system.ctrl.php:631
+#: ../../../inc/tools/system.ctrl.php:291
+msgid "MySQL UTF-8 support"
+msgstr "UTF-8-rego en MySQL"
+
+#: ../../../inc/tools/system.ctrl.php:291
+#: ../../../inc/tools/system.ctrl.php:630
 msgid "Yes"
 msgstr "Jes"
 
-#: ../../../inc/tools/system.ctrl.php:295
+#: ../../../inc/tools/system.ctrl.php:294
 msgid "UTF-8 is not supported by your MySQL server."
 msgstr "Via MySQL-a servilo ne regas la signaron UTF-8."
 
-#: ../../../inc/tools/system.ctrl.php:326
+#: ../../../inc/tools/system.ctrl.php:313
+msgid "PHP running as USER:"
+msgstr "PHP plenumiĝas kiel UZANTO:"
+
+#: ../../../inc/tools/system.ctrl.php:319
+msgid "PHP running as GROUP:"
+msgstr "PHP plenumiĝas kiel GRUPO:"
+
+#: ../../../inc/tools/system.ctrl.php:325
 msgid "View PHP info"
 msgstr "Vidi PHP-informojn"
 
-#: ../../../inc/tools/system.ctrl.php:331
+#: ../../../inc/tools/system.ctrl.php:326
+msgid "PHP version"
+msgstr "PHP-eldono"
+
+#: ../../../inc/tools/system.ctrl.php:330
 msgid "This version is too old. b2evolution will not run correctly. You must ask your host to upgrade PHP before you can run b2evolution."
 msgstr "Ĉi tiu eldono estas tro malnova. b2evolution ne ĝuste plenumiĝos. Vi devas peti al via gastiganto ĝisdatigi PHP-on antaŭ vi povas plenumi la programon b2evolution."
 
-#: ../../../inc/tools/system.ctrl.php:335
+#: ../../../inc/tools/system.ctrl.php:334
 msgid "This version is old. b2evolution may run but some features may fail. You should ask your host to upgrade PHP before running b2evolution."
 msgstr "Ĉi tiu eldono estas tro malnova. b2evolution eble plenumiĝos sed iuj trajtoj eble malsukcesos. Vi petu al via gastiganto ĝisdatigi PHP-on antaŭ ol plenumanta b2evolution-on."
 
-#: ../../../inc/tools/system.ctrl.php:337
+#: ../../../inc/tools/system.ctrl.php:336
 msgid "PHP 5.2 or greater is recommended for maximum security, especially for \"httpOnly\" cookies support."
 msgstr "PHP 5.2 aŭ pli nova rekomendindas pro sekureco, precipe por kuketoj nur por HTTP."
 
-#: ../../../inc/tools/system.ctrl.php:345
-#: ../../../inc/tools/system.ctrl.php:359
-#: ../../../inc/tools/system.ctrl.php:378
-#: ../../../inc/tools/system.ctrl.php:392
-#: ../../../inc/tools/system.ctrl.php:397
+#: ../../../inc/tools/system.ctrl.php:344
+#: ../../../inc/tools/system.ctrl.php:358
+#: ../../../inc/tools/system.ctrl.php:377
+#: ../../../inc/tools/system.ctrl.php:391
+#: ../../../inc/tools/system.ctrl.php:396
 msgid "On"
 msgstr "Ŝaltita"
 
-#: ../../../inc/tools/system.ctrl.php:408
+#: ../../../inc/tools/system.ctrl.php:407
 msgid "PHP is adding extra quotes to all inputs. This leads to unnecessary extra processing."
 msgstr "PHP aldonas al ĉiuj enmetaĵoj aldonajn citilojn. Tio kondukas nenecesan traktadon."
 
-#: ../../../inc/tools/system.ctrl.php:431
-#: ../../../inc/tools/system.ctrl.php:435
+#: ../../../inc/tools/system.ctrl.php:430
+#: ../../../inc/tools/system.ctrl.php:434
 msgid "post_max_size should be larger than upload_max_filesize"
 msgstr "post_max_size estu pli granda ol upload_max_filesize"
 
-#: ../../../inc/tools/system.ctrl.php:450
+#: ../../../inc/tools/system.ctrl.php:449
 msgid "The memory_limit is too low. Some features like image manipulation will fail to work."
 msgstr "La memory_limit estas tre malalta. Iuj trajtoj, ekz-e bilda manipulado, ne funkcios."
 
-#: ../../../inc/tools/system.ctrl.php:454
+#: ../../../inc/tools/system.ctrl.php:453
 msgid "The memory_limit is low. Some features like image manipulation of large files may fail to work."
 msgstr "La memory_limit estas malalta. Iuj trajtoj, ekz-e bilda manipulado de grandaj dosieroj, eble ne funkcios."
 
-#: ../../../inc/tools/system.ctrl.php:466
+#: ../../../inc/tools/system.ctrl.php:465
 msgid "Unlimited"
 msgstr "Nelimigita"
 
-#: ../../../inc/tools/system.ctrl.php:477
+#: ../../../inc/tools/system.ctrl.php:476
 #, php-format
 msgid "b2evolution was able to request more time (than the default %s seconds) to execute complex tasks."
 msgstr "b2evolution povis peti plian tempon (ol la apriora %s sekundojn) por plenumi kompleksajn taskojn."
 
-#: ../../../inc/tools/system.ctrl.php:482
+#: ../../../inc/tools/system.ctrl.php:481
 msgid "b2evolution may frequently run out of time to execute properly."
 msgstr "b2evolution eble ofte ne havas sufiĉon da tempo por konvene plenumiĝi."
 
-#: ../../../inc/tools/system.ctrl.php:487
+#: ../../../inc/tools/system.ctrl.php:486
 msgid "b2evolution may sometimes run out of time to execute properly."
 msgstr "b2evolution eble kelkfoje ne havas sufiĉon da tempo por konvene plenumiĝi."
 
-#: ../../../inc/tools/system.ctrl.php:492
-#: ../../../inc/tools/system.ctrl.php:504
-#: ../../../inc/tools/system.ctrl.php:519
+#: ../../../inc/tools/system.ctrl.php:491
+#: ../../../inc/tools/system.ctrl.php:503
+#: ../../../inc/tools/system.ctrl.php:518
 msgid "Loaded"
 msgstr "Ŝargita"
 
-#: ../../../inc/tools/system.ctrl.php:492
-#: ../../../inc/tools/system.ctrl.php:504
-#: ../../../inc/tools/system.ctrl.php:519
+#: ../../../inc/tools/system.ctrl.php:491
+#: ../../../inc/tools/system.ctrl.php:503
+#: ../../../inc/tools/system.ctrl.php:518
 msgid "Not loaded"
 msgstr "Ne ŝargita"
 
-#: ../../../inc/tools/system.ctrl.php:495
+#: ../../../inc/tools/system.ctrl.php:491
+msgid "PHP mbstring extension"
+msgstr "PHP-aldonaĵo mbstring"
+
+#: ../../../inc/tools/system.ctrl.php:494
 msgid "b2evolution will not be able to convert character sets and special characters/languages may not be displayed correctly. Enable the mbstring extension in your php.ini file or ask your hosting provider about it."
 msgstr "b2evolution ne povas konverti signarojn kaj specialajn signojn/lingvojn eble ne ĝuste montriĝos. Aktivigi la aldonaĵon mbstring en la dosiero php.ini aŭ demandi al via gastiganto pri ĝi."
 
-#: ../../../inc/tools/system.ctrl.php:507
+#: ../../../inc/tools/system.ctrl.php:503
+msgid "PHP XML extension"
+msgstr "PHP-aldonaĵo XML"
+
+#: ../../../inc/tools/system.ctrl.php:506
 msgid "The XML extension is not loaded."
 msgstr "La aldonaĵo XML ne estas ŝargita."
 
-#: ../../../inc/tools/system.ctrl.php:522
+#: ../../../inc/tools/system.ctrl.php:518
+msgid "PHP IMAP extension"
+msgstr "PHP-aldonaĵo IMAP"
+
+#: ../../../inc/tools/system.ctrl.php:521
 msgid "You will not be able to use the Post by Email feature and the Return Path email processing of b2evolution. Enable the IMAP extension in your php.ini file or ask your hosting provider about it."
 msgstr "Ne eblas uzi la trajton Blogi per retpoŝto de b2evolution. Aktivigi la aldonaĵon IMAP en la dosiero php.ini aŭ demandi al via gastiganto pri ĝi."
 
-#: ../../../inc/tools/system.ctrl.php:534
+#: ../../../inc/tools/system.ctrl.php:530
+msgid "PHP opcode cache"
+msgstr "Opkoda tenejo de PHP"
+
+#: ../../../inc/tools/system.ctrl.php:533
 msgid "Using an opcode cache allows all your PHP scripts to run faster by caching a \"compiled\" (opcode) version of the scripts instead of recompiling everything at every page load. Several opcode caches are available. We recommend APC."
-msgstr "La tenejo de PHP-opkodoj estas pli rapida pro uzado de kompilumitaj PHP-opkodoj."
+msgstr "Per la uzo de opkoda tenejo viaj PHP-skriptoj plenumiĝos pli rapide per la uzo de \"tradukita\" (opkoda) versio de la skriptoj anstataŭ retraduki la skriptojn je ĉiu paĝŝarĝo. Pluraj opkodaj tenejoj disponeblas. Rekomendinda estas APC."
 
-#: ../../../inc/tools/system.ctrl.php:546
+#: ../../../inc/tools/system.ctrl.php:542
+msgid "PHP user cache"
+msgstr "Uzanto-tenejo de PHP"
+
+#: ../../../inc/tools/system.ctrl.php:545
 msgid "Using an user cache allows all your PHP scripts to run faster by caching a \"compiled\" (user) version of the scripts instead of recompiling everything at every page load. Several user caches are available. We recommend APC."
-msgstr "Per uzo de uzanto-tenejo viaj PHP-skriptoj plenumiĝos pli rapide per tenado de \"tradukita\" (uzanto) versio de la skriptoj anstataŭ retraduki ĉion je ĉiu paĝŝargo. Pluraj uzanto-tenejo disponeblas. Rekomendinda estas APC."
+msgstr "Per uzo de uzanto-tenejo viaj PHP-skriptoj plenumiĝos pli rapide per tenado de \"tradukita\" (uzanto) versio de la skriptoj anstataŭ retraduki la skriptojn je ĉiu paĝŝargo. Pluraj uzanto-tenejoj disponeblas. Rekomendinda estas APC."
 
-#: ../../../inc/tools/system.ctrl.php:565
+#: ../../../inc/tools/system.ctrl.php:564
 msgid "GD Library (image handling)"
 msgstr "Biblioteko GD (bilda traktado)"
 
-#: ../../../inc/tools/system.ctrl.php:569
+#: ../../../inc/tools/system.ctrl.php:568
 msgid "GD Library version"
 msgstr "Eldono de la biblioteko GD"
 
-#: ../../../inc/tools/system.ctrl.php:569
+#: ../../../inc/tools/system.ctrl.php:568
 msgid "Not installed"
 msgstr "Ne instalita"
 
-#: ../../../inc/tools/system.ctrl.php:572
+#: ../../../inc/tools/system.ctrl.php:571
 msgid "You will not be able to automatically generate thumbnails for images. Enable the gd2 extension in your php.ini file or ask your hosting provider about it."
 msgstr "Ne eblas aŭtomate generi miniaturojn por bildoj. Aktivigi la aldonaĵon gd2 en la dosiero php.ini aŭ demandi al via gastiganto pri ĝi."
 
-#: ../../../inc/tools/system.ctrl.php:582
-#: ../../../inc/tools/system.ctrl.php:593
-#: ../../../inc/tools/system.ctrl.php:606
+#: ../../../inc/tools/system.ctrl.php:581
+#: ../../../inc/tools/system.ctrl.php:592
+#: ../../../inc/tools/system.ctrl.php:605
 msgid "Read/Write"
 msgstr "Legi/Skribi"
 
-#: ../../../inc/tools/system.ctrl.php:585
+#: ../../../inc/tools/system.ctrl.php:584
 msgid "You will not be able to automatically generate thumbnails for JPG images."
 msgstr "Ne eblos aŭtomate generi miniaturojn por JPG-bildoj."
 
-#: ../../../inc/tools/system.ctrl.php:596
+#: ../../../inc/tools/system.ctrl.php:595
 msgid "You will not be able to automatically generate thumbnails for PNG images."
 msgstr "Ne eblos aŭtomate generi miniaturojn por PNG-bildoj."
 
-#: ../../../inc/tools/system.ctrl.php:610
-#: ../../../inc/tools/system.ctrl.php:621
+#: ../../../inc/tools/system.ctrl.php:609
+#: ../../../inc/tools/system.ctrl.php:620
 msgid "Read"
 msgstr "Legi"
 
-#: ../../../inc/tools/system.ctrl.php:619
+#: ../../../inc/tools/system.ctrl.php:618
 msgid "You will not be able to automatically generate thumbnails for GIF images."
 msgstr "Ne eblos aŭtomate generi miniaturojn por GIF-bildoj."
 
-#: ../../../inc/tools/system.ctrl.php:623
+#: ../../../inc/tools/system.ctrl.php:622
 msgid "Thumbnails for GIF images will be generated as PNG or JPG."
 msgstr "Miniaturoj por GIF-bildoj generiĝos kiel PNG aŭ JPG."
 
-#: ../../../inc/tools/system.ctrl.php:634
+#: ../../../inc/tools/system.ctrl.php:633
 msgid "You will not be able to write text to images using TrueType fonts."
 msgstr "Vi ne povos skribi tekstojn al bildojn per TrueType-aj tiparoj."
 
@@ -37148,58 +37207,3 @@ msgstr "Se vi devas almeti aldonajn dosierojn, bonvolu aldoni komenton ĝuste po
 #: ../../../skins_fallback_v6/_item_meta_comments.inc.php:37
 msgid "Add a meta comment"
 msgstr "Aldoni metakomenton"
-
-#~ msgid ""
-#~ "<p>Updates from b2evolution.net are disabled!</p>\n"
-#~ "\t\t\t<p>You will <b>NOT</b> be alerted if you are running an insecure configuration.</p>"
-#~ msgstr ""
-#~ "<p>Ĝisdatigoj el b2evolution.net estas malaktivigitaj.</p>\n"
-#~ "\t\t\t<p>Vi <strong>ne</strong> estos sciigita se vi uzan nesekuran eldonon.</p>"
-
-#~ msgid "Blog count"
-#~ msgstr "Kolekto-nombro"
-
-#~ msgid "%d enabled /%d blogs"
-#~ msgstr "%d aktivaj el %d kolektoj"
-
-#~ msgid "MySQL UTF-8 support"
-#~ msgstr "UTF-8-rego en MySQL"
-
-#~ msgid "PHP running as USER:"
-#~ msgstr "PHP plenumiĝas kiel UZANTO:"
-
-#~ msgid "PHP running as GROUP:"
-#~ msgstr "PHP plenumiĝas kiel GRUPO:"
-
-#~ msgid "PHP version"
-#~ msgstr "PHP-eldono"
-
-#~ msgid "PHP mbstring extension"
-#~ msgstr "PHP-aldonaĵo mbstring"
-
-#~ msgid "PHP XML extension"
-#~ msgstr "PHP-aldonaĵo XML"
-
-#~ msgid "PHP IMAP extension"
-#~ msgstr "PHP-aldonaĵo IMAP"
-
-#~ msgid "PHP opcode cache"
-#~ msgstr "PHP-opkoda tenejo"
-
-#~ msgid "Podcasts"
-#~ msgstr "Podkastoj"
-
-#~ msgid "Sidebar links"
-#~ msgstr "Flankaĵaj ligiloj"
-
-#~ msgid "Advertisement"
-#~ msgstr "Reklamoj"
-
-#~ msgid "Login password hashing"
-#~ msgstr "Haketado de ensalutaj pasvortoj"
-
-#~ msgid "Logged-in users only"
-#~ msgstr "Nur ensalutitaj uzantoj"
-
-#~ msgid "Registration"
-#~ msgstr "Registriĝo"
