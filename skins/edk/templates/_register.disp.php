@@ -34,13 +34,21 @@ if( ! $Settings->get('newusers_canregister') )
 	return;
 }
 
-$action = param( 'action', 'string', '' );
-$login = param( 'login', 'string', '' );
-$email = param( 'email', 'string', '' );
-$country = param( 'country', 'string', NULL );
+
+// Save trigger page
+$session_registration_trigger_url = $Session->get( 'registration_trigger_url' );
+if( empty( $session_registration_trigger_url/*$Session->get( 'registration_trigger_url' )*/ ) && isset( $_SERVER['HTTP_REFERER'] ) )
+{	// Trigger page still is not defined
+	$Session->set( 'registration_trigger_url', $_SERVER['HTTP_REFERER'] );
+}
+
+$login = param( $dummy_fields[ 'login' ], 'string', '' );
+$email = utf8_strtolower( param( $dummy_fields[ 'email' ], 'string', '' ) );
+$firstname = param( 'firstname', 'string', '' );
 $gender = param( 'gender', 'string', false );
-$source = param( 'source', 'string', '' );
-$redirect_to = param( 'redirect_to', 'string', '' );
+$source = param( 'source', 'string', 'register form' );
+$redirect_to = param( 'redirect_to', 'url', '' );
+$return_to = param( 'return_to', 'url', '' );
 
 $Form = new Form( $htsrv_url.'register.php', 'login_form', 'post' );
 
@@ -55,7 +63,7 @@ $Form->hidden( 'blog', $Blog->ID );
 
 if( $action == 'register' )
 { // disp register form
-	$Form->begin_form( 'bComment' );
+	$Form->begin_form( 'evo_comment' );
 
 	$Form->hidden( 'action', 'register' );
 	$Form->hidden( 'source', $source );
@@ -114,7 +122,7 @@ if( $action == 'register' )
 elseif( $action == "reg_complete" )
 {	// -----------------------------------------------------------------------------------------------------------------
 	// display register complete info ( email validation not required )
-	$Form->begin_form( 'bComment' );
+	$Form->begin_form( 'evo_comment' );
 
 	$Form->hidden( 'redirect_to', url_rel_to_same_host($redirect_to, $htsrv_url_sensitive) );
 	$Form->hidden( 'inskin', 1 );
@@ -131,7 +139,7 @@ elseif( $action == "reg_complete" )
 }
 elseif( $action == "reg_validation" )
 { // display "validation email sent" info ( email validation required )
-	$Form->begin_form( 'bComment' );
+	$Form->begin_form( 'evo_comment' );
 
 	echo '<p>'.sprintf( __( 'An email has just been sent to %s . Please check your email and click on the validation link you will find in that email.' ), '<b>'.$email.'</b>' ).'</p>';
 	echo '<p>'.sprintf( __( 'If you have not received the email in the next few minutes, please check your spam folder. The email was sent from %s and has the title «%s».' ), $notify_from,

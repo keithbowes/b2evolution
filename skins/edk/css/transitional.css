@@ -1,8 +1,4 @@
-* .bComment {
-  background-color: aqua;
-}
-
-:not(textarea).bComment {
+:not(textarea).evo_comment {
   overflow-x: auto;
   overflow-y: hidden;
 }
@@ -42,33 +38,32 @@ div#evo_toolbar + #skin_wrapper #content {
   left: 23.5%;
 }
 
-form.bComment {
+form.evo_comment {
   margin-bottom: 1em !important;
-  padding-bottom: 1em;
 }
 
-form.bComment {
+form.evo_comment {
   background-color: teal;
   display: block;
 }
 
-form.bComment a {
+form.evo_comment a {
   color: #201;
 }
 
-form.bComment a:hover {
+form.evo_comment a:hover {
   background-color: azure;
 }
 
-form.bComment fieldset {
+form.evo_comment fieldset {
   border: 0;
 }
 
-form.bComment input[type="email"],
-form.bComment input[type="password"],
-form.bComment input[type="text"],
-form.bComment input[type="url"],
-form.bComment textarea,
+form.evo_comment input[type="email"],
+form.evo_comment input[type="password"],
+form.evo_comment input[type="text"],
+form.evo_comment input[type="url"],
+form.evo_comment textarea,
 input[type="search"] {
   background-color: lavender;
   border: thin solid #333;
@@ -77,7 +72,7 @@ input[type="search"] {
   padding: 0.2em;
 }
 
-form.bComment legend {
+form.evo_comment legend {
   border: thin double gray;
   color: inherit;
   font-weight: 100;
@@ -112,7 +107,7 @@ input[type="search"]:hover {
   margin-top: 0.5em;
 }
 
-#content .bComment * {
+#content .evo_comment * {
   text-align: left;
 }
 
@@ -196,21 +191,22 @@ input[type="search"]:hover {
   padding: 0.5em;
 }
 
-.author-comment .bComment {
+.author-comment .evo_comment {
   background-color: navy !important;
   color: silver;
 }
 
-.author-comment .bComment,
-.user-comment .bComment {
+.author-comment .evo_comment,
+.user-comment .evo_comment {
+  background-color: aqua;
   margin: 0.5em;
 }
 
-.author-comment .bComment a {
+.author-comment .evo_comment a {
   color: orange;
 }
 
-.author-comment .bCommentSmallPrint {
+.author-comment .evo_comment_footer {
   border-top-color: silver;
 }
 
@@ -219,32 +215,36 @@ input[type="search"]:hover {
   margin: 0.2em 0 0.3em 0;
 }
 
-.bComment a {
+.evo_comment a {
   color: red;
 }
 
-.bComment a:hover {
+.evo_comment a:hover {
   background-color: black;
 }
 
-.bCommentSmallPrint {
+.evo_comment + .help-inline {
+  float: right;
+}
+
+.evo_comment_footer {
   border-top: thin dotted black;
   font-family: monospace;
   padding-top: 0.2em;
+}
+
+.help-inline {
+  background-color: transparent;
+  clear: both;
+  color: orange;
+  display: block;
+  width: auto;
 }
 
 .meta a:hover,
 .search_info a:hover {
   background-color: aqua;
   color: fuchsia;
-}
-
-.note,
-.notes {
-  background-color: transparent;
-  color: orange;
-  display: block;
-  width: auto;
 }
 
 .search_submit {

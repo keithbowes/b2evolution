@@ -6,6 +6,16 @@ html {
   padding: 0;
 }
 
+input[type="file"],
+.control-label,
+.help-inline,
+.form-control {
+  clear: both;
+  display: block;
+  float: none !important;
+  width: 98% !important;
+}
+
 /* Use more display for content in devices with limited screen space
  * to minimize scrolling. */
 #content,
@@ -35,9 +45,9 @@ html {
     max-width: 100%;
 }
 
-.input,
-.label {
-  clear: both;
-  display: block;
-  float: none;
+.preview,
+.search_submit,
+.submit {
+  display: inline;
+  width: auto !important;
 }

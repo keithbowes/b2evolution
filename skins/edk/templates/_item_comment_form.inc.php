@@ -32,7 +32,7 @@ $params = array_merge( array(
 		'textarea_lines'       => 10,
 		'default_text'         => '',
 		'preview_block_start'  => '',
-		'preview_start'        => '<div class="bComment" id="comment_preview">',
+		'preview_start'        => '<div role="article" class="evo_comment evo_comment__preview panel panel-warning id="comment_preview">',
 		'preview_end'          => '</div>',
 		'preview_block_end'    => '',
 		'before_comment_error' => '<p><em>',
@@ -41,6 +41,15 @@ $params = array_merge( array(
 		'before_comment_form'  => '',
 		'after_comment_form'   => '',
 		'form_comment_redirect_to' => $Item->get_feedback_url( $disp == 'feedback-popup', '&' ) . '?show=comments&redir=no',
+		'comment_attach_info'      => get_icon( 'help', 'imgtag', array(
+				'data-toggle'    => 'tooltip',
+				'data-placement' => 'bottom',
+				'data-html'      => 'true',
+				'title'          => htmlspecialchars( get_upload_restriction( array(
+						'block_after'     => '',
+						'block_separator' => '<br /><br />' ) ) )
+			) ),
+		'comment_mode'         => '', // Can be 'quote' from GET request
 	), $params );
 
 $comment_reply_ID = param( 'reply_ID', 'integer', 0 );
@@ -183,11 +192,11 @@ function validateCommentForm(form)
 </script>';*/
 
 echo '<div id="form_p' . $Item->ID . '">';
-	$Form = new Form( $samedomain_htsrv_url.'comment_post.php', 'bComment_form_id_'.$Item->ID, 'post', NULL, 'multipart/form-data' );
+	$Form = new Form( $samedomain_htsrv_url.'comment_post.php', 'evo_comment_form_id_'.$Item->ID, 'post', NULL, 'multipart/form-data' );
 
 	$Form->switch_template_parts( $params['form_params'] );
 
-	$Form->begin_form( 'bComment', '', array( /*, 'onsubmit' => 'return validateCommentForm(this);'*/ ) );
+	$Form->begin_form( 'evo_comment', '', array( /*, 'onsubmit' => 'return validateCommentForm(this);'*/ ) );
 
 	// TODO: dh> a plugin hook would be useful here to add something to the top of the Form.
 	//           Actually, the best would be, if the $Form object could be changed by a plugin
@@ -225,14 +234,14 @@ echo '<div id="form_p' . $Item->ID . '">';
 			$comment_author_email = $current_User->email;
 		}
 		// Note: we use funky field names to defeat the most basic guestbook spam bots
-		$Form->text( $dummy_fields[ 'name' ], $comment_author, 40, __('Name'), '', 100, 'bComment' );
+		$Form->text( $dummy_fields[ 'name' ], $comment_author, 40, __('Name'), '', 100, 'evo_comment' );
 
-		$Form->text( $dummy_fields[ 'email' ], $comment_author_email, 40, __('Email'), '('.__('Your email address will <strong>not</strong> be revealed on this site.').')', 100, 'bComment', 'email' );
+		$Form->text( $dummy_fields[ 'email' ], $comment_author_email, 40, __('Email'), '('.__('Your email address will <strong>not</strong> be revealed on this site.').')', 100, 'evo_comment', 'email' );
 
 		$Item->load_Blog();
 		if( $Item->Blog->get_setting( 'allow_anon_url' ) )
 		{
-			$Form->text( $dummy_fields[ 'url' ], $comment_author_url, 40, __('Website'), '('.__('Your URL will be displayed.').')', 100, 'bComment', 'url' );
+			$Form->text( $dummy_fields[ 'url' ], $comment_author_url, 40, __('Website'), '('.__('Your URL will be displayed.').')', 100, 'evo_comment', 'url' );
 		}
 	}
 
@@ -258,33 +267,33 @@ echo '<div id="form_p' . $Item->ID . '">';
 	// Message field:
 	$note = '';
 	// $note = __('Allowed XHTML tags').': '.htmlspecialchars(str_replace( '><',', ', $comment_allowed_tags));
-	$Form->textarea( $dummy_fields[ 'content' ], $comment_content, $params['textarea_lines'], $params['form_comment_text'], $note, 38, 'bComment' );
+	$Form->textarea( $dummy_fields[ 'content' ], $comment_content, $params['textarea_lines'], $params['form_comment_text'], $note, 38, 'evo_comment' );
 
 	// set b2evoCanvas for plugins
 	echo '<script type="text/javascript">var b2evoCanvas = document.getElementById( "'.$dummy_fields[ 'content' ].'" );</script>';
 
 	if (!empty($comment_allowed_tags) && $Blog->get_setting('allow_html_comment') === '1')
 	{
-		echo '<fieldset class="fieldset"><div class="allowed-tags input">';
+		echo '<div class="allowed-tags fieldset form-control">';
 		echo __('Allowed XHTML tags') . ': ';
 		echo str_replace('<', '&lt;', str_replace('>', '&gt;', str_replace('><', '>, <', $comment_allowed_tags)));
-		echo "</div></fieldset>\n\n";
+		echo "</div>\n\n";
 	}
 
 
 	if (($plug = $Plugins->get_by_classname('markdown_plugin')) !== FALSE && 'enabled' == $plug->status)
 	{
-		echo '<fieldset class="fieldset"><div class="allowed-tags input">';
+		echo '<div class="allowed-tags fieldset form-control">';
 		echo $Skin->T_('<a href="http://en.wikipedia.org/wiki/Markdown">Markdown</a> is enabled.');
-		echo "</div></fieldset>\n\n";
+		echo "</div>\n\n";
 	}
 
 	if (($plug = $Plugins->get_by_classname('bbcode_plugin')) !== FALSE && 'enabled' == $plug->status)
 	{
 		echo($plug->UserSettings->db_table_name);
-		echo '<fieldset class="fieldset"><div class="allowed-tags input">';
+		echo '<div class="allowed-tags fieldset form-control">';
 		echo $Skin->T_('<a href="http://en.wikipedia.org/wiki/BBCode">BBCode</a> is enabled.');
-		echo "</div></fieldset>\n\n";
+		echo "</div>\n\n";
 	}
 
 	// Attach files:
@@ -321,9 +330,9 @@ echo '<div id="form_p' . $Item->ID . '">';
 
 	if( ! is_logged_in( false ) )
 	{ // User is not logged in:
-		$comment_options[] = '<label><input type="checkbox" class="checkbox" name="comment_cookies" tabindex="7"'
+		$comment_options[] = '<label class="control-label"><input type="checkbox" class="checkbox form-control" name="comment_cookies" tabindex="7"'
 													.( $comment_cookies ? ' checked="checked"' : '' ).' value="1" /> '.__('Remember me').'</label>'
-													.' <span class="note">('.__('For my next comment on this site').')</span>';
+													.' <span class="help-inline">('.__('For my next comment on this site').')</span>';
 		// TODO: If we got info from cookies, Add a link called "Forget me now!" (without posting a comment).
 	}
 
@@ -339,8 +348,8 @@ echo '<div id="form_p' . $Item->ID . '">';
 	if( !empty( $comment_renderer_checkboxes ) )
 	{
 		$Form->begin_fieldset();
-		echo '<div class="label">'.__('Text Renderers').':</div>';
-		echo '<div class="input">'.$comment_renderer_checkboxes.'</div>';
+		echo '<div class="control-label">'.__('Text Renderers').':</div>';
+		echo '<div class="form-control">'.$comment_renderer_checkboxes.'</div>';
 		$Form->end_fieldset();
 	}
 

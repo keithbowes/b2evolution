@@ -16,49 +16,104 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 global $disp_detail;
 global $more;
-global $shutdown_count_item_views;
 
 // Default params:
 $params = array_merge( array(
-		'content_mode'        => 'auto',	// Can be 'excerpt', 'normal' or 'full'. 'auto' will auto select depending on backoffice SEO settings for $disp-detail
-		'intro_mode'          => 'auto',	// same as above. This will typically be forced to "normal" when displaying an intro section so that intro posts always display as normal there
-		'force_more'          => false,		// This will be set to true id 'content_mode' resolves to 'full'.
-		'content_start_excerpt' => '<div class="content_excerpt">',
-		'content_end_excerpt' => '</div>',
-		'content_start_full'  => '<div class="content_full">',
-		'content_end_full'    => '</div>',
-		'before_images'       => '<div class="bImages">',
-		'before_image'        => '<div class="image_block">',
-		'before_image_legend' => '<div class="image_legend">',
-		'after_image_legend'  => '</div>',
-		'after_image'         => '</div>',
-		'after_images'        => '</div>',
-		'image_size'          => 'fit-400x320',
-		'image_limit'         =>  1000,
-		'image_link_to'       => 'original', // can be 'original', 'single' or empty
-		'excerpt_image_size'  => 'fit-80x80',
-		'excerpt_image_limit' =>  1,
-		'excerpt_image_link_to'  => 'single',
-		'before_url_link'     => '<p class="post_link">'.T_('Link:').' ',
-		'after_url_link'      => '</p>',
-		'url_link_text_template' => '$url$', // If evaluates to empty, nothing will be displayed (except player if podcast)
-		'before_more_link'    => '<p class="bMore">',
-		'after_more_link'     => '</p>',
-		'more_link_text'      => '#',
-		'more_link_to'        => 'single', // 'single' becomes permalink + "#more55" where 55 is item ID
-		'anchor_text'         => '<p class="bMore">...</p>', // text to display as the more anchor (once the more link has been clicked, '#' defaults to "Follow up:")
-		'excerpt_before_text' => '<div class="excerpt">',
-		'excerpt_after_text'  => '</div>',
-		'excerpt_before_more' => ' <span class="excerpt_more">',
-		'excerpt_after_more'  => '</span>',
-		'excerpt_more_text'   => T_('more').' →',
-		'limit_attach'        => 1000,
-		'attach_list_start'   => '<div class="attachments"><h3>'.T_('Attachments').':</h3><ul class="bFiles">',
-		'attach_list_end'     => '</ul></div>',
-		'attach_start'        => '<li>',
-		'attach_end'          => '</li>',
-		'before_attach_size'  => ' <span class="file_size">',
-		'after_attach_size'   => '</span>',
+		'content_mode'             => 'auto', // Can be 'excerpt', 'normal' or 'full'. 'auto' will auto select depending on backoffice SEO settings for $disp-detail
+		'intro_mode'               => 'auto', // Same as above. This will typically be forced to "normal" when displaying an intro section so that intro posts always display as normal there
+		'force_more'               => false, // This will be set to true id 'content_mode' resolves to 'full'.
+
+		'content_display_full'     => true, // Do we want to display all post content? false to display only images/attachments
+
+		// Wrap images and text:
+		'content_start_excerpt'    => '<section class="evo_post__excerpt">',		// In case of compact display
+		'content_end_excerpt'      => '</section>',
+		'content_start_full'       => '<div class="evo_post__full">',			// In case of full display
+		'content_end_full'         => '</div>',
+
+		// In case we display a compact version of the post:
+		'excerpt_before_text'      => '<div class="evo_post__excerpt_text">',
+		'excerpt_after_text'       => '</div>',
+
+		'excerpt_before_more'      => ' <span class="evo_post__excerpt_more_link">',
+		'excerpt_after_more'       => '</span>',
+		'excerpt_more_text'        => T_('more').' &raquo;',
+
+		// In case we display a full version of the post:
+		'content_start_full_text'  => '<div class="evo_post__full_text">',
+		'content_end_full_text'    => '</div>',
+
+		'before_content_teaser'    => '',
+		'after_content_teaser'     => '',
+		'before_content_extension' => '',
+		'after_content_extension'  => '',
+
+		'before_images'            => '<div class="evo_post_images">',
+		'before_image'             => '<figure class="evo_image_block">',
+		'before_image_legend'      => '<figcaption class="evo_image_legend">',
+		'after_image_legend'       => '</figcaption>',
+		'after_image'              => '</figure>',
+		'after_images'             => '</div>',
+		'image_class'              => 'img-responsive',
+		'image_size'               => 'fit-1280x720',
+		'image_limit'              =>  1000,
+		'image_link_to'            => 'original', // Can be 'original', 'single' or empty
+		'excerpt_image_class'      => '',
+		'excerpt_image_size'       => 'fit-80x80',
+		'excerpt_image_limit'      => 0,
+		'excerpt_image_link_to'    => 'single',
+		'include_cover_images'     => false, // Set to true if you want cover images to appear with teaser images.
+
+		'before_gallery'           => '<div class="evo_post_gallery">',
+		'after_gallery'            => '</div>',
+		'gallery_table_start'      => '',
+		'gallery_table_end'        => '',
+		'gallery_row_start'        => '',
+		'gallery_row_end'          => '',
+		'gallery_cell_start'       => '<div class="evo_post_gallery__image">',
+		'gallery_cell_end'         => '</div>',
+		'gallery_image_size'       => 'crop-80x80',
+		'gallery_image_limit'      => 1000,
+		'gallery_colls'            => 5,
+		'gallery_order'            => '', // Can be 'ASC', 'DESC', 'RAND' or empty
+
+		'url_link_position'        => 'top',  // or 'none'
+		'before_url_link'          => '<p class="evo_post_link">'.T_('Link:').' ',
+		'after_url_link'           => '</p>',
+		'url_link_text_template'   => '$url$', // If evaluates to empty, nothing will be displayed (except player if podcast)
+		'url_link_url_template'    => '$url$', // $url$ will be replaced with saved URL address
+		'url_link_target'          => '', // Link target attribute e.g. '_blank'
+
+		'parent_link_position'     => 'top',  // or 'none'
+		'parent_link_before'       => '<p class="evo_post_parent">'.T_('Parent').': ',
+		'parent_link_after'        => '</p>',
+		'parent_link_not_found'    => '<i>'.T_('Item not found.').'</i>',
+
+		'before_more_link'         => '<p class="evo_post_more_link">',
+		'after_more_link'          => '</p>',
+		'more_link_text'           => '#',
+		'more_link_to'             => 'single#anchor', // Can be 'single' or 'single#anchor' which is permalink + "#more55" where 55 is item ID
+		'anchor_text'              => '<p class="evo_post_more_anchor">...</p>', // Text to display as the more anchor (once the more link has been clicked, '#' defaults to "Follow up:")
+
+		'limit_attach'             => 1000,
+		'attach_list_start'        => '<div class="evo_post_attachments"><h3>'.T_('Attachments').':</h3><ul class="evo_files">',
+		'attach_list_end'          => '</ul></div>',
+		'attach_start'             => '<li class="evo_file">',
+		'attach_end'               => '</li>',
+		'before_attach_size'       => ' <span class="evo_file_size">(',
+		'after_attach_size'        => ')</span>',
+
+		'page_links_start'         => '<p class="evo_post_pagination">'.T_('Pages:').' ',
+		'page_links_end'           => '</p>',
+		'page_links_separator'     => '&middot; ',
+		'page_links_single'        => '',
+		'page_links_current_page'  => '#',
+		'page_links_pagelink'      => '%d',
+		'page_links_url'           => '',
+
+		'footer_text_mode'         => '#', // 'single', 'xml' or empty. Will detect 'single' from $disp automatically.
+		'footer_text_start'        => '<div class="evo_post_footer">',
+		'footer_text_end'          => '</div>',
 	), $params );
 
 // Determine content mode to use..
@@ -76,6 +131,7 @@ if( $content_mode == 'auto' )
 	switch( $disp_detail )
 	{
 		case 'posts-cat':
+		case 'posts-subcat':
 			$content_mode = $Blog->get_setting('chapter_content');
 			break;
 
@@ -90,6 +146,11 @@ if( $content_mode == 'auto' )
 		case 'posts-filtered':
 		case 'search':
 			$content_mode = $Blog->get_setting('filtered_content');
+			break;
+
+		case 'single':
+		case 'page':
+			$content_mode = 'full';
 			break;
 
 		case 'posts-default':  // home page 1
@@ -144,9 +205,6 @@ switch( $content_mode )
 		// Full dislpay:
 		echo $params['content_start_full'];
 
-		// Increment view count of first post on page:
-		$shutdown_count_item_views[] = $Item->ID;
-
 		if( ! empty($params['image_size']) )
 		{
 			// Display images that are linked to this post:
@@ -165,19 +223,24 @@ switch( $content_mode )
 				) );
 		}
 
-		?>
-		<div class="bText">
-			<?php
+		if ( $params['content_display_full'])
+		{
 
+			echo $params['content_start_full_text'];
+
+
+		if( $params['url_link_position'] == 'top' )
+		{
 				// URL link, if the post has one:
 				$Item->url_link( array(
 						'before'        => $params['before_url_link'],
 						'after'         => $params['after_url_link'],
 						'text_template' => $params['url_link_text_template'],
-						'url_template'  => '$url$',
-						'target'        => '',
+						'url_template'  => $params['url_link_url_template'],
+						'target'        => $params['url_link_target'],
 						'podcast'       => '#',        // auto display mp3 player if post type is podcast (=> false, to disable)
 					) );
+		}
 
 				// Display CONTENT:
 				echo links_to_xhtml2($Item->get_content_teaser( ));
@@ -216,9 +279,9 @@ switch( $content_mode )
 						'block_start' => '<div class="item_footer">',
 						'block_end'   => '</div>',
 					) );
-			?>
-		</div>
-		<?php
+
+				echo $params['content_end_full_text'];
+		}
 
 
 		if( ! empty($params['limit_attach'])

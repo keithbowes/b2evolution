@@ -29,7 +29,7 @@
 				'group_start' => '<ul>',
 				'group_end' => '</ul>',
 				// This will enclose (foot)notes:
-				'notes_start' => '<div class="notes">',
+				'notes_start' => '<div class="help-inline">',
 				'notes_end' => '</div>',
       ) );?>
   <li><h2 tabindex="26789"><?php echo __('Misc'); ?></h2>
@@ -247,7 +247,7 @@ for ($i = 0; $i < count($pods); $i++)
 </select>
 
 <br />
-<span class="note">(<?php echo $Skin->T_('Select a pod to use above or enter one below.'); ?>)</span>
+<span class="help-inline">(<?php echo $Skin->T_('Select a pod to use above or enter one below.'); ?>)</span>
 <br />
 </datalist>
 

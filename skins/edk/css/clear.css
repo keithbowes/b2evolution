@@ -9,7 +9,7 @@ div[role="article"] {
 #credit,
 #menu,
 .allowed-tags,
-.bComment {
+.evo_comment {
   background-color: azure;
   border: medium lightblue dotted;
   overflow-x: hidden;
@@ -37,8 +37,7 @@ div[role="article"] {
   padding-top: 0.5em;
 }
 
-.note,
-.notes {
+.help-inline {
   color: inherit;
 }
 

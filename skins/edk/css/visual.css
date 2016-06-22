@@ -88,6 +88,14 @@ input[list] {
   -webkit-appearance: menulist;
 }
 
+input[type="file"],
+.form-control:not(.search_field),
+.info {
+  float: right;
+  margin-top: 0.5em;
+  width: 48%;
+}
+
 li, p,
 .credit,
 .feedback,
@@ -143,7 +151,7 @@ table summary {
   font-size: 120%;
 }
 
-#content > h2:not(.cform) {
+#content > h2:not(.evo_comment__list_title) {
   padding-bottom: 0.5em;
   text-align: center;
 }
@@ -407,13 +415,6 @@ table summary {
   border-right: none;
 }
 
-.bText,
-.storycontent {
-  clear: both;
-  overflow: auto !important;
-  padding-top: 0.2em;
-}
-
 .button {
   display: inline-block;
   font-family: sans-serif;
@@ -425,6 +426,27 @@ table summary {
 
 .button-sf {
   display: none !important;
+}
+
+.checkbox {
+  width: auto !important;
+}
+
+.control-label {
+  clear: both;
+  float: left;
+  margin-top: 0.5em;
+  text-align: left;
+  width: 48%;
+}
+
+.control-label + .help-inline {
+  float: right;
+}
+
+.help-inline {
+  display: block;
+  clear: right;
 }
 
 .dia {
@@ -453,8 +475,15 @@ table summary {
   width: 50%;
 }
 
-.diashow .input {
+.diashow .form-control {
   float: left;
+}
+
+.evo_post__full_text,
+.storycontent {
+  clear: both;
+  overflow: auto !important;
+  padding-top: 0.2em;
 }
 
 .feed {
@@ -463,22 +492,14 @@ table summary {
   padding: 0.1em 0.5em;
 }
 
+.fieldset {
+  clear: both;
+}
+
 .flag {
   position: relative;
   top: 0.1em;
   vertical-align: text-top;
-}
-
-.info,
-.input {
-  float: right;
-  width: 48%;
-}
-
-.label {
-  float: left;
-  text-align: left;
-  width: 48%;
 }
 
 .meta,
@@ -562,4 +583,8 @@ table summary {
 
 .tag-list-header:after {
   content: ": ";
+}
+
+.text-muted {
+  font-size: smaller;
 }

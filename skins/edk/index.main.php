@@ -151,7 +151,7 @@ skin_include('$disp$', array(
   'disp_single' => '',
   'disp_page' => '',
   'disp_profile' => 'templates/_profile.disp.php',
-  'disp_user' => 'templates/_user.disp.php',
+  'disp_user' => '',
 ));
 
 if ($MainList)

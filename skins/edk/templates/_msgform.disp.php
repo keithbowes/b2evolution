@@ -187,7 +187,7 @@ else
 	<?php
 
 	$Form = new Form( $htsrv_url.'message_send.php' );
-		$Form->begin_form( 'bComment' );
+		$Form->begin_form( 'evo_comment' );
 
 		$Form->add_crumb( 'newmessage' );
 		if( !empty( $Blog ) )
@@ -202,27 +202,27 @@ else
 		?>
 
 		<fieldset>
-			<div class="label"><label><?php echo T_('To')?>:</label></div>
+			<div class="control-label"><label><?php echo T_('To')?>:</label></div>
 			<div class="info"><strong><?php echo $recipient_name;?></strong></div>
 		</fieldset>
 
 		<?php
 		// Note: we use funky field name in order to defeat the most basic guestbook spam bots:
-		$Form->text( 'd', $email_author, 40, T_('From'),  '(' . T_('Your name.') . ')', 50, 'bComment' );
+		$Form->text( 'd', $email_author, 40, T_('From'),  '(' . T_('Your name.') . ')', 50, 'evo_comment' );
 		$subject_note = T_('Subject of your message.');
 		if( $allow_msgform == 'email' )
 		{
-			$Form->text( 'f', $email_author_address, 40, T_('Email'), '(' . T_('Your email address. (Will <strong>not</strong> be displayed on this site.)') . ')', 100, 'bComment' );
+			$Form->text( 'f', $email_author_address, 40, T_('Email'), '(' . T_('Your email address. (Will <strong>not</strong> be displayed on this site.)') . ')', 100, 'evo_comment' );
 		}
-		$Form->text( 'g', $subject, 40, T_('Subject'), '(' . $subject_note . ')', 255, 'bComment' );
-		$Form->textarea( 'h', '', 15, T_('Message'), '(' . T_('Plain text only.') . ')', 40, 'bComment' );
+		$Form->text( 'g', $subject, 40, T_('Subject'), '(' . $subject_note . ')', 255, 'evo_comment' );
+		$Form->textarea( 'h', '', 15, T_('Message'), '(' . T_('Plain text only.') . ')', 40, 'evo_comment' );
 
 		$Plugins->trigger_event( 'DisplayMessageFormFieldset', array( 'Form' => & $Form,
 			'recipient_ID' => & $recipient_id, 'item_ID' => $post_id, 'comment_ID' => $comment_id ) );
 
 		$Form->begin_fieldset();
 		?>
-			<div class="input">
+			<div class="form-control">
 				<?php
 				$Form->button_input( array( 'name' => 'submit_message_'.$recipient_id, 'class' => 'submit', 'value' => T_('Send message') ) );
 

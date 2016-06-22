@@ -66,7 +66,7 @@ if( $action != 'req_validatemail' )
 
 	$Form = new Form( '', 'login_form', 'post' );
 
-	$Form->begin_form( 'bComment' );
+	$Form->begin_form( 'evo_comment' );
 
 	$Form->hidden( 'redirect_to', $redirect_to );
 	$Form->hidden( 'inskin', true );
@@ -105,14 +105,14 @@ if( $action != 'req_validatemail' )
 
 	$Form->end_form();
 
-	echo '<div class="notes" style="margin: 1em"><a href="'.$htsrv_url.'login.php?redirect_to='.str_replace('&', '&amp;', $redirect_to).'">'.T_( 'Use standard login form instead').' →</a></div>
+	echo '<div class="help-inline" style="margin: 1em"><a href="'.$htsrv_url.'login.php?redirect_to='.str_replace('&', '&amp;', $redirect_to).'">'.T_( 'Use standard login form instead').' →</a></div>
 	<div class="clear"></div>';
 }
 else
 {	// -----------------------------------------------------------------------------------------------------------------
 	$Form = new Form( $htsrv_url_sensitive.'login.php', 'login_form', 'post' );
 
-	$Form->begin_form( 'bComment' );
+	$Form->begin_form( 'evo_comment' );
 
 	$Form->add_crumb( 'validateform' );
 	$Form->hidden( 'action', 'req_validatemail');

@@ -45,7 +45,7 @@ $form_action = $Blog->gen_blogurl().'?disp='.$disp;
 
 if( ! is_logged_in() )
 { // must be logged in!
-	echo '<p class="error">'.T_( 'You are not logged in.' ).'</p>';
+	echo '<p class="error">'.__( 'You are not logged in.' ).'</p>';
 	return;
 }
 
@@ -117,8 +117,11 @@ switch( $disp )
 	case 'userprefs':
 		require $inc_path.'users/views/_user_preferences.form.php';
 		break;
+	case 'subs':
+		require $inc_path.'users/views/_user_subscriptions.form.php';
+		break;
 	default:
-		debug_die( "Unknown user tab" );
+		debug_die( $Skin->T_("Unknown user tab") );
 }
 
 ?>
