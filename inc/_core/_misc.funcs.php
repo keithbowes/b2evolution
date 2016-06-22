@@ -6923,13 +6923,14 @@ function is_ajax_content( $template_name = '' )
  * @param integer Object ID
  * @param string Origin type: 'core', 'plugin'
  * @param integer Origin ID
+ * @param integer User ID
  */
-function syslog_insert( $message, $log_type, $object_type = NULL, $object_ID = NULL, $origin_type = 'core', $origin_ID = NULL )
+function syslog_insert( $message, $log_type, $object_type = NULL, $object_ID = NULL, $origin_type = 'core', $origin_ID = NULL, $user_ID = NULL )
 {
 	global $servertimenow;
 
 	$Syslog = new Syslog();
-	$Syslog->set_user();
+	$Syslog->set_user( $user_ID );
 	$Syslog->set( 'type', $log_type );
 	$Syslog->set_origin( $origin_type, $origin_ID );
 	$Syslog->set_object( $object_type, $object_ID );
@@ -7815,5 +7816,30 @@ function get_install_format_text( $text, $format = 'string' )
 	$text = html_entity_decode( $text );
 
 	return $text;
+}
+
+
+/**
+ * Check if password should be transmitted in hashed format during Login
+ *
+ * @return boolean TRUE - hashed password will be transmitted, FALSE - raw password will be transmitted
+ */
+function transmit_hashed_password()
+{
+	global $transmit_hashed_password;
+
+	if( isset( $transmit_hashed_password ) )
+	{	// Get value from already defined var:
+		return $transmit_hashed_password;
+	}
+
+	global $Settings, $Plugins;
+
+	// Allow to transmit hashed password only when:
+	// - it is enabled by general setting "Password hashing during Login"
+	// - no plugins that automatically disable this option during Login
+	$transmit_hashed_password = (bool)$Settings->get( 'js_passwd_hashing' ) && !(bool)$Plugins->trigger_event_first_true( 'LoginAttemptNeedsRawPassword' );
+
+	return $transmit_hashed_password;
 }
 ?>
