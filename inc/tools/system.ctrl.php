@@ -147,8 +147,7 @@ if( ! empty($msg) )
 }
 else
 {
-	$msg = '<p>Updates from b2evolution.net are disabled!</p>
-			<p>You will <b>NOT</b> be alerted if you are running an insecure configuration.</p>';
+	$msg = T_("<p>Updates from b2evolution.net are disabled!</p>\n\t\t\t<p>You will <b>NOT</b> be alerted if you are running an insecure configuration.</p>");
 
 	$app_age = ($localtimenow - $app_timestamp) / 3600 / 24 / 30;	// approx age in months
 	if( $app_age > 12 )
@@ -201,10 +200,10 @@ else
 	disp_system_check( 'ok' );
 }
 
-init_system_check( 'Internal b2evo charset' , $system_stats['evo_charset'] );
+init_system_check( T_('Internal b2evo charset') , $system_stats['evo_charset'] );
 disp_system_check( 'note' );
 
-init_system_check( 'Blog count' , $system_stats['evo_blog_count'] );
+init_system_check( T_('Blog count') , $system_stats['evo_blog_count'] );
 disp_system_check( 'note' );
 
 $block_item_Widget->disp_template_raw( 'block_end' );
@@ -235,12 +234,12 @@ if( $cachedir_status != 'error' )
 { // 'cache/ directory exists and, it is writable
 
 	// General cache is enabled
-	init_system_check( T_( 'General caching' ), $system_stats['general_pagecache_enabled'] ? 'Enabled' : 'Disabled' );
+	init_system_check( T_( 'General caching' ), $system_stats['general_pagecache_enabled'] ? T_('Enabled') : T_('Disabled') );
 	disp_system_check( 'note' );
 
 	// how many blogs have enabled caches
 	$error_messages = system_check_caches( false );
-	$enabled_message = $system_stats['blog_pagecaches_enabled'].' enabled /'.$system_stats['evo_blog_count'].' blogs';
+	$enabled_message = sprintf(T_('%d enabled / %d blogs'), $system_stats['blog_pagecaches_enabled'], $system_stats['evo_blog_count']);
 	init_system_check( T_( 'Blog\'s cache setting' ), $enabled_message );
 	disp_system_check( 'note' );
 	if( count( $error_messages ) > 0 )
@@ -289,7 +288,7 @@ else
 }
 
 // UTF8 support?
-init_system_check( 'MySQL UTF-8 support', $system_stats['db_utf8'] ?  T_('Yes') : T_('No') );
+init_system_check( T_('MySQL UTF-8 support'), $system_stats['db_utf8'] ?  T_('Yes') : T_('No') );
 if( ! $system_stats['db_utf8'] )
 {
 	disp_system_check( 'warning', T_('UTF-8 is not supported by your MySQL server.') ); // fp> TODO: explain why this is bad. Better yet: try to detect if we really need it, base don other conf variables.
@@ -311,20 +310,20 @@ $block_item_Widget->disp_template_replaced( 'block_start' );
 
 // User ID:
 list( $uid, $uname, $running_as ) = system_check_process_user();
-init_system_check( 'PHP running as USER:', $running_as );
+init_system_check( T_('PHP running as USER:'), $running_as );
 disp_system_check( 'note' );
 
 
 // Group ID:
 list( $gid, $gname, $running_as ) = system_check_process_group();
-init_system_check( 'PHP running as GROUP:', $running_as );
+init_system_check( T_('PHP running as GROUP:'), $running_as );
 disp_system_check( 'note' );
 
 
 // PHP version
 $phpinfo_url = '?ctrl=tools&amp;action=view_phpinfo&amp;'.url_crumb('tools');
 $phpinfo_link = action_icon( T_('View PHP info'), 'info', $phpinfo_url, '', 5, '', array( 'target'=>'_blank', 'onclick'=>'return pop_up_window( \''.$phpinfo_url.'\', \'phpinfo\', 650 )' ) );
-init_system_check( 'PHP version', $system_stats['php_version'].' '.$phpinfo_link );
+init_system_check( T_('PHP version'), $system_stats['php_version'].' '.$phpinfo_link );
 
 if( version_compare( $system_stats['php_version'], $required_php_version['application'], '<' ) )
 {
@@ -489,7 +488,7 @@ else
 }
 
 // mbstring extension
-init_system_check( 'PHP mbstring extension', extension_loaded('mbstring') ?  T_('Loaded') : T_('Not loaded') );
+init_system_check( T_('PHP mbstring extension'), extension_loaded('mbstring') ?  T_('Loaded') : T_('Not loaded') );
 if( ! extension_loaded('mbstring' ) )
 {
 	disp_system_check( 'warning', T_('b2evolution will not be able to convert character sets and special characters/languages may not be displayed correctly. Enable the mbstring extension in your php.ini file or ask your hosting provider about it.') );
@@ -501,7 +500,7 @@ else
 
 
 // XML extension
-init_system_check( 'PHP XML extension', extension_loaded('xml') ?  T_('Loaded') : T_('Not loaded') );
+init_system_check( T_('PHP XML extension'), extension_loaded('xml') ?  T_('Loaded') : T_('Not loaded') );
 if( ! extension_loaded('xml' ) )
 {
 	disp_system_check( 'warning', T_('The XML extension is not loaded.') ); // fp> This message only repeats the exact same info that is already displayed. Not helpful.
@@ -516,7 +515,7 @@ else
 
 // IMAP extension
 $imap_loaded = extension_loaded( 'imap' );
-init_system_check( 'PHP IMAP extension', $imap_loaded ? T_( 'Loaded' ) : T_( 'Not loaded' ) );
+init_system_check( T_('PHP IMAP extension'), $imap_loaded ? T_( 'Loaded' ) : T_( 'Not loaded' ) );
 if ( ! $imap_loaded )
 {
 	disp_system_check( 'warning', T_( 'You will not be able to use the Post by Email feature and the Return Path email processing of b2evolution. Enable the IMAP extension in your php.ini file or ask your hosting provider about it.' ) );
@@ -528,7 +527,7 @@ else
 
 // Opcode cache
 $opcode_cache = get_active_opcode_cache();
-init_system_check( 'PHP opcode cache', $opcode_cache );
+init_system_check( T_('PHP opcode cache'), $opcode_cache );
 if( $opcode_cache == 'none' )
 {
 	disp_system_check( 'warning', T_( 'Using an opcode cache allows all your PHP scripts to run faster by caching a "compiled" (opcode) version of the scripts instead of recompiling everything at every page load. Several opcode caches are available. We recommend APC.' ) );
@@ -540,7 +539,7 @@ else
 
 // User cache
 $user_cache = get_active_user_cache();
-init_system_check( 'PHP user cache', $user_cache );
+init_system_check( T_('PHP user cache'), $user_cache );
 if( $user_cache == 'none' )
 {
 	disp_system_check( 'warning', T_( 'Using an user cache allows all your PHP scripts to run faster by caching a "compiled" (user) version of the scripts instead of recompiling everything at every page load. Several user caches are available. We recommend APC.' ) );
