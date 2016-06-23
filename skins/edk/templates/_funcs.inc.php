@@ -105,7 +105,7 @@ function get_copyright($params = array())
 function get_item($dir)
 {
 	global $Blog, $DB, $Item;
-	$blogid = $Item ? $Item->blog_ID : $Blog ? $Blog->ID : -1;
+	$blogid = is_object($Item) && $Item->blog_ID ? $Item->blog_ID : is_object($Blog) && $Blog->ID ? $Blog->ID : -1;
 	$blogslug = $Item ? $Item->urltitle : '';
 	$categorytablename = is_object($Item) && is_object($Item->main_Chapter) ? $Item->main_Chapter->dbtablename : 'T_categories';
 	$itemtablename = $Item ? $Item->dbtablename : 'T_items__item';
