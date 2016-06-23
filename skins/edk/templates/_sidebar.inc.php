@@ -124,7 +124,8 @@ if (class_exists('DOMDocument'))
 		else
 			$file_contents = '';
 
-		if ($dom->loadHTML($file_contents))
+		/* Supress warnings, so that users won't be alerted about errors in the HTML input */
+		if (@$dom->loadHTML($file_contents))
 		{
 			$rows = $dom->getElementById('myTable')->getElementsByTagName('tbody')->item(0)->getElementsByTagName('tr');
 
