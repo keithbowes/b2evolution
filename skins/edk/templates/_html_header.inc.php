@@ -231,9 +231,7 @@ $params = array_merge( array(
 	'viewport_tag'  => prefers_xhtml() ? NULL : '#responsive#',
 ), $params );
 
-?>
 
-<?php
 	edk_meta('name', 'author', $Blog->get_owner_User()->get('fullname'));
 	edk_meta('property', 'DC.rights', get_copyright(array('display' => FALSE, 'license' =>  FALSE)));
 	edk_meta('property', 'copyright', get_copyright(array('display' =>  FALSE, 'license' =>  FALSE)));
