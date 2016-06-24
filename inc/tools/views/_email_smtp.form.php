@@ -85,7 +85,8 @@ $Form->begin_fieldset( T_('SMTP Server connection settings').get_manual_link('sm
 			), T_('Encryption Method') );
 
 	$smtp_server_novalidatecert_params = array( 'lines' => true );
-	if( $Settings->get( 'smtp_server_security' ) == 'none' || empty( $Settings->get( 'smtp_server_security' ) ) )
+	$smtp_server_security = $Settings->get('smtp_server_security');
+	if( empty( $smtp_server_security) || $smtp_server_security == 'none' )
 	{
 		$smtp_server_novalidatecert_params['disabled'] = 'disabled';
 	}
