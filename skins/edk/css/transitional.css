@@ -40,6 +40,7 @@ div#evo_toolbar + #skin_wrapper #content {
 
 form.evo_comment {
   margin-bottom: 1em !important;
+  padding: 0 1em;
 }
 
 form.evo_comment {
