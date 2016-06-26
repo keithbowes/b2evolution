@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net\n"
 "POT-Creation-Date: 2016-06-22 12:52-0400\n"
-"PO-Revision-Date: 2016-06-22 13:11-0400\n"
+"PO-Revision-Date: 2016-06-26 15:19-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -10584,7 +10584,7 @@ msgstr "[%s] Nova komento je \"%s\""
 #: ../../../inc/comments/model/_comment.class.php:4347
 #: ../../../inc/comments/model/_comment.funcs.php:832
 msgid "Reply to this comment"
-msgstr "Respondi la komenton"
+msgstr "Respondi ĉi tiun komenton"
 
 #: ../../../inc/comments/model/_comment.class.php:4343
 #: ../../../inc/comments/model/_comment.funcs.php:841
@@ -34578,7 +34578,7 @@ msgstr "Mencio de:"
 
 #: ../../../skins/basic/_item_comment_form.inc.php:81
 msgid "Your email address will <strong>not</strong> be displayed on this site."
-msgstr "Via retpoŝtadreso <strong>ne</strong> montriĝos en ĉi tiu kolektaro."
+msgstr "Via retpoŝtadreso <strong>ne</strong> montriĝos en ĉi tiu kolektaro"
 
 #: ../../../skins/basic/_item_comment_form.inc.php:91
 msgid "Site/Url"

@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2016-06-22 12:52-0400\nPO-Revision-Date: 2016-06-22 13:11-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2016-06-22 12:52-0400\nPO-Revision-Date: 2016-06-26 15:19-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 'Folder' => 'Dosierujo',
 'Unknown file' => 'Nekonata dosiero',
 'Empty file' => 'Vaka dosiero',
@@ -1884,7 +1884,7 @@ $trans['eo'] = array(
 '[%s] New comment awaiting moderation on "%s"' => '[%s] Novaj komentoj atendas kontroli en "%s"',
 '[%s] New comment may need moderation on "%s"' => '[%s] Nova komento eble estas kontrolenda en "%s"',
 '[%s] New comment on "%s"' => '[%s] Nova komento je "%s"',
-'Reply to this comment' => 'Respondi la komenton',
+'Reply to this comment' => 'Respondi ĉi tiun komenton',
 'You are currently replying to this comment' => 'Vi nun respondas ĉi tiun komenton',
 'Since the parent post of this comment have its visibility set to "%s", the visibility of this comment will be restricted to "%s".' => 'Ĉar la patra afiŝo havas sian videblecon agorditan al "%s", la videbleco de la komento estas limigita al "%s".',
 'Leave a comment' => 'Komenti',
@@ -6904,7 +6904,7 @@ $trans['eo'] = array(
 'Comment from:' => 'Komento de:',
 'Trackback from:' => 'Spuro de:',
 'Pingback from:' => 'Mencio de:',
-'Your email address will <strong>not</strong> be displayed on this site.' => 'Via retpoŝtadreso <strong>ne</strong> montriĝos en ĉi tiu kolektaro.',
+'Your email address will <strong>not</strong> be displayed on this site.' => 'Via retpoŝtadreso <strong>ne</strong> montriĝos en ĉi tiu kolektaro',
 'Site/Url' => 'TTT-ejo/URL',
 'Your URL will be displayed.' => 'Via TTT-adreso ja montriĝos',
 'Allowed XHTML tags' => 'Permesataj XHTML-etikedoj',
