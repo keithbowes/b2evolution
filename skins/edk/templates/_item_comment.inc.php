@@ -69,30 +69,31 @@ echo $params['comment_title_before'];
 		switch( $Comment->get( 'type' ) )
 		{
 			case 'comment': // Display a comment:
-				if( empty($Comment->ID) )
-				{	// PREVIEW comment
-					echo __('PREVIEW Comment from:').' ';
-				}
-				else
+				if( ! empty($Comment->ID) )
 				{
 					global $DB;
 					$DB->query('SELECT comment_in_reply_to_cmt_ID FROM T_comments WHERE comment_ID=' . $Comment->ID);
-					$refcomment = $DB->get_row(NULL, ARRAY_N)[0];
+					/* Older versions of PHP don't support $var = $DB->get_row(...)[0]
+					 * So I'm using the intermediate $row variable as a workaround */
+					$row = $DB->get_row(NULL, ARRAY_N);
+					$refcomment = $row[0];
 
 					if (0 != $refcomment)
 					{
 						$DB->query('SELECT comment_author, comment_author_user_ID FROM T_comments WHERE comment_ID=' . $refcomment);
-						$refname = $DB->get_row(NULL, ARRAY_N)[0];
+						$row = $DB->get_row(NULL, ARRAY_N);
+						$refname = $row[0];
 						if (!$refname)
 						{
-							$refid = $DB->get_row(NULL, ARRAY_N, 0)[1];
+							$refid = $row[1];
 							$DB->query('SELECT user_nickname, user_firstname, user_lastname, user_login FROM T_users WHERE user_ID=' . $refid);
-							$refname = $DB->get_row(NULL, ARRAY_N, 0)[0];
+							$row = $DB->get_row(NULL, ARRAY_N, 0);
+							$refname = $row[0];
 							if (!$refname)
 							{
-								$refname = $DB->get_row(NULL, ARRAY_N, 0)[1] . ' ' . $DB->get_row(NULL, ARRAY_N, 0)[2];
+								$refname = $row[1] . ' ' . $row[2];
 								if (!$refname)
-									$refname = $DB->get_row(NULL, ARRAY_N, 0)[3];
+									$refname = $row[3];
 							}
 						}
 						$after_user_text = sprintf($Skin->T_(' (in response to <a href="%s">%s</a>)'), htmlentities($_SERVER['REQUEST_URI']) . '#c' . $refcomment, $refname);
@@ -107,6 +108,10 @@ echo $params['comment_title_before'];
 							'class'     => 'evo_comment_type',
 							'nofollow'	=> true,
 						) );
+				}
+				else
+				{	// PREVIEW comment
+					echo __('PREVIEW Comment from:').' ';
 				}
 
 				$Comment->author2( array(
