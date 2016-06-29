@@ -223,7 +223,7 @@ $timestamp = time() - 120; // We start dates 2 minutes ago because their dates i
 locales_load_available_defs();
 param( 'locale', 'string' );
 $use_locale_from_request = false;
-if( preg_match( '/[a-z]{2}-[A-Z]{2}(-.{1,14})?/', $locale ) )
+if( preg_match( '/[a-z]{2,3}(-[A-Z]{2}(-.{1,14})?)?/', $locale ) )
 {
 	$default_locale = $locale;
 	$use_locale_from_request = true;
