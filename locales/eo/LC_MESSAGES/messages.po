@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net\n"
 "POT-Creation-Date: 2016-06-22 12:52-0400\n"
-"PO-Revision-Date: 2016-06-26 15:19-0400\n"
+"PO-Revision-Date: 2016-06-29 00:14-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -31997,7 +31997,7 @@ msgstr "Ĝisdatigi agordo-dosieron"
 
 #: ../../../install/index.php:597
 msgid "How would you like your b2evolution installed?"
-msgstr "Kiel vi ŝatus instaliĝi b2evolution?"
+msgstr "Kiel vi volus, ke b2evolution estu instalota?"
 
 #: ../../../install/index.php:608 ../../../install/index.php:928
 #, php-format
@@ -32016,7 +32016,7 @@ msgstr "AVERTO: Iuj el viaj tabeloj havas kodoprezenton alian ol %s. Forte rekom
 
 #: ../../../install/index.php:637
 msgid "The installation can be done in different ways. Choose one:"
-msgstr "La instalado povas fariĝi laŭ diversaj manieroj. Elektu iun:"
+msgstr "La instalado plenumeblas laŭ diversaj manieroj. Elektu iun:"
 
 #: ../../../install/index.php:649
 msgid "<strong>New Install</strong>: Install the b2evolution database tables. Optionally add some default contents."

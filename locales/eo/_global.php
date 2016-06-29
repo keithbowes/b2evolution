@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2016-06-22 12:52-0400\nPO-Revision-Date: 2016-06-26 15:19-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2016-06-22 12:52-0400\nPO-Revision-Date: 2016-06-29 00:14-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 'Folder' => 'Dosierujo',
 'Unknown file' => 'Nekonata dosiero',
 'Empty file' => 'Vaka dosiero',
@@ -6412,11 +6412,11 @@ $trans['eo'] = array(
 'This is where b2evo and your blogs reside by default. CHECK THIS CAREFULLY or not much will work. If you want to test b2evolution on your local machine, in order for login cookies to work, you MUST use http://<strong>localhost</strong>/path... Do NOT use your machine\'s name!' => 'Jen kie viaj kolektoj loĝas aŭtomate. ZORGE kONTROLI ĈI TIO aŭ ne multo funkcios. Se vi volas testi la kolekton en via loka komputilo por ensalutaj kuketoj funkcii, vi devas uzi la vojon http://<strong>localhost</strong>/vojo ne la nomo de via komputilo.',
 'This is used to create your admin account. You will receive notifications for comments on your blog, etc.' => 'Ĉi tiu uziĝas por krei vian estran konton. Vi ricevos sciigojn por komentoj en via kolekto ktp',
 'Update config file' => 'Ĝisdatigi agordo-dosieron',
-'How would you like your b2evolution installed?' => 'Kiel vi ŝatus instaliĝi b2evolution?',
+'How would you like your b2evolution installed?' => 'Kiel vi volus, ke b2evolution estu instalota?',
 'In order to install b2evolution with the %s locale, your MySQL needs to support the %s connection charset.' => 'Por instali kun la lokaĵaro %s, via MySQL devas regi la konektan signaron %s.',
 'WARNING: Some of your tables have a different charset than the expected %s. You should normalize your database after upgrade.' => 'AVERTO: Iuj el viaj tabeloj havas kodoprezenton alian ol %s. Forte rekomendinde estas konsekvencigi vian datumbazo post ĝisdatigo.',
 'WARNING: Some of your tables have a different charset than the expected %s. It is strongly recommended to normalize your database charset by running the preselected task below:' => 'AVERTO: Iuj el viaj tabeloj havas kodoprezenton alian ol %s. Forte rekomendinde estas konsekvencigi vian datumbazo-kodoprezenton per la ĉi-malsupra antaŭelektita laboro:',
-'The installation can be done in different ways. Choose one:' => 'La instalado povas fariĝi laŭ diversaj manieroj. Elektu iun:',
+'The installation can be done in different ways. Choose one:' => 'La instalado plenumeblas laŭ diversaj manieroj. Elektu iun:',
 '<strong>New Install</strong>: Install the b2evolution database tables. Optionally add some default contents.' => '<strong>Nova instalado</strong>: Instali datumbazajn tabelojn de b2evolution. Laŭvole aldoni aprioran enhavon.',
 '<strong>Upgrade from a previous version of b2evolution</strong>: Upgrade your b2evolution database tables in order to make them compatible with the current version. <strong>WARNING:</strong> If you have modified your database, this operation may fail. Make sure you have a backup.' => '<strong>Ĝisdatigi disde antaŭa eldono de b2evolution</strong>: Ĝisdatigi viajn datumbazajn tabelojn por konformigi ilin kun la ĝisdata eldono. <strong>AVERTO:</strong> Se vi modifis vian datumbazon ĉi tiu funkciigo eble malsukcesos. Certigi, ke vi havas sekurkopion.',
 '<strong>Delete b2evolution tables &amp; cache files. WARNING:</strong> All your b2evolution tables and data will be lost! Any non-b2evolution tables will remain untouched.' => '<strong>Forigi b2evolution-tabelojn kaj tenejajn dosierojn. AVERTO: </strong> La tuto de la b2evolution-tabeloj kaj datumoj forviŝiĝos. Ĉiuj ne-b2evolution-tabeloj restos netuŝitaj.',
