@@ -27,5 +27,4 @@ function saveDefaultStyleSheet()
   }
 }
 
-/* Might as well use jQuery to hopefully get around the myriad browser incompatibilities with unload event listeners */
-$(window).bind('beforeunload', saveDefaultStyleSheet);
+addEventListener('beforeunload', saveDefaultStyleSheet, false);

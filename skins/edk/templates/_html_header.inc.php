@@ -111,9 +111,7 @@ function edk_css_include()
 
 				/* The default stylesheet shouldn't be alternate */
 				if ($file != $default_style)
-				{
 					$elem = str_replace('title=', 'alternate="yes" title=', $elem);
-				}
 
 				echo $elem . "\n";
 				unset($headlines[$file]);
@@ -129,7 +127,7 @@ function edk_css_include()
 
 		/* Set the default style sheet, for browsers that support it
 		 * (most CSS-enabled browsers do) */
-		edk_meta('http-equiv', 'Default-Style', $title);
+		header('Default-Style: ' . $title);
 	}
 }
 
@@ -233,7 +231,6 @@ $params = array_merge( array(
 
 
 	edk_meta('name', 'author', $Blog->get_owner_User()->get('fullname'));
-	edk_meta('property', 'DC.rights', get_copyright(array('display' => FALSE, 'license' =>  FALSE)));
 	edk_meta('property', 'copyright', get_copyright(array('display' =>  FALSE, 'license' =>  FALSE)));
 	edk_meta('property', 'license', get_license(array('display' => FALSE, 'format' =>  'text')));
 
