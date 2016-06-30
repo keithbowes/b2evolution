@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net\n"
-"POT-Creation-Date: 2016-06-22 12:52-0400\n"
-"PO-Revision-Date: 2016-06-29 00:14-0400\n"
+"POT-Creation-Date: 2016-06-29 21:36-0400\n"
+"PO-Revision-Date: 2016-06-30 21:03-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -47,7 +47,7 @@ msgstr "Kopii"
 #: ../../../inc/files/views/_file_move_copy.form.php:26
 #: ../../../inc/files/views/_file_move_copy.form.php:34
 #: ../../../inc/files/views/_file_move_copy.form.php:57
-#: ../../../inc/items/model/_item.funcs.php:4489
+#: ../../../inc/items/model/_item.funcs.php:4494
 #: ../../../inc/widgets/views/_widget_list.view.php:65
 msgid "Move"
 msgstr "Movi"
@@ -251,7 +251,7 @@ msgstr "Elekti"
 #: ../../../inc/files/_files.init.php:241
 #: ../../../inc/files/views/_file_links.view.php:44
 #: ../../../inc/items/items.ctrl.php:611 ../../../inc/items/items.ctrl.php:708
-#: ../../../inc/items/model/_item.funcs.php:2862
+#: ../../../inc/items/model/_item.funcs.php:2867
 #: ../../../inc/items/views/_item_list_full.view.php:314
 #: ../../../inc/locales/_locale_settings.form.php:270
 #: ../../../inc/users/model/_user.funcs.php:4479
@@ -717,7 +717,7 @@ msgstr "Vi ne estas ensalutita."
 #: ../../../skins_fallback_v5/_user.disp.php:43
 #: ../../../skins_fallback_v6/_user.disp.php:43
 msgid "Edit in Back-Office"
-msgstr "Redakti en la stirilo"
+msgstr "Redakti en la malantaŭo"
 
 #: ../../../htsrv/anon_async.php:166
 #: ../../../skins_fallback_v5/_user.disp.php:274
@@ -770,9 +770,9 @@ msgstr "Specifaj kriterioj"
 #: ../../../inc/antispam/model/_antispam.funcs.php:782
 #: ../../../inc/files/model/_file.class.php:844
 #: ../../../inc/files/model/_file.funcs.php:1955
-#: ../../../inc/items/model/_item.funcs.php:3269
-#: ../../../inc/items/model/_item.funcs.php:3275
-#: ../../../inc/items/model/_item.funcs.php:3281
+#: ../../../inc/items/model/_item.funcs.php:3274
+#: ../../../inc/items/model/_item.funcs.php:3280
+#: ../../../inc/items/model/_item.funcs.php:3286
 #: ../../../inc/regional/model/_regional.funcs.php:732
 #: ../../../inc/regional/views/_city.form.php:40
 #: ../../../inc/regional/views/_city.form.php:42
@@ -882,8 +882,8 @@ msgstr "Retpoŝtmesaĝo sendiĝis al vi kun ligilo por konfirmi vian peton de ti
 msgid "Sorry, could not send email."
 msgstr "Bedaŭre ne eblas sendi retpoŝtmesaĝon."
 
-#: ../../../htsrv/anon_unsubscribe.php:76 ../../../htsrv/login.php:217
-#: ../../../htsrv/login.php:551 ../../../htsrv/message_send.php:237
+#: ../../../htsrv/anon_unsubscribe.php:76 ../../../htsrv/login.php:220
+#: ../../../htsrv/login.php:554 ../../../htsrv/message_send.php:237
 #: ../../../htsrv/register.php:419
 #: ../../../inc/email_campaigns/campaigns.ctrl.php:203
 msgid "Possible reason: the PHP mail() function may have been disabled on the server."
@@ -909,12 +909,12 @@ msgstr "ago: %s"
 #: ../../../inc/chapters/views/_chapter_list.view.php:330
 #: ../../../inc/chapters/views/_chapter_move.form.php:49
 #: ../../../inc/collections/views/_coll_advanced.form.php:213
-#: ../../../inc/collections/views/_coll_comments.form.php:287
-#: ../../../inc/collections/views/_coll_features.form.php:214
+#: ../../../inc/collections/views/_coll_comments.form.php:288
+#: ../../../inc/collections/views/_coll_features.form.php:232
 #: ../../../inc/collections/views/_coll_general.form.php:252
 #: ../../../inc/collections/views/_coll_group_perm.form.php:331
 #: ../../../inc/collections/views/_coll_home.form.php:73
-#: ../../../inc/collections/views/_coll_more.form.php:60
+#: ../../../inc/collections/views/_coll_more.form.php:61
 #: ../../../inc/collections/views/_coll_other.form.php:128
 #: ../../../inc/collections/views/_coll_plugin_settings.form.php:122
 #: ../../../inc/collections/views/_coll_seo.form.php:337
@@ -933,8 +933,8 @@ msgstr "ago: %s"
 #: ../../../inc/files/views/_file_properties.form.php:75
 #: ../../../inc/files/views/_file_settings.form.php:236
 #: ../../../inc/files/views/_filetype.form.php:92
-#: ../../../inc/items/model/_item.funcs.php:1899
-#: ../../../inc/items/model/_item.funcs.php:2020
+#: ../../../inc/items/model/_item.funcs.php:1904
+#: ../../../inc/items/model/_item.funcs.php:2025
 #: ../../../inc/items/views/_item_list_manual.view.php:46
 #: ../../../inc/items/views/_item_mass_edit.view.php:79
 #: ../../../inc/items/views/_itemstatus.form.php:46
@@ -969,7 +969,7 @@ msgstr "ago: %s"
 #: ../../../inc/tools/views/_email_renderers.form.php:74
 #: ../../../inc/tools/views/_email_return_settings.form.php:137
 #: ../../../inc/tools/views/_email_settings.form.php:82
-#: ../../../inc/tools/views/_email_smtp.form.php:117
+#: ../../../inc/tools/views/_email_smtp.form.php:118
 #: ../../../inc/tools/views/_misc_tools.view.php:112
 #: ../../../inc/users/views/_account_close_setting.form.php:56
 #: ../../../inc/users/views/_display.form.php:160
@@ -1015,7 +1015,7 @@ msgid "Username not found!"
 msgstr "Salutnomo ne trovita."
 
 # TRANS: "None" select option
-#: ../../../htsrv/async.php:646 ../../../inc/items/model/_item.funcs.php:4629
+#: ../../../htsrv/async.php:646 ../../../inc/items/model/_item.funcs.php:4634
 #: ../../../inc/items/views/_item_list_track.view.php:179
 #: ../../../inc/items/views/_item_list_track.view.php:196
 #: ../../../inc/users/model/_usercache.class.php:47
@@ -1025,7 +1025,7 @@ msgstr "Neniu uzanto"
 
 #: ../../../htsrv/async.php:668
 #: ../../../inc/collections/_collections.init.php:221
-#: ../../../inc/items/model/_item.funcs.php:4621
+#: ../../../inc/items/model/_item.funcs.php:4626
 #: ../../../inc/items/views/_item_list_track.view.php:201
 msgid "No status"
 msgstr "Neniu stato"
@@ -1038,8 +1038,7 @@ msgstr "Neniu stato"
 #: ../../../inc/sessions/_sessions.init.php:93
 #: ../../../inc/settings/views/_eblog.form.php:85
 #: ../../../inc/tools/views/_email_return_settings.form.php:86
-#: ../../../inc/tools/views/_email_smtp.form.php:82
-#: ../../../inc/widgets/widgets/_coll_about_author.widget.php:112
+#: ../../../inc/tools/views/_email_smtp.form.php:83
 #: ../../../inc/widgets/widgets/_coll_featured_intro.widget.php:87
 #: ../../../inc/widgets/widgets/_coll_item_list.widget.php:156
 #: ../../../inc/widgets/widgets/_coll_item_list.widget.php:204
@@ -1054,7 +1053,7 @@ msgstr "Nenio"
 #: ../../../inc/_core/_template.funcs.php:3017
 #: ../../../inc/comments/model/_comment_js.funcs.php:367
 #: ../../../inc/files/model/_file.funcs.php:2795
-#: ../../../inc/items/model/_item.funcs.php:3259
+#: ../../../inc/items/model/_item.funcs.php:3264
 #: ../../../inc/items/views/_item_expert.form.php:775
 #: ../../../inc/links/model/_link.funcs.php:183
 #: ../../../inc/tools/views/_wpxml_file.form.php:188
@@ -1180,7 +1179,7 @@ msgstr "Komenta kontrolado"
 #: ../../../htsrv/comment_review.php:46
 #: ../../../inc/users/model/_user.funcs.php:847
 msgid "Go to the back-office..."
-msgstr "Iri la stirilon…"
+msgstr "Iri la malantaŭon…"
 
 #: ../../../htsrv/comment_review.php:69
 msgid "Quick moderation not available."
@@ -1265,14 +1264,14 @@ msgstr "Sendita komento"
 
 #: ../../../htsrv/comment_review.php:248
 #: ../../../inc/dashboard/model/_dashboard.funcs.php:335
-#: ../../../inc/items/model/_item.funcs.php:2804
+#: ../../../inc/items/model/_item.funcs.php:2809
 msgid "No Spam Karma"
 msgstr "Neniu spamkarmo"
 
 #: ../../../htsrv/comment_review.php:248
 #: ../../../inc/comments/views/_comment.form.php:253
 #: ../../../inc/dashboard/model/_dashboard.funcs.php:335
-#: ../../../inc/items/model/_item.funcs.php:2804
+#: ../../../inc/items/model/_item.funcs.php:2809
 msgid "Spam Karma"
 msgstr "Spama karmo"
 
@@ -1311,135 +1310,135 @@ msgstr "Bonvolu enmeti validan limdaton."
 msgid "The workflow properties have been updated."
 msgstr "La laborfluaj ecoj ĝisdatiĝis."
 
-#: ../../../htsrv/login.php:61
+#: ../../../htsrv/login.php:62
 msgid "Please quickly select a reason for closing your account."
 msgstr "Bonvolu rapide elekti kialon por fermi vian konton."
 
-#: ../../../htsrv/login.php:69
+#: ../../../htsrv/login.php:72
 msgid "You cannot close your own account!"
 msgstr "Ne eblas fermi vian konton!"
 
-#: ../../../htsrv/login.php:85 ../../../inc/users/model/_user.class.php:4829
+#: ../../../htsrv/login.php:88 ../../../inc/users/model/_user.class.php:4829
 msgid "User account closed"
 msgstr "Uzantkonto formiĝis"
 
-#: ../../../htsrv/login.php:92
+#: ../../../htsrv/login.php:95
 msgid "Unable to close your account. Please contact to system administrator."
 msgstr "Ne eblas fermi vian konton. Bonvolu kontakti la sistemestron."
 
-#: ../../../htsrv/login.php:105
+#: ../../../htsrv/login.php:108
 msgid "You must enter your username or your email address so we know where to send the password recovery email."
 msgstr "Vi devas enmeti vian salutnomon aŭ vian retpoŝtadreson por ke ni sciu kien sendi la pasvortan reatingan retpoŝtmesaĝon."
 
-#: ../../../htsrv/login.php:118
+#: ../../../htsrv/login.php:121
 #, php-format
 msgid "We have already sent you a password recovery email at %s. Please allow %d minutes for delivery before requesting a new one."
 msgstr "Ni jam sendis al vi retpoŝtmesaĝon pri restarigo de pasvorto al %s. Bonvolu permesi %d minutojn por liverado antaŭ ol peti alian."
 
-#: ../../../htsrv/login.php:167 ../../../htsrv/login.php:225
+#: ../../../htsrv/login.php:170 ../../../htsrv/login.php:228
 msgid "If you correctly entered your login or email address, a link to change your password has been sent to your registered email address."
 msgstr "Se vi ĝuste tajpis vian salutnomon aŭ retpoŝtadreson, ligilo por ŝanĝi vian pasvorton sendiĝis al via registrita retpoŝtadreso."
 
-#: ../../../htsrv/login.php:177
+#: ../../../htsrv/login.php:180
 msgid "You cannot reset this account in demo mode."
 msgstr "Vi ne rajtas apriorigi la konton en demonstra reĝimo."
 
-#: ../../../htsrv/login.php:189
+#: ../../../htsrv/login.php:192
 msgid "You have no email address with your profile, therefore we cannot reset your password."
 msgstr "Vi havas neniun retpoŝtadreson kun via profilo; tiel ne eblas apriorigi vian pasvorton."
 
-#: ../../../htsrv/login.php:190
+#: ../../../htsrv/login.php:193
 msgid "Please try contacting the admin."
 msgstr "Bonvolu provi kontaktadon de estro."
 
-#: ../../../htsrv/login.php:207
+#: ../../../htsrv/login.php:210
 #, php-format
 msgid "Password change request for %s"
 msgstr "Peto pri pasvorta ŝanĝo por %s"
 
-#: ../../../htsrv/login.php:216
+#: ../../../htsrv/login.php:219
 msgid "Sorry, the email with the link to reset your password could not be sent."
 msgstr "Bedaŭre la retpoŝtmesaĝo kun la ligilo por restarigi vian pasvorton ne eblis sendiĝi."
 
-#: ../../../htsrv/login.php:248 ../../../htsrv/login.php:265
-#: ../../../htsrv/login.php:312 ../../../htsrv/login.php:324
-#: ../../../htsrv/login.php:333
+#: ../../../htsrv/login.php:251 ../../../htsrv/login.php:268
+#: ../../../htsrv/login.php:315 ../../../htsrv/login.php:327
+#: ../../../htsrv/login.php:336
 msgid "Invalid password change request! Please try again..."
 msgstr "Nevalida peto pri pasvorta ŝanĝo. Bonvolu reprovi…"
 
-#: ../../../htsrv/login.php:256 ../../../htsrv/login.php:427
+#: ../../../htsrv/login.php:259 ../../../htsrv/login.php:430
 msgid "You have to use the same session (by means of your session cookie) as when you have requested the action. Please try again..."
 msgstr "Vi devas uzi la saman seancon (per via seanca kuketo) kiel kiam vi petis la agon. Bonvolu reprovi…"
 
-#: ../../../htsrv/login.php:276
+#: ../../../htsrv/login.php:279
 msgid "Please change your password to something you remember now."
 msgstr "Bonvolu nun ŝanĝi vian pasvorton al io, kion vi memoros."
 
-#: ../../../htsrv/login.php:372 ../../../inc/skins/_skin.funcs.php:1204
+#: ../../../htsrv/login.php:375 ../../../inc/skins/_skin.funcs.php:1204
 msgid "Your account has already been activated."
 msgstr "Via konto jam estis aktivigita."
 
-#: ../../../htsrv/login.php:378
+#: ../../../htsrv/login.php:381
 msgid "Your account is closed. You cannot activate it."
 msgstr "Via konto estas fermita. Vi ne povas aktivigi ĝin."
 
-#: ../../../htsrv/login.php:386
+#: ../../../htsrv/login.php:389
 msgid "Invalid account activation request!"
 msgstr "Nevalida peto por konta aktivigo."
 
-#: ../../../htsrv/login.php:396
+#: ../../../htsrv/login.php:399
 msgid "Your account is now activated."
 msgstr "Via konto nun estas aktiva."
 
-#: ../../../htsrv/login.php:411
+#: ../../../htsrv/login.php:414
 msgid "Your email address has already been validated."
 msgstr "Via retpoŝtadreso jam estis aŭtentigita."
 
-#: ../../../htsrv/login.php:419 ../../../htsrv/login.php:437
+#: ../../../htsrv/login.php:422 ../../../htsrv/login.php:440
 msgid "Invalid email address validation request!"
 msgstr "Nevalida peto por aŭtentigado de retpoŝtadreso."
 
-#: ../../../htsrv/login.php:447
+#: ../../../htsrv/login.php:450
 msgid "Please login to validate your account."
 msgstr "Bonvolu ensaluti por aŭtentigi vian konton."
 
-#: ../../../htsrv/login.php:454
+#: ../../../htsrv/login.php:457
 msgid "Your email address has been validated."
 msgstr "Via retpoŝtadreso estas aŭtentigita."
 
-#: ../../../htsrv/login.php:480
+#: ../../../htsrv/login.php:483
 msgid "You have to be logged in to request an account validation link."
 msgstr "Vi devas esti ensalutita por peti ligilon pri konta aŭtentigado."
 
-#: ../../../htsrv/login.php:516
+#: ../../../htsrv/login.php:519
 #, php-format
 msgid "We have already sent you an activation message to %s at %s. Please allow %d minutes for delivery before requesting a new one."
 msgstr "Ne jam sendis al vi aktivigan mesaĝon al %s ĉe %s. Bonvolu permesi %d minutoj por livero antaŭ ol peti novan."
 
-#: ../../../htsrv/login.php:534
+#: ../../../htsrv/login.php:537
 msgid "Could not update your email address."
 msgstr "Ne eblis ĝisdatigi vian retpoŝtadreson."
 
 # TRANS: %s gets replaced by the user's email address
-#: ../../../htsrv/login.php:542
+#: ../../../htsrv/login.php:545
 #, php-format
 msgid "An email has been sent to your email address (%s). Please click on the link therein to validate your account."
 msgstr "Retpoŝtmesaĝo sendiĝis al via retpoŝtadreso (%s). Bonvolu alklaki la ligilon ene de tio por aŭtentigi vian konton."
 
-#: ../../../htsrv/login.php:550
+#: ../../../htsrv/login.php:553
 msgid "Sorry, the email with the link to validate and activate your password could not be sent."
 msgstr "Bedaŭre la retpoŝtmesaĝon kun la ligilo por validigi kaj aktivigi vian pasvorton estis nesendebla."
 
-#: ../../../htsrv/login.php:560
+#: ../../../htsrv/login.php:563
 #, php-format
 msgid "We have already sent you %d email(s) with a validation link."
 msgstr "Ni jam sendis al vi %d retpoŝtmesaĝo(j)n kun la ligilo pri validigo."
 
-#: ../../../htsrv/login.php:565
+#: ../../../htsrv/login.php:568
 msgid "You have no email address with your profile, therefore we cannot validate it. Please give your email address below."
 msgstr "Vi havas neniun retpoŝtadreson kun via profilo; tiel ne eblas validigi ĝin. Bonvolu tajpi vian retpoŝtadreson sube."
 
-#: ../../../htsrv/login.php:649 ../../../inc/_core/_template.funcs.php:432
+#: ../../../htsrv/login.php:652 ../../../inc/_core/_template.funcs.php:432
 #: ../../../inc/_core/_template.funcs.php:2424
 msgid "Lost your password?"
 msgstr "Ĉu vi forgesis la pasvorton?"
@@ -1641,7 +1640,7 @@ msgid "Please do not send empty comment"
 msgstr "Bonvolu ne sendi vakan komenton"
 
 #: ../../../htsrv/viewfile.php:115
-#: ../../../inc/items/model/_item.funcs.php:1841
+#: ../../../inc/items/model/_item.funcs.php:1846
 #: ../../../inc/items/views/_item_list_full.view.php:664
 #: ../../../inc/messaging/views/_message_list.view.php:337
 #: ../../../inc/messaging/views/_thread.form.php:140
@@ -1665,7 +1664,7 @@ msgstr "Dosiero"
 #: ../../../htsrv/viewfile.php:189 ../../../inc/_core/_misc.funcs.php:5737
 #: ../../../inc/collections/views/_coll_general.form.php:116
 #: ../../../inc/files/views/_file_links.view.php:98
-#: ../../../inc/items/model/_item.funcs.php:4041
+#: ../../../inc/items/model/_item.funcs.php:4046
 #: ../../../inc/items/views/_item_expert.form.php:151
 #: ../../../inc/items/views/_item_history.view.php:188
 #: ../../../inc/items/views/_item_history_details.view.php:35
@@ -1677,12 +1676,7 @@ msgstr "Dosiero"
 #: ../../../inc/messaging/views/_msg_settings_templates.form.php:58
 #: ../../../inc/tools/views/_broken_posts.view.php:37
 #: ../../../inc/tools/views/_broken_slugs.view.php:39
-#: ../../../inc/widgets/widgets/_coll_about_author.widget.php:103
 #: ../../../inc/widgets/widgets/_coll_featured_intro.widget.php:58
-#: ../../../inc/widgets/widgets/_coll_item_content.widget.php:86
-#: ../../../inc/widgets/widgets/_coll_item_tags.widget.php:86
-#: ../../../inc/widgets/widgets/_coll_seen_by.widget.php:84
-#: ../../../inc/widgets/widgets/_coll_small_print.widget.php:86
 #: ../../../inc/widgets/widgets/_coll_xml_feeds.widget.php:86
 #: ../../../inc/widgets/widgets/_colls_list_owner.widget.php:86
 #: ../../../inc/widgets/widgets/_colls_list_public.widget.php:86
@@ -1740,31 +1734,31 @@ msgstr "Dosierfino"
 msgid "The file &laquo;%s&raquo; could not be accessed!"
 msgstr "Ne eblas atingi la dosieron «%s»."
 
-#: ../../../inc/_blog_main.inc.php:590
+#: ../../../inc/_blog_main.inc.php:594
 msgid "Front page is set to display first post but there is nothing to display."
 msgstr "Frontpaĝo agordiĝis por montri unuan afiŝon sed ekzistas neniu montrebla."
 
-#: ../../../inc/_blog_main.inc.php:605
+#: ../../../inc/_blog_main.inc.php:609
 #, php-format
 msgid "Front page is set to display page ID=%d but it does not exist."
 msgstr "Frontpaĝo agordiĝis montri paĝon kun identigilo %d, sed tio ne ekzistas."
 
-#: ../../../inc/_blog_main.inc.php:632
+#: ../../../inc/_blog_main.inc.php:636
 #: ../../../skins_fallback_v5/_terms.disp.php:71
 #: ../../../skins_fallback_v6/_terms.disp.php:74
 msgid "You already accepted these terms."
 msgstr "Vi jam akceptis tiujn uzkondiĉojn"
 
-#: ../../../inc/_blog_main.inc.php:655
+#: ../../../inc/_blog_main.inc.php:659
 msgid "You need to accept the following before you can enter this site."
 msgstr "Vi devas akcepti la jenajn uzkondiĉojn antaŭ ol vi eniri la kolektaron."
 
-#: ../../../inc/_blog_main.inc.php:706
+#: ../../../inc/_blog_main.inc.php:710
 #, php-format
 msgid "The skin [%s] is not installed on this system."
 msgstr "La etoso [%s] ne instaliĝas en ĉi tiu sistemo."
 
-#: ../../../inc/_blog_main.inc.php:725
+#: ../../../inc/_blog_main.inc.php:729
 #, php-format
 msgid "The skin [%s] set for blog [%s] does not exist. It must be properly set in the <a %s>blog properties</a> or properly overriden in a stub file."
 msgstr "La etoso [%s] elektita por la kolekto [%s] ne ekzistas. Ĝi devas konvene esti elektita en la <a %s>kolekto-ecoj</a> aŭ en ĝerma dosiero."
@@ -1833,7 +1827,7 @@ msgstr "Ĉiu grupo havas uzanto-administranto-permeson."
 #: ../../../inc/_core/__core.init.php:668
 #: ../../../inc/users/views/_group.form.php:176
 msgid "Evobar & Back-office"
-msgstr "b2evolution-ilobreto kaj stirilo"
+msgstr "b2evolution-ilobreto kaj malantaŭo"
 
 #: ../../../inc/_core/__core.init.php:673
 #: ../../../inc/users/views/_group.view.php:135
@@ -1842,15 +1836,15 @@ msgstr "Neniu ilobreto"
 
 #: ../../../inc/_core/__core.init.php:674
 msgid "No Back-office Access"
-msgstr "Neniu stirila atingo"
+msgstr "Nenia malantaŭo-atingo"
 
 #: ../../../inc/_core/__core.init.php:675
 msgid "Restricted Back-office Access"
-msgstr "Limigita stirila atingo"
+msgstr "Limigita malantaŭo-atingo"
 
 #: ../../../inc/_core/__core.init.php:676
 msgid "Normal Back-office Access"
-msgstr "Ordinara stirila atingo"
+msgstr "Ordinara malantaŭo-atingo"
 
 #: ../../../inc/_core/__core.init.php:681
 msgid "Select to give User Admin permission"
@@ -2041,20 +2035,20 @@ msgstr "Krei kaj redakti estratajn organizaĵojn kaj vidi ĉiujn"
 # TRANS: evobar menu link. <u>...</u> marks the part to hide on small screens
 #: ../../../inc/_core/__core.init.php:1038
 msgid "Front<u>-office</u>"
-msgstr "Publika vido"
+msgstr "Antaŭo"
 
 #: ../../../inc/_core/__core.init.php:1040
 msgid "Go to the site home page (Front-office)"
-msgstr "Iri la kolektara ĉefpaĝo (publika vido)"
+msgstr "Iri la kolektaran ĉefpaĝon (antaŭon)"
 
 # TRANS: evobar menu link. <u>...</u> marks the part to hide on small screens
 #: ../../../inc/_core/__core.init.php:1043
 msgid "Back<u>-office</u>"
-msgstr "Stirilo"
+msgstr "Malantaŭo"
 
 #: ../../../inc/_core/__core.init.php:1045
 msgid "Go to the site dashboard (Back-office)"
-msgstr "Iri la stirilon"
+msgstr "Iri la stirilon (malantaŭon)"
 
 #: ../../../inc/_core/__core.init.php:1051
 msgid "No blog is currently selected"
@@ -2063,7 +2057,7 @@ msgstr "Neniu kolekto nune elektiĝas"
 #: ../../../inc/_core/__core.init.php:1059
 #: ../../../inc/_core/__core.init.php:1100
 #: ../../../inc/chapters/views/_chapter.form.php:51
-#: ../../../inc/items/model/_item.funcs.php:4008
+#: ../../../inc/items/model/_item.funcs.php:4013
 #: ../../../inc/items/views/_itemtag.form.php:86
 #: ../../../inc/sessions/views/_stats_view.funcs.php:150
 #: ../../../inc/tools/views/_phpbb_forums.form.php:51
@@ -2097,7 +2091,7 @@ msgid "Write a new post into this blog"
 msgstr "Skribi en ĉi tiun kolekton novan afiŝon"
 
 #: ../../../inc/_core/__core.init.php:1095
-#: ../../../inc/items/model/_item.funcs.php:3121
+#: ../../../inc/items/model/_item.funcs.php:3126
 msgid "You don't have permission to post into this blog"
 msgstr "Vi ne rajtas afiŝi en ĉi tiu kolekto"
 
@@ -2117,14 +2111,14 @@ msgstr "Kolekto-stirilo"
 
 #: ../../../inc/_core/__core.init.php:1127
 #: ../../../inc/items/items.ctrl.php:1544
-#: ../../../inc/items/model/_item.funcs.php:1498
-#: ../../../inc/items/model/_item.funcs.php:3590
+#: ../../../inc/items/model/_item.funcs.php:1503
+#: ../../../inc/items/model/_item.funcs.php:3595
 msgid "Manual view"
 msgstr "Manlibra vido"
 
 #: ../../../inc/_core/__core.init.php:1135
 #: ../../../inc/items/items.ctrl.php:1560
-#: ../../../inc/items/model/_item.funcs.php:1490
+#: ../../../inc/items/model/_item.funcs.php:1495
 msgid "Workflow view"
 msgstr "Laborflua vido"
 
@@ -2137,7 +2131,7 @@ msgstr "Laborflua vido"
 #: ../../../inc/collections/coll_settings.ctrl.php:945
 #: ../../../inc/dashboard/dashboard.ctrl.php:120
 #: ../../../inc/items/items.ctrl.php:417
-#: ../../../inc/items/model/_item.funcs.php:1609
+#: ../../../inc/items/model/_item.funcs.php:1614
 #: ../../../inc/widgets/widgets/_coll_xml_feeds.widget.php:153
 #: ../../../skins/bootstrap_manual_skin/_skin.class.php:252
 #: ../../../skins_fallback_v5/_sitemap.disp.php:71
@@ -2151,8 +2145,8 @@ msgstr "Afiŝoj"
 #: ../../../inc/collections/views/_coll_group_perm.form.php:267
 #: ../../../inc/collections/views/_coll_settings_blog.form.php:75
 #: ../../../inc/collections/views/_coll_user_perm.form.php:244
-#: ../../../inc/items/model/_item.funcs.php:1044
-#: ../../../inc/items/model/_item.funcs.php:1059
+#: ../../../inc/items/model/_item.funcs.php:1049
+#: ../../../inc/items/model/_item.funcs.php:1064
 #: ../../../inc/items/model/_itemlistlight.class.php:903
 #: ../../../inc/items/views/_item_list_full.view.php:196
 #: ../../../inc/sessions/_sessions.init.php:358
@@ -2374,7 +2368,7 @@ msgstr "Sistemo"
 #: ../../../inc/cron/views/_cronjob.view.php:47
 #: ../../../inc/cron/views/_cronjob.view.php:54
 #: ../../../inc/cron/views/_cronjob_list.view.php:251
-#: ../../../inc/items/model/_item.funcs.php:4051
+#: ../../../inc/items/model/_item.funcs.php:4056
 #: ../../../inc/items/model/_itemlistlight.class.php:924
 #: ../../../inc/items/views/_item_history.view.php:174
 #: ../../../inc/items/views/_item_history_compare.view.php:47
@@ -2930,8 +2924,8 @@ msgid "You have sent too much data (too many large files?) for the server to pro
 msgstr "Vi sendis tro da datumoj (tra da grandaj dosieroj?) por ke la servilo traktu (%s senditaj / %s maksimumaj). Bonvolu reprovi per sendo de malpli da datumoj kaj dosieroj ĉiufoje."
 
 #: ../../../inc/_core/_misc.funcs.php:5158
-#: ../../../inc/collections/model/_blog.class.php:340
-#: ../../../inc/collections/model/_blog.class.php:341
+#: ../../../inc/collections/model/_blog.class.php:336
+#: ../../../inc/collections/model/_blog.class.php:337
 #: ../../../inc/collections/model/_blog.funcs.php:413
 #: ../../../inc/collections/model/_blog.funcs.php:1815
 #: ../../../inc/cron/_cron.funcs.php:183
@@ -3018,7 +3012,7 @@ msgstr "Kolekto-identigilo"
 #: ../../../inc/email_campaigns/views/_campaigns_new.form.php:25
 #: ../../../inc/files/views/_file_list.inc.php:113
 #: ../../../inc/files/views/_filetype_list.view.php:59
-#: ../../../inc/items/model/_item.funcs.php:3597
+#: ../../../inc/items/model/_item.funcs.php:3602
 #: ../../../inc/items/views/_item_edit_type.form.php:79
 #: ../../../inc/items/views/_itemstatus.form.php:36
 #: ../../../inc/items/views/_itemstatuses.view.php:40
@@ -3448,8 +3442,6 @@ msgstr "Uzanto-komentoj"
 #: ../../../inc/items/views/_item_expert.form.php:333
 #: ../../../inc/items/views/_item_list_full.view.php:272
 #: ../../../inc/items/views/_itemtags.view.php:57
-#: ../../../inc/widgets/widgets/_coll_item_tags.widget.php:114
-#: ../../../inc/widgets/widgets/_coll_small_print.widget.php:178
 #: ../../../inc/widgets/widgets/_item_small_print.widget.php:210
 #: ../../../inc/widgets/widgets/_item_tags.widget.php:130
 #: ../../../inc/widgets/widgets/_menu_link.widget.php:25
@@ -3542,7 +3534,7 @@ msgid "image {current} of {total}"
 msgstr "bildo {current} el {total}"
 
 #: ../../../inc/_core/_template.funcs.php:1206
-#: ../../../inc/items/model/_item.funcs.php:2981
+#: ../../../inc/items/model/_item.funcs.php:2986
 #: ../../../inc/messaging/model/_messaging.funcs.php:1849
 #: ../../../inc/skins/model/_skin.class.php:1349
 #: ../../../inc/skins/model/_skin.class.php:1677
@@ -3565,7 +3557,7 @@ msgid "Previous"
 msgstr "Antaŭa"
 
 #: ../../../inc/_core/_template.funcs.php:1207
-#: ../../../inc/items/model/_item.funcs.php:2982
+#: ../../../inc/items/model/_item.funcs.php:2987
 #: ../../../inc/messaging/model/_messaging.funcs.php:1850
 #: ../../../inc/skins/model/_skin.class.php:1350
 #: ../../../inc/skins/model/_skin.class.php:1678
@@ -4338,8 +4330,8 @@ msgid "Lines per page:"
 msgstr "Linioj je ĉiu paĝo"
 
 #: ../../../inc/_core/ui/results/_results.class.php:2359
-#: ../../../inc/items/model/_item.funcs.php:1612
-#: ../../../inc/items/model/_item.funcs.php:2983
+#: ../../../inc/items/model/_item.funcs.php:1617
+#: ../../../inc/items/model/_item.funcs.php:2988
 #: ../../../inc/skins/model/_skin.class.php:1615
 #: ../../../inc/skins/model/_skin.class.php:1671
 #: ../../../inc/widgets/widgets/_coll_page_list.widget.php:60
@@ -4721,7 +4713,7 @@ msgstr "Bonvolu elekti almenaŭ unu kolekton."
 #: ../../../inc/files/views/_file_likes.view.php:68
 #: ../../../inc/files/views/_file_suspicious.view.php:98
 #: ../../../inc/items/items.ctrl.php:1528
-#: ../../../inc/items/model/_item.funcs.php:1482
+#: ../../../inc/items/model/_item.funcs.php:1487
 #: ../../../inc/items/views/_itemtags.view.php:88
 #: ../../../inc/messaging/model/_messaging.funcs.php:1261
 #: ../../../inc/messaging/views/_contact_list.view.php:147
@@ -4868,7 +4860,7 @@ msgstr "Forigi la sekvajn %s %s komentojn:"
 #: ../../../inc/comments/model/_comment.funcs.php:1181
 #: ../../../inc/comments/views/_comment.form.php:225
 #: ../../../inc/email_campaigns/views/_campaigns.view.php:47
-#: ../../../inc/items/model/_item.funcs.php:3994
+#: ../../../inc/items/model/_item.funcs.php:3999
 #: ../../../inc/items/views/_item_history.view.php:131
 #: ../../../inc/items/views/_item_history_details.view.php:26
 #: ../../../inc/sessions/views/_goal_hitsummary.view.php:123
@@ -4890,8 +4882,8 @@ msgstr "IP de verkisto"
 #: ../../../inc/comments/views/_comment.form.php:114
 #: ../../../inc/comments/views/_comment.form.php:118
 #: ../../../inc/comments/views/_comment.form.php:127
-#: ../../../inc/items/model/_item.funcs.php:2798
-#: ../../../inc/items/model/_item.funcs.php:4019
+#: ../../../inc/items/model/_item.funcs.php:2803
+#: ../../../inc/items/model/_item.funcs.php:4024
 #: ../../../inc/items/model/_itemlistlight.class.php:911
 #: ../../../inc/messaging/views/_message_list.view.php:205
 #: ../../../inc/messaging/views/_thread.form.php:285
@@ -4929,9 +4921,9 @@ msgstr "Ago"
 #: ../../../inc/collections/coll_settings.ctrl.php:160
 #: ../../../inc/comments/model/_comment.class.php:1377
 #: ../../../inc/items/model/_item.class.php:4041
-#: ../../../inc/items/model/_item.funcs.php:4460
-#: ../../../inc/items/model/_item.funcs.php:4486
-#: ../../../inc/items/model/_item.funcs.php:4553
+#: ../../../inc/items/model/_item.funcs.php:4465
+#: ../../../inc/items/model/_item.funcs.php:4491
+#: ../../../inc/items/model/_item.funcs.php:4558
 #: ../../../inc/skins/skins.ctrl.php:84
 #: ../../../skins/photoblog/_item_block.inc.php:94
 msgid "Edit..."
@@ -5276,8 +5268,8 @@ msgstr "Forigi la IP-adresa grupon."
 #: ../../../inc/files/views/_file_links.view.php:106
 #: ../../../inc/files/views/_file_list.inc.php:152
 #: ../../../inc/files/views/_filetype_list.view.php:109
-#: ../../../inc/items/model/_item.funcs.php:3607
-#: ../../../inc/items/model/_item.funcs.php:4085
+#: ../../../inc/items/model/_item.funcs.php:3612
+#: ../../../inc/items/model/_item.funcs.php:4090
 #: ../../../inc/items/views/_item_history.view.php:206
 #: ../../../inc/items/views/_item_list_track.view.php:134
 #: ../../../inc/items/views/_itemstatuses.view.php:48
@@ -5558,7 +5550,7 @@ msgstr "Ĉiuj komentoj kun stato %s\\ninkluzive de nespamaj\\nforiĝos de la ele
 #: ../../../inc/chapters/chapters.ctrl.php:77
 #: ../../../inc/chapters/views/_chapter.form.php:36
 #: ../../../inc/collections/_search.funcs.php:738
-#: ../../../inc/items/model/_item.funcs.php:1168
+#: ../../../inc/items/model/_item.funcs.php:1173
 #: ../../../inc/items/model/_itemlistlight.class.php:902
 #: ../../../inc/items/views/_file_create_posts.form.php:159
 #: ../../../inc/items/views/_item_expert.form.php:758
@@ -5709,7 +5701,7 @@ msgstr "Nova kategorio"
 
 #: ../../../inc/chapters/views/_chapter.form.php:49
 #: ../../../inc/chapters/views/_chapter_list.view.php:167
-#: ../../../inc/items/model/_item.funcs.php:4489
+#: ../../../inc/items/model/_item.funcs.php:4494
 msgid "Move to a different blog..."
 msgstr "Movi al alia kolekto…"
 
@@ -5719,7 +5711,7 @@ msgstr "Patra kategorio"
 
 #: ../../../inc/chapters/views/_chapter.form.php:58
 #: ../../../inc/chapters/views/_chapter_list.view.php:242
-#: ../../../inc/items/model/_item.funcs.php:3600
+#: ../../../inc/items/model/_item.funcs.php:3605
 msgid "URL \"slug\""
 msgstr "URL \"URL-titolo\""
 
@@ -5739,7 +5731,7 @@ msgstr "Por permana ordigado de la kategorioj."
 #: ../../../inc/chapters/views/_chapter_list.view.php:246
 #: ../../../inc/collections/model/_blog.funcs.php:1702
 #: ../../../inc/collections/views/_coll_general.form.php:231
-#: ../../../inc/items/model/_item.funcs.php:3603
+#: ../../../inc/items/model/_item.funcs.php:3608
 #: ../../../inc/items/views/_item_expert.form.php:636
 #: ../../../inc/items/views/_item_list_full.view.php:154
 #: ../../../inc/items/views/_itemtype.form.php:177
@@ -5797,8 +5789,8 @@ msgid "Click to make this the default category"
 msgstr "Alklaki por igi al ĉi tiu la aprioran kategorion"
 
 #: ../../../inc/chapters/views/_chapter_list.view.php:111
-#: ../../../inc/items/model/_item.funcs.php:4469
-#: ../../../inc/items/model/_item.funcs.php:4577
+#: ../../../inc/items/model/_item.funcs.php:4474
+#: ../../../inc/items/model/_item.funcs.php:4582
 msgid "Alphabetic"
 msgstr "Alfabeta"
 
@@ -6185,13 +6177,11 @@ msgid "Created by %s on %s"
 msgstr "Kreita de %s je %s"
 
 #: ../../../inc/collections/_search.funcs.php:1263
-#: ../../../inc/widgets/widgets/_coll_small_print.widget.php:198
 #: ../../../skins/bootstrap_manual_skin/_item_block.inc.php:162
 msgid " on "
 msgstr " je  "
 
 #: ../../../inc/collections/_search.funcs.php:1263
-#: ../../../inc/widgets/widgets/_coll_small_print.widget.php:197
 #: ../../../skins/bootstrap_manual_skin/_item_block.inc.php:161
 msgid "Last edit by "
 msgstr "Plej lasta modifo de "
@@ -6282,7 +6272,7 @@ msgid "New post"
 msgstr "Nova afiŝo"
 
 #: ../../../inc/collections/coll_settings.ctrl.php:726
-#: ../../../inc/items/model/_item.funcs.php:4137
+#: ../../../inc/items/model/_item.funcs.php:4142
 #: ../../../inc/widgets/widgets/_user_tools.widget.php:63
 msgid "Write a new post..."
 msgstr "Skribi novan afiŝon…"
@@ -6477,12 +6467,12 @@ msgstr "%d similaj kategorioj kun ĉiuj el ties enhavo, funde"
 msgid "%d files in this blog file root"
 msgstr "%d dosieroj en la kolekto-dosierradiko"
 
-#: ../../../inc/collections/model/_blog.class.php:272
+#: ../../../inc/collections/model/_blog.class.php:268
 #: ../../../install/_functions_create.php:1751
 msgid "Homepage Title"
 msgstr "Titolo de la ĉefpaĝo"
 
-#: ../../../inc/collections/model/_blog.class.php:273
+#: ../../../inc/collections/model/_blog.class.php:269
 #: ../../../inc/widgets/widgets/_coll_common_links.widget.php:194
 #: ../../../install/_functions_create.php:1745 ../../../install/index.php:785
 #: ../../../skins_fallback_v5/_register.disp.php:59
@@ -6490,20 +6480,20 @@ msgstr "Titolo de la ĉefpaĝo"
 msgid "Home"
 msgstr "Hejmo"
 
-#: ../../../inc/collections/model/_blog.class.php:282
+#: ../../../inc/collections/model/_blog.class.php:278
 msgid "My photoblog"
 msgstr "Mia foto-kolekto"
 
-#: ../../../inc/collections/model/_blog.class.php:283
+#: ../../../inc/collections/model/_blog.class.php:279
 msgid "Photoblog"
 msgstr "Foto-kolekto"
 
-#: ../../../inc/collections/model/_blog.class.php:302
+#: ../../../inc/collections/model/_blog.class.php:298
 msgid "Our blog"
 msgstr "Nia kolekto"
 
 # TRANS: file group
-#: ../../../inc/collections/model/_blog.class.php:303
+#: ../../../inc/collections/model/_blog.class.php:299
 #: ../../../inc/collections/views/_coll_group_perm.form.php:153
 #: ../../../inc/files/views/_file_list.inc.php:149
 #: ../../../inc/messaging/views/_contact_list.view.php:121
@@ -6514,11 +6504,11 @@ msgstr "Nia kolekto"
 msgid "Group"
 msgstr "Grupo"
 
-#: ../../../inc/collections/model/_blog.class.php:310
+#: ../../../inc/collections/model/_blog.class.php:306
 msgid "My forum"
 msgstr "Mia forumo"
 
-#: ../../../inc/collections/model/_blog.class.php:311
+#: ../../../inc/collections/model/_blog.class.php:307
 #: ../../../inc/collections/model/_blog.funcs.php:408
 #: ../../../inc/collections/model/_blog.funcs.php:1814
 #: ../../../skins/bootstrap_forums_skin/index.main.php:32
@@ -6534,115 +6524,115 @@ msgstr "Mia forumo"
 msgid "Forum"
 msgstr "Forumo"
 
-#: ../../../inc/collections/model/_blog.class.php:364
+#: ../../../inc/collections/model/_blog.class.php:360
 msgid "My weblog"
 msgstr "Mia kolekto"
 
-#: ../../../inc/collections/model/_blog.class.php:365
+#: ../../../inc/collections/model/_blog.class.php:361
 #: ../../../inc/collections/model/_blog.funcs.php:397
 #: ../../../inc/collections/model/_blog.funcs.php:1811
 #: ../../../skins_email/account_activated.txt.php:89
 msgid "Blog"
 msgstr "Kolekto"
 
-#: ../../../inc/collections/model/_blog.class.php:438
+#: ../../../inc/collections/model/_blog.class.php:434
 #, php-format
 msgid "You changed the access setting of this collection from \"%s\" to \"%s\". This will also:"
 msgstr "Vi ne rajtas atingi agordon de la kolekto de \"%s\" al \"%s\". Tio ankaŭ:"
 
-#: ../../../inc/collections/model/_blog.class.php:442
+#: ../../../inc/collections/model/_blog.class.php:438
 #, php-format
 msgid "change %d posts from \"%s\" to \"%s\""
 msgstr "ŝanĝos %d afiŝojn de \"%s\" al \"%s\""
 
-#: ../../../inc/collections/model/_blog.class.php:446
+#: ../../../inc/collections/model/_blog.class.php:442
 #, php-format
 msgid "change %d comments from \"%s\" to \"%s\""
 msgstr "ŝanĝos %d komentojn de \"%s\" al \"%s\""
 
-#: ../../../inc/collections/model/_blog.class.php:523
+#: ../../../inc/collections/model/_blog.class.php:519
 msgid "Invalid category prefix."
 msgstr "Nevalida kategoria prefikso."
 
-#: ../../../inc/collections/model/_blog.class.php:553
+#: ../../../inc/collections/model/_blog.class.php:549
 msgid "Invalid tag prefix."
 msgstr "Nevalida etikeda prefikso."
 
-#: ../../../inc/collections/model/_blog.class.php:640
+#: ../../../inc/collections/model/_blog.class.php:636
 msgid "Download delay must be numeric (0-10)."
 msgstr "La elŝuta prokrasto devas esti cifera (0-100)."
 
-#: ../../../inc/collections/model/_blog.class.php:648
+#: ../../../inc/collections/model/_blog.class.php:644
 #, php-format
 msgid "Items per feed must be between %d and %d."
 msgstr "Eroj je ĉiu fluo devas esti inter %d kaj %d."
 
-#: ../../../inc/collections/model/_blog.class.php:656
+#: ../../../inc/collections/model/_blog.class.php:652
 #, php-format
 msgid "Comments per feed must be between %d and %d."
 msgstr "La komentoj je ĉiu fluo devas esti inter %d kaj %d."
 
-#: ../../../inc/collections/model/_blog.class.php:676
+#: ../../../inc/collections/model/_blog.class.php:672
 msgid "Invalid long description"
 msgstr "Nevalida priskribo longa"
 
-#: ../../../inc/collections/model/_blog.class.php:682
+#: ../../../inc/collections/model/_blog.class.php:678
 msgid "Invalid blog footer"
 msgstr "Nevalida kolekto-piedo"
 
-#: ../../../inc/collections/model/_blog.class.php:687
+#: ../../../inc/collections/model/_blog.class.php:683
 msgid "Invalid single post footer"
 msgstr "Nevalida piedo pri unuopa afiŝo"
 
-#: ../../../inc/collections/model/_blog.class.php:692
+#: ../../../inc/collections/model/_blog.class.php:688
 msgid "Invalid RSS footer"
 msgstr "Nevalida RSS-piedo"
 
-#: ../../../inc/collections/model/_blog.class.php:697
+#: ../../../inc/collections/model/_blog.class.php:693
 msgid "Invalid Blog Notes"
 msgstr "Nevalidaj kolekto-notoj"
 
-#: ../../../inc/collections/model/_blog.class.php:700
+#: ../../../inc/collections/model/_blog.class.php:696
 #, php-format
 msgid "Max credits must be between %d and %d."
 msgstr "Maksimumaj kreditoj devas esti inter %d kaj %d."
 
-#: ../../../inc/collections/model/_blog.class.php:725
+#: ../../../inc/collections/model/_blog.class.php:721
 msgid "Please enter a specific post ID"
 msgstr "Bonvolu enmeti specifan afiŝan identigilon"
 
-#: ../../../inc/collections/model/_blog.class.php:745
+#: ../../../inc/collections/model/_blog.class.php:741
 #, php-format
 msgid "Items/days per page must be between %d and %d."
 msgstr "La eroj/tagoj je ĉiu paĝo devas esti inter %d kaj %d."
 
-#: ../../../inc/collections/model/_blog.class.php:827
+#: ../../../inc/collections/model/_blog.class.php:834
 #, php-format
 msgid "Number of search results per page must be between %d and %d."
 msgstr "La nombro da serĉrezultoj je ĉiu paĝo devas esti inter %d kaj %d."
 
-#: ../../../inc/collections/model/_blog.class.php:831
+#: ../../../inc/collections/model/_blog.class.php:838
 #, php-format
 msgid "Number of shown comments must be between %d and %d."
 msgstr "Nombro da montrotaj komentoj devas esti inter %d kaj %d."
 
-#: ../../../inc/collections/model/_blog.class.php:886
+#: ../../../inc/collections/model/_blog.class.php:894
 #, php-format
 msgid "Comments per page must be between %d and %d."
 msgstr "La komentoj je ĉiu paĝo devas esti inter %d kaj %d."
 
-#: ../../../inc/collections/model/_blog.class.php:964
+#: ../../../inc/collections/model/_blog.class.php:972
 #, php-format
 msgid "Invalid Custom meta tag/css section. You can loosen this restriction in the <a %s>group settings</a>."
 msgstr "Nevalida personigita meta-etikeda/CSS-sekcio. Vi povas malstriktigi la limigon en la <a %s>grupa agordo</a>."
 
-#: ../../../inc/collections/model/_blog.class.php:970
-#: ../../../inc/collections/model/_blog.class.php:976
+#: ../../../inc/collections/model/_blog.class.php:978
+#: ../../../inc/collections/model/_blog.class.php:984
 #, php-format
 msgid "Invalid Custom javascript section. You can loosen this restriction in the <a %s>group settings</a>."
 msgstr "Nevalida personigita JavaScript-sekcio. Vi povas malstriktigi la limigon en la <a %s>grupa agordo</>."
 
-#: ../../../inc/collections/model/_blog.class.php:986
+#: ../../../inc/collections/model/_blog.class.php:994
 #: ../../../inc/polls/model/_poll.class.php:97
 #: ../../../inc/users/model/_organization.class.php:116
 #: ../../../inc/users/organizations.ctrl.php:226
@@ -6650,195 +6640,195 @@ msgstr "Nevalida personigita JavaScript-sekcio. Vi povas malstriktigi la limigon
 msgid "User &laquo;%s&raquo; does not exist!"
 msgstr "Uzanto «%s» ne ekzistas."
 
-#: ../../../inc/collections/model/_blog.class.php:998
+#: ../../../inc/collections/model/_blog.class.php:1006
 msgid "You must provide an URL collection name!"
 msgstr "Vi devas doni URL-kolekto-nomon"
 
-#: ../../../inc/collections/model/_blog.class.php:1002
+#: ../../../inc/collections/model/_blog.class.php:1010
 #, php-format
 msgid "The url name %s is invalid."
 msgstr "La URL-nomo %s nevalidas."
 
-#: ../../../inc/collections/model/_blog.class.php:1012
+#: ../../../inc/collections/model/_blog.class.php:1020
 #, php-format
 msgid "The URL name %s is already in use by another collection. Please choose another name."
 msgstr "La URL-nomo %s jam uziĝas de alia kolekto. Bonvolu elekti alian nomon."
 
-#: ../../../inc/collections/model/_blog.class.php:1040
-#: ../../../inc/collections/model/_blog.class.php:1096
+#: ../../../inc/collections/model/_blog.class.php:1048
+#: ../../../inc/collections/model/_blog.class.php:1104
 #, php-format
 msgid "%s is an invalid absolute URL"
 msgstr "%s estas nevalida absoluta URL"
 
-#: ../../../inc/collections/model/_blog.class.php:1040
+#: ../../../inc/collections/model/_blog.class.php:1048
 msgid "Collection Folder URL"
 msgstr "Kolekto-dosieruja URL"
 
-#: ../../../inc/collections/model/_blog.class.php:1041
+#: ../../../inc/collections/model/_blog.class.php:1049
 msgid "You must provide an absolute URL (starting with <code>http://</code> or <code>https://</code>) and it must contain at least one '/' sign after the domain name!"
 msgstr "Vi devas doni absolutan URL-on (komenciĝanta per <code>http://</code> aŭ <code>https://</code>) kaj ĝi devas enhavi almenaŭ unu oblikvon post la domajnnomo."
 
-#: ../../../inc/collections/model/_blog.class.php:1049
+#: ../../../inc/collections/model/_blog.class.php:1057
 msgid "Blog Folder URL"
 msgstr "URL de la kolekto-dosiero"
 
-#: ../../../inc/collections/model/_blog.class.php:1050
+#: ../../../inc/collections/model/_blog.class.php:1058
 msgid "You must provide a relative URL (without <code>http://</code> or <code>https://</code>)!"
 msgstr "Vi devas doni relativan URL-on (sen <code>http://</code> aŭ <code>https://</code>)!"
 
-#: ../../../inc/collections/model/_blog.class.php:1088
+#: ../../../inc/collections/model/_blog.class.php:1096
 #, php-format
 msgid "Absolute URL for %s cannot be empty!"
 msgstr "Absoluta URL por %s ne rajtas vaki."
 
-#: ../../../inc/collections/model/_blog.class.php:1096
+#: ../../../inc/collections/model/_blog.class.php:1104
 #, php-format
 msgid "Absolute URL for %s"
 msgstr "URL absoluta por %s"
 
-#: ../../../inc/collections/model/_blog.class.php:1097
+#: ../../../inc/collections/model/_blog.class.php:1105
 msgid "You must provide an absolute URL (starting with <code>http://</code>, <code>https://</code> or <code>//</code>) and it must ending with '/' sign!"
 msgstr "Vi devas doni absolutan URL-on (komenciĝanta per <code>http://</code>, <code>https://</code>, aŭ <code>//<code>) kaj ĝi devas finiĝi per oblikvo."
 
-#: ../../../inc/collections/model/_blog.class.php:1116
+#: ../../../inc/collections/model/_blog.class.php:1124
 msgid "Invalid aggregate collection ID list!"
 msgstr "Nevalida agrega listo da kolekto-identigiloj."
 
-#: ../../../inc/collections/model/_blog.class.php:1139
-#: ../../../inc/collections/model/_blog.class.php:1143
+#: ../../../inc/collections/model/_blog.class.php:1147
 #: ../../../inc/collections/model/_blog.class.php:1151
-#: ../../../inc/collections/model/_blog.class.php:1160
-#: ../../../inc/collections/model/_blog.class.php:1167
+#: ../../../inc/collections/model/_blog.class.php:1159
+#: ../../../inc/collections/model/_blog.class.php:1168
 #: ../../../inc/collections/model/_blog.class.php:1175
+#: ../../../inc/collections/model/_blog.class.php:1183
 msgid "Media dir location"
 msgstr "Loko de media dosierujo"
 
-#: ../../../inc/collections/model/_blog.class.php:1139
+#: ../../../inc/collections/model/_blog.class.php:1147
 msgid "You must provide the full path of the media directory."
 msgstr "Vi devas doni la plenan vojon de la media dosierujo."
 
-#: ../../../inc/collections/model/_blog.class.php:1144
+#: ../../../inc/collections/model/_blog.class.php:1152
 msgid "You must provide an absolute URL (starting with <code>http://</code> or <code>https://</code>)!"
 msgstr "Vi devas doni absolutan URL-on (komenciĝanta per <code>http://</code> aŭ <code>https://</code>)."
 
-#: ../../../inc/collections/model/_blog.class.php:1160
+#: ../../../inc/collections/model/_blog.class.php:1168
 msgid "You must provide the media subdirectory."
 msgstr "Vi devas doni la median subdosierujon."
 
-#: ../../../inc/collections/model/_blog.class.php:1167
+#: ../../../inc/collections/model/_blog.class.php:1175
 #, php-format
 msgid "Invalid subdirectory &laquo;%s&raquo;."
 msgstr "Nevalida subdosierujo «%s»."
 
-#: ../../../inc/collections/model/_blog.class.php:1942
+#: ../../../inc/collections/model/_blog.class.php:1950
 #, php-format
 msgid "The blog's media directory &laquo;%s&raquo; could not be created, because the parent directory is not writable or does not exist."
 msgstr "La median dosierujon «%s» de la kolekto ne eblis krei, ĉar la patra dosierujo ne skribeblas aŭ ne ekzistas."
 
-#: ../../../inc/collections/model/_blog.class.php:1951
+#: ../../../inc/collections/model/_blog.class.php:1959
 #, php-format
 msgid "The blog's media directory &laquo;%s&raquo; could not be created."
 msgstr "La median dosierujon «%s» de la kolekto ne eblis krei."
 
-#: ../../../inc/collections/model/_blog.class.php:1960
+#: ../../../inc/collections/model/_blog.class.php:1968
 #, php-format
 msgid "The blog's media directory &laquo;%s&raquo; has been created with permissions %s."
 msgstr "La dosierujo «%s» de la kolekto kreiĝis kun la atingopermesoj %s."
 
-#: ../../../inc/collections/model/_blog.class.php:2364
+#: ../../../inc/collections/model/_blog.class.php:2372
 #, php-format
 msgid "ATTENTION: advanced <a href=\"%s\">user</a> & <a href=\"%s\">group</a> permissions are enabled and some logged in users may have less permissions than anonymous users."
 msgstr "ATENTO: Altnivela <a href=\"%s\">uzanto-</a> kaj <a href=\"%s\">grupo-</a> permesoj estas aktivigitaj kaj iuj ensalutintaj uzatoj eble havas malpliajn permesojn ol anonimaj uzantoj."
 
-#: ../../../inc/collections/model/_blog.class.php:2649
+#: ../../../inc/collections/model/_blog.class.php:2657
 msgid "The new blog has been created."
 msgstr "La nova kolekto kreiĝis."
 
-#: ../../../inc/collections/model/_blog.class.php:2658
+#: ../../../inc/collections/model/_blog.class.php:2666
 #, php-format
 msgid "The new blog has been associated with the stub file &laquo;%s&raquo;."
 msgstr "La nova kolekto kunligiĝis kun la ĝerma dosiero «%s»."
 
-#: ../../../inc/collections/model/_blog.class.php:2662
+#: ../../../inc/collections/model/_blog.class.php:2670
 #, php-format
 msgid "No stub file named &laquo;%s&raquo; was found. You must create it for the blog to function properly with the current settings."
 msgstr "Neniu ĝermo nomata «%s» trovita. Vi devas krei ĝin por tio, ke la kolekto ĝuste funkcios kun la nunaj agordaĵoj."
 
-#: ../../../inc/collections/model/_blog.class.php:2690
+#: ../../../inc/collections/model/_blog.class.php:2698
 #: ../../../inc/tools/model/_wp.funcs.php:523
 msgid "Uncategorized"
 msgstr "Senkategoria"
 
-#: ../../../inc/collections/model/_blog.class.php:2694
+#: ../../../inc/collections/model/_blog.class.php:2702
 msgid "A default category has been created for this blog."
 msgstr "Apriora kategorio kreiĝis por ĉi tiu kolekto."
 
-#: ../../../inc/collections/model/_blog.class.php:2700
+#: ../../../inc/collections/model/_blog.class.php:2708
 msgid "Default widgets have been set-up for this blog."
 msgstr "Aprioraj umaĵoj agordiĝis por ĉi tiu kolekto."
 
-#: ../../../inc/collections/model/_blog.class.php:2721
+#: ../../../inc/collections/model/_blog.class.php:2729
 #, php-format
 msgid "ATTENTION: We have set some advanced permissions for this collection. Please verify the <a %s>User permissions</a> and the <a %s>Group permissions</a> now."
 msgstr "<strong>Atento</strong>: Ni elektis iujn altnivelajn atingopermesojn por la kolekto. Bonvolu tuj kontroli la <a %s>uzanto-atingopermesojn</a> kaj <a %s>grupo-atingopermesojn</a>."
 
-#: ../../../inc/collections/model/_blog.class.php:3183
+#: ../../../inc/collections/model/_blog.class.php:3191
 msgid "Deleted blog's files"
 msgstr "Forigis kolekto-dosierojn"
 
-#: ../../../inc/collections/model/_blog.class.php:3885
+#: ../../../inc/collections/model/_blog.class.php:3893
 #: ../../../inc/rest/_restapi.class.php:346
 msgid "You need to log in before you can access this section."
 msgstr "Vi devas ensaluti antaŭ ol vi povos atingi tiun sekcion."
 
-#: ../../../inc/collections/model/_blog.class.php:3911
+#: ../../../inc/collections/model/_blog.class.php:3919
 #: ../../../inc/rest/_restapi.class.php:355
 msgid "You are not a member of this section, therefore you are not allowed to access it."
 msgstr "Vi ne estas ano de tiu sekcio, tial vi ne rajtas atingi ĝin."
 
-#: ../../../inc/collections/model/_blog.class.php:3971
+#: ../../../inc/collections/model/_blog.class.php:3979
 msgid "The old media dir could not be removed, please remove it manually!"
 msgstr "La malnova media dosierujo ne povus foriĝi. Bonvolu permane forigi ĝin."
 
-#: ../../../inc/collections/model/_blog.class.php:3976
+#: ../../../inc/collections/model/_blog.class.php:3984
 msgid "Blog media folder is not empty, you cannot change it to \"None\"."
 msgstr "La kolekto-media dosierujo ne vakas. Vi ne povas ŝanĝi ĝin al \"Nenio\"."
 
-#: ../../../inc/collections/model/_blog.class.php:3987
+#: ../../../inc/collections/model/_blog.class.php:3995
 #, php-format
 msgid "Folder %s already exists, it cannot be used for several media locations."
 msgstr "Dosierujo %s jam ekzistas. Ĝi ne uzeblos por kelkaj mediaj lokoj."
 
-#: ../../../inc/collections/model/_blog.class.php:3992
+#: ../../../inc/collections/model/_blog.class.php:4000
 #, php-format
 msgid "Please use another folder name, because %s is reserved."
 msgstr "Bonvolu uzi alian dosierujan nomon, ĉar %s estas rezervita."
 
-#: ../../../inc/collections/model/_blog.class.php:4007
+#: ../../../inc/collections/model/_blog.class.php:4015
 #, php-format
 msgid "Please use another folder name, because %s is already used for another media location."
 msgstr "Bonvolu uzi alian dosierujan nomon, ĉar %s ne povas esti dosierujo aŭ subdosierujo de alia media loko."
 
-#: ../../../inc/collections/model/_blog.class.php:4020
+#: ../../../inc/collections/model/_blog.class.php:4028
 #, php-format
 msgid "Could not delete the old media folder \"%s\", please try to delete it manually."
 msgstr "Ne eblas forigi la eksan medidosierujon \"%s\". Bonvolu provi permane forigi ĝin."
 
-#: ../../../inc/collections/model/_blog.class.php:4025
+#: ../../../inc/collections/model/_blog.class.php:4033
 #, php-format
 msgid "Could not move the media folder content from \"%s\" to the new \"%s\" location."
 msgstr "Ne eblis movi la enhavon de la media dosierujo de \"%s\" al la nova loko \"%s\"."
 
-#: ../../../inc/collections/model/_blog.class.php:4034
+#: ../../../inc/collections/model/_blog.class.php:4042
 msgid "The media directory and all of its content were successfully moved to the new location."
 msgstr "La media dosierujo sukcese moviĝis al la nova vojo, kun la tuto de sia enhavo."
 
-#: ../../../inc/collections/model/_blog.class.php:4190
+#: ../../../inc/collections/model/_blog.class.php:4207
 #, php-format
 msgid "The expected item type(s) named %s have not been found. All item types have been enabled for this collection."
 msgstr "La atendita(j) afiŝo-tipo(j) nomata(j) %s ne troviĝis. Ĉiuj ero-tipoj estas aktivigitaj por ĉi tiu kolekto."
 
-#: ../../../inc/collections/model/_blog.class.php:4282
+#: ../../../inc/collections/model/_blog.class.php:4299
 #: ../../../inc/collections/views/_coll_comments.form.php:62
 #: ../../../inc/collections/views/_coll_comments.form.php:98
 #: ../../../inc/collections/views/_coll_comments.form.php:113
@@ -6846,7 +6836,7 @@ msgstr "La atendita(j) afiŝo-tipo(j) nomata(j) %s ne troviĝis. Ĉiuj ero-tipoj
 msgid "Members only"
 msgstr "Nur anoj"
 
-#: ../../../inc/collections/model/_blog.class.php:4286
+#: ../../../inc/collections/model/_blog.class.php:4303
 #: ../../../inc/collections/model/_blog.funcs.php:1052
 #: ../../../inc/collections/model/_blog.funcs.php:1073
 #: ../../../inc/collections/model/_blog.funcs.php:1153
@@ -6854,11 +6844,11 @@ msgstr "Nur anoj"
 msgid "Private"
 msgstr "Privata"
 
-#: ../../../inc/collections/model/_blog.class.php:4290
+#: ../../../inc/collections/model/_blog.class.php:4307
 msgid "Community only"
 msgstr "Nurkomunuma"
 
-#: ../../../inc/collections/model/_blog.class.php:4293
+#: ../../../inc/collections/model/_blog.class.php:4310
 #: ../../../inc/collections/model/_blog.funcs.php:1048
 #: ../../../inc/collections/model/_blog.funcs.php:1069
 #: ../../../inc/collections/model/_blog.funcs.php:1149
@@ -7175,8 +7165,8 @@ msgstr "Uzanto ne estras kolekton"
 
 #: ../../../inc/collections/model/_blog.funcs.php:1443
 #: ../../../inc/comments/model/_comment.funcs.php:1111
-#: ../../../inc/items/model/_item.funcs.php:3714
-#: ../../../inc/items/model/_item.funcs.php:3814
+#: ../../../inc/items/model/_item.funcs.php:3719
+#: ../../../inc/items/model/_item.funcs.php:3819
 #: ../../../inc/messaging/model/_messaging.funcs.php:1961
 msgid "Delete all"
 msgstr "Forigi ĉion"
@@ -7212,7 +7202,7 @@ msgstr "Favorata"
 #: ../../../inc/comments/views/_comment.form.php:247
 #: ../../../inc/files/views/_file_list.inc.php:117
 #: ../../../inc/files/views/_file_properties.form.php:48
-#: ../../../inc/items/model/_item.funcs.php:4030
+#: ../../../inc/items/model/_item.funcs.php:4035
 #: ../../../inc/items/views/_item_list_full.view.php:177
 #: ../../../inc/links/views/_link_list.inc.php:47
 #: ../../../inc/sessions/views/_stats_goalhits.view.php:169
@@ -7294,7 +7284,7 @@ msgid "Edit properties..."
 msgstr "Redakti ecojn…"
 
 #: ../../../inc/collections/model/_blog.funcs.php:1810
-#: ../../../inc/items/model/_item.funcs.php:1174
+#: ../../../inc/items/model/_item.funcs.php:1179
 #: ../../../inc/users/views/_user_avatar.form.php:208
 msgid "Main"
 msgstr "Ĉefa"
@@ -7378,14 +7368,14 @@ msgid "It is recommended to keep pings disabled."
 msgstr "Estas rekomendinde, ke eĥoj restas malaktivigitaj"
 
 #: ../../../inc/collections/views/_coll_advanced.form.php:46
-#: ../../../inc/collections/views/_coll_features.form.php:190
-#: ../../../inc/collections/views/_coll_more.form.php:49
+#: ../../../inc/collections/views/_coll_features.form.php:203
+#: ../../../inc/collections/views/_coll_more.form.php:50
 msgid "This collection is for logged in users only."
 msgstr "La kolekto estas nur por ensalutintaj uzantoj."
 
 #: ../../../inc/collections/views/_coll_advanced.form.php:50
-#: ../../../inc/collections/views/_coll_features.form.php:194
-#: ../../../inc/collections/views/_coll_more.form.php:53
+#: ../../../inc/collections/views/_coll_features.form.php:207
+#: ../../../inc/collections/views/_coll_more.form.php:54
 msgid "This collection is for members only."
 msgstr "La kolekto uzas estas nur por anoj."
 
@@ -7745,7 +7735,7 @@ msgid "Latest comments"
 msgstr "Plej freŝaj komentoj"
 
 #: ../../../inc/collections/views/_coll_comments.form.php:85
-#: ../../../inc/collections/views/_coll_features.form.php:71
+#: ../../../inc/collections/views/_coll_features.form.php:84
 msgid "Front office statuses"
 msgstr "Publikaj statoj"
 
@@ -7883,7 +7873,7 @@ msgid "Status for new Anonymous comments"
 msgstr "Stato por novaj anonimaj komentoj"
 
 #: ../../../inc/collections/views/_coll_comments.form.php:255
-#: ../../../inc/collections/views/_coll_features.form.php:180
+#: ../../../inc/collections/views/_coll_features.form.php:193
 msgid "\"Require moderation\" statuses"
 msgstr "\"Postuli kontrolon\"-statojn"
 
@@ -7904,12 +7894,12 @@ msgid "Comment quick moderation"
 msgstr "Rapida kontrolado de komentoj"
 
 #: ../../../inc/collections/views/_coll_comments.form.php:264
-#: ../../../inc/collections/views/_coll_features.form.php:187
+#: ../../../inc/collections/views/_coll_features.form.php:200
 msgid "RSS/Atom feeds"
 msgstr "RSS/Atom-fluoj"
 
 #: ../../../inc/collections/views/_coll_comments.form.php:266
-#: ../../../inc/collections/views/_coll_features.form.php:197
+#: ../../../inc/collections/views/_coll_features.form.php:210
 msgid "No feeds"
 msgstr "Neniuj fluoj"
 
@@ -7938,38 +7928,46 @@ msgid "How many of the latest comments do you want to include in RSS & Atom feed
 msgstr "Kiom da freŝaj afiŝoj vi volas inkluziviĝi en la XML-fluoj RSS kaj Atom?"
 
 #: ../../../inc/collections/views/_coll_comments.form.php:275
+#: ../../../inc/collections/views/_coll_features.form.php:227
 #: ../../../inc/collections/views/_coll_more.form.php:38
 msgid "Subscriptions"
 msgstr "Abonoj"
 
 #: ../../../inc/collections/views/_coll_comments.form.php:276
 #: ../../../inc/collections/views/_coll_more.form.php:40
-msgid "Allow users to subscribe and receive email notifications for comments on a specific post."
-msgstr "Permesas, ke uzantoj ekabonu kaj ricevu sciigojn por komentoj en specifa afiŝo."
+msgid "Allow users to subscribe and receive email notifications for each new comment."
+msgstr "Permesi, ke uzantoj abonu kaj ricevu retpoŝtmesaĝojn por ĉiu nova komento."
 
 #: ../../../inc/collections/views/_coll_comments.form.php:276
+#: ../../../inc/collections/views/_coll_features.form.php:228
 #: ../../../inc/collections/views/_coll_more.form.php:39
 msgid "Email subscriptions"
 msgstr "Retpoŝtaj abonoj"
 
-#: ../../../inc/collections/views/_coll_comments.form.php:280
+#: ../../../inc/collections/views/_coll_comments.form.php:277
+#: ../../../inc/collections/views/_coll_features.form.php:229
+#: ../../../inc/collections/views/_coll_more.form.php:41
+msgid "Allow users to subscribe and receive email notifications for comments on a specific post."
+msgstr "Permesi, ke uzantoj ekabonu kaj ricevu sciigojn por komentoj en specifa afiŝo."
+
+#: ../../../inc/collections/views/_coll_comments.form.php:281
 msgid "Registration of commenters"
 msgstr "Registriĝo de komentontoj"
 
-#: ../../../inc/collections/views/_coll_comments.form.php:281
+#: ../../../inc/collections/views/_coll_comments.form.php:282
 msgid "Detect email addresses in comments."
 msgstr "Malkovri retpoŝtadresojn en komentoj."
 
-#: ../../../inc/collections/views/_coll_comments.form.php:281
+#: ../../../inc/collections/views/_coll_comments.form.php:282
 #: ../../../inc/tools/views/_email_address.view.php:54
 msgid "Email addresses"
 msgstr "Retpoŝtadresoj"
 
-#: ../../../inc/collections/views/_coll_comments.form.php:283
+#: ../../../inc/collections/views/_coll_comments.form.php:284
 msgid "Display the registration form right after submitting a comment."
 msgstr "Montri la registran formularion ĝuste post kiam sendi komenton."
 
-#: ../../../inc/collections/views/_coll_comments.form.php:283
+#: ../../../inc/collections/views/_coll_comments.form.php:284
 msgid "Register after comment"
 msgstr "Registriĝi post komenti"
 
@@ -8038,35 +8036,39 @@ msgstr "Marki por montri reĝan afiŝon super la listo (se neniu Enkonduko-afiŝ
 msgid "Featured post above list"
 msgstr "Reĝa afiŝo super listo"
 
-#: ../../../inc/collections/views/_coll_features.form.php:55
-#: ../../../inc/collections/views/_coll_features.form.php:66
+#: ../../../inc/collections/views/_coll_features.form.php:60
+msgid "Show post types"
+msgstr "Montri afiŝo-tipojn"
+
+#: ../../../inc/collections/views/_coll_features.form.php:68
+#: ../../../inc/collections/views/_coll_features.form.php:79
 #: ../../../inc/users/views/_user_preferences.form.php:210
 msgid "yes"
 msgstr "jes"
 
-#: ../../../inc/collections/views/_coll_features.form.php:56
-#: ../../../inc/collections/views/_coll_features.form.php:67
+#: ../../../inc/collections/views/_coll_features.form.php:69
+#: ../../../inc/collections/views/_coll_features.form.php:80
 #: ../../../inc/users/views/_user_preferences.form.php:210
 msgid "no"
 msgstr "ne"
 
-#: ../../../inc/collections/views/_coll_features.form.php:57
+#: ../../../inc/collections/views/_coll_features.form.php:70
 msgid "only the last"
 msgstr "nur la plej freŝa"
 
-#: ../../../inc/collections/views/_coll_features.form.php:58
+#: ../../../inc/collections/views/_coll_features.form.php:71
 msgid "Show past posts"
 msgstr "Montri kiom da afiŝoj"
 
-#: ../../../inc/collections/views/_coll_features.form.php:68
+#: ../../../inc/collections/views/_coll_features.form.php:81
 msgid "only the next"
 msgstr "nur la sekva"
 
-#: ../../../inc/collections/views/_coll_features.form.php:69
+#: ../../../inc/collections/views/_coll_features.form.php:82
 msgid "Show future posts"
 msgstr "Montri estontajn afiŝojn"
 
-#: ../../../inc/collections/views/_coll_features.form.php:75
+#: ../../../inc/collections/views/_coll_features.form.php:88
 #: ../../../inc/collections/views/_coll_other.form.php:66
 #: ../../../inc/collections/views/_coll_other.form.php:79
 #: ../../../inc/collections/views/_coll_other.form.php:92
@@ -8079,8 +8081,8 @@ msgstr "Montri estontajn afiŝojn"
 msgid "No Teaser images will be displayed on default skins"
 msgstr "Ne, logaj bildoj ne montriĝos en aprioraj etosoj"
 
-#: ../../../inc/collections/views/_coll_features.form.php:75
-#: ../../../inc/collections/views/_coll_features.form.php:199
+#: ../../../inc/collections/views/_coll_features.form.php:88
+#: ../../../inc/collections/views/_coll_features.form.php:212
 #: ../../../inc/collections/views/_coll_other.form.php:66
 #: ../../../inc/collections/views/_coll_other.form.php:79
 #: ../../../inc/collections/views/_coll_other.form.php:92
@@ -8093,8 +8095,8 @@ msgstr "Ne, logaj bildoj ne montriĝos en aprioraj etosoj"
 msgid "Post excerpts"
 msgstr "Afiŝaj eltiraĵoj"
 
-#: ../../../inc/collections/views/_coll_features.form.php:76
-#: ../../../inc/collections/views/_coll_features.form.php:200
+#: ../../../inc/collections/views/_coll_features.form.php:89
+#: ../../../inc/collections/views/_coll_features.form.php:213
 #: ../../../inc/collections/views/_coll_other.form.php:67
 #: ../../../inc/collections/views/_coll_other.form.php:80
 #: ../../../inc/collections/views/_coll_other.form.php:93
@@ -8107,7 +8109,7 @@ msgstr "Afiŝaj eltiraĵoj"
 msgid "Standard post contents (stopping at \"[teaserbreak]\")"
 msgstr "Ordinara afiŝa enhavo (finigite per \"[teaserbreak]>\")"
 
-#: ../../../inc/collections/views/_coll_features.form.php:76
+#: ../../../inc/collections/views/_coll_features.form.php:89
 #: ../../../inc/collections/views/_coll_other.form.php:67
 #: ../../../inc/collections/views/_coll_other.form.php:80
 #: ../../../inc/collections/views/_coll_other.form.php:93
@@ -8120,7 +8122,7 @@ msgstr "Ordinara afiŝa enhavo (finigite per \"[teaserbreak]>\")"
 msgid "Teaser images will be displayed"
 msgstr "Logaj bildoj montriĝos"
 
-#: ../../../inc/collections/views/_coll_features.form.php:77
+#: ../../../inc/collections/views/_coll_features.form.php:90
 #: ../../../inc/collections/views/_coll_other.form.php:68
 #: ../../../inc/collections/views/_coll_other.form.php:81
 #: ../../../inc/collections/views/_coll_other.form.php:94
@@ -8133,8 +8135,8 @@ msgstr "Logaj bildoj montriĝos"
 msgid "All images will be displayed"
 msgstr "Ĉiuj bildoj montriĝos"
 
-#: ../../../inc/collections/views/_coll_features.form.php:77
-#: ../../../inc/collections/views/_coll_features.form.php:201
+#: ../../../inc/collections/views/_coll_features.form.php:90
+#: ../../../inc/collections/views/_coll_features.form.php:214
 #: ../../../inc/collections/views/_coll_other.form.php:68
 #: ../../../inc/collections/views/_coll_other.form.php:81
 #: ../../../inc/collections/views/_coll_other.form.php:94
@@ -8147,7 +8149,7 @@ msgstr "Ĉiuj bildoj montriĝos"
 msgid "Full post contents (including after \"[teaserbreak]\")"
 msgstr "Plena afiŝa enhavo (inkluzive de post \"[teaserbreak]\")"
 
-#: ../../../inc/collections/views/_coll_features.form.php:78
+#: ../../../inc/collections/views/_coll_features.form.php:91
 #: ../../../inc/collections/views/_coll_other.form.php:69
 #: ../../../inc/collections/views/_coll_other.form.php:82
 #: ../../../inc/collections/views/_coll_other.form.php:95
@@ -8160,17 +8162,17 @@ msgstr "Plena afiŝa enhavo (inkluzive de post \"[teaserbreak]\")"
 msgid "Post contents"
 msgstr "Afiŝa enhavo"
 
-#: ../../../inc/collections/views/_coll_features.form.php:83
+#: ../../../inc/collections/views/_coll_features.form.php:96
 msgid "Post options"
 msgstr "Afiŝa agordo"
 
-#: ../../../inc/collections/views/_coll_features.form.php:86
-#: ../../../inc/collections/views/_coll_features.form.php:92
+#: ../../../inc/collections/views/_coll_features.form.php:99
+#: ../../../inc/collections/views/_coll_features.form.php:105
 msgid "Check this to view list of the posts."
 msgstr "Marki ĉi tion por rigardi liston da la afiŝoj."
 
-#: ../../../inc/collections/views/_coll_features.form.php:86
-#: ../../../inc/collections/views/_coll_features.form.php:92
+#: ../../../inc/collections/views/_coll_features.form.php:99
+#: ../../../inc/collections/views/_coll_features.form.php:105
 #: ../../../inc/files/views/_file_browse_set.form.php:39
 #: ../../../inc/tools/system.ctrl.php:291
 #: ../../../inc/tools/system.ctrl.php:581
@@ -8186,132 +8188,132 @@ msgstr "Marki ĉi tion por rigardi liston da la afiŝoj."
 msgid "No"
 msgstr "Ne"
 
-#: ../../../inc/collections/views/_coll_features.form.php:87
+#: ../../../inc/collections/views/_coll_features.form.php:100
 msgid "Check this to automatically view the blog after publishing a post."
 msgstr "Marki ĉi tion por aŭtomate vidi la kolekton post eldonado de afiŝo."
 
-#: ../../../inc/collections/views/_coll_features.form.php:87
-#: ../../../inc/collections/views/_coll_features.form.php:93
+#: ../../../inc/collections/views/_coll_features.form.php:100
+#: ../../../inc/collections/views/_coll_features.form.php:106
 msgid "View home page"
 msgstr "Vidi la ĉefpaĝon"
 
-#: ../../../inc/collections/views/_coll_features.form.php:88
-#: ../../../inc/collections/views/_coll_features.form.php:94
+#: ../../../inc/collections/views/_coll_features.form.php:101
+#: ../../../inc/collections/views/_coll_features.form.php:107
 msgid "Check this to automatically view the post page."
 msgstr "Marki ĉi tion por aŭtomate rigardi la afiŝan paĝon."
 
-#: ../../../inc/collections/views/_coll_features.form.php:88
+#: ../../../inc/collections/views/_coll_features.form.php:101
 msgid "View new post"
 msgstr "Rigardi novan afiŝon"
 
-#: ../../../inc/collections/views/_coll_features.form.php:89
+#: ../../../inc/collections/views/_coll_features.form.php:102
 msgid "View blog after publishing"
 msgstr "Vidi post publikigo la kolekton"
 
-#: ../../../inc/collections/views/_coll_features.form.php:93
+#: ../../../inc/collections/views/_coll_features.form.php:106
 msgid "Check this to automatically view the blog after editing a post."
 msgstr "Marki ĉi tion por aŭtomate rigardi la kolekton post redaktado de afiŝo."
 
-#: ../../../inc/collections/views/_coll_features.form.php:94
+#: ../../../inc/collections/views/_coll_features.form.php:107
 msgid "View edited post"
 msgstr "Rigardi redaktitan afiŝon"
 
-#: ../../../inc/collections/views/_coll_features.form.php:95
+#: ../../../inc/collections/views/_coll_features.form.php:108
 msgid "View blog after editing"
 msgstr "Rigardi kolekton redaktadon"
 
-#: ../../../inc/collections/views/_coll_features.form.php:103
+#: ../../../inc/collections/views/_coll_features.form.php:116
 msgid "Allow only one category per post"
 msgstr "Permesi nur unu kategorio je ĉiu afiŝo"
 
-#: ../../../inc/collections/views/_coll_features.form.php:104
+#: ../../../inc/collections/views/_coll_features.form.php:117
 msgid "Allow multiple categories per post"
 msgstr "Permesi pli ol unu kategorio je ĉiu afiŝo"
 
-#: ../../../inc/collections/views/_coll_features.form.php:105
+#: ../../../inc/collections/views/_coll_features.form.php:118
 msgid "Allow one main + several extra categories"
 msgstr "Permesi unu ĉefa kaj pluraj aldonaj kategorioj"
 
-#: ../../../inc/collections/views/_coll_features.form.php:106
+#: ../../../inc/collections/views/_coll_features.form.php:119
 msgid "(Main cat will be assigned automatically)"
 msgstr "(Ĉefa kategorio estos aŭtomate taskita)"
 
-#: ../../../inc/collections/views/_coll_features.form.php:106
+#: ../../../inc/collections/views/_coll_features.form.php:119
 msgid "Don't allow category selections"
 msgstr "Ne permesu kategoriajn elektojn"
 
-#: ../../../inc/collections/views/_coll_features.form.php:107
+#: ../../../inc/collections/views/_coll_features.form.php:120
 msgid "Post category options"
 msgstr "Afiŝo-kategoria agordo"
 
-#: ../../../inc/collections/views/_coll_features.form.php:110
+#: ../../../inc/collections/views/_coll_features.form.php:123
 msgid "same blog"
 msgstr "sama kolekto"
 
-#: ../../../inc/collections/views/_coll_features.form.php:111
+#: ../../../inc/collections/views/_coll_features.form.php:124
 msgid "same category"
 msgstr "sama kategorio"
 
-#: ../../../inc/collections/views/_coll_features.form.php:112
+#: ../../../inc/collections/views/_coll_features.form.php:125
 msgid "same author"
 msgstr "sama verkisto"
 
-#: ../../../inc/collections/views/_coll_features.form.php:113
+#: ../../../inc/collections/views/_coll_features.form.php:126
 msgid "same tag"
 msgstr "sama etikedo"
 
-#: ../../../inc/collections/views/_coll_features.form.php:114
+#: ../../../inc/collections/views/_coll_features.form.php:127
 msgid "Default post by post navigation should stay in"
 msgstr "Apriora navigacio de afiŝo post afiŝo devas resti"
 
-#: ../../../inc/collections/views/_coll_features.form.php:114
+#: ../../../inc/collections/views/_coll_features.form.php:127
 msgid "Skins may override this setting!"
 msgstr "Etosoj rajtas superregi la agordon."
 
-#: ../../../inc/collections/views/_coll_features.form.php:119
+#: ../../../inc/collections/views/_coll_features.form.php:132
 msgid "Post moderation"
 msgstr "Afiŝa kontrolado"
 
-#: ../../../inc/collections/views/_coll_features.form.php:140
-#: ../../../inc/collections/views/_coll_features.form.php:146
+#: ../../../inc/collections/views/_coll_features.form.php:153
+#: ../../../inc/collections/views/_coll_features.form.php:159
 msgid "Default status"
 msgstr "Apriora stato"
 
-#: ../../../inc/collections/views/_coll_features.form.php:140
-#: ../../../inc/collections/views/_coll_features.form.php:146
+#: ../../../inc/collections/views/_coll_features.form.php:153
+#: ../../../inc/collections/views/_coll_features.form.php:159
 msgid "Default status for new posts"
 msgstr "Aŭtomata stato por novaj uzantoj"
 
-#: ../../../inc/collections/views/_coll_features.form.php:180
+#: ../../../inc/collections/views/_coll_features.form.php:193
 msgid "Posts with the selected statuses will be considered to require moderation. They will trigger \"moderation required\" notifications and will appear as such on the collection dashboard."
 msgstr "Afiŝoj kun la elektitaj statoj estos konsiderataj kontrolendaj. Ili generos la sciigojn \"kontrolo postulata\" kaj tiel aperos en la kolekto-stirilo."
 
-#: ../../../inc/collections/views/_coll_features.form.php:190
-#: ../../../inc/collections/views/_coll_features.form.php:194
+#: ../../../inc/collections/views/_coll_features.form.php:203
+#: ../../../inc/collections/views/_coll_features.form.php:207
 msgid "It is recommended to keep feeds disabled."
 msgstr "Ĝi estas rekomendinde, ke fluoj restu malaktivigitaj."
 
-#: ../../../inc/collections/views/_coll_features.form.php:198
+#: ../../../inc/collections/views/_coll_features.form.php:211
 msgid "Titles only"
 msgstr "Nur titoloj"
 
-#: ../../../inc/collections/views/_coll_features.form.php:202
+#: ../../../inc/collections/views/_coll_features.form.php:215
 msgid "How much content do you want to make available in post feeds?"
 msgstr "Kiom da enhavo vi volas disponigi en afiŝo-fluoj?"
 
-#: ../../../inc/collections/views/_coll_features.form.php:202
+#: ../../../inc/collections/views/_coll_features.form.php:215
 msgid "Post feed contents"
 msgstr "Afiŝi fluan enhavon"
 
-#: ../../../inc/collections/views/_coll_features.form.php:204
+#: ../../../inc/collections/views/_coll_features.form.php:217
 msgid "How many of the latest posts do you want to include in RSS & Atom feeds?"
 msgstr "Kiom da freŝaj afiŝoj vi volas inkluziviĝi en la XML-fluoj?"
 
-#: ../../../inc/collections/views/_coll_features.form.php:204
+#: ../../../inc/collections/views/_coll_features.form.php:217
 msgid "Posts in feeds"
 msgstr "Afiŝoj en fluoj"
 
-#: ../../../inc/collections/views/_coll_features.form.php:210
+#: ../../../inc/collections/views/_coll_features.form.php:223
 #: ../../../inc/widgets/widgets/_coll_avatar.widget.php:81
 #: ../../../inc/widgets/widgets/_coll_item_list.widget.php:227
 #: ../../../inc/widgets/widgets/_coll_logo.widget.php:113
@@ -8319,6 +8321,11 @@ msgstr "Afiŝoj en fluoj"
 #: ../../../inc/widgets/widgets/_org_members.widget.php:127
 msgid "Image size"
 msgstr "Bilda grando"
+
+#: ../../../inc/collections/views/_coll_features.form.php:228
+#: ../../../inc/collections/views/_coll_more.form.php:39
+msgid "Allow users to subscribe and receive email notifications for each new post."
+msgstr "Permesi, ke uzantoj abonu kaj ricevu retpoŝtmesaĝojn por ĉiu nova afiŝo."
 
 #: ../../../inc/collections/views/_coll_general.form.php:34
 #: ../../../inc/skins/views/_coll_sel_skin.view.php:20
@@ -8529,7 +8536,7 @@ msgstr "Marki ĉi tion se vi volas, ke ĉi tiu kolekto aperu en la listo da kole
 
 #: ../../../inc/collections/views/_coll_general.form.php:238
 msgid "Show in front-office list"
-msgstr "Montri en kolekto-listo"
+msgstr "Montri en antaŭo-listo"
 
 #: ../../../inc/collections/views/_coll_general.form.php:245
 msgid "This is displayed under the blog name on the blog template."
@@ -8900,24 +8907,20 @@ msgstr "Marki ĉi tion se vi volas, ke ĉi tiu kolekto montru specialajn markojn
 msgid "Tracking of unread content"
 msgstr "Spurado de nelegita enhavo"
 
-#: ../../../inc/collections/views/_coll_more.form.php:39
-msgid "Allow users to subscribe and receive email notifications for each new post and/or comment."
-msgstr "Permesas, ke uzantoj abonu kaj ricevu retpoŝtmesaĝojn por ĉiu nova afiŝo kajaŭ komento."
-
-#: ../../../inc/collections/views/_coll_more.form.php:46
+#: ../../../inc/collections/views/_coll_more.form.php:47
 msgid "Sitemaps"
 msgstr "Kolektaraj mapoj"
 
-#: ../../../inc/collections/views/_coll_more.form.php:49
-#: ../../../inc/collections/views/_coll_more.form.php:53
+#: ../../../inc/collections/views/_coll_more.form.php:50
+#: ../../../inc/collections/views/_coll_more.form.php:54
 msgid "It is recommended to keep sitemaps disabled."
 msgstr "Estas rekomendinde, ke kolektaraj mapoj restu malaktivigitaj."
 
-#: ../../../inc/collections/views/_coll_more.form.php:56
+#: ../../../inc/collections/views/_coll_more.form.php:57
 msgid "Check to allow usage of skins with the \"sitemap\" type."
 msgstr "Marki por permesi uzadojn de etosoj kun la tipo \"sitemap\"."
 
-#: ../../../inc/collections/views/_coll_more.form.php:56
+#: ../../../inc/collections/views/_coll_more.form.php:57
 msgid "Enable sitemaps"
 msgstr "Aktivigi kolektarajn mapojn"
 
@@ -9930,7 +9933,7 @@ msgid "Full name"
 msgstr "Plena nomo"
 
 #: ../../../inc/collections/views/_coll_user_dir.form.php:52
-#: ../../../inc/items/model/_item.funcs.php:3264
+#: ../../../inc/items/model/_item.funcs.php:3269
 #: ../../../inc/regional/countries.ctrl.php:60
 #: ../../../inc/regional/views/_city.form.php:38
 #: ../../../inc/regional/views/_city_import.form.php:35
@@ -9973,7 +9976,7 @@ msgid "both"
 msgstr "ambaŭ"
 
 #: ../../../inc/collections/views/_coll_user_dir.form.php:60
-#: ../../../inc/items/model/_item.funcs.php:3269
+#: ../../../inc/items/model/_item.funcs.php:3274
 #: ../../../inc/regional/regions.ctrl.php:43
 #: ../../../inc/regional/subregions.ctrl.php:44
 #: ../../../inc/regional/views/_city.form.php:40
@@ -9995,7 +9998,7 @@ msgid "Region"
 msgstr "Regiono"
 
 #: ../../../inc/collections/views/_coll_user_dir.form.php:61
-#: ../../../inc/items/model/_item.funcs.php:3275
+#: ../../../inc/items/model/_item.funcs.php:3280
 #: ../../../inc/regional/views/_city.form.php:42
 #: ../../../inc/regional/views/_city_list.view.php:143
 #: ../../../inc/regional/views/_city_list.view.php:169
@@ -10011,7 +10014,7 @@ msgid "Sub-region"
 msgstr "Subregiono"
 
 #: ../../../inc/collections/views/_coll_user_dir.form.php:62
-#: ../../../inc/items/model/_item.funcs.php:3281
+#: ../../../inc/items/model/_item.funcs.php:3286
 #: ../../../inc/regional/cities.ctrl.php:44
 #: ../../../inc/regional/views/_city.form.php:32
 #: ../../../inc/users/model/_user.class.php:6223
@@ -10063,17 +10066,17 @@ msgid "You have no permission to edit comments."
 msgstr "Vi havas neniajn atingopermesoj por redakti komentojn."
 
 #: ../../../inc/comments/_comments.ctrl.php:194
-#: ../../../inc/items/model/_item.funcs.php:1548
+#: ../../../inc/items/model/_item.funcs.php:1553
 msgid "List view"
 msgstr "Lista vido"
 
 #: ../../../inc/comments/_comments.ctrl.php:198
-#: ../../../inc/items/model/_item.funcs.php:1545
+#: ../../../inc/items/model/_item.funcs.php:1550
 msgid "Full text view"
 msgstr "Kompleta vido"
 
 #: ../../../inc/comments/_comments.ctrl.php:205
-#: ../../../inc/items/model/_item.funcs.php:1556
+#: ../../../inc/items/model/_item.funcs.php:1561
 #: ../../../inc/items/views/_item_list_full.view.php:406
 msgid "Meta discussion"
 msgstr "Metadatuma priskribo"
@@ -10627,8 +10630,8 @@ msgstr "%d komentoj"
 #: ../../../inc/comments/model/_comment.funcs.php:291
 #: ../../../inc/comments/model/_comment.funcs.php:1280
 #: ../../../inc/comments/model/_commentlist.class.php:596
-#: ../../../inc/items/model/_item.funcs.php:1849
-#: ../../../inc/items/model/_item.funcs.php:2904
+#: ../../../inc/items/model/_item.funcs.php:1854
+#: ../../../inc/items/model/_item.funcs.php:2909
 #: ../../../inc/items/model/_itemlistlight.class.php:916
 #: ../../../inc/widgets/widgets/_coll_current_filters.widget.php:103
 #: ../../../skins/pureforums/_edit_comment.disp.php:152
@@ -10638,12 +10641,12 @@ msgstr "Konigi al"
 
 # TRANS: This is the value of an input submit button
 #: ../../../inc/comments/model/_comment.funcs.php:342
-#: ../../../inc/items/model/_item.funcs.php:1893
+#: ../../../inc/items/model/_item.funcs.php:1898
 msgid "Save & edit"
 msgstr "Konservi kaj redakti"
 
 #: ../../../inc/comments/model/_comment.funcs.php:343
-#: ../../../inc/items/model/_item.funcs.php:1903
+#: ../../../inc/items/model/_item.funcs.php:1908
 #: ../../../inc/users/model/_user.funcs.php:4250
 msgid "Save"
 msgstr "Konservi"
@@ -10772,7 +10775,7 @@ msgid "Feedback (Comments, Trackbacks...)"
 msgstr "Reagoj (Komentoj, Spuroj ...)"
 
 #: ../../../inc/comments/views/_browse_comments.view.php:73
-#: ../../../inc/items/model/_item.funcs.php:4248
+#: ../../../inc/items/model/_item.funcs.php:4253
 #: ../../../inc/items/views/_item_expert.form.php:506
 #: ../../../skins_fallback_v6/_item_meta_comments.inc.php:31
 msgid "Meta comments"
@@ -11601,7 +11604,7 @@ msgid "Invalid updates received"
 msgstr "Nevalidaj ĝisdatigoj ricevitaj"
 
 #: ../../../inc/dashboard/model/_dashboard.funcs.php:320
-#: ../../../inc/items/model/_item.funcs.php:2835
+#: ../../../inc/items/model/_item.funcs.php:2840
 msgid "in response to"
 msgstr "responde al"
 
@@ -14302,7 +14305,7 @@ msgstr "Daŭrligilo al la plena ero"
 #: ../../../inc/items/model/_item.class.php:3923
 #: ../../../inc/items/model/_item.class.php:3927
 #: ../../../inc/items/model/_item.class.php:3935
-#: ../../../inc/items/model/_item.funcs.php:4356
+#: ../../../inc/items/model/_item.funcs.php:4361
 msgid "Duplicate this post..."
 msgstr "Duobligi la afiŝon…"
 
@@ -14584,7 +14587,7 @@ msgstr "1 reago"
 
 #: ../../../inc/items/model/_item.class.php:3364
 #: ../../../inc/items/model/_item.class.php:3526
-#: ../../../inc/items/model/_item.funcs.php:4217
+#: ../../../inc/items/model/_item.funcs.php:4222
 #, php-format
 msgid "%d feedbacks"
 msgstr "%d reagoj"
@@ -14797,48 +14800,48 @@ msgstr "Ĉar la kolekto estas \"Nurana\", la videbleco de la afiŝo estas limigi
 msgid "Since this collection is \"Community only\", the visibility of this post will be restricted to \"%s\"."
 msgstr "Ĉar la kolekto estas \"Nurkomunuma\", la videbleco de la afiŝo estas limigita al \"%s\"."
 
-#: ../../../inc/items/model/_item.funcs.php:497
+#: ../../../inc/items/model/_item.funcs.php:502
 #, php-format
 msgid "Warning: the URL slug has been changed to &laquo;%s&raquo;."
 msgstr "Averto: La URL-titolo ŝanĝiĝis al «%s»."
 
-#: ../../../inc/items/model/_item.funcs.php:920
+#: ../../../inc/items/model/_item.funcs.php:925
 msgid "Clearing autogenerated excerpt values"
 msgstr "Forviŝanta aŭtomate generitajn eltiraĵo-valorojn"
 
-#: ../../../inc/items/model/_item.funcs.php:1013
+#: ../../../inc/items/model/_item.funcs.php:1018
 msgid "Note: One excerpt was re-created in another simultaneous process!"
 msgstr "Noto: Unu eltiraĵo estis rekreita en alia samtempa procedo."
 
-#: ../../../inc/items/model/_item.funcs.php:1017
+#: ../../../inc/items/model/_item.funcs.php:1022
 #, php-format
 msgid "Note: %d excerpts were re-created in another simultaneous process!"
 msgstr "Noto: %d eltiraĵo estis rekreitaj en alia samtempa procedo."
 
-#: ../../../inc/items/model/_item.funcs.php:1169
+#: ../../../inc/items/model/_item.funcs.php:1174
 msgid "Main category"
 msgstr "Patra kategorio"
 
-#: ../../../inc/items/model/_item.funcs.php:1170
+#: ../../../inc/items/model/_item.funcs.php:1175
 msgid "Additional category"
 msgstr "Aldona kategorio"
 
-#: ../../../inc/items/model/_item.funcs.php:1177
+#: ../../../inc/items/model/_item.funcs.php:1182
 msgid "Extra"
 msgstr "Aldona"
 
-#: ../../../inc/items/model/_item.funcs.php:1307
-#: ../../../inc/items/model/_item.funcs.php:1434
+#: ../../../inc/items/model/_item.funcs.php:1312
+#: ../../../inc/items/model/_item.funcs.php:1439
 #: ../../../inc/tools/mtimport.ctrl.php:1289
 msgid "Select as MAIN category"
 msgstr "Elekti kiel ĈEFA kategorio"
 
-#: ../../../inc/items/model/_item.funcs.php:1336
-#: ../../../inc/items/model/_item.funcs.php:1448
+#: ../../../inc/items/model/_item.funcs.php:1341
+#: ../../../inc/items/model/_item.funcs.php:1453
 msgid "Select as an additional category"
 msgstr "Elekti kiel aldona kategorio"
 
-#: ../../../inc/items/model/_item.funcs.php:1366
+#: ../../../inc/items/model/_item.funcs.php:1371
 #: ../../../inc/items/model/_itemlight.class.php:577
 #: ../../../inc/widgets/widgets/_coll_category_list.widget.php:527
 #: ../../../skins/bootstrap_forums_skin/_skin.class.php:398
@@ -14846,137 +14849,137 @@ msgstr "Elekti kiel aldona kategorio"
 msgid "Locked"
 msgstr "Fiksita"
 
-#: ../../../inc/items/model/_item.funcs.php:1377
+#: ../../../inc/items/model/_item.funcs.php:1382
 msgid "View category in blog."
 msgstr "Vidi kategorion en kolekto."
 
-#: ../../../inc/items/model/_item.funcs.php:1615
+#: ../../../inc/items/model/_item.funcs.php:1620
 #: ../../../inc/items/model/_itemtypecache.class.php:97
 #: ../../../inc/items/views/_itemtypes.view.php:188
 msgid "Special"
 msgstr "Speciala"
 
-#: ../../../inc/items/model/_item.funcs.php:1623
+#: ../../../inc/items/model/_item.funcs.php:1628
 #: ../../../inc/items/model/_itemtypecache.class.php:99
 msgid "Intros"
 msgstr "Enkondukoj"
 
-#: ../../../inc/items/model/_item.funcs.php:1714
+#: ../../../inc/items/model/_item.funcs.php:1719
 #: ../../../skins/pureforums/_edit.disp.php:292
 msgid "Issue date"
 msgstr "Eldona dato"
 
-#: ../../../inc/items/model/_item.funcs.php:1721
+#: ../../../inc/items/model/_item.funcs.php:1726
 #: ../../../skins/pureforums/_edit.disp.php:289
 msgid "Update to NOW"
 msgstr "Agordi al NUN"
 
-#: ../../../inc/items/model/_item.funcs.php:1730
+#: ../../../inc/items/model/_item.funcs.php:1735
 #: ../../../skins/pureforums/_edit.disp.php:290
 msgid "Set to"
 msgstr "Agordi al"
 
-#: ../../../inc/items/model/_item.funcs.php:1805
+#: ../../../inc/items/model/_item.funcs.php:1810
 msgid "The post has been created but not published because it seems like you wanted to publish with an invalid status."
 msgstr "La afiŝo kreiĝis sed ne eldoniĝis pro tio, ke ŝajne vi volis eldoni ĝin kun neprava stato."
 
-#: ../../../inc/items/model/_item.funcs.php:1809
+#: ../../../inc/items/model/_item.funcs.php:1814
 msgid "The post has been updated but not published because it seems like you wanted to publish with an invalid status."
 msgstr "La afiŝo ĝisdatiĝis sed ne eldoniĝis pro tio, ke ŝajne vi volis eldoni ĝin kun neprava stato."
 
 # TRANS: This is the value of an input submit button
-#: ../../../inc/items/model/_item.funcs.php:1919
+#: ../../../inc/items/model/_item.funcs.php:1924
 msgid "Publish!"
 msgstr "Eldoni"
 
-#: ../../../inc/items/model/_item.funcs.php:2114
+#: ../../../inc/items/model/_item.funcs.php:2119
 msgid "Type in a tag"
 msgstr "Tajpi etikedan nomon"
 
-#: ../../../inc/items/model/_item.funcs.php:2115
+#: ../../../inc/items/model/_item.funcs.php:2120
 #: ../../../inc/messaging/views/_thread.form.php:162
 msgid "No results"
 msgstr "Neniuj rezultoj"
 
-#: ../../../inc/items/model/_item.funcs.php:2116
+#: ../../../inc/items/model/_item.funcs.php:2121
 #: ../../../inc/messaging/views/_thread.form.php:163
 msgid "Searching..."
 msgstr "Serĉanta…"
 
-#: ../../../inc/items/model/_item.funcs.php:2280
+#: ../../../inc/items/model/_item.funcs.php:2285
 msgid "You are not allowed to cross post to several collections."
 msgstr "Vi ne rajtas krucafiŝi en plurajn kolektojn."
 
-#: ../../../inc/items/model/_item.funcs.php:2293
+#: ../../../inc/items/model/_item.funcs.php:2298
 msgid "You are not allowed to move post between collections."
 msgstr "Vi ne rajtas movi afiŝon inter kolektojn."
 
-#: ../../../inc/items/model/_item.funcs.php:2356
+#: ../../../inc/items/model/_item.funcs.php:2361
 #, php-format
 msgid "The main category for this post has been automatically set to \"%s\" (Blog \"%s\")"
 msgstr "La ĉefa kategorio por ĉi tiu afiŝo estis aŭtomate elektita kiel \"%s\" (kolekto \"%s\""
 
-#: ../../../inc/items/model/_item.funcs.php:2367
+#: ../../../inc/items/model/_item.funcs.php:2372
 msgid "You are not allowed to create a new category."
 msgstr "Vi ne rajtas krei novan kategorion."
 
-#: ../../../inc/items/model/_item.funcs.php:2378
+#: ../../../inc/items/model/_item.funcs.php:2383
 msgid "Please provide a name for new category."
 msgstr "Bonvolu specifi nomon por nova kategorio."
 
-#: ../../../inc/items/model/_item.funcs.php:2388
+#: ../../../inc/items/model/_item.funcs.php:2393
 msgid "New category created."
 msgstr "Nova kategorio kreiĝis."
 
-#: ../../../inc/items/model/_item.funcs.php:2411
+#: ../../../inc/items/model/_item.funcs.php:2416
 msgid "New category creation failed."
 msgstr "Nova kreiĝo de kategorio malsukcesis."
 
-#: ../../../inc/items/model/_item.funcs.php:2435
-#: ../../../inc/items/model/_item.funcs.php:2439
+#: ../../../inc/items/model/_item.funcs.php:2440
+#: ../../../inc/items/model/_item.funcs.php:2444
 msgid "cross-posting is disabled"
 msgstr "Krucafiŝado estas malaktivigita."
 
-#: ../../../inc/items/model/_item.funcs.php:2442
+#: ../../../inc/items/model/_item.funcs.php:2447
 #, php-format
 msgid "The category selection \"%s\" was ignored since %s"
 msgstr "La kategoria elekto \"%s\" estis elektita je %s"
 
-#: ../../../inc/items/model/_item.funcs.php:2712
+#: ../../../inc/items/model/_item.funcs.php:2717
 #: ../../../inc/items/views/_item_expert.form.php:532
 #: ../../../inc/items/views/_item_list_full.view.php:518
 msgid "No feedback for this post yet..."
 msgstr "Ankoraŭ neniuj komentoj por ĉi tiu afiŝo…"
 
-#: ../../../inc/items/model/_item.funcs.php:2773
+#: ../../../inc/items/model/_item.funcs.php:2778
 #, php-format
 msgid "<a %s>Meta comment</a> on %s"
 msgstr "<a %s>Metakomento</a> pri %s"
 
-#: ../../../inc/items/model/_item.funcs.php:2812
+#: ../../../inc/items/model/_item.funcs.php:2817
 msgid "EXPIRED"
 msgstr "EKSVALIDIĜINTA"
 
-#: ../../../inc/items/model/_item.funcs.php:3097
+#: ../../../inc/items/model/_item.funcs.php:3102
 msgid "You don't have permission to edit this post"
 msgstr "Vi ne rajtas redakti la afiŝon"
 
-#: ../../../inc/items/model/_item.funcs.php:3107
+#: ../../../inc/items/model/_item.funcs.php:3112
 #, php-format
 msgid "The post you are trying to edit uses the post type #%d \"%s\" which is currently disabled. Thus you cannot edit this post."
 msgstr "La afiŝo, kiun vi provas redakti, uzas la afiŝo-tipon #%d \"%s\", kiu nune estas malaktivigita. Tial vi ne povas redakti la afiŝon."
 
-#: ../../../inc/items/model/_item.funcs.php:3112
+#: ../../../inc/items/model/_item.funcs.php:3117
 msgid "The post you are trying to edit uses an unknown post type. Thus you cannot edit this post."
 msgstr "La afiŝo, kiun vi provas redakti, uzas nekonatan afiŝo-tipon. Tial vi ne povas redakti la afiŝon."
 
-#: ../../../inc/items/model/_item.funcs.php:3204
-#: ../../../inc/items/model/_item.funcs.php:3207
+#: ../../../inc/items/model/_item.funcs.php:3209
+#: ../../../inc/items/model/_item.funcs.php:3212
 #: ../../../inc/widgets/widgets/_menu_link.widget.php:503
 msgid "Write a new post"
 msgstr "Skribi novan afiŝon"
 
-#: ../../../inc/items/model/_item.funcs.php:3242
+#: ../../../inc/items/model/_item.funcs.php:3247
 #: ../../../skins/basic/_item_content.inc.php:75
 #: ../../../skins/bootstrap_forums_skin/_item_content.inc.php:387
 #: ../../../skins/bootstrap_gallery_skin/_item_content.inc.php:400
@@ -14988,132 +14991,132 @@ msgid "Location"
 msgstr "Loko"
 
 # TRANS: "None" select option
-#: ../../../inc/items/model/_item.funcs.php:3434
+#: ../../../inc/items/model/_item.funcs.php:3439
 msgid "No priority"
 msgstr "Neniu prioritato"
 
 # TRANS: Priority name
-#: ../../../inc/items/model/_item.funcs.php:3438
+#: ../../../inc/items/model/_item.funcs.php:3443
 msgid "1 - Highest"
 msgstr "1 - Plej alta"
 
 # TRANS: Priority name
-#: ../../../inc/items/model/_item.funcs.php:3439
+#: ../../../inc/items/model/_item.funcs.php:3444
 msgid "2 - High"
 msgstr "2 - Alta"
 
 # TRANS: Priority name
-#: ../../../inc/items/model/_item.funcs.php:3440
+#: ../../../inc/items/model/_item.funcs.php:3445
 msgid "3 - Medium"
 msgstr "3 - Meza"
 
 # TRANS: Priority name
-#: ../../../inc/items/model/_item.funcs.php:3441
+#: ../../../inc/items/model/_item.funcs.php:3446
 msgid "4 - Low"
 msgstr "4 - Malalta"
 
 # TRANS: Priority name
-#: ../../../inc/items/model/_item.funcs.php:3442
+#: ../../../inc/items/model/_item.funcs.php:3447
 msgid "5 - Lowest"
 msgstr "5 - Plej malalta"
 
-#: ../../../inc/items/model/_item.funcs.php:3594
+#: ../../../inc/items/model/_item.funcs.php:3599
 msgid "Add new chapter..."
 msgstr "Aldoni novan ĉapitron"
 
-#: ../../../inc/items/model/_item.funcs.php:3594
+#: ../../../inc/items/model/_item.funcs.php:3599
 msgid "Add top level chapter"
 msgstr "Aldono ĉefnivelan ĉapitron"
 
-#: ../../../inc/items/model/_item.funcs.php:3664
+#: ../../../inc/items/model/_item.funcs.php:3669
 msgid "Posts created by the user"
 msgstr "Afiŝoj kreitaj de la uzanto"
 
-#: ../../../inc/items/model/_item.funcs.php:3665
+#: ../../../inc/items/model/_item.funcs.php:3670
 #: ../../../skins_fallback_v5/_useritems.disp.php:21
 msgid "User has not created any posts"
 msgstr "La Nova uzanto kreis neniujn afiŝojn."
 
-#: ../../../inc/items/model/_item.funcs.php:3714
+#: ../../../inc/items/model/_item.funcs.php:3719
 #, php-format
 msgid "Delete all post created by %s"
 msgstr "Forigi ĉiujn afiŝojn kreitajn de %s"
 
-#: ../../../inc/items/model/_item.funcs.php:3758
+#: ../../../inc/items/model/_item.funcs.php:3763
 msgid "Posts edited by the user"
 msgstr "Afiŝoj redaktitaj de la uzanto"
 
-#: ../../../inc/items/model/_item.funcs.php:3759
+#: ../../../inc/items/model/_item.funcs.php:3764
 msgid "User has not edited any posts"
 msgstr "La uzanto ankoraŭ redaktis neniujn afiŝojn"
 
-#: ../../../inc/items/model/_item.funcs.php:3814
+#: ../../../inc/items/model/_item.funcs.php:3819
 #, php-format
 msgid "Delete all post edited by %s"
 msgstr "Forigi ĉiujn afiŝojn de %s"
 
-#: ../../../inc/items/model/_item.funcs.php:3860
+#: ../../../inc/items/model/_item.funcs.php:3865
 #: ../../../skins/touch/posts.main.php:92
 msgid "Load more entries"
 msgstr "Ŝargi pliajn erojn"
 
-#: ../../../inc/items/model/_item.funcs.php:4062
+#: ../../../inc/items/model/_item.funcs.php:4067
 msgid "Ord"
 msgstr "Ordigi"
 
 # TRANS: abbrev for info
-#: ../../../inc/items/model/_item.funcs.php:4072
+#: ../../../inc/items/model/_item.funcs.php:4077
 #: ../../../inc/items/views/_item_list_track.view.php:125
 msgid "i"
 msgstr "inf"
 
-#: ../../../inc/items/model/_item.funcs.php:4073
+#: ../../../inc/items/model/_item.funcs.php:4078
 msgid "Item history information"
 msgstr "Informoj pri la ero-historio"
 
-#: ../../../inc/items/model/_item.funcs.php:4130
+#: ../../../inc/items/model/_item.funcs.php:4135
 msgid "Mass edit"
 msgstr "Amase redakti"
 
-#: ../../../inc/items/model/_item.funcs.php:4130
+#: ../../../inc/items/model/_item.funcs.php:4135
 msgid "Mass edit the current post list..."
 msgstr "Amase redakti la nunan afiŝaron…"
 
-#: ../../../inc/items/model/_item.funcs.php:4136
+#: ../../../inc/items/model/_item.funcs.php:4141
 msgid "Create multiple posts..."
 msgstr "Krei plurajn afiŝojn…"
 
-#: ../../../inc/items/model/_item.funcs.php:4136
+#: ../../../inc/items/model/_item.funcs.php:4141
 #, php-format
 msgid "Mass create \"%s\""
 msgstr "Amasa kreado de \"%s\""
 
-#: ../../../inc/items/model/_item.funcs.php:4228
+#: ../../../inc/items/model/_item.funcs.php:4233
 msgid "There are some comments awaiting moderation."
 msgstr "Estas iuj komentoj, kiuj atendas kontrolon."
 
-#: ../../../inc/items/model/_item.funcs.php:4254
+#: ../../../inc/items/model/_item.funcs.php:4259
 msgid "View this post..."
 msgstr "Vidi la afiŝon…"
 
-#: ../../../inc/items/model/_item.funcs.php:4474
-#: ../../../inc/items/model/_item.funcs.php:4582
+#: ../../../inc/items/model/_item.funcs.php:4479
+#: ../../../inc/items/model/_item.funcs.php:4587
 msgid "Click to change an order"
 msgstr "Ligilo por ŝanĝi ordonon"
 
-#: ../../../inc/items/model/_item.funcs.php:4491
+#: ../../../inc/items/model/_item.funcs.php:4496
 msgid "New chapter..."
 msgstr "Nova ĉapitro…"
 
-#: ../../../inc/items/model/_item.funcs.php:4496
+#: ../../../inc/items/model/_item.funcs.php:4501
 msgid "New manual page..."
 msgstr "Nova manlibra paĝo…"
 
-#: ../../../inc/items/model/_item.funcs.php:4500
+#: ../../../inc/items/model/_item.funcs.php:4505
 msgid "Delete chapter..."
 msgstr "Forigi ĉapitron…"
 
-#: ../../../inc/items/model/_item.funcs.php:4571
+#: ../../../inc/items/model/_item.funcs.php:4576
 #: ../../../inc/items/views/_item_list_full.view.php:149
 #: ../../../inc/items/views/_item_mass_edit.view.php:68
 msgid "Edit slugs..."
@@ -15753,6 +15756,7 @@ msgstr "Ero-historio (eksperimenta) por:"
 #: ../../../inc/items/views/_item_history_details.view.php:33
 #: ../../../inc/users/views/_display.form.php:103
 #: ../../../inc/users/views/_display.form.php:124
+#: ../../../inc/widgets/widgets/_coll_subscription.widget.php:93
 msgid "Note"
 msgstr "Noto"
 
@@ -15865,9 +15869,9 @@ msgstr "Eldonita"
 
 #: ../../../inc/items/views/_item_list_full.view.php:492
 #: ../../../inc/items/views/_item_list_full.view.php:506
-#: ../../../inc/users/views/_user_subscriptions.form.php:295
+#: ../../../inc/users/views/_user_subscriptions.form.php:308
 #: ../../../inc/users/views/_user_subscriptions.form.php:375
-#: ../../../inc/widgets/widgets/_coll_subscription.widget.php:177
+#: ../../../inc/widgets/widgets/_coll_subscription.widget.php:184
 msgid "All comments"
 msgstr "Ĉiuj komentoj"
 
@@ -15988,7 +15992,7 @@ msgstr "Sciigi min per retpoŝto kiam iu komentos ĉi tiun afiŝon"
 
 #: ../../../inc/items/views/_item_list_full.view.php:767
 #: ../../../inc/maintenance/views/_upgrade.form.php:40
-#: ../../../inc/widgets/widgets/_coll_subscription.widget.php:154
+#: ../../../inc/widgets/widgets/_coll_subscription.widget.php:161
 #: ../../../skins_fallback_v6/_item_workflow.inc.php:63
 msgid "Update"
 msgstr "Ĝisdatigi"
@@ -16200,7 +16204,7 @@ msgstr "Uzo de instrukcioj"
 
 #: ../../../inc/items/views/_itemtype.form.php:67
 msgid "In front-office edit screen"
-msgstr "En la fronta redakta ekrano"
+msgstr "En la antaŭa redakta ekrano"
 
 #: ../../../inc/items/views/_itemtype.form.php:68
 msgid "In back-office edit screen"
@@ -18798,7 +18802,7 @@ msgid "The database has been updated."
 msgstr "La datumbazo ĝisdatiĝis."
 
 #: ../../../inc/plugins/_plugin.funcs.php:1218
-#: ../../../install/_functions_evoupgrade.php:7702
+#: ../../../install/_functions_evoupgrade.php:7712
 msgid "The DB schema has been changed since confirmation."
 msgstr "La datumbaza skemo ŝanĝiĝis ekde konfirmado."
 
@@ -19065,7 +19069,7 @@ msgid "The plugin needs the following database changes."
 msgstr "La kromprogramo postulas la jenajn datumbazajn ŝanĝojn."
 
 #: ../../../inc/plugins/plugins.ctrl.php:918
-#: ../../../install/_functions_evoupgrade.php:7739
+#: ../../../install/_functions_evoupgrade.php:7749
 msgid "The following database changes will be carried out. If you are not sure what this means, it will probably be alright."
 msgstr "La sekvaj datumbazaj ŝanĝoj plenumiĝos. Se vi ne certas pri tio, kion tio signifas, tio probable estos aprobinda."
 
@@ -21167,13 +21171,13 @@ msgstr "Akira metodo"
 
 #: ../../../inc/settings/views/_eblog.form.php:86
 #: ../../../inc/tools/views/_email_return_settings.form.php:87
-#: ../../../inc/tools/views/_email_smtp.form.php:83
+#: ../../../inc/tools/views/_email_smtp.form.php:84
 msgid "SSL"
 msgstr "SSL"
 
 #: ../../../inc/settings/views/_eblog.form.php:87
 #: ../../../inc/tools/views/_email_return_settings.form.php:88
-#: ../../../inc/tools/views/_email_smtp.form.php:84
+#: ../../../inc/tools/views/_email_smtp.form.php:85
 msgid "TLS"
 msgstr "TLS"
 
@@ -21184,25 +21188,25 @@ msgstr "Ĉifra metodo"
 
 #: ../../../inc/settings/views/_eblog.form.php:96
 #: ../../../inc/tools/views/_email_return_settings.form.php:97
-#: ../../../inc/tools/views/_email_smtp.form.php:93
+#: ../../../inc/tools/views/_email_smtp.form.php:94
 msgid "Do not validate the certificate from the TLS/SSL server. Check this if you are using a self-signed certificate."
 msgstr "Ne validi la atestilojn el la TLS/SSL-servili. Montri la se vi uzas memasignitan atestilon"
 
 #: ../../../inc/settings/views/_eblog.form.php:97
 #: ../../../inc/tools/views/_email_return_settings.form.php:98
-#: ../../../inc/tools/views/_email_smtp.form.php:94
+#: ../../../inc/tools/views/_email_smtp.form.php:95
 msgid "Validate that the certificate from the TLS/SSL server can be trusted. Use this if you have a correctly signed certificate."
 msgstr "Validigu, ke la atestilo el la TLS/SSL-servilo estas fidinda. Uzu se vi havas ĝuste subskribitan atestilon."
 
 #: ../../../inc/settings/views/_eblog.form.php:98
 #: ../../../inc/tools/views/_email_return_settings.form.php:99
-#: ../../../inc/tools/views/_email_smtp.form.php:95
+#: ../../../inc/tools/views/_email_smtp.form.php:96
 msgid "Certificate validation"
 msgstr "Atestilo-validigo"
 
 #: ../../../inc/settings/views/_eblog.form.php:100
 #: ../../../inc/tools/views/_email_return_settings.form.php:101
-#: ../../../inc/tools/views/_email_smtp.form.php:97
+#: ../../../inc/tools/views/_email_smtp.form.php:98
 msgid "Port Number"
 msgstr "Porda numero"
 
@@ -21466,44 +21470,44 @@ msgstr "La konto de la petata uzanto-konto estas fermita."
 msgid "This feature is disabled."
 msgstr "La trajto estas malaktivigita."
 
-#: ../../../inc/skins/_skin.funcs.php:1523
+#: ../../../inc/skins/_skin.funcs.php:1529
 #: ../../../skins_adm/_adminUI_general.class.php:169
 #: ../../../skins_adm/bootstrap/_adminUI.class.php:96
 msgid "Your web browser is too old. For this site to work correctly, we recommend you use a more recent browser."
 msgstr "Via TTT-legilo estas tro malmodera. Por la kolektaro ĝuste funkciu, ni rekomendas, ke vi uzu pli modernan TTT-legilon."
 
-#: ../../../inc/skins/_skin.funcs.php:2454
+#: ../../../inc/skins/_skin.funcs.php:2460
 msgid "Same as normal skin."
 msgstr "Sama kiel normala etoso…"
 
-#: ../../../inc/skins/_skin.funcs.php:2468
+#: ../../../inc/skins/_skin.funcs.php:2474
 #: ../../../inc/skins/views/_skin.form.php:44
 #: ../../../inc/skins/views/_skin.form.php:79
 msgid "Skin name"
 msgstr "Etosa nomo"
 
-#: ../../../inc/skins/_skin.funcs.php:2474
+#: ../../../inc/skins/_skin.funcs.php:2480
 #: ../../../inc/skins/views/_skin.form.php:51
 msgid "Skin version"
 msgstr "Etosa eldono"
 
-#: ../../../inc/skins/_skin.funcs.php:2480
+#: ../../../inc/skins/_skin.funcs.php:2486
 #: ../../../inc/skins/views/_skin.form.php:57
 #: ../../../inc/skins/views/_skin.form.php:90
 #: ../../../inc/skins/views/_skin_list.view.php:57
 msgid "Skin type"
 msgstr "Etosa tipo"
 
-#: ../../../inc/skins/_skin.funcs.php:2494
+#: ../../../inc/skins/_skin.funcs.php:2500
 #: ../../../inc/skins/views/_skin.form.php:71
 msgid "Containers"
 msgstr "Ujoj"
 
-#: ../../../inc/skins/_skin.funcs.php:2506
+#: ../../../inc/skins/_skin.funcs.php:2512
 msgid "This skin does not provide any configurable settings."
 msgstr "Ĉi tiu etoso ne donas ajnan agordon."
 
-#: ../../../inc/skins/_skin.funcs.php:2527
+#: ../../../inc/skins/_skin.funcs.php:2533
 msgid "Skin settings"
 msgstr "Etosa agordo"
 
@@ -23742,27 +23746,27 @@ msgstr "Retnodo aŭ IP-adreso de via SMTP-servilo."
 msgid "SMTP Server"
 msgstr "SMTP-servilo"
 
-#: ../../../inc/tools/views/_email_smtp.form.php:85
+#: ../../../inc/tools/views/_email_smtp.form.php:86
 msgid "Encryption Method"
 msgstr "Ĉifrada metodo"
 
-#: ../../../inc/tools/views/_email_smtp.form.php:97
+#: ../../../inc/tools/views/_email_smtp.form.php:98
 msgid "Port number of your SMTP server (Defaults: SSL: 443, TLS: 587)."
 msgstr "Porda numero de via SMTP-servilo. (Aŭtomate: SSL: 443, TLS: 587)."
 
-#: ../../../inc/tools/views/_email_smtp.form.php:100
+#: ../../../inc/tools/views/_email_smtp.form.php:101
 msgid "SMTP Username"
 msgstr "SMTP-Salutnomo"
 
-#: ../../../inc/tools/views/_email_smtp.form.php:100
+#: ../../../inc/tools/views/_email_smtp.form.php:101
 msgid "User name for authenticating on your SMTP server."
 msgstr "Salutnomo por aŭtentigi al via SMTP-servilo."
 
-#: ../../../inc/tools/views/_email_smtp.form.php:108
+#: ../../../inc/tools/views/_email_smtp.form.php:109
 msgid "Password for authenticating on your SMTP server."
 msgstr "Pasvorto por aŭtentigi al via SMTP-servilo."
 
-#: ../../../inc/tools/views/_email_smtp.form.php:108
+#: ../../../inc/tools/views/_email_smtp.form.php:109
 msgid "SMTP Password"
 msgstr "SMTP-Pasvorto"
 
@@ -24990,8 +24994,8 @@ msgid "Profile"
 msgstr "Profilo"
 
 #: ../../../inc/users/model/_user.funcs.php:1022
-#: ../../../inc/users/views/_user_subscriptions.form.php:365
-#: ../../../inc/widgets/widgets/_coll_subscription.widget.php:158
+#: ../../../inc/users/views/_user_subscriptions.form.php:345
+#: ../../../inc/widgets/widgets/_coll_subscription.widget.php:165
 msgid "Subscribe"
 msgstr "Aboni"
 
@@ -26292,7 +26296,7 @@ msgstr "Bildo-formato de vezikaj konsiletoj"
 
 #: ../../../inc/users/views/_display.form.php:96
 msgid "Username display for logged-in users (front-office)"
-msgstr "Salutnomo elmontro por ensalutitaj uzantoj (publika)"
+msgstr "Salutnomo elmontro por ensalutitaj uzantoj (antaŭo)"
 
 #: ../../../inc/users/views/_display.form.php:99
 msgid "Always user page"
@@ -26315,7 +26319,7 @@ msgstr "Aktivigi vezikajn konsiletojn en la agordo de ĉiu etoso."
 
 #: ../../../inc/users/views/_display.form.php:114
 msgid "Username display for anonymous user (front-office)"
-msgstr "Salutnoma elmontro por anonima uzanto (publika)"
+msgstr "Salutnoma elmontro por anonima uzanto (antaŭo)"
 
 #: ../../../inc/users/views/_display.form.php:117
 msgid "Always user page (if allowed)"
@@ -27930,22 +27934,22 @@ msgstr "Limigi bultenojn al %s retpoŝtmesaĝoj ĉiutage"
 msgid "Blog subscriptions"
 msgstr "Kolekto-abonoj"
 
-#: ../../../inc/users/views/_user_subscriptions.form.php:294
+#: ../../../inc/users/views/_user_subscriptions.form.php:304
 #: ../../../inc/users/views/_user_subscriptions.form.php:374
 #: ../../../inc/widgets/widgets/_coll_item_list.widget.php:121
-#: ../../../inc/widgets/widgets/_coll_subscription.widget.php:173
+#: ../../../inc/widgets/widgets/_coll_subscription.widget.php:180
 msgid "All posts"
 msgstr "Ĉiuj afiŝoj"
 
-#: ../../../inc/users/views/_user_subscriptions.form.php:304
+#: ../../../inc/users/views/_user_subscriptions.form.php:317
 msgid "In order to subscribe to a new blog, go to the relevant blog and subscribe from there."
 msgstr "Por ekaboni novan kolekton iru koncernan kolekton kaj ekaboni tie."
 
-#: ../../../inc/users/views/_user_subscriptions.form.php:351
+#: ../../../inc/users/views/_user_subscriptions.form.php:330
 msgid "Sorry, no blogs available to subscribe."
 msgstr "Bedaŭrinde ne ekaboneblaj kolektoj."
 
-#: ../../../inc/users/views/_user_subscriptions.form.php:356
+#: ../../../inc/users/views/_user_subscriptions.form.php:335
 msgid "Choose additional subscriptions"
 msgstr "Elekti pliajn abonojn"
 
@@ -28394,41 +28398,6 @@ msgstr "Patra kategorio de radiko"
 msgid "Breadcrumb Path"
 msgstr "Paĝniveloj"
 
-#: ../../../inc/widgets/widgets/_coll_about_author.widget.php:54
-#: ../../../inc/widgets/widgets/_coll_about_author.widget.php:63
-#: ../../../inc/widgets/widgets/_item_about_author.widget.php:65
-#: ../../../inc/widgets/widgets/_item_about_author.widget.php:74
-msgid "About Author"
-msgstr "Pri skribinto"
-
-#: ../../../inc/widgets/widgets/_coll_about_author.widget.php:72
-#: ../../../inc/widgets/widgets/_item_about_author.widget.php:83
-msgid "Display information about item author."
-msgstr "Montri informojn pri la ero-skribinto."
-
-#: ../../../inc/widgets/widgets/_coll_about_author.widget.php:105
-#: ../../../inc/widgets/widgets/_coll_item_content.widget.php:88
-#: ../../../inc/widgets/widgets/_coll_item_tags.widget.php:88
-#: ../../../inc/widgets/widgets/_coll_seen_by.widget.php:86
-#: ../../../inc/widgets/widgets/_coll_small_print.widget.php:88
-#: ../../../inc/widgets/widgets/_item_about_author.widget.php:118
-#: ../../../inc/widgets/widgets/_item_content.widget.php:99
-#: ../../../inc/widgets/widgets/_item_seen_by.widget.php:97
-#: ../../../inc/widgets/widgets/_item_small_print.widget.php:103
-#: ../../../inc/widgets/widgets/_item_tags.widget.php:99
-msgid "This is the title to display"
-msgstr "Tio estas la titolo montrota"
-
-#: ../../../inc/widgets/widgets/_coll_about_author.widget.php:109
-#: ../../../inc/widgets/widgets/_item_about_author.widget.php:135
-msgid "Display user field"
-msgstr "Montri uzanto-kampon"
-
-#: ../../../inc/widgets/widgets/_coll_about_author.widget.php:110
-#: ../../../inc/widgets/widgets/_item_about_author.widget.php:136
-msgid "Select what user field should be displayed"
-msgstr "Elekti tiun uzanto-kampon, kiu estas elmontrenda."
-
 #: ../../../inc/widgets/widgets/_coll_avatar.widget.php:54
 msgid "Profile picture (Avatar)"
 msgstr "Profilbildo (avataro)"
@@ -28459,7 +28428,7 @@ msgstr "Listigi ĉiujn kategoriojn; alklako filtras kolekton en elektita kategor
 #: ../../../inc/widgets/widgets/_coll_longdesc.widget.php:87
 #: ../../../inc/widgets/widgets/_coll_media_index.widget.php:61
 #: ../../../inc/widgets/widgets/_coll_search_form.widget.php:85
-#: ../../../inc/widgets/widgets/_coll_subscription.widget.php:85
+#: ../../../inc/widgets/widgets/_coll_subscription.widget.php:87
 #: ../../../inc/widgets/widgets/_coll_tag_cloud.widget.php:101
 #: ../../../inc/widgets/widgets/_free_html.widget.php:95
 #: ../../../inc/widgets/widgets/_online_users.widget.php:78
@@ -28584,7 +28553,7 @@ msgstr "Filtri kategoriojn"
 #: ../../../inc/widgets/widgets/_coll_item_list.widget.php:65
 #: ../../../inc/widgets/widgets/_coll_media_index.widget.php:62
 #: ../../../inc/widgets/widgets/_coll_search_form.widget.php:86
-#: ../../../inc/widgets/widgets/_coll_subscription.widget.php:86
+#: ../../../inc/widgets/widgets/_coll_subscription.widget.php:88
 #: ../../../inc/widgets/widgets/_online_users.widget.php:79
 #: ../../../inc/widgets/widgets/_org_members.widget.php:98
 #: ../../../inc/widgets/widgets/_poll.widget.php:77
@@ -28970,18 +28939,6 @@ msgstr "Kiajn erojn vi volas listigi?"
 msgid "Simplified Item list for listing posts."
 msgstr "Ero-listo simpligita por listaj afiŝoj."
 
-#: ../../../inc/widgets/widgets/_coll_item_content.widget.php:54
-#: ../../../inc/widgets/widgets/_coll_item_content.widget.php:63
-#: ../../../inc/widgets/widgets/_item_content.widget.php:65
-#: ../../../inc/widgets/widgets/_item_content.widget.php:74
-msgid "Item Content"
-msgstr "Ero-enhavo"
-
-#: ../../../inc/widgets/widgets/_coll_item_content.widget.php:72
-#: ../../../inc/widgets/widgets/_item_content.widget.php:83
-msgid "Display item content."
-msgstr "Montri ero-enhavon"
-
 #: ../../../inc/widgets/widgets/_coll_item_list.widget.php:67
 msgid "Items"
 msgstr "Eroj"
@@ -29193,18 +29150,6 @@ msgstr "Povas listigi erojn (afiŝoj/paĝoj/ligiloj/ktp) laŭ diversaj manieroj.
 msgid "The requested Blog doesn't exist any more!"
 msgstr "La petita kolekto ne plu ekzistas"
 
-#: ../../../inc/widgets/widgets/_coll_item_tags.widget.php:54
-#: ../../../inc/widgets/widgets/_coll_item_tags.widget.php:63
-#: ../../../inc/widgets/widgets/_item_tags.widget.php:65
-#: ../../../inc/widgets/widgets/_item_tags.widget.php:74
-msgid "Item Tags"
-msgstr "Ero-etikedoj"
-
-#: ../../../inc/widgets/widgets/_coll_item_tags.widget.php:72
-#: ../../../inc/widgets/widgets/_item_tags.widget.php:83
-msgid "Display item tags."
-msgstr "Elmontri ero-etikedojn."
-
 #: ../../../inc/widgets/widgets/_coll_logo.widget.php:53
 msgid "Logo title"
 msgstr "Longa titolo"
@@ -29402,93 +29347,8 @@ msgstr "Restigi vaka por nuna kolekto."
 msgid "Enter text to search for"
 msgstr "Enmetu serĉotan tekston"
 
-#: ../../../inc/widgets/widgets/_coll_seen_by.widget.php:52
-#: ../../../inc/widgets/widgets/_coll_seen_by.widget.php:61
-#: ../../../inc/widgets/widgets/_item_seen_by.widget.php:63
-#: ../../../inc/widgets/widgets/_item_seen_by.widget.php:72
-msgid "Seen by"
-msgstr "Vidita de"
-
-#: ../../../inc/widgets/widgets/_coll_seen_by.widget.php:70
-#: ../../../inc/widgets/widgets/_item_seen_by.widget.php:81
-msgid "Display what users have seen item."
-msgstr "Elmontri tiujn uzantojn, kiuj vidis tiun eron."
-
-#: ../../../inc/widgets/widgets/_coll_seen_by.widget.php:181
-#: ../../../inc/widgets/widgets/_item_seen_by.widget.php:199
-#, php-format
-msgid "Seen by: %s"
-msgstr "Vidita de: %s"
-
-#: ../../../inc/widgets/widgets/_coll_small_print.widget.php:54
-#: ../../../inc/widgets/widgets/_coll_small_print.widget.php:63
-#: ../../../inc/widgets/widgets/_item_small_print.widget.php:66
-#: ../../../inc/widgets/widgets/_item_small_print.widget.php:75
-msgid "Small Print"
-msgstr "Etaj presaĵoj"
-
-#: ../../../inc/widgets/widgets/_coll_small_print.widget.php:72
-#: ../../../inc/widgets/widgets/_item_small_print.widget.php:84
-msgid "Print small information about item."
-msgstr "Fari etan presaĵon pri la ero."
-
-#: ../../../inc/widgets/widgets/_coll_small_print.widget.php:92
-#: ../../../inc/widgets/widgets/_item_small_print.widget.php:107
-msgid "Format"
-msgstr "Formato"
-
-#: ../../../inc/widgets/widgets/_coll_small_print.widget.php:93
-#: ../../../inc/widgets/widgets/_item_small_print.widget.php:108
-msgid "Select what format should be displayed"
-msgstr "Elekti tiun formaton elmontrotan."
-
-#: ../../../inc/widgets/widgets/_coll_small_print.widget.php:96
-#: ../../../inc/widgets/widgets/_item_small_print.widget.php:111
-msgid "Blog standard"
-msgstr "Bloga normo"
-
-#: ../../../inc/widgets/widgets/_coll_small_print.widget.php:97
-#: ../../../inc/widgets/widgets/_item_small_print.widget.php:112
-msgid "Revisions"
-msgstr "Revizioj"
-
-# TRANS: date
-#: ../../../inc/widgets/widgets/_coll_small_print.widget.php:147
-msgid "This entry was posted on "
-msgstr "Ĉi tiu ero estis afiŝita je "
-
-# TRANS: time
-#: ../../../inc/widgets/widgets/_coll_small_print.widget.php:151
-#: ../../../skins/touch/single.main.php:84
-msgid "at "
-msgstr "je "
-
-#: ../../../inc/widgets/widgets/_coll_small_print.widget.php:155
-msgid "by "
-msgstr "de "
-
-#: ../../../inc/widgets/widgets/_coll_small_print.widget.php:162
-msgid "This entry was posted by "
-msgstr "Ĉi tiu ero estis afiŝita de "
-
-#: ../../../inc/widgets/widgets/_coll_small_print.widget.php:168
-#: ../../../inc/widgets/widgets/_item_small_print.widget.php:200
-msgid "and is filed under"
-msgstr "kaj estas afiŝita sub:"
-
-#: ../../../inc/widgets/widgets/_coll_small_print.widget.php:191
-#: ../../../skins/bootstrap_manual_skin/_item_block.inc.php:156
-msgid "Created by "
-msgstr "Kreita de "
-
-#: ../../../inc/widgets/widgets/_coll_small_print.widget.php:204
-#: ../../../inc/widgets/widgets/_item_small_print.widget.php:236
-#: ../../../skins/bootstrap_manual_skin/_item_block.inc.php:168
-msgid "View history"
-msgstr "Vidi la historion"
-
 #: ../../../inc/widgets/widgets/_coll_subscription.widget.php:53
-#: ../../../inc/widgets/widgets/_coll_subscription.widget.php:88
+#: ../../../inc/widgets/widgets/_coll_subscription.widget.php:90
 msgid "Subscribe to Updates"
 msgstr "Ekaboni ĝisdatigojn"
 
@@ -29496,19 +29356,24 @@ msgstr "Ekaboni ĝisdatigojn"
 msgid "Subscribe to updates on the current collection."
 msgstr "Ekaboni ĝisdatigojn en la nuna kolekto."
 
-#: ../../../inc/widgets/widgets/_coll_subscription.widget.php:91
+#: ../../../inc/widgets/widgets/_coll_subscription.widget.php:94
+#, php-format
+msgid "You can configure which subscriptions are possible in Features > Other > <a %s>Subscriptions</a>"
+msgstr "Vi povas agordi tiujn abonojn, kiuj eblas en Trajtoj > Pliaj > <a %s>Abonoj</a>"
+
+#: ../../../inc/widgets/widgets/_coll_subscription.widget.php:98
 msgid "Display mode"
 msgstr "Montra reĝimo"
 
-#: ../../../inc/widgets/widgets/_coll_subscription.widget.php:92
+#: ../../../inc/widgets/widgets/_coll_subscription.widget.php:99
 msgid "Select how users can subscribe to a collection"
 msgstr "Elekti kiel uzantoj povas ekaboni kolekton."
 
-#: ../../../inc/widgets/widgets/_coll_subscription.widget.php:96
+#: ../../../inc/widgets/widgets/_coll_subscription.widget.php:103
 msgid "show options using checkboxes"
 msgstr "montri elektojn per markobutonoj"
 
-#: ../../../inc/widgets/widgets/_coll_subscription.widget.php:97
+#: ../../../inc/widgets/widgets/_coll_subscription.widget.php:104
 msgid "show options using text"
 msgstr "montri elektojn per teksto"
 
@@ -29702,6 +29567,23 @@ msgstr "Inkluzivigi bildon."
 msgid "Check if file exists. If not, no IMG tag will be created."
 msgstr "Kontrolas ĉu la dosiero ekzistas. Se ne neniu img-etikedo kreiĝos."
 
+#: ../../../inc/widgets/widgets/_item_about_author.widget.php:65
+#: ../../../inc/widgets/widgets/_item_about_author.widget.php:74
+msgid "About Author"
+msgstr "Pri skribinto"
+
+#: ../../../inc/widgets/widgets/_item_about_author.widget.php:83
+msgid "Display information about item author."
+msgstr "Montri informojn pri la ero-skribinto."
+
+#: ../../../inc/widgets/widgets/_item_about_author.widget.php:118
+#: ../../../inc/widgets/widgets/_item_content.widget.php:99
+#: ../../../inc/widgets/widgets/_item_seen_by.widget.php:97
+#: ../../../inc/widgets/widgets/_item_small_print.widget.php:103
+#: ../../../inc/widgets/widgets/_item_tags.widget.php:99
+msgid "This is the title to display"
+msgstr "Tio estas la titolo montrota"
+
 #: ../../../inc/widgets/widgets/_item_about_author.widget.php:122
 msgid "Display user image"
 msgstr "Montri uzanto-bildon"
@@ -29714,6 +29596,62 @@ msgstr "Ligi al profilo"
 #: ../../../inc/widgets/widgets/_item_about_author.widget.php:130
 msgid "link profile picture to user profile"
 msgstr "ligi profilbildon al uzanto-profilo"
+
+#: ../../../inc/widgets/widgets/_item_about_author.widget.php:135
+msgid "Display user field"
+msgstr "Montri uzanto-kampon"
+
+#: ../../../inc/widgets/widgets/_item_about_author.widget.php:136
+msgid "Select what user field should be displayed"
+msgstr "Elekti tiun uzanto-kampon, kiu estas elmontrenda."
+
+#: ../../../inc/widgets/widgets/_item_content.widget.php:65
+#: ../../../inc/widgets/widgets/_item_content.widget.php:74
+msgid "Item Content"
+msgstr "Ero-enhavo"
+
+#: ../../../inc/widgets/widgets/_item_content.widget.php:83
+msgid "Display item content."
+msgstr "Montri ero-enhavon"
+
+#: ../../../inc/widgets/widgets/_item_seen_by.widget.php:63
+#: ../../../inc/widgets/widgets/_item_seen_by.widget.php:72
+msgid "Seen by"
+msgstr "Vidita de"
+
+#: ../../../inc/widgets/widgets/_item_seen_by.widget.php:81
+msgid "Display what users have seen item."
+msgstr "Elmontri tiujn uzantojn, kiuj vidis tiun eron."
+
+#: ../../../inc/widgets/widgets/_item_seen_by.widget.php:199
+#, php-format
+msgid "Seen by: %s"
+msgstr "Vidita de: %s"
+
+#: ../../../inc/widgets/widgets/_item_small_print.widget.php:66
+#: ../../../inc/widgets/widgets/_item_small_print.widget.php:75
+msgid "Small Print"
+msgstr "Etaj presaĵoj"
+
+#: ../../../inc/widgets/widgets/_item_small_print.widget.php:84
+msgid "Print small information about item."
+msgstr "Fari etan presaĵon pri la ero."
+
+#: ../../../inc/widgets/widgets/_item_small_print.widget.php:107
+msgid "Format"
+msgstr "Formato"
+
+#: ../../../inc/widgets/widgets/_item_small_print.widget.php:108
+msgid "Select what format should be displayed"
+msgstr "Elekti tiun formaton elmontrotan."
+
+#: ../../../inc/widgets/widgets/_item_small_print.widget.php:111
+msgid "Blog standard"
+msgstr "Bloga normo"
+
+#: ../../../inc/widgets/widgets/_item_small_print.widget.php:112
+msgid "Revisions"
+msgstr "Revizioj"
 
 #: ../../../inc/widgets/widgets/_item_small_print.widget.php:117
 msgid "Avatar Size"
@@ -29728,6 +29666,10 @@ msgstr "Ĉi tiu ero estis afiŝita je"
 msgid "This entry was posted by"
 msgstr "Ĉi tiu ero estis afiŝita de"
 
+#: ../../../inc/widgets/widgets/_item_small_print.widget.php:200
+msgid "and is filed under"
+msgstr "kaj estas afiŝita sub:"
+
 #: ../../../inc/widgets/widgets/_item_small_print.widget.php:223
 msgid "Created by"
 msgstr "Kreita de"
@@ -29740,6 +29682,20 @@ msgstr "Plej lasta modifo de"
 #: ../../../inc/widgets/widgets/_item_small_print.widget.php:230
 msgid "on"
 msgstr "je"
+
+#: ../../../inc/widgets/widgets/_item_small_print.widget.php:236
+#: ../../../skins/bootstrap_manual_skin/_item_block.inc.php:168
+msgid "View history"
+msgstr "Vidi la historion"
+
+#: ../../../inc/widgets/widgets/_item_tags.widget.php:65
+#: ../../../inc/widgets/widgets/_item_tags.widget.php:74
+msgid "Item Tags"
+msgstr "Ero-etikedoj"
+
+#: ../../../inc/widgets/widgets/_item_tags.widget.php:83
+msgid "Display item tags."
+msgstr "Elmontri ero-etikedojn."
 
 #: ../../../inc/widgets/widgets/_menu_link.widget.php:20
 #: ../../../inc/widgets/widgets/_menu_link.widget.php:542
@@ -31508,19 +31464,19 @@ msgstr "Ne eblas promocii ĝis vi unikigi ilin. Datumbaza kampo: [%s]"
 msgid "Linkblog"
 msgstr "Ligila kolekto"
 
-#: ../../../install/_functions_evoupgrade.php:7687
+#: ../../../install/_functions_evoupgrade.php:7697
 msgid "The database schema is up to date."
 msgstr "La datumbaza skemo estas ĝisdata."
 
-#: ../../../install/_functions_evoupgrade.php:7728
+#: ../../../install/_functions_evoupgrade.php:7738
 msgid "Upgrade database"
 msgstr "Ĝisdatigi datumbazon"
 
-#: ../../../install/_functions_evoupgrade.php:7737
+#: ../../../install/_functions_evoupgrade.php:7747
 msgid "The version number is correct, but we have detected changes in the database schema. This can happen if you've been using development versions directly off GitHub..."
 msgstr "La eldona numero estas ĝusta, sed ni malkovris ŝanĝojn en la datumbaza skemo. Tio povas okazi se vi estas uzinta disvolvajn eldonojn rekte de Github…"
 
-#: ../../../install/_functions_evoupgrade.php:7751
+#: ../../../install/_functions_evoupgrade.php:7761
 msgid "Try to Repair/Upgrade database now!"
 msgstr "Provi tuj ripari/ĝisdatigi datumbazon."
 
@@ -31713,7 +31669,7 @@ msgstr "Kontroli datumbazon"
 
 #: ../../../install/_functions_install.php:1616
 msgid "Go to Front-office"
-msgstr "Iri la publikan vidon"
+msgstr "Iri la antaŭon"
 
 #: ../../../install/_functions_install.php:1617
 msgid "Go to Back-office"
@@ -35620,6 +35576,10 @@ msgstr "Komentoj pri la ĉapitro"
 msgid "Edit Cat"
 msgstr "Redakti kategorion"
 
+#: ../../../skins/bootstrap_manual_skin/_item_block.inc.php:156
+msgid "Created by "
+msgstr "Kreita de "
+
 #: ../../../skins/bootstrap_manual_skin/_posts.disp.php:80
 msgid "Add Intro"
 msgstr "Aldoni enkondukon"
@@ -36106,6 +36066,11 @@ msgstr "Ĉi tiu afiŝo havas %d reagojn atendanta kontroladon... %s"
 #: ../../../skins/touch/_skin.class.php:136
 msgid "Switch to regular view? \\n \\n You can switch back again in the footer."
 msgstr "Ĉu ŝanĝi al regula aspekto? \\n \\n Vi povas reŝanĝi en la piedo."
+
+# TRANS: time
+#: ../../../skins/touch/single.main.php:84
+msgid "at "
+msgstr "je "
 
 #: ../../../skins/touch/single.main.php:100
 #: ../../../skins/touch/single.main.php:101
@@ -36914,20 +36879,20 @@ msgstr "Por vidi pliajn informojn pri la laboroj sekvu la jenan ligilon: %s"
 msgid "You are not a member of this collection, therefore you are not allowed to access it."
 msgstr "Vi ne estas ano de tiu kolekto, tial vi ne rajtas atingi ĝin."
 
-#: ../../../skins_fallback_v5/_closeaccount.disp.php:56
+#: ../../../skins_fallback_v5/_closeaccount.disp.php:55
 #, php-format
 msgid "%s characters left"
 msgstr "%s signoj restantaj."
 
-#: ../../../skins_fallback_v5/_closeaccount.disp.php:69
+#: ../../../skins_fallback_v5/_closeaccount.disp.php:72
 msgid "255 characters max"
 msgstr "255 signoj maksimumo."
 
-#: ../../../skins_fallback_v5/_closeaccount.disp.php:74
+#: ../../../skins_fallback_v5/_closeaccount.disp.php:77
 msgid "Close my account now"
 msgstr "Nun fermi mian konton"
 
-#: ../../../skins_fallback_v5/_closeaccount.disp.php:76
+#: ../../../skins_fallback_v5/_closeaccount.disp.php:79
 msgid "I changed my mind, don't close my account."
 msgstr "Mi ŝanĝis mian decidon. Ne fermu mian konton."
 
@@ -37207,3 +37172,12 @@ msgstr "Se vi devas almeti aldonajn dosierojn, bonvolu aldoni komenton ĝuste po
 #: ../../../skins_fallback_v6/_item_meta_comments.inc.php:37
 msgid "Add a meta comment"
 msgstr "Aldoni metakomenton"
+
+#~ msgid "This entry was posted by "
+#~ msgstr "Ĉi tiu ero estis afiŝita de "
+
+#~ msgid "by "
+#~ msgstr "de "
+
+#~ msgid "This entry was posted on "
+#~ msgstr "Ĉi tiu ero estis afiŝita je "
