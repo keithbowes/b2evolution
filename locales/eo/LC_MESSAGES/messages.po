@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net\n"
-"POT-Creation-Date: 2016-06-29 21:36-0400\n"
-"PO-Revision-Date: 2016-06-30 21:03-0400\n"
+"POT-Creation-Date: 2016-07-01 11:35-0400\n"
+"PO-Revision-Date: 2016-07-01 11:36-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -616,7 +616,6 @@ msgstr "Retpoŝtaj sciigoj"
 
 #: ../../../conf/_icons.php:1082 ../../../inc/_core/__core.init.php:1050
 #: ../../../inc/_core/__core.init.php:1082
-#: ../../../inc/collections/_search.funcs.php:736
 #: ../../../inc/comments/model/_comment.funcs.php:1170
 #: ../../../inc/items/model/_itemtypecache.class.php:93
 #: ../../../inc/items/views/_itemtypes.view.php:172
@@ -5549,7 +5548,7 @@ msgstr "Ĉiuj komentoj kun stato %s\\ninkluzive de nespamaj\\nforiĝos de la ele
 #: ../../../inc/chapters/chapters.ctrl.php:66
 #: ../../../inc/chapters/chapters.ctrl.php:77
 #: ../../../inc/chapters/views/_chapter.form.php:36
-#: ../../../inc/collections/_search.funcs.php:738
+#: ../../../inc/collections/_search.funcs.php:739
 #: ../../../inc/items/model/_item.funcs.php:1173
 #: ../../../inc/items/model/_itemlistlight.class.php:902
 #: ../../../inc/items/views/_file_create_posts.form.php:159
@@ -6135,7 +6134,12 @@ msgstr "Vi sukcese ekabonis sciigojn."
 msgid "Sorry, we could not find anything matching your request, please try to broaden your search."
 msgstr "Bedaŭre ne trovebla estis io kongrua kun via peto. Bonvolu provi vastigi vian serĉon."
 
+# TRANS: Noun
 #: ../../../inc/collections/_search.funcs.php:737
+msgid " (Post)"
+msgstr " (Afiŝo)"
+
+#: ../../../inc/collections/_search.funcs.php:738
 #: ../../../inc/links/model/_linkcomment.class.php:163
 #: ../../../skins/bootstrap_gallery_skin/_item_comment.inc.php:96
 #: ../../../skins_fallback_v5/_item_comment.inc.php:89
@@ -6144,7 +6148,7 @@ msgstr "Bedaŭre ne trovebla estis io kongrua kun via peto. Bonvolu provi vastig
 msgid "Comment"
 msgstr "Komento"
 
-#: ../../../inc/collections/_search.funcs.php:739
+#: ../../../inc/collections/_search.funcs.php:740
 #: ../../../inc/items/item_tags.ctrl.php:37
 #: ../../../inc/items/model/_itemlistlight.class.php:907
 #: ../../../inc/items/views/_itemtag.form.php:49
@@ -6155,33 +6159,33 @@ msgstr "Komento"
 msgid "Tag"
 msgstr "Etikedo"
 
-#: ../../../inc/collections/_search.funcs.php:861
+#: ../../../inc/collections/_search.funcs.php:862
 #: ../../../skins/bootstrap_forums_skin/_item_list.inc.php:137
 #, php-format
 msgid "In %s"
 msgstr "En %s"
 
-#: ../../../inc/collections/_search.funcs.php:930
+#: ../../../inc/collections/_search.funcs.php:931
 #: ../../../inc/rest/_restapi.class.php:855
 #, php-format
 msgid "%d posts are tagged with '%s'"
 msgstr "%d afiŝoj etikeditaj per '%s'"
 
-#: ../../../inc/collections/_search.funcs.php:1258
+#: ../../../inc/collections/_search.funcs.php:1259
 msgid "last edited on"
 msgstr "laste redaktitaj je"
 
-#: ../../../inc/collections/_search.funcs.php:1259
+#: ../../../inc/collections/_search.funcs.php:1260
 #, php-format
 msgid "Created by %s on %s"
 msgstr "Kreita de %s je %s"
 
-#: ../../../inc/collections/_search.funcs.php:1263
+#: ../../../inc/collections/_search.funcs.php:1264
 #: ../../../skins/bootstrap_manual_skin/_item_block.inc.php:162
 msgid " on "
 msgstr " je  "
 
-#: ../../../inc/collections/_search.funcs.php:1263
+#: ../../../inc/collections/_search.funcs.php:1264
 #: ../../../skins/bootstrap_manual_skin/_item_block.inc.php:161
 msgid "Last edit by "
 msgstr "Plej lasta modifo de "
