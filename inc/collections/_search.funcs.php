@@ -733,7 +733,8 @@ function search_result_block( $params = array() )
 	// Make sure we are not missing any display params:
 	$params = array_merge( array(
 			'no_match_message'      =>  '<p class="alert alert-info msg_nothing" style="margin: 2em 0">'.T_('Sorry, we could not find anything matching your request, please try to broaden your search.').'</p>',
-			'title_suffix_post'     => ' ('.T_('Post').')',
+			                           // TRANS: Noun
+			'title_suffix_post'     => T_(' (Post)'),
 			'title_suffix_comment'  => ' ('.T_('Comment').')',
 			'title_suffix_category' => ' ('.T_('Category').')',
 			'title_suffix_tag'      => ' ('.T_('Tag').')',
