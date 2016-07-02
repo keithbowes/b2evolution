@@ -5431,6 +5431,7 @@ function users_results( & $UserList, $params = array() )
 		$UserList->cols[] = array(
 				'th' => T_('Collections'),
 				'order' => 'nb_blogs',
+				'default_dir' => 'D',
 				'th_class' => 'shrinkwrap small',
 				'td_class' => 'center small',
 				'td' => '~conditional( (#nb_blogs# > 0), \'<a href="admin.php?ctrl=user&amp;user_tab=activity&amp;user_ID=$user_ID$" title="'.format_to_output( T_('View personal blogs'), 'htmlattr' ).'">$nb_blogs$</a>\', \'&#160;\' )~',
@@ -5540,7 +5541,8 @@ function users_results( & $UserList, $params = array() )
 				'th' => T_('Sec.<br />Groups'),
 				'th_class' => 'shrinkwrap small',
 				'td_class' => 'shrinkwrap small',
-				'order' => 'grp_name',
+				'order' => 'secondary_groups_count',
+				'default_dir' => 'D',
 				'td' => '%user_td_sec_groups( #user_ID#, #secondary_groups_count# )%',
 			);
 	}
