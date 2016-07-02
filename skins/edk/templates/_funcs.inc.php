@@ -175,9 +175,15 @@ function get_meta($Item)
 
 function get_prevnext_item($which)
 {
-	global $MainList;
-	if ($MainList)
-		return $MainList->get_prevnext_Item($which);
+	global $disp;
+	if ('single' == $disp)
+	{
+		global $MainList;
+		if (!$MainList)
+			init_MainList(1);
+
+		return $MainList->get_prevnext_item($which);
+	}
 
 	return NULL;
 }
