@@ -82,17 +82,13 @@ function get_copyright($params = array())
 		array('(C)', '-'),
 		array('©', '–'),
 		$params['license'] ?
-		# TRANS: Params: Start year, end year, author, license
+		# TRANS: Params: Start year, end year, license
 		$Skin->T_('(C) %1$d-%2$d under %3$s') :
-		# TRANS: Params: Start year, end year, author
+		# TRANS: Params: Start year, end year
 		$Skin->T_('(C) %1$d-%2$d')
 	);
 
-	if ($params['display'])
-		$func = 'printf';
-	else
-		$func = 'sprintf';
-
+	$func = $params['display'] ? 'printf' : 'sprintf';
 	return $func($fmt, strftime('%Y', $first_item['post_datestart']), strftime('%Y'), get_license(array('display' => FALSE)));
 }
 
