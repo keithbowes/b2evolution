@@ -162,7 +162,6 @@ table summary {
 
 #credit {
   clear: both;
-  position: relative;
   left: 28%;
   text-align: left;
   width: 70%;
@@ -571,7 +570,7 @@ table summary {
 }
 
 .tag-list li:not(:last-child):after {
-  content: ",";
+  content: ", ";
 }
 
 .tag-list-header {

@@ -19,14 +19,5 @@ echo '</' . $footer_elem . '>' . "\n";
 
 <!-- End of skin_wrapper -->
 </div>
-
-<?php
-modules_call_method( 'SkinEndHtmlBody' );
-
-// SkinEndHtmlBody hook -- could be used e.g. by a google_analytics plugin to add the javascript snippet here:
-$Plugins->trigger_event('SkinEndHtmlBody');
-
-$Blog->disp_setting( 'footer_includes', 'raw' );
-?>
 </body>
 </html>

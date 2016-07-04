@@ -7,7 +7,7 @@
 
 :lang(eo),
 [hreflang="eo"] {
-  font-family: FreeSerif, 'DejaVu Serif', 'Times New Roman', serif;
+  font-family: 'Helvetica Neue', Helvetica, 'Times New Roman', FreeSerif, 'DejaVu Serif', serif;
   line-height: 1.1em;
 }
 
@@ -16,25 +16,16 @@
   font-family: 'Comic Sans MS', TSCu_Comic, Geneva, fantasy;
 }
 
-div#evo_toolbar + #skin_wrapper #content {
+#content {
   left: 0;
 }
 
-div#evo_toolbar + #skin_wrapper #nav {
-  right: 0;
-}
-
-#content {
-  float: left;
-}
-
 #credit {
-  clear: right;
   left: 76.5%;
 }
 
 #nav {
-  float: right;
+  right: 0;
 }
 
 .meta:lang(eo) {

@@ -28,11 +28,6 @@ input[type="file"],
   width: 98%;
 }
 
-#credit {
-  position: static;
-  text-align: left;
-}
-
 .allowed-tags {
   margin: 0;
   max-width: 100%;

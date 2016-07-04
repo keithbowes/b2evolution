@@ -371,9 +371,13 @@ function parse_accept()
 /* Show the footer */
 function show_footer()
 {
-	global $Plugins, $Skin;
+	global $Blog, $Plugins, $Skin;
 	global $app_name, $app_version;
+
+	// SkinEndHtmlBody hook -- could be used e.g. by a google_analytics plugin to add the javascript snippet here:
 	$Plugins->trigger_event('SkinEndHtmlBody');
+	modules_call_method( 'SkinEndHtmlBody' );
+	$Blog->disp_setting( 'footer_includes', 'raw' );
 
 	printf($Skin->T_('<div>Powered by <cite><a href="http://www.duckduckgo.com/?q=!+%1$s">%1$s</a> %2$s</cite>.</div>'), $app_name, $app_version);
 	printf('<div id="copyright">%s</div>', get_copyright(array('display' => FALSE)));

@@ -326,5 +326,4 @@ $diaform->end_form();
 </ul>
 
 </section>
-
 <!-- end sidebar -->

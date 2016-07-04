@@ -28,16 +28,6 @@ div#evo_toolbar {
   display: none;
 }
 
-div#evo_toolbar + #skin_wrapper #content,
-div#evo_toolbar + #skin_wrapper #nav {
-  position: absolute;
-  top: 0;
-}
-
-div#evo_toolbar + #skin_wrapper #content {
-  left: 23.5%;
-}
-
 form.evo_comment {
   margin-bottom: 1em !important;
   padding: 0 1em;
@@ -97,9 +87,8 @@ input[type="search"]:hover {
 }
 
 #content {
-  float: right;
   height: 100%;
-  overflow: auto;
+  left: 23.5%;
   padding: 0 1%;
   width: 74.5%;
 }
@@ -112,13 +101,22 @@ input[type="search"]:hover {
   text-align: left;
 }
 
+#content,
+#credit,
+#nav {
+  position: absolute;
+  overflow: auto;
+}
+
+#content,
+#nav {
+  top: 0;
+}
+
 #credit {
   bottom: 0;
-  clear: left;
   height: 10%;
   left: 0;
-  overflow: auto;
-  position: absolute;
   width: 23.5%;
 }
 
@@ -174,9 +172,7 @@ input[type="search"]:hover {
 }
 
 #nav {
-  float: left;
   height: 90%;
-  overflow: auto;
   text-transform: lowercase;
 }
 

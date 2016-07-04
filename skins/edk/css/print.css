@@ -1,11 +1,13 @@
-[role="navigation"],
 #credit,
+#nav,
+#page-links,
 .postmetadata{
   display: none;
 }
 
 body,
-#content {
+#content,
+#skin_wrapper {
   overflow: visible;
 }
 
@@ -15,6 +17,7 @@ div[role="article"] {
 
 #content {
   margin-left: 0.5%;
+  position: static;
   width: 99%;
 }
 

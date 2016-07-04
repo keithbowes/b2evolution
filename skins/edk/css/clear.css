@@ -6,6 +6,11 @@ div[role="article"] {
   float: right;
 }
 
+#credit {
+  float: right;
+  margin: 0.5em 1.5%;
+}
+
 #credit,
 #menu,
 .allowed-tags,
