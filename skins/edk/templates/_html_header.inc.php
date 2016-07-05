@@ -22,24 +22,23 @@ function edk_css_include()
 	global $Skin;
 	global $current_locale, $edk_base, $headlines, $io_charset, $locales;
 
-	$html5_style = array(
-		'file' => $edk_base . 'css/clear.css',
-		'title' => $Skin->T_('Clear Look'),
-	);
-
-	$mobile_style = array(
-		'file' => $edk_base . 'css/one.css',
-		'title' => $Skin->T_('One-column Look'),
-	);
-
-	$old_style = array(
-		'file' => $edk_base . 'css/classic.css',
-		'title' => $Skin->T_('Classic Look'),
-	);
-
-	$xhtml_style = array(
-		'file' => $edk_base . 'css/transitional.css',
-		'title' => $Skin->T_('Transitional Look'),
+	$alternate_styles = array(
+		'classic' => array(
+			'file' => $edk_base . 'css/classic.css',
+			'title' => $Skin->T_('Classic Look'),
+		),
+		'html5' => array(
+			'file' => $edk_base . 'css/clear.css',
+			'title' => $Skin->T_('Clear Look'),
+		),
+		'mobile' => array(
+			'file' => $edk_base . 'css/one.css',
+			'title' => $Skin->T_('One-column Look'),
+		),
+		'xhtml' => array(
+			'file' => $edk_base . 'css/transitional.css',
+			'title' => $Skin->T_('Transitional Look'),
+		),
 	);
 
 	$visual_media = prefers_xhtml() ? 'handheld, print, projection, screen, tty, tv' : 'not speech';
@@ -47,14 +46,6 @@ function edk_css_include()
 	/* Main styles */
 	require_css($edk_base . 'css/core.css', 'relative', NULL, 'all');
 	require_css($edk_base . 'css/visual.css', 'relative', NULL, $visual_media);
-
-	/* Alternate styles */
-	$alternate_styles = array(
-		$html5_style['title'] => $html5_style['file'],
-		$mobile_style['title'] => $mobile_style['file'],
-		$old_style['title'] => $old_style['file'],
-		$xhtml_style['title'] => $xhtml_style['file'],
-	);
 
 	/* Sort the alternate styles based on locale */
 	$locales_to_try = array(
@@ -65,11 +56,11 @@ function edk_css_include()
 	);
 	$old_locale = setlocale(LC_ALL, 0);
 	setlocale(LC_ALL, $locales_to_try);
-	ksort($alternate_styles, SORT_LOCALE_STRING);
+	uasort($alternate_styles, function($a, $b) { return strcmp($a['title'], $b['title']); });
 	setlocale(LC_ALL, $old_locale);
 
-	foreach ($alternate_styles as $title => $file)
-		require_css($file, 'relative', $title, $visual_media);
+	foreach ($alternate_styles as $style)
+		require_css($style['file'], 'relative', $style['title'], $visual_media);
 
 	/* Media-specific overrides */
 	require_css($edk_base . 'css/print.css', 'relative', NULL, 'print');
@@ -81,21 +72,19 @@ function edk_css_include()
 	/* Don't embed the invalid minimal CSS file */
 	unset($headlines['b2evo_base.bmin.css']);
 
-	/* Determine the default style sheet from the Style cookie if available.
+	/* Determine the default style sheet from the Default-Style cookie if available.
 	 * If not, use the above arrays. */
-	if ($s = @$_COOKIE['Style'])
-	{
-		$default_style = preg_replace('/\?.+$/', '', $s);
-	}
+	if (isset($_COOKIE['Default-Style']))
+		$default_style = preg_replace('/\?.+$/', '', $_COOKIE['Default-Style']);
 	else
 	{
 		global $Session;
 		if (!$Session->is_desktop_session())
-			$default_style = $mobile_style['file'];
+			$default_style = $alternate_styles['mobile']['file'];
 		elseif (prefers_xhtml())
-			$default_style = $xhtml_style['file'];
+			$default_style = $alternate_styles['xhtml']['file'];
 		else
-			$default_style = $html5_style['file'];
+			$default_style = $alternate_styles['html5']['file'];
 	}
 
 	/* In XHTML, it needs to be outputted as XML processing instructions,
@@ -121,13 +110,13 @@ function edk_css_include()
 	else
 	{
 		/* Get the default style sheet array from the file name */
-		foreach ($alternate_styles as $title => $file)
-			if ($default_style == $file)
+		foreach ($alternate_styles as $style)
+			if ($default_style == $style['file'])
 				break;
 
 		/* Set the default style sheet, for browsers that support it
 		 * (most CSS-enabled browsers do) */
-		header('Default-Style: ' . $title);
+		header('Default-Style: ' . $style['title']);
 	}
 }
 
@@ -192,6 +181,7 @@ function get_other_blogs()
 
 	return $blogs;
 }
+
 
 global $edk_base, $skin;
 $edk_base = $Blog->get_local_skins_url().$skin.'/';
