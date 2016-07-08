@@ -7,7 +7,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 $trans['eo'] = array(
 '__meta__' => array('format_version'=>1, 'charset'=>'utf-8'),
-'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2016-07-01 11:35-0400\nPO-Revision-Date: 2016-07-01 11:36-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
+'' => "Project-Id-Version: b2evolution\nReport-Msgid-Bugs-To: http://fplanque.net\nPOT-Creation-Date: 2016-07-01 11:35-0400\nPO-Revision-Date: 2016-07-08 18:56-0400\nLast-Translator: Keith Bowes <zooplah@gmail.com>\nLanguage-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\nLanguage: eo\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n",
 'Folder' => 'Dosierujo',
 'Unknown file' => 'Nekonata dosiero',
 'Empty file' => 'Vaka dosiero',
@@ -551,7 +551,7 @@ $trans['eo'] = array(
 'Update cancelled' => 'Ĝisdatigo nuligita',
 'Update paused' => 'Ĝisdatigo paŭzinta',
 'Changes pending' => 'Atendanta ŝanĝojn.',
-'Saving changes' => 'Konservi ŝanĝojn',
+'Saving changes' => 'Konservanta ŝanĝojn',
 'image {current} of {total}' => 'bildo {current} el {total}',
 'Previous' => 'Antaŭa',
 'Next' => 'Sekva',

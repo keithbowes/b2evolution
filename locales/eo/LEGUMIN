@@ -1,17 +1,16 @@
-Ĉi tiu pako enhavas la esperantigon de la blogsistemo b2evolution.
+Jen esperantigo por la blogsistemo b2evolution.
 
 DEVENO
-Ĉi tiu lingvopako estas bazita sur la lokaĵaro es_ES (la hispana
-laŭ hispanoj) pro tio, ke la angla emas esti ambigua. Mi
-bedaŭras se ĉenoj el la hispana lingvo restas. Bonvolu raporti
-tian aŭ ĉian eraron al mi kaj mi klopodos ripari ĝin.
+Ĉi tiu lingvopako estas bazita sur la lokaĵaro es_ES (la hispana laŭ hispanoj)
+pro tio, ke la angla emas esti ambigua. Mi bedaŭras se ĉenoj el la hispana
+lingvo restas. Bonvolu raporti tian aŭ ĉian eraron al mi kaj mi klopodos ripari
+ĝin.
 
 INSTALADO
-Por instali ĝin elpaku la enhavon en la subdosierujon locales de via
-instalaĵo de b2evolution.
+Por instali ĝin metu la dosierojn en locales/eo. Alivorte la traduko mem devas esti locales/eo/_global.php
 
 Se vi ne jam instalis la blogon:
-1. Iru al la paĝo /install en via bloga instalaĵo.
+1. Iru al la paĝo /install/index.php en via bloga instalaĵo.
 2. Elektu el la elektilo la elekton Esperanto UTF-8.
 3. Plenumu la instrukciojn.
 
@@ -47,8 +46,8 @@ Por aktivigi la lokaĵaron en la stirilo (se ankoraŭ en la angla):
 1. Iru al Admin > Users
 2. Alklaku la ligilon kun via salutnomo (sub Login).
 3. Alklaku sur la langeto Settings
-4. Ĉe Preferred Language ŝanĝu al Esperanto UTF-8
-5. Alklaku la butonon Save !
+4. Ĉe Preferred locale ŝanĝu al Esperanto UTF-8
+5. Alklaku la butonon Save Changes!
 
 DISVOLVADO
 Por ĝisdatigi la lingvopakon al nova eldono de b2evolution
@@ -62,3 +61,5 @@ sekvi la jenan procedon:
 
 En la patra dosierujo troveblos la dosiero eo.tar.xz
 enhavante elŝuteblan lingvopakon.
+
+Alia elekto estas disbranĉigi de Git.

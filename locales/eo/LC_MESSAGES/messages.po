@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: b2evolution\n"
 "Report-Msgid-Bugs-To: http://fplanque.net\n"
 "POT-Creation-Date: 2016-07-01 11:35-0400\n"
-"PO-Revision-Date: 2016-07-01 11:36-0400\n"
+"PO-Revision-Date: 2016-07-08 18:56-0400\n"
 "Last-Translator: Keith Bowes <zooplah@gmail.com>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/b2evolution/language/eo/)\n"
 "Language: eo\n"
@@ -3526,7 +3526,7 @@ msgstr "Atendanta ŝanĝojn."
 #: ../../../inc/_core/_template.funcs.php:1195
 #: ../../../inc/widgets/widgets.ctrl.php:576
 msgid "Saving changes"
-msgstr "Konservi ŝanĝojn"
+msgstr "Konservanta ŝanĝojn"
 
 #: ../../../inc/_core/_template.funcs.php:1205
 msgid "image {current} of {total}"
