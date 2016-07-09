@@ -45,7 +45,7 @@ echo $params['html_tag'];
 	 	// Add viewport tag if provided:
 		if( $params['viewport_tag'] == '#responsive#' )
 		{	// We requested a responsive viewport:
-			echo '<meta name="viewport" content="width=device-width, initial-scale=1">'."\n";
+			echo '<meta name="viewport" content="width=device-width, initial-scale=1" />'."\n";
 		}
 		else
 		{
