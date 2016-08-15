@@ -89,22 +89,20 @@ function headers_content_mightcache( $type = 'text/html', $max_age = '#', $chars
 
 
 /**
- * Sends HTTP header to redirect to the previous location (which
- * can be given as function parameter, GET parameter (redirect_to),
+ * Sends HTTP header to redirect to the previous location (which can be given as function parameter, GET parameter (redirect_to),
  * is taken from {@link Hit::$referer} or {@link $baseurl}).
  *
- * {@link $Debuglog} and {@link $Messages} get stored in {@link $Session}, so they
- * are available after the redirect.
- *
- * NOTE: This function {@link exit() exits} the php script execution.
+ * {@link $Debuglog} and {@link $Messages} get stored in {@link $Session}, so they are available after the redirect.
  *
  * @todo fp> do NOT allow $redirect_to = NULL. This leads to spaghetti code and unpredictable behavior.
  *
+ * @return boolean false IF blocked AND $return_to_caller_if_forbidden BUT most of the time, this function {@link exit() exits} the php script execution.
  * @param string Destination URL to redirect to
  * @param boolean|integer is this a permanent redirect? if true, send a 301; otherwise a 303 OR response code 301,302,303
  * @param boolean is this a redirected post display? This param may be true only if we should redirect to a post url where the post status is 'redirected'!
+ * @param boolean do we want to return to the caller if the redirect is forbidden? (useful when trying to redirect after post edit)
  */
-function header_redirect( $redirect_to = NULL, $status = false, $redirected_post = false )
+function header_redirect( $redirect_to = NULL, $status = false, $redirected_post = false, $return_to_caller_if_forbidden = false )
 {
 	/**
 	 * put your comment there...
@@ -185,18 +183,21 @@ function header_redirect( $redirect_to = NULL, $status = false, $redirected_post
 
 
 	$allow_collection_redirect = false;
-	if( $external_redirect && $allow_redirects_to_different_domain == 'all_collections_and_redirected_posts' && ! $redirected_post )
+
+	if( $external_redirect 
+		&& $allow_redirects_to_different_domain == 'all_collections_and_redirected_posts' 
+		&& ! $redirected_post )
 	{ // If a redirect is external and we allow to redirect to all collection domains:
-		global $basedomain;
+		global $basehost;
 
 		$redirect_to_domain = preg_replace( '~https?://([^/]+)/?.*~i', '$1', $redirect_to );
 
-		if( preg_match( '~\.'.str_replace( '.', '\.', $basedomain ).'$~', $redirect_to_domain ) )
-		{ // Current redirect goes to subdomain, Allow this:
+		if( preg_match( '~\.'.preg_quote( $basehost ).'(:\d+)?$~', $redirect_to_domain ) )
+		{ // Current redirect goes to a subdomain of basehost, Allow this:
 			$allow_collection_redirect = true;
 		}
 		else
-		{ // Check if current redirect domain is used as absolute url at least for one collection in system:
+		{ // Check if current redirect domain is used as absolute URL for at least 1 collection on the system:
 			global $DB;
 
 			$abs_url_coll_SQL = new SQL();
@@ -208,7 +209,7 @@ function header_redirect( $redirect_to = NULL, $status = false, $redirected_post
 
 			$abs_url_coll_ID = $DB->get_var( $abs_url_coll_SQL->get() );
 			if( ! empty( $abs_url_coll_ID ) )
-			{ // We found current redirect goes to a collection domain, so it is not external
+			{ // We found current redirect goes to a collection domain, Allow this:
 				$allow_collection_redirect = true;
 			}
 		}
@@ -222,6 +223,10 @@ function header_redirect( $redirect_to = NULL, $status = false, $redirected_post
 	{ // Force header redirects into the same domain. Do not allow external URLs.
 		$Messages->add( T_('A redirection to an external URL was blocked for security reasons.'), 'error' );
 		syslog_insert( 'A redirection to an external URL '.$redirect_to.' was blocked for security reasons.', 'error', NULL );
+		if( $return_to_caller_if_forbidden )
+		{	// Return to caller meaning we did not redirect:
+			return false;
+		}
 		$redirect_to = $baseurl;
 	}
 
@@ -917,6 +922,11 @@ function get_require_url( $lib_file, $relative_to = 'rsc_url', $subfolder = 'js'
 	global $library_local_urls, $library_cdn_urls, $use_cdns, $debug, $rsc_url;
 	global $Blog, $baseurl, $assets_baseurl, $ReqURL;
 
+	if( $relative_to == 'blog' && ( is_admin_page() || empty( $Blog ) ) )
+	{	// Make sure we never use resource url relative to any blog url in case of an admin page ( important in case of multi-domain installations ):
+		$relative_to = 'rsc_url';
+	}
+
 	// Check if we have a public CDN we want to use for this library file:
 	if( $use_cdns && ! empty( $library_cdn_urls[ $lib_file ] ) )
 	{ // Rewrite local urls with public CDN urls if they are defined in _advanced.php
@@ -1017,11 +1027,6 @@ function require_js( $js_file, $relative_to = 'rsc_url', $async = false, $output
 	if( is_admin_page() && in_array( $js_file, array( 'functions.js', 'ajax.js', 'form_extensions.js', 'extracats.js', 'dynamic_select.js', 'backoffice.js' ) ) )
 	{	// Don't require this file on back-office because it is auto loaded by bundled file evo_backoffice.bmin.js:
 		return;
-	}
-
-	if( is_admin_page() && ( $relative_to == 'blog' ) )
-	{ // Make sure we never use resource url relative to any blog url in case of an admin page ( important in case of multi-domain installations )
-		$relative_to = 'rsc_url';
 	}
 
 	if( in_array( $js_file, array( '#jqueryUI#', 'communication.js', 'functions.js' ) ) )
@@ -1212,7 +1217,7 @@ function require_js_helper( $helper = '', $relative_to = 'rsc_url' )
 				// Colorbox params to display a voting panel:
 				$colorbox_voting_params = '{'.$colorbox_strings_params.'
 					displayVoting: true,
-					votingUrl: "'.get_secure_htsrv_url().'anon_async.php?action=voting&vote_type=link&b2evo_icons_type='.$b2evo_icons_type.$blog_param.'",
+					votingUrl: "'.get_htsrv_url().'anon_async.php?action=voting&vote_type=link&b2evo_icons_type='.$b2evo_icons_type.$blog_param.'",
 					minWidth: 305}';
 				// Colorbox params without voting panel:
 				$colorbox_no_voting_params = '{'.$colorbox_strings_params.'
@@ -1558,7 +1563,7 @@ function init_voting_comment_js( $relative_to = 'rsc_url' )
 	add_js_headline( '
 	jQuery( document ).ready( function()
 	{
-		var comment_voting_url = "'.get_secure_htsrv_url().'anon_async.php?action=voting&vote_type=comment&b2evo_icons_type='.$b2evo_icons_type.'";
+		var comment_voting_url = "'.get_htsrv_url().'anon_async.php?action=voting&vote_type=comment&b2evo_icons_type='.$b2evo_icons_type.'";
 		jQuery( "span[id^=vote_helpful_]" ).each( function()
 		{
 			init_voting_bar( jQuery( this ), comment_voting_url, jQuery( this ).find( "#votingID" ).val(), false );
@@ -2171,7 +2176,7 @@ function is_recursive( /*array*/ & $array, /*array*/ & $alreadySeen = array() )
  */
 function display_ajax_form( $params )
 {
-	global $rsc_url, $samedomain_htsrv_url, $ajax_form_number, $required_js;
+	global $rsc_url, $ajax_form_number, $required_js;
 
 	if( is_recursive( $params ) )
 	{ // The params array contains recursion, don't try to encode, display error message instead
@@ -2207,7 +2212,7 @@ function display_ajax_form( $params )
 		function get_form_<?php echo $ajax_form_number; ?>()
 		{
 			jQuery.ajax({
-				url: '<?php echo $samedomain_htsrv_url; ?>anon_async.php',
+				url: '<?php echo get_htsrv_url(); ?>anon_async.php',
 				type: 'POST',
 				data: <?php echo $json_params; ?>,
 				success: function(result)
@@ -2261,7 +2266,7 @@ function display_ajax_form( $params )
 function display_login_form( $params )
 {
 	global $Settings, $Plugins, $Session, $Blog, $blog, $dummy_fields;
-	global $secure_htsrv_url, $admin_url, $baseurl, $ReqHost, $redirect_to;
+	global $admin_url, $baseurl, $ReqHost, $redirect_to;
 
 	$params = array_merge( array(
 			'form_before' => '',
@@ -2510,7 +2515,7 @@ function display_login_js_handler( $params )
 
 		jQuery.ajax({
 			type: 'POST',
-			url: '<?php echo get_samedomain_htsrv_url(); ?>anon_async.php',
+			url: '<?php echo get_htsrv_url(); ?>anon_async.php',
 			data: {
 				'<?php echo $dummy_fields[ 'login' ]; ?>': username,
 				'action': 'get_user_salt',
@@ -2581,12 +2586,12 @@ function display_login_js_handler( $params )
  */
 function display_lostpassword_form( $login, $hidden_params, $params = array() )
 {
-	global $secure_htsrv_url, $dummy_fields, $redirect_to, $Session;
+	global $dummy_fields, $redirect_to, $Session;
 
 	$params = array_merge( array(
 			'form_before'     => '',
 			'form_after'      => '',
-			'form_action'     => $secure_htsrv_url.'login.php',
+			'form_action'     => get_htsrv_url( true ).'login.php',
 			'form_name'       => 'lostpass_form',
 			'form_class'      => 'fform',
 			'form_template'   => NULL,
@@ -2685,7 +2690,7 @@ function display_lostpassword_form( $login, $hidden_params, $params = array() )
 function display_activateinfo( $params )
 {
 	global $current_User, $Settings, $UserSettings, $Plugins;
-	global $secure_htsrv_url, $rsc_path, $rsc_url, $dummy_fields;
+	global $rsc_path, $rsc_url, $dummy_fields;
 
 	if( !is_logged_in() )
 	{ // if this happens, it means the code is not correct somewhere before this
@@ -2696,7 +2701,7 @@ function display_activateinfo( $params )
 			'use_form_wrapper' => true,
 			'form_before'      => '',
 			'form_after'       => '',
-			'form_action'      => $secure_htsrv_url.'login.php',
+			'form_action'      => get_htsrv_url( true ).'login.php',
 			'form_name'        => 'form_validatemail',
 			'form_class'       => 'fform',
 			'form_layout'      => 'fieldset',
@@ -2825,7 +2830,7 @@ function display_activateinfo( $params )
 
 		echo $params['use_form_wrapper'] ? $params['form_before'] : '';
 
-		$Form = new Form( $secure_htsrv_url.'login.php', 'form_validatemail', 'post', 'fieldset' );
+		$Form = new Form( get_htsrv_url( true ).'login.php', 'form_validatemail', 'post', 'fieldset' );
 
 		if( ! empty( $params['form_template'] ) )
 		{ // Switch layout to template from array
@@ -2836,7 +2841,7 @@ function display_activateinfo( $params )
 
 		$Form->add_crumb( 'validateform' );
 		$Form->hidden( 'action', 'validatemail' );
-		$Form->hidden( 'redirect_to', url_rel_to_same_host( $redirect_to, $secure_htsrv_url ) );
+		$Form->hidden( 'redirect_to', url_rel_to_same_host( $redirect_to, get_htsrv_url( true ) ) );
 		$Form->hidden( 'reqID', 1 );
 		$Form->hidden( 'sessID', $Session->ID );
 
@@ -3035,7 +3040,7 @@ function display_login_validator( $params = array() )
 			jQuery( "#login_status" ).html( login_icon_load );
 			jQuery.ajax( {
 				type: "POST",
-				url: "'.get_samedomain_htsrv_url().'anon_async.php",
+				url: "'.get_htsrv_url().'anon_async.php",
 				data: "action=validate_login&login=" + jQuery( this ).val(),
 				success: function( result )
 				{
@@ -3239,8 +3244,9 @@ function get_prevent_key_enter_js( $jquery_selection )
  * @param string Icons type:
  *               - 'fontawesome' - Use only font-awesome icons
  *               - 'fontawesome-glyphicons' - Use font-awesome icons as a priority over the glyphicons
+ * @param boolean|string 'relative' or true (relative to <base>) or 'rsc_url' (relative to $rsc_url) or 'blog' (relative to current blog URL -- may be subdomain or custom domain)
  */
-function init_fontawesome_icons( $icons_type = 'fontawesome' )
+function init_fontawesome_icons( $icons_type = 'fontawesome', $relative_to = 'rsc_url' )
 {
 	global $b2evo_icons_type;
 
@@ -3248,7 +3254,7 @@ function init_fontawesome_icons( $icons_type = 'fontawesome' )
 	$b2evo_icons_type = $icons_type;
 
 	// Load main CSS file of font-awesome icons
-	require_css( '#fontawesome#', 'rsc_url' );
+	require_css( '#fontawesome#', $relative_to );
 }
 
 ?>

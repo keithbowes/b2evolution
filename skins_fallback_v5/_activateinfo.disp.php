@@ -38,13 +38,17 @@ $params = array_merge( array(
 	), $params );
 
 $display_params = array(
-	'form_action' => $secure_htsrv_url.'login.php',
-	'form_name' => 'activateinfo_form',
-	'form_class' => 'bComment',
-	'form_layout' => NULL,
-	'redirect_to' => url_rel_to_same_host( $redirect_to, $secure_htsrv_url ),
-	'inskin' => true,
-	'blog' => ( ( isset( $blog ) ) ? $blog : NULL )
+	'use_form_wrapper' => $params['use_form_wrapper'],
+	'form_before'      => str_replace( '$form_title$', $params['activate_form_title'], $params['skin_form_before'] ),
+	'form_after'       => $params['skin_form_after'],
+	'form_action'      => get_htsrv_url( true ).'login.php',
+	'form_name'        => 'activateinfo_form',
+	'form_class'       => 'bComment',
+	'form_layout'      => NULL,
+	'redirect_to'      => url_rel_to_same_host( $redirect_to, get_htsrv_url( true ) ),
+	'inskin'           => true,
+	'blog'             => ( ( isset( $blog ) ) ? $blog : NULL ),
+	'form_template'    => $params['activate_form_params'],
 );
 
 // display account activate info

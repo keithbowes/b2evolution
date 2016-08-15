@@ -422,7 +422,6 @@ samp {
 pre,
 code {
   -webkit-hyphens: none;
-  -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
 }
@@ -771,7 +770,6 @@ span.roundbutton.rbtn_black:hover,
 }
 .notes a.roundbutton {
   top: -2px;
-  -moz-top: 0;
 }
 .btn {
   background-image: none;

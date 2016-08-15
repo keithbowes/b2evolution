@@ -188,9 +188,9 @@ function init_inskin_editing()
 
 		$redirect_to = url_add_param( $Blog->gen_blogurl(), 'disp=edit', '&' );
 	}
-
-	// Restrict item status to max allowed by item collection:
-	$edited_Item->restrict_status_by_collection();
+	
+	// Restrict Item status by Collection access restriction AND by CURRENT USER write perm:Restrict item status to max allowed by item collection:
+	$edited_Item->restrict_status();
 
 	// Used in the edit form:
 
@@ -218,7 +218,7 @@ function init_inskin_editing()
 			'onclick' => 'return b2edit_reload( document.getElementById(\'item_checkchanges\'), \''.$admin_url.'?ctrl=items&amp;blog='.$Blog->ID.'\' );',
 		);
 
-	$form_action = get_samedomain_htsrv_url().'item_edit.php';
+	$form_action = get_htsrv_url().'item_edit.php';
 }
 
 /**
@@ -2092,7 +2092,6 @@ function echo_status_dropdown_button_js( $type = 'post' )
  */
 function echo_autocomplete_tags()
 {
-	global $restapi_url;
 ?>
 	<script type="text/javascript">
 	function init_autocomplete_tags( selector )
@@ -2108,7 +2107,7 @@ function echo_autocomplete_tags()
 			}
 		}
 
-		jQuery( selector ).tokenInput( '<?php echo $restapi_url.'tags' ?>',
+		jQuery( selector ).tokenInput( '<?php echo get_restapi_url().'tags' ?>',
 		{
 			theme: 'facebook',
 			queryParam: 's',
@@ -2527,7 +2526,7 @@ function echo_onchange_goal_cat()
 			jQuery.ajax(
 			{
 				type: 'POST',
-				url: '<?php echo get_samedomain_htsrv_url(); ?>async.php',
+				url: '<?php echo get_htsrv_url(); ?>async.php',
 				data: 'action=get_goals&cat_id=' + cat_ID + '&blogid=<?php echo $blog; ?>&crumb_itemgoal=<?php echo get_crumb( 'itemgoal' ); ?>',
 				success: function( result )
 				{
@@ -3156,25 +3155,30 @@ function check_item_perm_edit( $post_ID, $do_redirect = true )
 /**
  * Check permission for creating of a new item by current user
  *
+ * @param object Blog/Collection, NULL to use current collection
  * @return boolean, TRUE if user can create a new post for the current blog
  */
-function check_item_perm_create()
+function check_item_perm_create( $check_Blog = NULL )
 {
-	global $Blog;
+	if( $check_Blog === NULL )
+	{	// Use current collection by default:
+		global $Blog;
+		$check_Blog = $Blog;
+	}
 
-	if( empty( $Blog ) )
+	if( empty( $check_Blog ) )
 	{	// Strange case, but we restrict to create a new post
 		return false;
 	}
 
-	if( ! is_logged_in( false ) || ! $Blog->get_setting( 'in_skin_editing' ) )
+	if( ! is_logged_in( false ) || ! $check_Blog->get_setting( 'in_skin_editing' ) )
 	{	// Don't allow anonymous users to create a new post & If setting is OFF
 		return false;
 	}
 	else
 	{	// Check permissions for current user
 		global $current_User;
-		return $current_User->check_perm( 'blog_post_statuses', 'edit', false, $Blog->ID );
+		return $current_User->check_perm( 'blog_post_statuses', 'edit', false, $check_Blog->ID );
 	}
 
 	return true;

@@ -22,7 +22,7 @@ class html5_mediaelementjs_plugin extends Plugin
 	var $code = 'b2evH5MP';
 	var $name = 'HTML 5 MediaElement.js Video and Audio Player';
 	var $priority = 80;
-	var $version = '6.7.0';
+	var $version = '6.7.5';
 	var $group = 'files';
 	var $number_of_installs = 1;
 	var $allow_ext = array( 'flv', 'm4v', 'f4v', 'mp4', 'ogv', 'webm', 'mp3', 'm4a' );
@@ -50,11 +50,9 @@ class html5_mediaelementjs_plugin extends Plugin
 	{
 		global $Blog;
 
-		$relative_to = ( is_admin_page() ? 'rsc_url' : 'blog' );
-
-		require_css( '#mediaelement_css#', $relative_to );
+		require_css( '#mediaelement_css#', 'blog' );
 		require_js( '#jquery#', 'blog' );
-		require_js( '#mediaelement#', $relative_to );
+		require_js( '#mediaelement#', 'blog' );
 		$this->require_skin();
 
 		// Set a video/audio size in css style, because option setting cannot sets correct size
