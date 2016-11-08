@@ -99,12 +99,15 @@ if ($Skin->get_api_version() != 5)
 		$Blog->disp( 'user_css', 'raw');
 		$Blog->disp_setting( 'head_includes', 'raw');
 	?>
+	<?php $Plugins->trigger_event( 'SkinEndHtmlHead' ); ?>
 </head>
 
 <body<?php skin_body_attrs( array( 'class' => $params['body_class'] ) ); ?>>
 
 <?php
-$Blog->disp_setting( 'body_includes', 'raw');
+$Blog->disp_setting( 'body_includes', 'raw' );
+
+$Plugins->trigger_event( 'SkinBeginHtmlBody' );
 
 // ---------------------------- TOOLBAR INCLUDED HERE ----------------------------
 require skin_fallback_path( '_toolbar.inc.php' );
