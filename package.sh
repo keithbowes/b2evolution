@@ -16,5 +16,6 @@ echo Removing myself now
 rm -f cleanup.sh package.sh
 echo Stepping out
 cd ..
-echo Compressing
-zip -qr9 b2evolution.zip b2evolution 
+echo Compressing...
+currentbasename=${PWD##*/} 	# Assign current basename to variable
+zip -qr9 ${currentbasename}.zip b2evolution 

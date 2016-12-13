@@ -187,8 +187,8 @@ foreach( $blog_posts as $row )
 {
 	if( $last_blog_ID != $row->blog_ID )
 	{
-		$Blog = & $BlogCache->get_by_ID( $row->blog_ID );
-		$blog_moderation_statuses = $Blog->get_setting( 'moderation_statuses' );
+		$Collection = $Blog = & $BlogCache->get_by_ID( $row->blog_ID );
+		$blog_moderation_statuses = $Blog->get_setting( 'post_moderation_statuses' );
 		$last_blog_ID = $row->blog_ID;
 	}
 	if( strpos( $blog_moderation_statuses, $row->post_status ) === false )
