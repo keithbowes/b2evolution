@@ -141,6 +141,11 @@ a.roundbutton:hover, a.roundbutton_text:hover {
 	background: -ms-linear-gradient(top, #a0a0a0, #d2d2d2);
 	/* Opera 11.10+ */
 	background: -o-linear-gradient(top, #a0a0a0, #d2d2d2);
+	/* IE 8 */
+	// @milos -> @fp : I changed this according to what @amoun suggested here:
+	// code @source http://forums.b2evolution.net/css-validation-in-6-7-4#c107271
+	// old code: filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a0a0a0', endColorstr='#d2d2d2');
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#a0a0a0', endColorstr='#d2d2d2')";
 }
 a.roundbutton.roundbutton_selected, a.roundbutton_text.roundbutton_selected, span.roundbutton {
 	/* autoprefixer: off */
@@ -156,6 +161,11 @@ a.roundbutton.roundbutton_selected, a.roundbutton_text.roundbutton_selected, spa
 	background: -ms-linear-gradient(top, #6b6b6b, #989898);
 	/* Opera 11.10+ */
 	background: -o-linear-gradient(top, #6b6b6b, #989898);
+	/* IE 8 */
+	// @milos -> @fp : I changed this according to what @amoun suggested here:
+	// code @source http://forums.b2evolution.net/css-validation-in-6-7-4#c107271
+	// old code: filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6b6b6b', endColorstr='#989898');
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#6b6b6b', endColorstr='#989898')";
 }
 a.roundbutton_green, span.roundbutton_green,
 a.roundbutton_green:hover, span.roundbutton_green:hover {
@@ -172,6 +182,11 @@ a.roundbutton_green:hover, span.roundbutton_green:hover {
 	background: -ms-linear-gradient(top, #00b46e, #09f197);
 	/* Opera 11.10+ */
 	background: -o-linear-gradient(top, #00b46e, #09f197);
+	/* IE 8 */
+	// @milos -> @fp : I changed this according to what @amoun suggested here:
+	// code @source http://forums.b2evolution.net/css-validation-in-6-7-4#c107271
+	// old code: filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00b46e', endColorstr='#09f197');
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#00b46e', endColorstr='#09f197')";
 }
 a.roundbutton_red, span.roundbutton_red,
 a.roundbutton_red:hover, span.roundbutton_red:hover {
@@ -188,6 +203,11 @@ a.roundbutton_red:hover, span.roundbutton_red:hover {
 	background: -ms-linear-gradient(top, #e62020, #fa7171);
 	/* Opera 11.10+ */
 	background: -o-linear-gradient(top, #e62020, #fa7171);
+	/* IE 8 */
+	// @milos -> @fp : I changed this according to what @amoun suggested here:
+	// code @source http://forums.b2evolution.net/css-validation-in-6-7-4#c107271
+	// old code: filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e62020', endColorstr='#fa7171');
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#e62020', endColorstr='#fa7171')";
 }
 .roundbutton span, .roundbutton_text span {
 	position: absolute;
