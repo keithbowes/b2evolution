@@ -183,6 +183,35 @@ $file_pot = $dir_root.'locales/messages.pot';
 
 if( $action == 'extract' )
 {
+	// Get $app_version:
+	if ($mode == 'CORE')
+		require_once dirname(__FILE__).'/../conf/_config.php';
+	elseif ($mode == 'CWD')
+	{
+		$plugin_subdir = basename(getcwd());
+		$plugin_file = preg_replace('/^(.*)_plugin/', '_$1.plugin.php', $plugin_subdir);
+
+		define('EVO_MAIN_INIT', true);
+		require_once dirname(__FILE__).'/../inc/plugins/_plugin.class.php';
+		@include_once dirname(__FILE__).'/../plugins/'.$plugin_subdir.'/'.$plugin_file;
+		unset($plugin_file);
+
+		if (class_exists($plugin_subdir))
+		{
+			$plugin_inst = new $plugin_subdir();
+			$plugin_version = $plugin_inst->version;
+			unset($plugin_inst);
+		}
+		elseif (!($plugin_version = getenv('PLUGIN_VERSION')))
+			$plugin_version = getenv('SKIN_VERSION');
+
+		if (!($plugin_name = getenv('PLUGIN_NAME')))
+			if (!($plugin_name = getenv('SKIN_NAME')))
+				$plugin_name = $plugin_subdir;
+
+		unset($plugin_subdir);
+	}
+
 	if( ! is_writable($file_pot) )
 	{
 		if( ! file_exists( $dir_root.'locales' ) )
@@ -223,13 +252,26 @@ if( $action == 'extract' )
 	unset($cmd);
 
 	if (!($copyright_holder = getenv('COPYRIGHT_HOLDER')))
-		$copyright_holder = ($mode == 'CORE') ? 'François FLANQUE' :
+		$copyright_holder = ($mode == 'CORE') ? 'François PLANQUE' :
 		explode(',', posix_getpwuid(posix_geteuid())['gecos'])[0];
 
 	if (!($msgid_bugs_address = getenv('MSGID_BUGS_ADDRESS')))
 		$msgid_bugs_address = ($mode == 'CORE') ? 'http://fplanque.net' : '';
 
-	$cmd = 'xgettext -f files.txt -o '.escapeshellarg($file_pot).' --from-code=iso-8859-15 --no-wrap --add-comments=TRANS --copyright-holder="' . $copyright_holder . '" --msgid-bugs-address="' . $msgid_bugs_address . '" --keyword=T_ --keyword=NT_ --keyword=TS_ --sort-by-file';
+	if (!($package_name = getenv('PACKAGE_NAME')))
+	{
+		$package_name = ($mode == 'CORE') ? $app_name : $plugin_name;
+	}
+
+	if (!($package_version = getenv('PACKAGE_VERSION')))
+	{
+		$package_version = ($mode == 'CORE') ? (int) $app_version : $plugin_version;
+	}
+
+	$cmd = sprintf('xgettext -f files.txt -o %s --from-code=iso-8859-15 --no-wrap --add-comments=TRANS --copyright-holder="%s" --msgid-bugs-address="%s" --keyword=T_ --keyword=NT_ --keyword=TS_ --sort-by-file' .
+		' --package-name=%s --package-version=%u -D .',
+		escapeshellarg($file_pot), $copyright_holder, $msgid_bugs_address,
+		$package_name, $package_version);
 
 	// Append filenames, if specified:
 	if( isset($argv[3]) )
@@ -268,9 +310,6 @@ if( $action == 'extract' )
 
 	if( $mode == 'CORE' )
 	{ // Replace header "vars" in first 20 lines:
-		// Get $app_version:
-		require_once dirname(__FILE__).'/../conf/_config.php';
-
 		$file_contents = file_get_contents($file_pot);
 		$file_contents = preg_replace(
 			array('/PACKAGE/', '/VERSION/', '/# SOME DESCRIPTIVE TITLE./', '/(C) YEAR/', '/YEAR(?!-MO)/', '/CHARSET/'),
@@ -284,20 +323,6 @@ if( $action == 'extract' )
 	}
 	elseif ($mode == 'CWD')
 	{
-		$plugin_name = basename(getcwd());
-		$plugin_file = preg_replace('/^(.*)_plugin/', '_$1.plugin.php', $plugin_name);
-
-		define('EVO_MAIN_INIT', true);
-		require_once dirname(__FILE__).'/../inc/plugins/_plugin.class.php';
-		@include_once dirname(__FILE__).'/../plugins/'.$plugin_name.'/'.$plugin_file;
-
-		if (class_exists($plugin_name))
-		{
-			$plugin_inst = new $plugin_name();
-			$plugin_version = $plugin_inst->version;
-		}
-		elseif (!($plugin_version = getenv('PLUGIN_VERSION')))
-			$plugin_version = getenv('SKIN_VERSION');
 
 		$file_contents = file_get_contents($file_pot);
 		$file_contents = preg_replace(
