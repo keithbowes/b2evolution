@@ -65,7 +65,7 @@ function display_locale_selector()
 	block_open( T_('Language / Locale') );
 	?>
 	<ul class="pager pull-right" style="margin:0">
-		<li class="next"><a href="index.php?action=localeinfo&amp;locale=<?php echo $default_locale; ?>">More languages <span aria-hidden="true">&rarr;</span></a></li>
+	<li class="next"><a href="index.php?action=localeinfo&amp;locale=<?php echo $default_locale; ?>"><?php echo T_('More languages'); ?> <span aria-hidden="true">→</span></a></li>
 	</ul>
 
 	<?php
@@ -1081,7 +1081,7 @@ function install_htaccess( $upgrade = false, $force_htaccess = false )
 		}
 		else
 		{ // Some errors are existing with .htaccess file, Display a link to ignore the errors and continue instalation
-			echo get_install_format_text( '<ul class="pager"><li><a href="'.( isset( $_SERVER['REQUEST_URI'] ) ? $_SERVER['REQUEST_URI'] : '' ).'&htignore=1" style="font-size:150%;font-weight:bold;">'.T_('Continue installation').' <span aria-hidden="true">&rarr;</span></a></li></ul>', 'li' );
+			echo get_install_format_text( '<ul class="pager"><li><a href="'.( isset( $_SERVER['REQUEST_URI'] ) ? $_SERVER['REQUEST_URI'] : '' ).'&htignore=1" style="font-size:150%;font-weight:bold;">'.T_('Continue installation').' <span aria-hidden="true">→</span></a></li></ul>', 'li' );
 			return false;
 		}
 	}
