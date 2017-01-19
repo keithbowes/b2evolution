@@ -837,15 +837,17 @@ class Calendar
 
 			/* Right amount of padding */
 			$hdl = 0;
+			$strlen = function_exists('mb_strlen') ? 'mb_strlen' : 'strlen';
+
 			for ($i = 5; $i < 8; $i++)
 			{
 				switch ($this->headerdisplay)
 				{
 					case 'D':
-						$hdl += mb_strlen(T_($weekday_abbrev[($i + locale_startofweek()) % 7]));
+						$hdl += $strlen(T_($weekday_abbrev[($i + locale_startofweek()) % 7]));
 						break;
 					case 'l':
-						$hdl +=  mb_strlen(T_($weekday[($i + locale_startofweek()) % 7]));
+						$hdl +=  $strlen(T_($weekday[($i + locale_startofweek()) % 7]));
 						break;
 					default:
 						$hdl += 2;
