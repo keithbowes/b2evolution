@@ -2072,7 +2072,7 @@ function skin_base_tag()
 	{	// We are displaying a blog:
 		if( ! empty( $skin ) )
 		{	// We are using a skin:
-			$base_href = $Blog->get_local_skins_url().$skin.'/';
+			$base_href = $skins_url.$skin.'/';
 		}
 		else
 		{ // No skin used:
