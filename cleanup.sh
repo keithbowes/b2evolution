@@ -15,3 +15,5 @@ rm -fr .tx
 echo Removing additional files
 rm -f TODO
 rm -f pods.txt
+find . -name 'license.txt' -delete
+find . -name 'sample.htaccess' -delete
