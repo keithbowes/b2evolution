@@ -81,6 +81,20 @@ class cookie_consent_plugin extends Plugin
 				),
 			);
 	}
+	
+
+	/**
+	 * Event handler: Called at the end of the skin's HTML HEAD section.
+	 *
+	 * Use this to add any HTML snippet at the end of the generated page.
+	 *
+	 * @param array Associative array of parameters
+	 */
+	function SkinEndHtmlHead( & $params )
+	{
+		$this->require_css( 'style.css', true );
+		require_js( 'jquery/jquery.cookie.min.js', 'blog', false, true );
+	}
 
 
 	/**
@@ -135,9 +149,6 @@ class cookie_consent_plugin extends Plugin
 		}
 
 		// Initialize html block:
-		$this->require_css( 'style.css', true );
-		require_js( 'jquery/jquery.cookie.min.js', 'blog', false, true );
-
 		$html_block = '<div id="eu_cookie_consent"'.( is_logged_in() ? ' class="eu_cookie_consent__loggedin"' : '' ).'>'
 				.'<div>'
 				.'<h3>'.format_to_js( $title ).'</h3>'
@@ -153,10 +164,14 @@ class cookie_consent_plugin extends Plugin
 
 		echo '<noscript>' . $html_block . '</noscript>';
 		echo '<script type="text/javascript">
+//<![CDATA[
 var eu_cookie_consent = jQuery.cookie( "eu_cookie_consent" )
 if( eu_cookie_consent != "accepted" )
 { // Print a block only if this was not accepted yet:
-	document.write( \''.$html_block.'\' );
+	var consent_container = document.createElement("div");
+	consent_container.innerHTML = \'' . $html_block . '\';
+	document.body.appendChild(consent_container);
+
 }
 
 jQuery( "#eu_cookie_consent button" ).click( function()
@@ -164,6 +179,7 @@ jQuery( "#eu_cookie_consent button" ).click( function()
 	jQuery.cookie( "eu_cookie_consent", "accepted", { expires: 365, path: "/" } )
 	jQuery( "#eu_cookie_consent" ).remove();
 } );
+//]]>
 </script>';
 	}
 }
