@@ -151,6 +151,7 @@ class cookie_consent_plugin extends Plugin
 				.'<div class="eu_cookie_consent__button"><button class="btn btn-info">'.format_to_js( $accept_button ).'</button></div>'
 			.'</div>';
 
+		echo '<noscript>' . $html_block . '</noscript>';
 		echo '<script type="text/javascript">
 var eu_cookie_consent = jQuery.cookie( "eu_cookie_consent" )
 if( eu_cookie_consent != "accepted" )
@@ -158,13 +159,10 @@ if( eu_cookie_consent != "accepted" )
 	document.write( \''.$html_block.'\' );
 }
 
-jQuery( document ).ready( function()
+jQuery( "#eu_cookie_consent button" ).click( function()
 {
-	jQuery( "#eu_cookie_consent button" ).click( function()
-	{
-		jQuery.cookie( "eu_cookie_consent", "accepted", { expires: 365, path: "/" } )
-		jQuery( "#eu_cookie_consent" ).remove();
-	} );
+	jQuery.cookie( "eu_cookie_consent", "accepted", { expires: 365, path: "/" } )
+	jQuery( "#eu_cookie_consent" ).remove();
 } );
 </script>';
 	}
