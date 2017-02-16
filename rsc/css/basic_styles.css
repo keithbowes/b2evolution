@@ -676,16 +676,6 @@ span.roundbutton {
   -webkit-border-radius: 4px;
   -khtml-border-radius: 4px;
   background: #bababa;
-  /* Safari 4-5, Chrome 1-9 */
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#bababa), to(#f5f5f5));
-  /* Safari 5.1, Chrome 10+ */
-  background: -webkit-linear-gradient(top, #f5f5f5, #bababa);
-  /* Firefox 3.6+ */
-  background: -moz-linear-gradient(center 1%, #f5f5f5, #bababa);
-  /* IE 10 */
-  background: -ms-linear-gradient(top, #f5f5f5, #bababa);
-  /* Opera 11.10+ */
-  background: -o-linear-gradient(top, #f5f5f5, #bababa);
 }
 a.roundbutton.middle {
   vertical-align: middle;
@@ -697,16 +687,6 @@ a.roundbutton_text:hover {
   text-decoration: none;
   color: inherit;
   background: #d2d2d2;
-  /* Safari 4-5, Chrome 1-9 */
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#d2d2d2), to(#a0a0a0));
-  /* Safari 5.1, Chrome 10+ */
-  background: -webkit-linear-gradient(top, #a0a0a0, #d2d2d2);
-  /* Firefox 3.6+ */
-  background: -moz-linear-gradient(center 1%, #a0a0a0, #d2d2d2);
-  /* IE 10 */
-  background: -ms-linear-gradient(top, #a0a0a0, #d2d2d2);
-  /* Opera 11.10+ */
-  background: -o-linear-gradient(top, #a0a0a0, #d2d2d2);
 }
 a.roundbutton.roundbutton_selected,
 a.roundbutton_text.roundbutton_selected,
@@ -714,16 +694,6 @@ span.roundbutton {
   /* autoprefixer: off */
   cursor: default;
   background: #989898;
-  /* Safari 4-5, Chrome 1-9 */
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#989898), to(#6b6b6b));
-  /* Safari 5.1, Chrome 10+ */
-  background: -webkit-linear-gradient(top, #6b6b6b, #989898);
-  /* Firefox 3.6+ */
-  background: -moz-linear-gradient(center 1%, #6b6b6b, #989898);
-  /* IE 10 */
-  background: -ms-linear-gradient(top, #6b6b6b, #989898);
-  /* Opera 11.10+ */
-  background: -o-linear-gradient(top, #6b6b6b, #989898);
 }
 a.roundbutton_green,
 span.roundbutton_green,
@@ -732,16 +702,6 @@ span.roundbutton_green:hover {
   /* autoprefixer: off */
   cursor: default;
   background: #09f197;
-  /* Safari 4-5, Chrome 1-9 */
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#09f197), to(#00b46e));
-  /* Safari 5.1, Chrome 10+ */
-  background: -webkit-linear-gradient(top, #00b46e, #09f197);
-  /* Firefox 3.6+ */
-  background: -moz-linear-gradient(center 1%, #00b46e, #09f197);
-  /* IE 10 */
-  background: -ms-linear-gradient(top, #00b46e, #09f197);
-  /* Opera 11.10+ */
-  background: -o-linear-gradient(top, #00b46e, #09f197);
 }
 a.roundbutton_red,
 span.roundbutton_red,
@@ -750,16 +710,6 @@ span.roundbutton_red:hover {
   /* autoprefixer: off */
   cursor: default;
   background: #fa7171;
-  /* Safari 4-5, Chrome 1-9 */
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fa7171), to(#e62020));
-  /* Safari 5.1, Chrome 10+ */
-  background: -webkit-linear-gradient(top, #e62020, #fa7171);
-  /* Firefox 3.6+ */
-  background: -moz-linear-gradient(center 1%, #e62020, #fa7171);
-  /* IE 10 */
-  background: -ms-linear-gradient(top, #e62020, #fa7171);
-  /* Opera 11.10+ */
-  background: -o-linear-gradient(top, #e62020, #fa7171);
 }
 .roundbutton span,
 .roundbutton_text span {
@@ -847,9 +797,6 @@ a.roundbutton_text_noicon span {
   background-size: 30px 30px;
   background-repeat: repeat-x;
   background-position: 0;
-  background-image: -moz-linear-gradient(90deg, rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0.01) 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.3) 100%);
-  background-image: -o-linear-gradient(90deg, rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0.01) 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.3) 100%);
-  background-image: -webkit-linear-gradient(90deg, rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0.01) 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.3) 100%);
 }
 .roundbutton.rbtn_black:before,
 .roundbutton_group .roundbutton.rbtn_black:before {
