@@ -22,9 +22,9 @@ This is [a fork](https://github.com/keithbowes/b2evolution) of the [upstream pro
 
 ## Requirements
 
-Basically, all you need is a standard web host with  PHP 5.2+ (5.5+ recommended), MySQL 5+ (5.5+ recommended), and a web server (Apache 2.4+ recommended for the automatic use of clean slugs).
+Basically, all you need is a standard web host with PHP 5.3+ (5.6.x or 7.x recommended), MySQL 5+ (5.5+ recommended) or MariaDB 5+ (10+ recommended), and a web server (Apache 2.4+ recommended for the automatic use of clean slugs).
 
-b2evolution 6.6+ requires the mysqli extension.  If your host only offers the mysql extension (which has been deprecated in PHP 5.5 and removed in PHP 7.0), you'll have to use an older version.  You should be able to see which PHP extensions are supported by your web host in your host's control panel.
+b2evolution 6.6+ requires the PHP mysqli extension.  If your host only offers the mysql extension (which has been deprecated in PHP 5.5 and removed in PHP 7.0), you'll have to use an older version.  You should be able to see which PHP extensions are supported by your web host in your host's control panel.
 
 ## Downloading
 
