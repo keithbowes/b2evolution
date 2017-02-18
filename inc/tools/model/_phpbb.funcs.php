@@ -260,7 +260,7 @@ function phpbb_table_insert_links( $table_name, $links )
 
 	if( count( $links_data ) > 0 )
 	{	// Insert the rest records
-			( $DB->query( 'INSERT INTO '.phpbb_table_name( $table_name ).' ( phpbb_ID, b2evo_ID )
+			$DB->query( 'INSERT INTO '.phpbb_table_name( $table_name ).' ( phpbb_ID, b2evo_ID )
 					VALUES '.implode( ', ', $links_data ) );
 	}
 }
@@ -1707,7 +1707,7 @@ function phpbb_insert_comments( $comments_import_data, $comments_slugs_import_da
 {
 	global $DB, $tableprefix;
 
-	$comment_insert_result = $DB->query 'INSERT INTO '.$tableprefix.'comments
+	$comment_insert_result = $DB->query( 'INSERT INTO '.$tableprefix.'comments
 			( comment_item_ID, comment_author_user_ID, comment_date, comment_author_IP, comment_author, comment_content, comment_renderers, comment_status )
 			VALUES '.implode( ', ', $comments_import_data ) );
 
@@ -2523,7 +2523,7 @@ function phpbb_insert_attachments( $target_type, $attachments_insert_data )
 
 	if( $r )
 	{	// Increase a count of the imported attachments:
-		$attachments_count_imported += $DB->affected_rows );
+		$attachments_count_imported += $DB->affected_rows;
 	}
 	else
 	{	// Some mysql error:
@@ -2608,7 +2608,7 @@ function phpbb_get_attachments_insert_data( $target_type, $path_attachments, $ta
 		$author_ID = $users_IDs[ (string) $attachment->poster_id ];
 
 		$FileRootCache = & get_FileRootCache();
-			$DB->query 'INSERT INTO '.$tableprefix.'links
+			$DB->query( 'INSERT INTO '.$tableprefix.'links
 				       ( link_datecreated, link_datemodified, link_creator_user_ID, link_lastedit_user_ID, link_usr_ID, link_file_ID, link_position, link_order )
 				VALUES ( '.$DB->quote( date( 'Y-m-d H:i:s', $localtimenow ) ).', '.$DB->quote( date( 'Y-m-d H:i:s', $localtimenow ) ).', '.$DB->quote( $user_ID ).', '.$DB->quote( $user_ID ).', '.$DB->quote( $user_ID ).', '.$DB->quote( $imported_file_ID ).', "aftermore", 1 )' );
 
