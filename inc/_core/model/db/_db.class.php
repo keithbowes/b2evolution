@@ -150,7 +150,7 @@ class DB
 	 * Which transaction isolation level should be used?
 	 *
 	 * Possible values in case of MySQL: REPEATABLE READ | READ COMMITTED | READ UNCOMMITTED | SERIALIZABLE
-	 * Defailt value is REPEATABLE READ
+	 * Default value is REPEATABLE READ
 	 */
 	var $transaction_isolation_level = 'REPEATABLE READ';
 
