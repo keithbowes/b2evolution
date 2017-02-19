@@ -48,7 +48,7 @@ if( $action != 'test_api' && ( empty($current_User) || ! $current_User->check_pe
 evo_sendcookies();
 
 // Make sure the async responses are never cached:
-header_nocache();
+header_cache('nocache');
 header_content_type( 'text/html', $io_charset );
 
 // Save current debug values
@@ -877,4 +877,3 @@ if( !$incorrect_action )
 
 	exit(0);
 }
-

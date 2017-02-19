@@ -78,7 +78,7 @@ else
 
 	header( 'Content-type: image/gif' );
 	header( 'Content-Length: '.filesize( $blank_gif ) );
-	header_nocache();
+	header_cache();
 	readfile( $blank_gif );
 	evo_flush();
 }

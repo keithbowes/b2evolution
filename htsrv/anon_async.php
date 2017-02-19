@@ -38,7 +38,7 @@ $required_js = param( 'required_js', 'array:string', array(), false, true );
 evo_sendcookies();
 
 // Make sure the async responses are never cached:
-header_nocache();
+header_cache('nocache');
 header_content_type( 'text/html', $io_charset );
 
 // Save current debug values

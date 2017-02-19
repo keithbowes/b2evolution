@@ -115,7 +115,7 @@ if( ! empty( $login_action_value ) || ( ! empty( $login ) && ! empty( $pass ) ) 
 
 	$Debuglog->add( 'Login: User is trying to log in.', '_init_login' );
 
-	header_nocache();		// Don't take risks here :p
+	header_cache('nocache');		// Don't take risks here :p
 
 	if( $check_login_crumb )
 	{	// Check that this login request is not a CSRF hacked request:

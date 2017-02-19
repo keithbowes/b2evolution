@@ -51,17 +51,18 @@ function header_content_type( $type = 'text/html', $charset = '#' )
  */
 function headers_content_mightcache( $type = 'text/html', $max_age = '#', $charset = '#', $flush_pagecache = true )
 {
-	global $Messages, $is_admin_page;
-	global $PageCache, $Debuglog;
+	global $current_User, $is_admin_page;
+	global $Debuglog, $Messages, $PageCache;
 
 	header_content_type( $type, $charset );
 
-	if( empty($max_age) || $is_admin_page || is_logged_in() || $Messages->count() )
-	{	// Don't cache if no max_age given
-		// + NEVER EVER allow admin pages to cache
-		// + NEVER EVER allow logged in data to be cached
+	if( empty($max_age) || $is_admin_page || (is_logged_in() && $current_User->check_perm('admin', 'restricted')) || $Messages->count() )
+	{
+		// Don't cache if max_age is given as 0 (for error messages)
+		// + NEVER EVER allow admin pages to be cached
+		// + NEVER EVER allow logged-in admins to be cached
 		// + NEVER EVER allow transactional Messages to be cached!:
-		header_nocache();
+		header_cache('nocache');
 
 		// Check server caching too, but note that this is a different caching process then caching on the client
 		// It's important that this is a double security check only and server caching should be prevented before this
@@ -84,7 +85,7 @@ function headers_content_mightcache( $type = 'text/html', $max_age = '#', $chars
 	// having user details cached would be extremely bad.
 
 	// in the meantime...
-	header_nocache();
+	header_cache();
 }
 
 
@@ -299,14 +300,46 @@ function header_redirect( $redirect_to = NULL, $status = false, $redirected_post
 }
 
 
+/* Gets when the blog was last modified */
+function get_last_modified()
+{
+	global $Blog, $Item;
+	if (is_object($Item))
+	{
+		$lm = $Item->datemodified;
+
+		/* If possible, see if any comments are newer than the blog post */
+		if (is_object($Blog))
+		{
+			global $DB;
+			$lc = $DB->get_var('SELECT comment_date from T_comments WHERE comment_item_ID=' . $Item->ID);
+			$lm = date2mysql(max(array(strtotime($lm), strtotime($lc))));
+		}
+		return $lm;
+	}
+	elseif (is_object($Blog))
+	{
+		global $DB;
+		return $DB->get_var('SELECT post_datemodified FROM T_items__item WHERE post_main_cat_ID IN ' .
+			'(SELECT cat_ID FROM T_categories WHERE cat_blog_ID=' . $Blog->ID . ') ' .
+			'ORDER BY UNIX_TIMESTAMP(post_datemodified) DESC LIMIT 1');
+	}
+	else
+	{
+		global $basepath;
+		return date2mysql(filemtime($basepath));
+	}
+}
+
 
 /**
- * Sends HTTP headers to avoid caching of the page at the browser level
- * (at least without revalidating with the server to make sure whether the content has changed or not).
+ * Sends HTTP headers specifying the right kind of caching
+ * @param string The type of caching to perform (one of cache, etag, nocache, noexpire)
+ * @param int Unix time stamp
  *
  * @see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
  */
-function header_nocache( $timestamp = NULL )
+function header_cache( $cache_type = 'cache', $timestamp = NULL )
 {
 	global $servertimenow;
 	if( empty($timestamp) )
@@ -314,24 +347,23 @@ function header_nocache( $timestamp = NULL )
 		$timestamp = $servertimenow;
 	}
 
-	header('Expires: '.gmdate('r',$timestamp));
-	header('Last-Modified: '.gmdate('r',$timestamp));
-	header('Cache-Control: no-cache, must-revalidate');
-	header('Pragma: no-cache');
-}
-
-
-/**
- * This is to "force" (strongly suggest) caching.
- *
- * WARNING: use this only for STATIC content that does NOT depend on the current user.
- *
- * @see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
- */
-function header_noexpire()
-{
-	global $servertimenow;
-	header('Expires: '.gmdate('r', $servertimenow + 31536000)); // 86400*365 (1 year)
+	switch ($cache_type)
+	{
+		case 'cache':
+			header('Last-Modified: ' . get_last_modified());
+		case 'etag':
+			header('Etag: ' . gen_current_page_etag());
+			break;
+		case 'nocache':
+			header('Expires: '.gmdate('r',$timestamp));
+			header('Last-Modified: '.gmdate('r',$timestamp));
+			header('Cache-Control: no-cache, must-revalidate');
+			header('Pragma: no-cache');
+			break;
+		case 'noexpire':
+			header('Expires: '.gmdate('r', $timestamp + 31536000)); // 86400*365 (1 year)
+			break;
+	}
 }
 
 
@@ -345,7 +377,7 @@ function header_noexpire()
  * the evobar.
  *
  * When a specific user logs out, the browser will send back the Etag of the logged in version it got and we will
- * be able to detect that this is not a "304 Not Modified" case -> we will send back the anonymou version of the page.
+ * be able to detect that this is not a "304 Not Modified" case -> we will send back the anonymous version of the page.
  */
 function gen_current_page_etag()
 {
@@ -365,18 +397,7 @@ function gen_current_page_etag()
 		$etag .= '-msg:'.md5($Messages->get_string('',''));
 	}
 
-	return '"'.$etag.'"';
-}
-
-
-/**
- * This adds teh etag header
- *
- * @param string etag MUST be "quoted"
- */
-function header_etag( $etag )
-{
-	header( 'ETag: '.$etag );
+	return '"'.md5(serialize(array('user' => $etag, 'last-modified' => get_last_modified()))).'"';
 }
 
 

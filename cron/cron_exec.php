@@ -105,7 +105,7 @@ else
 { // This is a web request: (for testing purposes only. Not designed for production)
 
 	// Make sure the response is never cached:
-	header_nocache();
+	header_cache('nocache');
 	header_content_type();
 
 	// Add CSS:

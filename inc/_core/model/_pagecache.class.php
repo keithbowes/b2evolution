@@ -106,6 +106,31 @@ class PageCache
 
 
 	/**
+	 * Analyze cache data to see if the page was cached.
+	 */
+	function analyze_cache_headers()
+	{
+		if (key_exists('HTTP_IF_NONE_MATCH', $_SERVER))
+		{
+			if (FALSE !== strpos($_SERVER['HTTP_IF_NONE_MATCH'], gen_current_page_etag()))
+			{
+				header_http_response('304 Not Modified');
+				exit(0);
+			}
+		}
+
+		if (key_exists('HTTP_IF_MODIFIED_SINCE', $_SERVER))
+		{
+			if (strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE']) >= strtotime(get_last_modified()))
+			{
+				header_http_response('304 Not Modified');
+				exit(0);
+			}
+		}
+	}
+
+
+	/**
 	 * Get path to file for current URL
 	 *
 	 * @todo fp> We may need to add some keys like the locale or the charset, I'm not sure.
@@ -239,7 +264,7 @@ class PageCache
 		// We may need an etag to later determine if the client cache is the same as the server cache:
 
 		// Send etag:
-		header_etag( gen_current_page_etag() );
+		header_cache( 'etag' );
 
 		if( is_logged_in() )
 		{	// We do NOT want caching when a user is logged in (private data)
@@ -411,7 +436,7 @@ class PageCache
 			// ============== Ready to send cached version of the page =================
 
 			// Send no cache header including last modified date:
-			header_nocache( $retrieved_ts );
+			header_cache( 'nocache', $retrieved_ts );
 
 			// Go through headers that were saved in the cache:
 			// $i was already set
