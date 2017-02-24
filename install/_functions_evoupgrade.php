@@ -1043,7 +1043,7 @@ function upgrade_b2evo_tables( $upgrade_action = 'evoupgrade' )
 										 file_ID        int(11) unsigned  not null AUTO_INCREMENT,
 										 file_root_type enum('absolute','user','group','collection') not null default 'absolute',
 										 file_root_ID   int(11) unsigned  not null default 0,
-										 file_path      varchar(255)      not null default '',
+										 file_path      varchar(767)      not null default '',
 										 file_title     varchar(255),
 										 file_alt       varchar(255),
 										 file_desc      text,
