@@ -44,7 +44,7 @@ foreach( $params['fields'] as $field_key => $field_data )
 		$td_class = emailskin_style( 'table.email_table.bordered td' );
 	}
 	echo '<tr><th'.emailskin_style( 'table.email_table.bordered th' ).'>'.T_( $field_data['title'] ).'</th>'
-			.'<td'.$td_class.'>'.( $field_data['old'] == '' ? '&#160;' : $field_data['old'] ).'</td>'
+			.'<td'.$td_class.'>'.( $field_data['old'] == '' ? '&#160;' : $field_data['old'] ).'</td>';
 
 }
 
