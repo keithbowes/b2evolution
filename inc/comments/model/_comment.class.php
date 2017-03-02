@@ -4422,7 +4422,7 @@ class Comment extends DataObject
 			return false;
 		}
 
-		if( !$this->Item->can_comment(NULL) )
+		if( !$this->Item->can_comment() )
 		{	// The comments are disabled
 			return false;
 		}
