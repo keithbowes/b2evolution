@@ -3604,9 +3604,9 @@ class Plugin
 			}
 
 			// Display additional info for help plugin icon only one time. It is used on plugins.js
-			$info_suffix_text = '<div id="help_plugin_info_suffix" style="display:none"><p><strong>'
+			$info_suffix_text = '<div id="help_plugin_info_suffix" style="display:none"><p><strong><a href="' . $url . '">'
 					.sprintf( T_('Click %s to access full documentation for this plugin'), get_icon( 'help' ) )
-				.'</strong></p></div>';
+				.'</a></strong></p></div>';
 		}
 		elseif( $target == '$readme' )
 		{ // README

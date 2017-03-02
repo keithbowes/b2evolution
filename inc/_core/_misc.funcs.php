@@ -4640,14 +4640,14 @@ function get_icon( $iconKey, $what = 'imgtag', $params = NULL, $include_in_legen
 						// Use glyph icons of bootstrap
 						$icon_class_prefix = 'glyphicon glyphicon-';
 						$icon_param_name = 'glyph';
-						$icon_content = '&#160;';
+						$icon_content = isset($params['icon_content']) ? $params['icon_content'] : '&#160;';
 						break;
 
 					case 'fontawesome':
 						// Use the icons from http://fortawesome.github.io/Font-Awesome/icons/
 						$icon_class_prefix = 'fa fa-';
 						$icon_param_name = 'fa';
-						$icon_content = '';
+						$icon_content = isset($params['icon_content']) ? $params['icon_content'] : '';
 						break;
 				}
 			}
@@ -4724,7 +4724,7 @@ function get_icon( $iconKey, $what = 'imgtag', $params = NULL, $include_in_legen
 				// Add all the attributes:
 				$params = get_field_attribs_as_string( $params, false );
 
-				$r = '<span'.$params.'>'.$icon_content.'</span>';
+				$r = '<span'.$params.' style="display:inline-block; overflow: hidden; width: 16px">'.$icon_content.'</span>';
 			}
 			elseif( ! isset( $icon['file'] ) )
 			{ // Use span tag with sprite instead of img
