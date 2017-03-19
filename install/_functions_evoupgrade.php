@@ -8139,6 +8139,16 @@ function upgrade_b2evo_tables( $upgrade_action = 'evoupgrade' )
 		upg_task_end();
 	}
 
+	if( upg_task_start( 12161, 'Updating attachment positions...' ) )
+	{	// part of 6.8.7-stable
+		$DB->query( 'UPDATE T_links
+			INNER JOIN T_files ON file_ID = link_file_ID
+			       AND file_type NOT IN ( "image", "audio", "video" )
+			  SET link_position = "attachment"
+			WHERE link_position = "aftermore"' );
+		upg_task_end();
+	}
+
 	if( upg_task_start( 12165, 'Upgrade table of users...' ) )
 	{	// part of 6.9.0-beta
 		db_add_col( 'T_users', 'user_pass_driver', 'VARCHAR(16) NOT NULL default "evo$md5" AFTER user_salt' );
@@ -8218,17 +8228,122 @@ function upgrade_b2evo_tables( $upgrade_action = 'evoupgrade' )
 		upg_task_end();
 	}
 
+	if( upg_task_start( 12185, 'Upgrading posts table...' ) )
+	{	// part of 6.9.0-beta
+		db_add_col( 'T_items__item', 'post_contents_last_updated_ts', 'TIMESTAMP NOT NULL DEFAULT \'2000-01-01 00:00:00\' AFTER post_last_touched_ts' );
+		$DB->query( 'UPDATE T_items__item
+			SET post_contents_last_updated_ts = post_last_touched_ts' );
+		upg_task_end();
+	}
+
+	if( upg_task_start( 12186, 'Updating attachment positions...' ) )
+	{	// part of 6.9.0-stable (This is a duplicated 12161 block from 6.8.7-stable)
+		$DB->query( 'UPDATE T_links
+			INNER JOIN T_files ON file_ID = link_file_ID
+			       AND file_type NOT IN ( "image", "audio", "video" )
+			  SET link_position = "attachment"
+			WHERE link_position = "aftermore"' );
+		upg_task_end();
+	}
+
+	if( upg_task_start( 12190, 'Upgrade skins table...' ) )
+	{	// part of 6.9.0-beta
+		$DB->query( 'ALTER TABLE T_skins__skin
+			MODIFY skin_type enum("normal","feed","sitemap","mobile","tablet","rwd") COLLATE ascii_general_ci NOT NULL default "normal"' );
+		upg_task_end();
+	}
+
+	if( upg_task_start( 12200, 'Updating group permissions...' ) )
+	{ // part of 6.9.0-beta
+		$DB->query( 'UPDATE T_groups__groupsettings
+			SET gset_name = "perm_skins_root",
+				gset_value = CASE gset_value WHEN "allowed" THEN "edit" ELSE "none" END
+			WHERE gset_name = "perm_templates"' );
+		upg_task_end();
+	}
+
+	if( upg_task_start( 12210, 'Create new widget container "Forum Front Secondary Area" for forums...' ) )
+	{ // part of 6.9.1-beta
+		$DB->begin();
+		$SQL = new SQL( 'Get all "forum" collections' );
+		$SQL->SELECT( 'blog_ID' );
+		$SQL->FROM( 'T_blogs' );
+		$SQL->WHERE( 'blog_type = "forum"' );
+		$forum_collections = $DB->get_col( $SQL->get() );
+
+		$item_tags_widget_rows = array();
+		foreach( $forum_collections as $coll_ID )
+		{	// Insert new widget "Collection Activity Stats" to each forum collection
+			$widget_order = 10;
+			$item_tags_widget_rows[] = '( '.$coll_ID.', "Forum Front Secondary Area", '.$widget_order.', "coll_activity_stats" )';
+			// Check and update not unique widget orders just to make sure:
+			$not_unique_widget_ID = $DB->get_var( 'SELECT wi_ID
+				FROM T_widget
+				WHERE wi_coll_ID = '.$coll_ID.'
+					AND wi_sco_name = "Forum Front Secondary Area"
+					AND wi_order = '.$widget_order );
+			if( $not_unique_widget_ID > 0 )
+			{	// The collection has no unique widget order, move all widgets with wi_order >= 10:
+				$DB->query( 'UPDATE T_widget
+						SET wi_order = wi_order + 1
+						WHERE wi_coll_ID ='.$coll_ID.'
+						AND wi_sco_name = "Forum Front Secondary Area"
+						AND wi_order >= '.$widget_order );
+			}
+		}
+		if( count( $item_tags_widget_rows ) )
+		{	// Insert new widgets "Item Tags" into DB:
+			$DB->query( 'INSERT INTO T_widget( wi_coll_ID, wi_sco_name, wi_order, wi_code )
+			  VALUES '.implode( ', ', $item_tags_widget_rows ) );
+		}
+		$DB->commit();
+		upg_task_end();
+	}
+
+	if( upg_task_start( 12220, 'Create new widget container "Item Page"...' ) )
+	{ // part of 6.9.1-beta
+		// Get all collections
+		$collections = $DB->get_col( 'SELECT blog_ID FROM T_blogs ORDER BY blog_ID ASC' );
+		$coll_widgets = array();
+
+		// Default widget for Item Page
+		$item_page_widgets = array(
+				'item_content' => 10,
+				'item_attachments' => 15,
+				'item_seen_by' => 50,
+				'item_vote' => 60
+			);
+
+		foreach( $collections as $collection_ID )
+		{
+			foreach( $item_page_widgets as $page_widget => $widget_order )
+			{
+				$coll_widgets[] = '( '.$collection_ID.', "Item Page", '.$widget_order.', "'.$page_widget.'" )';
+			}
+		}
+
+		if( count( $coll_widgets ) )
+		{	// Insert new widgets into DB:
+			$DB->query( 'INSERT INTO T_widget( wi_coll_ID, wi_sco_name, wi_order, wi_code )
+			  VALUES '.implode( ', ', $coll_widgets ) );
+		}
+		upg_task_end();
+	}
+
 	/*
 	 * ADD UPGRADES __ABOVE__ IN A NEW UPGRADE BLOCK.
 	 *
 	 * YOU MUST USE:
-	 * task_begin( 'Descriptive text about action...' );
-	 * task_end();
+	 * if( upg_task_start( 12160, 'Descriptive text about action...' ) )
+	 * {	// part of 6.8.6-stable
+	 *  	// Write new upgrade code here.
+	 *  	upg_task_end();
+	 * }
 	 *
 	 * ALL DB CHANGES MUST BE EXPLICITLY CARRIED OUT. DO NOT RELY ON SCHEMA UPDATES!
 	 * Schema updates do not survive after several incremental changes.
 	 *
-	 * NOTE: every change that gets done here, should bump {@link $new_db_version} (by 100).
+	 * NOTE: every change that gets done here, should bump {@link $new_db_version} (by 10).
 	 */
 
 	// Execute general upgrade tasks.

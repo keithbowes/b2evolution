@@ -21,7 +21,7 @@ class bootstrap_blog_Skin extends Skin
 	 * Skin version
 	 * @var string
 	 */
-	var $version = '6.9.0';
+	var $version = '6.9.1';
 
 	/**
 	 * Do we want to use style.min.css instead of style.css ?
@@ -45,7 +45,7 @@ class bootstrap_blog_Skin extends Skin
 	 */
 	function get_default_type()
 	{
-		return 'normal';
+		return 'rwd';
 	}
 
 
@@ -134,6 +134,13 @@ class bootstrap_blog_Skin extends Skin
 						'defaultvalue' => '',
 						'type' => 'integer',
 						'allow_empty' => true,
+					),
+					'font_family' => array(
+						'label' => T_('Font Family'),
+						'note' => '',
+						'defaultvalue' => 'system_helveticaneue',
+						'options' => $this->get_font_definitions(),
+						'type' => 'select',
 					),
 					'font_size' => array(
 						'label' => T_('Font size'),
@@ -505,6 +512,9 @@ class bootstrap_blog_Skin extends Skin
 			}
 		}
 
+		// Font family customization
+		$custom_css .= $this->apply_selected_font( '#skin_wrapper', 'font_family' );
+
 		if( ! empty( $custom_css ) )
 		{	// Function for custom_css:
 			$custom_css = '<style type="text/css">
@@ -518,12 +528,12 @@ class bootstrap_blog_Skin extends Skin
 
 
 	/**
-	 * Check if we can display a widget container
+	 * Check if we can display a widget container when access is denied to collection by current user
 	 *
 	 * @param string Widget container key: 'header', 'page_top', 'menu', 'sidebar', 'sidebar2', 'footer'
 	 * @return boolean TRUE to display
 	 */
-	function is_visible_container( $container_key )
+	function show_container_when_access_denied( $container_key )
 	{
 		global $Collection, $Blog;
 
@@ -556,7 +566,7 @@ class bootstrap_blog_Skin extends Skin
 
 		if( $check_containers )
 		{ // Check if at least one sidebar container is visible
-			return ( $this->is_visible_container( 'sidebar' ) ||  $this->is_visible_container( 'sidebar2' ) );
+			return ( $this->show_container_when_access_denied( 'sidebar' ) ||  $this->show_container_when_access_denied( 'sidebar2' ) );
 		}
 		else
 		{ // We should not check the visibility of the sidebar containers for this case

@@ -1,5 +1,143 @@
+<?php
+/**
+ * This is the template that displays the item block
+ *
+ * This file is not meant to be called directly.
+ * It is meant to be called by an include in the main.page.php template (or other templates)
+ *
+ * b2evolution - {@link http://b2evolution.net/}
+ * Released under GNU GPL License - {@link http://b2evolution.net/about/gnu-gpl-license}
+ * @copyright (c)2003-2016 by Francois Planque - {@link http://fplanque.com/}
+ *
+ * @package evoskins
+ * @subpackage bootstrap_forums
+ */
+if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
+
+global $Item, $preview, $dummy_fields, $cat, $current_User, $app_version;
+
+/**
+ * @var array Save all statuses that used on this page in order to show them in the footer legend
+ */
+global $legend_statuses;
+
+if( !is_array( $legend_statuses ) )
+{ // Init this array only first time
+	$legend_statuses = array();
+}
+
+// Default params:
+$params = array_merge( array(
+		'feature_block'      => false,
+		'content_mode'       => 'auto',		// 'auto' will auto select depending on $disp-detail
+		'item_class'         => 'evo_post',
+		'item_type_class'    => 'evo_post__ptyp_',
+		'item_status_class'  => 'evo_post__',
+		'item_disp_class'    => NULL,
+		'image_size'         => 'fit-1280x720',
+	), $params );
+
+// In this skin, it makes no sense to navigate in any different mode than "same category"
+// Use the category from param
+$current_cat = param( 'cat', 'integer', 0 );
+if( $current_cat == 0 )
+{ // Use main category by default because the category wasn't set
+	$current_cat = $Item->main_cat_ID;
+}
+
+// Breadcrumbs
+$cat = $current_cat;
+skin_widget( array(
+		// CODE for the widget:
+		'widget' => 'breadcrumb_path',
+		// Optional display params
+		'block_start'      => '<ol class="breadcrumb">',
+		'block_end'        => '</ol><div class="clear"></div>',
+		'separator'        => '',
+		'item_mask'        => '<li><a href="$url$">$title$</a></li>',
+		'item_active_mask' => '<li class="active">$title$</li>',
+	) );
+?>
+
+<a name="top"></a>
+<a name="p<?php echo $Item->ID; ?>"></a>
+
+	<?php
+		// Buttons to prev/next post on single disp
+		if( !$Item->is_featured() )
+		{
+			// ------------------- PREV/NEXT POST LINKS (SINGLE POST MODE) -------------------
+			item_prevnext_links( array(
+					'block_start'     => '<ul class="pager col-lg-12 post_nav">',
+					'prev_start'      => '<li class="previous">',
+					'prev_text'       => '<span aria-hidden="true">&larr;</span> $title$',
+					'prev_end'        => '</li>',
+					'separator'       => ' ',
+					'next_start'      => '<li class="next">',
+					'next_text'       => '$title$ <span aria-hidden="true">&rarr;</span>',
+					'next_end'        => '</li>',
+					'block_end'       => '</ul>',
+					'target_blog'     => $Blog->ID,	// this forces to stay in the same blog, should the post be cross posted in multiple blogs
+					'post_navigation' => 'same_category', // force to stay in the same category in this skin
+					'featured'        => false, // don't include the featured posts into navigation list
+				) );
+			// ------------------------- END OF PREV/NEXT POST LINKS -------------------------
+		}
+	?>
+
+<div class="forums_list single_topic evo_content_block">
+	<?php /* This empty row is used to fix columns width, when table has css property "table-layout:fixed" */
+	if( $disp != 'page' )
+	{
+	?>
+
+	<div class="single_page_title">
+		<?php
+		// Page title
 		$Item->title( array(
-								'after'       => '</span> &#160; &#160; ',
+				'before'    => '<h2>',
+				'after'     => '</h2>',
+				'link_type' => 'permalink'
+			) );
+
+		// ------------------------- "Item Single - Header" CONTAINER EMBEDDED HERE --------------------------
+		// Display container contents:
+		skin_container( /* TRANS: Widget container name */ NT_('Item Single Header'), array(
+			'widget_context' => 'item',	// Signal that we are displaying within an Item
+			// The following (optional) params will be used as defaults for widgets included in this container:
+			// This will enclose each widget in a block:
+			'block_start' => '<div class="$wi_class$">',
+			'block_end' => '</div>',
+			// This will enclose the title of each widget:
+			'block_title_start' => '<h3>',
+			'block_title_end' => '</h3>',
+
+			'author_link_text' => $params['author_link_text'],
+		) );
+		// ----------------------------- END OF "Item Single - Header" CONTAINER -----------------------------
+
+		}
+		?>
+	</div>
+
+	<div class="row">
+		<div class="<?php echo $Skin->get_column_class( 'single' ); ?>">
+
+	<section class="table evo_content_block">
+	<div class="panel panel-default">
+		<div class="panel-heading posts_panel_title_wrapper">
+			<div class="cell1 ellipsis">
+				<h4 class="evo_comment_title panel-title"><a href="<?php echo $Item->get_permanent_url(); ?>" class="permalink">#1</a>
+					<?php
+						$Item->author( array(
+							'link_text' => 'auto',
+						) );
+					?>
+					<?php
+						// Display the post date:
+						$Item->issue_time( array(
+								'before'      => '<span class="text-muted">',
+								'after'       => '</span> &nbsp; &nbsp; ',
 								'time_format' => locale_extdatefmt().' '.locale_shorttimefmt(),
 							) );
 					?>
@@ -64,6 +202,40 @@
 						'widget_item_tags_after'     => '</nav>',
 					) );
 					// ----------------------------- END OF "Item Single" CONTAINER -----------------------------
+					?>
+					</div>
+					<?php
+				}
+				elseif( $disp == 'page' )
+				{
+					?>
+					<div class="evo_container evo_container__item_page">
+					<?php
+					// ------------------------- "Item Page" CONTAINER EMBEDDED HERE --------------------------
+					// Display container contents:
+					skin_container( /* TRANS: Widget container name */ NT_('Item Page'), array(
+						'widget_context' => 'item',	// Signal that we are displaying within an Item
+						// The following (optional) params will be used as defaults for widgets included in this container:
+						// This will enclose each widget in a block:
+						'block_start' => '<div class="$wi_class$">',
+						'block_end' => '</div>',
+						// This will enclose the title of each widget:
+						'block_title_start' => '<h3>',
+						'block_title_end' => '</h3>',
+						// Params for skin file "_item_content.inc.php"
+						'widget_item_content_params' => $params,
+						// Template params for "Item Attachments" widget:
+						'widget_item_attachments_params' => array(
+								'limit_attach'       => 1000,
+								'before'             => '<div class="evo_post_attachments"><h3>'.T_('Attachments').':</h3><ul class="evo_files">',
+								'after'              => '</ul></div>',
+								'before_attach'      => '<li class="evo_file">',
+								'after_attach'       => '</li>',
+								'before_attach_size' => ' <span class="evo_file_size">(',
+								'after_attach_size'  => ')</span>',
+							),
+					) );
+					// ----------------------------- END OF "Item Page" CONTAINER -----------------------------
 					?>
 					</div>
 					<?php

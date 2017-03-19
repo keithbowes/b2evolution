@@ -448,7 +448,7 @@ function get_request_title( $params = array() )
 			'postidx_text'        => T_('Post Index'),
 			'search_text'         => T_('Search'),
 			'sitemap_text'        => T_('Site Map'),
-			'msgform_text'        => T_('Sending a message'),
+			'msgform_text'        => T_('Contact'),
 			'messages_text'       => T_('Messages'),
 			'contacts_text'       => T_('Contacts'),
 			'login_text'          => /* TRANS: trailing space = verb */ T_('Login '),
@@ -582,18 +582,16 @@ function get_request_title( $params = array() )
 
 		case 'msgform':
 			// We are requesting the message form:
-			$r[] = $params['msgform_text'];
+			$msgform_title = utf8_trim( $Blog->get_setting( 'msgform_title' ) );
+			$r[] = empty( $msgform_title ) ? $params['msgform_text'] : $msgform_title;
 			break;
 
 		case 'threads':
 		case 'messages':
 			// We are requesting the messages form
+			global $disp_detail;
 			$thrd_ID = param( 'thrd_ID', 'integer', 0 );
-			if( empty( $thrd_ID ) )
-			{
-				$r[] = $params['messages_text'];
-			}
-			else
+			if( ! empty( $thrd_ID ) )
 			{	// We get a thread title by ID
 				load_class( 'messaging/model/_thread.class.php', 'Thread' );
 				$ThreadCache = & get_ThreadCache();
@@ -602,12 +600,19 @@ function get_request_title( $params = array() )
 					if( $params['auto_pilot'] == 'seo_title' )
 					{	// Display thread title only for tag <title>
 						$r[] = $Thread->title;
+						break;
 					}
 				}
-				else
-				{	// Bad request with not existing thread
-					$r[] = strip_tags( $params['messages_text'] );
-				}
+			}
+
+			if( $disp_detail == 'msgform' )
+			{	// disp=msgform for logged in user:
+				$msgform_title = utf8_trim( $Blog->get_setting( 'msgform_title' ) );
+				$r[] = empty( $msgform_title ) ? $params['msgform_text'] : $msgform_title;
+			}
+			else
+			{
+				$r[] = strip_tags( $params['messages_text'] );
 			}
 			break;
 
@@ -1063,8 +1068,10 @@ function require_js( $js_file, $relative_to = 'rsc_url', $async = false, $output
 	}
 
 	if( in_array( $js_file, array( '#jqueryUI#', 'communication.js', 'functions.js' ) ) )
-	{ // Dependency : ensure jQuery is loaded
-		require_js( '#jquery#', $relative_to, $async, $output, $version );
+	{	// Dependency : ensure jQuery is loaded
+		// Don't use TRUE for $async and $output because it may loads jQuery twice on AJAX request, e.g. on comment AJAX form,
+		// and all jQuery UI libraries(like resizable, sortable and etc.) will not work, e.g. on attachments fieldset
+		require_js( '#jquery#', $relative_to, false, false, $version );
 	}
 
 	// Get library url of JS file by alias name
@@ -1240,7 +1247,7 @@ function require_js_helper( $helper = '', $relative_to = 'rsc_url' )
 				global $b2evo_icons_type, $blog;
 				$blog_param = empty( $blog ) ? '' : '&amp;blog='.$blog;
 				// Colorbox params to translate the strings:
-				$colorbox_strings_params = 'current: "'.TS_('image {current} of {total}').'",
+				$colorbox_strings_params = 'current: "'.TS_('{current} / {total}').'",
 					previous: "'.TS_('Previous').'",
 					next: "'.TS_('Next').'",
 					close: "'.TS_('Close').'",
@@ -1311,7 +1318,23 @@ function require_js_helper( $helper = '', $relative_to = 'rsc_url' )
 				// TODO: translation strings for colorbox buttons
 
 				require_js( 'build/colorbox.bmin.js', $relative_to, true );
-				require_css( 'colorbox/colorbox.css', $relative_to );
+				if( is_admin_page() )
+				{
+					global $AdminUI;
+					if( ! empty( $AdminUI ) )
+					{
+						$colorbox_css_file = $AdminUI->get_template( 'colorbox_css_file' );
+					}
+				}
+				else
+				{
+					global $Skin;
+					if( ! empty( $Skin ) )
+					{
+						$colorbox_css_file = $Skin->get_template( 'colorbox_css_file' );
+					}
+				}
+				require_css( ( empty( $colorbox_css_file ) ? 'colorbox-regular.min.css' : $colorbox_css_file ), $relative_to );
 				break;
 		}
 		// add to list of loaded helpers

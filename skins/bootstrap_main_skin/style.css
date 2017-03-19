@@ -25,6 +25,9 @@
 .evo_container__front_page_primary .evo_widget > ul li:last-child {
   margin-bottom: 0 !important;
 }
+.evo_container__front_page_primary .evo_widget[class$=_menu_link] {
+  text-align: center;
+}
 .evo_container__front_page_secondary {
   padding-top: 30px;
 }
@@ -454,7 +457,8 @@ body.pictured .secondary_area .widget_core_org_members a.user_link:hover {
   color: #ffffff;
   text-align: center;
   opacity: 0.5;
-  transition: 0.1s all;
+  -webkit-transition: 0.1s all;
+          transition: 0.1s all;
   position: relative;
   left: -50%;
 }

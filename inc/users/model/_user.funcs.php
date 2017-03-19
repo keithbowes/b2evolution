@@ -3932,15 +3932,18 @@ function display_voting_form( $params = array() )
 
 	$params_like = array(
 			'id' => 'votingLike',
-			'title' => $params['title_like']
+			'title' => $params['title_like'],
+			'class' => 'voting_btn'
 		);
 	$params_noopinion = array(
 			'id' => 'votingNoopinion',
-			'title' => $params['title_noopinion']
+			'title' => $params['title_noopinion'],
+			'class' => 'voting_btn'
 		);
 	$params_dontlike = array(
 			'id' => 'votingDontlike',
-			'title' => $params['title_dontlike']
+			'title' => $params['title_dontlike'],
+			'class' => 'voting_btn'
 		);
 	$params_inappropriate = array(
 			'id' => 'votingInappropriate',
@@ -4060,7 +4063,7 @@ function display_voting_form( $params = array() )
 				// Don't like
 				$type_voted = 'dontlike';
 				$icon_dontlike = 'thumb_down';
-				$params_dontlike['class'] = 'voted';
+				$params_dontlike['class'] .= ' voted';
 				$params_dontlike['title'] = $params['title_dontlike_voted'];
 				break;
 
@@ -4068,7 +4071,7 @@ function display_voting_form( $params = array() )
 				// No opinion
 				$type_voted = 'noopinion';
 				$icon_noopinion = 'ban';
-				$params_noopinion['class'] = 'voted';
+				$params_noopinion['class'] .= ' voted';
 				$params_noopinion['title'] = $params['title_noopinion_voted'];
 				break;
 
@@ -4076,7 +4079,7 @@ function display_voting_form( $params = array() )
 				// Like
 				$type_voted = 'like';
 				$icon_like = 'thumb_up';
-				$params_like['class'] = 'voted';
+				$params_like['class'] .= ' voted';
 				$params_like['title'] = $params['title_like_voted'];
 				break;
 		}
@@ -4096,10 +4099,12 @@ function display_voting_form( $params = array() )
 		}
 	}
 
-	echo '<span class="vote_title">'.$vote_numbers.'<span class="vote_title_text">'.$params['title_text'].'</span></span>';
+	echo '<span class="voting_wrapper">';
 
-	$blog_param = empty( $blog ) ? '' : '&amp;blog='.$blog;
-	// Set this url for case when JavaScript is not enabled
+	echo '<span class="vote_title_panel">';
+	echo '<span class="vote_title">'.$vote_numbers.'<span class="vote_title_text">'.$params['title_text'].'</span></span>';
+	$blog_param = empty( $blog ) ? '' : '&blog='.$blog;
+	// Set this url for case when JavaScript is not enabled:
 	$url = get_htsrv_url().'anon_async.php?action=voting&vote_type='.$params['vote_type'].'&vote_ID='.$params['vote_ID'].$blog_param.'&'.url_crumb( 'voting' );
 	// Save action url here in order to have new crumb on every voting form loading:
 	echo '<input type="hidden" id="voting_action" value="'.$url.'&b2evo_icons_type='.$b2evo_icons_type.'" />';
@@ -4108,7 +4113,9 @@ function display_voting_form( $params = array() )
 	{	// Append a redirect param:
 		$url .= '&redirect_to='.$redirect_to;
 	}
+	echo '</span>';// END OF <span class="vote_title_panel">
 
+	echo '<span class="btn-group">';
 	if( ! empty( $params['widget_ID'] ) )
 	{	// Append widget ID for action URL:
 		$url .= '&widget_ID='.intval( $params['widget_ID'] );
@@ -4133,7 +4140,9 @@ function display_voting_form( $params = array() )
 	{	// Display 'Dont like' icon:
 		echo action_icon( '', $icon_dontlike, $url.'&vote_action=dontlike', '', 0, 0, array(), $params_dontlike );
 	}
+	echo '</span>';// END OF <span class="btn-group">
 
+	echo '<span class="vote_others">';
 	if( $params['display_inappropriate'] || $params['display_spam'] )
 	{	// Display separator between icons and checkboxes
 		echo '<span class="separator">&#160;</span>';
@@ -4167,6 +4176,9 @@ function display_voting_form( $params = array() )
 	{	// Create a hidden input with skin ID:
 		echo '<input type="hidden" id="skinID" value="'.$params['skin_ID'].'" />';
 	}
+	echo '</span>';// END OF <span class="vote_others">
+
+	echo '</span>';// END OF <span class="voting_wrapper">
 }
 
 
@@ -6235,7 +6247,7 @@ function get_PasswordDriver( $driver_code = '' )
 	// Get password drivers config:
 	$config_password_drivers = get_password_drivers();
 
-	// 
+	//
 	$allowed_password_drivers = $enabled_password_drivers;
 
 	if( ! empty( $driver_code )

@@ -5820,6 +5820,7 @@ function send_javascript_message( $methods = array(), $send_as_html = false, $ta
 		foreach( $methods as $method => $param_list )
 		{	// loop through each requested method
 			$params = array();
+			$internal_scripts = array();
 			if( !is_array( $param_list ) )
 			{	// lets make it an array
 				$param_list = array( $param_list );
@@ -5831,13 +5832,24 @@ function send_javascript_message( $methods = array(), $send_as_html = false, $ta
 					$param = json_encode( $param );
 				}
 				elseif( !is_numeric( $param ) )
-				{	// this is a string, quote it:
+				{	// This is a string
+					if( preg_match_all( '#<script[^>]*>(.+?)</script>#is', $param, $match_scripts ) )
+					{	// Extract internal scripts from content:
+						$param = preg_replace( '#<script[^>]*>(.+?)</script>#is', '', $param );
+						$internal_scripts = array_merge( $internal_scripts, $match_scripts[1] );
+					}
+					// Quote the string to javascript format:
 					$param = '\''.format_to_js( $param ).'\'';
 				}
 				$params[] = $param;// add param to the list
 			}
-			// add method and parameters
+			// Add method and parameters:
 			$output .= $target.$method.'('.implode( ',', $params ).');'."\n";
+			// Append all internal scripts from content on order to execute this properly:
+			foreach( $internal_scripts as $internal_script )
+			{
+				$output .= "\n// Internal script from {$target}{$method}():\n".$internal_script;
+			}
 		}
 	}
 
@@ -5905,17 +5917,18 @@ function format_to_js( $unformatted )
 function get_available_sort_options()
 {
 	return array(
-		'datestart'       => T_('Date issued (Default)'),
-		'order'           => T_('Order (as explicitly specified)'),
-		//'datedeadline' => T_('Deadline'),
-		'title'           => T_('Title'),
-		'datecreated'     => T_('Date created'),
-		'datemodified'    => T_('Date last modified'),
-		'last_touched_ts' => T_('Date last touched'),
-		'urltitle'        => T_('URL "filename"'),
-		'priority'        => T_('Priority'),
-		'numviews'        => T_('Number of members who have viewed the post (If tracking enabled)'),
-		'RAND'            => T_('Random order!'),
+		'datestart'                => T_('Date issued (Default)'),
+		'order'                    => T_('Order (as explicitly specified)'),
+		//'datedeadline'           => T_('Deadline'),
+		'title'                    => T_('Title'),
+		'datecreated'              => T_('Date created'),
+		'datemodified'             => T_('Date last modified'),
+		'last_touched_ts'          => T_('Date last touched'),
+		'contents_last_updated_ts' => T_('Contents last updated'),
+		'urltitle'                 => T_('URL "filename"'),
+		'priority'                 => T_('Priority'),
+		'numviews'                 => T_('Number of members who have viewed the post (If tracking enabled)'),
+		'RAND'                     => T_('Random order!'),
 	);
 }
 
@@ -6411,7 +6424,7 @@ function get_htsrv_url( $force_https = false )
 	}
 	else
 	{	// For current collection:
-		return $Blog->get_htsrv_url( $force_https );
+		return $Blog->get_local_htsrv_url( NULL, $force_https );
 	}
 }
 
