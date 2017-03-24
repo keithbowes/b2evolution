@@ -390,7 +390,7 @@ class DB
 		$socket = isset( $params['socket'] ) ? $params['socket'] : ini_get('mysqli.default_socket');
 		$client_flags = isset( $params['client_flags'] ) ? $params['client_flags'] : 0;
 
-		$this->use_persistent = isset($params['use_persistent']) ? $params['use_persistent'] : FALSE;
+		$this->use_persistent = isset($params['use_persistent']) ? $params['use_persistent'] : TRUE;
 
 		if( ! $this->dbhandle )
 		{ // Connect to the Database:
