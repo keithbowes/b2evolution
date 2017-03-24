@@ -502,6 +502,8 @@ class Calendar
 		global $Skin;
 		global $localtimenow;
 
+		$this->api_version = is_object($Skin) ? (int) $Skin->get_api_version() : 5;
+
 		$this->dbtable = 'T_items__item';
 		$this->dbprefix = 'post_';
 		$this->dbIDname = 'post_ID';
@@ -559,7 +561,7 @@ class Calendar
 		$this->linktomontharchive = true;  // month displayed as link to month' archive
 
 		$this->tablestart = '<table class="bCalendarTable"';
-		if ((int) $Skin->get_api_version() > 5)
+		if ($this->api_version > 5)
 			$this->tablestart .= ' title="' . T_('Monthly calendar with links to each day\'s posts') . '">'."\n";
 		else
 			$this->tablestart .= '>' . "\n";
@@ -568,7 +570,7 @@ class Calendar
 		$this->monthstart = '<caption>';
 		$this->monthend = "</caption>\n";
 
-		if ((int) $Skin->get_api_version() < 6)
+		if ($this->api_version < 6)
 			$this->monthend .= '<summary>' . T_('Monthly calendar with links to each day\'s posts') . '</summary>' . "\n";
 
 		$this->rowstart = '<tr class="bCalendarRow">' . "\n";
@@ -813,7 +815,7 @@ class Calendar
 
 		// FOOTER :
 
-		if( $this->navigation == 'tfoot' && (int) $Skin->get_api_version() < 6 )
+		if( $this->navigation == 'tfoot' && $this->api_version < 6 )
 			$this->insertTFoot();
 
 		// REAL TABLE DATA :
@@ -947,7 +949,7 @@ class Calendar
 
 		echo $this->rowend."</tbody>\n";
 
-		if ($this->navigation == 'tfoot' && (int) $Skin->get_api_version() > 5)
+		if ($this->navigation == 'tfoot' && $this->api_version > 5)
 			$this->insertTFoot();
 
 		echo $this->tableend;
