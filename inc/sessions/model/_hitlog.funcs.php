@@ -1180,7 +1180,7 @@ function extract_keyphrase_from_hitlogs()
 				FROM T_hitlog as h
 				WHERE h.hit_keyphrase IS NOT NULL
 					AND h.hit_keyphrase_keyp_ID IS NULL';
-	$ids = $DB->get_row( $sql, "ARRAY_A", NULL, ' Get max/min hits ids of unextracted keyphrases' );
+	$ids = $DB->get_row( $sql, ARRAY_A, NULL, ' Get max/min hits ids of unextracted keyphrases' );
 
 	if ( ! empty ( $ids['min'] ) && ! empty ( $ids['max'] ) )
 	{ // Extract keyphrases if needed:
