@@ -361,29 +361,29 @@ class DB
 		}
 
 		$mysql_ext_file = is_windows() ? 'php_mysqli.dll' : 'mysqli.so';
-		{ // The mysql extension is not loaded, try to dynamically load it:
-			if( function_exists('dl') )
-			{
-				$php_errormsg = null;
-				$old_track_errors = @ini_set('track_errors', 1);
-				$old_html_errors = @ini_set('html_errors', 0);
-				@dl( $mysql_ext_file );
-				$error_msg = $php_errormsg;
-				if( $old_track_errors !== false ) @ini_set('track_errors', $old_track_errors);
-				if( $old_html_errors !== false ) @ini_set('html_errors', $old_html_errors);
-			}
-			else
-			{
-				$error_msg = 'The PHP mysqli extension is not installed and we cannot load it dynamically.';
-			}
-			if( ! extension_loaded('mysqli') )
-			{ // Still not loaded:
-				$this->print_error( 'The PHP MySQL Improved module could not be loaded.', '
-					<p><strong>Error:</strong> '.$error_msg.'</p>
-					<p>You probably have to edit your php configuration (php.ini) and enable this module ('.$mysql_ext_file.').</p>
-					<p>Do not forget to restart your webserver (if necessary) after editing the PHP conf.</p>', false );
-				return;
-			}
+		// The mysql extension is not loaded, try to dynamically load it:
+		if( function_exists('dl') )
+		{
+			$php_errormsg = null;
+			$old_track_errors = @ini_set('track_errors', 1);
+			$old_html_errors = @ini_set('html_errors', 0);
+			@dl( $mysql_ext_file );
+			$error_msg = $php_errormsg;
+			if( $old_track_errors !== false ) @ini_set('track_errors', $old_track_errors);
+			if( $old_html_errors !== false ) @ini_set('html_errors', $old_html_errors);
+		}
+		else
+		{
+			$error_msg = 'The PHP mysqli extension is not installed and we cannot load it dynamically.';
+		}
+
+		if( ! extension_loaded('mysqli') )
+		{ // Still not loaded:
+			$this->print_error( 'The PHP MySQL Improved module could not be loaded.', '
+				<p><strong>Error:</strong> '.$error_msg.'</p>
+				<p>You probably have to edit your php configuration (php.ini) and enable this module ('.$mysql_ext_file.').</p>
+				<p>Do not forget to restart your webserver (if necessary) after editing the PHP conf.</p>', false );
+			return;
 		}
 
 		$port = isset( $params['port'] ) ? $params['port'] : ini_get('mysqli.default_port');
