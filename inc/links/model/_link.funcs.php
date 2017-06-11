@@ -195,7 +195,7 @@ function display_attachments_fieldset( & $Form, & $LinkOwner, $creating = false,
 				array( 'target' => '_blank' ) );
 	}
 
-	$fieldset_title .= '<span class="floatright">&#160;'
+	$fieldset_title .= '<span class="floatright panel_heading_action_icons">&nbsp;'
 
 			.action_icon( T_('Refresh'), 'refresh', $LinkOwner->get_edit_url(),
 				T_('Refresh'), 3, 4, array( 'class' => 'action_icon btn btn-default btn-sm', 'onclick' => 'return evo_link_refresh_list( \''.( $LinkOwner->is_temp() ? 'temporary' : $LinkOwner->type ).'\', \''.$LinkOwner->get_ID().'\' )' ) )
@@ -482,7 +482,7 @@ function display_link_position( & $row )
 	if( isset( $available_positions['inline'] ) )
 	{	// If link owner support inline position,
 		// Display icon to insert image, audio, video or file inline tag into content:
-		$type = $row->file_type;
+		$type = isset( $row->file_type ) ? $row->file_type : 'file';
 
 		// valid file types: audio, video, image, other. See @link File::set_file_type()
 		switch( $type )

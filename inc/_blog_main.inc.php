@@ -56,26 +56,31 @@ if( empty( $Blog ) )
 	// EXIT.
 }
 
-// Show/Hide the containers:
-$display_containers = param( 'display_containers', 'string' );
-if( $display_containers == 'show' )
-{
-	$Session->set( 'display_containers_'.$blog, 1 );
-}
-elseif( $display_containers == 'hide' )
-{
-	$Session->delete( 'display_containers_'.$blog );
-}
 
-// Show/Hide the includes:
-$display_includes = param( 'display_includes', 'string' );
-if( $display_includes == 'show' )
-{
-	$Session->set( 'display_includes_'.$blog, 1 );
-}
-elseif( $display_includes == 'hide' )
-{
-	$Session->delete( 'display_includes_'.$blog );
+if( $debug == 2 || is_logged_in() )
+{	// Allow debug info only for logged-in users OR when debug == 2:
+
+	// Show/Hide the containers:
+	$display_containers = param( 'display_containers', 'string' );
+	if( $display_containers == 'show' )
+	{
+		$Session->set( 'display_containers_'.$blog, 1 );
+	}
+	elseif( $display_containers == 'hide' )
+	{
+		$Session->delete( 'display_containers_'.$blog );
+	}
+
+	// Show/Hide the includes:
+	$display_includes = param( 'display_includes', 'string' );
+	if( $display_includes == 'show' )
+	{
+		$Session->set( 'display_includes_'.$blog, 1 );
+	}
+	elseif( $display_includes == 'hide' )
+	{
+		$Session->delete( 'display_includes_'.$blog );
+	}
 }
 
 
@@ -528,7 +533,11 @@ elseif( ( $disp == 'visits' ) && ( ( $Settings->get( 'enable_visit_tracking' ) !
 elseif( $disp == '-' && !empty($Item) )
 { // We have not requested a specific disp but we have identified a specific post to be displayed
 	// We are going to display a single post
-	if( preg_match( '|[&?](download=\d+)|', $ReqURI ) )
+	if( $Item->get_type_setting( 'usage' ) == 'content-block' )
+	{	// Display 404 page for all "Content Blocks" items intead of normal single page:
+		$disp = '404';
+	}
+	elseif( preg_match( '|[&?](download=\d+)|', $ReqURI ) )
 	{
 		$disp = 'download';
 

@@ -158,7 +158,7 @@ $Form->begin_fieldset( T_('Email').get_manual_link('user-admin-email') );
 		}
 	$Form->end_line();
 
-	user_domain_info_display( T_('Email Domain'), 'email_domain_status', $edited_User->get_email_domain(), '', $Form );
+	user_domain_info_display( T_('Email domain'), 'email_domain_status', $edited_User->get_email_domain(), '', $Form );
 
 	global $UserSettings;
 
@@ -333,7 +333,7 @@ $Form->end_fieldset(); // Usage info
 
 $Form->begin_fieldset( T_('Reputation').get_manual_link('user-admin-reputaion') );
 
-	$Form->info( T_('Number of posts'), $edited_User->get_reputation_posts() );
+	$Form->info( T_('Posts'), $edited_User->get_reputation_posts() );
 
 	$Form->info( T_('Comments'), '<span class="reputation_message">'.$edited_User->get_reputation_comments( array( 'view_type' => 'extended' ) ).'</span>' );
 

@@ -21,7 +21,7 @@ class bootstrap_gallery_legacy_Skin extends Skin
 	 * Skin version
 	 * @var string
 	 */
-	var $version = '6.9.1';
+	var $version = '6.9.2';
 
 	/**
 	 * Do we want to use style.min.css instead of style.css ?
@@ -342,7 +342,7 @@ class bootstrap_gallery_legacy_Skin extends Skin
 		}
 		if( ! empty( $custom_styles ) )
 		{
-			$custom_css .= '	body { '.implode( ';', $custom_styles )." }\n";
+			$custom_css .= '	#skin_wrapper { '.implode( ';', $custom_styles )." }\n";
 		}
 
 		$custom_styles = array();
@@ -353,7 +353,7 @@ class bootstrap_gallery_legacy_Skin extends Skin
 		}
 		if( ! empty( $custom_styles ) )
 		{
-			$custom_css .= '	body { '.implode( ';', $custom_styles )." }\n";
+			$custom_css .= '	#skin_wrapper { '.implode( ';', $custom_styles )." }\n";
 		}
 
 		// Link color
@@ -363,7 +363,7 @@ class bootstrap_gallery_legacy_Skin extends Skin
 		}
 		if( ! empty( $custom_styles ) )
 		{
-			$custom_css .= '	body .container a { '.implode( ';', $custom_styles )." }\n";
+			$custom_css .= '	#skin_wrapper .container a { '.implode( ';', $custom_styles )." }\n";
 			$custom_css .= '	ul li a { '.implode( ';', $custom_styles )." }\n";
 			$custom_css .= "	ul li a {background-color: transparent;}\n";
 			$custom_css .= "	.ufld_icon_links a {color: #fff !important;}\n";
@@ -386,7 +386,7 @@ class bootstrap_gallery_legacy_Skin extends Skin
 		}
 		if( ! empty( $custom_styles ) )
 		{
-			$custom_css .= '	body { '.implode( ';', $custom_styles )." }\n";
+			$custom_css .= '	#skin_wrapper { '.implode( ';', $custom_styles )." }\n";
 		}
 
 		global $thumbnail_sizes;

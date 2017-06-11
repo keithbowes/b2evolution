@@ -35,6 +35,9 @@
 .right {
   text-align: right;
 }
+.justify {
+  text-align: justify;
+}
 .nobr,
 .nowrap,
 .line {
@@ -829,6 +832,14 @@ div#evo_toolbar .actions_right {
 .evobar-menu a.disabled:hover {
   color: #999999;
 }
+.evobar-menu a.active,
+.evobar-menu a.active:hover {
+  background-color: #ffffcc;
+  border-radius: 4px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 1px 0;
+}
 .evobar-menu [class^=evobar-icon-] {
   margin-left: 6px;
   float: right;
@@ -1080,11 +1091,6 @@ ul.jslog_error {
   -webkit-border-radius: 3px;
   -khtml-border-radius: 3px;
   z-index: 11000;
-}
-html,
-body {
-  width: auto !important;
-  overflow-x: hidden !important;
 }
 div.dev-blocks {
   border: 1px solid #f00;
@@ -1745,8 +1751,11 @@ div.podplayer {
 	font-weight: bold;
 }
 */
-span.NonExistentWikiWord {
-  border-bottom: 1px dotted #ccc;
+.evo_shortlink_broken {
+  border-bottom: 1px dotted #F00;
+}
+.evo_shortlink_broken.btn {
+  border: 1px dotted #F00;
 }
 
 /* This file is used to fix the style issues on all bootstrap skins of b2evolution */
@@ -1796,6 +1805,10 @@ ol {
 .table-hover > tbody > tr:hover {
   background-color: #ffc;
 }
+.btn {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
 .btn.btn-success .fa,
 .btn.btn-danger .fa {
   color: #FFF !important;
@@ -1805,6 +1818,10 @@ ol {
   margin-bottom: 4px;
 }
 .evo_widget .input-group .btn {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.input-group .btn {
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -1918,6 +1935,9 @@ a.btn.action_icon.hoverlink {
   padding: 0 2px 2px 0;
   vertical-align: middle;
 }
+.form-horizontal .compose_layout tr:last-child td {
+  padding-bottom: 0;
+}
 .form-horizontal .compose_layout th.label,
 .form-horizontal .compose_layout td.label {
   display: table-cell;
@@ -1930,6 +1950,9 @@ a.btn.action_icon.hoverlink {
 }
 .form-horizontal .compose_layout td.input div.tile label.control-label {
   display: none;
+}
+.form-horizontal #itemform_custom_fields .panel-body .form-group:last-child {
+  margin-bottom: 0;
 }
 .form-horizontal #itemform_categories .panel-body.extracats {
   padding: 0;
@@ -2285,11 +2308,23 @@ select:focus:invalid:focus {
   position: relative;
   top: -4px;
 }
-.panel-heading .btn {
-  margin: -6px 0 0 6px;
-}
 .panel-heading .btn-group {
   margin-left: 6px;
+}
+.panel-heading .panel_heading_action_icons {
+  margin-top: -6px;
+}
+.panel-heading .panel_heading_action_icons .btn {
+  margin: 0 3px 3px 0;
+}
+.panel-heading .panel_heading_action_icons .btn:last-child {
+  margin: 0 0 3px 0;
+}
+.panel-heading .panel_heading_action_icons .btn-group {
+  margin: 0 6px 0 0;
+}
+.panel-heading .panel_heading_action_icons .btn-group .btn {
+  margin: 0 0 3px 0;
 }
 legend.panel-heading {
   font-size: 16px;
@@ -2385,9 +2420,11 @@ div.message_toolbars {
   margin-left: 0;
 }
 .btn-toolbar[class*="_toolbar"] .btn {
+  margin-top: 0;
   margin-bottom: 2px;
 }
 .btn-toolbar[class*="_toolbar"] .btn-toolbar-title {
+  padding-top: 1px;
   padding-left: 5px;
   float: left;
   font-weight: bold;
@@ -2451,6 +2488,9 @@ div.message_toolbars {
 }
 .modal-dialog {
   margin: 30px auto;
+}
+.modal-footer .btn + .btn {
+  margin-bottom: 3px;
 }
 .tt-dropdown-menu {
   background-color: #FFFFFF;

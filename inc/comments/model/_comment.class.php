@@ -1566,7 +1566,7 @@ class Comment extends DataObject
 
 		if( $text == '#' )
 		{ // Use icon+text as default, if not displayed as button (otherwise just the text)
-			$text = ( $this->status == 'trash' || $this->is_meta() ) ? T_('Delete!') : T_('Recycle!');
+			$text = ( $this->status == 'trash' || $this->is_meta() ) ? T_('Delete').'!' : T_('Recycle').'!';
 			if( ! $button )
 			{ // Append icon before text
 				$text = ( $this->status == 'trash' || $this->is_meta() ? get_icon( 'delete' ) : get_icon( 'recycle' ) ).' '.$text;
@@ -1678,7 +1678,7 @@ class Comment extends DataObject
 		$params = array(
 			'before' => $before,
 			'after'  => $after,
-			'text'   => ( ( $text == '#' ) ?  get_icon( 'move_down_'.$status_icon_color ).' '.T_('Deprecate!') : $text ),
+			'text'   => ( ( $text == '#' ) ?  get_icon( 'move_down_'.$status_icon_color ).' '.T_('Deprecate').'!' : $text ),
 			'title'  => $title,
 			'class'  => $class,
 			'glue'   => $glue,
@@ -1714,7 +1714,7 @@ class Comment extends DataObject
 				'title_ok'            => T_('Cast an OK vote!'),
 				'title_ok_voted'      => T_('You sent an OK vote.'),
 				'title_yes'           => T_('Cast a helpful vote!'),
-				'title_yes_voted'     => T_('You sent helpful vote.'),
+				'title_yes_voted'     => T_('You sent a "helpful" vote.'),
 				'title_no'            => T_('Cast a "not helpful" vote!'),
 				'title_no_voted'      => T_('You sent a "not helpful" vote.'),
 			), $params );
@@ -1917,7 +1917,7 @@ class Comment extends DataObject
 				'skin_ID'               => 0,
 				'helpful_text'          => T_('Is this comment helpful?'),
 				'title_yes'             => T_('Cast a helpful vote!'),
-				'title_yes_voted'       => T_('You sent helpful vote.'),
+				'title_yes_voted'       => T_('You sent a "helpful" vote.'),
 				'title_noopinion'       => T_('Cast a "no opinion" vote!'),
 				'title_noopinion_voted' => T_('You sent a "no opinion" vote.'),
 				'title_no'              => T_('Cast a "not helpful" vote!'),
@@ -2897,7 +2897,7 @@ class Comment extends DataObject
 			$after_docs = '';
 			if( count( $attachments ) > 0 )
 			{
-				echo '<br /><b>'.T_( 'Attachments:' ).'</b>';
+				echo '<br /><b>'.T_( 'Attachments' ).':</b>';
 				echo '<ul class="bFiles">';
 				$after_docs = '</ul>';
 			}
@@ -3715,11 +3715,14 @@ class Comment extends DataObject
 
 		if( ! $this->is_meta() )
 		{	// Get the notify users for NORMAL comments:
-			$except_condition = '';
 
+			// Send only for active users:
+			$active_users_condition = 'AND user_status IN ( "activated", "autoactivated" )';
+
+			$except_condition = '';
 			if( ! empty( $already_notified_user_IDs ) )
 			{	// Set except moderators condition. Exclude moderators who already got a notification email:
-				$except_condition = ' AND user_ID NOT IN ( "'.implode( '", "', $already_notified_user_IDs ).'" )';
+				$except_condition .= ' AND user_ID NOT IN ( "'.implode( '", "', $already_notified_user_IDs ).'" )';
 			}
 
 			// Check if we need to include the item creator user:
@@ -3733,11 +3736,59 @@ class Comment extends DataObject
 			// Get list of users who want to be notified about the this post comments:
 			if( $comment_item_Blog->get_setting( 'allow_item_subscriptions' ) )
 			{	// If item subscriptions is allowed:
-				$sql = 'SELECT DISTINCT user_ID
-									FROM T_items__subscriptions INNER JOIN T_users ON isub_user_ID = user_ID
-								 WHERE isub_item_ID = '.$comment_Item->ID.'
-									 AND isub_comments <> 0
-									 AND LENGTH(TRIM(user_email)) > 0'.$except_condition;
+				$sql = 'SELECT user_ID
+						FROM (
+							SELECT DISTINCT isub_user_ID AS user_ID
+							FROM T_items__subscriptions
+							INNER JOIN T_users ON ( user_ID = isub_user_ID '.$active_users_condition.' )
+							WHERE isub_item_ID = '.$comment_Item->ID.'
+							AND isub_comments <> 0
+
+							UNION
+
+							SELECT user_ID
+							FROM T_coll_settings AS opt
+							INNER JOIN T_coll_settings AS sub ON ( sub.cset_coll_ID = opt.cset_coll_ID AND sub.cset_name = "allow_item_subscriptions" AND sub.cset_value = 1 )
+							LEFT JOIN T_coll_group_perms ON ( bloggroup_blog_ID = opt.cset_coll_ID AND bloggroup_ismember = 1 )
+							INNER JOIN T_users ON ( user_grp_ID = bloggroup_group_ID '.$active_users_condition.' )
+							LEFT JOIN T_items__subscriptions ON ( isub_item_ID = '.$comment_Item->ID.' AND isub_user_ID = user_ID )
+							WHERE opt.cset_coll_ID = '.$comment_item_Blog->ID.'
+								AND opt.cset_name = "opt_out_item_subscription"
+								AND opt.cset_value = 1
+								AND NOT user_ID IS NULL
+								AND ( isub_comments IS NULL OR isub_comments = 1 )
+
+							UNION
+
+							SELECT sug_user_ID
+							FROM T_coll_settings AS opt
+							INNER JOIN T_coll_settings AS sub ON ( sub.cset_coll_ID = opt.cset_coll_ID AND sub.cset_name = "allow_item_subscriptions" AND sub.cset_value = 1 )
+							LEFT JOIN T_coll_group_perms ON ( bloggroup_blog_ID = opt.cset_coll_ID AND bloggroup_ismember = 1 )
+							LEFT JOIN T_users__secondary_user_groups ON ( sug_grp_ID = bloggroup_group_ID )
+							LEFT JOIN T_items__subscriptions ON ( isub_item_ID = '.$comment_Item->ID.' AND isub_user_ID = sug_user_ID )
+							INNER JOIN T_users ON ( user_ID = isub_user_ID '.$active_users_condition.' )
+							WHERE opt.cset_coll_ID = '.$comment_item_Blog->ID.'
+								AND opt.cset_name = "opt_out_item_subscription"
+								AND opt.cset_value = 1
+								AND NOT sug_user_ID IS NULL
+								AND ( isub_comments IS NULL OR isub_comments = 1 )
+
+							UNION
+
+							SELECT bloguser_user_ID
+							FROM T_coll_settings AS opt
+							INNER JOIN T_coll_settings AS sub ON ( sub.cset_coll_ID = opt.cset_coll_ID AND sub.cset_name = "allow_item_subscriptions" AND sub.cset_value = 1 )
+							LEFT JOIN T_coll_user_perms ON ( bloguser_blog_ID = opt.cset_coll_ID AND bloguser_ismember = 1 )
+							LEFT JOIN T_items__subscriptions ON ( isub_item_ID = '.$comment_Item->ID.' AND isub_user_ID = bloguser_user_ID )
+							INNER JOIN T_users ON ( user_ID = isub_user_ID '.$active_users_condition.' )
+							WHERE opt.cset_coll_ID = '.$comment_item_Blog->ID.'
+								AND opt.cset_name = "opt_out_item_subscription"
+								AND opt.cset_value = 1
+								AND NOT bloguser_user_ID IS NULL
+								AND ( isub_comments IS NULL OR isub_comments = 1 )
+						) AS users
+						WHERE user_ID IS NOT NULL'.$except_condition;
+
 				$notify_list = $DB->get_results( $sql, OBJECT, 'Get list of users who want to be notified about comments of the the post #'.$comment_Item->ID );
 
 				// Preprocess list:
@@ -3753,11 +3804,62 @@ class Comment extends DataObject
 			// Get list of users who want to be notified about this blog comments:
 			if( $comment_item_Blog->get_setting( 'allow_comment_subscriptions' ) )
 			{	// If blog subscription is allowed:
-				$sql = 'SELECT DISTINCT user_ID
-								FROM T_subscriptions INNER JOIN T_users ON sub_user_ID = user_ID
-							 WHERE sub_coll_ID = '.$comment_item_Blog->ID.'
-								 AND sub_comments <> 0
-								 AND LENGTH(TRIM(user_email)) > 0'.$except_condition;
+				$sql = 'SELECT user_ID
+								FROM (
+									SELECT DISTINCT sub_user_ID AS user_ID
+									FROM T_subscriptions
+									INNER JOIN T_users ON ( user_ID = sub_user_ID '.$active_users_condition.' )
+									WHERE sub_coll_ID = '.$comment_item_Blog->ID.'
+									AND sub_comments <> 0
+
+									UNION
+
+									SELECT user_ID
+									FROM T_coll_settings AS opt
+									INNER JOIN T_blogs ON ( blog_ID = opt.cset_coll_ID AND blog_advanced_perms = 1 )
+									INNER JOIN T_coll_settings AS sub ON ( sub.cset_coll_ID = opt.cset_coll_ID AND sub.cset_name = "allow_subscriptions" AND sub.cset_value = 1 )
+									LEFT JOIN T_coll_group_perms ON ( bloggroup_blog_ID = opt.cset_coll_ID AND bloggroup_ismember = 1 )
+									INNER JOIN T_users ON ( user_grp_ID = bloggroup_group_ID '.$active_users_condition.' )
+									LEFT JOIN T_subscriptions ON ( sub_coll_ID = opt.cset_coll_ID AND sub_user_ID = user_ID )
+									WHERE opt.cset_coll_ID = '.$comment_item_Blog->ID.'
+										AND opt.cset_name = "opt_out_comment_subscription"
+										AND opt.cset_value = 1
+										AND NOT user_ID IS NULL
+										AND ( ( sub_comments IS NULL OR sub_comments = 1 ) )
+
+									UNION
+
+									SELECT sug_user_ID
+									FROM T_coll_settings AS opt
+									INNER JOIN T_blogs ON ( blog_ID = opt.cset_coll_ID AND blog_advanced_perms = 1 )
+									INNER JOIN T_coll_settings AS sub ON ( sub.cset_coll_ID = opt.cset_coll_ID AND sub.cset_name = "allow_subscriptions" AND sub.cset_value = 1 )
+									LEFT JOIN T_coll_group_perms ON ( bloggroup_blog_ID = opt.cset_coll_ID AND bloggroup_ismember = 1 )
+									LEFT JOIN T_users__secondary_user_groups ON ( sug_grp_ID = bloggroup_group_ID )
+									LEFT JOIN T_subscriptions ON ( sub_coll_ID = opt.cset_coll_ID AND sub_user_ID = sug_user_ID )
+									INNER JOIN T_users ON ( user_ID = sub_user_ID '.$active_users_condition.' )
+									WHERE opt.cset_coll_ID = '.$comment_item_Blog->ID.'
+										AND opt.cset_name = "opt_out_comment_subscription"
+										AND opt.cset_value = 1
+										AND NOT sug_user_ID IS NULL
+										AND ( ( sub_comments IS NULL OR sub_comments = 1 ) )
+
+									UNION
+
+									SELECT bloguser_user_ID
+									FROM T_coll_settings AS opt
+									INNER JOIN T_blogs ON ( blog_ID = opt.cset_coll_ID AND blog_advanced_perms = 1 )
+									INNER JOIN T_coll_settings AS sub ON ( sub.cset_coll_ID = opt.cset_coll_ID AND sub.cset_name = "allow_subscriptions" AND sub.cset_value = 1 )
+									LEFT JOIN T_coll_user_perms ON ( bloguser_blog_ID = opt.cset_coll_ID AND bloguser_ismember = 1 )
+									LEFT JOIN T_subscriptions ON ( sub_coll_ID = opt.cset_coll_ID AND sub_user_ID = bloguser_user_ID )
+									INNER JOIN T_users ON ( user_ID = sub_user_ID '.$active_users_condition.' )
+									WHERE opt.cset_coll_ID = '.$comment_item_Blog->ID.'
+										AND opt.cset_name = "opt_out_comment_subscription"
+										AND opt.cset_value = 1
+										AND NOT bloguser_user_ID IS NULL
+										AND ( ( sub_comments IS NULL OR sub_comments = 1 ) )
+								) AS users
+								WHERE NOT user_ID IS NULL'.$except_condition;
+
 				$notify_list = $DB->get_results( $sql, OBJECT, 'Get list of users who want to be notified about comments of the collection #'.$comment_item_Blog->ID );
 
 				// Preprocess list:
@@ -3786,6 +3888,8 @@ class Comment extends DataObject
 			$meta_SQL->WHERE( '( gset_value = "normal" OR gset_value = "restricted" )' );
 			// Check if the users would like to receive notifications about new meta comments:
 			$meta_SQL->WHERE_and( 'uset_value = "1"'.( $Settings->get( 'def_notify_meta_comments' ) ? ' OR uset_value IS NULL' : '' ) );
+			// Check if users are activated:
+			$meta_SQL->WHERE_and( 'user_status IN ( "activated", "autoactivated" )' );
 			// Check if the users have permission to edit this Item:
 			$users_with_item_edit_perms = '( user_ID = '.$DB->quote( $comment_item_Blog->owner_user_ID ).' )';
 			$users_with_item_edit_perms .= ' OR ( grp_perm_blogs = "editall" )';
@@ -4781,6 +4885,36 @@ class Comment extends DataObject
 		$Item = & $this->get_Item();
 
 		return can_be_displayed_with_status( $this->get( 'status' ), 'comment', $Item->get_blog_ID(), $this->author_user_ID );
+	}
+
+
+	/**
+	 * Get comment order numbers for current filtered list (global $CommentList)
+	 *
+	 * @return integer|NULL
+	 */
+	function get_inlist_order()
+	{
+		if( empty( $this->ID ) )
+		{	// This comment must exist in DB
+			return NULL;
+		}
+
+		global $CommentList;
+
+		if( empty( $CommentList ) )
+		{	// Comment list must be initialized globally
+			return NULL;
+		}
+
+		if( ! isset( $CommentList->inlist_orders[ $this->ID ] ) )
+		{	// Order number is not found in list for this comment:
+			return NULL;
+		}
+
+		$inlist_order = intval( $CommentList->inlist_orders[ $this->ID ] );
+
+		return $inlist_order < 0 ? 0 : $inlist_order;
 	}
 }
 

@@ -29,7 +29,7 @@ class calendar_plugin extends Plugin
 	var $name;
 	var $code = 'evo_Calr';
 	var $priority = 20;
-	var $version = '6.7.9';
+	var $version = '6.9.2';
 	var $author = 'The b2evo Group';
 	var $group = 'widget';
 	var $subgroup = 'navigation';
@@ -813,11 +813,6 @@ class Calendar
 			echo $this->headerrowend;
 		}
 
-		// FOOTER :
-
-		if( $this->navigation == 'tfoot' && $this->api_version < 6 )
-			$this->insertTFoot();
-
 		// REAL TABLE DATA :
 
 		echo '<tbody>'.$this->rowstart;
@@ -949,8 +944,35 @@ class Calendar
 
 		echo $this->rowend."</tbody>\n";
 
-		if ($this->navigation == 'tfoot' && $this->api_version > 5)
-			$this->insertTFoot();
+		// FOOTER :
+
+		if( $this->navigation == 'tfoot' )
+		{ // We want to display navigation in the table footer:
+			echo "<tfoot>\n";
+			echo "<tr>\n";
+			echo '<td colspan="'.( ( $this->mode == 'month' ? 2 : 1 ) + (int)$this->today_is_visible ).'" id="prev">';
+			echo implode( '&nbsp;', $this->getNavLinks( 'prev' ) );
+			echo "</td>\n";
+
+			if( $this->today_is_visible )
+			{
+				if( $this->mode == 'month' )
+				{
+					echo '<td class="pad">&nbsp;</td>'."\n";
+				}
+			}
+			else
+			{
+				echo '<td colspan="'.( $this->mode == 'month' ? '3' : '2' ).'" class="center">'
+							.$this->archive_link( T_('Current'), '', date('Y'), ( $this->mode == 'month' ? date('m') : NULL ) )
+							.'</td>';
+			}
+			echo '<td colspan="'.( ( $this->mode == 'month' ? 2 : 1 ) + (int)$this->today_is_visible ).'" id="next">';
+			echo implode( '&nbsp;', $this->getNavLinks( 'next' ) );
+			echo "</td>\n";
+			echo "</tr>\n";
+			echo "</tfoot>\n";
+		}
 
 		echo $this->tableend;
 

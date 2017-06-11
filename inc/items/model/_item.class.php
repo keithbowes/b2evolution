@@ -660,7 +660,12 @@ class Item extends ItemLight
 		}
 
 		// URL associated with Item:
-		$post_url = param( 'post_url', 'url', NULL );
+		$post_url = param( 'post_url', 'string', NULL );
+		$url_error = validate_url( $post_url, 'http-https' );
+		if( $url_error !== false )
+		{
+			param_error( 'post_url', $url_error );
+		}
 		if( $post_url !== NULL )
 		{
 			param_check_url( 'post_url', 'posting', '' );
@@ -717,7 +722,7 @@ class Item extends ItemLight
 
 				if( $editing || $this->dateset == 1 )
 				{ // We can use user date:
-					if( param_date( 'item_issue_date', T_('Please enter a valid issue date.'), true )
+					if( param_date( 'item_issue_date', sprintf( T_('Please enter a valid issue date using the following format: %s'), '<code>'.locale_input_datefmt().'</code>' ), true )
 						&& param_time( 'item_issue_time' ) )
 					{ // only set it, if a (valid) date and time was given:
 						$this->set( 'issue_date', form_date( get_param( 'item_issue_date' ), get_param( 'item_issue_time' ) ) ); // TODO: cleanup...
@@ -734,6 +739,11 @@ class Item extends ItemLight
 		if( param( 'post_urltitle', 'string', NULL ) !== NULL )
 		{
 			$this->set_from_Request( 'urltitle' );
+			// Added in May 2017; but old slugs are not converted yet.
+			if( preg_match( '#(^|,+)[^a-z\d_]*\d+[^a-z\d_]*($|,+)#i', get_param( 'post_urltitle' ) ) )
+			{	// Display error if item slugs contain only digits:
+				param_error( 'post_urltitle', T_('All slugs must contain at least one letter.') );
+			}
 		}
 
 		// <title> TAG:
@@ -813,8 +823,11 @@ class Item extends ItemLight
 			}
 
 			// DEADLINE:
-			if( param_date( 'item_deadline', T_('Please enter a valid deadline.'), false, NULL ) !== NULL ) {
-				$this->set_from_Request( 'datedeadline', 'item_deadline', true );
+			if( param_date( 'item_deadline', T_('Please enter a valid deadline.'), false, NULL ) !== NULL )
+			{
+				param_time( 'item_deadline_time', '', false, false, true, true );
+				$item_deadline_time = get_param( 'item_deadline' ) != '' ? substr( get_param( 'item_deadline_time' ), 0, 5 ) : '';
+				$this->set( 'datedeadline', trim( form_date( get_param( 'item_deadline' ), $item_deadline_time ) ), true );
 			}
 		}
 
@@ -866,23 +879,43 @@ class Item extends ItemLight
 		foreach( $custom_fields as $custom_field )
 		{ // update each custom field
 			$param_name = 'item_'.$custom_field['type'].'_'.$custom_field['ID'];
+			$param_error = false;
 			if( isset_param( $param_name ) )
 			{ // param is set
 				switch( $custom_field['type'] )
 				{
 					case 'double':
 						$param_type = 'double';
+						$field_value = param( $param_name, 'string', NULL );
+						if( ! preg_match( '/^(\+|-)?[0-9]+(.[0-9]+)?$/', $field_value ) ) // we could have used is_numeric here but this is how "double" type is checked in the param.funcs.php
+						{
+							param_error( $param_name, sprintf( T_('Custom "%s" field must be a number'), $custom_field['label'] ) );
+							$param_error = true;
+						}
 						break;
 					case 'html':
 					case 'text': // Keep html tags for text fields, they will be escaped at display
 						$param_type = 'html';
+						break;
+					case 'url':
+						$param_type = 'url';
+						$field_value = param( $param_name, 'string', NULL );
+						$url_error = validate_url( $field_value, 'http-https' );
+						if( $url_error !== false )
+						{
+							param_error( $param_name, $url_error );
+							$param_error = true;
+						}
 						break;
 					case 'varchar':
 					default:
 						$param_type = 'string';
 						break;
 				}
-				param( $param_name, $param_type, NULL ); // get par value
+				if( ! $param_error )
+				{
+					param( $param_name, $param_type, NULL ); // get par value
+				}
 				$custom_field_make_null = $custom_field['type'] != 'double'; // store '0' values in DB for numeric fields
 				$this->set_setting( 'custom_'.$custom_field['type'].'_'.$custom_field['ID'], get_param( $param_name ), $custom_field_make_null );
 			}
@@ -2084,17 +2117,11 @@ class Item extends ItemLight
 		$content_parts = $this->get_content_parts( $params );
 		$output = array_shift( $content_parts );
 
-		// Set this flag to check inline tags outside of codeblocks:
-		$params['check_code_block'] = true;
+		// Render all inline tags to HTML code:
+		$output = $this->render_inline_tags( $output, $params );
 
-		// Render inline file tags like [image:123:caption] or [file:123:caption] :
-		$output = render_inline_files( $output, $this, $params );
-
-		// Render Custom Fields [fields], [fields:second_numeric_field,first_string_field] or [field:first_string_field]:
-		$output = $this->render_custom_fields( $output, $params );
-
-		// Render Parent Data [parent], [parent:fields] and etc.:
-		$output = $this->render_parent_data( $output, $params );
+		// Render Content block tags like [include:123], [include:item-slug] into item/post content:
+		$output = $this->render_content_blocks( $output, $params );
 
 		// Trigger Display plugins FOR THE STUFF THAT WOULD NOT BE PRERENDERED:
 		$output = $Plugins->render( $output, $this->get_renderers_validated(), $format, array(
@@ -2213,13 +2240,15 @@ class Item extends ItemLight
 
 		$content_parts = $this->get_content_parts( $params );
 
-		// Output everything after [teaserbreak]
-		array_shift($content_parts);
-		$output = implode('', $content_parts);
+		// Output everything after [teaserbreak]:
+		array_shift( $content_parts );
+		$output = implode( '', $content_parts );
 
-		// Render inline file tags like [image:123:caption] or [file:123:caption] :
-		$params['check_code_block'] = true;
-		$output = render_inline_files( $output, $this, $params );
+		// Render all inline tags to HTML code:
+		$output = $this->render_inline_tags( $output, $params );
+
+		// Render Content block tags like [include:123], [include:item-slug] into item/post content:
+		$output = $this->render_content_blocks( $output, $params );
 
 		// Trigger Display plugins FOR THE STUFF THAT WOULD NOT BE PRERENDERED:
 		$output = $Plugins->render( $output, $this->get_renderers_validated(), $format, array(
@@ -2277,13 +2306,19 @@ class Item extends ItemLight
 	/**
 	 * Get item custom field value by index
 	 *
-	 * @param String field index which by default is the field name, see {@link load_custom_field_value()}
+	 * @param string Field index which by default is the field name, see {@link load_custom_field_value()}
+	 * @param string Restring field by type, FALSE - to don't restrict
 	 * @return mixed false if the field doesn't exist Double/String otherwise depending from the custom field type
 	 */
-	function get_custom_field_value( $field_index )
+	function get_custom_field_value( $field_index, $restrict_type = false )
 	{
 		if( $this->load_custom_field_value( $field_index ) )
 		{
+			if( $restrict_type !== false && $this->custom_fields[ $field_index ]['type'] != $restrict_type )
+			{	// The requested field is detected but it has another type:
+				return false;
+			}
+
 			$custom_field_value = utf8_trim( $this->custom_fields[ $field_index ]['value'] );
 			if( $this->custom_fields[ $field_index ]['type'] == 'text' )
 			{	// Escape html tags and convert new lines to html <br> for text fields:
@@ -2441,6 +2476,53 @@ class Item extends ItemLight
 
 
 	/**
+	 * Convert all inline tags to HTML code
+	 *
+	 * @param string Source content
+	 * @param array Params
+	 * @return string Content
+	 */
+	function render_inline_tags( $content, $params = array() )
+	{
+		$params = array_merge( array(
+				'check_code_block'     => true, // TRUE to find inline tags only outside of codeblocks
+				'render_inline_files'  => true,
+				'render_links'         => true,
+				'render_custom_fields' => true,
+				'render_parent'        => true,
+				'render_collection'    => true,
+			), $params );
+
+		if( $params['render_inline_files'] )
+		{	// Render inline file tags like [image:123:caption] or [file:123:caption]:
+			$content = render_inline_files( $content, $this, $params );
+		}
+
+		if( $params['render_links'] )
+		{	// Render Collection Data [link:url_field], [link:url_field]title[/link] and etc.:
+			$content = $this->render_link_data( $content, $params );
+		}
+
+		if( $params['render_custom_fields'] )
+		{	// Render Custom Fields [fields], [fields:second_numeric_field,first_string_field] or [field:first_string_field]:
+			$content = $this->render_custom_fields( $content, $params );
+		}
+
+		if( $params['render_parent'] )
+		{	// Render Parent Data [parent], [parent:fields] and etc.:
+			$content = $this->render_parent_data( $content, $params );
+		}
+
+		if( $params['render_collection'] )
+		{	// Render Collection Data [coll:name], [coll:shortname]:
+			$content = $this->render_collection_data( $content, $params );
+		}
+
+		return $content;
+	}
+
+
+	/**
 	 * Convert inline custom field tags like [fields], [fields:second_numeric_field,first_string_field] or [field:first_string_field] into HTML tags
 	 *
 	 * @param string Source content
@@ -2514,7 +2596,7 @@ class Item extends ItemLight
 	function render_parent_data( $content, $params = array() )
 	{
 		if( isset( $params['check_code_block'] ) && $params['check_code_block'] && ( ( stristr( $content, '<code' ) !== false ) || ( stristr( $content, '<pre' ) !== false ) ) )
-		{	// Call $this->render_custom_fields() on everything outside code/pre:
+		{	// Call $this->render_parent_data() on everything outside code/pre:
 			$params['check_code_block'] = false;
 			$content = callback_on_non_matching_blocks( $content,
 				'~<(code|pre)[^>]*>.*?</\1>~is',
@@ -2576,6 +2658,225 @@ class Item extends ItemLight
 						break;
 				}
 			}
+		}
+
+		return $content;
+	}
+
+
+	/**
+	 * Convert inline collection tags into HTML tags like:
+	 *    [coll:name]
+	 *    [coll:shortname]
+	 *
+	 * @param string Source content
+	 * @param array Params
+	 * @return string Content
+	 */
+	function render_collection_data( $content, $params = array() )
+	{
+		if( isset( $params['check_code_block'] ) && $params['check_code_block'] && ( ( stristr( $content, '<code' ) !== false ) || ( stristr( $content, '<pre' ) !== false ) ) )
+		{	// Call $this->render_collection_data() on everything outside code/pre:
+			$params['check_code_block'] = false;
+			$content = callback_on_non_matching_blocks( $content,
+				'~<(code|pre)[^>]*>.*?</\1>~is',
+				array( $this, 'render_collection_data' ), array( $params ) );
+			return $content;
+		}
+
+		// Find all matches with tags of collection data:
+		preg_match_all( '/\[coll:([a-z]+)\]/i', $content, $tags );
+
+		if( count( $tags[0] ) > 0 )
+		{	// If at least one collection tag is found in content:
+			$item_Blog = & $this->get_Blog();
+
+			foreach( $tags[0] as $t => $source_tag )
+			{
+				switch( $tags[1][ $t ] )
+				{
+					case 'name':
+						// Render collection name:
+						$content = str_replace( $source_tag, $item_Blog->get( 'name' ), $content );
+						break;
+
+					case 'shortname':
+						// Render collection short name:
+						$content = str_replace( $source_tag, $item_Blog->get( 'shortname' ), $content );
+						break;
+				}
+			}
+		}
+
+		return $content;
+	}
+
+
+	/**
+	 * Convert inline link tags into HTML tags like:
+	 *    [link:url_field]
+	 *    [link:url_field]title[/link]
+	 *    [link:url_field:.class1.class2]title[/link]
+	 * url_field is code of custom item field with type "URL"
+	 *
+	 * @param string Source content
+	 * @param array Params
+	 * @return string Content
+	 */
+	function render_link_data( $content, $params = array() )
+	{
+		if( isset( $params['check_code_block'] ) && $params['check_code_block'] && ( ( stristr( $content, '<code' ) !== false ) || ( stristr( $content, '<pre' ) !== false ) ) )
+		{	// Call $this->render_link_data() on everything outside code/pre:
+			$params['check_code_block'] = false;
+			$content = callback_on_non_matching_blocks( $content,
+				'~<(code|pre)[^>]*>.*?</\1>~is',
+				array( $this, 'render_link_data' ), array( $params ) );
+			return $content;
+		}
+
+		// Find all matches with tags of link data:
+		preg_match_all( '/\[(parent:)?link:([^\]]+)\]((.*?)\[\/link\])?/i', $content, $tags );
+
+		if( count( $tags[0] ) > 0 )
+		{	// If at least one link tag is found in content:
+			foreach( $tags[0] as $t => $source_tag )
+			{	// Render URL custom field as html:
+				$field_Item = $this;
+				if( $tags[1][ $t ] == 'parent:' && ! ( $field_Item = & $this->get_parent_Item() ) )
+				{	// If parent doesn't exist:
+					$content = substr_replace( $content, '<span class="text-danger">'.T_('This item has no parent.').'</span>', strpos( $content, $source_tag ), strlen( $source_tag ) );
+					continue;
+				}
+
+				$link_data = explode( ':', $tags[2][ $t ] );
+
+				// Get field code:
+				$url_field_code = trim( $link_data[0] );
+
+				$field_value = $field_Item->get_custom_field_value( $url_field_code, 'url' );
+				if( $field_value === false )
+				{	// Wrong field request, display error:
+					$link_html = '<span class="text-danger">'.sprintf( T_('The URL field "%s" does not exist'), $url_field_code ).'</span>';
+				}
+				else
+				{	// Display URL field as html link:
+					$link_class = empty( $link_data[1] ) ? '' : ' class="'.trim( str_replace( '.', ' ', $link_data[1] ) ).'"';
+					$link_text = empty( $tags[4][ $t ] ) ? $field_value : $tags[4][ $t ];
+					$link_html = '<a href="'.$field_value.'"'.$link_class.'>'.$link_text.'</a>';
+				}
+				$content = substr_replace( $content, $link_html, strpos( $content, $source_tag ), strlen( $source_tag ) );
+			}
+		}
+
+		return $content;
+	}
+
+
+	/**
+	 * Convert inline content block tags like [include:123], [include:item-slug] into item/post content
+	 *
+	 * @param string Source content
+	 * @param array Params
+	 * @return string Content
+	 */
+	function render_content_blocks( $content, $params = array() )
+	{
+		global $content_block_items;
+
+		if( isset( $params['check_code_block'] ) && $params['check_code_block'] && ( ( stristr( $content, '<code' ) !== false ) || ( stristr( $content, '<pre' ) !== false ) ) )
+		{	// Call $this->render_content_blocks() on everything outside code/pre:
+			$params['check_code_block'] = false;
+			$content = callback_on_non_matching_blocks( $content,
+				'~<(code|pre)[^>]*>.*?</\1>~is',
+				array( $this, 'render_content_blocks' ), array( $params ) );
+			return $content;
+		}
+
+		// Find all matches with tags of content block posts:
+		preg_match_all( '/\[include:?([^\]]*)?\]/i', $content, $tags );
+
+		$ItemCache = & get_ItemCache();
+
+		foreach( $tags[0] as $t => $source_tag )
+		{
+			$item_ID_slug = trim( $tags[1][ $t ] );
+
+			if( ! ( $content_Item = & $ItemCache->get_by_ID( $item_ID_slug, false, false ) ) )
+			{	// Try to get item by slug if it is not found by ID:
+				$content_Item = & $ItemCache->get_by_urltitle( $item_ID_slug, false, false );
+			}
+
+			if( ! $content_Item || $content_Item->get_type_setting( 'usage' ) != 'content-block' )
+			{	// Item is not found by ID and slug or it is not a content block:
+				if( $content_Item )
+				{	// It is not a content block:
+					$wrong_item_info = '#'.$content_Item->ID.' '.$content_Item->get( 'title' );
+				}
+				else
+				{	// Item is not found:
+					$wrong_item_info = '<code>'.$item_ID_slug.'</code>';
+				}
+				// Replace inline content block tag with error message about wrong referenced item:
+				$content = str_replace( $source_tag, '<p class="red">'.sprintf( T_('The referenced Item (%s) is not a Content Block.'), utf8_trim( $wrong_item_info ) ).'</p>', $content );
+				continue;
+			}
+
+			if( ! isset( $content_block_items ) )
+			{	// Initialize global array to avoid recursion:
+				$content_block_items = array();
+			}
+
+			if( in_array( $content_Item->ID, $content_block_items ) )
+			{	// Replace inline content block tag with error message about recursion:
+				$content = str_replace( $source_tag, '<p class="red">'.sprintf( T_('Content inclusion loop detected. Not including "%s".'), '#'.$content_Item->ID.' '.$content_Item->get( 'title' ) ).'</p>', $content );
+				continue;
+			}
+
+			// Store current item in global array to avoid recursion:
+			array_unshift( $content_block_items, $content_Item->ID );
+
+			// Start to collect item content in buffer:
+			ob_start();
+
+			if( ! empty( $params['image_size'] ) )
+			{	// Display images that are linked to this post:
+				$teaser_image_positions = 'teaser,teaserperm,teaserlink';
+				if( ! empty( $params['include_cover_images'] ) )
+				{	// Include the cover images on teaser place:
+					$teaser_image_positions = 'cover,'.$teaser_image_positions;
+				}
+				$content_Item->images( array_merge( $params, array(
+						'restrict_to_image_position' => $teaser_image_positions,
+					) ) );
+			}
+
+			// Display CONTENT (at least the TEASER part):
+			$content_Item->content_teaser( $params );
+
+			if( ! empty( $params['image_size'] ) && $content_Item->has_content_parts( $params ) /* only if not displayed all images already */ )
+			{	// Display images that are linked "after more" to this post:
+				$content_Item->images( array_merge( $params, array(
+						'restrict_to_image_position' => 'aftermore',
+					) ) );
+			}
+
+			// Display the "after more" part of the text: (part after "[teaserbreak]")
+			$content_Item->content_extension( $params );
+
+			// Links to post pages (for multipage posts):
+			$content_Item->page_links( $params );
+
+			// Display Item footer text (text can be edited in Blog Settings):
+			$content_Item->footer( $params );
+
+			// Get item content from buffer:
+			$current_tag_item_content = ob_get_clean();
+
+			// Replace inline content block tag with item content:
+			$content = str_replace( $source_tag, $current_tag_item_content, $content );
+
+			// Remove 
+			array_shift( $content_block_items );
 		}
 
 		return $content;
@@ -2674,6 +2975,11 @@ class Item extends ItemLight
 	 * Does the post have different content parts (teaser/extension, divided by "[teaserbreak]")?
 	 * This is also true for posts that have images with "aftermore" position.
 	 *
+	 * @todo fp> This is a heavy operation! We should probably store the presence of `[teaserbreak]` in a var so that future cals do not rexecute again.
+	 *           BUT first we need to know why we're interested in $params['disppage'], $params['format']  (or better said: in wgat case are we using different values for this?)
+	 *           ALSO we should probably store the position of [teaserbreak] for even better performance
+	 *           ALSO we may want to store that at UPDATE time, into the DB, so we have super fast access to it.
+	 *
 	 * @access public
 	 * @return boolean
 	 */
@@ -2685,13 +2991,26 @@ class Item extends ItemLight
 				'format'   => 'htmlbody',
 			), $params );
 
-		$content_page = $this->get_content_page( $params['disppage'], $params['format'] );
+		if( ! isset( $this->cache_has_content_parts ) )
+		{	// Initialize an array for cache results:
+			$this->cache_has_content_parts = array();
+		}
 
-		// Remove <code> and <pre> blocks from content to don't check [teaserbreak] there
-		$content_page = preg_replace( '~<(code|pre)[^>]*>.*?</\1>~is', '', $content_page );
+		if( ! isset( $this->cache_has_content_parts[ $params['disppage'].$params['format'] ] ) )
+		{	// Initialize result only first time and store in cache in order to don't execute a heavy operation twice:
+			$content_page = $this->get_content_page( $params['disppage'], $params['format'] );
 
-		return strpos( $content_page, '[teaserbreak]' ) !== false
-			|| $this->get_images( array( 'restrict_to_image_position' => 'aftermore' ) );
+			// Replace <code> and <pre> blocks from content because we're not interested in [teaserbreak] in there
+			$content_page = preg_replace( '~<(code|pre)[^>]*>.*?</\1>~is', '*', $content_page );
+
+			// Store result in cache for requested page and format:
+			$this->cache_has_content_parts[ $params['disppage'].$params['format'] ] =
+				   strpos( $content_page, '[teaserbreak]' ) !== false
+				|| $this->get_images( array( 'restrict_to_image_position' => 'aftermore' ) );
+		}
+
+		// Get a result from cache or from recently initialized var above:
+		return $this->cache_has_content_parts[ $params['disppage'].$params['format'] ];
 	}
 
 
@@ -2719,7 +3038,7 @@ class Item extends ItemLight
 	function deadline_time( $format = '', $useGM = false )
 	{
 		if( empty($format) )
-			echo mysql2date( locale_timefmt(), $this->datedeadline, $useGM );
+			echo mysql2date( locale_shorttimefmt(), $this->datedeadline, $useGM );
 		else
 			echo mysql2date( $format, $this->datedeadline, $useGM );
 	}
@@ -2914,7 +3233,7 @@ class Item extends ItemLight
 		}
 		else
 		{	// Deprecated since v5, left for compatibility with old skins
-			$params['before']		= isset($args[0]) ? $args[0] : '<p class="evo_post_pagination">'.T_('Pages:').' ';
+			$params['before']		= isset($args[0]) ? $args[0] : '<p class="evo_post_pagination">'.T_('Pages').': ';
 			$params['after']		= isset($args[1]) ? $args[1] : '</p>';
 			$params['separator']	= isset($args[2]) ? $args[2] : ' ';
 			$params['single']		= isset($args[3]) ? $args[3] : '';
@@ -2944,7 +3263,7 @@ class Item extends ItemLight
 	function get_page_links( $params = array(), $format = 'htmlbody' )
 	{
 		$params = array_merge( array(
-					'before'       => '<p class="evo_post_pagination">'.T_('Pages:').' ',
+					'before'       => '<p class="evo_post_pagination">'.T_('Pages').': ',
 					'after'        => '</p>',
 					'separator'    => ' ',
 					'single'       => '',
@@ -3082,7 +3401,7 @@ class Item extends ItemLight
 			$link_rel = isset( $params['image_link_rel'] ) ? $params['image_link_rel'] : '';
 		}
 		else
-		{ // We're linking to the original image, let lighbox (or clone) quick in:
+		{ // We're linking to the original image, let lightbox (or clone) kick in:
 			$link_title =  ( empty( $params['image_link_title'] ) && !isset( $params['hide_image_link_title'] ) ) ? '#desc#' : $params['image_link_title'];	// This title will be used by lightbox (colorbox for instance)
 			$link_rel = isset( $params['image_link_rel'] ) ? $params['image_link_rel'] : 'lightbox[p'.$this->ID.']';	// Make one "gallery" per post.
 		}
@@ -4122,7 +4441,7 @@ class Item extends ItemLight
 			if( $edit_comments_link == '#' )
 			{	// Use default link:
 				global $admin_url;
-				$edit_comments_link = '<a href="'.$admin_url.'?ctrl=items&amp;blog='.$this->get_blog_ID().'&amp;p='.$this->ID.'#comments" title="'.T_('Moderate these feedbacks').'">'.get_icon( 'edit' ).' '.T_('Moderate...').'</a>';
+				$edit_comments_link = '<a href="'.$admin_url.'?ctrl=items&amp;blog='.$this->get_blog_ID().'&amp;p='.$this->ID.'#comments" title="'.T_('Moderate these feedbacks').'">'.get_icon( 'edit' ).' '.T_('Moderate').'...</a>';
 			}
 		}
 		else
@@ -4820,7 +5139,7 @@ class Item extends ItemLight
 			return false;
 		}
 
-		if( $text == '#' ) $text = get_icon( 'deprecate', 'imgtag' ).' '.T_('Deprecate!');
+		if( $text == '#' ) $text = get_icon( 'deprecate', 'imgtag' ).' '.T_('Deprecate').'!';
 		if( $title == '#' ) $title = T_('Deprecate this post!');
 
 		if( !empty( $redirect_to ) )
@@ -5258,6 +5577,7 @@ class Item extends ItemLight
 				'podcast'       => '#',						// handle as podcast. # means depending on post type
 				'before_podplayer' => '<div class="podplayer">',
 				'after_podplayer'  => '</div>',
+				'link_class'     => ''
 			), $params );
 
 		if( $params['podcast'] == '#' )
@@ -5287,6 +5607,11 @@ class Item extends ItemLight
 			$r = $params['before'];
 
 			$r .= '<a href="'.str_replace( '$url$', $this->url, $params['url_template'] ).'"';
+
+			if( !empty( $params['link_class'] ) )
+			{
+				$r .= ' class="'.$params['link_class'].'"';
+			}
 
 			if( !empty( $params['target'] ) )
 			{
@@ -5870,8 +6195,19 @@ class Item extends ItemLight
 			$this->set( 'dateset', 1 );
 		}
 
+		$dbchanges = $this->dbchanges; // we'll save this for passing it to the plugin hook
+
 		// Check whether any db change has been executed
 		$db_changed = false;
+
+		if( ! empty( $dbchanges['post_ityp_ID'] ) )
+		{	// If item type has been changed to another,
+			// Clear all custom fields values of previous item type:
+			// NOTE: Call this before item settings updating in order to don't remove values of new selected item type:
+			$DB->query( 'DELETE FROM T_items__item_settings
+				WHERE iset_item_ID = '.$this->ID.'
+					AND iset_name LIKE "custom\_%"' );
+		}
 
 		// save Item settings
 		if( isset( $this->ItemSettings ) )
@@ -5898,8 +6234,6 @@ class Item extends ItemLight
 
 		// TODO: dh> allow a plugin to cancel update here (by returning false)?
 		$Plugins->trigger_event( 'PrependItemUpdateTransact', $params = array( 'Item' => & $this ) );
-
-		$dbchanges = $this->dbchanges; // we'll save this for passing it to the plugin hook
 
 		$result = true;
 		// fp> note that dbchanges isn't actually 100% accurate. At this time it does include variables that actually haven't changed.
@@ -6209,6 +6543,11 @@ class Item extends ItemLight
 		// Autogenerated excerpts should NEVER show anything after [teaserbreak] or after [pagebreak]
 		$content_parts = $this->get_content_parts( array( 'disppage' => 1 ) );
 		$first_content_part = array_shift( $content_parts );
+
+		// Render inline tags to HTML code, except of inline file tags because they are removed below:
+		$first_content_part = $this->render_inline_tags( $first_content_part, array(
+				'render_inline_files' => false
+			) );
 
 		// Remove shorttags from excerpt // [image:123:caption:.class] [file:123:caption:.class] [inline:123:.class] etc:
 		$first_content_part = preg_replace( '/\[[a-z]+\]:[^\]]*\]/i', '', $first_content_part );
@@ -6578,6 +6917,7 @@ class Item extends ItemLight
 		$SQL->FROM_add( 'LEFT JOIN T_users__usersettings ON uset_user_ID = user_ID AND uset_name = "'.$notify_moderation_setting_name.'"' );
 		$SQL->FROM_add( 'LEFT JOIN T_groups ON grp_ID = user_grp_ID' );
 		$SQL->WHERE( $notify_condition );
+		$SQL->WHERE_and( 'user_status IN ( "activated", "autoactivated" )' );
 		$SQL->WHERE_and( '( bloguser_perm_edit IS NOT NULL AND bloguser_perm_edit <> "no" AND bloguser_perm_edit <> "own" )
 				OR ( bloggroup_perm_edit IS NOT NULL AND bloggroup_perm_edit <> "no" AND bloggroup_perm_edit <> "own" )
 				OR ( grp_perm_blogs = "editall" ) OR ( user_ID = blog_owner_user_ID )' );
@@ -6802,20 +7142,76 @@ class Item extends ItemLight
 
 		// Get list of users who want to be notified:
 		// TODO: also use extra cats/blogs??
-		$SQL = new SQL( 'Get list of users who want to be notified (and have not yet been notified) about new items on colection #'.$this->get_blog_ID() );
-		$SQL->SELECT( 'DISTINCT sub_user_ID' );
-		$SQL->FROM( 'T_subscriptions' );
-		$SQL->WHERE( 'sub_coll_ID = '.$this->get_blog_ID() );
-		$SQL->WHERE_and( 'sub_items <> 0' );
+		$sql = 'SELECT user_ID
+				FROM (
+					SELECT DISTINCT sub_user_ID AS user_ID
+					FROM T_subscriptions
+					INNER JOIN T_users ON user_ID = sub_user_ID
+					WHERE sub_coll_ID = '.$this->get_blog_ID().'
+					AND sub_items <> 0
+					AND user_status IN ( "activated", "autoactivated" )
+
+					UNION
+
+					SELECT user_ID
+					FROM T_coll_settings AS opt
+					INNER JOIN T_blogs ON ( blog_ID = opt.cset_coll_ID AND blog_advanced_perms = 1 )
+					INNER JOIN T_coll_settings AS sub ON ( sub.cset_coll_ID = opt.cset_coll_ID AND sub.cset_name = "allow_subscriptions" AND sub.cset_value = 1 )
+					LEFT JOIN T_coll_group_perms ON ( bloggroup_blog_ID = opt.cset_coll_ID AND bloggroup_ismember = 1 )
+					LEFT JOIN T_users ON ( user_grp_ID = bloggroup_group_ID )
+					LEFT JOIN T_subscriptions ON ( sub_coll_ID = opt.cset_coll_ID AND sub_user_ID = user_ID )
+					WHERE opt.cset_coll_ID = '.$this->get_blog_ID().'
+						AND opt.cset_name = "opt_out_subscription"
+						AND opt.cset_value = 1
+						AND NOT user_ID IS NULL
+						AND ( ( sub_items IS NULL OR sub_items = 1 ) )
+						AND user_status IN ( "activated", "autoactivated" )
+
+					UNION
+
+					SELECT sug_user_ID
+					FROM T_coll_settings AS opt
+					INNER JOIN T_blogs ON ( blog_ID = opt.cset_coll_ID AND blog_advanced_perms = 1 )
+					INNER JOIN T_coll_settings AS sub ON ( sub.cset_coll_ID = opt.cset_coll_ID AND sub.cset_name = "allow_subscriptions" AND sub.cset_value = 1 )
+					LEFT JOIN T_coll_group_perms ON ( bloggroup_blog_ID = opt.cset_coll_ID AND bloggroup_ismember = 1 )
+					LEFT JOIN T_users__secondary_user_groups ON ( sug_grp_ID = bloggroup_group_ID )
+					LEFT JOIN T_subscriptions ON ( sub_coll_ID = opt.cset_coll_ID AND sub_user_ID = sug_user_ID )
+					LEFT JOIN T_users ON ( user_ID = sub_user_ID )
+					WHERE opt.cset_coll_ID = '.$this->get_blog_ID().'
+						AND opt.cset_name = "opt_out_subscription"
+						AND opt.cset_value = 1
+						AND NOT sug_user_ID IS NULL
+						AND ( ( sub_items IS NULL OR sub_items = 1 ) )
+						AND user_status IN ( "activated", "autoactivated" )
+
+					UNION
+
+					SELECT bloguser_user_ID
+					FROM T_coll_settings AS opt
+					INNER JOIN T_blogs ON ( blog_ID = opt.cset_coll_ID AND blog_advanced_perms = 1 )
+					INNER JOIN T_coll_settings AS sub ON ( sub.cset_coll_ID = opt.cset_coll_ID AND sub.cset_name = "allow_subscriptions" AND sub.cset_value = 1 )
+					LEFT JOIN T_coll_user_perms ON ( bloguser_blog_ID = opt.cset_coll_ID AND bloguser_ismember = 1 )
+					LEFT JOIN T_subscriptions ON ( sub_coll_ID = opt.cset_coll_ID AND sub_user_ID = bloguser_user_ID )
+					LEFT JOIN T_users ON ( user_ID = sub_user_ID )
+					WHERE opt.cset_coll_ID = '.$this->get_blog_ID().'
+						AND opt.cset_name = "opt_out_subscription"
+						AND opt.cset_value = 1
+						AND NOT bloguser_user_ID IS NULL
+						AND ( ( sub_items IS NULL OR sub_items = 1 ) )
+						AND user_status IN ( "activated", "autoactivated" )
+				) AS users
+				WHERE NOT user_ID IS NULL';
+
 		if( ! empty( $already_notified_user_IDs ) )
-		{	// Create condition to not select already notified moderator users:
-			$SQL->WHERE_and( 'sub_user_ID NOT IN ( '.implode( ',', $already_notified_user_IDs ).' )' );
+		{
+			$sql .= ' AND user_ID NOT IN ( '.implode( ',', $already_notified_user_IDs ).' )';
 		}
 		if( $executed_by_userid !== NULL )
-		{	// Don't notify the user who just created/updated this post:
-			$SQL->WHERE_and( 'sub_user_ID != '.$DB->quote( $executed_by_userid ) );
+		{
+			$sql .= ' AND user_ID != '.$DB->quote( $executed_by_userid );
 		}
-		$notify_users = $DB->get_col( $SQL->get(), 0, $SQL->title );
+
+		$notify_users = $DB->get_col( $sql, 0, 'Get users to be notified', 0, 'Get list of users who want to be notified (and have not yet been notified) about new items on colection #'.$this->get_blog_ID() );
 
 		$Debuglog->add( 'Number of users who want to be notified (and have not yet been notified) about new items on colection #'.$this->get_blog_ID().' = '.count($notify_users), 'notifications' );
 		$Debuglog->add( 'First 10 user IDs: '.implode( ',', array_slice($notify_users, 0, 10) ), 'notifications' );
@@ -7041,7 +7437,7 @@ class Item extends ItemLight
 					$ping_messages[] = sprintf( T_('Pinging %s...'), $Plugin->ping_service_name );
 					$params = array( 'Item' => & $this, 'xmlrpcresp' => NULL, 'display' => false );
 
-					$r = $r && ( $Plugin->ItemSendPing( $params ) );
+					$r = $Plugin->ItemSendPing( $params ) && $r;
 
 					if( ! empty( $params['xmlrpcresp'] ) )
 					{
@@ -8344,7 +8740,7 @@ class Item extends ItemLight
 	/**
 	 * Get custom fields of post type
 	 *
-	 * @param string Type(s) of custom field: 'all', 'varchar', 'double', 'text', 'html'. Use comma separator to get several types
+	 * @param string Type(s) of custom field: 'all', 'varchar', 'double', 'text', 'html', 'url'. Use comma separator to get several types
 	 * @return array
 	 */
 	function get_type_custom_fields( $type = 'all' )
@@ -8497,7 +8893,7 @@ class Item extends ItemLight
 			.$this->get_setting( 'metadesc' ).' '
 			.$this->get_setting( 'metakeywords' ).' ';
 		// + all text custom fields:
-		$text_custom_fields = $this->get_type_custom_fields( 'varchar' );
+		$text_custom_fields = $this->get_type_custom_fields( 'varchar,text,html' );
 		foreach( $text_custom_fields as $field_index => $text_custom_field )
 		{
 			$search_string .= $this->get_custom_field_value( $field_index ).' ';

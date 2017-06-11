@@ -654,7 +654,7 @@ function phpbb_import_users()
 					'user_login'              => $user_login,
 					'user_email'              => $phpbb_user->user_email,
 					'user_created_datetime'   => date( 'Y-m-d H:i:s', $phpbb_user->user_regdate ),
-					'user_profileupdate_date' => date( 'Y-m-d', $phpbb_user->user_regdate ),
+					'user_profileupdate_date' => date( 'Y-m-d H:i:s', $phpbb_user->user_regdate ),
 					'user_locale'             => 'en-US'
 				);
 			if( $phpbb_version == 3 )
@@ -1362,7 +1362,7 @@ function phpbb_import_topics()
 			$DB->query( 'INSERT INTO '.$tableprefix.'slug ( slug_title, slug_type, slug_itm_ID ) VALUES
 					( '.$DB->quote( $canonical_slug ).', '.$DB->quote( 'item' ).', '.$DB->quote( $item_ID ).' ),
 					( '.$DB->quote( $second_slug ).', '.$DB->quote( 'item' ).', '.$DB->quote( $item_ID ).' )' );
-			$canonical_slug_ID = $DB->last_id;
+			$canonical_slug_ID = $DB->insert_id;
 
 			// Insert a tiny slug for the post
 			/*
@@ -1899,7 +1899,7 @@ function phpbb_import_messages()
 			$DB->query( 'INSERT INTO '.$tableprefix.'messaging__thread ( thrd_title, thrd_datemodified )
 					VALUES ( '.$DB->quote( $message->subject ).', '.$DB->quote( date( 'Y-m-d H:i:s', $message->time ) ).' )' );
 
-			$thread_ID = $DB->last_id;
+			$thread_ID = $DB->insert_id;
 
 			// Import all messages from this thread
 			$count_messages = phpbb_import_messages_texts( $thread_ID, $message );
@@ -2226,7 +2226,7 @@ function phpbb_subforums_list( & $Form, $cat_id, $forum_parent_id = 0 )
 function phpbb_get_config( $name )
 {
 	global $phpbb_DB, $phpbb_config;
-	
+
 	if( ! is_array( $phpbb_config ) )
 	{	// Initialize config array only first time:
 		$phpbb_config = array();
@@ -2608,10 +2608,6 @@ function phpbb_get_attachments_insert_data( $target_type, $path_attachments, $ta
 		$author_ID = $users_IDs[ (string) $attachment->poster_id ];
 
 		$FileRootCache = & get_FileRootCache();
-			$DB->query( 'INSERT INTO '.$tableprefix.'links
-				       ( link_datecreated, link_datemodified, link_creator_user_ID, link_lastedit_user_ID, link_usr_ID, link_file_ID, link_position, link_order )
-				VALUES ( '.$DB->quote( date( 'Y-m-d H:i:s', $localtimenow ) ).', '.$DB->quote( date( 'Y-m-d H:i:s', $localtimenow ) ).', '.$DB->quote( $user_ID ).', '.$DB->quote( $user_ID ).', '.$DB->quote( $user_ID ).', '.$DB->quote( $imported_file_ID ).', "aftermore", 1 )' );
-
 		if( $target_type == 'msg' )
 		{	// Get root for private messages:
 			$object_FileRoot = & $FileRootCache->get_by_type_and_ID( 'user', $author_ID );
@@ -2706,7 +2702,7 @@ function phpbb_check_step( $step_name )
 	{	// User tries open previous step that already been processed
 		phpbb_log( T_('This import step has already been processed.'), 'error', ' ' );
 		// Continue button
-		// echo '<input type="submit" class="SaveButton" value="'.( $steps_levels[ $step_name ] < max( $steps_levels ) ? T_('Continue!') : T_('Go to Forum') ).'" name="submit" />';
+		// echo '<input type="submit" class="SaveButton" value="'.( $steps_levels[ $step_name ] < max( $steps_levels ) ? T_('Continue').'!' : T_('Go to Forum') ).'" name="submit" />';
 		return false;
 	}*/
 
