@@ -1333,7 +1333,7 @@ class DB
 		if( $html )
 		{ // poor man's indent
 			$sql = htmlspecialchars( $sql );
-			$sql = preg_replace_callback("~^(\s+)~m", create_function('$m', 'return str_replace(" ", "&#160;", $m[1]);'), $sql);
+			$sql = preg_replace_callback("~^(\s+)~m", function($m) { return str_replace(" ", "&#160;", $m[1]);}, $sql);
 			$sql = nl2br($sql);
 		}
 		return $sql;
@@ -1385,11 +1385,13 @@ class DB
 		{
 			$count_queries++;
 
-			$get_md5_query = create_function( '', '
+			$get_md5_query = function()
+			{
 				static $r; if( isset($r) ) return $r;
 				global $query;
 				$r = md5(serialize($query))."-".rand();
-				return $r;' );
+				return $r;
+			};
 
 			if ( $html )
 			{
