@@ -605,9 +605,9 @@ function strmaxlen( $str, $maxlen = 50, $tail = NULL, $format = 'raw', $cut_at_w
 function strmaxwords( $str, $maxwords = 50, $params = array() )
 {
 	$params = array_merge( array(
-			'cutting_mark' => '…',
-			'continued_link' => '',
-			'continued_text' => '…',
+			'cutting_mark'    => '…',
+			'continued_link'  => '',
+			'continued_text'  => '…',
 			'continued_class' => '',
 			'always_continue' => false,
 		), $params );
