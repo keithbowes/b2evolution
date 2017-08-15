@@ -427,7 +427,7 @@ class DB
 		}
 		elseif( ! empty( $evo_charset ) )
 		{ // Use the internal charset if it is defined
-			$this->set_connection_charset( $evo_charset, true );
+			$this->set_connection_charset( $evo_charset );
 		}
 
 		/*
@@ -1771,7 +1771,6 @@ class DB
 	 *
 	 * @staticvar array "regular charset => mysql charset map"
 	 * @param string Charset
-	 * @param boolean Use the "regular charset => mysql charset map"?
 	 * @return boolean true on success, false on failure
 	 */
 	protected function set_connection_charset( $charset )
