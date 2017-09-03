@@ -260,22 +260,7 @@ class Skin extends DataObject
 						'error'   => T_('Invalid color code.')
 					);
 			}
-
-			if( isset( $parmeta['type'] ) && $parmeta['type'] == 'input_group' )
-			{
-				if( ! empty( $parmeta['inputs'] ) )
-				{
-					foreach( $parmeta['inputs'] as $l_parname => $l_parmeta )
-					{
-						$l_parmeta['group'] = $parname; // inject group into meta
-						autoform_set_param_from_request( $l_parname, $l_parmeta, $this, 'Skin' );
-					}
-				}
-			}
-			else
-			{
-				autoform_set_param_from_request( $parname, $parmeta, $this, 'Skin' );
-			}
+			autoform_set_param_from_request( $parname, $parmeta, $this, 'Skin' );
 		}
 	}
 
@@ -664,14 +649,14 @@ class Skin extends DataObject
 
 		//
 		echo '<div class="legend">';
-		if( isset( $disp_params[ 'function' ] ) )
+		if( isset( $disp_params['function'] ) )
 		{
 			echo '<div class="actions">';
-			switch( $disp_params[ 'function' ] )
+			switch( $disp_params['function'] )
 			{
 				case 'broken':
 					echo '<span class="text-danger">';
-					if( !empty($disp_params[ 'msg' ]) )
+					if( ! empty( $disp_params['msg'] ) )
 					{
 						echo $disp_params[ 'msg' ];
 					}
@@ -680,31 +665,24 @@ class Skin extends DataObject
 						echo T_('Broken.');
 					}
 					echo '</span>';
+
+					if( ! empty( $disp_params['help_info'] ) )
+					{
+						echo ' '.get_icon( 'help', 'imgtag', array( 'title' => $disp_params['help_info'] ) );
+					}
 					break;
 
 				case 'install':
 					// Display a link to install the skin
-					if( $disp_params[ 'skin_compatible' ] )
-					{ // If skin is compatible for current selected type
-						if( ! empty( $skin_url ) )
-						{
-							echo '<a href="'.$skin_url.'" title="'.T_('Install NOW!').'">';
-							echo T_('Install NOW!').'</a>';
-						}
-						if( empty( $kind ) && get_param( 'tab' ) != 'current_skin' )
-						{	// Don't display the checkbox on new collection creating form and when we install one skin for the selected collection:
-							$skin_name_before = '<label><input type="checkbox" name="skin_folders[]" value="'.$skin_name.'" /> ';
-							$skin_name_after = '</label>';
-						}
+					if( ! empty( $skin_url ) )
+					{
+						echo '<a href="'.$skin_url.'" title="'.T_('Install NOW!').'">';
+						echo T_('Install NOW!').'</a>';
 					}
-					else
-					{ // Inform about skin type is wrong for current case
-						if( ! empty( $skin_url ) )
-						{
-							echo '<a href="'.$skin_url.'" title="'.T_('Install NOW!').'" class="red">';
-							echo T_('Wrong Type!').'</a> ';
-						}
-						echo get_icon( 'help', 'imgtag', array( 'title' => T_('This skin does not fit the blog type you are trying to create.') ) );
+					if( empty( $kind ) && get_param( 'tab' ) != 'current_skin' )
+					{	// Don't display the checkbox on new collection creating form and when we install one skin for the selected collection:
+						$skin_name_before = '<label><input type="checkbox" name="skin_folders[]" value="'.$skin_name.'" /> ';
+						$skin_name_after = '</label>';
 					}
 					break;
 
@@ -761,7 +739,7 @@ class Skin extends DataObject
 
 		if( ! empty( $group ) )
 		{ // $parname is prefixed with $group, we'll remove the group prefix
-			$parname = str_replace( $group, '', $parname );
+			$parname = substr( $parname, strlen( $group ) );
 		}
 
 		// Name of the setting in the blog settings:
@@ -1249,10 +1227,10 @@ class Skin extends DataObject
 						require_js( 'bozo_validator.js', 'blog' );
 					}
 
-					// Require File Uploader js and css:
-					init_fileuploader_js_lang_strings();
-					require_js( 'multiupload/fileuploader.js', 'blog' );
-					require_css( 'fileuploader.css', 'blog' );
+					// Require Fine Uploader js and css:
+					init_fineuploader_js_lang_strings();
+					require_js( 'multiupload/fine-uploader.js', 'blog' );
+					require_css( 'fine-uploader.css', 'blog' );
 					// Load JS files to make the links table sortable:
 					require_js( '#jquery#' );
 					require_js( 'jquery/jquery.sortable.min.js' );
@@ -1736,7 +1714,7 @@ var downloadInterval = setInterval( function()
 						// Template for plugins:
 						return array(
 								// This template is used to build a plugin toolbar with action buttons above edit item/comment area:
-								'toolbar_before'       => '<div class="btn-toolbar $toolbar_class$" role="toolbar">',
+								'toolbar_before'       => '<div class="btn-toolbar plugin-toolbar $toolbar_class$" data-plugin-toolbar="$toolbar_class$" role="toolbar">',
 								'toolbar_after'        => '</div>',
 								'toolbar_title_before' => '<div class="btn-toolbar-title">',
 								'toolbar_title_after'  => '</div>',

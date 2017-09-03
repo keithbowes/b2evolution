@@ -126,6 +126,7 @@ function score_tags( $tag_name, $search_term, $score_weight = 4 )
 	{	// We use only EXACT match for post tags:
 		$score = $score_weight;
 		$scores_map['tags'] = $score;
+		$scores_map['word_case_insensitive_match'][$tag_name] = $score;
 	}
 
 	return array( 'score' => $score, 'score_weight' => $score_weight, 'map' => $scores_map );
@@ -257,11 +258,31 @@ function get_percentage_from_result_map( $type, $scores_map, $quoted_parts, $key
  * @param string original search term
  * @param array all separated words from the search term
  * @param array all quoted parts from the search term
+ * @param string Post IDs to exclude from result, Separated with ','(comma)
  * @param number max possible score
  */
-function search_and_score_items( $search_term, $keywords, $quoted_parts )
+function search_and_score_items( $search_term, $keywords, $quoted_parts, $exclude_posts = '' )
 {
 	global $DB, $Collection, $Blog;
+
+	$exclude_posts = trim( $exclude_posts, ' ,' );
+	if( empty( $exclude_posts ) )
+	{	// No posts to exclude:
+		$exclude_posts = '';
+	}
+	else
+	{	// Check if values are correct:
+		$exclude_posts = explode( ',', $exclude_posts );
+		foreach( $exclude_posts as $e => $exclude_post )
+		{
+			$exclude_post = intval( trim( $exclude_post ) );
+			if( empty( $exclude_post ) )
+			{
+				unset( $exclude_posts[ $e ] );
+			}
+		}
+		$exclude_posts = empty( $exclude_posts ) ? '' : '-'.implode( ',', $exclude_posts );
+	}
 
 	// Prepare filters:
 	$search_ItemList = new ItemList2( $Blog, $Blog->get_timestamp_min(), $Blog->get_timestamp_max(), '', 'ItemCache', 'search_item' );
@@ -272,7 +293,8 @@ function search_and_score_items( $search_term, $keywords, $quoted_parts )
 			'itemtype_usage'=> '-sidebar', // Exclude from search: 'sidebar' item types
 			'orderby'       => 'datemodified',
 			'order'         => 'DESC',
-			'posts'         => 1000
+			'posts'         => 1000,
+			'post_ID_list'  => $exclude_posts,
 		) );
 
 	// Generate query from filters above and count results:
@@ -431,18 +453,8 @@ function search_and_score_chapters( $search_term, $keywords, $quoted_parts )
 		$scores_map['name'] = score_text( $iterator_Chapter->get( 'name' ), $search_term, $keywords, $quoted_parts, 3 );
 		$scores_map['description'] = score_text( $iterator_Chapter->get( 'description' ), $search_term, $keywords, $quoted_parts );
 
-		$post_count = get_postcount_in_category( $iterator_Chapter->ID, $Blog->ID );
-		$post_score = intval( $post_count / 3 );
-		$scores_map['post_count'] = ( $post_score > 10 ) ? 10 : $post_score;
-
-		$comment_count = get_commentcount_in_category( $iterator_Chapter->ID, $Blog->ID );
-		$comment_score = intval( $comment_count / 6 );
-		$scores_map['comment_count'] =  ( $comment_score > 10 ) ? 10 : $comment_score;
-
 		$final_score = $scores_map['name']['score']
-			+ $scores_map['description']['score']
-			+ $scores_map['post_count']
-			+ $scores_map['comment_count'];
+			+ $scores_map['description']['score'];
 
 		$search_result[] = array(
 			'type'       => 'category',
@@ -501,8 +513,7 @@ function search_and_score_tags( $search_term, $keywords, $quoted_parts )
 
 		$scores_map = array();
 		$scores_map['name'] = score_text( $tag->tag_name, $search_term, $keywords, $quoted_parts, 3 );
-		$scores_map['post_count'] = $tag->post_count;
-		$final_score = $scores_map['name']['score'] * $tag->post_count;
+		$final_score = $scores_map['name']['score'];
 
 		$search_result[] = array(
 			'type'       => 'tag',
@@ -524,9 +535,10 @@ function search_and_score_tags( $search_term, $keywords, $quoted_parts )
  * @param string the search keywords
  * @param string What types search: 'all', 'item', 'comment', 'category', 'tag'
  *               Use ','(comma) as separator to use several kinds, e.g: 'item,comment' or 'tag,comment,category'
+ * @param string Post IDs to exclude from result, Separated with ','(comma)
  * @return array scored search result, each element is an array( type, ID, score )
  */
-function perform_scored_search( $search_keywords, $search_types = 'all' )
+function perform_scored_search( $search_keywords, $search_types = 'all', $exclude_posts = '' )
 {
 	$keywords = trim( $search_keywords );
 	if( empty( $keywords ) )
@@ -595,7 +607,7 @@ function perform_scored_search( $search_keywords, $search_types = 'all' )
 
 	if( $search_type_item )
 	{	// Perform search on Items:
-		$item_search_result = search_and_score_items( $search_keywords, $keywords, $quoted_parts );
+		$item_search_result = search_and_score_items( $search_keywords, $keywords, $quoted_parts, $exclude_posts );
 		$search_result = $item_search_result;
 		if( $debug )
 		{
@@ -1369,18 +1381,6 @@ function display_score_map( $params )
 						echo '<li>when days_passed >= 8: ( days_passed < 15 ? 2 : ( days_passed < 30 ? 1 : 0 ) )</li>';
 						echo '</ul>';
 						break;
-
-					case 'post_count':
-						if( $params['type'] == 'category' )
-						{
-							echo '<li>'.sprintf( '%d points for the amount of posts in this category. Rule: number_of_posts > 30 ? 10 : intval( number_of_posts / 3 )', $score_map ).'</li>';
-							break;
-						}
-						elseif( $params['type'] == 'tag' )
-						{
-							echo '<li>'.sprintf( '%d posts in this tag. Total points = sum( points ) * number_of_posts.', $score_map ).'</li>';
-							break;
-						}
 
 					default:
 						echo '<li>'.sprintf( '%d points for [%s]', $score_map, $result_part ).'</li>';

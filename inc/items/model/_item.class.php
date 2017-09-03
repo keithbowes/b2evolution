@@ -369,7 +369,28 @@ class Item extends ItemLight
 		else
 		{
 			$this->datecreated = $db_row->post_datecreated;           // When Item was created in the system
-			$this->last_touched_ts = $db_row->post_last_touched_ts;   // When Item received last visible change (edit, comment, etc.)
+
+			// post_last_touched_ts : When Item received last visible change (edit, comment, etc.)
+			// Used for:
+			//   - Sorting posts if configured this way in collection features.
+			// Updated when:
+			//   - ANY item field is updated,
+			//   - link, unlink an attachment, update an attached file, change a link order
+			//   - any child COMMENT of the post is added/updated/deleted,
+			//   - link, unlink an attachment, update an attached file, change a link order on any comment
+			$this->last_touched_ts = $db_row->post_last_touched_ts;
+
+			// post_contents_last_updated_ts : When Item received last content change
+			// Used for:
+			//   - Knowing if current user has seen the updates on the post
+			//   - Sorting forums (by default; can be changed in collection features)
+			// Updated only when:
+			//   - at least ONE of the fields: title, content, url is updated --> Especially: don't update on status change, workflow change, because it doesn't affect whether users have seen latest content changes or not
+			//   - link, unlink an attachment, update an attached file (note: link order changes are not recorded because it doesn't affect whether users have seen lastest content changes)
+			//   - a child COMMENT of the post that can be seen in the front-office is added or updated (only Content or Rating fields, or front-office visibility is changed from NOT front-office visibility) (but don't update on deleted comments or invisible comments -- When deleting a comment we actually recompute an OLDER timestamp based on last remaining comment, Also we recompute this when move a front-office visibility latest comment to other post OR when the latest comment becomes invisible for front-office)
+			//   - link, unlink an attachment, update an attached file on child comments that may be seen in front office (note: link order changes are not recorded because it doesn't affect whether users have seen latest content changes)
+			$this->contents_last_updated_ts = $db_row->post_contents_last_updated_ts;
+
 			$this->creator_user_ID = $db_row->post_creator_user_ID;   // Needed for history display
 			$this->lastedit_user_ID = $db_row->post_lastedit_user_ID; // Needed for history display
 			$this->assigned_user_ID = $db_row->post_assigned_user_ID;
@@ -4832,6 +4853,80 @@ class Item extends ItemLight
 	function edit_link( $params = array() )
 	{
 		echo $this->get_edit_link( $params );
+
+		echo_item_merge_js();
+	}
+
+
+	/**
+	 * Provide link to merge a post if user has edit rights
+	 *
+	 * @param array Params:
+	 *  - 'before': to display before link
+	 *  - 'after':    to display after link
+	 *  - 'text': link text
+	 *  - 'title': link title
+	 *  - 'class': CSS class name
+	 */
+	function get_merge_link( $params = array() )
+	{
+		global $admin_url, $current_User;
+
+		if( ! is_logged_in( false ) )
+		{	// Current User must be logged in and activated:
+			return false;
+		}
+
+		if( ! $this->ID )
+		{	// Item must be stored in DB:
+			return false;
+		}
+
+		if( ! $current_User->check_perm( 'item_post!CURSTATUS', 'edit', false, $this ) )
+		{	// User has no right to edit this Item:
+			return false;
+		}
+
+		$params = array_merge( array(
+				'before' => ' ',
+				'after'  => ' ',
+				'text'   => '#',
+				'title'  => '#',
+				'class'  => '',
+			), $params );
+
+		if( $params['text'] == '#' )
+		{
+			$params['text'] = get_icon( 'merge' ).' '.T_('Merge with...');
+		}
+		elseif( $params['text'] == '#icon#' )
+		{
+			$params['text'] = get_icon( 'merge' );
+		}
+		if( $params['title'] == '#' )
+		{
+			$params['title'] = T_('Merge with...');
+		}
+
+		$r = $params['before'];
+		$r .= '<a href="#" onclick="return evo_merge_load_window( '.$this->ID.' )"'
+					.' title="'.$params['title'].'"'
+					.( empty( $params['class'] ) ? '' : ' class="'.$params['class'].'"' ).'>'
+				.$params['text']
+			.'</a>';
+		$r .= $params['after'];
+
+		return $r;
+	}
+
+
+	/**
+	 * Template tag
+	 * @see Item::get_merge_link()
+	 */
+	function merge_link( $params = array() )
+	{
+		echo $this->get_merge_link( $params );
 	}
 
 
@@ -5903,6 +5998,19 @@ class Item extends ItemLight
 			if( $ItemType = & $ItemTypeCache->get_by_name( $item_type_name, false, false ) )
 			{	// Item type exists in DB by requested name, Use it:
 				$item_typ_ID = $ItemType->ID;
+			}
+		}
+
+		if( $post_comment_status == 'closed' || $post_comment_status == 'disabled' )
+		{	// Check if item type allows these options:
+			$ItemType = & $ItemTypeCache->get_by_ID( $item_typ_ID );
+			if( $post_comment_status == 'closed' && ! $ItemType->get( 'allow_closing_comments' ) )
+			{
+				debug_die( 'Item type "'.$ItemType->get_name().'" doesn\'t support closing comments, please set another comment status for item "'.$post_title.'"' );
+			}
+			elseif( $post_comment_status == 'disabled' && ! $ItemType->get( 'allow_disabling_comments' ) )
+			{
+				debug_die( 'Item type "'.$ItemType->get_name().'" doesn\'t support disabling comments, please set another comment status for item "'.$post_title.'"' );
 			}
 		}
 
@@ -7871,9 +7979,10 @@ class Item extends ItemLight
 	/**
 	 * Get the latest Comment on this Item
 	 *
+	 * @param array|NULL Restrict comments selection with statuses, NULL - to select only allowed statuses for current User
 	 * @return Comment
 	 */
-	function & get_latest_Comment()
+	function & get_latest_Comment( $statuses = NULL )
 	{
 		global $DB;
 
@@ -7890,7 +7999,14 @@ class Item extends ItemLight
 			$SQL->FROM( 'T_comments' );
 			$SQL->WHERE( 'comment_item_ID = '.$DB->quote( $this->ID ) );
 			$SQL->WHERE_and( 'comment_type != "meta"' );
-			$SQL->WHERE_and( statuses_where_clause( get_inskin_statuses( $this->get_blog_ID(), 'comment' ), 'comment_', $this->get_blog_ID(), 'blog_comment!', true ) );
+			if( $statuses === NULL )
+			{	// Restrict with comment statuses which are allowed for current User:
+				$SQL->WHERE_and( statuses_where_clause( get_inskin_statuses( $this->get_blog_ID(), 'comment' ), 'comment_', $this->get_blog_ID(), 'blog_comment!', true ) );
+			}
+			elseif( is_array( $statuses ) && count( $statuses ) )
+			{	// Restrict with given comment statuses:
+				$SQL->WHERE_and( 'comment_status IN ( '.$DB->quote( $statuses ).' )' );
+			}
 			$SQL->ORDER_BY( 'comment_date DESC' );
 			$SQL->LIMIT( '1' );
 
@@ -8393,7 +8509,7 @@ class Item extends ItemLight
 			return;
 		}
 
-		global $DB, $current_User, $localtimenow, $cache_items_user_data;
+		global $DB, $current_User, $localtimenow;
 
 		$timestamp = date2mysql( $localtimenow );
 
@@ -8548,13 +8664,13 @@ class Item extends ItemLight
 			$cache_items_user_data[ $this->ID ] = NULL;
 		}
 
-		if( is_null( $field ) || ! isset( $cache_items_user_data[ $this->ID ][ $field ] ) )
+		if( $field === NULL )
 		{	// Return all fields as array:
 			return $cache_items_user_data[ $this->ID ];
 		}
 		else
 		{	// Return a value of single field:
-			return $cache_items_user_data[ $this->ID ][ $field ];
+			return isset( $cache_items_user_data[ $this->ID ][ $field ] ) ? $cache_items_user_data[ $this->ID ][ $field ] : NULL;
 		}
 	}
 
@@ -8571,10 +8687,10 @@ class Item extends ItemLight
 
 		if( ! isset( $cache_items_user_data[ $this->ID ] ) || ! is_array( $cache_items_user_data[ $this->ID ] ) )
 		{	// Initialize array:
-			$cache_items_user_data[ $this->ID ][ $field ] = array();
+			$cache_items_user_data[ $this->ID ] = array();
 		}
 
-		$cache_items_user_data[ $this->ID ] = $value;
+		$cache_items_user_data[ $this->ID ][ $field ] = $value;
 	}
 
 
@@ -9565,6 +9681,138 @@ class Item extends ItemLight
 		echo $params['before'];
 		echo nl2br( $comment_form_msg );
 		echo $params['after'];
+	}
+
+
+	/**
+	 * Check if current User has a permission to refresh a contents last updated date of this Item
+	 *
+	 * @return boolean
+	 */
+	function can_refresh_contents_last_updated()
+	{
+		if( ! $this->ID )
+		{	// If this Item is not saved in DB yet:
+			return false;
+		}
+
+		if( ! is_logged_in( false ) )
+		{	// If current user is not logged in or not activated:
+			return false;
+		}
+
+		global $current_User;
+
+		if( ! $current_User->check_perm( 'item_post!CURSTATUS', 'edit', false, $this ) )
+		{	// If user has no perm to edit this Item:
+			return false;
+		}
+
+		// No restriction, Current User has a permission to refresh a contents last updated date of this Item:
+		return true;
+	}
+
+
+	/**
+	 * Get URL to refresh a contents last updated date of this Item if user has refresh rights
+	 *
+	 * @param array Params
+	 * @return string|boolean URL or FALSE if current user has no perm
+	 */
+	function get_refresh_contents_last_updated_url( $params = array() )
+	{
+		if( ! $this->can_refresh_contents_last_updated() )
+		{	// If current User has no perm to refresh:
+			return false;
+		}
+
+		$params = array_merge( array(
+				'glue' => '&amp;'
+			), $params );
+
+		$url = get_htsrv_url().'action.php?mname=collections'.$params['glue']
+			.'action=refresh_contents_last_updated'.$params['glue']
+			.'item_ID='.$this->ID.$params['glue']
+			.url_crumb( 'collections_refresh_contents_last_updated' );
+
+		return $url;
+	}
+
+
+	/**
+	 * Get a link to refresh a contents last updated date of this Item if user has refresh rights
+	 *
+	 * @param array Params
+	 */
+	function get_refresh_contents_last_updated_link( $params = array() )
+	{
+		$params = array_merge( array(
+				'before' => ' ',
+				'after'  => '',
+				'text'   => '#icon#',
+				'title'  => '#',
+				'class'  => '',
+				'glue'   => '&amp;',
+			), $params );
+
+		$refresh_url = $this->get_refresh_contents_last_updated_url( $params );
+		if( ! $refresh_url )
+		{	// If current user has no perm to refesh contents last updated date of this Item:
+			return;
+		}
+
+		if( $params['title'] == '#' )
+		{	// Use default title
+			$params['title'] = T_('Refresh "contents last updated" timestamp!');
+		}
+
+		$params['text'] = utf8_trim( $params['text'] );
+		$params['title'] = utf8_trim( $params['title'] );
+		$params['class'] = utf8_trim( $params['class'] );
+
+		$r = $params['before'];
+
+		$r .= '<a href="'.$refresh_url.'"'
+				.( empty( $params['title'] ) ? '' : ' title="'.format_to_output( $params['title'], 'htmlattr' ).'"' )
+				.( empty( $params['class'] ) ? '' : ' class="'.$params['class'].'"' )
+			.'>'
+				.str_replace( '#icon#', get_icon( 'refresh', 'imgtag', array( 'title' => $params['title'] ) ), $params['text'] )
+			.'</a>';
+
+		$r .= $params['after'];
+
+		return $r;
+	}
+
+
+	/**
+	 * Refresh contents last updated ts with date of the latest Comment
+	 *
+	 * @return boolean TRUE of success
+	 */
+	function refresh_contents_last_updated_ts()
+	{
+		if( ! $this->can_refresh_contents_last_updated() )
+		{	// If current User has no permission to refresh a contents last updated date of the requested Item:
+			return false;
+		}
+
+		if( $latest_Comment = & $this->get_latest_Comment( get_inskin_statuses( $this->get_blog_ID(), 'comment' ) ) )
+		{	// Use date from the latest public Comment:
+			$new_contents_last_updated_ts = $latest_Comment->get( 'last_touched_ts' );
+		}
+		else
+		{	// Use date from issue date of this Item:
+			$new_contents_last_updated_ts = $this->get( 'datestart' );
+		}
+
+		global $DB;
+
+		$DB->query( 'UPDATE T_items__item
+					SET post_contents_last_updated_ts = '.$DB->quote( $new_contents_last_updated_ts ).'
+				WHERE post_ID = '.$this->ID );
+
+		return true;
 	}
 }
 ?>

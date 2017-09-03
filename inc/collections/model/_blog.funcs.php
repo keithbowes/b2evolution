@@ -1054,8 +1054,9 @@ function get_inskin_statuses( $blog_ID, $type )
 
 	$BlogCache = & get_BlogCache();
 	$Collection = $Blog = $BlogCache->get_by_ID( $blog_ID );
-	$inskin_statuses = $Blog->get_setting( ( $type == 'comment' ) ? 'comment_inskin_statuses' : 'post_inskin_statuses' );
-	return explode( ',', $inskin_statuses );
+	$inskin_statuses = trim( $Blog->get_setting( ( $type == 'comment' ) ? 'comment_inskin_statuses' : 'post_inskin_statuses' ) );
+
+	return empty( $inskin_statuses ) ? array() : explode( ',', $inskin_statuses );
 }
 
 
@@ -1548,7 +1549,8 @@ function get_coll_fav_icon( $blog_ID, $params = array() )
 
 	$BlogCache = & get_BlogCache();
 	$edited_Blog = $BlogCache->get_by_ID( $blog_ID );
-	if( $edited_Blog->favorite() > 0 )
+	$is_favorite = $edited_Blog->favorite() > 0;
+	if( $is_favorite )
 	{
 		$icon = 'star_on';
 		$action = 'disable_setting';
@@ -1561,13 +1563,14 @@ function get_coll_fav_icon( $blog_ID, $params = array() )
 		$title = T_('The collection is not a favorite');
 	}
 
-	return '<a href="'.$admin_url.'?ctrl=coll_settings'
+	return '<a class="evo_post_fav_btn" href="'.$admin_url.'?ctrl=coll_settings'
 			.'&amp;tab=general'
 			.'&amp;action='.$action
 			.'&amp;setting=fav'
 			.'&amp;blog='.$blog_ID
 			.'&amp;'.url_crumb('collection').'" '
-			.'onclick="return toggleFavorite( this, \''.$edited_Blog->urlname.'\' );">'
+			.'data-coll="'.$edited_Blog->urlname.'" '
+			.'data-favorite="'.( $edited_Blog->favorite() ? '0' : '1' ).'">'
 			.get_icon( $icon, 'imgtag', $params )
 			.'</a>';
 }

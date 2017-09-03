@@ -479,10 +479,11 @@ function excerpt( $str, $maxlen = 254, $tail = '…' )
  * Get a limited text-only excerpt based on number of words
  *
  * @param string
- * @param int Maximum length
+ * @param integer Maximum length
+ * @param array Params
  * @return string
  */
-function excerpt_words( $str, $maxwords = 50 )
+function excerpt_words( $str, $maxwords = 50, $params = array() )
 {
 	// Add spaces
 	$str = str_replace( array( '<p>', '<br' ), array( ' <p>', ' <br' ), $str );
@@ -500,7 +501,7 @@ function excerpt_words( $str, $maxwords = 50 )
 	// Ger rid of all new lines and Display the html tags as source text:
 	$str = trim( preg_replace( '#[\r\n\t\s]+#', ' ', $str ) );
 
-	$str = strmaxwords( $str, $maxwords );
+	$str = strmaxwords( $str, $maxwords, $params );
 
 	return $str;
 }
@@ -652,7 +653,7 @@ function strmaxwords( $str, $maxwords = 50, $params = array() )
 		if( $maxwords < 1 )
 		{	// We have reached the cutting point:
 			break;
-		} 
+		}
 	}
 
 	if( $maxwords < 1 )
@@ -8246,7 +8247,7 @@ function render_inline_files( $content, $Object, $params = array() )
 			{
 				$content = str_replace( $current_link_tag, $rendered_link_tag, $content );
 			}
-		}	
+		}
 	}
 
 	return $content;

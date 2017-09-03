@@ -1258,7 +1258,7 @@ function require_js_helper( $helper = '', $relative_to = 'rsc_url' )
 				$colorbox_voting_params = '{'.$colorbox_strings_params.'
 					displayVoting: true,
 					votingUrl: "'.get_htsrv_url().'anon_async.php?action=voting&vote_type=link&b2evo_icons_type='.$b2evo_icons_type.$blog_param.'",
-					minWidth: 305}';
+					minWidth: 320}';
 				// Colorbox params without voting panel:
 				$colorbox_no_voting_params = '{'.$colorbox_strings_params.'
 					minWidth: 255}';
@@ -3367,7 +3367,7 @@ function init_fontawesome_icons( $icons_type = 'fontawesome', $relative_to = 'rs
 /**
  * Initialize JavaScript variables for fileuploader.js
  */
-function init_fileuploader_js_lang_strings()
+function init_fineuploader_js_lang_strings()
 {
 	// Initialize variables for the file "fileuploader.js":
 	add_js_headline( 'var evo_js_lang_file_sizes = [\''
