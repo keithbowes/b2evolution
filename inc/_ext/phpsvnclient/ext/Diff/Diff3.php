@@ -271,7 +271,7 @@ class Text_Diff3_BlockBuilder {
 
     function _append(&$array, $lines)
     {
-        array_splice($array, sizeof($array), 0, $lines);
+        array_splice($array, count($array), 0, $lines);
     }
 
 }
