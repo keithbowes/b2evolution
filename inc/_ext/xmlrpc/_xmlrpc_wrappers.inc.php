@@ -892,7 +892,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 		$plist = implode(', ', $plist);
 		$mdesc .= '* @return '.xmlrpc_2_php_type($msig[0])." (or an {$prefix}resp obj instance if call fails)\n*/\n";
 
-		$innercode .= "\$res =& \${$this_}client->send(\$msg, $timeout, '$protocol');\n";
+		$innercode .= "\$res =& {\$$this_}client->send(\$msg, $timeout, '$protocol');\n";
 		if ($decode_fault)
 		{
 			if (is_string($fault_response) && ((strpos($fault_response, '%faultCode%') !== false) || (strpos($fault_response, '%faultString%') !== false)))
