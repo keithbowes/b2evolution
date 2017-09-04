@@ -147,7 +147,6 @@ function b2evonet_get_updates( $force_short_delay = false )
 											'php_gname' => new xmlrpcval( $system_stats['php_gname'], 'string' ),	// Potential unsecure hosts will use names like 'nobody', 'www-data'
 											'php_version' => new xmlrpcval( $system_stats['php_version'], 'string' ),			// Target minimum version: PHP 5.2
 											'php_reg_globals' => new xmlrpcval( $system_stats['php_reg_globals'] ? 1 : 0, 'int' ), // if <5% we may actually refuse to run future version on this
-											'php_allow_url_include' => new xmlrpcval( $system_stats['php_allow_url_include'] ? 1 : 0, 'int' ),
 											'php_allow_url_fopen' => new xmlrpcval( $system_stats['php_allow_url_fopen'] ? 1 : 0, 'int' ),
 											// TODO php_magic quotes
 											'php_upload_max' => new xmlrpcval( $system_stats['php_upload_max'], 'int' ),
