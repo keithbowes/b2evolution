@@ -42,7 +42,7 @@ $new_db_version = 12320;
  * Minimum PHP version required for b2evolution to function properly. It will contain each module own minimum PHP version as well.
  * @global array
  */
-$required_php_version = array( 'application' => '5.2' );
+$required_php_version = array( 'application' => '5.3' );
 
 /**
  * Minimum MYSQL version required for b2evolution to function properly. It will contain each module own minimum MYSQL version as well.
