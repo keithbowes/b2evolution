@@ -425,6 +425,8 @@ function fetch_remote_page( $url, & $info, $timeout = NULL, $max_size_kb = NULL 
 		$info['used_method'] = 'fopen';
 
 		$fp = @fopen( $url, 'r' );
+		if ( ! isset( $http_response_header ) )
+			$http_response_header = get_headers();
 		if( ! $fp )
 		{
 			if( isset( $http_response_header )
