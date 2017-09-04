@@ -323,11 +323,10 @@ class Module
 	{
 		global $app_name, $app_version, $required_php_version;
 
-		$php_version = phpversion();
-		if( version_compare( $php_version, $required_php_version[ $module ], '<' ) )
+		if( version_compare( PHP_VERSION, $required_php_version[ $module ], '<' ) )
 		{
 			$error_message = sprintf( 'You cannot use %1s module of %2$s %3$s on this server because it requires PHP version %4$s or higher. You are running version %5$s.',
-								$module, $app_name, $app_version, $required_php_version[ $module ], $php_version );
+								$module, $app_name, $app_version, $required_php_version[ $module ], PHP_VERSION );
 
 			die('<h1>Insufficient Requirements</h1><p>'.$error_message.'</p>');
 		}

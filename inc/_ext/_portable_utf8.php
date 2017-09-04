@@ -249,7 +249,7 @@ function utf8_chr( $code_point )
 		{
 		return mb_convert_encoding( "&#$i;", 'UTF-8', 'HTML-ENTITIES' );
 	}
-	else if( version_compare( phpversion(), '5.0.0' ) === 1 )
+	else if( version_compare( PHP_VERSION, '5.0.0' ) === 1 )
 	{
 		//html_entity_decode did not support Multi-Byte before PHP 5.0.0
 		return html_entity_decode( "&#{$i};", ENT_QUOTES, 'UTF-8' );
@@ -1663,7 +1663,7 @@ function iconv_loaded()
 		// To disable using the iconv extension please uncomment the next line
 		// $flag = false; return;
 		$flag = extension_loaded( 'iconv' );
-		if( $flag && version_compare( phpversion(), '5.6', '<' ) )
+		if( $flag && version_compare( PHP_VERSION, '5.6', '<' ) )
 		{ // iconv is loaded and version < 5.6 set encodings to "UTF-8"
 			// in PHP version > 5.6 these settings are deprecated
 			iconv_set_encoding( "internal_encoding", "UTF-8" );

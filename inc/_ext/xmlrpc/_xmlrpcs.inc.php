@@ -522,7 +522,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 			// and compress responses sent to clients that support them
 			if(function_exists('gzinflate'))
 			{
-				if( version_compare( phpversion(), '5.4', '<' ) ||version_compare( phpversion(), '5.5', '>=' ) )
+				if( version_compare( PHP_VERSION, '5.4', '<' ) ||version_compare( PHP_VERSION, '5.5', '>=' ) )
  				{ //fplanque: disabling this in PHP 5.4 because it bugs...
  					// Note: the task of compressing will fall back to Apache
 					$this->accepted_compression = array('gzip', 'deflate');

@@ -156,11 +156,10 @@ else
 }
 
 // Check compatibility. Server PHP version can't be lower than the application's required PHP version.
-$php_version = phpversion();
-if( version_compare( $php_version, $required_php_version[ 'application' ], '<' ) )
+if( version_compare( PHP_VERSION, $required_php_version[ 'application' ], '<' ) )
 {
 	$compat = sprintf( 'You cannot use %1$s %2$s on this server because it requires PHP version %3$s or higher. You are running version %4$s.',
-				$app_name, $app_version, $required_php_version[ 'application' ], $php_version );
+				$app_name, $app_version, $required_php_version[ 'application' ], PHP_VERSION );
 
 	die('<h1>Insufficient Requirements</h1><p>'.$compat.'</p>');
 }

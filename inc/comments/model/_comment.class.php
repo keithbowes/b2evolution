@@ -300,7 +300,7 @@ class Comment extends DataObject
 	 * Note: the delete cascade arrays are handled!
 	 *
 	 * @param string the name of this class
-	 *   Note: This is required until min phpversion will be 5.3. Since PHP 5.3 we can use static::function_name to achieve late static bindings
+	 *   Note: This is required until min PHP version will be 5.3. Since PHP 5.3 we can use static::function_name to achieve late static bindings
 	 * @param string where condition
 	 * @param array object ids
 	 * @return mixed # of rows affected or false if error

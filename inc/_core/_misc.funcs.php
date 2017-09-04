@@ -333,7 +333,7 @@ function format_to_output( $content, $format = 'htmlbody' )
 		case 'htmlspecialchars':
 		case 'formvalue':
 			// Replace special chars to &amp;, &quot;, &#039;|&apos;, &lt; and &gt; :
-			if( version_compare( phpversion(), '5.4', '>=' ) )
+			if( version_compare( PHP_VERSION, '5.4', '>=' ) )
 			{	// Handles & " ' < > to &amp; &quot; &apos; &lt; &gt;
 				$content = htmlspecialchars( $content, ENT_QUOTES | ENT_HTML5, $evo_charset );
 			}
@@ -368,7 +368,7 @@ function format_to_output( $content, $format = 'htmlbody' )
 
 		case 'syslog':
 			// Replace special chars to &amp;, &quot;, &#039;|&apos;, &lt; and &gt; :
-			if( version_compare( phpversion(), '5.4', '>=' ) )
+			if( version_compare( PHP_VERSION, '5.4', '>=' ) )
 			{	// Handles & " ' < > to &amp; &quot; &apos; &lt; &gt;
 				$content = htmlspecialchars( $content, ENT_QUOTES | ENT_HTML5, $evo_charset );
 			}
@@ -3856,7 +3856,7 @@ function send_mail( $to, $to_name, $subject, $message, $from = NULL, $from_name 
 	$headers['Date'] = gmdate( 'r', $servertimenow );
 
 	// ADDITIONAL HEADERS:
-	$headers['X-Mailer'] = $app_name.' '.$app_version.' - PHP/'.phpversion();
+	$headers['X-Mailer'] = $app_name.' '.$app_version.' - PHP/'.PHP_VERSION;
 	$ip_list = implode( ',', get_ip_list() );
 	if( !empty( $ip_list ) )
 	{ // Add X-Remote_Addr param only if its value is not empty
@@ -7398,7 +7398,7 @@ function evo_sendcookies()
 		return;
 	}
 
-	$php_version_52 = version_compare( phpversion(), '5.2', '>=' );
+	$php_version_52 = version_compare( PHP_VERSION, '5.2', '>=' );
 
 	$current_cookie_domain = get_cookie_domain();
 	$current_cookie_path = get_cookie_path();

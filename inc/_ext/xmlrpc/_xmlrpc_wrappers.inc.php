@@ -149,7 +149,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 		$decode_php_objects = isset($extra_options['decode_php_objs']) ? (bool)$extra_options['decode_php_objs'] : false;
 		$catch_warnings = isset($extra_options['suppress_warnings']) && $extra_options['suppress_warnings'] ? '@' : '';
 
-		if(version_compare(phpversion(), '5.0.3') == -1)
+		if(version_compare(PHP_VERSION, '5.0.3') == -1)
 		{
 			// up to php 5.0.3 some useful reflection methods were missing
 			error_log('XML-RPC: cannot not wrap php functions unless running php version bigger than 5.0.3');
@@ -177,7 +177,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
                 $plainfuncname = get_class($funcname[0]) . '->' . $funcname[1];
             }
             $exists = method_exists($funcname[0], $funcname[1]);
-            if (!$exists && version_compare(phpversion(), '5.1') < 0)
+            if (!$exists && version_compare(PHP_VERSION, '5.1') < 0)
             {
                // workaround for php 5.0: static class methods are not seen by method_exists
                $exists = is_callable( $funcname );
@@ -240,7 +240,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     				return false;
     			}
 			    // php 503 always says isdestructor = true...
-                if( version_compare(phpversion(), '5.0.3') != 0 && $func->isDestructor())
+                if( version_compare(PHP_VERSION, '5.0.3') != 0 && $func->isDestructor())
     			{
     				error_log('XML-RPC: method to be wrapped is the destructor: '.$plainfuncname);
     				return false;
@@ -500,7 +500,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 		$methodfilter = isset($extra_options['method_filter']) ? $extra_options['method_filter'] : '';
 		$methodtype = isset($extra_options['method_type']) ? $extra_options['method_type'] : 'auto';
 
-        if(version_compare(phpversion(), '5.0.3') == -1)
+        if(version_compare(PHP_VERSION, '5.0.3') == -1)
 		{
 			// up to php 5.0.3 some useful reflection methods were missing
 			error_log('XML-RPC: cannot not wrap php functions unless running php version bigger than 5.0.3');
