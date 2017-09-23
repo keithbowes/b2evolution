@@ -51,17 +51,18 @@ function header_content_type( $type = 'text/html', $charset = '#' )
  */
 function headers_content_mightcache( $type = 'text/html', $max_age = '#', $charset = '#', $flush_pagecache = true )
 {
-	global $Messages, $is_admin_page;
-	global $PageCache, $Debuglog;
+	global $current_User, $is_admin_page;
+	global $Debuglog, $Messages, $PageCache;
 
 	header_content_type( $type, $charset );
 
-	if( empty($max_age) || $is_admin_page || is_logged_in() || $Messages->count() )
-	{	// Don't cache if no max_age given
-		// + NEVER EVER allow admin pages to cache
-		// + NEVER EVER allow logged in data to be cached
+	if( empty($max_age) || $is_admin_page || (is_logged_in() && $current_User->check_perm('admin', 'restricted')) || $Messages->count() )
+	{
+		// Don't cache if max_age is given as 0 (for error messages)
+		// + NEVER EVER allow admin pages to be cached
+		// + NEVER EVER allow logged-in admins to be cached
 		// + NEVER EVER allow transactional Messages to be cached!:
-		header_nocache();
+		header_cache('nocache');
 
 		// Check server caching too, but note that this is a different caching process then caching on the client
 		// It's important that this is a double security check only and server caching should be prevented before this
@@ -84,7 +85,7 @@ function headers_content_mightcache( $type = 'text/html', $max_age = '#', $chars
 	// having user details cached would be extremely bad.
 
 	// in the meantime...
-	header_nocache();
+	header_cache();
 }
 
 
@@ -299,14 +300,46 @@ function header_redirect( $redirect_to = NULL, $status = false, $redirected_post
 }
 
 
+/* Gets when the blog was last modified */
+function get_last_modified()
+{
+	global $Blog, $Item;
+	if (is_object($Item))
+	{
+		$lm = $Item->datemodified;
+
+		/* If possible, see if any comments are newer than the blog post */
+		if (is_object($Blog))
+		{
+			global $DB;
+			$lc = $DB->get_var('SELECT comment_date from T_comments WHERE comment_item_ID=' . $Item->ID);
+			$lm = date2mysql(max(array(strtotime($lm), strtotime($lc))));
+		}
+		return $lm;
+	}
+	elseif (is_object($Blog))
+	{
+		global $DB;
+		return $DB->get_var('SELECT post_datemodified FROM T_items__item WHERE post_main_cat_ID IN ' .
+			'(SELECT cat_ID FROM T_categories WHERE cat_blog_ID=' . $Blog->ID . ') ' .
+			'ORDER BY UNIX_TIMESTAMP(post_datemodified) DESC LIMIT 1');
+	}
+	else
+	{
+		global $basepath;
+		return date2mysql(filemtime($basepath));
+	}
+}
+
 
 /**
- * Sends HTTP headers to avoid caching of the page at the browser level
- * (at least without revalidating with the server to make sure whether the content has changed or not).
+ * Sends HTTP headers specifying the right kind of caching
+ * @param string The type of caching to perform (one of cache, etag, nocache, noexpire)
+ * @param int Unix time stamp
  *
  * @see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
  */
-function header_nocache( $timestamp = NULL )
+function header_cache( $cache_type = 'cache', $timestamp = NULL )
 {
 	global $servertimenow;
 	if( empty($timestamp) )
@@ -314,24 +347,23 @@ function header_nocache( $timestamp = NULL )
 		$timestamp = $servertimenow;
 	}
 
-	header('Expires: '.gmdate('r',$timestamp));
-	header('Last-Modified: '.gmdate('r',$timestamp));
-	header('Cache-Control: no-cache, must-revalidate');
-	header('Pragma: no-cache');
-}
-
-
-/**
- * This is to "force" (strongly suggest) caching.
- *
- * WARNING: use this only for STATIC content that does NOT depend on the current user.
- *
- * @see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
- */
-function header_noexpire()
-{
-	global $servertimenow;
-	header('Expires: '.gmdate('r', $servertimenow + 31536000)); // 86400*365 (1 year)
+	switch ($cache_type)
+	{
+		case 'cache':
+			header('Last-Modified: ' . get_last_modified());
+		case 'etag':
+			header('Etag: ' . gen_current_page_etag());
+			break;
+		case 'nocache':
+			header('Expires: '.gmdate('r',$timestamp));
+			header('Last-Modified: '.gmdate('r',$timestamp));
+			header('Cache-Control: no-cache, must-revalidate');
+			header('Pragma: no-cache');
+			break;
+		case 'noexpire':
+			header('Expires: '.gmdate('r', $timestamp + 31536000)); // 86400*365 (1 year)
+			break;
+	}
 }
 
 
@@ -345,7 +377,7 @@ function header_noexpire()
  * the evobar.
  *
  * When a specific user logs out, the browser will send back the Etag of the logged in version it got and we will
- * be able to detect that this is not a "304 Not Modified" case -> we will send back the anonymou version of the page.
+ * be able to detect that this is not a "304 Not Modified" case -> we will send back the anonymous version of the page.
  */
 function gen_current_page_etag()
 {
@@ -365,18 +397,7 @@ function gen_current_page_etag()
 		$etag .= '-msg:'.md5($Messages->get_string('',''));
 	}
 
-	return '"'.$etag.'"';
-}
-
-
-/**
- * This adds teh etag header
- *
- * @param string etag MUST be "quoted"
- */
-function header_etag( $etag )
-{
-	header( 'ETag: '.$etag );
+	return '"'.md5(serialize(array('user' => $etag, 'last-modified' => get_last_modified()))).'"';
 }
 
 
@@ -427,7 +448,7 @@ function get_request_title( $params = array() )
 			'postidx_text'        => T_('Post Index'),
 			'search_text'         => T_('Search'),
 			'sitemap_text'        => T_('Site Map'),
-			'msgform_text'        => T_('Sending a message'),
+			'msgform_text'        => T_('Contact'),
 			'messages_text'       => T_('Messages'),
 			'contacts_text'       => T_('Contacts'),
 			'login_text'          => /* TRANS: trailing space = verb */ T_('Login '),
@@ -561,18 +582,16 @@ function get_request_title( $params = array() )
 
 		case 'msgform':
 			// We are requesting the message form:
-			$r[] = $params['msgform_text'];
+			$msgform_title = utf8_trim( $Blog->get_setting( 'msgform_title' ) );
+			$r[] = empty( $msgform_title ) ? $params['msgform_text'] : $msgform_title;
 			break;
 
 		case 'threads':
 		case 'messages':
 			// We are requesting the messages form
+			global $disp_detail;
 			$thrd_ID = param( 'thrd_ID', 'integer', 0 );
-			if( empty( $thrd_ID ) )
-			{
-				$r[] = $params['messages_text'];
-			}
-			else
+			if( ! empty( $thrd_ID ) )
 			{	// We get a thread title by ID
 				load_class( 'messaging/model/_thread.class.php', 'Thread' );
 				$ThreadCache = & get_ThreadCache();
@@ -581,12 +600,19 @@ function get_request_title( $params = array() )
 					if( $params['auto_pilot'] == 'seo_title' )
 					{	// Display thread title only for tag <title>
 						$r[] = $Thread->title;
+						break;
 					}
 				}
-				else
-				{	// Bad request with not existing thread
-					$r[] = strip_tags( $params['messages_text'] );
-				}
+			}
+
+			if( $disp_detail == 'msgform' )
+			{	// disp=msgform for logged in user:
+				$msgform_title = utf8_trim( $Blog->get_setting( 'msgform_title' ) );
+				$r[] = empty( $msgform_title ) ? $params['msgform_text'] : $msgform_title;
+			}
+			else
+			{
+				$r[] = strip_tags( $params['messages_text'] );
 			}
 			break;
 
@@ -1221,7 +1247,7 @@ function require_js_helper( $helper = '', $relative_to = 'rsc_url' )
 				global $b2evo_icons_type, $blog;
 				$blog_param = empty( $blog ) ? '' : '&amp;blog='.$blog;
 				// Colorbox params to translate the strings:
-				$colorbox_strings_params = 'current: "'.TS_('image {current} of {total}').'",
+				$colorbox_strings_params = 'current: "{current} / {total}",
 					previous: "'.TS_('Previous').'",
 					next: "'.TS_('Next').'",
 					close: "'.TS_('Close').'",
@@ -1232,7 +1258,7 @@ function require_js_helper( $helper = '', $relative_to = 'rsc_url' )
 				$colorbox_voting_params = '{'.$colorbox_strings_params.'
 					displayVoting: true,
 					votingUrl: "'.get_htsrv_url().'anon_async.php?action=voting&vote_type=link&b2evo_icons_type='.$b2evo_icons_type.$blog_param.'",
-					minWidth: 305}';
+					minWidth: 320}';
 				// Colorbox params without voting panel:
 				$colorbox_no_voting_params = '{'.$colorbox_strings_params.'
 					minWidth: 255}';
@@ -1292,7 +1318,23 @@ function require_js_helper( $helper = '', $relative_to = 'rsc_url' )
 				// TODO: translation strings for colorbox buttons
 
 				require_js( 'build/colorbox.bmin.js', $relative_to, true );
-				require_css( 'colorbox/colorbox.css', $relative_to );
+				if( is_admin_page() )
+				{
+					global $AdminUI;
+					if( ! empty( $AdminUI ) )
+					{
+						$colorbox_css_file = $AdminUI->get_template( 'colorbox_css_file' );
+					}
+				}
+				else
+				{
+					global $Skin;
+					if( ! empty( $Skin ) )
+					{
+						$colorbox_css_file = $Skin->get_template( 'colorbox_css_file' );
+					}
+				}
+				require_css( ( empty( $colorbox_css_file ) ? 'colorbox-regular.min.css' : $colorbox_css_file ), $relative_to );
 				break;
 		}
 		// add to list of loaded helpers
@@ -2250,17 +2292,32 @@ function display_ajax_form( $params )
 	<script type="text/javascript">
 		var ajax_form_offset_<?php echo $ajax_form_number; ?> = jQuery('#ajax_form_number_<?php echo $ajax_form_number; ?>').offset().top;
 		var request_sent_<?php echo $ajax_form_number; ?> = false;
+		var ajax_form_loading_number_<?php echo $ajax_form_number; ?> = 0;
 
 		function get_form_<?php echo $ajax_form_number; ?>()
 		{
+			var form_id = '#ajax_form_number_<?php echo $ajax_form_number; ?>';
+			ajax_form_loading_number_<?php echo $ajax_form_number; ?>++;
 			jQuery.ajax({
 				url: '<?php echo get_htsrv_url(); ?>anon_async.php',
 				type: 'POST',
 				data: <?php echo $json_params; ?>,
 				success: function(result)
-					{
-						jQuery('#ajax_form_number_<?php echo $ajax_form_number; ?>').html( ajax_debug_clear( result ) );
+				{
+					jQuery( form_id ).html( ajax_debug_clear( result ) );
+				},
+				error: function( jqXHR, textStatus, errorThrown )
+				{
+					jQuery( '.loader_ajax_form', form_id ).after( '<div class="red center">' + errorThrown + ': ' + jqXHR.responseText + '</div>' );
+					if( ajax_form_loading_number_<?php echo $ajax_form_number; ?> < 3 )
+					{	// Try to load 3 times this ajax form if error occurs:
+						setTimeout( function()
+						{	// After 1 second delaying:
+							jQuery( '.loader_ajax_form', form_id ).next().remove();
+							get_form_<?php echo $ajax_form_number; ?>();
+						}, 1000 );
 					}
+				}
 			});
 		}
 
@@ -2435,32 +2492,30 @@ function display_login_form( $params )
 	// check if should transmit hashed password
 	if( $params[ 'transmit_hashed_password' ] )
 	{ // used by JS-password encryption/hashing:
-		$pwd_salt = $Session->get('core.pwd_salt');
-		if( empty($pwd_salt) )
+		$pepper = $Session->get( 'core.pepper' );
+		if( empty( $pepper ) )
 		{ // Do not regenerate if already set because we want to reuse the previous salt on login screen reloads
 			// fp> Question: the comment implies that the salt is reset even on failed login attemps. Why that? I would only have reset it on successful login. Do experts recommend it this way?
 			// but if you kill the session you get a new salt anyway, so it's no big deal.
 			// At that point, why not reset the salt at every reload? (it may be good to keep it, but I think the reason should be documented here)
-			$pwd_salt = generate_random_key(64);
-			$Session->set( 'core.pwd_salt', $pwd_salt, 86400 /* expire in 1 day */ );
+			$pepper = generate_random_key(64);
+			$Session->set( 'core.pepper', $pepper, 86400 /* expire in 1 day */ );
 			$Session->dbsave(); // save now, in case there's an error later, and not saving it would prevent the user from logging in.
 		}
-		$Form->hidden( 'pwd_salt', $pwd_salt );
+		$Form->hidden( 'pepper', $pepper );
 		// Add container for the hashed password hidden inputs
 		echo '<div id="pwd_hashed_container"></div>'; // gets filled by JS
 	}
 
 	if( $inskin )
 	{
-		$Form->begin_field();
-		$Form->text_input( $dummy_fields[ 'login' ], $params[ 'login' ], 18, T_('Login'), $separator.T_('Enter your username (or email address).'),
-					array( 'maxlength' => 255, 'class' => 'input_text', 'required' => true ) );
-		$Form->end_field();
+		$Form->login_input( $dummy_fields['login'], $params['login'], 18, /* TRANS: noun */ T_('Login'), $separator.T_('Enter your username (or email address).'),
+					array( 'maxlength' => 255, 'required' => true ) );
 	}
 	else
 	{
-		$Form->text_input( $dummy_fields[ 'login' ], $params[ 'login' ], 18, '', '',
-					array( 'maxlength' => 255, 'class' => 'input_text', 'input_required' => 'required', 'placeholder' => T_('Username (or email address)') ) );
+		$Form->login_input( $dummy_fields[ 'login' ], $params[ 'login' ], 18, '', '',
+					array( 'maxlength' => 255, 'input_required' => 'required', 'placeholder' => T_('Username (or email address)') ) );
 	}
 
 	$lost_password_url = get_lostpassword_url( $redirect_to, '&amp;', $return_to );
@@ -2503,7 +2558,7 @@ function display_login_form( $params )
 		// Passthrough REQUEST data (when login is required after having POSTed something)
 		// (Exclusion of 'login_action', 'login', and 'action' has been removed. This should get handled via detection in Form (included_input_field_names),
 		//  and "action" is protected via crumbs)
-		$Form->hiddens_by_key( remove_magic_quotes( $_REQUEST ), array( 'pwd_hashed' ) );
+		$Form->hiddens_by_key( $_REQUEST, array( 'pwd_hashed' ) );
 	}
 
 	$Form->end_form();
@@ -2551,7 +2606,7 @@ function display_login_js_handler( $params )
 		var get_widget_login_hidden_fields = <?php echo $params['get_widget_login_hidden_fields'] ? 'true' : 'false'; ?>;
 		var sessionid = '<?php echo $Session->ID; ?>';
 
-		if( !form.<?php echo $dummy_fields[ 'pwd' ]; ?> || !form.pwd_salt || typeof hex_sha1 == "undefined" && typeof hex_md5 == "undefined" ) {
+		if( !form.<?php echo $dummy_fields[ 'pwd' ]; ?> || !form.pepper || typeof hex_sha1 == "undefined" && typeof hex_md5 == "undefined" ) {
 			return true;
 		}
 
@@ -2577,16 +2632,19 @@ function display_login_js_handler( $params )
 
 				var raw_password = form.<?php echo $dummy_fields[ 'pwd' ]; ?>.value;
 				var salts = parsed_result['salts'];
+				var hash_algo = parsed_result['hash_algo'];
 
 				if( get_widget_login_hidden_fields )
 				{
 					form.crumb_loginform.value = parsed_result['crumb'];
-					form.pwd_salt.value = parsed_result['pwd_salt'];
+					form.pepper.value = parsed_result['pepper'];
 					sessionid = parsed_result['session_id'];
 				}
 
-				for( var index in salts ) {
-					var pwd_hashed = hex_sha1( hex_md5( salts[index] + raw_password ) + form.pwd_salt.value );
+				for( var index in salts )
+				{
+					var pwd_hashed = eval( hash_algo[ index ] );
+					pwd_hashed = hex_sha1( pwd_hashed + form.pepper.value );
 					pwd_container.append( '<input type="hidden" value="' + pwd_hashed + '" name="pwd_hashed[]">' );
 				}
 
@@ -2600,12 +2658,14 @@ function display_login_js_handler( $params )
 			error: function( jqXHR, textStatus, errorThrown )
 			{	// Display error text on error request:
 				requestSent = false;
-				alert( 'Error: could not get hash Salt from server. Please contact the site admin and check the browser and server error logs. (' + textStatus + ': ' + errorThrown + ')' );
+				var wrong_response_code = typeof( jqXHR.status ) != 'undefined' && jqXHR.status != 200 ? '\nHTTP Response code: ' + jqXHR.status : '';
+				alert( 'Error: could not get hash Salt from server. Please contact the site admin and check the browser and server error logs. (' + textStatus + ': ' + errorThrown + ')'
+					+ wrong_response_code );
 			}
 		});
 
-	    // You must return false to prevent the default form behavior
-	    return false;
+		// You must return false to prevent the default form behavior
+		return false;
 	}
 
 	<?php
@@ -2686,7 +2746,7 @@ function display_lostpassword_form( $login, $hidden_params, $params = array() )
 
 	if( $params['inskin'] )
 	{
-		$Form->text( $dummy_fields[ 'login' ], $login, 30, T_('Login'), '', 255, 'input_text' );
+		$Form->text( $dummy_fields[ 'login' ], $login, 30, /* TRANS: noun */ T_('Login'), '', 255, 'input_text' );
 	}
 	else
 	{
@@ -3070,7 +3130,7 @@ function display_login_validator( $params = array() )
 	var login_icon_available = \''.get_icon( 'allowback', 'imgtag', array( 'title' => TS_('This username is available.') ) ).'\';
 	var login_icon_exists = \''.get_icon( 'xross', 'imgtag', array( 'title' => TS_('This username is already in use. Please choose another one.') ) ).'\';
 
-	var login_text_empty = \''.TS_('Choose an username.').'\';
+	var login_text_empty = \''.TS_('Choose an username').'.\';
 	var login_text_available = \''.TS_('This username is available.').'\';
 	var login_text_exists = \''.TS_('This username is already in use. Please choose another one.').'\';
 
@@ -3301,6 +3361,21 @@ function init_fontawesome_icons( $icons_type = 'fontawesome', $relative_to = 'rs
 
 	// Load main CSS file of font-awesome icons
 	require_css( '#fontawesome#', $relative_to );
+}
+
+
+/**
+ * Initialize JavaScript variables for fileuploader.js
+ */
+function init_fineuploader_js_lang_strings()
+{
+	// Initialize variables for the file "fileuploader.js":
+	add_js_headline( 'var evo_js_lang_file_sizes = [\''
+		/* TRANS: Abbr. for "Bytes" */.TS_('B.').'\', \''
+		/* TRANS: Abbr. for "Kilobytes" */.TS_('KB').'\', \''
+		/* TRANS: Abbr. for Megabytes */.TS_('MB').'\', \''
+		/* TRANS: Abbr. for Gigabytes */.TS_('GB').'\', \''
+		/* TRANS: Abbr. for Terabytes */.TS_('TB').'\'];' );
 }
 
 ?>

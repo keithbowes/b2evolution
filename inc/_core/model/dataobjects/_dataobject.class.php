@@ -179,7 +179,7 @@ class DataObject
 	 * Delete cascades are handled recursively only if the cascade arrays from the reffering class contains the class and class_path params ( e.g. see User class )!
 	 *
 	 * @param string the name of the class which objects needs to be deleted;
-	 *   Note: This is required until min phpversion will be 5.3. Since PHP 5.3 we can use static::function_name to achieve late static bindings
+	 *   Note: This is required until min PHP version will be 5.3. Since PHP 5.3 we can use static::function_name to achieve late static bindings
 	 * @param string where condition
 	 * @param array object ids
 	 * @param array additional params if required

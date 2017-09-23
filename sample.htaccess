@@ -15,8 +15,6 @@
 
 	# Security settings
 	php_flag register_globals Off
-	php_flag allow_url_include Off
-	php_flag magic_quotes_gpc Off
 
 	# For uploading
 	php_value upload_max_filesize 32M

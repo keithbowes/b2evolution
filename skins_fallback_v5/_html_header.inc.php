@@ -18,6 +18,9 @@
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 
 global $xmlsrv_url, $Session, $Hit, $Skin, $app_version;
+global $PageCache;
+if (!$PageCache->is_enabled)
+	$PageCache->analyze_cache_headers();
 
 $params = array_merge( array(
 	'auto_pilot'    => 'seo_title',

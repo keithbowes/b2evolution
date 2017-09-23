@@ -333,7 +333,7 @@ function format_to_output( $content, $format = 'htmlbody' )
 		case 'htmlspecialchars':
 		case 'formvalue':
 			// Replace special chars to &amp;, &quot;, &#039;|&apos;, &lt; and &gt; :
-			if( version_compare( phpversion(), '5.4', '>=' ) )
+			if( version_compare( PHP_VERSION, '5.4', '>=' ) )
 			{	// Handles & " ' < > to &amp; &quot; &apos; &lt; &gt;
 				$content = htmlspecialchars( $content, ENT_QUOTES | ENT_HTML5, $evo_charset );
 			}
@@ -368,7 +368,7 @@ function format_to_output( $content, $format = 'htmlbody' )
 
 		case 'syslog':
 			// Replace special chars to &amp;, &quot;, &#039;|&apos;, &lt; and &gt; :
-			if( version_compare( phpversion(), '5.4', '>=' ) )
+			if( version_compare( PHP_VERSION, '5.4', '>=' ) )
 			{	// Handles & " ' < > to &amp; &quot; &apos; &lt; &gt;
 				$content = htmlspecialchars( $content, ENT_QUOTES | ENT_HTML5, $evo_charset );
 			}
@@ -454,7 +454,7 @@ function zeroise( $number, $threshold )
 function excerpt( $str, $maxlen = 254, $tail = '…' )
 {
 	// Add spaces
-	$str = str_replace( array( '<p>', '<br' ), array( ' <p>', ' <br' ), $str );
+	$str = str_replace( array( '<p>', '<br', '</tr><tr', '</th><th', '</td><td' ), array( ' <p>', ' <br', '</tr> <tr', '</th> <th', '</td> <td' ), $str );
 
 	// Remove <code>
 	$str = preg_replace( '#<code>(.+)</code>#is', '', $str );
@@ -653,7 +653,7 @@ function strmaxwords( $str, $maxwords = 50, $params = array() )
 		if( $maxwords < 1 )
 		{	// We have reached the cutting point:
 			break;
-		} 
+		}
 	}
 
 	if( $maxwords < 1 )
@@ -736,7 +736,7 @@ function convert_chars( $content, $flag = 'html' )
 		// fp> why do we actually bother doing this:?
 		$content = preg_replace_callback(
 			'/[\x80-\xff]/',
-			create_function( '$j', 'return "&#".ord($j[0]).";";' ),
+			function( $j ) { return "&#".ord($j[0]).";";},
 			$content);
 	}
 
@@ -980,7 +980,7 @@ function preg_match_outcode_callback( $content, $search, & $matches )
  * @param array|string Replace list or Callback function
  * @param string Source content
  * @param string Callback function name
- * @param string Type of callback function: 'preg' -> preg_replace(), 'str' -> str_replace() (@see replace_content())
+ * @param string Type of callback function: 'preg' -> preg_replace(), 'preg_callback' -> preg_replace_callback(), 'str' -> str_replace() (@see replace_content())
  * @return string Replaced content
  */
 function replace_content_outcode( $search, $replace, $content, $replace_function_callback = 'replace_content', $replace_function_type = 'preg' )
@@ -1009,7 +1009,7 @@ function replace_content_outcode( $search, $replace, $content, $replace_function
  * @param string Source content
  * @param array|string Search list
  * @param array|string Replace list
- * @param string Type of function: 'preg' -> preg_replace(), 'str' -> str_replace()
+ * @param string Type of function: 'preg' -> preg_replace(), 'preg_callback' -> preg_replace_callback(), 'str' -> str_replace()
  * @param string The maximum possible replacements for each pattern in each subject string. Defaults to -1 (no limit).
  * @return string Replaced content
  */
@@ -1045,6 +1045,9 @@ function replace_content( $content, $search, $replace, $type = 'preg', $limit = 
 				}
 				return $content;
 			}
+
+		case 'preg_callback':
+			return preg_replace_callback( $search, $replace, $content, $limit );
 
 		default: // 'preg'
 			return preg_replace( $search, $replace, $content, $limit );
@@ -3853,7 +3856,7 @@ function send_mail( $to, $to_name, $subject, $message, $from = NULL, $from_name 
 	$headers['Date'] = gmdate( 'r', $servertimenow );
 
 	// ADDITIONAL HEADERS:
-	$headers['X-Mailer'] = $app_name.' '.$app_version.' - PHP/'.phpversion();
+	$headers['X-Mailer'] = $app_name.' '.$app_version.' - PHP/'.PHP_VERSION;
 	$ip_list = implode( ',', get_ip_list() );
 	if( !empty( $ip_list ) )
 	{ // Add X-Remote_Addr param only if its value is not empty
@@ -4653,14 +4656,14 @@ function get_icon( $iconKey, $what = 'imgtag', $params = NULL, $include_in_legen
 						// Use glyph icons of bootstrap
 						$icon_class_prefix = 'glyphicon glyphicon-';
 						$icon_param_name = 'glyph';
-						$icon_content = '&#160;';
+						$icon_content = isset($params['icon_content']) ? $params['icon_content'] : '&#160;';
 						break;
 
 					case 'fontawesome':
 						// Use the icons from http://fortawesome.github.io/Font-Awesome/icons/
 						$icon_class_prefix = 'fa fa-';
 						$icon_param_name = 'fa';
-						$icon_content = '';
+						$icon_content = isset($params['icon_content']) ? $params['icon_content'] : '';
 						break;
 				}
 			}
@@ -4737,7 +4740,7 @@ function get_icon( $iconKey, $what = 'imgtag', $params = NULL, $include_in_legen
 				// Add all the attributes:
 				$params = get_field_attribs_as_string( $params, false );
 
-				$r = '<span'.$params.'>'.$icon_content.'</span>';
+				$r = '<span'.$params.' style="display:inline-block; overflow: hidden; width: 16px">'.$icon_content.'</span>';
 			}
 			elseif( ! isset( $icon['file'] ) )
 			{ // Use span tag with sprite instead of img
@@ -5892,7 +5895,18 @@ function send_javascript_message( $methods = array(), $send_as_html = false, $ta
 		{	// Send headers only when they are not send yet to avoid an error:
 			headers_content_mightcache( 'text/javascript', 0 );		// Do NOT cache interactive communications.
 		}
-		echo $output;
+		global $baseurl;
+		if( empty( $_SERVER['HTTP_REFERER'] ) ||
+		    ! ( $referer_url = parse_url( $_SERVER['HTTP_REFERER'] ) ) || empty( $referer_url['host'] ) ||
+		    ! ( $baseurl_info = parse_url( $baseurl ) ) || empty( $baseurl_info['host'] ) ||
+		    ( $baseurl_info['host'] != $referer_url['host'] ) )
+		{	// Deny request from other server:
+			echo 'alert( \''.sprintf( TS_('This action can only be performed with HTTP_REFERER = %s'), $baseurl ).' \');';
+		}
+		else
+		{	// Send JS content only for allowed referer:
+			echo $output;
+		}
 	}
 
 	exit(0);
@@ -5937,17 +5951,18 @@ function format_to_js( $unformatted )
 function get_available_sort_options()
 {
 	return array(
-		'datestart'       => T_('Date issued (Default)'),
-		'order'           => T_('Order (as explicitly specified)'),
-		//'datedeadline' => T_('Deadline'),
-		'title'           => T_('Title'),
-		'datecreated'     => T_('Date created'),
-		'datemodified'    => T_('Date last modified'),
-		'last_touched_ts' => T_('Date last touched'),
-		'urltitle'        => T_('URL "filename"'),
-		'priority'        => T_('Priority'),
-		'numviews'        => T_('Number of members who have viewed the post (If tracking enabled)'),
-		'RAND'            => T_('Random order!'),
+		'datestart'                => T_('Date issued (Default)'),
+		'order'                    => T_('Order (as explicitly specified)'),
+		//'datedeadline'           => T_('Deadline'),
+		'title'                    => T_('Title'),
+		'datecreated'              => T_('Date created'),
+		'datemodified'             => T_('Date last modified'),
+		'last_touched_ts'          => T_('Date last touched'),
+		'contents_last_updated_ts' => T_('Contents last updated'),
+		'urltitle'                 => T_('URL "filename"'),
+		'priority'                 => T_('Priority'),
+		'numviews'                 => T_('Number of members who have viewed the post (If tracking enabled)'),
+		'RAND'                     => T_('Random order!'),
 	);
 }
 
@@ -7383,7 +7398,7 @@ function evo_sendcookies()
 		return;
 	}
 
-	$php_version_52 = version_compare( phpversion(), '5.2', '>=' );
+	$php_version_52 = version_compare( PHP_VERSION, '5.2', '>=' );
 
 	$current_cookie_domain = get_cookie_domain();
 	$current_cookie_path = get_cookie_path();
@@ -7480,6 +7495,12 @@ jQuery( document ).ready( function()
 		tooltip    : '<?php echo $params['tooltip']; ?>',
 		event      : 'click',
 		onblur     : '<?php echo $onblur_action; ?>',
+		onedit     : function ( settings, original )
+		{
+			// Set width to fix value to don't change it on selector displaying:
+			var wrapper_width = jQuery( original ).width();
+			jQuery( original ).css( { 'width': wrapper_width, 'max-width': wrapper_width } );
+		},
 		callback   : function ( settings, original )
 		{
 			<?php
@@ -7505,7 +7526,6 @@ jQuery( document ).ready( function()
 			echo $params['callback_code'];
 			?>
 		},
-		onsubmit: function( settings, original ) {},
 		submitdata : function( value, settings )
 		{
 			return { <?php echo $params['ID_name']; ?>: <?php echo $params['ID_value']; ?> }
@@ -8227,7 +8247,7 @@ function render_inline_files( $content, $Object, $params = array() )
 			{
 				$content = str_replace( $current_link_tag, $rendered_link_tag, $content );
 			}
-		}	
+		}
 	}
 
 	return $content;

@@ -131,6 +131,7 @@ function create_default_data()
 
 	task_begin( 'Creating user field definitions... ' );
 	// fp> Anyone, please add anything you can think of. It's better to start with a large list that update it progressively.
+	// erwin > When adding anything to the list below don't forget to update the params for the Social Links widget!
 	$DB->query( "
 		INSERT INTO T_users__fielddefs (ufdf_ufgp_ID, ufdf_type, ufdf_name, ufdf_options, ufdf_required, ufdf_duplicated, ufdf_order, ufdf_suggest, ufdf_code, ufdf_icon_name)
 		 VALUES ( 1, 'text',   'Micro bio',     NULL, 'recommended', 'forbidden', '1',  '0', 'microbio',     'fa fa-info-circle' ),
@@ -141,6 +142,7 @@ function create_default_data()
 						( 2, 'word',   'AOL AIM',       NULL, 'optional',    'allowed',   '3',  '0', 'aolaim',       NULL ),
 						( 2, 'number', 'ICQ ID',        NULL, 'optional',    'allowed',   '4',  '0', 'icqid',        NULL ),
 						( 2, 'phone',  'Skype',         NULL, 'optional',    'allowed',   '5',  '0', 'skype',        'fa fa-skype' ),
+						( 2, 'phone',  'WhatsApp',      NULL, 'optional',    'allowed',   '6',  '0', 'whatsapp',     'fa fa-whatsapp' ),
 						( 3, 'phone',  'Main phone',    NULL, 'optional',    'forbidden', '1',  '0', 'mainphone',    'fa fa-phone' ),
 						( 3, 'phone',  'Cell phone',    NULL, 'optional',    'allowed',   '2',  '0', 'cellphone',    'fa fa-mobile-phone' ),
 						( 3, 'phone',  'Office phone',  NULL, 'optional',    'allowed',   '3',  '0', 'officephone',  'fa fa-phone' ),
@@ -160,6 +162,13 @@ function create_default_data()
 						( 4, 'url',    'Digg',          NULL, 'optional',    'forbidden', '11', '0', 'digg',         'fa fa-digg' ),
 						( 4, 'url',    'StumbleUpon',   NULL, 'optional',    'forbidden', '12', '0', 'stumbleupon',  'fa fa-stumbleupon' ),
 						( 4, 'url',    'Pinterest',     NULL, 'optional',    'forbidden', '13', '0', 'pinterest',    'fa fa-pinterest-p' ),
+						( 4, 'url',    'SoundCloud',    NULL, 'optional',    'forbidden', '14', '0', 'soundcloud',   'fa fa-soundcloud' ),
+						( 4, 'url',    'Yelp',          NULL, 'optional',    'forbidden', '15', '0', 'yelp',         'fa fa-yelp' ),
+						( 4, 'url',    'PayPal',        NULL, 'optional',    'forbidden', '16', '0', 'paypal',       'fa fa-paypal' ),
+						( 4, 'url',    '500px',         NULL, 'optional',    'forbidden', '17', '0', '500px',        'fa fa-500px' ),
+						( 4, 'url',    'Amazon',        NULL, 'optional',    'forbidden', '18', '0', 'amazon',       'fa fa-amazon' ),
+						( 4, 'url',    'Instagram',     NULL, 'optional',    'forbidden', '19', '0', 'instagram',    'fa fa-instagram' ),
+						( 4, 'url',    'Vimeo',         NULL, 'optional',    'forbidden', '20', '0', 'vimeo',        'fa fa-vimeo' ),
 						( 5, 'text',   'Main address',  NULL, 'optional',    'forbidden', '1',  '0', 'mainaddress',  'fa fa-building' ),
 						( 5, 'text',   'Home address',  NULL, 'optional',    'forbidden', '2',  '0', 'homeaddress',  'fa fa-home' )" );
 	task_end();
@@ -266,6 +275,7 @@ function create_default_data()
 			'usage'          => 'page',
 			'template_name'  => 'page',
 			'perm_level'     => 'restricted',
+			'use_comments'   => 0,
 		);
 	$post_types[] = array(
 			'name'           => 'Intro-Front',
@@ -320,6 +330,14 @@ function create_default_data()
 			'allow_featured' => 0,
 			'perm_level'     => 'restricted',
 			'allow_disabling_comments' => 1,
+		);
+	$post_types[] = array(
+			'name'           => 'Content Block',
+			'usage'          => 'content-block',
+			'template_name'  => NULL,
+			'allow_breaks'   => 0,
+			'allow_featured' => 0,
+			'use_comments'   => 0,
 		);
 	$post_types[] = array(
 			'name'           => 'Sidebar link',
@@ -397,13 +415,14 @@ function create_default_data()
 	// Insert item types:
 	$DB->query( $post_types_sql );
 
-	$DB->query( 'INSERT INTO T_items__type_custom_field ( itcf_ityp_ID, itcf_label, itcf_name, itcf_type )
-			VALUES ( 3, "First numeric field", "first_numeric_field", "double" ),
-						 ( 3, "Second numeric field", "second_numeric_field", "double" ),
-						 ( 3, "First string field", "first_string_field", "varchar" ),
-						 ( 3, "Define you own labels", "define_you_own_labels", "varchar" ),
-						 ( 3, "Multiline plain text field", "multiline_plain_text_field", "text" ),
-						 ( 3, "Multiline HTML field", "multiline_html_field", "html" )' );
+	$DB->query( 'INSERT INTO T_items__type_custom_field ( itcf_ityp_ID, itcf_label, itcf_name, itcf_type, itcf_order, itcf_note )
+			VALUES ( 3, '.$DB->quote( T_('First numeric field') ).', "first_numeric_field", "double", 1, '.$DB->quote( T_('Enter a number') ).' ),
+						 ( 3, '.$DB->quote( T_('Second numeric field') ).', "second_numeric_field", "double", 3, '.$DB->quote( T_('Enter a number') ).' ),
+						 ( 3, '.$DB->quote( T_('First string field') ).', "first_string_field", "varchar", 2, '.$DB->quote( T_('Enter a string') ).' ),
+						 ( 3, '.$DB->quote( T_('Define your own labels') ).', "define_your_own_labels", "varchar", 4, '.$DB->quote( T_('Define your own notes') ).' ),
+						 ( 3, '.$DB->quote( T_('Multiline plain text field') ).', "multiline_plain_text_field", "text", 6, '.$DB->quote( T_('Enter multiple lines') ).' ),
+						 ( 3, '.$DB->quote( T_('Multiline HTML field') ).', "multiline_html_field", "html", 5, '.$DB->quote( T_('Enter HTML code') ).' ),
+						 ( 3, '.$DB->quote( T_('URL field') ).', "url_field", "url", 7, '.$DB->quote( T_('Enter an URL (absolute or relative)') ).' )' );
 	task_end();
 
 
@@ -432,30 +451,30 @@ function create_default_data()
 	$DB->query( "INSERT INTO T_filetypes
 			(ftyp_ID, ftyp_extensions, ftyp_name, ftyp_mimetype, ftyp_icon, ftyp_viewtype, ftyp_allowed)
 		VALUES
-			(1, 'gif', " . T_('GIF image') . ", 'image/gif', 'file_image', 'image', 'any'),
-			(2, 'png', " . T_('PNG image') . ", 'image/png', 'file_image', 'image', 'any'),
-			(3, 'jpg jpeg', " . T_('JPEG image') . ", 'image/jpeg', 'file_image', 'image', 'any'),
-			(4, 'txt', " . T_('Text file') . ", 'text/plain', 'file_document', 'text', 'registered'),
-			(5, 'htm html', " . T_('HTML file') . ", 'text/html', 'file_www', 'browser', 'admin'),
-			(6, 'pdf', " . T_('PDF file') . ", 'application/pdf', 'file_pdf', 'browser', 'registered'),
-			(7, 'doc docx', " . T_('Microsoft Word file') . ", 'application/msword', 'file_doc', 'external', 'registered'),
-			(8, 'xls xlsx', " . T_('Microsoft Excel file') . ", 'application/vnd.ms-excel', 'file_xls', 'external', 'registered'),
-			(9, 'ppt pptx', " . T_('Powerpoint') . ", 'application/vnd.ms-powerpoint', 'file_ppt', 'external', 'registered'),
-			(10, 'pps', " . T_('Slideshow') . ", 'pps', 'file_pps', 'external', 'registered'),
-			(11, 'zip', " . T_('ZIP archive') . ", 'application/zip', 'file_zip', 'external', 'registered'),
-			(12, 'php php3 php4 php5 php6'," . T_('PHP script') . ", 'application/x-httpd-php', 'file_php', 'text', 'admin'),
-			(13, 'css', " . T_('Style sheet') . ", 'text/css', '', 'text', 'registered'),
-			(14, 'mp3', " . T_('MPEG audio file') . ", 'audio/mpeg', 'file_sound', 'browser', 'registered'),
-			(15, 'm4a', " . T_('MPEG audio file') . ", 'audio/x-m4a', 'file_sound', 'browser', 'registered'),
-			(16, 'mp4 f4v', " . T_('MPEG video') . ", 'video/mp4', 'file_video', 'browser', 'registered'),
-			(17, 'mov', " . T_('Quicktime video') . ", 'video/quicktime', 'file_video', 'browser', 'registered'),
-			(18, 'm4v', " . T_('MPEG video file') . ", 'video/x-m4v', 'file_video', 'browser', 'registered'),
-			(19, 'flv', " . T_('Flash video file') . ", 'video/x-flv', 'file_video', 'browser', 'registered'),
-			(20, 'swf', " . T_('Flash video file') . ", 'application/x-shockwave-flash', 'file_video', 'browser', 'registered'),
-			(21, 'webm', " . T_('WebM video file') . ", 'video/webm', 'file_video', 'browser', 'registered'),
-			(22, 'ogv', " . T_('Ogg video file') . ", 'video/ogg', 'file_video', 'browser', 'registered'),
-			(23, 'm3u8', " . T_('M3U8 video file') . ", 'application/x-mpegurl', 'file_video', 'browser', 'registered')
-			(24, 'xml', " . T_('XML file') . ", 'application/xml', 'file_document', 'browser', 'admin')
+			(1, 'gif', '" . T_('GIF image') . "', 'image/gif', 'file_image', 'image', 'any'),
+			(2, 'png', '" . T_('PNG image') . "', 'image/png', 'file_image', 'image', 'any'),
+			(3, 'jpg jpeg', '" . T_('JPEG image') . "', 'image/jpeg', 'file_image', 'image', 'any'),
+			(4, 'txt', '" . T_('Text file') . "', 'text/plain', 'file_document', 'text', 'registered'),
+			(5, 'htm html', '" . T_('HTML file') . "', 'text/html', 'file_www', 'browser', 'admin'),
+			(6, 'pdf', '" . T_('PDF file') . "', 'application/pdf', 'file_pdf', 'browser', 'registered'),
+			(7, 'doc docx', '" . T_('Microsoft Word file') . "', 'application/msword', 'file_doc', 'external', 'registered'),
+			(8, 'xls xlsx', '" . T_('Microsoft Excel file') . "', 'application/vnd.ms-excel', 'file_xls', 'external', 'registered'),
+			(9, 'ppt pptx', '" . T_('Powerpoint') . "', 'application/vnd.ms-powerpoint', 'file_ppt', 'external', 'registered'),
+			(10, 'pps', '" . T_('Slideshow') . "', 'pps', 'file_pps', 'external', 'registered'),
+			(11, 'zip', '" . T_('ZIP archive') . "', 'application/zip', 'file_zip', 'external', 'registered'),
+			(12, 'php php3 php4 php5 php6', '" . T_('PHP script') . "', 'application/x-httpd-php', 'file_php', 'text', 'admin'),
+			(13, 'css', '" . T_('Style sheet') . "', 'text/css', '', 'text', 'registered'),
+			(14, 'mp3', '" . T_('MPEG audio file') . "', 'audio/mpeg', 'file_sound', 'browser', 'registered'),
+			(15, 'm4a', '" . T_('MPEG audio file') . "', 'audio/x-m4a', 'file_sound', 'browser', 'registered'),
+			(16, 'mp4 f4v', '" . T_('MPEG video') . "', 'video/mp4', 'file_video', 'browser', 'registered'),
+			(17, 'mov', '" . T_('Quicktime video') . "', 'video/quicktime', 'file_video', 'browser', 'registered'),
+			(18, 'm4v', '" . T_('MPEG video file') . "', 'video/x-m4v', 'file_video', 'browser', 'registered'),
+			(19, 'flv', '" . T_('Flash video file') . "', 'video/x-flv', 'file_video', 'browser', 'registered'),
+			(20, 'swf', '" . T_('Flash video file') . "', 'application/x-shockwave-flash', 'file_video', 'browser', 'registered'),
+			(21, 'webm', '" . T_('WebM video file') . "', 'video/webm', 'file_video', 'browser', 'registered'),
+			(22, 'ogv', '" . T_('Ogg video file') . "', 'video/ogg', 'file_video', 'browser', 'registered'),
+			(23, 'm3u8', '" . T_('M3U8 video file') . "', 'application/x-mpegurl', 'file_video', 'browser', 'registered'),
+			(24, 'xml', '" . T_('XML file') . "', 'application/xml', 'file_document', 'browser', 'admin')
 		" );
 	task_end();
 
@@ -491,6 +510,7 @@ function create_default_data()
 
 	return true;
 }
+
 
 /**
  * Create default currencies
@@ -670,6 +690,7 @@ function create_default_currencies( $table_name = 'T_regional__currency' )
 			" );
 	task_end();
 }
+
 
 /**
  * Create default countries with relations to currencies
@@ -943,6 +964,7 @@ function create_default_countries( $table_name = 'T_regional__country', $set_pre
 	task_end();
 }
 
+
 /**
  * Create default regions
  *
@@ -1015,30 +1037,31 @@ function create_default_regions()
 			(56, 74, '24', 'Centre'),
 			(57, 74, '21', 'Champagne-Ardenne'),
 			(58, 74, '94', 'Corse'),
-			(59, 74, '43', 'Franche-Comt\xE9'),
-			(60, 74, '11', '\xCEle-de-France'),
+			(59, 74, '43', 'Franche-Comté'),
+			(60, 74, '11', 'Île-de-France'),
 			(61, 74, '91', 'Languedoc-Roussillon'),
 			(62, 74, '74', 'Limousin'),
 			(63, 74, '41', 'Lorraine'),
-			(64, 74, '73', 'Midi-Pyr\xE9n\xE9es'),
+			(64, 74, '73', 'Midi-Pyrénées'),
 			(65, 74, '31', 'Nord-Pas-de-Calais'),
 			(66, 74, '25', 'Basse-Normandie'),
 			(67, 74, '23', 'Haute-Normandie'),
 			(68, 74, '52', 'Pays de la Loire'),
 			(69, 74, '22', 'Picardie'),
 			(70, 74, '54', 'Poitou-Charentes'),
-			(71, 74, '93', 'Provence-Alpes-C\xF4te d\'Azur'),
-			(72, 74, '82', 'Rh\xF4ne-Alpes'),
+			(71, 74, '93', 'Provence-Alpes-Côte d\'Azur'),
+			(72, 74, '82', 'Rhône-Alpes'),
 			(73, 74, '01', 'Guadeloupe'),
 			(74, 74, '02', 'Martinique'),
 			(75, 74, '03', 'Guyane'),
-			(76, 74, '04', 'La R\xE9union'),
+			(76, 74, '04', 'La Réunion'),
 			(77, 74, '05', 'Mayotte'),
 			(78, 74, '09', 'Outre-Mer'),
 			(79, 74, '99', 'Monaco')", $current_charset, 'iso-8859-1' ) );
 
 	task_end();
 }
+
 
 /**
  * Create default sub-regions
@@ -1059,39 +1082,39 @@ function create_default_subregions()
 			(4, 71, '04', 'Alpes-de-Haute-Provence'),
 			(5, 71, '05', 'Hautes-Alpes'),
 			(6, 71, '06', 'Alpes-Maritimes'),
-			(7, 72, '07', 'Ard\xE8che'),
+			(7, 72, '07', 'Ardèche'),
 			(8, 57, '08', 'Ardennes'),
-			(9, 64, '09', 'Ari\xE8ge'),
+			(9, 64, '09', 'Ariège'),
 			(10, 57, '10', 'Aube'),
 			(11, 61, '11', 'Aude'),
 			(12, 64, '12', 'Aveyron'),
-			(13, 71, '13', 'Bouches-du-Rh\xF4ne'),
+			(13, 71, '13', 'Bouches-du-Rhône'),
 			(14, 66, '14', 'Calvados'),
 			(15, 53, '15', 'Cantal'),
 			(16, 70, '16', 'Charente'),
 			(17, 70, '17', 'Charente-Maritime'),
 			(18, 56, '18', 'Cher'),
-			(19, 62, '19', 'Corr\xE8ze'),
+			(19, 62, '19', 'Corrèze'),
 			(20, 58, '2A', 'Corse-du-Sud'),
 			(21, 58, '2B', 'Haute-Corse'),
-			(22, 54, '21', 'C\xF4te-d\'Or'),
-			(23, 55, '22', 'C\xF4tes-d\'Armor'),
+			(22, 54, '21', 'Côte-d\'Or'),
+			(23, 55, '22', 'Côtes-d\'Armor'),
 			(24, 62, '23', 'Creuse'),
 			(25, 52, '24', 'Dordogne'),
 			(26, 59, '25', 'Doubs'),
-			(27, 72, '26', 'Dr\xF4me'),
+			(27, 72, '26', 'Drôme'),
 			(28, 67, '27', 'Eure'),
 			(29, 56, '28', 'Eure-et-Loir'),
-			(30, 55, '29', 'Finist\xE8re'),
+			(30, 55, '29', 'Finistère'),
 			(31, 61, '30', 'Gard'),
 			(32, 64, '31', 'Haute-Garonne'),
 			(33, 64, '32', 'Gers'),
 			(34, 52, '33', 'Gironde'),
-			(35, 61, '34', 'H\xE9rault'),
+			(35, 61, '34', 'Hérault'),
 			(36, 55, '35', 'Ille-et-Vilaine'),
 			(37, 56, '36', 'Indre'),
 			(38, 56, '37', 'Indre-et-Loire'),
-			(39, 72, '38', 'Is\xE8re'),
+			(39, 72, '38', 'Isère'),
 			(40, 59, '39', 'Jura'),
 			(41, 52, '40', 'Landes'),
 			(42, 56, '41', 'Loir-et-Cher'),
@@ -1101,7 +1124,7 @@ function create_default_subregions()
 			(46, 56, '45', 'Loiret'),
 			(47, 64, '46', 'Lot'),
 			(48, 52, '47', 'Lot-et-Garonne'),
-			(49, 61, '48', 'Loz\xE8re'),
+			(49, 61, '48', 'Lozère'),
 			(50, 68, '49', 'Maine-et-Loire'),
 			(51, 66, '50', 'Manche'),
 			(52, 57, '51', 'Marne'),
@@ -1111,20 +1134,20 @@ function create_default_subregions()
 			(56, 63, '55', 'Meuse'),
 			(57, 55, '56', 'Morbihan'),
 			(58, 63, '57', 'Moselle'),
-			(59, 54, '58', 'Ni\xE8vre'),
+			(59, 54, '58', 'Nièvre'),
 			(60, 65, '59', 'Nord'),
 			(61, 69, '60', 'Oise'),
 			(62, 66, '61', 'Orne'),
 			(63, 65, '62', 'Pas-de-Calais'),
-			(64, 53, '63', 'Puy-de-D\xF4me'),
-			(65, 52, '64', 'Pyr\xE9n\xE9es-Atlantiques'),
-			(66, 64, '65', 'Hautes-Pyr\xE9n\xE9es'),
-			(67, 61, '66', 'Pyr\xE9n\xE9es-Orientales'),
+			(64, 53, '63', 'Puy-de-Dôme'),
+			(65, 52, '64', 'Pyrénées-Atlantiques'),
+			(66, 64, '65', 'Hautes-Pyrénées'),
+			(67, 61, '66', 'Pyrénées-Orientales'),
 			(68, 51, '67', 'Bas-Rhin'),
 			(69, 51, '68', 'Haut-Rhin'),
-			(70, 72, '69', 'Rh\xF4ne'),
-			(71, 59, '70', 'Haute-Sa\xF4ne'),
-			(72, 54, '71', 'Sa\xF4ne-et-Loire'),
+			(70, 72, '69', 'Rhône'),
+			(71, 59, '70', 'Haute-Saône'),
+			(72, 54, '71', 'Saône-et-Loire'),
 			(73, 68, '72', 'Sarthe'),
 			(74, 72, '73', 'Savoie'),
 			(75, 72, '74', 'Haute-Savoie'),
@@ -1132,13 +1155,13 @@ function create_default_subregions()
 			(77, 67, '76', 'Seine-Maritime'),
 			(78, 60, '77', 'Seine-et-Marne'),
 			(79, 60, '78', 'Yvelines'),
-			(80, 70, '79', 'Deux-S\xE8vres'),
+			(80, 70, '79', 'Deux-Sèvres'),
 			(81, 69, '80', 'Somme'),
 			(82, 64, '81', 'Tarn'),
 			(83, 64, '82', 'Tarn-et-Garonne'),
 			(84, 71, '83', 'Var'),
 			(85, 71, '84', 'Vaucluse'),
-			(86, 68, '85', 'Vend\xE9e'),
+			(86, 68, '85', 'Vendée'),
 			(87, 70, '86', 'Vienne'),
 			(88, 62, '87', 'Haute-Vienne'),
 			(89, 63, '88', 'Vosges'),
@@ -1152,16 +1175,17 @@ function create_default_subregions()
 			(97, 73, '971', 'Guadeloupe'),
 			(98, 74, '972', 'Martinique'),
 			(99, 75, '973', 'Guyane'),
-			(100, 76, '974', 'La R\xE9union'),
+			(100, 76, '974', 'La Réunion'),
 			(101, 77, '976', 'Mayotte'),
 			(102, 78, '975', 'Saint-Pierre-et-Miquelon'),
 			(103, 78, '986', 'Wallis-et-Futuna'),
-			(104, 78, '987', 'Polyn\xE9sie fran\xE7aise'),
-			(105, 78, '988', 'Nouvelle-Cal\xE9donie'),
+			(104, 78, '987', 'Polynésie française'),
+			(105, 78, '988', 'Nouvelle-Calédonie'),
 			(106, 79, '99', 'Monaco')", $current_charset, 'iso-8859-1') );
 
 	task_end();
 }
+
 
 /**
  * Create default scheduled jobs that don't exist yet:
@@ -1386,6 +1410,131 @@ function create_demo_users()
 	}
 }
 
+
+/**
+ * Creates sample private messages between admin and existing users
+ *
+ */
+function create_demo_messages()
+{
+	task_begin('Creating sample private messages... ');
+	global $UserSettings, $DB, $now, $localtimenow;
+
+	load_class( 'messaging/model/_thread.class.php', 'Thread' );
+	load_class( 'messaging/model/_message.class.php', 'Message' );
+	load_class( 'users/model/_usersettings.class.php', 'UserSettings' );
+	$UserSettings = new UserSettings();
+	$UserCache = & get_UserCache();
+
+	$users_SQL = new SQL();
+	$users_SQL->SELECT( 'user_ID, user_login' );
+	$users_SQL->FROM( 'T_users' );
+	$users_SQL->WHERE( 'NOT user_ID  = 1' );
+	$users_SQL->ORDER_BY( 'user_ID' );
+	$users = $DB->get_results( $users_SQL->get() );
+
+	for( $i = 0; $i < count( $users ); $i++ )
+	{
+		if( $i % 2 == 0 )
+		{
+			$author_ID = 1;
+			$recipient_ID = $users[$i]->user_ID;
+		}
+		else
+		{
+			$author_ID = $users[$i]->user_ID;
+			$recipient_ID = 1;
+		}
+
+		$author_User = & $UserCache->get_by_ID( $author_ID );
+		$recipient_User = & $UserCache->get_by_ID( $recipient_ID );
+
+		$loop_Thread = new Thread();
+		$loop_Message = new Message();
+
+		// Initial message
+		$loop_Message->Thread = $loop_Thread;
+		$loop_Message->Thread->set_param( 'datemodified', 'string', date( 'Y-m-d H:i:s', $localtimenow - 60 ) );
+		$loop_Message->Thread->set( 'title', sprintf( T_('Demo private conversation #%s'), $i + 1 ) );
+		$loop_Message->Thread->recipients_list = array( $recipient_ID );
+		$loop_Message->set( 'author_user_ID', $author_ID );
+		$loop_Message->creator_user_ID = $author_ID;
+		$loop_Message->set( 'text', sprintf( T_('This is a demo private message to %s.'), $recipient_User->login ) );
+
+		$DB->begin();
+		$conversation_saved = false;
+		if( $loop_Message->Thread->dbinsert() )
+		{
+			$loop_Message->set_param( 'thread_ID', 'integer', $loop_Message->Thread->ID );
+			if( $loop_Message->dbinsert() )
+			{
+				if( $loop_Message->dbinsert_threadstatus( $loop_Message->Thread->recipients_list ) )
+				{
+					if( $loop_Message->dbinsert_contacts( $loop_Message->Thread->recipients_list ) )
+					{
+						if( $loop_Message->dbupdate_last_contact_datetime() )
+						{
+							$conversation_saved = true;
+						}
+					}
+				}
+			}
+		}
+
+		if( $conversation_saved )
+		{
+			$conversation_saved = false;
+
+			// Reply message
+			$loop_reply_Message = new Message();
+			$loop_reply_Message->Thread = $loop_Thread;
+			$loop_reply_Message->set( 'author_user_ID', $recipient_ID );
+			$loop_reply_Message->creator_user_ID = $author_ID;
+			$loop_reply_Message->set( 'text', sprintf( T_('This is a demo private reply to %s.'), $author_User->login ) );
+			$loop_reply_Message->set_param( 'thread_ID', 'integer', $loop_reply_Message->Thread->ID );
+
+			if( $loop_reply_Message->dbinsert() )
+			{
+				// Mark reply message as unread by initiator
+				$sql = 'UPDATE T_messaging__threadstatus
+						SET tsta_first_unread_msg_ID = '.$loop_reply_Message->ID.'
+						WHERE tsta_thread_ID = '.$loop_reply_Message->Thread->ID.'
+							AND tsta_user_ID = '.$author_ID.'
+							AND tsta_first_unread_msg_ID IS NULL';
+				$DB->query( $sql, 'Insert thread statuses' );
+
+				// Mark all messages as read by recipient
+				$sql = 'UPDATE T_messaging__threadstatus
+						SET tsta_first_unread_msg_ID = NULL
+						WHERE tsta_thread_ID = '.$loop_reply_Message->Thread->ID.'
+							AND tsta_user_ID = '.$recipient_ID;
+				$DB->query( $sql, 'Insert thread statuses' );
+
+				// check if contact pairs between sender and recipients exists
+				$recipient_list = $loop_reply_Message->Thread->load_recipients();
+				// remove author user from recipient list
+				$recipient_list = array_diff( $recipient_list, array( $loop_reply_Message->author_user_ID ) );
+				// insert missing contact pairs if required
+				if( $loop_reply_Message->dbinsert_contacts( $recipient_list ) )
+				{
+					if( $loop_reply_Message->dbupdate_last_contact_datetime() )
+					{
+						$DB->commit();
+						$conversation_saved = true;
+					}
+				}
+			}
+		}
+
+		if( ! $conversation_saved )
+		{
+			$DB->rollback();
+		}
+	}
+	task_end();
+}
+
+
 /**
  * This is called only for fresh installs and fills the tables with
  * demo/tutorial things.
@@ -1434,6 +1583,7 @@ function create_demo_contents()
 	{
 		$kate_user_ID = $admin_user->ID;
 	}
+
 
 	/**
 	 * @var FileRootCache
@@ -1531,7 +1681,7 @@ function create_demo_contents()
 	{ // Install Tracker blog
 		$timeshift += 86400;
 		task_begin( 'Creating Tracker collection...' );
-		create_demo_collection( 'group', $admin_user->ID, $create_demo_users, $timeshift );
+		create_demo_collection( 'group', $jay_moderator_ID, $create_demo_users, $timeshift );
 		update_install_progress_bar();
 		task_end();
 	}

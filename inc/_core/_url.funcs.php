@@ -392,7 +392,7 @@ function fetch_remote_page( $url, & $info, $timeout = NULL, $max_size_kb = NULL 
 		$s = fgets( $fp );
 		if( ! preg_match( '~^HTTP/\d+\.\d+ (\d+)~', $s, $match ) )
 		{
-			$info['error'] = NT_( 'Invalid response.' );
+			$info['error'] = NT_( 'Invalid response' ).'.';
 			fclose( $fp );
 			return false;
 		}
@@ -425,6 +425,8 @@ function fetch_remote_page( $url, & $info, $timeout = NULL, $max_size_kb = NULL 
 		$info['used_method'] = 'fopen';
 
 		$fp = @fopen( $url, 'r' );
+		if ( ! isset( $http_response_header ) )
+			$http_response_header = get_headers();
 		if( ! $fp )
 		{
 			if( isset( $http_response_header )
@@ -757,8 +759,8 @@ function url_absolute( $url, $base = NULL )
  */
 function make_rel_links_abs( $s, $host = NULL )
 {
-	$s = preg_replace_callback( '~(<[^>]+?)\b((?:src|href)\s*=\s*)(["\'])?([^\\3]+?)(\\3)~i', create_function( '$m', '
-		return $m[1].$m[2].$m[3].url_absolute($m[4], "'.$host.'").$m[5];' ), $s );
+	$s = preg_replace_callback( '~(<[^>]+?)\b((?:src|href)\s*=\s*)(["\'])?([^\\3]+?)(\\3)~i', function( $m ) {
+		return $m[1].$m[2].$m[3].url_absolute($m[4], "'.$host.'").$m[5];}, $s );
 	return $s;
 }
 
@@ -814,8 +816,8 @@ function is_absolute_url( $url )
  */
 function is_same_url( $a, $b, $ignore_http_protocol = FALSE )
 {
-	$a = preg_replace_callback('~%[0-9A-F]{2}~', create_function('$m', 'return strtolower($m[0]);'), $a);
-	$b = preg_replace_callback('~%[0-9A-F]{2}~', create_function('$m', 'return strtolower($m[0]);'), $b);
+	$a = preg_replace_callback('~%[0-9A-F]{2}~', function($m) { return strtolower($m[0]);}, $a);
+	$b = preg_replace_callback('~%[0-9A-F]{2}~', function($m) {return strtolower($m[0]);}, $b);
 
 	if( $ignore_http_protocol )
 	{

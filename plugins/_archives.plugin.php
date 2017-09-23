@@ -35,7 +35,7 @@ class archives_plugin extends Plugin
 	var $name;
 	var $code = 'evo_Arch';
 	var $priority = 50;
-	var $version = '6.7.9';
+	var $version = '6.9.3';
 	var $author = 'The b2evo Group';
 	var $group = 'widget';
 	var $subgroup = 'navigation';
@@ -150,7 +150,7 @@ class archives_plugin extends Plugin
 				// Number of archive entries to display:
 				'limit'             => 12,
 				// More link text:
-				'more_link'         => T_('More...'),
+				'more_link'         => T_('More').'...',
 			), $params );
 
 		// Sort order (used only in postbypost mode):

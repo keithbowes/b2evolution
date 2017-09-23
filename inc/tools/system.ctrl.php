@@ -229,7 +229,7 @@ if( ! $system_stats['install_removed'] )
 	disp_system_check( 'warning', T_('For maximum security, it is recommended that you delete your /blogs/install/ folder once you are done with install or upgrade.') );
 
 	// Database reset allowed?
-	init_system_check( T_( 'Database reset' ), $allow_evodb_reset ?  T_('Allowed!') : T_('Forbidden') );
+	init_system_check( T_( 'Database reset' ), $allow_evodb_reset ?  T_('Allowed').'!' : T_('Forbidden') );
 	if( $allow_evodb_reset )
 	{
   	disp_system_check( 'error', '<p>'.T_('Currently, anyone who accesses your install folder could entirely reset your b2evolution database.')."</p>\n"
@@ -398,56 +398,7 @@ else
 }
 
 
-// allow_url_include? (since 5.2, supercedes allow_url_fopen for require()/include())
-if( version_compare(PHP_VERSION, '5.2', '>=') )
-{
-	init_system_check( 'PHP allow_url_include', $system_stats['php_allow_url_include'] ?  T_('On') : T_('Off') );
-	if( $system_stats['php_allow_url_include'] )
-	{
-		disp_system_check( 'warning', $facilitate_exploits.' '.sprintf( $change_ini, 'allow_url_include = Off' )  );
-	}
-	else
-	{
-		disp_system_check( 'ok' );
-	}
-}
-else
-{
-	/*
-	 * allow_url_fopen
-	 * Note: this allows including of remote files (PHP 4 only) as well as opening remote files with fopen() (all versions of PHP)
-	 * Both have potential for exploits. (The first is easier to exploit than the second).
-	 * dh> Should we check for curl etc then also and warn the user until there's no method for us anymore to open remote files?
-	 * fp> Yes
-	 */
-	init_system_check( 'PHP allow_url_fopen', $system_stats['php_allow_url_fopen'] ?  T_('On') : T_('Off') );
-	if( $system_stats['php_allow_url_fopen'] )
-	{
-		disp_system_check( 'warning', $facilitate_exploits.' '.sprintf( $change_ini, 'allow_url_fopen = Off' )  );
-	}
-	else
-	{
-		disp_system_check( 'ok' );
-	}
-}
 
-// Magic quotes:
-if( !strcasecmp( ini_get('magic_quotes_sybase'), 'on' ) )
-{
-	$magic_quotes = T_('On').' (magic_quotes_sybase)';
-	$message = 'magic_quotes_sybase = Off';
-}
-elseif( get_magic_quotes_gpc() )
-{
-	$magic_quotes = T_('On').' (magic_quotes_gpc)';
-	$message = 'magic_quotes_gpc = Off';
-}
-else
-{
-	$magic_quotes = T_('Off');
-	$message = '';
-}
-init_system_check( 'PHP Magic Quotes', $magic_quotes );
 if( !empty( $message ) )
 {
 	disp_system_check( 'warning', T_('PHP is adding extra quotes to all inputs. This leads to unnecessary extra processing.')
@@ -520,7 +471,7 @@ else
 		$forced_max_execution_time = system_check_max_execution_time();
 		init_system_check( 'PHP forced max_execution_time', sprintf( T_('%s seconds'), $forced_max_execution_time ) );
 		disp_system_check( 'ok', sprintf( T_('b2evolution was able to request more time (than the default %s seconds) to execute complex tasks.'), $max_execution_time ) );
-	}	
+	}
 	elseif( $max_execution_time <= 5 * 60 )
 	{
 		init_system_check( 'PHP max_execution_time', sprintf( T_('%s seconds'), $max_execution_time ) );

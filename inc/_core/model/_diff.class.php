@@ -26,11 +26,11 @@ class _DiffOp {
 	}
 
 	function norig() {
-		return $this->orig ? sizeof( $this->orig ) : 0;
+		return $this->orig ? count( $this->orig ) : 0;
 	}
 
 	function nclosing() {
-		return $this->closing ? sizeof( $this->closing ) : 0;
+		return $this->closing ? count( $this->closing ) : 0;
 	}
 }
 
@@ -156,8 +156,8 @@ class _DiffEngine {
 		$this->_shift_boundaries( $to_lines, $this->ychanged, $this->xchanged );
 
 		// Compute the edit operations.
-		$n_from = sizeof( $from_lines );
-		$n_to = sizeof( $to_lines );
+		$n_from = count( $from_lines );
+		$n_to = count( $to_lines );
 
 		$edits = array();
 		$xi = $yi = 0;
@@ -210,8 +210,8 @@ class _DiffEngine {
 			unset( $wikidiff3 );
 		} else {
 			// old diff
-			$n_from = sizeof( $from_lines );
-			$n_to = sizeof( $to_lines );
+			$n_from = count( $from_lines );
+			$n_to = count( $to_lines );
 			$this->xchanged = $this->ychanged = array();
 			$this->xv = $this->yv = array();
 			$this->xind = $this->yind = array();
@@ -259,7 +259,7 @@ class _DiffEngine {
 			}
 
 			// Find the LCS.
-			$this->_compareseq( 0, sizeof( $this->xv ), 0, sizeof( $this->yv ) );
+			$this->_compareseq( 0, count( $this->xv ), 0, count( $this->yv ) );
 		}
 	}
 
@@ -332,8 +332,7 @@ class _DiffEngine {
 					continue;
 				}
 				$matches = $ymatches[$line];
-				reset( $matches );
-				while ( list( , $y ) = each( $matches ) ) {
+				foreach( $matches as $y ) {
 					if ( empty( $this->in_seq[$y] ) ) {
 						$k = $this->_lcs_pos( $y );
 						assert( $k > 0 );
@@ -341,7 +340,7 @@ class _DiffEngine {
 						break;
 					}
 				}
-				while ( list ( , $y ) = each( $matches ) ) {
+				foreach( $matches as $y ) {
 					if ( $y > $this->seq[$k -1] ) {
 						assert( $y < $this->seq[$k] );
 						// Optimization: this is a common case:
@@ -471,9 +470,9 @@ class _DiffEngine {
 		$i = 0;
 		$j = 0;
 
-		assert( 'sizeof($lines) == sizeof($changed)' );
-		$len = sizeof( $lines );
-		$other_len = sizeof( $other_changed );
+		assert( 'count($lines) == count($changed)' );
+		$len = count( $lines );
+		$other_len = count( $other_changed );
 
 		while ( 1 ) {
 			/*
@@ -650,7 +649,7 @@ class Diff {
 		$lcs = 0;
 		foreach ( $this->edits as $edit ) {
 			if ( $edit->type == 'copy' ) {
-				$lcs += sizeof( $edit->orig );
+				$lcs += count( $edit->orig );
 			}
 		}
 		return $lcs;
@@ -669,7 +668,7 @@ class Diff {
 
 		foreach ( $this->edits as $edit ) {
 			if ( $edit->orig ) {
-				array_splice( $lines, sizeof( $lines ), 0, $edit->orig );
+				array_splice( $lines, count( $lines ), 0, $edit->orig );
 			}
 		}
 		return $lines;
@@ -688,7 +687,7 @@ class Diff {
 
 		foreach ( $this->edits as $edit ) {
 			if ( $edit->closing ) {
-				array_splice( $lines, sizeof( $lines ), 0, $edit->closing );
+				array_splice( $lines, count( $lines ), 0, $edit->closing );
 			}
 		}
 		return $lines;
@@ -761,23 +760,23 @@ class MappedDiff extends Diff {
 	function __construct( $from_lines, $to_lines,
 		$mapped_from_lines, $mapped_to_lines ) {
 
-		assert( sizeof( $from_lines ) == sizeof( $mapped_from_lines ) );
-		assert( sizeof( $to_lines ) == sizeof( $mapped_to_lines ) );
+		assert( count( $from_lines ) == count( $mapped_from_lines ) );
+		assert( count( $to_lines ) == count( $mapped_to_lines ) );
 
 		parent::__construct( $mapped_from_lines, $mapped_to_lines );
 
 		$xi = $yi = 0;
-		for ( $i = 0; $i < sizeof( $this->edits ); $i++ ) {
+		for ( $i = 0; $i < count( $this->edits ); $i++ ) {
 			$orig = &$this->edits[$i]->orig;
 			if ( is_array( $orig ) ) {
-				$orig = array_slice( $from_lines, $xi, sizeof( $orig ) );
-				$xi += sizeof( $orig );
+				$orig = array_slice( $from_lines, $xi, count( $orig ) );
+				$xi += count( $orig );
 			}
 
 			$closing = &$this->edits[$i]->closing;
 			if ( is_array( $closing ) ) {
-				$closing = array_slice( $to_lines, $yi, sizeof( $closing ) );
-				$yi += sizeof( $closing );
+				$closing = array_slice( $to_lines, $yi, count( $closing ) );
+				$yi += count( $closing );
 			}
 		}
 	}
@@ -830,7 +829,7 @@ class DiffFormatter {
 		foreach ( $diff->edits as $edit ) {
 			if ( $edit->type == 'copy' ) {
 				if ( is_array( $block ) ) {
-					if ( sizeof( $edit->orig ) <= $nlead + $ntrail ) {
+					if ( count( $edit->orig ) <= $nlead + $ntrail ) {
 						$block[] = $edit;
 					} else {
 						if ( $ntrail ) {
@@ -846,9 +845,9 @@ class DiffFormatter {
 				$context = $edit->orig;
 			} else {
 				if ( !is_array( $block ) ) {
-					$context = array_slice( $context, sizeof( $context ) - $nlead );
-					$x0 = $xi - sizeof( $context );
-					$y0 = $yi - sizeof( $context );
+					$context = array_slice( $context, count( $context ) - $nlead );
+					$x0 = $xi - count( $context );
+					$y0 = $yi - count( $context );
 					$block = array();
 					if ( $context ) {
 						$block[] = new _DiffOp_Copy( $context );
@@ -858,10 +857,10 @@ class DiffFormatter {
 			}
 
 			if ( $edit->orig ) {
-				$xi += sizeof( $edit->orig );
+				$xi += count( $edit->orig );
 			}
 			if ( $edit->closing ) {
-				$yi += sizeof( $edit->closing );
+				$yi += count( $edit->closing );
 			}
 		}
 

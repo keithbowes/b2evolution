@@ -50,7 +50,7 @@ $use_l10n = 1;
  */
 $evo_charset = 'utf-8'; // Set utf-8 because we started to use utf-8 internally with the Portable UTF-8 library
 
-if( version_compare( phpversion(), '5.6', '>=' ) )
+if( version_compare( PHP_VERSION, '5.6', '>=' ) )
 {	// In case of php version greater than 5.6 set the default charset to UTF-8
 	// All other charsets ( inconv, mbstring and php internal functions ) default value is based on the 'default_charset'
 	@ini_set( 'default_charset', 'UTF-8' );
@@ -133,7 +133,7 @@ $locales['en-US'] = array(
 		'charset' => 'utf-8',
 		'datefmt' => 'm/d/y',
 		'longdatefmt' => 'm/d/Y',
-		'extdatefmt' => 'M d Y',
+		'extdatefmt' => 'M d, Y',
 		'input_datefmt' => 'm/d/y',
 		'timefmt' => 'h:i:s a',
 		'shorttimefmt' => 'h:i a',

@@ -164,22 +164,7 @@ function param( $var, $type = 'raw', $default = '', $memorize = false,
 	 */
 	if( ! isset( $GLOBALS[$var] ) || $override )
 	{
-		if( isset($_POST[$var]) )
-		{
-			$GLOBALS[$var] = remove_magic_quotes( $_POST[$var] );
-			// if( isset($Debuglog) ) $Debuglog->add( 'param(-): '.$var.'='.$GLOBALS[$var].' set by POST', 'params' );
-		}
-		elseif( isset($_GET[$var]) )
-		{
-			$GLOBALS[$var] = remove_magic_quotes($_GET[$var]);
-			// if( isset($Debuglog) ) $Debuglog->add( 'param(-): '.$var.'='.$GLOBALS[$var].' set by GET', 'params' );
-		}
-		elseif( isset($_COOKIE[$var]))
-		{
-			$GLOBALS[$var] = remove_magic_quotes($_COOKIE[$var]);
-			// if( isset($Debuglog) ) $Debuglog->add( 'param(-): '.$var.'='.$GLOBALS[$var].' set by COOKIE', 'params' );
-		}
-		elseif( $default === true )
+		if( $default === true )
 		{
 			bad_request_die( sprintf( T_('Parameter &laquo;%s&raquo; is required!'), $var ) );
 		}
@@ -198,12 +183,6 @@ function param( $var, $type = 'raw', $default = '', $memorize = false,
 			// Won't be memorized nor type-forced!
 			return false;
 		}
-	}
-	else
-	{ // Variable was already set but we need to remove the auto quotes
-		$GLOBALS[$var] = remove_magic_quotes($GLOBALS[$var]);
-
-		// if( isset($Debuglog) ) $Debuglog->add( 'param(-): '.$var.' already set to ['.var_export($GLOBALS[$var], true).']!', 'params' );
 	}
 
 	if( isset($io_charset) && ! empty($evo_charset) )
@@ -1072,8 +1051,8 @@ function param_check_date( $var, $err_msg, $required = false, $date_format = NUL
 	}
 
 	// Convert PHP date format to regexp pattern:
-	$date_regexp = '~^'.preg_replace_callback( '~(\\\)?(\w)~', create_function( '$m', '
-		if( $m[1] == "\\\" ) return $m[2]; // escaped
+	$date_regexp = '~^'.preg_replace_callback( '~(\\\)?(\w)~', function( $m) {
+		if( $m[1] == "\\" ) return $m[2]; // escaped
 		switch( $m[2] )
 		{
 			case "d": return "([0-3]\\d)"; // day, 01-31
@@ -1093,7 +1072,7 @@ function param_check_date( $var, $err_msg, $required = false, $date_format = NUL
 			case "Y": return "(\\d{4})"; // year, XXXX
 			default:
 				return $m[0];
-		}' ), $date_format ).'$~i'; // case-insensitive?
+		} }, $date_format ).'$~i'; // case-insensitive?
 	// Allow additional spaces, e.g. "03  May 2007" when format is "d F Y":
 	$date_regexp = preg_replace( '~ +~', '\s+', $date_regexp );
 	// echo $date_format.'...'.$date_regexp;
@@ -2105,79 +2084,6 @@ function _trapError( $reset = 1 )
 	}
 }
 
-
-/*
- * Clean up the mess PHP has created with its funky quoting everything!
- */
-if( get_magic_quotes_gpc() )
-{ // That stupid PHP behaviour consisting of adding slashes everywhere is unfortunately on
-
-	if( in_array( strtolower(ini_get('magic_quotes_sybase')), array('on', '1', 'true', 'yes') ) )
-	{ // overrides "magic_quotes_gpc" and only replaces single quotes with themselves ( "'" => "''" )
-		/**
-		 * @ignore
-		 */
-		function remove_magic_quotes( $mixed )
-		{
-			if( is_array( $mixed ) )
-			{
-				foreach($mixed as $k => $v)
-				{
-					$mixed[$k] = remove_magic_quotes( $v );
-				}
-			}
-			elseif( is_string($mixed) )
-			{
-				// echo 'Removing slashes ';
-				$mixed = str_replace( '\'\'', '\'', $mixed );
-			}
-			return $mixed;
-		}
-	}
-	else
-	{
-		/**
-		 * Remove quotes from input.
-		 * This handles magic_quotes_gpc and magic_quotes_sybase PHP settings/variants.
-		 *
-		 * NOTE: you should not use it directly, but one of the param-functions!
-		 *
-		 * @param mixed string or array (function is recursive)
-		 * @return mixed Value, with magic quotes removed
-		 */
-		function remove_magic_quotes( $mixed )
-		{
-			if( is_array( $mixed ) )
-			{
-				foreach($mixed as $k => $v)
-				{
-					$mixed[$k] = remove_magic_quotes( $v );
-				}
-			}
-			elseif( is_string($mixed) )
-			{
-				// echo 'Removing slashes ';
-				$mixed = stripslashes( $mixed );
-			}
-			return $mixed;
-		}
-	}
-}
-else
-{
-	/**
-	 * @ignore
-	 */
-	function remove_magic_quotes( $mixed )
-	{
-		return $mixed;
-	}
-}
-
-
-
-
-
 /**
  * Sets an HTML parameter and checks for sanitized code.
  *
@@ -2254,16 +2160,8 @@ function param_check_gender( $var, $required = false )
 		global $current_User;
 		if( $required )
 		{
-			if( $current_User->check_perm( 'users', 'edit' ) )
-			{	// Display a note message if user can edit all users
-				param_add_message_to_Log( $var, T_('Please select a gender.'), 'note' );
-				return true;
-			}
-			else
-			{	// Display an error message
-				param_error( $var, T_( 'Please select a gender.' ) );
-				return false;
-			}
+			param_error( $var, T_( 'Please select a gender.' ) );
+			return false;
 		}
 		return true;
 	}
@@ -2472,7 +2370,7 @@ function check_html_sanity( $content, $context = 'posting', $User = NULL, $encod
 		else
 		{
 			$errmsg = ($context == 'commenting')
-				? T_('Illegal content found (spam?).')
+				? T_('Illegal content found (spam?)').'.'
 				: sprintf( T_('Illegal content found: blacklisted word &laquo;%s&raquo;.'), htmlspecialchars($block) );
 		}
 

@@ -237,7 +237,7 @@ echo '<div class="profile_column_left">';
 
 	// - Report:
 	if( $is_logged_in && ( $current_User->ID != $User->ID ) &&
-			$current_User->check_status( 'can_report_user' ) )
+			$current_User->check_status( 'can_report_user', $User->ID ) )
 	{ // Current user must be logged in, cannot report own account, and must has a permission to report
 		if( ! isset( $buttons['group'] ) )
 		{
@@ -384,14 +384,14 @@ echo '<div class="profile_column_right">';
 
 	$profileForm->begin_fieldset( T_( 'Reputation' ) );
 
-		$profileForm->info( T_('Joined'), mysql2localedate( $User->datecreated ) );
+		$profileForm->info( T_('Registration date'), mysql2localedate( $User->datecreated ) );
 
 		if( $Blog->get_setting( 'userdir_lastseen' ) )
 		{	// Display last visit only if it is enabled by current collection:
 			$profileForm->info( T_('Last seen on'), get_lastseen_date( $User->get( 'lastseen_ts' ), $Blog->get_setting( 'userdir_lastseen_view' ), $Blog->get_setting( 'userdir_lastseen_cheat' ) ) );
 		}
 
-		$profileForm->info( T_('Number of posts'), $User->get_reputation_posts() );
+		$profileForm->info( T_('Posts'), $User->get_reputation_posts() );
 
 		$profileForm->info( T_('Comments'), '<span class="reputation_message">'.$User->get_reputation_comments().'</span>' );
 

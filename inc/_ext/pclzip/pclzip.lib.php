@@ -200,11 +200,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     var $error_code = 1;
     var $error_string = '';
 
-    // ----- Current status of the magic_quotes_runtime
-    // This value store the php configuration for magic_quotes
-    // The class can then disable the magic_quotes and reset it after
-    var $magic_quotes_status;
-
   // --------------------------------------------------------------------------------
   // Function : PclZip()
   // Description :
@@ -225,7 +220,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     // ----- Set the attributes
     $this->zipname = $p_zipname;
     $this->zip_fd = 0;
-    $this->magic_quotes_status = -1;
 
     // ----- Return
     return;
@@ -371,7 +365,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     }
 
     // ----- Reformat the string list
-    if (sizeof($v_string_list) != 0) {
+    if (count($v_string_list) != 0) {
       foreach ($v_string_list as $v_string) {
         if ($v_string != '') {
           $v_att_list[][PCLZIP_ATT_FILE_NAME] = $v_string;
@@ -558,7 +552,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     }
 
     // ----- Reformat the string list
-    if (sizeof($v_string_list) != 0) {
+    if (count($v_string_list) != 0) {
       foreach ($v_string_list as $v_string) {
         $v_att_list[][PCLZIP_ATT_FILE_NAME] = $v_string;
       }
@@ -966,7 +960,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     // with privParseOptions()
     $v_arg_trick = array (PCLZIP_OPT_BY_INDEX, $p_index);
     $v_options_trick = array();
-    $v_result = $this->privParseOptions($v_arg_trick, sizeof($v_arg_trick), $v_options_trick,
+    $v_result = $this->privParseOptions($v_arg_trick, count($v_arg_trick), $v_options_trick,
                                         array (PCLZIP_OPT_BY_INDEX => 'optional' ));
     if ($v_result != 1) {
         return 0;
@@ -1038,19 +1032,12 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
       }
     }
 
-    // ----- Magic quotes trick
-    $this->privDisableMagicQuotes();
-
     // ----- Call the delete fct
     $v_list = array();
     if (($v_result = $this->privDeleteByRule($v_list, $v_options)) != 1) {
-      $this->privSwapBackMagicQuotes();
       unset($v_list);
       return(0);
     }
-
-    // ----- Magic quotes trick
-    $this->privSwapBackMagicQuotes();
 
     // ----- Return
     return $v_list;
@@ -1093,12 +1080,8 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     // ----- Reset the error handler
     $this->privErrorReset();
 
-    // ----- Magic quotes trick
-    $this->privDisableMagicQuotes();
-
     // ----- Check archive
     if (!$this->privCheckFormat()) {
-      $this->privSwapBackMagicQuotes();
       return(0);
     }
 
@@ -1114,8 +1097,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
       // ----- Open the zip file
       if (($this->zip_fd = @fopen($this->zipname, 'rb')) == 0)
       {
-        $this->privSwapBackMagicQuotes();
-
         // ----- Error log
         PclZip::privErrorLog(PCLZIP_ERR_READ_OPEN_FAIL, 'Unable to open archive \''.$this->zipname.'\' in binary read mode');
 
@@ -1127,7 +1108,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
       $v_central_dir = array();
       if (($v_result = $this->privReadEndCentralDir($v_central_dir)) != 1)
       {
-        $this->privSwapBackMagicQuotes();
         return 0;
       }
 
@@ -1139,9 +1119,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
       $v_prop['nb'] = $v_central_dir['entries'];
       $v_prop['status'] = 'ok';
     }
-
-    // ----- Magic quotes trick
-    $this->privSwapBackMagicQuotes();
 
     // ----- Return
     return $v_prop;
@@ -1663,10 +1640,10 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
           // ----- Check the format of each item
           $v_sort_flag=false;
           $v_sort_value=0;
-          for ($j=0; $j<sizeof($v_work_list); $j++) {
+          for ($j=0; $j<count($v_work_list); $j++) {
               // ----- Explode the item
               $v_item_list = explode("-", $v_work_list[$j]);
-              $v_size_item_list = sizeof($v_item_list);
+              $v_size_item_list = count($v_item_list);
 
               // ----- TBC : Here we might check that each item is a
               // real integer ...
@@ -2005,7 +1982,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     $v_result_list = array();
 
     // ----- Look each entry
-    for ($i=0; $i<sizeof($p_filedescr_list); $i++) {
+    for ($i=0; $i<count($p_filedescr_list); $i++) {
 
       // ----- Get filedescr
       $v_descr = $p_filedescr_list[$i];
@@ -2050,7 +2027,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
       $this->privCalculateStoredFilename($v_descr, $p_options);
 
       // ----- Add the descriptor in result list
-      $v_result_list[sizeof($v_result_list)] = $v_descr;
+      $v_result_list[count($v_result_list)] = $v_descr;
 
       // ----- Look for folder
       if ($v_descr['type'] == 'folder') {
@@ -2127,9 +2104,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     $v_result=1;
     $v_list_detail = array();
 
-    // ----- Magic quotes trick
-    $this->privDisableMagicQuotes();
-
     // ----- Open the file in write mode
     if (($v_result = $this->privOpenFd('wb')) != 1)
     {
@@ -2142,9 +2116,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
     // ----- Close
     $this->privCloseFd();
-
-    // ----- Magic quotes trick
-    $this->privSwapBackMagicQuotes();
 
     // ----- Return
     return $v_result;
@@ -2172,15 +2143,10 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
       // ----- Return
       return $v_result;
     }
-    // ----- Magic quotes trick
-    $this->privDisableMagicQuotes();
 
     // ----- Open the zip file
     if (($v_result=$this->privOpenFd('rb')) != 1)
     {
-      // ----- Magic quotes trick
-      $this->privSwapBackMagicQuotes();
-
       // ----- Return
       return $v_result;
     }
@@ -2190,7 +2156,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     if (($v_result = $this->privReadEndCentralDir($v_central_dir)) != 1)
     {
       $this->privCloseFd();
-      $this->privSwapBackMagicQuotes();
       return $v_result;
     }
 
@@ -2204,7 +2169,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     if (($v_zip_temp_fd = @fopen($v_zip_temp_name, 'wb')) == 0)
     {
       $this->privCloseFd();
-      $this->privSwapBackMagicQuotes();
 
       PclZip::privErrorLog(PCLZIP_ERR_READ_OPEN_FAIL, 'Unable to open temporary file \''.$v_zip_temp_name.'\' in binary write mode');
 
@@ -2237,7 +2201,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
       fclose($v_zip_temp_fd);
       $this->privCloseFd();
       @unlink($v_zip_temp_name);
-      $this->privSwapBackMagicQuotes();
 
       // ----- Return
       return $v_result;
@@ -2257,7 +2220,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     }
 
     // ----- Create the Central Dir files header
-    for ($i=0, $v_count=0; $i<sizeof($v_header_list); $i++)
+    for ($i=0, $v_count=0; $i<count($v_header_list); $i++)
     {
       // ----- Create the file header
       if ($v_header_list[$i]['status'] == 'ok') {
@@ -2265,7 +2228,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
           fclose($v_zip_temp_fd);
           $this->privCloseFd();
           @unlink($v_zip_temp_name);
-          $this->privSwapBackMagicQuotes();
 
           // ----- Return
           return $v_result;
@@ -2297,7 +2259,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     {
       // ----- Reset the file list
       unset($v_header_list);
-      $this->privSwapBackMagicQuotes();
 
       // ----- Return
       return $v_result;
@@ -2315,7 +2276,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     @fclose($v_zip_temp_fd);
 
     // ----- Magic quotes trick
-    $this->privSwapBackMagicQuotes();
 
     // ----- Delete the zip file
     // TBC : I should test the result ...
@@ -2413,7 +2373,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     $v_offset = @ftell($this->zip_fd);
 
     // ----- Create the Central Dir files header
-    for ($i=0,$v_count=0; $i<sizeof($v_header_list); $i++)
+    for ($i=0,$v_count=0; $i<count($v_header_list); $i++)
     {
       // ----- Create the file header
       if ($v_header_list[$i]['status'] == 'ok') {
@@ -2467,10 +2427,10 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     $v_header = array();
 
     // ----- Recuperate the current number of elt in list
-    $v_nb = sizeof($p_result_list);
+    $v_nb = count($p_result_list);
 
     // ----- Loop on the files
-    for ($j=0; ($j<sizeof($p_filedescr_list)) && ($v_result==1); $j++) {
+    for ($j=0; ($j<count($p_filedescr_list)) && ($v_result==1); $j++) {
       // ----- Format the filename
       $p_filedescr_list[$j]['filename']
       = PclZipUtilTranslateWinPath($p_filedescr_list[$j]['filename'], false);
@@ -3151,15 +3111,9 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
   {
     $v_result=1;
 
-    // ----- Magic quotes trick
-    $this->privDisableMagicQuotes();
-
     // ----- Open the zip file
     if (($this->zip_fd = @fopen($this->zipname, 'rb')) == 0)
     {
-      // ----- Magic quotes trick
-      $this->privSwapBackMagicQuotes();
-
       // ----- Error log
       PclZip::privErrorLog(PCLZIP_ERR_READ_OPEN_FAIL, 'Unable to open archive \''.$this->zipname.'\' in binary read mode');
 
@@ -3171,7 +3125,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     $v_central_dir = array();
     if (($v_result = $this->privReadEndCentralDir($v_central_dir)) != 1)
     {
-      $this->privSwapBackMagicQuotes();
       return $v_result;
     }
 
@@ -3179,8 +3132,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     @rewind($this->zip_fd);
     if (@fseek($this->zip_fd, $v_central_dir['offset']))
     {
-      $this->privSwapBackMagicQuotes();
-
       // ----- Error log
       PclZip::privErrorLog(PCLZIP_ERR_INVALID_ARCHIVE_ZIP, 'Invalid archive size');
 
@@ -3194,7 +3145,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
       // ----- Read the file header
       if (($v_result = $this->privReadCentralFileHeader($v_header)) != 1)
       {
-        $this->privSwapBackMagicQuotes();
         return $v_result;
       }
       $v_header['index'] = $i;
@@ -3208,7 +3158,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     $this->privCloseFd();
 
     // ----- Magic quotes trick
-    $this->privSwapBackMagicQuotes();
 
     // ----- Return
     return $v_result;
@@ -3277,9 +3226,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
   {
     $v_result=1;
 
-    // ----- Magic quotes trick
-    $this->privDisableMagicQuotes();
-
     // ----- Check the path
     if (   ($p_path == "")
 	    || (   (substr($p_path, 0, 1) != "/")
@@ -3307,7 +3253,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     // ----- Open the zip file
     if (($v_result = $this->privOpenFd('rb')) != 1)
     {
-      $this->privSwapBackMagicQuotes();
       return $v_result;
     }
 
@@ -3317,7 +3262,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     {
       // ----- Close the zip file
       $this->privCloseFd();
-      $this->privSwapBackMagicQuotes();
 
       return $v_result;
     }
@@ -3336,7 +3280,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
       {
         // ----- Close the zip file
         $this->privCloseFd();
-        $this->privSwapBackMagicQuotes();
 
         // ----- Error log
         PclZip::privErrorLog(PCLZIP_ERR_INVALID_ARCHIVE_ZIP, 'Invalid archive size');
@@ -3351,7 +3294,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
       {
         // ----- Close the zip file
         $this->privCloseFd();
-        $this->privSwapBackMagicQuotes();
 
         return $v_result;
       }
@@ -3370,7 +3312,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
           && ($p_options[PCLZIP_OPT_BY_NAME] != 0)) {
 
           // ----- Look if the filename is in the list
-          for ($j=0; ($j<sizeof($p_options[PCLZIP_OPT_BY_NAME])) && (!$v_extract); $j++) {
+          for ($j=0; ($j<count($p_options[PCLZIP_OPT_BY_NAME])) && (!$v_extract); $j++) {
 
               // ----- Look for a directory
               if (substr($p_options[PCLZIP_OPT_BY_NAME][$j], -1) == "/") {
@@ -3414,7 +3356,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
                && ($p_options[PCLZIP_OPT_BY_INDEX] != 0)) {
 
           // ----- Look if the index is in the list
-          for ($j=$j_start; ($j<sizeof($p_options[PCLZIP_OPT_BY_INDEX])) && (!$v_extract); $j++) {
+          for ($j=$j_start; ($j<count($p_options[PCLZIP_OPT_BY_INDEX])) && (!$v_extract); $j++) {
 
               if (($i>=$p_options[PCLZIP_OPT_BY_INDEX][$j]['start']) && ($i<=$p_options[PCLZIP_OPT_BY_INDEX][$j]['end'])) {
                   $v_extract = true;
@@ -3444,8 +3386,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
           if (   (isset($p_options[PCLZIP_OPT_STOP_ON_ERROR]))
 		      && ($p_options[PCLZIP_OPT_STOP_ON_ERROR]===true)) {
 
-              $this->privSwapBackMagicQuotes();
-
               PclZip::privErrorLog(PCLZIP_ERR_UNSUPPORTED_COMPRESSION,
 			                       "Filename '".$v_header['stored_filename']."' is "
 				  	    	  	   ."compressed by an unsupported compression "
@@ -3463,8 +3403,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
           if (   (isset($p_options[PCLZIP_OPT_STOP_ON_ERROR]))
 		      && ($p_options[PCLZIP_OPT_STOP_ON_ERROR]===true)) {
 
-              $this->privSwapBackMagicQuotes();
-
               PclZip::privErrorLog(PCLZIP_ERR_UNSUPPORTED_ENCRYPTION,
 			                       "Unsupported encryption for "
 				  	    	  	   ." filename '".$v_header['stored_filename']
@@ -3480,7 +3418,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 		                                        $p_file_list[$v_nb_extracted++]);
           if ($v_result != 1) {
               $this->privCloseFd();
-              $this->privSwapBackMagicQuotes();
               return $v_result;
           }
 
@@ -3498,8 +3435,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
           // ----- Close the zip file
           $this->privCloseFd();
 
-          $this->privSwapBackMagicQuotes();
-
           // ----- Error log
           PclZip::privErrorLog(PCLZIP_ERR_INVALID_ARCHIVE_ZIP, 'Invalid archive size');
 
@@ -3516,7 +3451,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
           $v_result1 = $this->privExtractFileAsString($v_header, $v_string, $p_options);
           if ($v_result1 < 1) {
             $this->privCloseFd();
-            $this->privSwapBackMagicQuotes();
             return $v_result1;
           }
 
@@ -3525,7 +3459,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
           {
             // ----- Close the zip file
             $this->privCloseFd();
-            $this->privSwapBackMagicQuotes();
 
             return $v_result;
           }
@@ -3548,14 +3481,12 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
           $v_result1 = $this->privExtractFileInOutput($v_header, $p_options);
           if ($v_result1 < 1) {
             $this->privCloseFd();
-            $this->privSwapBackMagicQuotes();
             return $v_result1;
           }
 
           // ----- Get the only interesting attributes
           if (($v_result = $this->privConvertHeader2FileInfo($v_header, $p_file_list[$v_nb_extracted++])) != 1) {
             $this->privCloseFd();
-            $this->privSwapBackMagicQuotes();
             return $v_result;
           }
 
@@ -3573,7 +3504,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 											  $p_options);
           if ($v_result1 < 1) {
             $this->privCloseFd();
-            $this->privSwapBackMagicQuotes();
             return $v_result1;
           }
 
@@ -3582,7 +3512,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
           {
             // ----- Close the zip file
             $this->privCloseFd();
-            $this->privSwapBackMagicQuotes();
 
             return $v_result;
           }
@@ -3597,7 +3526,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
     // ----- Close the zip file
     $this->privCloseFd();
-    $this->privSwapBackMagicQuotes();
 
     // ----- Return
     return $v_result;
@@ -4747,7 +4675,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
           && ($p_options[PCLZIP_OPT_BY_NAME] != 0)) {
 
           // ----- Look if the filename is in the list
-          for ($j=0; ($j<sizeof($p_options[PCLZIP_OPT_BY_NAME])) && (!$v_found); $j++) {
+          for ($j=0; ($j<count($p_options[PCLZIP_OPT_BY_NAME])) && (!$v_found); $j++) {
 
               // ----- Look for a directory
               if (substr($p_options[PCLZIP_OPT_BY_NAME][$j], -1) == "/") {
@@ -4795,7 +4723,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
                && ($p_options[PCLZIP_OPT_BY_INDEX] != 0)) {
 
           // ----- Look if the index is in the list
-          for ($j=$j_start; ($j<sizeof($p_options[PCLZIP_OPT_BY_INDEX])) && (!$v_found); $j++) {
+          for ($j=$j_start; ($j<count($p_options[PCLZIP_OPT_BY_INDEX])) && (!$v_found); $j++) {
 
               if (($i>=$p_options[PCLZIP_OPT_BY_INDEX][$j]['start']) && ($i<=$p_options[PCLZIP_OPT_BY_INDEX][$j]['end'])) {
                   $v_found = true;
@@ -4842,7 +4770,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
         }
 
         // ----- Look which file need to be kept
-        for ($i=0; $i<sizeof($v_header_list); $i++) {
+        for ($i=0; $i<count($v_header_list); $i++) {
 
             // ----- Calculate the position of the header
             @rewind($this->zip_fd);
@@ -4905,7 +4833,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
         $v_offset = @ftell($v_temp_zip->zip_fd);
 
         // ----- Re-Create the Central Dir files header
-        for ($i=0; $i<sizeof($v_header_list); $i++) {
+        for ($i=0; $i<count($v_header_list); $i++) {
             // ----- Create the file header
             if (($v_result = $v_temp_zip->privWriteCentralFileHeader($v_header_list[$i])) != 1) {
                 $v_temp_zip->privCloseFd();
@@ -4931,7 +4859,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
         $v_size = @ftell($v_temp_zip->zip_fd)-$v_offset;
 
         // ----- Create the central dir footer
-        if (($v_result = $v_temp_zip->privWriteCentralHeader(sizeof($v_header_list), $v_size, $v_offset, $v_comment)) != 1) {
+        if (($v_result = $v_temp_zip->privWriteCentralHeader(count($v_header_list), $v_size, $v_offset, $v_comment)) != 1) {
             // ----- Reset the file list
             unset($v_header_list);
             $v_temp_zip->privCloseFd();
@@ -5319,71 +5247,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
   }
   // --------------------------------------------------------------------------------
 
-  // --------------------------------------------------------------------------------
-  // Function : privDisableMagicQuotes()
-  // Description :
-  // Parameters :
-  // Return Values :
-  // --------------------------------------------------------------------------------
-  function privDisableMagicQuotes()
-  {
-    $v_result=1;
-
-    // ----- Look if function exists
-    if (   (!function_exists("get_magic_quotes_runtime"))
-	    || (!function_exists("set_magic_quotes_runtime"))) {
-      return $v_result;
-	}
-
-    // ----- Look if already done
-    if ($this->magic_quotes_status != -1) {
-      return $v_result;
-	}
-
-	// ----- Get and memorize the magic_quote value
-	$this->magic_quotes_status = @get_magic_quotes_runtime();
-
-	// ----- Disable magic_quotes
-	if ($this->magic_quotes_status == 1) {
-	  @set_magic_quotes_runtime(0);
-	}
-
-    // ----- Return
-    return $v_result;
-  }
-  // --------------------------------------------------------------------------------
-
-  // --------------------------------------------------------------------------------
-  // Function : privSwapBackMagicQuotes()
-  // Description :
-  // Parameters :
-  // Return Values :
-  // --------------------------------------------------------------------------------
-  function privSwapBackMagicQuotes()
-  {
-    $v_result=1;
-
-    // ----- Look if function exists
-    if (   (!function_exists("get_magic_quotes_runtime"))
-	    || (!function_exists("set_magic_quotes_runtime"))) {
-      return $v_result;
-	}
-
-    // ----- Look if something to do
-    if ($this->magic_quotes_status != -1) {
-      return $v_result;
-	}
-
-	// ----- Swap back magic_quotes
-	if ($this->magic_quotes_status == 1) {
-  	  @set_magic_quotes_runtime($this->magic_quotes_status);
-	}
-
-    // ----- Return
-    return $v_result;
-  }
-  // --------------------------------------------------------------------------------
-
   }
   // End of class
   // --------------------------------------------------------------------------------
@@ -5405,7 +5268,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
       // ----- Study directories from last to first
       $v_skip = 0;
-      for ($i=sizeof($v_list)-1; $i>=0; $i--) {
+      for ($i=count($v_list)-1; $i>=0; $i--) {
         // ----- Look for current path
         if ($v_list[$i] == ".") {
           // ----- Ignore this directory
@@ -5426,7 +5289,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 		    }
 		  }
 		  // ----- Last '/' i.e. indicates a directory
-		  else if ($i == (sizeof($v_list)-1)) {
+		  else if ($i == (count($v_list)-1)) {
             $v_result = $v_list[$i];
 		  }
 		  // ----- Double '/' inside the path
@@ -5441,7 +5304,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 		    $v_skip--;
 		  }
 		  else {
-            $v_result = $v_list[$i].($i!=(sizeof($v_list)-1)?"/".$v_result:"");
+            $v_result = $v_list[$i].($i!=(count($v_list)-1)?"/".$v_result:"");
 		  }
         }
       }
@@ -5491,9 +5354,9 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
     // ----- Explode dir and path by directory separator
     $v_list_dir = explode("/", $p_dir);
-    $v_list_dir_size = sizeof($v_list_dir);
+    $v_list_dir_size = count($v_list_dir);
     $v_list_path = explode("/", $p_path);
-    $v_list_path_size = sizeof($v_list_path);
+    $v_list_path_size = count($v_list_path);
 
     // ----- Study directories paths
     $i = 0;

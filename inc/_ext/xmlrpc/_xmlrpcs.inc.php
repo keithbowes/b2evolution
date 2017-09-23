@@ -200,8 +200,8 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 	{
 		if(is_string($err))
 		{
-			$str = $GLOBALS['xmlrpcstr']["multicall_${err}"];
-			$code = $GLOBALS['xmlrpcerr']["multicall_${err}"];
+			$str = $GLOBALS['xmlrpcstr']["multicall_{$err}"];
+			$code = $GLOBALS['xmlrpcerr']["multicall_{$err}"];
 		}
 		else
 		{
@@ -393,7 +393,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 	* NB: in fact a user defined error handler can only handle WARNING, NOTICE and USER_* errors.
 	*
 	*/
-	function _xmlrpcs_errorHandler($errcode, $errstring, $filename=null, $lineno=null, $context=null)
+	function _xmlrpcs_errorHandler($errcode, $errstring, $filename=null, $lineno=null)
 	{
 		// obey the @ protocol
 		if (error_reporting() == 0)
@@ -424,11 +424,11 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 				if(is_array($GLOBALS['_xmlrpcs_prev_ehandler']))
 				{
 					// the following works both with static class methods and plain object methods as error handler
-					call_user_func_array($GLOBALS['_xmlrpcs_prev_ehandler'], array($errcode, $errstring, $filename, $lineno, $context));
+					call_user_func_array($GLOBALS['_xmlrpcs_prev_ehandler'], array($errcode, $errstring, $filename, $lineno));
 				}
 				else
 				{
-					$GLOBALS['_xmlrpcs_prev_ehandler']($errcode, $errstring, $filename, $lineno, $context);
+					$GLOBALS['_xmlrpcs_prev_ehandler']($errcode, $errstring, $filename, $lineno);
 				}
 			}
 		}
@@ -522,7 +522,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 			// and compress responses sent to clients that support them
 			if(function_exists('gzinflate'))
 			{
-				if( version_compare( phpversion(), '5.4', '<' ) ||version_compare( phpversion(), '5.5', '>=' ) )
+				if( version_compare( PHP_VERSION, '5.4', '<' ) ||version_compare( PHP_VERSION, '5.5', '>=' ) )
  				{ //fplanque: disabling this in PHP 5.4 because it bugs...
  					// Note: the task of compressing will fall back to Apache
 					$this->accepted_compression = array('gzip', 'deflate');
@@ -792,7 +792,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 			}
 			if(isset($wanted))
 			{
-				$msg = "Wanted ${wanted}, got ${got} at param ${pno}";
+				$msg = "Wanted {$wanted}, got {$got} at param {$pno}";
 				logIO($msg);
 				logIO( 'Method signatures: '.var_export($sig, true) );
 
@@ -800,7 +800,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 			}
 			else
 			{
-				$msg = "No method signature matches number of parameters, got ${numParams} expected ".implode(' or ', $exp_p);
+				$msg = "No method signature matches number of parameters, got {$numParams} expected ".implode(' or ', $exp_p);
 				logIO($msg);
 				logIO( 'Method signatures: '.var_export($sig, true) );
 
@@ -1102,7 +1102,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 					return new xmlrpcresp(
 						0,
 						$GLOBALS['xmlrpcerr']['incorrect_params'],
-						$GLOBALS['xmlrpcstr']['incorrect_params'] . ": ${errstr}"
+						$GLOBALS['xmlrpcstr']['incorrect_params'] . ": {$errstr}"
 					);
 				}
 			}

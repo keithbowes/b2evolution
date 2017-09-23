@@ -214,7 +214,7 @@ if( ! empty( $size ) && $File->is_image() )
 		}
 
 		header('Content-type: image/png' );
-		header_nocache();	// Do NOT cache errors! People won't see they have fixed them!!
+		header_cache('nocache');	// Do NOT cache errors! People won't see they have fixed them!!
 
 		imagepng( $im_handle );
 	}
@@ -244,7 +244,7 @@ else
 	// it does not expire anytime soon.
 	// fp> I don't think mtime changes anything to the cacheability of the data
 	// if( $mtime && $mtime == $File->get_lastmod_ts() ) // TODO: dh> use salt here?! fp>what for?
-	header_noexpire();	// static file
+	header_cache('noexpire');	// static file
 
 	// Display the content of the file
 	readfile( $file_path );

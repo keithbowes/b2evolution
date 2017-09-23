@@ -58,15 +58,6 @@ $output_debug_dump = 0;
 load_funcs('files/model/_file.funcs.php');
 load_class( 'items/model/_item.class.php', 'Item' );
 
-if( function_exists( 'set_magic_quotes_runtime' ) )
-{
-	@set_magic_quotes_runtime( 0 );  // be clear on this
-}
-else
-{
-	@ini_set( 'magic_quotes_runtime', 0 );
-}
-
 // TODO: $io_charset !!
 $head = <<<EOB
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -554,7 +545,7 @@ param( 'import_mode', 'string', 'normal' );
 				$blog_id = ($cat == '#DEFAULTBLOG#') ? $default_blog : $match[1];
 				// remember the name to create it when posts get inserted
 				// fp>dh: please use param() instead of $_POST[] (everywhere)
-				$catsmapped[ $categories[$i_cat] ] = array( 'blogid', $blog_id, remove_magic_quotes( $_POST['catmap_name'][$i_cat]) );
+				$catsmapped[ $categories[$i_cat] ] = array( 'blogid', $blog_id, $_POST['catmap_name'][$i_cat] );
 			}
 			else
 			{
@@ -617,23 +608,6 @@ param( 'import_mode', 'string', 'normal' );
 			$autop = 1;
 		}
 
-
-		/*
-		// get image s&r
-		$urlsearch = array();
-		$urlreplace = array();
-		$i = 0;
-		foreach( $_POST['url_replace'] as $replace )
-		{
-			if( !empty($replace) )
-			{
-				$urlsearch[] = remove_magic_quotes($_POST['url_search'][$i]);
-				$urlreplace[] = remove_magic_quotes( $replace );
-			}
-			$i++;
-		}
-		*/
-
 		// get users
 		$i_user = 0;
 		if( !isset($_POST['user_select']) )
@@ -654,7 +628,7 @@ param( 'import_mode', 'string', 'normal' );
 			}
 			elseif( $select == '#CREATENEW#' )
 			{
-				$usersmapped[ $mtauthor ] = array( 'createnew', remove_magic_quotes( $_POST['user_name'][$i_user] ) );
+				$usersmapped[ $mtauthor ] = array( 'createnew', $_POST['user_name'][$i_user] );
 			}
 			elseif( preg_match( '#\d+#', $select, $match ) )
 			{
@@ -1647,7 +1621,7 @@ function ripline( $prefix, &$haystack )
 
 function tidypostdata( $string )
 {
-	return str_replace( array('&quot;', '&#039;', '&lt;', '&gt;'), array('"', "'", '<', '>'), remove_magic_quotes( $string ) );
+	return str_replace( array('&quot;', '&#039;', '&lt;', '&gt;'), array('"', "'", '<', '>'), $string );
 }
 
 ?>

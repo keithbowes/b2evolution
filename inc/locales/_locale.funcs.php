@@ -120,7 +120,7 @@ if( isset( $use_l10n ) && $use_l10n )
 			if( file_exists($path) && is_readable($path) )
 			{
 				$Debuglog->add( 'T_: Loading file: '.$path, 'locale' );
-				include_once $path;
+				include $path;
 			}
 			else
 			{
@@ -948,19 +948,19 @@ function locale_updateDB()
 		{
 			if( $lfield == 'datefmt' && empty( $pval ) )
 			{
-				param_error( $pkey, sprintf( T_('Locale %s date format cannot be empty'), $plocale ) );
+				param_error( $pkey, T_('Date format cannot be empty.').' ('.$plocale.')' );
 			}
 			elseif( $lfield == 'input_datefmt' && empty( $pval ) )
 			{
-				param_error( $pkey, sprintf( T_('Locale %s input date format cannot be empty'), $plocale ) );
+				param_error( $pkey, T_('Input date format cannot be empty.').' ('.$plocale.')' );
 			}
 			elseif( $lfield == 'timefmt' && empty( $pval ) )
 			{
-				param_error( $pkey, sprintf( T_('Locale %s time format cannot be empty'), $plocale ) );
+				param_error( $pkey, T_('Time format cannot be empty.').' ('.$plocale.')' );
 			}
 			elseif( $lfield == 'input_timefmt' && empty( $pval ) )
 			{
-				param_error( $pkey, sprintf( T_('Locale %s input time format cannot be empty'), $plocale ) );
+				param_error( $pkey, T_('Input time format cannot be empty.').' ('.$plocale.')' );
 			}
 
 			if( $lfield == 'startofweek' && ( $pval < 0 || $pval > 6 ) )
@@ -1730,7 +1730,7 @@ function locale_get( $field, $locale = NULL, $default = NULL )
 		$default_values = array(
 			'datefmt' => 'Y-m-d',
 			'longdatefmt' => 'Y-m-d',
-			'extdatefmt' => 'M d Y',
+			'extdatefmt' => 'M d, Y',
 			'input_datefmt' => 'Y-m-d',
 			'timefmt' => 'H:i:s',
 			'shorttimefmt' => 'H:i',

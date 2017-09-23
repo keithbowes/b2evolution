@@ -147,7 +147,6 @@ function b2evonet_get_updates( $force_short_delay = false )
 											'php_gname' => new xmlrpcval( $system_stats['php_gname'], 'string' ),	// Potential unsecure hosts will use names like 'nobody', 'www-data'
 											'php_version' => new xmlrpcval( $system_stats['php_version'], 'string' ),			// Target minimum version: PHP 5.2
 											'php_reg_globals' => new xmlrpcval( $system_stats['php_reg_globals'] ? 1 : 0, 'int' ), // if <5% we may actually refuse to run future version on this
-											'php_allow_url_include' => new xmlrpcval( $system_stats['php_allow_url_include'] ? 1 : 0, 'int' ),
 											'php_allow_url_fopen' => new xmlrpcval( $system_stats['php_allow_url_fopen'] ? 1 : 0, 'int' ),
 											// TODO php_magic quotes
 											'php_upload_max' => new xmlrpcval( $system_stats['php_upload_max'], 'int' ),
@@ -514,10 +513,9 @@ function display_posts_awaiting_moderation( $status, & $block_item_Widget )
 		$Item->edit_link( array( // Link to backoffice for editing
 				'before'    => ' ',
 				'after'     => ' ',
-				'class'     => 'ActionButton btn btn-primary',
+				'class'     => 'ActionButton btn btn-primary btn-sm w80px',
 				'text'      => get_icon( 'edit_button' ).' '.T_('Edit')
 			) );
-		$Item->publish_link( '', '', '#', '#', 'PublishButton btn btn-status-published' );
 		echo get_icon( 'pixel' );
 		echo '</div>';
 
@@ -525,6 +523,7 @@ function display_posts_awaiting_moderation( $status, & $block_item_Widget )
 		{ // Display Item permalink icon
 			echo '<span style="float: left; padding-right: 5px; margin-top: 4px">'.$Item->get_permanent_link( '#icon#' ).'</span>';
 		}
+		echo '<div class="dashboard_content">';
 		echo '<h3 class="dashboard_post_title">';
 		$item_title = $Item->dget('title');
 		if( ! strlen($item_title) )
@@ -536,7 +535,7 @@ function display_posts_awaiting_moderation( $status, & $block_item_Widget )
 		echo '</span>';
 		echo '</h3>';
 
-		echo '</div>';
+		echo '</div></div>';
 	}
 
 	$block_item_Widget->disp_template_raw( 'block_end' );
@@ -573,7 +572,7 @@ function display_charts( $chart_data )
 		return;
 	}
 
-	echo '<div class="charts'.( $ctrl == 'col_settings' ? ' row' : '' ).'">';
+	echo '<div style="display: flex; flex-flow: row nowrap;" class="charts'.( $ctrl == 'col_settings' ? ' row' : '' ).'">';
 
 	foreach( $chart_data as $chart_item )
 	{
@@ -597,7 +596,7 @@ function display_charts( $chart_data )
 		// Display chart
 		if( $ctrl == 'coll_settings' )
 		{ // in collection dashboard
-			echo '<div class="center col-xs-4 col-sm-4 col-md-12 col-lg-4"><div class="chart">
+			echo '<div class="center"><div class="chart">
 					<div class="'.$chart_item['type'].'" data-percent="'.$chart_percent.'"><b style="color:'.$chart_color.'">'.$chart_item['value'].'</b></div>
 					<div class="label">'.$chart_item['title'].'</div>
 					</div></div>';

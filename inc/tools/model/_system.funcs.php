@@ -54,7 +54,6 @@ function get_system_stats()
 	$system_stats['php_gname'] = $gname;	// Potential unsecure hosts will use names like 'nobody', 'www-data'
 	$system_stats['php_version'] = PHP_VERSION;
 	$system_stats['php_reg_globals'] = ini_get('register_globals');
-	$system_stats['php_allow_url_include'] = ini_get('allow_url_include');
 	$system_stats['php_allow_url_fopen'] = ini_get('allow_url_fopen');
 	// TODO php_magic quotes
 	$system_stats['php_upload_max'] = system_check_upload_max_filesize();

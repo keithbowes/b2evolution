@@ -91,7 +91,7 @@ function plugin_results_td_status( $plug_status, $plug_ID )
 		{ // URL to disable the plugin
 			$plugin_status_url = $admin_url.'?ctrl=plugins&amp;action=disable_plugin&amp;plugin_ID='.$plug_ID.'&amp;'.url_crumb( 'plugin' );
 		}
-		$plugin_status_icon = get_icon( 'bullet_green', 'imgtag', array( 'title' => T_('The plugin is enabled.') ) );
+		$plugin_status_icon = get_icon( 'bullet_green', 'imgtag', array( 'icon_content' => T_('Enabled'), 'title' => T_('The plugin is enabled.') ) );
 	}
 	elseif( $plug_status == 'broken' )
 	{ // Broken
@@ -110,7 +110,7 @@ function plugin_results_td_status( $plug_status, $plug_ID )
 		{ // URL to edit plugin settings
 			$plugin_status_url = $admin_url.'?ctrl=plugins&amp;action=edit_settings&amp;plugin_ID='.$plug_ID;
 		}
-		$plugin_status_icon = get_icon( 'question', 'imgtag', array( 'title' => T_('The plugin is not installed completely.') ) );
+		$plugin_status_icon = get_icon( 'question', 'imgtag', array( 'icon_content' => T_('Needs further configuration'), 'title' => T_('The plugin is not installed completely.') ) );
 	}
 	else
 	{ // Disabled
@@ -118,7 +118,7 @@ function plugin_results_td_status( $plug_status, $plug_ID )
 		{ // URL to enable the plugin
 			$plugin_status_url = $admin_url.'?ctrl=plugins&amp;action=enable_plugin&amp;plugin_ID='.$plug_ID.'&amp;'.url_crumb( 'plugin' );
 		}
-		$plugin_status_icon = get_icon( 'bullet_empty_grey', 'imgtag', array( 'title' => T_('The plugin is disabled.') ) );
+		$plugin_status_icon = get_icon( 'bullet_empty_grey', 'imgtag', array( 'icon_content' => T_('Disabled'), 'title' => T_('The plugin is disabled.') ) );
 	}
 
 	if( isset( $plugin_status_url ) )
@@ -246,7 +246,7 @@ function plugin_results_td_actions( $Plugin )
 		$r .= action_icon( T_('Enable the plugin!'), 'activate', $admin_url.'?ctrl=plugins&amp;action=enable_plugin&amp;plugin_ID='.$Plugin->ID.'&amp;'.url_crumb( 'plugin' ) );
 	}
 	$r .= $Plugin->get_edit_settings_link();
-	$r .= action_icon( T_('Un-install this plugin!'), 'delete', $admin_url.'?ctrl=plugins&amp;action=uninstall&amp;plugin_ID='.$Plugin->ID.'&amp;'.url_crumb( 'plugin' ) );
+	$r .= action_icon( T_('Un-install this plugin!'), 'delete', $admin_url.'?ctrl=plugins&amp;action=uninstall&amp;plugin_ID='.$Plugin->ID.'&amp;'.url_crumb( 'plugin' ), NULL, NULL, NULL, NULL, array('icon_content' => T_('Un-install this plugin!')) );
 	return $r;
 }
 if( $current_User->check_perm( 'options', 'edit', false ) )

@@ -108,7 +108,7 @@ class Text_Diff_Engine_native {
                 ++$yi;
             }
             if ($copy) {
-                $edits[] = &new Text_Diff_Op_copy($copy);
+                $edits[] = new Text_Diff_Op_copy($copy);
             }
 
             // Find deletes & adds.
@@ -123,11 +123,11 @@ class Text_Diff_Engine_native {
             }
 
             if ($delete && $add) {
-                $edits[] = &new Text_Diff_Op_change($delete, $add);
+                $edits[] = new Text_Diff_Op_change($delete, $add);
             } elseif ($delete) {
-                $edits[] = &new Text_Diff_Op_delete($delete);
+                $edits[] = new Text_Diff_Op_delete($delete);
             } elseif ($add) {
-                $edits[] = &new Text_Diff_Op_add($add);
+                $edits[] = new Text_Diff_Op_add($add);
             }
         }
 
@@ -193,8 +193,7 @@ class Text_Diff_Engine_native {
                     continue;
                 }
                 $matches = $ymatches[$line];
-                reset($matches);
-                while (list(, $y) = each($matches)) {
+                foreach ($matches as $y) {
                     if (empty($this->in_seq[$y])) {
                         $k = $this->_lcsPos($y);
                         assert($k > 0);
@@ -202,7 +201,7 @@ class Text_Diff_Engine_native {
                         break;
                     }
                 }
-                while (list(, $y) = each($matches)) {
+                foreach ($matches as $y) {
                     if ($y > $this->seq[$k - 1]) {
                         assert($y <= $this->seq[$k]);
                         /* Optimization: this is a common case: next match is

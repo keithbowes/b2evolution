@@ -29,7 +29,7 @@ class calendar_plugin extends Plugin
 	var $name;
 	var $code = 'evo_Calr';
 	var $priority = 20;
-	var $version = '6.7.9';
+	var $version = '6.9.3';
 	var $author = 'The b2evo Group';
 	var $group = 'widget';
 	var $subgroup = 'navigation';
@@ -502,6 +502,8 @@ class Calendar
 		global $Skin;
 		global $localtimenow;
 
+		$this->api_version = is_object($Skin) ? (int) $Skin->get_api_version() : 5;
+
 		$this->dbtable = 'T_items__item';
 		$this->dbprefix = 'post_';
 		$this->dbIDname = 'post_ID';
@@ -559,7 +561,7 @@ class Calendar
 		$this->linktomontharchive = true;  // month displayed as link to month' archive
 
 		$this->tablestart = '<table class="bCalendarTable"';
-		if ((int) $Skin->get_api_version() > 5)
+		if ($this->api_version > 5)
 			$this->tablestart .= ' title="' . T_('Monthly calendar with links to each day\'s posts') . '">'."\n";
 		else
 			$this->tablestart .= '>' . "\n";
@@ -568,7 +570,7 @@ class Calendar
 		$this->monthstart = '<caption>';
 		$this->monthend = "</caption>\n";
 
-		if ((int) $Skin->get_api_version() < 6)
+		if ($this->api_version < 6)
 			$this->monthend .= '<summary>' . T_('Monthly calendar with links to each day\'s posts') . '</summary>' . "\n";
 
 		$this->rowstart = '<tr class="bCalendarRow">' . "\n";
@@ -953,6 +955,61 @@ class Calendar
 		echo $this->tableend;
 
 	}  // display(-)
+
+
+	function insertTFoot()
+	{
+		global $weekday, $weekday_abbrev;
+		{ // We want to display navigation in the table footer:
+			echo "<tfoot>\n";
+			echo "<tr>\n";
+			echo '<td colspan="'.( ( $this->mode == 'month' ? 2 : 1 ) + (int)$this->today_is_visible ).'" id="prev">';
+			echo preg_replace('/^&#160;/', '', implode( '&#160;', $this->getNavLinks( 'prev' ) ));
+			echo "</td>\n";
+
+			if( $this->today_is_visible )
+			{
+				if( $this->mode == 'month' )
+					echo '<td class="pad">&#160;</td>'."\n";
+			}
+			else
+			{
+				echo '<td colspan="'.( $this->mode == 'month' ? '2' : '1' ).'" class="center">'
+					.$this->archive_link( T_('Current'), '', date('Y'), ( $this->mode == 'month' ? date('m') : NULL ) )
+					.'</td>';
+			}
+			echo '<td colspan="3" id="next">';
+
+			/* Right amount of padding */
+			$hdl = 0;
+			$strlen = function_exists('mb_strlen') ? 'mb_strlen' : 'strlen';
+
+			for ($i = 5; $i < 8; $i++)
+			{
+				switch ($this->headerdisplay)
+				{
+					case 'D':
+						$hdl += $strlen(T_($weekday_abbrev[($i + locale_startofweek()) % 7]));
+						break;
+					case 'l':
+						$hdl +=  $strlen(T_($weekday[($i + locale_startofweek()) % 7]));
+						break;
+					default:
+						$hdl += 2;
+						break;
+				}
+			}
+			echo '<span class="pad">';
+			for ($i = 0; $i < $hdl - 1; $i++)
+				echo '&#160;';
+			echo '</span>';
+
+			echo implode( '&#160;', $this->getNavLinks( 'next' ) );
+			echo "</td>\n";
+			echo "</tr>\n";
+			echo "</tfoot>\n";
+		}
+	}
 
 
 	function insertTFoot()

@@ -155,7 +155,7 @@ function display_base_config_recap()
 function install_newdb()
 {
 	global $new_db_version, $admin_url, $baseurl, $install_login, $random_password;
-	global $create_sample_contents, $create_sample_organization, $create_demo_users;
+	global $create_sample_contents, $create_sample_organization, $create_demo_users, $create_demo_messages;
 
 	/*
 	 * -----------------------------------------------------------------------------------
@@ -230,6 +230,11 @@ function install_newdb()
 			$GLOBALS['current_User'] = & $UserCache->get_by_ID( 1 );
 
 			create_demo_users();
+
+			if( $create_demo_messages )
+			{
+				create_demo_messages();
+			}
 		}
 	}
 
@@ -1620,7 +1625,7 @@ function check_local_installation()
 {
 	global $basehost;
 
-	return php_sapi_name() != 'cli' && // NOT php CLI mode
+	return PHP_SAPI != 'cli' && // NOT php CLI mode
 		( $basehost == 'localhost'
 			|| ( isset( $_SERVER['SERVER_ADDR'] ) && ( $_SERVER['SERVER_ADDR'] == '127.0.0.1' || $_SERVER['SERVER_ADDR'] == '::1' ) ) // IPv6 address of 127.0.0.1
 			|| ( isset( $_SERVER['REMOTE_ADDR'] ) && ( $_SERVER['REMOTE_ADDR'] == '127.0.0.1' || $_SERVER['REMOTE_ADDR'] == '::1' ) )

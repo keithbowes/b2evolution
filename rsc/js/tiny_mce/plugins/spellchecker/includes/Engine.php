@@ -120,21 +120,6 @@ class TinyMCE_SpellChecker_Engine {
 			return $default_value;
 		}
 
-		// Handle magic quotes
-		if (ini_get("magic_quotes_gpc")) {
-			if (is_array($req[$name])) {
-				$out = array();
-
-				foreach ($req[$name] as $name => $value) {
-					$out[stripslashes($name)] = stripslashes($value);
-				}
-
-				return $out;
-			}
-
-			return stripslashes($req[$name]);
-		}
-
 		return $req[$name];
 	}
 

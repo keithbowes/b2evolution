@@ -1964,8 +1964,9 @@ class File extends DataObject
 			{
 				$LinkOwner = & $Link->get_LinkOwner();
 				if( $LinkOwner != NULL )
-				{
+				{	// Update last touched date and content last updated date of the Owner:
 					$LinkOwner->update_last_touched_date();
+					$LinkOwner->update_contents_last_updated_ts();
 				}
 			}
 
@@ -2693,7 +2694,7 @@ class File extends DataObject
 
 			// dh> if( $mtime && $mtime == $this->get_lastmod_ts() )
 			// fp> I don't think mtime changes anything to the cacheability of the data
-			//header_noexpire(); // Static image
+			//header_cache('noexpire'); // Static image
 			// attila> set expires on 30 days
 			header('Expires: ' . date("r", $servertimenow + 2592000/* 60*60*24*30 = 30 days */ ));
 

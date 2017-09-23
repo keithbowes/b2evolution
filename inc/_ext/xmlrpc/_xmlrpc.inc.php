@@ -2339,7 +2339,7 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 				}
 				// be tolerant to line endings, and extra empty lines
 				$ar = preg_split("/\r?\n/", trim(substr($data, 0, $pos)));
-				while(list(,$line) = @each($ar))
+				foreach($ar as $line)
 				{
 					// take care of multi-line headers and cookies
 					$arr = explode(':',$line,2);
@@ -2614,7 +2614,7 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 			xml_set_default_handler($parser, 'xmlrpc_dh');
 
 			// first error check: xml not well formed
-			if(!xml_parse($parser, $data, count($data)))
+			if(!xml_parse($parser, $data, isset($data)))
 			{
 				// thanks to Peter Kocks <peter.kocks@baygate.com>
 				if((xml_get_current_line_number($parser)) == 1)
@@ -2898,7 +2898,7 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 				echo "$key => $val<br />";
 				if($key == 'array')
 				{
-					while(list($key2, $val2) = each($val))
+					foreach ($val as $key2 => $val2)
 					{
 						echo "-- $key2 => $val2<br />";
 					}
@@ -2941,19 +2941,19 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 					switch($typ)
 					{
 						case $GLOBALS['xmlrpcBase64']:
-							$rs.="<${typ}>" . base64_encode($val) . "</${typ}>";
+							$rs.="<{$typ}>" . base64_encode($val) . "</{$typ}>";
 							break;
 						case $GLOBALS['xmlrpcBoolean']:
-							$rs.="<${typ}>" . ($val ? '1' : '0') . "</${typ}>";
+							$rs.="<{$typ}>" . ($val ? '1' : '0') . "</{$typ}>";
 							break;
 						case $GLOBALS['xmlrpcString']:
 							// G. Giunta 2005/2/13: do NOT use htmlentities, since
 							// it will produce named html entities, which are invalid xml
-							$rs.="<${typ}>" . xmlrpc_encode_entitites($val, $GLOBALS['xmlrpc_internalencoding'], $charset_encoding). "</${typ}>";
+							$rs.="<{$typ}>" . xmlrpc_encode_entitites($val, $GLOBALS['xmlrpc_internalencoding'], $charset_encoding). "</{$typ}>";
 							break;
 						case $GLOBALS['xmlrpcInt']:
 						case $GLOBALS['xmlrpcI4']:
-							$rs.="<${typ}>".(int)$val."</${typ}>";
+							$rs.="<{$typ}>".(int)$val."</{$typ}>";
 							break;
 						case $GLOBALS['xmlrpcDouble']:
 							// avoid using standard conversion of float to string because it is locale-dependent,
@@ -2961,25 +2961,25 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 							// sprintf('%F') could be most likely ok but it fails eg. on 2e-14.
 							// The code below tries its best at keeping max precision while avoiding exp notation,
 							// but there is of course no limit in the number of decimal places to be used...
-							$rs.="<${typ}>".preg_replace('/\\.?0+$/','',number_format((double)$val, 128, '.', ''))."</${typ}>";
+							$rs.="<{$typ}>".preg_replace('/\\.?0+$/','',number_format((double)$val, 128, '.', ''))."</{$typ}>";
 							break;
 						case $GLOBALS['xmlrpcDateTime']:
 							if (is_string($val))
 							{
-								$rs.="<${typ}>${val}</${typ}>";
+								$rs.="<{$typ}>{$val}</{$typ}>";
 							}
 							else if($val instanceof DateTime)
 							{
-								$rs.="<${typ}>".$val->format('Ymd\TH:i:s')."</${typ}>";
+								$rs.="<{$typ}>".$val->format('Ymd\TH:i:s')."</{$typ}>";
 							}
 							else if(is_int($val))
 							{
-								$rs.="<${typ}>".strftime("%Y%m%dT%H:%M:%S", $val)."</${typ}>";
+								$rs.="<{$typ}>".strftime("%Y%m%dT%H:%M:%S", $val)."</{$typ}>";
 							}
 							else
 							{
 								// not really a good idea here: but what shall we output anyway? left for backward compat...
-								$rs.="<${typ}>${val}</${typ}>";
+								$rs.="<{$typ}>{$val}</{$typ}>";
 							}
 							break;
 						case $GLOBALS['xmlrpcNull']:
@@ -2995,7 +2995,7 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 						default:
 							// no standard type value should arrive here, but provide a possibility
 							// for xmlrpcvals of unknown type...
-							$rs.="<${typ}>${val}</${typ}>";
+							$rs.="<{$typ}>{$val}</{$typ}>";
 					}
 					break;
 				case 3:
@@ -3045,7 +3045,8 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 			//if (is_object($o) && (get_class($o) == 'xmlrpcval' || is_subclass_of($o, 'xmlrpcval')))
 			//{
 				reset($this->me);
-				list($typ, $val) = each($this->me);
+				$typ = key($this->me);
+				$val = current($this->me);
 				return '<value>' . $this->serializedata($typ, $val, $charset_encoding) . "</value>\n";
 			//}
 		}
@@ -3058,7 +3059,8 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 			//{
 				$ar=$o->me;
 				reset($ar);
-				list($typ, $val) = each($ar);
+				$typ = key($ar);
+				$val = current($ar);
 				return '<value>' . $this->serializedata($typ, $val) . "</value>\n";
 			//}
 		}
@@ -3088,6 +3090,7 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 		}
 
 		/**
+		* DEPRECATED!
 		* Reset internal pointer for xmlrpcvals of type struct.
 		* @access public
 		*/
@@ -3097,13 +3100,14 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 		}
 
 		/**
+		* DEPRECATED!
 		* Return next member element for xmlrpcvals of type struct.
 		* @return xmlrpcval
 		* @access public
 		*/
 		function structeach()
 		{
-			return each($this->me['struct']);
+			return current($this->me['struct']);
 		}
 
 		// DEPRECATED! this code looks like it is very fragile and has not been fixed
@@ -3112,7 +3116,8 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 		{
 			// UNSTABLE
 			reset($this->me);
-			list($a,$b)=each($this->me);
+			$a = key($this->me);
+			$b = current($this->me);
 			// contributed by I Sofer, 2001-03-24
 			// add support for nested arrays to scalarval
 			// i've created a new method here, so as to
@@ -3120,8 +3125,7 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 
 			if(is_array($b))
 			{
-				@reset($b);
-				while(list($id,$cont) = @each($b))
+				foreach ($b as $id => $cont)
 				{
 					$b[$id] = $cont->scalarval();
 				}
@@ -3131,13 +3135,11 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 			if(is_object($b))
 			{
 				$t = get_object_vars($b);
-				@reset($t);
-				while(list($id,$cont) = @each($t))
+				foreach ($t as $id => $cont)
 				{
 					$t[$id] = $cont->scalarval();
 				}
-				@reset($t);
-				while(list($id,$cont) = @each($t))
+				foreach($t as $id => $cont)
 				{
 					@$b->$id = $cont;
 				}
@@ -3154,8 +3156,7 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 		function scalarval()
 		{
 			reset($this->me);
-			list(,$b)=each($this->me);
-			return $b;
+			return current($this->me);
 		}
 
 		/**
@@ -3167,7 +3168,7 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 		function scalartyp()
 		{
 			reset($this->me);
-			list($a,)=each($this->me);
+			$a = key($this->me);
 			if($a==$GLOBALS['xmlrpcI4'])
 			{
 				$a=$GLOBALS['xmlrpcInt'];
@@ -3301,7 +3302,8 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 				if (in_array('extension_api', $options))
 				{
 					reset($xmlrpc_val->me);
-					list($typ,$val) = each($xmlrpc_val->me);
+					$typ = key($xmlrpc_val->me);
+					$val = current($xmlrpc_val->me);
 					switch ($typ)
 					{
 						case 'dateTime.iso8601':
@@ -3348,7 +3350,6 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 				}
 				return $arr;
 			case 'struct':
-				$xmlrpc_val->structreset();
 				// If user said so, try to rebuild php objects for specific struct vals.
 				/// @todo should we raise a warning for class not found?
 				// shall we check for proper subclass of xmlrpcval instead of
@@ -3357,7 +3358,7 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 					&& class_exists($xmlrpc_val->_php_class))
 				{
 					$obj = @new $xmlrpc_val->_php_class;
-					while(list($key,$value)=$xmlrpc_val->structeach())
+					foreach ($xmlrpc_val->me['struct'] as $key => $value)
 					{
 						$obj->$key = php_xmlrpc_decode($value, $options);
 					}
@@ -3366,7 +3367,7 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 				else
 				{
 					$arr = array();
-					while(list($key,$value)=$xmlrpc_val->structeach())
+					foreach ($xmlrpc_val->me['struct'] as $key => $value)
 					{
 						$arr[$key] = php_xmlrpc_decode($value, $options);
 					}
@@ -3475,7 +3476,7 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 				{
 					$arr = array();
 					reset($php_val);
-					while(list($k,$v) = each($php_val))
+					foreach ($php_val as $k => $v)
 					{
 						$arr[$k] = php_xmlrpc_encode($v, $options);
 					}

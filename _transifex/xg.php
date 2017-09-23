@@ -295,15 +295,12 @@ if( $action == 'extract' )
 	echo 'Automagically search&replace in messages.pot.. ';
 	$data = file_get_contents( $file_pot );
 
-	$data = str_replace( "\r", '', $data );
 	// Make paths relative:
-	function get_relative_path($matches)
-	{
+	$data = str_replace( "\r", '', $data );
+	$data = preg_replace_callback( '~^#: .*$~m', function($matches) {
 		global $dir_root;
 		return str_replace( ' '.$dir_root.'', ' ../../../', $matches[0] );
-	}
-
-	$data = preg_replace_callback( '~^#: .*$~m', 'get_relative_path', $data );
+	}, $data );
 
 	file_put_contents( $file_pot, $data );
 	unset($data);

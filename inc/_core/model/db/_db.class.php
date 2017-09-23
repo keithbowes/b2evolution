@@ -150,7 +150,7 @@ class DB
 	 * Which transaction isolation level should be used?
 	 *
 	 * Possible values in case of MySQL: REPEATABLE READ | READ COMMITTED | READ UNCOMMITTED | SERIALIZABLE
-	 * Defailt value is REPEATABLE READ
+	 * Default value is REPEATABLE READ
 	 */
 	var $transaction_isolation_level = 'REPEATABLE READ';
 
@@ -361,51 +361,46 @@ class DB
 		}
 
 		$mysql_ext_file = is_windows() ? 'php_mysqli.dll' : 'mysqli.so';
-		{ // The mysql extension is not loaded, try to dynamically load it:
-			if( function_exists('dl') )
-			{
-				$php_errormsg = null;
-				$old_track_errors = @ini_set('track_errors', 1);
-				$old_html_errors = @ini_set('html_errors', 0);
-				@dl( $mysql_ext_file );
-				$error_msg = $php_errormsg;
-				if( $old_track_errors !== false ) @ini_set('track_errors', $old_track_errors);
-				if( $old_html_errors !== false ) @ini_set('html_errors', $old_html_errors);
-			}
-			else
-			{
-				$error_msg = 'The PHP mysqli extension is not installed and we cannot load it dynamically.';
-			}
-			if( ! extension_loaded('mysqli') )
-			{ // Still not loaded:
-				$this->print_error( 'The PHP MySQL Improved module could not be loaded.', '
-					<p><strong>Error:</strong> '.$error_msg.'</p>
-					<p>You probably have to edit your php configuration (php.ini) and enable this module ('.$mysql_ext_file.').</p>
-					<p>Do not forget to restart your webserver (if necessary) after editing the PHP conf.</p>', false );
-				return;
-			}
+		// The mysql extension is not loaded, try to dynamically load it:
+		if( function_exists('dl') )
+		{
+			if (function_exists('error_clear_last')) error_clear_last(); // PHP 7+
+			$old_html_errors = @ini_set('html_errors', 0);
+			@dl( $mysql_ext_file );
+			$error_msg = error_get_last()['message'];
+			if( $old_html_errors !== false ) @ini_set('html_errors', $old_html_errors);
+		}
+		else
+		{
+			$error_msg = 'The PHP mysqli extension is not installed and we cannot load it dynamically.';
+		}
+
+		if( ! extension_loaded('mysqli') )
+		{ // Still not loaded:
+			$this->print_error( 'The PHP MySQL Improved module could not be loaded.', '
+				<p><strong>Error:</strong> '.$error_msg.'</p>
+				<p>You probably have to edit your php configuration (php.ini) and enable this module ('.$mysql_ext_file.').</p>
+				<p>Do not forget to restart your webserver (if necessary) after editing the PHP conf.</p>', false );
+			return;
 		}
 
 		$port = isset( $params['port'] ) ? $params['port'] : ini_get('mysqli.default_port');
 		$socket = isset( $params['socket'] ) ? $params['socket'] : ini_get('mysqli.default_socket');
 		$client_flags = isset( $params['client_flags'] ) ? $params['client_flags'] : 0;
 
-		/* Persistent connections are only available in PHP 5.3+ */
-		$this->use_persistent = isset($params['use_persistent']) ? $params['use_persistent'] : version_compare(PHP_VERSION, '5.3', '>=');
+		$this->use_persistent = isset($params['use_persistent']) ? $params['use_persistent'] : TRUE;
 
 		if( ! $this->dbhandle )
 		{ // Connect to the Database:
 			// echo "mysqli::real_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $this->dbname, port, $socket, $client_flags )";
 			// mysqli::$connect_error is tied to an established connection
 			// if the connection fails we need a different method to get the error message
-			$php_errormsg = null;
-			$old_track_errors = @ini_set('track_errors', 1);
+			if (function_exists('error_clear_last')) error_clear_last(); // PHP 7+
 			$old_html_errors = @ini_set('html_errors', 0);
 			$this->dbhandle = new mysqli();
 			@$this->dbhandle->real_connect($this->use_persistent ? 'p:'.$this->dbhost : $this->dbhost,
 				$this->dbuser, $this->dbpassword, '', $port, $socket, $client_flags );
-			$mysql_error = $php_errormsg;
-			if( $old_track_errors !== false ) @ini_set('track_errors', $old_track_errors);
+			$mysql_error = error_get_last()['message'];
 			if( $old_html_errors !== false ) @ini_set('html_errors', $old_html_errors);
 		}
 
@@ -430,7 +425,7 @@ class DB
 		}
 		elseif( ! empty( $evo_charset ) )
 		{ // Use the internal charset if it is defined
-			$this->set_connection_charset( $evo_charset, true );
+			$this->set_connection_charset( $evo_charset );
 		}
 
 		/*
@@ -486,7 +481,7 @@ class DB
 			$this->get_version();
 			return $this->version_long;
 		}
-		elseif (property_exists($this, $this->{$name}))
+		elseif (property_exists($this, $name))
 			return $this->{$name};
 		else
 			throw new Exception("Property $name doesn't exist");
@@ -500,7 +495,7 @@ class DB
 		elseif ('dbhandle' == $name || 'result' == $name || 'use_persistent' == $name ||
 			'version' == $name || 'version_long' == $name)
 				throw new Exception("You're not allowed to access property $name");
-		elseif (property_exists($this, $this->{$name}))
+		elseif (property_exists($this, $name))
 			$this->{$name} = $value;
 		else
 			throw new Exception("Property $name doesn't exist");
@@ -512,7 +507,7 @@ class DB
 	 */
 	function select($db)
 	{
-		if( !$this->dbhandle->select_db($db) )
+		if( !@$this->dbhandle->select_db($db) )
 		{
 			$this->print_error( 'Error selecting database ['.$db.']!', '
 				<ol>
@@ -1336,7 +1331,7 @@ class DB
 		if( $html )
 		{ // poor man's indent
 			$sql = htmlspecialchars( $sql );
-			$sql = preg_replace_callback("~^(\s+)~m", create_function('$m', 'return str_replace(" ", "&#160;", $m[1]);'), $sql);
+			$sql = preg_replace_callback("~^(\s+)~m", function($m) { return str_replace(" ", "&#160;", $m[1]);}, $sql);
 			$sql = nl2br($sql);
 		}
 		return $sql;
@@ -1388,11 +1383,13 @@ class DB
 		{
 			$count_queries++;
 
-			$get_md5_query = create_function( '', '
+			$get_md5_query = function()
+			{
 				static $r; if( isset($r) ) return $r;
 				global $query;
 				$r = md5(serialize($query))."-".rand();
-				return $r;' );
+				return $r;
+			};
 
 			if ( $html )
 			{
@@ -1772,7 +1769,6 @@ class DB
 	 *
 	 * @staticvar array "regular charset => mysql charset map"
 	 * @param string Charset
-	 * @param boolean Use the "regular charset => mysql charset map"?
 	 * @return boolean true on success, false on failure
 	 */
 	protected function set_connection_charset( $charset )
