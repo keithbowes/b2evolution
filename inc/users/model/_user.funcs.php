@@ -4558,7 +4558,6 @@ function echo_user_organization_js()
 	}
 ?>
 <script type="text/javascript">
-//<![CDATA[
 jQuery( document ).on( 'click', 'span[rel^=org_status_]', function()
 { // Change an accept status of organization
 	var this_obj = jQuery( this );
@@ -4578,7 +4577,6 @@ jQuery( document ).on( 'click', 'span[rel^=org_status_]', function()
 		}
 	} );
 } );
-//]]>
 </script>
 <?php
 }

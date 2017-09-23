@@ -2995,7 +2995,6 @@ function echo_file_properties()
 	echo_modalwindow_js();
 ?>
 <script type="text/javascript">
-	//<![CDATA[
 	// Window to edit file
 	function file_properties( root, path, file )
 	{
@@ -3026,7 +3025,6 @@ function echo_file_properties()
 		} );
 		return false;
 	}
-	//]]>
 </script>
 <?php
 }

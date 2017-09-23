@@ -260,7 +260,6 @@ if( $params['disp_comment_form'] && ( $params['comment_type'] == 'meta' && $Item
 
 /*
 	echo '<script type="text/javascript">
-/* <![CDATA[ *
 function validateCommentForm(form)
 {
 	if( form.'.$dummy_fields['content'].'.value.replace(/^\s+|\s+$/g,"").length == 0 )
@@ -269,7 +268,6 @@ function validateCommentForm(form)
 		return false;
 	}
 }
-/* ]]> *
 </script>';*/
 
 	$Form = new Form( get_htsrv_url().'comment_post.php', 'evo_comment_form_id_'.$Item->ID, 'post', NULL, 'multipart/form-data' );

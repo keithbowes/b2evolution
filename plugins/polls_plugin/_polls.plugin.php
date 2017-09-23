@@ -279,7 +279,6 @@ class polls_plugin extends Plugin
 
 		?>
 		<script type="text/javascript">
-		//<![CDATA[
 		function polls_toolbar( title, prefix )
 		{
 			var r = '<?php echo format_to_js( $this->get_template( 'toolbar_title_before' ) ); ?>'	+ title + '<?php echo format_to_js( $this->get_template( 'toolbar_title_after' ) ); ?>'
@@ -386,7 +385,6 @@ class polls_plugin extends Plugin
 			return false;
 		} );
 
-		//]]>
 		</script>
 		<?php
 		echo $this->get_template( 'toolbar_before', array( '$toolbar_class$' => $params['js_prefix'].$this->code.'_toolbar' ) );

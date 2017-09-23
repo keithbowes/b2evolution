@@ -775,7 +775,7 @@ function disp_url( $url, $max_length = NULL )
 {
 	if( !empty($max_length) && utf8_strlen($url) > $max_length )
 	{
-		$disp_url = htmlspecialchars(substr( $url, 0, $max_length-1 )).'…';
+		$disp_url = htmlspecialchars(substr( $url, 0, $max_length-1 )).'&8230;';
 	}
 	else
 	{
@@ -944,7 +944,7 @@ function get_link_tag( $url, $text = '', $class = '', $max_url_length = 50 )
 		$text = $url;
 		if( strlen( $text ) > $max_url_length )
 		{ // Crop url text
-			$text = substr( $text, 0, $max_url_length ).'…';
+			$text = substr( $text, 0, $max_url_length ).'&8230;';
 		}
 	}
 

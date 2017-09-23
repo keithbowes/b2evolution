@@ -845,7 +845,6 @@ class Comment extends DataObject
 	 */
 	function get_author_name_anonymous( $format = 'htmlbody', $params = array() )
 	{
-		global $use_strict;
 		// Make sure we are not missing any param:
 		$params = array_merge( array(
 				'before' => '',
@@ -863,15 +862,12 @@ class Comment extends DataObject
 
 		if( is_null( $params['rel'] ) )
 		{ // Set default rel:
-			if ($use_strict)
-				$params['rel'] = 'bubbletip_comment_';
 			$params['rel'] .= $this->ID;
 		}
 
 		if( ! empty( $params['rel'] ) )
 		{ // Initialize attribure "rel"
-			$attr = $use_strict ? 'rel' : 'data-bubbletip-comment';
-			$params['rel'] = ' ' . $attr . '="'.$params['rel'].'"';
+			$params['rel'] = ' data-bubletip-comment="'.$params['rel'].'"';
 		}
 
 		$author_name = '<span class="user anonymous'.$gender_class.'"'.$params['rel'].'>'
@@ -3187,7 +3183,6 @@ class Comment extends DataObject
 		echo '</div>';
 
 		echo '<script type="text/javascript">
-		/* <![CDATA[ */
 		jQuery("#comment_rating").html("").raty({
 			scoreName: "comment_rating",
 			start: '.(int)$this->rating.',
@@ -3195,7 +3190,6 @@ class Comment extends DataObject
 			width: 110,
 			'.$jquery_raty_param.'
 		});
-		/* ]]> */
 		</script>';
 
 		echo $params['after'];
@@ -4513,7 +4507,6 @@ class Comment extends DataObject
 	 */
 	function reply_link( $before = ' ', $after = ' ', $text = '#', $title = '#', $class = '' )
 	{
-		global $use_strict;
 		if( ! is_logged_in( false ) )
 		{
 			//return false;
@@ -4570,8 +4563,7 @@ class Comment extends DataObject
 		echo $before;
 
 		// Display a link
-		$relattr = $use_strict ? 'rel' : 'data-link-id';
-		echo '<a href="'.$url.'" title="'.$title.'"'.$class.' ' . $relattr . '="'.$this->ID.'">'.$text.'</a>';
+		echo '<a href="'.$url.'" title="'.$title.'"'.$class.' data-link-id="'.$this->ID.'">'.$text.'</a>';
 
 		echo $after;
 

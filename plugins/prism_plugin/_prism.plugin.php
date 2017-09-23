@@ -466,7 +466,6 @@ class prism_plugin extends Plugin
 		require_js( 'functions.js', 'blog', true, true );
 
 		?><script type="text/javascript">
-			//<![CDATA[
 			function <?php echo $params['js_prefix']; ?>prism_tag( lang, type )
 			{
 				var line = '';
@@ -484,7 +483,6 @@ class prism_plugin extends Plugin
 
 				textarea_wrap_selection( <?php echo $params['js_prefix']; ?>b2evoCanvas, '['+type+' lang="'+lang+'"'+line+']', '[/'+type+']', 0 );
 			}
-			//]]>
 		</script><?php
 
 		return true;

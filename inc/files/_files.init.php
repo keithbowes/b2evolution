@@ -536,7 +536,7 @@ class files_Module extends Module
 
 				// FM enabled and permission to view files:
 				$entries['files'] = array(
-						'text' => T_('Files').'…',
+						'text' => T_('Files').'&8230;',
 						'href' => $admin_url.'?ctrl=files',
 					);
 
@@ -551,7 +551,7 @@ class files_Module extends Module
 
 				// FM enabled and permission to view files:
 				$entries['files'] = array(
-						'text' => T_('Files').'…',
+						'text' => T_('Files').'&8230;',
 						'href' => $admin_url.'?ctrl=files',
 					);
 

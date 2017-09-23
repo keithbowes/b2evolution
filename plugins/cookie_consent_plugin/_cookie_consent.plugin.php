@@ -164,7 +164,6 @@ class cookie_consent_plugin extends Plugin
 
 		echo '<noscript>' . $html_block . '</noscript>';
 		echo '<script type="text/javascript">
-//<![CDATA[
 var eu_cookie_consent = jQuery.cookie( "eu_cookie_consent" )
 if( eu_cookie_consent != "accepted" )
 { // Print a block only if this was not accepted yet:
@@ -180,7 +179,6 @@ jQuery( "#eu_cookie_consent button" ).click( function()
 	jQuery.cookie( "eu_cookie_consent", "accepted", { expires: 365, path: "/" } )
 	jQuery( "#eu_cookie_consent_container" ).remove();
 } );
-//]]>
 </script>';
 	}
 }

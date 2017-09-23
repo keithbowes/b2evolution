@@ -375,7 +375,6 @@ class markdown_plugin extends Plugin
 		require_js( 'functions.js', 'blog', true, true );
 
 		?><script type="text/javascript">
-		//<![CDATA[
 		var <?php echo $params['js_prefix']; ?>markdown_btns = new Array();
 		var <?php echo $params['js_prefix']; ?>markdown_open_tags = new Array();
 
@@ -665,7 +664,6 @@ class markdown_plugin extends Plugin
 				textarea_wrap_selection( field, url, '', 1 );
 			}
 		}
-		//]]>
 		</script><?php
 
 		echo $this->get_template( 'toolbar_before', array( '$toolbar_class$' => $params['js_prefix'].$this->code.'_toolbar' ) );

@@ -887,7 +887,6 @@ function echo_comment_reply_js( $Item )
 
 ?>
 <script type="text/javascript">
-	/*<![CDATA[*/
 function getTopNode()
 {
 	var node = document.getElementById('content');
@@ -931,7 +930,6 @@ jQuery( document ).on( 'click', 'a.comment_reply_current', function()
 
 	return false;
 } );
-/*]]>*/
 </script>
 <?php
 

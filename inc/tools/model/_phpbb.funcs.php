@@ -2095,7 +2095,6 @@ function phpbb_forums_list( & $Form )
 	$phpbb_DB->commit();
 
 	echo '<script type="text/javascript">
-	/* <![CDATA[ */
 	jQuery( document ).ready( function()
 	{
 		jQuery( "input[name^=phpbb_categories]" ).click( function()
@@ -2133,7 +2132,6 @@ function phpbb_forums_list( & $Form )
 			}
 		} );
 	} );
-	/* ]]> */
 	</script>';
 }
 

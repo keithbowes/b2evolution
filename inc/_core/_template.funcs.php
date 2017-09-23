@@ -1398,8 +1398,8 @@ function add_headline( $headline, $file_name = NULL )
  */
 function add_js_headline($headline)
 {
-	add_headline("<script type=\"text/javascript\">\n\t/* <![CDATA[ */\n\t\t"
-		.$headline."\n\t/* ]]> */\n\t</script>");
+	add_headline("<script type=\"text/javascript\">\n\t/"
+		.$headline."\n\t</script>");
 }
 
 
@@ -2990,7 +2990,6 @@ function display_password_indicator( $params = array() )
 		), $params );
 
 	echo "<script type='text/javascript'>
-		//<![CDATA[
 	// Load password strength estimation library
 	(function(){var a;a=function(){var a,b;b=document.createElement('script');b.src='".$rsc_url."js/zxcvbn.js';b.type='text/javascript';b.async=!0;a=document.getElementsByTagName('script')[0];return a.parentNode.insertBefore(b,a)};null!=window.attachEvent?window.attachEvent('onload',a):window.addEventListener('load',a,!1)}).call(this);
 

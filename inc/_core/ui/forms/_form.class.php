@@ -2141,7 +2141,6 @@ class Form extends Widget
 			// When the page loads, Initialize all the parent child select lists + other javascripts
 			$r .= '
 				<script type="text/javascript">
-					//<![CDATA[
 					if( typeof init_dynamicSelect == "function" )
 					{
 						jQuery( document ).bind( "ready", init_dynamicSelect );
@@ -2159,7 +2158,6 @@ class Form extends Widget
 						$r .= implode( "\n", $this->append_javascript );
 					}
 					$r .= '
-					//]]>
 				</script>';
 		}
 

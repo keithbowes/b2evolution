@@ -312,7 +312,6 @@ class videoplug_plugin extends Plugin
 		require_js( 'functions.js', 'blog', true, true );
 
 		?><script type="text/javascript">
-			//<![CDATA[
 			function videotag( tag, prefix )
 			{
 				while( 1 )
@@ -329,30 +328,30 @@ class videoplug_plugin extends Plugin
 					var regexp_URL = false;
 					switch( tag )
 					{
-						case 'youtube':
-							// Allow HD video code with ?hd=1 at the end
-							regexp_ID = /^[a-z0-9_?=-]+$/i;
-							regexp_URL = /^.+(video\/|\/watch\?v=|embed\/|\/)([a-z0-9_?=-]+)$/i;
-							break;
+					case 'youtube':
+						// Allow HD video code with ?hd=1 at the end
+						regexp_ID = /^[a-z0-9_?=-]+$/i;
+						regexp_URL = /^.+(video\/|\/watch\?v=|embed\/|\/)([a-z0-9_?=-]+)$/i;
+						break;
 
-						case 'dailymotion':
-							regexp_ID = /^[a-z0-9]+$/i;
-							regexp_URL = /^(.+\/video\/)?([a-z0-9]+)(_[a-z0-9_-]+)?$/i;
-							break;
+					case 'dailymotion':
+						regexp_ID = /^[a-z0-9]+$/i;
+						regexp_URL = /^(.+\/video\/)?([a-z0-9]+)(_[a-z0-9_-]+)?$/i;
+						break;
 
-						case 'vimeo':
-							regexp_ID = /^\d+$/;
-							regexp_URL = /^(.+\/)?(\d+)$/;
-							break;
+					case 'vimeo':
+						regexp_ID = /^\d+$/;
+						regexp_URL = /^(.+\/)?(\d+)$/;
+						break;
 
-						case 'facebook':
-							regexp_ID = /^https:\/\/.+\.facebook\.com\/.+/i;
-							regexp_URL = /^((https:\/\/.+\.facebook\.com\/.+))$/i;
-							break;
+					case 'facebook':
+						regexp_ID = /^https:\/\/.+\.facebook\.com\/.+/i;
+						regexp_URL = /^((https:\/\/.+\.facebook\.com\/.+))$/i;
+						break;
 
-						default:
-							// Don't allow unknown video:
-							break;
+					default:
+						// Don't allow unknown video:
+						break;
 					}
 
 					if( regexp_ID && regexp_URL )
@@ -385,7 +384,6 @@ class videoplug_plugin extends Plugin
 
 				textarea_wrap_selection( window[ ( prefix ? prefix : '' ) + 'b2evoCanvas' ], tag, '', 1 );
 			}
-			//]]>
 		</script><?php
 
 		return true;

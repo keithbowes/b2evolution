@@ -175,7 +175,6 @@ if( $params['disp_comment_form'] && $Item->can_comment( $params['before_comment_
 
 /*
 	echo '<script type="text/javascript">
-/* <![CDATA[ *
 function validateCommentForm(form)
 {
 	if( form.p.value.replace(/^\s+|\s+$/g,"").length == 0 )
@@ -183,7 +182,6 @@ function validateCommentForm(form)
 		alert("'.TS_('Please do not send empty comments.').'");
 		return false;
 	}
-}/* ]]> *
 </script>';*/
 
 	$Form = new Form( get_htsrv_url().'comment_post.php', 'bComment_form_id_'.$Item->ID, 'post', NULL, 'multipart/form-data' );

@@ -715,7 +715,6 @@ class shortlinks_plugin extends Plugin
 		echo_modalwindow_js();
 
 		?><script type="text/javascript">
-		//<![CDATA[
 		function shortlinks_toolbar( title, prefix )
 		{
 			var r = '<?php echo format_to_js( $this->get_template( 'toolbar_title_before' ) ); ?>' + title + '<?php echo format_to_js( $this->get_template( 'toolbar_title_after' ) ); ?>'
@@ -1561,7 +1560,6 @@ class shortlinks_plugin extends Plugin
 		} );
 
 	}
-		//]]>
 		</script><?php
 
 		echo $this->get_template( 'toolbar_before', array( '$toolbar_class$' => $params['js_prefix'].$this->code.'_toolbar' ) );

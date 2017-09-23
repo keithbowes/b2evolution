@@ -86,7 +86,6 @@ class widescroll_plugin extends Plugin
 		require_js( 'functions.js', 'blog', true, true );
 
 		?><script type="text/javascript">
-		//<![CDATA[
 		var widescroll_buttons = new Array();
 
 		function widescroll_button( id, text, tag_open, tag_close, title, style )
@@ -128,7 +127,6 @@ class widescroll_plugin extends Plugin
 			// Insert tag text in area
 			textarea_wrap_selection( canvas_field, widescroll_buttons[i].tag_open, widescroll_buttons[i].tag_close, 0 );
 		}
-		//]]>
 		</script><?php
 
 		echo $this->get_template( 'toolbar_before', array( '$toolbar_class$' => $params['js_prefix'].$this->code.'_toolbar' ) );

@@ -128,7 +128,6 @@ class quicktags_plugin extends Plugin
 		require_js( 'functions.js', 'blog', true, true );
 
 		?><script type="text/javascript">
-		//<![CDATA[
 		var <?php echo $params['js_prefix']; ?>b2evoButtons = new Array();
 		var <?php echo $params['js_prefix']; ?>b2evoLinks = new Array();
 		var <?php echo $params['js_prefix']; ?>b2evoOpenTags = new Array();
@@ -470,7 +469,6 @@ class quicktags_plugin extends Plugin
 				textarea_wrap_selection( myField, myValue, '', 1 );
 			}
 		}
-		//]]>
 		</script><?php
 
 		echo $this->get_template( 'toolbar_before', array( '$toolbar_class$' => $params['js_prefix'].$this->code.'_toolbar' ) );

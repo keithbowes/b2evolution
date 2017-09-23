@@ -57,8 +57,6 @@ echo $params['html_tag'];
 	<?php skin_content_meta(); /* Charset in case we can't trust the HTTP header or the page is saved to an .html file */ ?>
 
 	<?php
-/* In XHTML, you should use xml:base instead */
-if ($Skin->get_api_version() != 5) 
 	skin_base_tag(); /* Base URL for this skin. You need this to fix relative links! */
 ?>
 	<?php $Plugins->trigger_event( 'SkinBeginHtmlHead' ); ?>

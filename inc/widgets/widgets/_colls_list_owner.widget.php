@@ -80,7 +80,6 @@ class colls_list_owner_Widget extends ComponentWidget
 	 */
 	function get_param_definitions( $params )
 	{
-		global $use_strict;
 		$r = array_merge( array(
 				'title' => array(
 					'label' => T_( 'Title' ),

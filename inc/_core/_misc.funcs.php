@@ -451,7 +451,7 @@ function zeroise( $number, $threshold )
  * @param int Maximum length
  * @return string
  */
-function excerpt( $str, $maxlen = 254, $tail = '…' )
+function excerpt( $str, $maxlen = 254, $tail = '&8230;' )
 {
 	// Add spaces
 	$str = str_replace( array( '<p>', '<br', '</tr><tr', '</th><th', '</td><td' ), array( ' <p>', ' <br', '</tr> <tr', '</th> <th', '</td> <td' ), $str );
@@ -512,13 +512,13 @@ function excerpt_words( $str, $maxwords = 50, $params = array() )
  *
  * If $format is not "raw", we make sure to not cut in the middle of an
  * HTML entity, so that strmaxlen('1&amp;2', 3, NULL, 'formvalue') will not
- * become/stay '1&amp;…'.
+ * become/stay '1&amp;&8230;'.
  *
  * @param string
  * @param int Maximum length
  * @param string Tail to use, when string gets cropped. Its length gets
  *               substracted from the total length (with HTML entities
- *               being decoded). Default is "…" (HTML entity)
+ *               being decoded). Default is "&8230;" (HTML entity)
  * @param string Format, see {@link format_to_output()}
  * @param boolean Crop at whitespace, if possible?
  *        (any word split at the end will get its head removed)
@@ -528,7 +528,7 @@ function strmaxlen( $str, $maxlen = 50, $tail = NULL, $format = 'raw', $cut_at_w
 {
 	if( is_null($tail) )
 	{
-		$tail = '…';
+		$tail = '&8230;';
 	}
 
 	$str = utf8_rtrim($str);
@@ -536,7 +536,7 @@ function strmaxlen( $str, $maxlen = 50, $tail = NULL, $format = 'raw', $cut_at_w
 	if( utf8_strlen( $str ) > $maxlen )
 	{
 		// Replace all HTML entities by a single char. html_entity_decode for example
-		// would not handle ….
+		// would not handle &8230;.
 		$tail_for_length = preg_replace('~&\w+?;~', '.', $tail);
 		$tail_length = utf8_strlen( html_entity_decode($tail_for_length) );
 		$len = $maxlen-$tail_length;
@@ -606,9 +606,9 @@ function strmaxlen( $str, $maxlen = 50, $tail = NULL, $format = 'raw', $cut_at_w
 function strmaxwords( $str, $maxwords = 50, $params = array() )
 {
 	$params = array_merge( array(
-			'cutting_mark'    => '…',
+			'cutting_mark'    => '&8230;',
 			'continued_link'  => '',
-			'continued_text'  => '…',
+			'continued_text'  => '&8230;',
 			'continued_class' => '',
 			'always_continue' => false,
 		), $params );
@@ -705,7 +705,7 @@ function convert_chars( $content, $flag = 'html' )
 		'&#130;' => '&#8218;',
 		'&#131;' => '&#402;',
 		'&#132;' => '&#8222;',
-		'&#133;' => '…',
+		'&#133;' => '&8230;',
 		'&#134;' => '&#8224;',
 		'&#135;' => '&#8225;',
 		'&#136;' => '&#710;',

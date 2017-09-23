@@ -88,7 +88,6 @@ class shortcodes_plugin extends Plugin
 		require_js( 'functions.js', 'blog', true, true );
 
 		?><script type="text/javascript">
-		//<![CDATA[
 		var shortcodes_buttons = new Array();
 
 		function shortcodes_button( id, text, tag, title, style )
@@ -133,7 +132,6 @@ class shortcodes_plugin extends Plugin
 			// Insert tag text in area
 			textarea_wrap_selection( canvas_field, shortcodes_buttons[i].tag, '', 0 );
 		}
-		//]]>
 		</script><?php
 
 		echo $this->get_template( 'toolbar_before', array( '$toolbar_class$' => $this->code.'_toolbar' ) );

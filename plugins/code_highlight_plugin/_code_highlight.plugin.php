@@ -329,7 +329,6 @@ class code_highlight_plugin extends Plugin
 		require_js( 'functions.js', 'blog', true, true );
 
 		?><script type="text/javascript">
-			//<![CDATA[
 			function <?php echo $params['js_prefix']; ?>code_tag( tag_name )
 			{
 				tag = '<' + tag_name + '>';
@@ -348,7 +347,6 @@ class code_highlight_plugin extends Plugin
 
 				textarea_wrap_selection( <?php echo $params['js_prefix']; ?>b2evoCanvas, tag, '[/codeblock]', 0 );
 			}
-			//]]>
 		</script><?php
 
 		return true;

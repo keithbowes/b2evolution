@@ -6642,7 +6642,7 @@ class Item extends ItemLight
 	 * @param int Maximum length
 	 * @param string Tail to use, when string gets cropped. Its length gets
 	 *               substracted from the total length (with HTML entities
-	 *               being decoded). Default is "…" (HTML entity)
+	 *               being decoded). Default is "&8230;" (HTML entity)
 	 * @return string
 	 */
 // fp>yura: please check why this function is very different from get_content_excerpt() and use best code for both

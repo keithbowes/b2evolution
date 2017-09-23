@@ -471,7 +471,6 @@ class custom_tags_plugin extends Plugin
 		require_js( 'functions.js', 'blog', true, true );
 
 		?><script type="text/javascript">
-		//<![CDATA[
 		<?php echo $js_code_prefix;?>_tagButtons = new Array();
 		<?php echo $js_code_prefix;?>_tagOpenTags = new Array();
 
@@ -626,7 +625,6 @@ class custom_tags_plugin extends Plugin
 				myField.focus();
 			}
 		}
-		//]]>
 		</script><?php
 
 		echo $this->get_template( 'toolbar_before', array( '$toolbar_class$' => $js_code_prefix.'_toolbar' ) );

@@ -374,7 +374,7 @@ class coll_item_list_Widget extends ComponentWidget
 				'item_excerpt_after'           => '</div>',
 				'item_content_before'          => '<div class="item_content">',
 				'item_content_after'           => '</div>',
-				'item_readmore_text'           => '…',
+				'item_readmore_text'           => '&8230;',
 				'item_readmore_class'          => 'btn btn-default',
 				'item_images_before'           => '<div class="item_images">',
 				'item_images_after'            => '</div>',
