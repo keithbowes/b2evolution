@@ -27,10 +27,19 @@
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 
+/* Initializes $_GET and $_POST paramaters as globals */
+function init_globals()
+{
+	foreach ($_GET as $g => $v)
+		$GLOBALS[$g] = $_GET[$g];
+
+	foreach ($_POST as $p => $v)
+		$GLOBALS[$p] = $_POST[$p];
+}
+init_globals();
 
 // DEBUG: (Turn switch on or off to log debug info for specified category)
 $GLOBALS['debug_params'] = false;
-
 
 /**
  * Format param value to valid value depending on type
