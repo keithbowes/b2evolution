@@ -90,7 +90,7 @@ items_list_block_by_page( array(
 		'block_start'  => '<div class="navigation ajax">',
 		'block_end'    => '</div>',
 		'links_format' => '$next$',
-		'next_text'    => T_('Load more entries').'&8230;',
+		'next_text'    => T_('Load more entries').'&#8230;',
 	) );
 // ---------------------------- END ITEM BLOCK + PREV/NEXT PAGE LINKS ----------------------------
 

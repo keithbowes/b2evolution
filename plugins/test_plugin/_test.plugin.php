@@ -655,7 +655,7 @@ class test_plugin extends Plugin
 						'separator' => true,
 					),
 				'urls' => array(
-						'text' => 'Test plugin&8230;',
+						'text' => 'Test plugin&#8230;',
 						'href' => $this->get_tools_tab_url(),
 					),
 			) );

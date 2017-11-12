@@ -427,15 +427,15 @@ class MiscFuncsTestCase extends EvoUnitTestCase
 	function test_strmaxlen()
 	{
 		$this->assertEqual( strmaxlen('foo', 3), 'foo' );
-		$this->assertEqual( strmaxlen('foo', 2), 'f&8230;' );
+		$this->assertEqual( strmaxlen('foo', 2), 'f&#8230;' );
 		$this->assertEqual( strmaxlen('foo', 2, '.'), 'f.' );
 		$this->assertEqual( strmaxlen('foobar', 6, '...'), 'foobar' );
 		$this->assertEqual( strmaxlen('foobar', 5, '...'), 'fo...' );
-		$this->assertEqual( strmaxlen('foobar', 5, '&amp;&8230;'), 'foo&amp;&8230;' );
+		$this->assertEqual( strmaxlen('foobar', 5, '&amp;&#8230;'), 'foo&amp;&#8230;' );
 
 		$this->assertEqual( strmaxlen('M?', 2), 'M?', 'Do not cut utf8 char in the middle' );
 
-		$this->assertEqual( strmaxlen('1', 1, '&8230;'), '1' );
+		$this->assertEqual( strmaxlen('1', 1, '&#8230;'), '1' );
 		$this->assertEqual( strmaxlen('1', 1, '...'), '1' );
 		$this->assertEqual( strmaxlen('123', 1, '...'), '...' );
 		$this->assertEqual( strmaxlen('12345', 1, '...'), '...' );
@@ -448,22 +448,22 @@ class MiscFuncsTestCase extends EvoUnitTestCase
 		$this->assertEqual( strmaxlen('1&amp;2', 10, NULL, 'formvalue'), '1&amp;amp;2' );
 
 		# special cases, where entities must not get cut in the middle
-		$this->assertEqual( strmaxlen('1&amp;2', 5, NULL, 'htmlbody'), '1&8230;' );
-		$this->assertEqual( strmaxlen('1&amp;22', 7, NULL, 'htmlbody'), '1&amp;&8230;' );
-		$this->assertEqual( strmaxlen('1&amp;2', 3, NULL, 'formvalue'), '1&8230;' );
-		$this->assertEqual( strmaxlen('1&    2', 3, NULL, 'formvalue'), '1&amp;&8230;' );
+		$this->assertEqual( strmaxlen('1&amp;2', 5, NULL, 'htmlbody'), '1&#8230;' );
+		$this->assertEqual( strmaxlen('1&amp;22', 7, NULL, 'htmlbody'), '1&amp;&#8230;' );
+		$this->assertEqual( strmaxlen('1&amp;2', 3, NULL, 'formvalue'), '1&#8230;' );
+		$this->assertEqual( strmaxlen('1&    2', 3, NULL, 'formvalue'), '1&amp;&#8230;' );
 		$this->assertEqual( strmaxlen('1&2', 3, NULL, 'formvalue'), '1&amp;2' );
 		$this->assertEqual( strmaxlen('12345678901234567890&amp;', 21, NULL, 'formvalue'),
-			'12345678901234567890&8230;' );
+			'12345678901234567890&#8230;' );
 		$this->assertEqual( strmaxlen('123456789012345&amp;', 21, NULL, 'formvalue'),
 			'123456789012345&amp;amp;' );
 
 		$this->assertEqual( strmaxlen('foo ', 3), 'foo' );
 		$this->assertEqual( strmaxlen('foo ', 4), 'foo' );
-		$this->assertEqual( strmaxlen('foo bar', 3), 'fo&8230;' );
-		$this->assertEqual( strmaxlen('foo bar', 4), 'foo&8230;' );
-		$this->assertEqual( strmaxlen('foo bar', 5), 'foo&8230;' );
-		$this->assertEqual( strmaxlen('foo bar', 6), 'foo b&8230;' );
+		$this->assertEqual( strmaxlen('foo bar', 3), 'fo&#8230;' );
+		$this->assertEqual( strmaxlen('foo bar', 4), 'foo&#8230;' );
+		$this->assertEqual( strmaxlen('foo bar', 5), 'foo&#8230;' );
+		$this->assertEqual( strmaxlen('foo bar', 6), 'foo b&#8230;' );
 
 		// test cut_at_whitespace:
 		$this->assertEqual( strmaxlen('foo bar', 5, ''), 'foo b' );
@@ -488,7 +488,7 @@ class MiscFuncsTestCase extends EvoUnitTestCase
 		$this->assertEqual( strmaxwords('foo  bar  ', 2), 'foo  bar  ' );
 		$this->assertEqual( strmaxwords('  foo  bar  ', 2), '  foo  bar  ' );
 		$this->assertEqual( strmaxwords('  <img />foo  bar  ', 2), '  <img />foo  bar  ' );
-		$this->assertEqual( strmaxwords('  <img />foo  bar  ', 1), '  <img />foo  &8230;' );
+		$this->assertEqual( strmaxwords('  <img />foo  bar  ', 1), '  <img />foo  &#8230;' );
 	}
 
 

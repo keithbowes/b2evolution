@@ -320,7 +320,7 @@ class messaging_Module extends Module
 			if( ! empty( $topleft_Menu->_menus['entries']['site']['entries'] ) )
 			{
 				$left_entries['messaging'] = array(
-						'text' => T_('Messages').'&8230;',
+						'text' => T_('Messages').'&#8230;',
 						'href' => $admin_url.'?ctrl=threads',
 					);
 			}

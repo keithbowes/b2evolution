@@ -1320,7 +1320,7 @@ class _core_Module extends Module
 							$manual_view_cat_param = '';
 						}
 						$entries['blog']['entries']['manual'] = array(
-								'text' => T_('Manual view').'&8230;',
+								'text' => T_('Manual view').'&#8230;',
 								'href' => $items_url.'&amp;tab=manual'.$manual_view_cat_param,
 							);
 					}
@@ -1328,13 +1328,13 @@ class _core_Module extends Module
 					if( $Blog->get_setting( 'use_workflow' ) && $current_User->check_perm( 'blog_can_be_assignee', 'edit', false, $Blog->ID ) )
 					{ // Workflow view
 						$entries['blog']['entries']['workflow'] = array(
-								'text' => T_('Workflow view').'&8230;',
+								'text' => T_('Workflow view').'&#8230;',
 								'href' => $items_url.'&amp;tab=tracker',
 							);
 					}
 
 					$entries['blog']['entries']['posts'] = array(
-							'text' => T_('Posts').'&8230;',
+							'text' => T_('Posts').'&#8230;',
 							'href' => $items_url,
 						);
 					$display_separator = true;
@@ -1344,7 +1344,7 @@ class _core_Module extends Module
 				if( $perm_comments || $current_User->check_perm( 'meta_comment', 'view', false, $Blog->ID ) )
 				{	// Initialize comments menu tab if user can view normal or meta comments of the collection:
 					$entries['blog']['entries']['comments'] = array(
-							'text' => T_('Comments').'&8230;',
+							'text' => T_('Comments').'&#8230;',
 							'href' => $admin_url.'?ctrl=comments&amp;blog='.$Blog->ID.'&amp;filter=restore'
 								// Set url to meta comments page if user has a perm to view only meta comments:
 								.( $perm_comments ? '' : '&amp;tab3=meta' ),
@@ -1356,7 +1356,7 @@ class _core_Module extends Module
 				if( $current_User->check_perm( 'blog_cats', 'edit', false, $Blog->ID ) )
 				{ // Either permission for a specific blog or the global permission:
 					$entries['blog']['entries']['chapters'] = array(
-							'text' => T_('Categories').'&8230;',
+							'text' => T_('Categories').'&#8230;',
 							'href' => $admin_url.'?ctrl=chapters&amp;blog='.$Blog->ID,
 						);
 					$display_separator = true;
@@ -1380,33 +1380,33 @@ class _core_Module extends Module
 							'href' => $admin_url.'?ctrl=coll_settings&amp;tab=home'.$blog_param,
 							'entries' => array(
 									'front' => array(
-											'text' => T_('Front page').'&8230;',
+											'text' => T_('Front page').'&#8230;',
 											'href' => $admin_url.'?ctrl=coll_settings&amp;tab=home'.$blog_param,
 										),
 									'posts' => array(
-											'text' => T_('Posts').'&8230;',
+											'text' => T_('Posts').'&#8230;',
 											'href' => $admin_url.'?ctrl=coll_settings&amp;tab=features'.$blog_param,
 										),
 									'comments' => array(
-											'text' => T_('Comments').'&8230;',
+											'text' => T_('Comments').'&#8230;',
 											'href' => $admin_url.'?ctrl=coll_settings&amp;tab=comments'.$blog_param,
 										),
 									'other' => array(
-											'text' => T_('Other displays').'&8230;',
+											'text' => T_('Other displays').'&#8230;',
 											'href' => $admin_url.'?ctrl=coll_settings&amp;tab=other'.$blog_param,
 										),
 									'more' => array(
-											'text' => T_('More').'&8230;',
+											'text' => T_('More').'&#8230;',
 											'href' => $admin_url.'?ctrl=coll_settings&amp;tab=more'.$blog_param,
 										),
 								)
 						);
 					$entries['blog']['entries']['skin'] = array(
-							'text' => T_('Skin').'&8230;',
+							'text' => T_('Skin').'&#8230;',
 							'href' => $admin_url.'?ctrl=coll_settings&amp;tab=skin'.$blog_param,
 						);
 					$entries['blog']['entries']['widgets'] = array(
-							'text' => T_('Widgets').'&8230;',
+							'text' => T_('Widgets').'&#8230;',
 							'href' => $admin_url.'?ctrl=widgets'.$blog_param,
 						);
 
@@ -1435,19 +1435,19 @@ class _core_Module extends Module
 								'href' => $admin_url.'?ctrl=coll_settings'.$blog_param,
 								'entries' => array(
 									'general' => array(
-										'text' => T_('General').'&8230;',
+										'text' => T_('General').'&#8230;',
 										'href' => $admin_url.'?ctrl=coll_settings&amp;tab=general'.$blog_param,
 									),
 									'urls' => array(
-										'text' => T_('URLs').'&8230;',
+										'text' => T_('URLs').'&#8230;',
 										'href' => $admin_url.'?ctrl=coll_settings&amp;tab=urls'.$blog_param,
 									),
 									'seo' => array(
-										'text' => T_('SEO').'&8230;',
+										'text' => T_('SEO').'&#8230;',
 										'href' => $admin_url.'?ctrl=coll_settings&amp;tab=seo'.$blog_param,
 									),
 									'plugins' => array(
-										'text' => T_('Plugins').'&8230;',
+										'text' => T_('Plugins').'&#8230;',
 										'href' => $admin_url.'?ctrl=coll_settings&amp;tab=plugins'.$blog_param,
 									),
 								)
@@ -1456,28 +1456,28 @@ class _core_Module extends Module
 					if( $current_User->check_perm( 'options', 'view', false, $Blog->ID ) )
 					{ // Post Types & Statuses
 						$entries['blog']['entries']['general']['entries']['item_types'] = array(
-								'text' => T_('Post Types').'&8230;',
+								'text' => T_('Post Types').'&#8230;',
 								'href' => $admin_url.'?ctrl=itemtypes&amp;tab=settings&amp;tab3=types'.$blog_param,
 							);
 						$entries['blog']['entries']['general']['entries']['item_statuses'] = array(
-								'text' => T_('Post Statuses').'&8230;',
+								'text' => T_('Post Statuses').'&#8230;',
 								'href' => $admin_url.'?ctrl=itemstatuses&amp;tab=settings&amp;tab3=statuses'.$blog_param,
 							);
 					}
 
 					$entries['blog']['entries']['general']['entries']['advanced'] = array(
-							'text' => T_('Advanced').'&8230;',
+							'text' => T_('Advanced').'&#8230;',
 							'href' => $admin_url.'?ctrl=coll_settings&amp;tab=advanced'.$blog_param,
 						);
 
 					if( $Blog && $Blog->advanced_perms )
 					{
 						$entries['blog']['entries']['general']['entries']['userperms'] = array(
-							'text' => T_('User perms').'&8230;',
+							'text' => T_('User perms').'&#8230;',
 							'href' => $admin_url.'?ctrl=coll_settings&amp;tab=perm'.$blog_param,
 						);
 						$entries['blog']['entries']['general']['entries']['groupperms'] = array(
-							'text' => T_('Group perms').'&8230;',
+							'text' => T_('Group perms').'&#8230;',
 							'href' => $admin_url.'?ctrl=coll_settings&amp;tab=permgroup'.$blog_param,
 						);
 					}
@@ -1485,7 +1485,7 @@ class _core_Module extends Module
 					if( $current_User->check_perm( 'options', 'view' ) )
 					{ // Check if current user has a permission to view the common settings of the blogs
 						$entries['blog']['entries']['general']['entries']['common_settings'] = array(
-								'text' => T_('Common Settings').'&8230;',
+								'text' => T_('Common Settings').'&#8230;',
 								'href' => $admin_url.'?ctrl=collections&amp;tab=blog_settings',
 							);
 					}
@@ -1729,7 +1729,7 @@ class _core_Module extends Module
 		if( ! empty( $user_profile_url ) )
 		{ // Display this menu item only when url is available to current user
 			$userprefs_entries['profile'] = array(
-					'text' => T_('Edit your profile').'&8230;',
+					'text' => T_('Edit your profile').'&#8230;',
 					'href' => $user_profile_url,
 				);
 		}
@@ -1737,7 +1737,7 @@ class _core_Module extends Module
 		if( ! empty( $user_avatar_url ) )
 		{ // Display this menu item only when url is available to current user
 			$userprefs_entries['avatar'] = array(
-					'text' => T_('Your profile picture').'&8230;',
+					'text' => T_('Your profile picture').'&#8230;',
 					'href' => $user_avatar_url,
 				);
 		}
@@ -1745,7 +1745,7 @@ class _core_Module extends Module
 		if( ! empty( $user_pwdchange_url ) )
 		{ // Display this menu item only when url is available to current user
 			$userprefs_entries['pwdchange'] = array(
-					'text' => T_('Change password').'&8230;',
+					'text' => T_('Change password').'&#8230;',
 					'href' => $user_pwdchange_url,
 				);
 		}
@@ -1753,7 +1753,7 @@ class _core_Module extends Module
 		if( ! empty( $user_preferences_url ) )
 		{ // Display this menu item only when url is available to current user
 			$userprefs_entries['userprefs'] = array(
-					'text' => T_('Preferences').'&8230;',
+					'text' => T_('Preferences').'&#8230;',
 					'href' => $user_preferences_url,
 				);
 		}
@@ -1761,7 +1761,7 @@ class _core_Module extends Module
 		if( ! empty( $user_subs_url ) )
 		{ // Display this menu item only when url is available to current user
 			$userprefs_entries['subs'] = array(
-					'text' => T_('Notifications').'&8230;',
+					'text' => T_('Notifications').'&#8230;',
 					'href' => $user_subs_url,
 				);
 		}
