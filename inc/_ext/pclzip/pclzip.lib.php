@@ -200,6 +200,11 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     var $error_code = 1;
     var $error_string = '';
 
+    // ----- Current status of the magic_quotes_runtime
+    // This value store the php configuration for magic_quotes
+    // The class can then disable the magic_quotes and reset it after
+    var $magic_quotes_status;
+
   // --------------------------------------------------------------------------------
   // Function : PclZip()
   // Description :
@@ -220,6 +225,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     // ----- Set the attributes
     $this->zipname = $p_zipname;
     $this->zip_fd = 0;
+    $this->magic_quotes_status = -1;
 
     // ----- Return
     return;
@@ -1032,12 +1038,19 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
       }
     }
 
+    // ----- Magic quotes trick
+    $this->privDisableMagicQuotes();
+
     // ----- Call the delete fct
     $v_list = array();
     if (($v_result = $this->privDeleteByRule($v_list, $v_options)) != 1) {
+      $this->privSwapBackMagicQuotes();
       unset($v_list);
       return(0);
     }
+
+    // ----- Magic quotes trick
+    $this->privSwapBackMagicQuotes();
 
     // ----- Return
     return $v_list;
@@ -1080,8 +1093,12 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     // ----- Reset the error handler
     $this->privErrorReset();
 
+    // ----- Magic quotes trick
+    $this->privDisableMagicQuotes();
+
     // ----- Check archive
     if (!$this->privCheckFormat()) {
+      $this->privSwapBackMagicQuotes();
       return(0);
     }
 
@@ -1097,6 +1114,8 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
       // ----- Open the zip file
       if (($this->zip_fd = @fopen($this->zipname, 'rb')) == 0)
       {
+        $this->privSwapBackMagicQuotes();
+
         // ----- Error log
         PclZip::privErrorLog(PCLZIP_ERR_READ_OPEN_FAIL, 'Unable to open archive \''.$this->zipname.'\' in binary read mode');
 
@@ -1108,6 +1127,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
       $v_central_dir = array();
       if (($v_result = $this->privReadEndCentralDir($v_central_dir)) != 1)
       {
+        $this->privSwapBackMagicQuotes();
         return 0;
       }
 
@@ -1119,6 +1139,9 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
       $v_prop['nb'] = $v_central_dir['entries'];
       $v_prop['status'] = 'ok';
     }
+
+    // ----- Magic quotes trick
+    $this->privSwapBackMagicQuotes();
 
     // ----- Return
     return $v_prop;
@@ -2104,6 +2127,9 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     $v_result=1;
     $v_list_detail = array();
 
+    // ----- Magic quotes trick
+    $this->privDisableMagicQuotes();
+
     // ----- Open the file in write mode
     if (($v_result = $this->privOpenFd('wb')) != 1)
     {
@@ -2116,6 +2142,9 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
     // ----- Close
     $this->privCloseFd();
+
+    // ----- Magic quotes trick
+    $this->privSwapBackMagicQuotes();
 
     // ----- Return
     return $v_result;
@@ -2143,10 +2172,15 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
       // ----- Return
       return $v_result;
     }
+    // ----- Magic quotes trick
+    $this->privDisableMagicQuotes();
 
     // ----- Open the zip file
     if (($v_result=$this->privOpenFd('rb')) != 1)
     {
+      // ----- Magic quotes trick
+      $this->privSwapBackMagicQuotes();
+
       // ----- Return
       return $v_result;
     }
@@ -2156,6 +2190,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     if (($v_result = $this->privReadEndCentralDir($v_central_dir)) != 1)
     {
       $this->privCloseFd();
+      $this->privSwapBackMagicQuotes();
       return $v_result;
     }
 
@@ -2169,6 +2204,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     if (($v_zip_temp_fd = @fopen($v_zip_temp_name, 'wb')) == 0)
     {
       $this->privCloseFd();
+      $this->privSwapBackMagicQuotes();
 
       PclZip::privErrorLog(PCLZIP_ERR_READ_OPEN_FAIL, 'Unable to open temporary file \''.$v_zip_temp_name.'\' in binary write mode');
 
@@ -2201,6 +2237,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
       fclose($v_zip_temp_fd);
       $this->privCloseFd();
       @unlink($v_zip_temp_name);
+      $this->privSwapBackMagicQuotes();
 
       // ----- Return
       return $v_result;
@@ -2228,6 +2265,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
           fclose($v_zip_temp_fd);
           $this->privCloseFd();
           @unlink($v_zip_temp_name);
+          $this->privSwapBackMagicQuotes();
 
           // ----- Return
           return $v_result;
@@ -2259,6 +2297,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     {
       // ----- Reset the file list
       unset($v_header_list);
+      $this->privSwapBackMagicQuotes();
 
       // ----- Return
       return $v_result;
@@ -2276,6 +2315,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     @fclose($v_zip_temp_fd);
 
     // ----- Magic quotes trick
+    $this->privSwapBackMagicQuotes();
 
     // ----- Delete the zip file
     // TBC : I should test the result ...
@@ -3111,9 +3151,15 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
   {
     $v_result=1;
 
+    // ----- Magic quotes trick
+    $this->privDisableMagicQuotes();
+
     // ----- Open the zip file
     if (($this->zip_fd = @fopen($this->zipname, 'rb')) == 0)
     {
+      // ----- Magic quotes trick
+      $this->privSwapBackMagicQuotes();
+
       // ----- Error log
       PclZip::privErrorLog(PCLZIP_ERR_READ_OPEN_FAIL, 'Unable to open archive \''.$this->zipname.'\' in binary read mode');
 
@@ -3125,6 +3171,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     $v_central_dir = array();
     if (($v_result = $this->privReadEndCentralDir($v_central_dir)) != 1)
     {
+      $this->privSwapBackMagicQuotes();
       return $v_result;
     }
 
@@ -3132,6 +3179,8 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     @rewind($this->zip_fd);
     if (@fseek($this->zip_fd, $v_central_dir['offset']))
     {
+      $this->privSwapBackMagicQuotes();
+
       // ----- Error log
       PclZip::privErrorLog(PCLZIP_ERR_INVALID_ARCHIVE_ZIP, 'Invalid archive size');
 
@@ -3145,6 +3194,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
       // ----- Read the file header
       if (($v_result = $this->privReadCentralFileHeader($v_header)) != 1)
       {
+        $this->privSwapBackMagicQuotes();
         return $v_result;
       }
       $v_header['index'] = $i;
@@ -3158,6 +3208,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     $this->privCloseFd();
 
     // ----- Magic quotes trick
+    $this->privSwapBackMagicQuotes();
 
     // ----- Return
     return $v_result;
@@ -3226,6 +3277,9 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
   {
     $v_result=1;
 
+    // ----- Magic quotes trick
+    $this->privDisableMagicQuotes();
+
     // ----- Check the path
     if (   ($p_path == "")
 	    || (   (substr($p_path, 0, 1) != "/")
@@ -3253,6 +3307,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     // ----- Open the zip file
     if (($v_result = $this->privOpenFd('rb')) != 1)
     {
+      $this->privSwapBackMagicQuotes();
       return $v_result;
     }
 
@@ -3262,6 +3317,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
     {
       // ----- Close the zip file
       $this->privCloseFd();
+      $this->privSwapBackMagicQuotes();
 
       return $v_result;
     }
@@ -3280,6 +3336,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
       {
         // ----- Close the zip file
         $this->privCloseFd();
+        $this->privSwapBackMagicQuotes();
 
         // ----- Error log
         PclZip::privErrorLog(PCLZIP_ERR_INVALID_ARCHIVE_ZIP, 'Invalid archive size');
@@ -3294,6 +3351,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
       {
         // ----- Close the zip file
         $this->privCloseFd();
+        $this->privSwapBackMagicQuotes();
 
         return $v_result;
       }
@@ -3386,6 +3444,8 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
           if (   (isset($p_options[PCLZIP_OPT_STOP_ON_ERROR]))
 		      && ($p_options[PCLZIP_OPT_STOP_ON_ERROR]===true)) {
 
+              $this->privSwapBackMagicQuotes();
+
               PclZip::privErrorLog(PCLZIP_ERR_UNSUPPORTED_COMPRESSION,
 			                       "Filename '".$v_header['stored_filename']."' is "
 				  	    	  	   ."compressed by an unsupported compression "
@@ -3403,6 +3463,8 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
           if (   (isset($p_options[PCLZIP_OPT_STOP_ON_ERROR]))
 		      && ($p_options[PCLZIP_OPT_STOP_ON_ERROR]===true)) {
 
+              $this->privSwapBackMagicQuotes();
+
               PclZip::privErrorLog(PCLZIP_ERR_UNSUPPORTED_ENCRYPTION,
 			                       "Unsupported encryption for "
 				  	    	  	   ." filename '".$v_header['stored_filename']
@@ -3418,6 +3480,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 		                                        $p_file_list[$v_nb_extracted++]);
           if ($v_result != 1) {
               $this->privCloseFd();
+              $this->privSwapBackMagicQuotes();
               return $v_result;
           }
 
@@ -3435,6 +3498,8 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
           // ----- Close the zip file
           $this->privCloseFd();
 
+          $this->privSwapBackMagicQuotes();
+
           // ----- Error log
           PclZip::privErrorLog(PCLZIP_ERR_INVALID_ARCHIVE_ZIP, 'Invalid archive size');
 
@@ -3451,6 +3516,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
           $v_result1 = $this->privExtractFileAsString($v_header, $v_string, $p_options);
           if ($v_result1 < 1) {
             $this->privCloseFd();
+            $this->privSwapBackMagicQuotes();
             return $v_result1;
           }
 
@@ -3459,6 +3525,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
           {
             // ----- Close the zip file
             $this->privCloseFd();
+            $this->privSwapBackMagicQuotes();
 
             return $v_result;
           }
@@ -3481,12 +3548,14 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
           $v_result1 = $this->privExtractFileInOutput($v_header, $p_options);
           if ($v_result1 < 1) {
             $this->privCloseFd();
+            $this->privSwapBackMagicQuotes();
             return $v_result1;
           }
 
           // ----- Get the only interesting attributes
           if (($v_result = $this->privConvertHeader2FileInfo($v_header, $p_file_list[$v_nb_extracted++])) != 1) {
             $this->privCloseFd();
+            $this->privSwapBackMagicQuotes();
             return $v_result;
           }
 
@@ -3504,6 +3573,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 											  $p_options);
           if ($v_result1 < 1) {
             $this->privCloseFd();
+            $this->privSwapBackMagicQuotes();
             return $v_result1;
           }
 
@@ -3512,6 +3582,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
           {
             // ----- Close the zip file
             $this->privCloseFd();
+            $this->privSwapBackMagicQuotes();
 
             return $v_result;
           }
@@ -3526,6 +3597,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
     // ----- Close the zip file
     $this->privCloseFd();
+    $this->privSwapBackMagicQuotes();
 
     // ----- Return
     return $v_result;
@@ -5244,6 +5316,71 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
       $this->error_code = 0;
       $this->error_string = '';
     }
+  }
+  // --------------------------------------------------------------------------------
+
+  // --------------------------------------------------------------------------------
+  // Function : privDisableMagicQuotes()
+  // Description :
+  // Parameters :
+  // Return Values :
+  // --------------------------------------------------------------------------------
+  function privDisableMagicQuotes()
+  {
+    $v_result=1;
+
+    // ----- Look if function exists
+    if (   (!function_exists("get_magic_quotes_runtime"))
+	    || (!function_exists("set_magic_quotes_runtime"))) {
+      return $v_result;
+	}
+
+    // ----- Look if already done
+    if ($this->magic_quotes_status != -1) {
+      return $v_result;
+	}
+
+	// ----- Get and memorize the magic_quote value
+	$this->magic_quotes_status = @get_magic_quotes_runtime();
+
+	// ----- Disable magic_quotes
+	if ($this->magic_quotes_status == 1) {
+	  @set_magic_quotes_runtime(0);
+	}
+
+    // ----- Return
+    return $v_result;
+  }
+  // --------------------------------------------------------------------------------
+
+  // --------------------------------------------------------------------------------
+  // Function : privSwapBackMagicQuotes()
+  // Description :
+  // Parameters :
+  // Return Values :
+  // --------------------------------------------------------------------------------
+  function privSwapBackMagicQuotes()
+  {
+    $v_result=1;
+
+    // ----- Look if function exists
+    if (   (!function_exists("get_magic_quotes_runtime"))
+	    || (!function_exists("set_magic_quotes_runtime"))) {
+      return $v_result;
+	}
+
+    // ----- Look if something to do
+    if ($this->magic_quotes_status != -1) {
+      return $v_result;
+	}
+
+	// ----- Swap back magic_quotes
+	if ($this->magic_quotes_status == 1) {
+  	  @set_magic_quotes_runtime($this->magic_quotes_status);
+	}
+
+    // ----- Return
+    return $v_result;
   }
   // --------------------------------------------------------------------------------
 

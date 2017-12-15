@@ -27,17 +27,6 @@
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 
-/* Initializes $_GET and $_POST paramaters as globals */
-function init_globals()
-{
-	foreach ($_GET as $g => $v)
-		$GLOBALS[$g] = $_GET[$g];
-
-	foreach ($_POST as $p => $v)
-		$GLOBALS[$p] = $_POST[$p];
-}
-init_globals();
-
 // DEBUG: (Turn switch on or off to log debug info for specified category)
 $GLOBALS['debug_params'] = false;
 
@@ -173,7 +162,22 @@ function param( $var, $type = 'raw', $default = '', $memorize = false,
 	 */
 	if( ! isset( $GLOBALS[$var] ) || $override )
 	{
-		if( $default === true )
+		if( isset($_POST[$var]) )
+		{
+			$GLOBALS[$var] = remove_magic_quotes( $_POST[$var] );
+			// if( isset($Debuglog) ) $Debuglog->add( 'param(-): '.$var.'='.$GLOBALS[$var].' set by POST', 'params' );
+		}
+		elseif( isset($_GET[$var]) )
+		{
+			$GLOBALS[$var] = remove_magic_quotes($_GET[$var]);
+			// if( isset($Debuglog) ) $Debuglog->add( 'param(-): '.$var.'='.$GLOBALS[$var].' set by GET', 'params' );
+		}
+		elseif( isset($_COOKIE[$var]))
+		{
+			$GLOBALS[$var] = remove_magic_quotes($_COOKIE[$var]);
+			// if( isset($Debuglog) ) $Debuglog->add( 'param(-): '.$var.'='.$GLOBALS[$var].' set by COOKIE', 'params' );
+		}
+		elseif( $default === true )
 		{
 			bad_request_die( sprintf( T_('Parameter &laquo;%s&raquo; is required!'), $var ) );
 		}
@@ -192,6 +196,12 @@ function param( $var, $type = 'raw', $default = '', $memorize = false,
 			// Won't be memorized nor type-forced!
 			return false;
 		}
+	}
+	else
+	{ // Variable was already set but we need to remove the auto quotes
+		$GLOBALS[$var] = remove_magic_quotes($GLOBALS[$var]);
+
+		// if( isset($Debuglog) ) $Debuglog->add( 'param(-): '.$var.' already set to ['.var_export($GLOBALS[$var], true).']!', 'params' );
 	}
 
 	if( isset($io_charset) && ! empty($evo_charset) )
@@ -2100,6 +2110,79 @@ function _trapError( $reset = 1 )
 		$iERRORES++;
 	}
 }
+
+
+/*
+ * Clean up the mess PHP has created with its funky quoting everything!
+ */
+if( function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc() )
+{ // That stupid PHP behaviour consisting of adding slashes everywhere is unfortunately on
+
+	if( in_array( strtolower(ini_get('magic_quotes_sybase')), array('on', '1', 'true', 'yes') ) )
+	{ // overrides "magic_quotes_gpc" and only replaces single quotes with themselves ( "'" => "''" )
+		/**
+		 * @ignore
+		 */
+		function remove_magic_quotes( $mixed )
+		{
+			if( is_array( $mixed ) )
+			{
+				foreach($mixed as $k => $v)
+				{
+					$mixed[$k] = remove_magic_quotes( $v );
+				}
+			}
+			elseif( is_string($mixed) )
+			{
+				// echo 'Removing slashes ';
+				$mixed = str_replace( '\'\'', '\'', $mixed );
+			}
+			return $mixed;
+		}
+	}
+	else
+	{
+		/**
+		 * Remove quotes from input.
+		 * This handles magic_quotes_gpc and magic_quotes_sybase PHP settings/variants.
+		 *
+		 * NOTE: you should not use it directly, but one of the param-functions!
+		 *
+		 * @param mixed string or array (function is recursive)
+		 * @return mixed Value, with magic quotes removed
+		 */
+		function remove_magic_quotes( $mixed )
+		{
+			if( is_array( $mixed ) )
+			{
+				foreach($mixed as $k => $v)
+				{
+					$mixed[$k] = remove_magic_quotes( $v );
+				}
+			}
+			elseif( is_string($mixed) )
+			{
+				// echo 'Removing slashes ';
+				$mixed = stripslashes( $mixed );
+			}
+			return $mixed;
+		}
+	}
+}
+else
+{
+	/**
+	 * @ignore
+	 */
+	function remove_magic_quotes( $mixed )
+	{
+		return $mixed;
+	}
+}
+
+
+
+
 
 /**
  * Sets an HTML parameter and checks for sanitized code.

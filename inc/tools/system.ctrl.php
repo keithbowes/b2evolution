@@ -399,6 +399,23 @@ else
 
 
 
+// Magic quotes:
+if( !strcasecmp( ini_get('magic_quotes_sybase'), 'on' ) )
+{
+	$magic_quotes = T_('On').' (magic_quotes_sybase)';
+	$message = 'magic_quotes_sybase = Off';
+}
+elseif( function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc() )
+{
+	$magic_quotes = T_('On').' (magic_quotes_gpc)';
+	$message = 'magic_quotes_gpc = Off';
+}
+else
+{
+	$magic_quotes = T_('Off');
+	$message = '';
+}
+init_system_check( 'PHP Magic Quotes', $magic_quotes );
 if( !empty( $message ) )
 {
 	disp_system_check( 'warning', T_('PHP is adding extra quotes to all inputs. This leads to unnecessary extra processing.')
