@@ -1399,7 +1399,7 @@ function add_headline( $headline, $file_name = NULL )
  */
 function add_js_headline($headline)
 {
-	add_headline("<script type=\"text/javascript\">\n\t/"
+	add_headline("<script type=\"text/javascript\">\n\t"
 		.$headline."\n\t</script>");
 }
 
