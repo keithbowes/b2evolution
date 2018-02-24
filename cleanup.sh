@@ -31,7 +31,6 @@ echo Removing additional files
 rm -f TODO
 rm -f pods.txt
 find . -name 'license.txt' -delete
-find . -name 'sample.htaccess' -delete
 
 echo Removing myself now
 rm -f cleanup.sh package.sh
