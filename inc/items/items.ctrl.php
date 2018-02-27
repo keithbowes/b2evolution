@@ -373,7 +373,7 @@ switch( $action )
 
 		// Note: we redirect without restoring filter. This should allow to see the new files.
 		// &filter=restore
-		header_redirect( $dispatcher.'?ctrl=items&amp;blog='.$blog );	// Will save $Messages
+		header_redirect( $dispatcher.'?ctrl=items&blog='.$blog );	// Will save $Messages
 
 		// Note: we should have EXITED here. In case we don't (error, or sth...)
 
@@ -398,7 +398,7 @@ switch( $action )
 		$item_ID = param( 'p', 'integer', 0 );
 
 		// REDIRECT / EXIT
-		header_redirect( $admin_url.'?ctrl=items&action='.$prev_action.( $item_ID > 0 ? '&p='.$item_ID : '' ).'&amp;blog='.$blog );
+		header_redirect( $admin_url.'?ctrl=items&action='.$prev_action.( $item_ID > 0 ? '&p='.$item_ID : '' ).'&blog='.$blog );
 		break;
 
 	case 'reset_quick_settings':
@@ -416,7 +416,7 @@ switch( $action )
 		$item_ID = param( 'p', 'integer', 0 );
 
 		// REDIRECT / EXIT
-		header_redirect( $admin_url.'?ctrl=items&action='.$prev_action.( $item_ID > 0 ? '&p='.$item_ID : '' ).'&amp;blog='.$blog );
+		header_redirect( $admin_url.'?ctrl=items&action='.$prev_action.( $item_ID > 0 ? '&p='.$item_ID : '' ).'&blog='.$blog );
 		break;
 
 	default:
@@ -1648,7 +1648,7 @@ function init_list_mode()
 			if( $Blog->get( 'type' ) != 'manual' )
 			{	// Display this tab only for manual blogs
 				global $admin_url;
-				header_redirect( $admin_url.'?ctrl=items&amp;blog='.$Blog->ID.'&amp;tab=type&tab_type=post&filter=restore' );
+				header_redirect( $admin_url.'?ctrl=items&blog='.$Blog->ID.'&tab=type&tab_type=post&filter=restore' );
 			}
 
 			global $ReqURI, $blog;

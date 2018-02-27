@@ -1313,7 +1313,7 @@ switch( $action )
 		// Redirect so that a reload doesn't write to the DB twice:
 		if( $error_occured )
 		{
-			header_redirect( regenerate_url( 'fm_selected', 'action=edit_properties&amp;fm_selected[]='.rawurlencode($edited_File->get_rdfp_rel_path() ).'&amp;'.url_crumb('file'), '', '&' ), 303 );
+			header_redirect( regenerate_url( 'fm_selected', 'action=edit_properties&fm_selected[]='.rawurlencode($edited_File->get_rdfp_rel_path() ).'&'.url_crumb('file'), '', '&' ), 303 );
 			// We have EXITed already, no need else.
 		}
 		header_redirect( regenerate_url( '', '', '', '&' ), 303 ); // Will EXIT

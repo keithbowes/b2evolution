@@ -324,7 +324,7 @@ switch( $action )
 		$dest_Blog = & $BlogCache->get_by_ID( $cat_coll_ID );
 		$Messages->add( /* TRANS: first %s is the moved category's name, the second one the new parent category */ sprintf( T_('The category &laquo;%s&raquo; has been moved (with children) to &laquo;%s&raquo;\'s root. You may want to nest it in another parent category below...'), $edited_Chapter->dget('name'), $dest_Blog->dget( 'shortname' )  ), 'success' );
 
-		header_redirect( url_add_param( $admin_url, 'ctrl=chapters&action=edit&amp;blog='.$cat_coll_ID.'&cat_ID='.$cat_ID, '&' ) );	// will save $Messages
+		header_redirect( url_add_param( $admin_url, 'ctrl=chapters&action=edit&blog='.$cat_coll_ID.'&cat_ID='.$cat_ID, '&' ) );	// will save $Messages
 		/* EXIT */
 
 		// In case we changed the redirect someday:
@@ -407,7 +407,7 @@ switch( $action )
 		}
 
 		// Redirect so that a reload doesn't write to the DB twice:
-		header_redirect( '?ctrl=chapters&amp;blog='.$blog, 303 ); // Will EXIT
+		header_redirect( '?ctrl=chapters&blog='.$blog, 303 ); // Will EXIT
 		// We have EXITed already at this point!!
 		break;
 
@@ -425,7 +425,7 @@ switch( $action )
 		}
 
 		// Redirect so that a reload doesn't write to the DB twice:
-		header_redirect( '?ctrl=chapters&amp;blog='.$blog, 303 ); // Will EXIT
+		header_redirect( '?ctrl=chapters&blog='.$blog, 303 ); // Will EXIT
 		// We have EXITed already at this point!!
 		break;
 
@@ -443,7 +443,7 @@ switch( $action )
 		}
 
 		// Redirect so that a reload doesn't write to the DB twice:
-		header_redirect( '?ctrl=chapters&amp;blog='.$blog, 303 ); // Will EXIT
+		header_redirect( '?ctrl=chapters&blog='.$blog, 303 ); // Will EXIT
 		// We have EXITed already at this point!!
 		break;
 
@@ -461,7 +461,7 @@ switch( $action )
 		}
 
 		// Redirect so that a reload doesn't write to the DB twice:
-		header_redirect( '?ctrl=chapters&amp;blog='.$blog, 303 ); // Will EXIT
+		header_redirect( '?ctrl=chapters&blog='.$blog, 303 ); // Will EXIT
 		// We have EXITed already at this point!!
 		break;
 }

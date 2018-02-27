@@ -80,7 +80,7 @@ if( ! is_null( $user_ID ) )
 
 			if( strpos( $action, 'delete_' ) === 0 || $action == 'promote' )
 			{   // Fallback to list/view action
-				header_redirect( regenerate_url( 'ctrl,action', 'ctrl=users&amp;action=list' ) );
+				header_redirect( regenerate_url( 'ctrl,action', 'ctrl=users&action=list' ) );
 			}
 			else
 			{
@@ -426,7 +426,7 @@ if( !$Messages->has_errors() )
 				$UserList->refresh_query = true;
 				$UserList->query();
 
-				header_redirect( regenerate_url( 'ctrl,action', 'ctrl=users&amp;action=list', '', '&' ), 303 );
+				header_redirect( regenerate_url( 'ctrl,action', 'ctrl=users&action=list', '', '&' ), 303 );
 			}
 			else
 			{ // The user is updated

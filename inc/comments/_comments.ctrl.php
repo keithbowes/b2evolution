@@ -441,7 +441,7 @@ switch( $action )
 
 			if( $action == 'update_edit' )
 			{	// Redirect back to the edit comment form in order to see the updated content correctly:
-				header_redirect( $admin_url.'?ctrl=comments&amp;blog='.$blog.'&action=edit&comment_ID='.$edited_Comment->ID.'&redirect_to='.rawurlencode( $redirect_to ) );
+				header_redirect( $admin_url.'?ctrl=comments&blog='.$blog.'&action=edit&comment_ID='.$edited_Comment->ID.'&redirect_to='.rawurlencode( $redirect_to ) );
 				/* exited */
 			}
 			else
@@ -670,7 +670,7 @@ switch( $action )
 		// Move all child comments to new created post
 		move_child_comments_to_item( $edited_Comment->ID, $new_Item->ID );
 
-		header_redirect( url_add_param( $admin_url, 'ctrl=items&amp;blog='.$blog.'&action=edit&p='.$new_Item->ID, '&' ) );
+		header_redirect( url_add_param( $admin_url, 'ctrl=items&blog='.$blog.'&action=edit&p='.$new_Item->ID, '&' ) );
 		break;
 
 	case 'list':

@@ -113,17 +113,17 @@ switch( $action )
 			{
 				case 'create_copy':
 					// Redirect so that a reload doesn't write to the DB twice:
-					header_redirect( $admin_url.'?ctrl=itemtypes&amp;blog='.$blog.'&amp;tab='.$tab.'&tab3='.$tab3.'&action=new&ityp_ID='.$edited_Itemtype->ID, 303 ); // Will EXIT
+					header_redirect( $admin_url.'?ctrl=itemtypes&blog='.$blog.'&tab='.$tab.'&tab3='.$tab3.'&action=new&ityp_ID='.$edited_Itemtype->ID, 303 ); // Will EXIT
 					// We have EXITed already at this point!!
 					break;
 				case 'create_new':
 					// Redirect so that a reload doesn't write to the DB twice:
-					header_redirect( $admin_url.'?ctrl=itemtypes&amp;blog='.$blog.'&amp;tab='.$tab.'&tab3='.$tab3.'&action=new', 303 ); // Will EXIT
+					header_redirect( $admin_url.'?ctrl=itemtypes&blog='.$blog.'&tab='.$tab.'&tab3='.$tab3.'&action=new', 303 ); // Will EXIT
 					// We have EXITed already at this point!!
 					break;
 				case 'create':
 					// Redirect so that a reload doesn't write to the DB twice:
-					header_redirect( $admin_url.'?ctrl=itemtypes&amp;blog='.$blog.'&amp;tab='.$tab.'&tab3='.$tab3.'', 303 ); // Will EXIT
+					header_redirect( $admin_url.'?ctrl=itemtypes&blog='.$blog.'&tab='.$tab.'&tab3='.$tab3.'', 303 ); // Will EXIT
 					// We have EXITed already at this point!!
 					break;
 			}
@@ -155,7 +155,7 @@ switch( $action )
 
 			$DB->commit();
 
-			header_redirect( $admin_url.'?ctrl=itemtypes&amp;blog='.$blog.'&amp;tab='.$tab.'&tab3='.$tab3.'', 303 ); // Will EXIT
+			header_redirect( $admin_url.'?ctrl=itemtypes&blog='.$blog.'&tab='.$tab.'&tab3='.$tab3.'', 303 ); // Will EXIT
 			// We have EXITed already at this point!!
 		}
 		break;
@@ -206,7 +206,7 @@ switch( $action )
 				forget_param( 'ityp_ID' );
 				$Messages->add( $msg, 'success' );
 				// Redirect so that a reload doesn't write to the DB twice:
-				header_redirect( $admin_url.'?ctrl=itemtypes&amp;blog='.$blog.'&amp;tab='.$tab.'&tab3='.$tab3.'', 303 ); // Will EXIT
+				header_redirect( $admin_url.'?ctrl=itemtypes&blog='.$blog.'&tab='.$tab.'&tab3='.$tab3.'', 303 ); // Will EXIT
 				// We have EXITed already at this point!!
 			}
 			else
@@ -248,7 +248,7 @@ switch( $action )
 		}
 
 		// Redirect so that a reload doesn't write to the DB twice:
-		header_redirect( $admin_url.'?ctrl=itemtypes&amp;blog='.$blog.'&amp;tab='.$tab.'&tab3='.$tab3.'', 303 ); // Will EXIT
+		header_redirect( $admin_url.'?ctrl=itemtypes&blog='.$blog.'&tab='.$tab.'&tab3='.$tab3.'', 303 ); // Will EXIT
 		// We have EXITed already at this point!!
 		break;
 
@@ -277,7 +277,7 @@ switch( $action )
 		}
 
 		// Redirect so that a reload doesn't write to the DB twice:
-		header_redirect( $admin_url.'?ctrl=itemtypes&amp;blog='.$blog.'&amp;tab='.$tab.'&tab3='.$tab3.'', 303 ); // Will EXIT
+		header_redirect( $admin_url.'?ctrl=itemtypes&blog='.$blog.'&tab='.$tab.'&tab3='.$tab3.'', 303 ); // Will EXIT
 		// We have EXITed already at this point!!
 		break;
 }

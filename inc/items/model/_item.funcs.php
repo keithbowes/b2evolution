@@ -129,7 +129,7 @@ function init_inskin_editing()
 
 	if( ! $Blog->get_setting( 'in_skin_editing' ) )
 	{	// Redirect to the Back-office editing (setting is OFF)
-		header_redirect( $admin_url.'?ctrl=items&action=new&amp;blog='.$Blog->ID );
+		header_redirect( $admin_url.'?ctrl=items&action=new&blog='.$Blog->ID );
 	}
 
 	$tab_switch_params = 'blog='.$Blog->ID;

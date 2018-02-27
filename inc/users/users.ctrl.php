@@ -79,7 +79,7 @@ if( ! is_null($user_ID) )
 		    && $edited_User->ID != $current_User->ID )
 		{ // user is only allowed to _view_ other user's profiles
 			$Messages->add( T_('You have no permission to edit other users!'), 'error' );
-			header_redirect( regenerate_url( 'ctrl,action', 'ctrl=user&amp;action=view&amp;user_ID='.$user_ID ) );
+			header_redirect( regenerate_url( 'ctrl,action', 'ctrl=user&action=view&user_ID='.$user_ID ) );
 		}
 		elseif( $demo_mode && $edited_User->ID <= 3 )
 		{ // Demo mode restrictions: users created by install process cannot be edited
@@ -91,7 +91,7 @@ if( ! is_null($user_ID) )
 			}
 			else
 			{
-				header_redirect( regenerate_url( 'ctrl,action', 'ctrl=user&amp;action=view&amp;user_ID='.$user_ID ) );
+				header_redirect( regenerate_url( 'ctrl,action', 'ctrl=user&action=view&user_ID='.$user_ID ) );
 			}
 		}
 	}

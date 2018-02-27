@@ -398,7 +398,7 @@ switch( $action )
 			// EXITS:
 			send_javascript_message( array( 'doToggle' => array( $edited_ComponentWidget->ID, (int)! $enabled ) ) );
 		}
-		header_redirect( $admin_url.'?ctrl=widgets&amp;blog='.$Blog->ID, 303 );
+		header_redirect( $admin_url.'?ctrl=widgets&blog='.$Blog->ID, 303 );
 		break;
 
 	case 'cache_enable':
@@ -435,7 +435,7 @@ switch( $action )
 					$edited_ComponentWidget->get_cache_status( true ),
 				) ) );
 		}
-		header_redirect( $admin_url.'?ctrl=widgets&amp;blog='.$Blog->ID, 303 );
+		header_redirect( $admin_url.'?ctrl=widgets&blog='.$Blog->ID, 303 );
 		break;
 
 	case 'activate':
@@ -467,7 +467,7 @@ switch( $action )
 			}
 		}
 
-		header_redirect( $admin_url.'?ctrl=widgets&amp;blog='.$Blog->ID, 303 );
+		header_redirect( $admin_url.'?ctrl=widgets&blog='.$Blog->ID, 303 );
 		break;
 
 	case 'delete':
@@ -492,7 +492,7 @@ switch( $action )
 			case 'normal' :
 			default : // take usual action
 				// PREVENT RELOAD & Switch to list mode:
-				header_redirect( '?ctrl=widgets&amp;blog='.$blog );
+				header_redirect( '?ctrl=widgets&blog='.$blog );
 				break;
 		}
 		break;
@@ -559,7 +559,7 @@ switch( $action )
 		// Save to DB:
 		$edited_Skin->db_save_containers();
 
-		header_redirect( '?ctrl=widgets&amp;blog='.$Blog->ID, 303 );
+		header_redirect( '?ctrl=widgets&blog='.$Blog->ID, 303 );
 		break;
 
 	default:

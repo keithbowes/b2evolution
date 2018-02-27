@@ -296,7 +296,7 @@ switch( $action )
 				$edited_Blog->set_setting( 'category_ordering', get_param( 'category_ordering' ) );
 				$edited_Blog->dbupdate();
 				$Messages->add( T_('Category ordering has been changed.'), 'success' );
-				header_redirect( param( 'redirect_to', 'url', '?ctrl=chapters&amp;blog='.$edited_Blog->ID ), 303 ); // Will EXIT
+				header_redirect( param( 'redirect_to', 'url', '?ctrl=chapters&blog='.$edited_Blog->ID ), 303 ); // Will EXIT
 				break;
 		}
 
