@@ -8730,6 +8730,14 @@ function upgrade_b2evo_tables( $upgrade_action = 'evoupgrade' )
 		upg_task_end();
 	}
 
+	if( upg_task_start (12366, 'Upgrading comments table...' ) )
+	{
+		// For WebMention
+		$DB->query( "ALTER TABLE T_comments
+			MODIFY comment_type         enum('comment','linkback','trackback','pingback','meta','mention') COLLATE ascii_general_ci NOT NULL default 'comment'");
+		upg_task_end();
+	}
+
 	/*
 	 * ADD UPGRADES __ABOVE__ IN A NEW UPGRADE BLOCK.
 	 *
