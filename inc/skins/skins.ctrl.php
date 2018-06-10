@@ -26,7 +26,12 @@ param( 'action', 'string', 'list' );
 param( 'tab', 'string', 'manage_skins', true );
 param( 'skin_type', 'string', '' );
 
-param( 'redirect_to', 'url', $admin_url.'?ctrl=skins&amp;tab='.$tab.( isset( $blog ) ? '&amp;blog='.$blog : '' ) );
+if( $tab == 'system' )
+{	// Check minimum permission:
+	$current_User->check_perm( 'admin', 'normal', true );
+}
+
+param( 'redirect_to', 'url', $admin_url.'?ctrl=skins&tab='.$tab.( isset( $blog ) ? '&blog='.$blog : '' ) );
 
 if( $tab != 'system' )
 {	// Memorize this as the last "tab" used in the Blog Settings:
