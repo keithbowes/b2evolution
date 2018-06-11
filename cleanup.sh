@@ -3,8 +3,7 @@ rm -rf _tests
 rm -rf _transifex
 rm -f Gruntfile.js
 rm -f package.json
-rm -f readme.md
-rm -f readme.template.html
+rm -f readme.html
 rm -f .bower.json
 rm -f .gitmodules
 
