@@ -2,14 +2,11 @@
 _cache/c*
 conf/_basic_config.php
 _evocache
-node_modules
 conf/_overrides_TEST.php
-.sass-cache
 _transifex/files.txt
 _transifex/messages.pot.bak
 _transifex/translations
 rsc/build/testless.css
-npm-debug.log
 
 # IDE Files
 /nbproject/
@@ -19,7 +16,6 @@ skins/business_skin
 conf/_local.php
 plugins/geoip_plugin/GeoIP.dat
 media/blogs/b
-npm-debug.log
 /media/users/admin/private_message
 /media/import
 /media/blogs/forums
