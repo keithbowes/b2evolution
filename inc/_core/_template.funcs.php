@@ -1335,7 +1335,7 @@ function require_js_helper( $helper = '', $relative_to = 'rsc_url' )
 						$colorbox_css_file = $Skin->get_template( 'colorbox_css_file' );
 					}
 				}
-				require_css( ( empty( $colorbox_css_file ) ? 'colorbox-regular.min.css' : $colorbox_css_file ), $relative_to );
+				require_css( ( empty( $colorbox_css_file ) ? 'colorbox-regular.css' : $colorbox_css_file ), $relative_to );
 				break;
 		}
 		// add to list of loaded helpers
@@ -1455,7 +1455,7 @@ function init_ratings_js( $relative_to = 'blog', $force_init = false )
 	if( $force_init || ( !empty($Item) && $Item->can_rate() ) )
 	{
 		require_js( '#jquery#', $relative_to ); // dependency
-		require_js( 'jquery/jquery.raty.min.js', $relative_to );
+		require_js( 'jquery/jquery.raty.js', $relative_to );
 	}
 }
 
@@ -1485,7 +1485,7 @@ function init_bubbletip_js( $relative_to = 'rsc_url', $library = 'bubbletip' )
 		case 'bubbletip':
 		default:
 			// Use bubbletip plugin of jQuery
-			require_js( 'jquery/jquery.bubbletip.min.js', $relative_to );
+			require_js( 'jquery/jquery.bubbletip.js', $relative_to );
 			require_js( 'build/bubbletip.bmin.js', $relative_to, true );
 			require_css( 'jquery/jquery.bubbletip.css', $relative_to );
 			break;
@@ -1515,7 +1515,7 @@ function init_userfields_js( $relative_to = 'rsc_url', $library = 'bubbletip' )
 		case 'bubbletip':
 		default:
 			// Use bubbletip plugin of jQuery
-			require_js( 'jquery/jquery.bubbletip.min.js', $relative_to );
+			require_js( 'jquery/jquery.bubbletip.js', $relative_to );
 			require_js( 'build/bubbletip.bmin.js', $relative_to, true );
 			require_css( 'jquery/jquery.bubbletip.css', $relative_to );
 			break;
@@ -1543,7 +1543,7 @@ function init_plugins_js( $relative_to = 'rsc_url', $library = 'bubbletip' )
 		case 'bubbletip':
 		default:
 			// Use bubbletip plugin of jQuery
-			require_js( 'jquery/jquery.bubbletip.min.js', $relative_to );
+			require_js( 'jquery/jquery.bubbletip.js', $relative_to );
 			require_js( 'build/bubbletip.bmin.js', $relative_to, true );
 			require_css( 'jquery/jquery.bubbletip.css', $relative_to );
 			break;
@@ -1687,7 +1687,7 @@ function init_colorpicker_js( $relative_to = 'rsc_url' )
 
 	// Initialize farbastic colorpicker
 	require_js( '#jquery#', $relative_to );
-	require_js( 'jquery/jquery.farbtastic.min.js', $relative_to );
+	require_js( 'jquery/jquery.farbtastic.js', $relative_to );
 	require_css( 'jquery/farbtastic/farbtastic.css', $relative_to );
 }
 
@@ -1774,7 +1774,7 @@ function init_autocomplete_login_js( $relative_to = 'rsc_url', $library = 'hintb
 			//     dh> Handle it via http://www.appelsiini.net/projects/lazyload ?
 			// dh> TODO: should probably also get ported to use jquery.ui.autocomplete (or its successor)
 			require_css( 'jquery/jquery.hintbox.css', $relative_to );
-			require_js( 'jquery/jquery.hintbox.min.js', $relative_to );
+			require_js( 'jquery/jquery.hintbox.js', $relative_to );
 			add_js_headline( 'jQuery( document ).on( "focus", "input.autocomplete_login", function()
 			{
 				var ajax_url = "";

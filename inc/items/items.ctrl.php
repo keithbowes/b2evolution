@@ -1932,7 +1932,7 @@ if( $action == 'view' || strpos( $action, 'edit' ) !== false || strpos( $action,
 	require_css( 'fine-uploader.css' );
 	// Load JS files to make the links table sortable:
 	require_js( '#jquery#' );
-	require_js( 'jquery/jquery.sortable.min.js' );
+	require_js( 'jquery/jquery.sortable.js' );
 }
 
 if( in_array( $action, array( 'new', 'copy', 'create_edit', 'create_link', 'create', 'create_publish', 'edit', 'update_edit', 'update', 'update_publish', 'extract_tags' ) ) )

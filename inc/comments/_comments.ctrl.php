@@ -783,7 +783,7 @@ if( in_array( $action, array( 'edit', 'update_publish', 'update', 'update_edit',
 	require_css( 'fine-uploader.css' );
 	// Load JS files to make the links table sortable:
 	require_js( '#jquery#' );
-	require_js( 'jquery/jquery.sortable.min.js' );
+	require_js( 'jquery/jquery.sortable.js' );
 }
 
 require_css( $AdminUI->get_template( 'blog_base.css' ) ); // Default styles for the blog navigation

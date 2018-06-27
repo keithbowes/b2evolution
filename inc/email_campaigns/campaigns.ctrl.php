@@ -345,7 +345,7 @@ if( $action == 'edit' )
 		require_css( 'fine-uploader.css' );
 		// Load JS files to make the links table sortable:
 		require_js( '#jquery#' );
-		require_js( 'jquery/jquery.sortable.min.js' );
+		require_js( 'jquery/jquery.sortable.js' );
 	}
 }
 else

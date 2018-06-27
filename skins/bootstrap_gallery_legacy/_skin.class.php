@@ -24,10 +24,6 @@ class bootstrap_gallery_legacy_Skin extends Skin
 	var $version = '6.9.7';
 
 	/**
-	 * Do we want to use style.min.css instead of style.css ?
-	 */
-	var $use_min_css = 'check';  // true|false|'check' Set this to true for better optimization
-	/**
 	 * Get default name for the skin.
 	 * Note: the admin can customize it.
 	 */

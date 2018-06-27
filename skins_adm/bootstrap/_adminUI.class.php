@@ -43,7 +43,7 @@ class AdminUI extends AdminUI_general
 		global $Messages, $debug, $Hit, $check_browser_version;
 
 		require_js( '#jquery#', 'rsc_url' );
-		require_js( 'jquery/jquery.raty.min.js', 'rsc_url' );
+		require_js( 'jquery/jquery.raty.js', 'rsc_url' );
 
 		require_js( '#bootstrap#', 'rsc_url' );
 		require_css( '#bootstrap_css#', 'rsc_url' );
@@ -72,7 +72,7 @@ class AdminUI extends AdminUI_general
 		}
 		else
 		{	// Use minified CSS:
-			require_css( 'skins_adm/bootstrap/rsc/css/style.min.css', 'relative' );	// Relative to <base> tag (current skin folder)
+			require_css( 'skins_adm/bootstrap/rsc/css/style.css', 'relative' );	// Relative to <base> tag (current skin folder)
 		}
 
 		// Load general JS file:
@@ -747,7 +747,7 @@ class AdminUI extends AdminUI_general
 
 			case 'colorbox_css_file':
 				// CSS file of colorbox, @see require_js_helper( 'colorbox' )
-				return 'colorbox-bootstrap.min.css';
+				return 'colorbox-bootstrap.css';
 
 			default:
 				// Delegate to parent class:

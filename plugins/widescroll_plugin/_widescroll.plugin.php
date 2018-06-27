@@ -300,7 +300,7 @@ class widescroll_plugin extends Plugin
 		}
 
 		require_js( '#jquery#', 'blog' );
-		$this->require_js( 'jquery.scrollwide.min.js' );
+		$this->require_js( 'jquery.scrollwide.js' );
 		$this->require_css( 'jquery.scrollwide.css' );
 	}
 
@@ -318,7 +318,7 @@ class widescroll_plugin extends Plugin
 		if( $ctrl == 'campaigns' && get_param( 'tab' ) == 'send' && $this->get_email_setting( 'email_apply_rendering' ) )
 		{	// Load this only on form to preview email campaign:
 			require_js( '#jquery#', 'blog' );
-			$this->require_js( 'jquery.scrollwide.min.js' );
+			$this->require_js( 'jquery.scrollwide.js' );
 			$this->require_css( 'jquery.scrollwide.css' );
 		}
 	}

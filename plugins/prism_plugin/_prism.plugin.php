@@ -296,8 +296,8 @@ class prism_plugin extends Plugin
 			return;
 		}
 
-		$this->require_js( 'js/prism.min.js' );
-		$this->require_css( 'css/prism.min.css' );
+		$this->require_js( 'js/prism.js' );
+		$this->require_css( 'css/prism.css' );
 	}
 
 
@@ -313,8 +313,8 @@ class prism_plugin extends Plugin
 
 		if( $ctrl == 'campaigns' && get_param( 'tab' ) == 'send' && $this->get_email_setting( 'email_apply_rendering' ) )
 		{	// Load this only on form to preview email campaign:
-			$this->require_js( 'js/prism.min.js' );
-			$this->require_css( 'css/prism.min.css' );
+			$this->require_js( 'js/prism.js' );
+			$this->require_css( 'css/prism.css' );
 		}
 	}
 

@@ -139,7 +139,7 @@ class tinymce_plugin extends Plugin
 	 *                      before the tinymce init.
 	 * Example:
 	 * function tinymce_before_init( &$params ) {
-	 *   $mypluginurl = \$this->get_plugin_url()."myplugin/plugin.min.js";
+	 *   $mypluginurl = \$this->get_plugin_url()."myplugin/plugin.js";
 	 *   echo "tinymce.PluginManager.load('myplugin', '".$mypluginurl."');";
 	 * }
 	 *
@@ -834,7 +834,7 @@ class tinymce_plugin extends Plugin
 		// comma separated list of plugins: -- http://wiki.moxiecode.com/index.php/TinyMCE:Plugins
 		$init_options[] = 'plugins : "'.$tmce_plugins.'"';
 		$init_options[] = 'external_plugins: {
-				"morebreak"    : "'.$rsc_url.'js/tiny_mce/plugins/morebreak/plugin.min.js"
+				"morebreak"    : "'.$rsc_url.'js/tiny_mce/plugins/morebreak/plugin.js"
 			}';
 		$init_options[] = 'morebreak_separator : "[teaserbreak]"';
 		$init_options[] = 'pagebreak_separator : "[pagebreak]"';

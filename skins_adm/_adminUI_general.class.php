@@ -158,7 +158,7 @@ class AdminUI_general extends Menu
 		global $Hit, $check_browser_version;
 
 		require_js( '#jquery#', 'rsc_url' );
-		require_js( 'jquery/jquery.raty.min.js', 'rsc_url' );
+		require_js( 'jquery/jquery.raty.js', 'rsc_url' );
 
 		// Load general JS file:
 		require_js( 'build/evo_backoffice.bmin.js', 'rsc_url' );
@@ -1240,7 +1240,7 @@ class AdminUI_general extends Menu
 
 			case 'colorbox_css_file':
 				// CSS file of colorbox, @see require_js_helper( 'colorbox' )
-				return 'colorbox-regular.min.css';
+				return 'colorbox-regular.css';
 
 			default:
 				if( $die_on_unknown )

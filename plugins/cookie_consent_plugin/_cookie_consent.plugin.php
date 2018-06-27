@@ -93,7 +93,7 @@ class cookie_consent_plugin extends Plugin
 	function SkinEndHtmlHead( & $params )
 	{
 		$this->require_css( 'style.css', true );
-		require_js( 'jquery/jquery.cookie.min.js', 'blog', false, true );
+		require_js( 'jquery/jquery.cookie.js', 'blog', false, true );
 	}
 
 

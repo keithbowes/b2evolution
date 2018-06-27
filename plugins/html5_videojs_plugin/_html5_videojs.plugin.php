@@ -302,9 +302,9 @@ class html5_videojs_plugin extends Plugin
 		if( !empty( $skin ) && $skin != 'vjs-default-skin' )
 		{
 			$skins_path = dirname( $this->classfile_path ).'/skins';
-			if( file_exists( $skins_path.'/'.$skin.'/style.min.css' ) )
+			if( file_exists( $skins_path.'/'.$skin.'/style.css' ) )
 			{	// Require css file only if it exists:
-				$this->require_css( 'skins/'.$skin.'/style.min.css' );
+				$this->require_css( 'skins/'.$skin.'/style.css' );
 			}
 		}
 	}

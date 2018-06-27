@@ -288,7 +288,7 @@ require_css( 'fine-uploader.css' );
 if( $action == 'edit_links' )
 { // Load JS files to make the links table sortable:
 	require_js( '#jquery#' );
-	require_js( 'jquery/jquery.sortable.min.js' );
+	require_js( 'jquery/jquery.sortable.js' );
 }
 
 $AdminUI->disp_html_head();

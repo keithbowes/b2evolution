@@ -24,13 +24,6 @@ class bootstrap_blog_Skin extends Skin
 	var $version = '6.9.7';
 
 	/**
-	 * Do we want to use style.min.css instead of style.css ?
-	 */
-	var $use_min_css = 'check';  // true|false|'check' Set this to true for better optimization
-	// Note: we leave this on "check" in the bootstrap_blog_skin so it's easier for beginners to just delete the .min.css file
-	// But for best performance, you should set it to true.
-
-	/**
 	 * Get default name for the skin.
 	 * Note: the admin can customize it.
 	 */

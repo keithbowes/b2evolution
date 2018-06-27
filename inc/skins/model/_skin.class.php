@@ -37,13 +37,6 @@ class Skin extends DataObject
 	var $version = NULL;
 
 	/**
-	 * Do we want to use style.min.css instead of style.css ?
-	 */
-	var $use_min_css = false;  // true|false|'check' Set this to true for better optimization
-	// Note: we set this to false by default for backwards compatibility with third party skins.
-	// But for best performance, you should set it to true.
-
-	/**
 	 * Lazy filled.
 	 * @var array
 	 */
@@ -1054,16 +1047,7 @@ class Skin extends DataObject
 				case 'style_css':
 					// Include the default skin style.css:
 					// You should make sure this is called ahead of any custom generated CSS.
-					if( $this->use_min_css == false
-						|| $debug
-						|| ( $this->use_min_css == 'check' && !file_exists(dirname(__FILE__).'/style.min.css' ) ) )
-					{	// Use readable CSS:
-						$this->require_css( 'style.css' );
-					}
-					else
-					{	// Use minified CSS:
-						$this->require_css( 'style.min.css' );
-					}
+					$this->require_css( 'style.css' );
 					break;
 
 				case 'colorbox':
@@ -1296,7 +1280,7 @@ class Skin extends DataObject
 					require_css( 'fine-uploader.css', 'blog' );
 					// Load JS files to make the links table sortable:
 					require_js( '#jquery#' );
-					require_js( 'jquery/jquery.sortable.min.js' );
+					require_js( 'jquery/jquery.sortable.js' );
 					break;
 
 				case 'disp_edit_comment':
@@ -1792,7 +1776,7 @@ var downloadInterval = setInterval( function()
 
 					case 'colorbox_css_file':
 						// CSS file of colorbox, @see require_js_helper( 'colorbox' )
-						return 'colorbox-bootstrap.min.css';
+						return 'colorbox-bootstrap.css';
 				}
 				break;
 		}
@@ -1930,7 +1914,7 @@ var downloadInterval = setInterval( function()
 
 			case 'colorbox_css_file':
 				// CSS file of colorbox, @see require_js_helper( 'colorbox' )
-				return 'colorbox-regular.min.css';
+				return 'colorbox-regular.css';
 
 			case 'autocomplete_plugin':
 				// Plugin name to autocomplete user logins: 'hintbox', 'typeahead'
