@@ -12,3 +12,6 @@
 [submodule "skins/pureforums_skin"]
 	path = skins/pureforums_skin
 	url = https://fplanque@github.com/b2evolution/pureforums_skin.git
+[submodule "plugins/webmention_plugin"]
+    path = plugins/webmention_plugin
+    url = https://gitlab.com/keithbowes/webmention-plugin.git
