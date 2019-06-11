@@ -1462,10 +1462,6 @@ class Plugins_admin extends Plugins
 						break;
 
 
-					case 'api_min':
-						// obsolete since 1.9:
-						continue;
-
 
 					default:
 						// Unknown depency type, throw an error:

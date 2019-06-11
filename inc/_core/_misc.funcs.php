@@ -8599,7 +8599,7 @@ function render_inline_tags( $Object, $tags, $params = array() )
 				}
 				else
 				{
-					continue;
+					continue 2;
 				}
 				break;
 
