@@ -388,7 +388,10 @@ input.loader_img {
   background: transparent;
   border-radius: 100%;
   box-shadow: #ff8866 -14px -14px 0 7px, #ffcc66 14px -14px 0 7px, #66dd77 14px 14px 0 7px, #44aaee -14px 14px 0 7px;
-  animation: evo_rest_api_loader 5s infinite ease-in-out;
+  animation-name: evo_rest_api_loader;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
 }

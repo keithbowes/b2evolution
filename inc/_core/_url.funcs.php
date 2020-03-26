@@ -760,6 +760,7 @@ function url_absolute( $url, $base = NULL )
 function make_rel_links_abs( $s, $host = NULL )
 {
 	$s = preg_replace_callback( '~(<[^>]+?)\b((?:src|href)\s*=\s*)(["\'])?([^\\3]+?)(\\3)~i', function( $m ) {
+		global $host;
 		return $m[1].$m[2].$m[3].url_absolute($m[4], "'.$host.'").$m[5];}, $s );
 	return $s;
 }
