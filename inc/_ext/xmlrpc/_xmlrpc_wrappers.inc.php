@@ -361,11 +361,11 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 				$innercode .= "\$p$i = \$msg->getParam($i);\n";
 				if ($decode_php_objects)
 				{
-					$innercode .= "if (\$p{$i}->kindOf() == 'scalar') \$p$i = \$p{$i}->scalarval(); else \$p$i = php_{$prefix}_decode(\$p$i, array('decode_php_objs'));\n";
+					$innercode .= "if (\$p[$i]->kindOf() == 'scalar') \$p$i = \$p[$i]->scalarval(); else \$p$i = php_{$prefix}_decode(\$p$i, array('decode_php_objs'));\n";
 				}
 				else
 				{
-					$innercode .= "if (\$p{$i}->kindOf() == 'scalar') \$p$i = \$p{$i}->scalarval(); else \$p$i = php_{$prefix}_decode(\$p$i);\n";
+					$innercode .= "if (\$p[$i]->kindOf() == 'scalar') \$p$i = \$p[$i]->scalarval(); else \$p$i = php_{$prefix}_decode(\$p$i);\n";
 				}
 
 				$pars[] = "\$p$i";
