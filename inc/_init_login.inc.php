@@ -78,7 +78,8 @@ elseif( empty( $disable_http_auth ) && $Settings->get( 'http_auth_accept' ) && !
 	$login_action = array( 'login' => '' );
 }
 
-$Debuglog->add( 'Login: login: '.var_export( htmlspecialchars( $login, ENT_COMPAT, $evo_charset ), true ), '_init_login' );
+if ($login)
+	$Debuglog->add( 'Login: login: '.var_export( htmlspecialchars( $login, ENT_COMPAT, $evo_charset ), true ), '_init_login' );
 $Debuglog->add( 'Login: pass: '.( empty( $pass ) ? '' : 'not' ).' empty', '_init_login' );
 
 // either 'login' (normal) or 'redirect_to_backoffice' may be set here. This also helps to display the login form again, if either login or pass were empty.

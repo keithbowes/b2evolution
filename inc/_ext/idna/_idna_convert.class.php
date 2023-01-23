@@ -368,7 +368,7 @@ class idna_convert
         $delim_pos = strrpos($encoded, '-');
         if ($delim_pos > strlen($this->_punycode_prefix)) {
             for ($k = strlen($this->_punycode_prefix); $k < $delim_pos; ++$k) {
-                $decoded[] = ord($encoded$k]);
+                $decoded[] = ord($encoded[$k]);
             }
         }
         $deco_len = count($decoded);

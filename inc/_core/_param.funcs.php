@@ -1209,13 +1209,13 @@ function check_is_color( $color )
  *
  * @return string the compact date value ( yyyymmdd )
  */
-function param_compact_date( $var, $default = '', $memorize = false, $err_msg, $required = false )
+function param_compact_date( $var, $default = '', $memorize = false, $err_msg = '', $required = false )
 {
 	global $$var;
 
 	param( $var, 'string', $default, $memorize );
 
-	if( preg_match( '#^[0-9]{4,}$#', $$var ) )
+	if( isset($$var) && preg_match( '#^[0-9]{4,}$#', $$var ) )
 	{	// Valid compact date, all good.
 		return $$var;
 	}
@@ -2009,7 +2009,7 @@ function regenerate_url( $ignore = '', $set = '', $pagefileurl = '', $glue = '&a
 			{ // Remove leading question mark, e.g. from QUERY_STRING
 				$set = substr($set, 1);
 			}
-			$set = preg_split( '~&(amp;)?~', $set, NULL, PREG_SPLIT_NO_EMPTY );
+			$set = preg_split( '~&(amp;)?~', $set, -1, PREG_SPLIT_NO_EMPTY );
 		}
 		// Merge them in:
 		$params = array_merge( $params, $set );
@@ -2185,31 +2185,9 @@ else
 
 
 /**
- * Sets an HTML parameter and checks for sanitized code.
- *
- * WARNING: this does *NOT* (necessarilly) make the HTML code safe.
- * It only checks on it and produces error messages.
- * It is NOT (necessarily) safe to use the output.
- *
- * @todo dh> Not implemented?!
- *
- * @param string Variable to set
- * @param mixed Default value or TRUE if user input required
- * @param boolean memorize ( see {@link param()} )
- * @param string error message
- *
- * @return string
- */
-function param_html( $var, $default = '', $memorize = false, $err_msg )
-{
-
-}
-
-
-/**
  * Checks for sanitized code.
  *
- * WARNING: this does *NOT* (necessarilly) make the HTML code safe.
+ * WARNING: this does *NOT* (necessarily) make the HTML code safe.
  * It only checks on it and produces error messages.
  * It is NOT (necessarily) safe to use the output.
  *
@@ -2332,7 +2310,7 @@ function format_to_post( $content, $is_comment = 0, $encoding = NULL )
  * - trimming
  * - balancing tags
  *
- * WARNING: this does *NOT* (necessarilly) make the HTML code safe.
+ * WARNING: this does *NOT* (necessarily) make the HTML code safe.
  * It only checks on it and produces error messages.
  * It is NOT (necessarily) safe to use the output.
  *

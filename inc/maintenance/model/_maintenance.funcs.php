@@ -333,7 +333,7 @@ function unpack_archive( $src_file, $dest_dir, $mk_dest_dir = false, $src_file_n
  * @param boolean overwrite
  * @param array read only file list
  */
-function verify_overwrite( $src, $dest, $action = '', $overwrite = true, & $read_only_list )
+function verify_overwrite( $src, $dest, $action = '', $overwrite = true, & $read_only_list = array() )
 {
 	global $basepath;
 

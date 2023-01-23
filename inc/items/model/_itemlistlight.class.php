@@ -390,7 +390,7 @@ class ItemListLight extends DataObjectList2
 		$cat = param( 'cat', '/^[*\-\|]?([0-9]+(,[0-9]+)*)?$/', $this->default_filters['cat_modifier'], true ); // List of cats to restrict to
 		$catsel = param( 'catsel', 'array:integer', $this->default_filters['cat_array'], true );  // Array of cats to restrict to
 
-		if( empty( $catsel ) && preg_match( '~^[0-9]+$~', $cat ) )
+		if( empty( $catsel ) && isset($cat) && preg_match( '~^[0-9]+$~', $cat ) )
 		{	// We are on a single cat page: (equivalent to $disp_detail == 'posts-topcat')
 			// NOTE: we must have selected EXACTLY ONE CATEGORY through the cat parameter
 			// BUT: - this can resolve to including children

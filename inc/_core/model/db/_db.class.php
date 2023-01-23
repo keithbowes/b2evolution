@@ -400,7 +400,7 @@ class DB
 			$this->dbhandle = new mysqli();
 			@$this->dbhandle->real_connect($this->use_persistent ? 'p:'.$this->dbhost : $this->dbhost,
 				$this->dbuser, $this->dbpassword, '', $port, $socket, $client_flags );
-			$mysql_error = error_get_last()['message'];
+			$mysql_error = $this->dbhandle->error;
 			if( $old_html_errors !== false ) @ini_set('html_errors', $old_html_errors);
 		}
 
