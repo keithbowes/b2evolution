@@ -335,11 +335,11 @@ function format_to_output( $content, $format = 'htmlbody' )
 			// Replace special chars to &amp;, &quot;, &#039;|&apos;, &lt; and &gt; :
 			if( version_compare( PHP_VERSION, '5.4', '>=' ) )
 			{	// Handles & " ' < > to &amp; &quot; &apos; &lt; &gt;
-				$content = htmlspecialchars( $content, ENT_QUOTES | ENT_HTML5, $evo_charset );
+				$content = htmlspecialchars( (string) $content, ENT_QUOTES | ENT_HTML5, $evo_charset );
 			}
 			else
 			{	// Handles & " ' < > to &amp; &quot; &#039; &lt; &gt;
-				$content = htmlspecialchars( $content, ENT_QUOTES, $evo_charset );
+				$content = htmlspecialchars( (string) $content, ENT_QUOTES, $evo_charset );
 			}
 			break;
 
@@ -742,7 +742,7 @@ function convert_chars( $content, $flag = 'html' )
 
 	// Convert Windows CP1252 => Unicode (valid HTML)
 	// TODO: should this go to input conversions instead (?)
-	$content = strtr( $content, $b2_htmltranswinuni );
+	$content = strtr( (string) $content, $b2_htmltranswinuni );
 
 	if( $flag == 'html' )
 	{ // we can use entities

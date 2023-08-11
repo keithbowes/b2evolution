@@ -306,13 +306,13 @@ function get_last_modified()
 	global $Blog, $Item;
 	if (is_object($Item))
 	{
+		global $DB;
+		$lc = $DB->get_var('SELECT comment_date from T_comments WHERE comment_item_ID=' . $Item->ID);
 		$lm = $Item->datemodified;
 
 		/* If possible, see if any comments are newer than the blog post */
-		if (is_object($Blog))
+		if (is_object($Blog) && is_string($lc) && is_string($lm))
 		{
-			global $DB;
-			$lc = $DB->get_var('SELECT comment_date from T_comments WHERE comment_item_ID=' . $Item->ID);
 			$lm = date2mysql(max(array(strtotime($lm), strtotime($lc))));
 		}
 		return $lm;
