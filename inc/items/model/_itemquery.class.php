@@ -47,6 +47,16 @@ class ItemQuery extends SQL
 	var $featured;
 	var $flagged;
 
+	var $dbtablename;
+	var $dbprefix;
+	var $dbIDname;
+	var $Blog;
+	var $cat_array;
+	var $cat_modifier;
+	var $author_assignee;
+	var $assignees_logins;
+	var $m, $w;
+
 	/**
 	 * A query FROM string to join other tables.
 	 * It is set in case of the select queries when we need to order by custom fields.

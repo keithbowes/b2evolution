@@ -35,6 +35,14 @@ class autolinks_plugin extends Plugin
 	var $help_topic = 'autolinks-plugin';
 	var $number_of_installs = null;	// Let admins install several instances with potentially different word lists
 
+	var $setting_nofollow_exist;
+	var $setting_nofollow_explicit;
+	var $setting_nofollow_auto;
+	var $setting_autolink_defs_coll_db;
+	var $setting_autolink_username;
+	var $setting_autolink_tag;
+	var $replacement_link_array;
+
 	/**
 	 * Lazy loaded from txt files
 	 *

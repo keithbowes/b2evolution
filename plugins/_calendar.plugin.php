@@ -35,11 +35,14 @@ class calendar_plugin extends Plugin
 	var $subgroup = 'navigation';
 	var $widget_icon = 'calendar';
 
+	var $dbtable;
+	var $dbprefix;
+	var $dbIDname;
 
-  /**
+	/**
 	 * @var ItemQuery
 	 */
-	var $ItemQuery;
+	var $ItemQuery = NULL;
 
 	/**
 	 * Init
@@ -487,6 +490,19 @@ class Calendar
 	 * @var string
 	 */
 	var $itemlist_prefix = '';
+
+	var $dbtable;
+	var $dbprefix;
+	var $dbIDname;
+	var $ItemQuery;
+	var $linkpostcellstart;
+	var $linkposttodaycellstart;
+	var $todaycellstart;
+	var $todaycellstartpost;
+	var $postcount_month_atitle;
+	var $postcount_month_atitle_one;
+	var $postcount_year_atitle;
+	var $postcount_year_atitle_one;
 
 	/**
 	 * Calendar::Calendar(-)

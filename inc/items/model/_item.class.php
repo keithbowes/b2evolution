@@ -301,6 +301,12 @@ class Item extends ItemLight
 	 */
 	var $countvotes;
 
+	var $cache_has_content_parts;
+	var $renderers_validated;
+	var $pages;
+
+	var $is_locked = FALSE;
+
 	/**
 	 * Constructor
 	 *

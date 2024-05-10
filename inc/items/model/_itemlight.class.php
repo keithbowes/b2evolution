@@ -109,6 +109,9 @@ class ItemLight extends DataObject
 	 */
 	var $dbchanges_flags = array();
 
+	var $datestart;
+	var $objtype;
+
 
 	/**
 	 * Constructor

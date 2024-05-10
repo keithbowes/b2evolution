@@ -89,6 +89,8 @@ class Session
 	 */
 	var $sess_device;
 
+	var $first_hit_params;
+
 	/**
 	 * Constructor
 	 *

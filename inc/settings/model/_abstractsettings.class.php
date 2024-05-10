@@ -98,6 +98,8 @@ class AbstractSettings
 	 */
 	var $_defaults = array();
 
+	var $count_col_key_names;
+
 
 	/**
 	 * Constructor.

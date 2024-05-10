@@ -134,6 +134,59 @@ class Form extends Widget
 	 */
 	var $form_type;
 
+	var $form_name;
+	var $form_action;
+	var $form_method;
+	var $enctype;
+	var $layout;
+	var $template;
+	var $formclass;
+	var $formstart;
+	var $title_fmt;
+	var $no_title_fmt;
+	var $no_title_no_icons_fmt;
+	var $group_begin;
+	var $group_end;
+	var $fieldset_title;
+	var $fieldset_begin;
+	var $fieldset_end;
+	var $labelclass;
+	var $labelstart;
+	var $labelend;
+	var $labelempty;
+	var $inputstart;
+	var $inputend;
+	var $infostart;
+	var $infoend;
+	var $fieldstart;
+	var $fieldend;
+	var $buttonsstart;
+	var $buttonsend;
+	var $customstart;
+	var $customend;
+	var $note_format;
+	var $formend;
+	var $fieldstart_checkbox;
+	var $fieldend_checkbox;
+	var $inputclass_checkbox;
+	var $inputstart_checkbox;
+	var $inputend_checkbox;
+	var $checkbox_newline_start;
+	var $checkbox_newline_end;
+	var $checkbox_basic_start;
+	var $checkbox_basic_end;
+	var $fieldstart_radio;
+	var $fieldend_radio;
+	var $inputclass_radio;
+	var $inputstart_radio;
+	var $inputend_radio;
+	var $radio_label_format;
+	var $radio_newline_start;
+	var $radio_newline_end;
+	var $radio_oneline_start;
+	var $radio_oneline_end;
+	var $existing_hiddens;
+
 
 	/**
 	 * Constructor

@@ -136,6 +136,10 @@ class AdminUI_general extends Menu
 	 */
 	var $page_manual_link = '';
 
+	var $mode;
+	var $displayed_sub_begin;
+	var $displayed_sub_end;
+
 	/**
 	 * Constructor.
 	 */

@@ -62,6 +62,8 @@ class ItemListLight extends DataObjectList2
 	 */
 	var $advertised_start_date;
 	var $advertised_stop_date;
+	var $filterset_name;
+	var $preset_filters;
 	/**
 	 * Anti infinite loops:
 	 */

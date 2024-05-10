@@ -144,7 +144,7 @@ class Skin extends DataObject
 	 */
 	function get_default_type()
 	{
-		return (substr($this->folder,0,1) == '_' ? 'feed' : 'normal');
+		return (substr((string) $this->folder,0,1) == '_' ? 'feed' : 'normal');
 	}
 
 

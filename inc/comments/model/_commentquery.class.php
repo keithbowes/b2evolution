@@ -43,6 +43,10 @@ class CommentQuery extends SQL
 
 	var $Blog;
 
+	var $dbtablename;
+	var $dbprefix;
+	var $dbIDname;
+
 
 	/**
 	 * Constructor.

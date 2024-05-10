@@ -44,6 +44,11 @@ class CommentList2 extends DataObjectList2
 	 */
 	var $Blog;
 
+	var $filterset_name;
+	var $preset_filters;
+	var $query_is_initialized;
+	var $inlist_orders;
+
 	/**
 	 * Constructor
 	 *

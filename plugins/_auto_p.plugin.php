@@ -29,6 +29,10 @@ class auto_p_plugin extends Plugin
 	var $help_topic = 'auto-p-plugin';
 	var $number_of_installs = 1;
 
+	var $use_auto_br;
+	var $add_p_in_block;
+	var $skip_tags;
+
 	/**
 	 * List of block elements (we want a paragraph before and after), excludes: address, added: td, th
 	 * @var string

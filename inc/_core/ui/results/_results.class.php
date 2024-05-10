@@ -251,6 +251,10 @@ class Results extends Table
 	 */
 	var $query_title_prefix = '';
 
+	var $force_checkboxes_to_inline;
+	var $order;
+	var $current_group_count;
+
 	/**
 	 * Constructor
 	 *

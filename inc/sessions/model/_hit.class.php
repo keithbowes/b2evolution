@@ -228,6 +228,17 @@ class Hit
 	 */
 	var $browser_version;
 
+	var $is_lynx;
+	var $is_firefox;
+	var $is_gecko;
+	var $is_IE;
+	var $is_winIE;
+	var $is_macIE;
+	var $is_chrome;
+	var $is_safari;
+	var $is_opera;
+	var $is_NS4;
+
 
 	/**
 	 * Constructor

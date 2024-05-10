@@ -24,6 +24,7 @@ load_class( 'settings/model/_abstractsettings.class.php', 'AbstractSettings' );
  */
 class PluginSettings extends AbstractSettings
 {
+	var $plugin_ID;
 	/**
 	 * Constructor
 	 *

@@ -284,6 +284,8 @@ class Plugin
 	 */
 	var $widget_icon = 'puzzle-piece';
 
+	var $classfile_path;
+
 	/**#@-*/
 
 
