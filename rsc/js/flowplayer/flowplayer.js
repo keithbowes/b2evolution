@@ -2480,7 +2480,7 @@ flowplayer(function(player, root) {
          tag.append($("<source/>", { type: "video/" + src.type, src: path }));
       });
 
-      var scriptAttrs = { src: "//embed.flowplayer.org/5.4.4/embed.js" };
+      var scriptAttrs = { src: "//embed.flowplayer.org/5.4.4/embed.min.js" };
       if ($.isPlainObject(conf.embed)) {
          scriptAttrs['data-swf'] = conf.embed.swf;
          scriptAttrs['data-library'] = conf.embed.library;
