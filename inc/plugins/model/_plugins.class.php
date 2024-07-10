@@ -462,7 +462,7 @@ class Plugins
 				$Plugin = '';
 			}
 			// Version check:
-			elseif( $Plugin->version != $this->index_ID_rows[$Plugin->ID]['plug_version'] && $must_exists )
+			elseif( $Plugin->version != @$this->index_ID_rows[$Plugin->ID]['plug_version'] && $must_exists )
 			{ // Version has changed since installation or last update
 				$db_deltas = array();
 
