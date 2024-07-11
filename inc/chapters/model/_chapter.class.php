@@ -97,8 +97,6 @@ class Chapter extends DataObject
  	 */
 	var $image_file_ID;
 
-	var $social_media_image_file_ID;
-
 	/**
 	 * Social media image
 	 */

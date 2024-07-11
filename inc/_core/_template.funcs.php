@@ -1920,7 +1920,7 @@ function add_js_headline($headline)
 {
 	add_headline("<script>\n\t/* <![CDATA[ */\n\t\t"
 		.$headline."\n\t/* ]]> */\n\t</script>");
-	[
+}
 
 /**
  * Registers headlines for initialization of file multi uploader
@@ -2015,5 +2015,4 @@ function resolve_auto_content_mode( $content_mode, $setting_Blog = NULL )
 			return $setting_Blog->get_setting('filtered_content');
 	}
 }
->>>>>>> a7920fa31b433793ff59c14f70e6f01f613f595f
 ?>

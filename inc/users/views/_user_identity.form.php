@@ -490,7 +490,6 @@ if( $action != 'view' )
 				{
 					$org_priority_input = ( empty( $org_data['priority'] ) ? '' : ' &nbsp; <strong>'.TB_('Order').':</strong> '.$org_data['priority'] ).' &nbsp; '
 						.'<input type="hidden" name="org_priorities[]" value="" />';
->>>>>>> a7920fa31b433793ff59c14f70e6f01f613f595f
 				}
 				$Form->switch_layout( NULL );
 				$Form->output = true;

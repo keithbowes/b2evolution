@@ -15,7 +15,6 @@
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 
-function __autoload( $classname )
-{
-	return evocms_autoload_class( $classname );
-}
+spl_autoload_register( 'evocms_autoload_class' );
+
+?>

@@ -238,7 +238,6 @@ while( $Item = & $ItemList->get_item() )
 						echo ' ';
 						$Item->deadline_time();
 						echo '</span>';
-					}
 				}
 				echo '&#160;';
 
