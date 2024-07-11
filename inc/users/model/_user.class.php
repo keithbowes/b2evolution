@@ -193,6 +193,9 @@ class User extends DataObject
 	 */
 	var $newsletter_subscription_changed_values = array();
 
+	/* No dynamic */
+	var $previous_pass_driver;
+
 	/**
 	 * Constructor
 	 *

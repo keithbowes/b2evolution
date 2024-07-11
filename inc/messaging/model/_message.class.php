@@ -57,6 +57,13 @@ class Message extends DataObject
 	 */
 	var $Thread;
 
+	/* No dynamic */
+	var $tmp_ID;
+	var $tmp_coll_ID;
+	var $tmp_item_ID;
+	var $tmp_type;
+	var $renderers_validated;
+
 
 	/**
 	 * Constructor

@@ -141,7 +141,7 @@ class coll_current_comment_filters_Widget extends ComponentWidget
 
 		if( isset( $show_filters ) )
 		{ // Rewrite default filters by predefined
-			$this->disp_params['show_filters'] = array_merge( $this->disp_params['show_filters'], $show_filters );
+			$this->disp_params['show_filters'] = array_merge( (array) @$this->disp_params['show_filters'], $show_filters );
 		}
 
 		$filters =  implode( ' '.T_('AND').' ', $params['CommentList']->get_filter_titles( array(), array(
@@ -178,12 +178,12 @@ class coll_current_comment_filters_Widget extends ComponentWidget
 		}
 
 		// START DISPLAY:
-		echo $this->disp_params['block_start'];
+		echo @$this->disp_params['block_start'];
 
 		// Display title if requested
 		$this->disp_title();
 
-		echo $this->disp_params['block_body_start'];
+		echo @$this->disp_params['block_body_start'];
 
 		if( empty( $filters ) )
 		{ // No filters
@@ -234,9 +234,9 @@ class coll_current_comment_filters_Widget extends ComponentWidget
 			}
 		}
 
-		echo $this->disp_params['block_body_end'];
+		echo @$this->disp_params['block_body_end'];
 
-		echo $this->disp_params['block_end'];
+		echo @$this->disp_params['block_end'];
 
 		return true;
 	}

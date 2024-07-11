@@ -419,7 +419,7 @@ class ItemListLight extends DataObjectList2
 
 		if( ( empty( $catsel ) || // 'catsel' multicats filter is not defined
 		      ( is_array( $catsel ) && count( $catsel ) == 1 ) // 'catsel' filter is used for single cat, e.g. when skin config 'cat_array_mode' = 'parent'
-		    ) && preg_match( '~^[0-9]+$~', $cat ) ) // 'cat' filter is ID of category and NOT modifier for 'catsel' multicats
+		    ) && $cat && preg_match( '~^[0-9]+$~', $cat ) ) // 'cat' filter is ID of category and NOT modifier for 'catsel' multicats
 		{	// We are on a single cat page: (equivalent to $disp_detail == 'posts-topcat')
 			// NOTE: we must have selected EXACTLY ONE CATEGORY through the cat parameter
 			// BUT: - this can resolve to including children
@@ -2403,7 +2403,7 @@ class ItemListLight extends DataObjectList2
 	 * @param integer Item index
 	 * @return boolean TRUE - if content is displayed
 	 */
-	function display_list_item_contents( & $disp_Item, $chapter_mode = false, & $item_index, $params = array() )
+	function display_list_item_contents( & $disp_Item, $chapter_mode = false, & $item_index = 0, $params = array() )
 	{
 		global $disp, $Item;
 
@@ -2592,7 +2592,7 @@ class ItemListLight extends DataObjectList2
 	 * @param array Params
 	 * @param boolean Changed by reference when content is displayed
 	 */
-	function display_list_images( $params = array(), & $content_is_displayed )
+	function display_list_images( $params = array(), & $content_is_displayed = false )
 	{
 		$params = array_merge( array(
 				'before'                     => '',

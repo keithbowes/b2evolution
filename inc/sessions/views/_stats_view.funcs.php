@@ -30,7 +30,7 @@ function hits_results( & $Results, $params = array() )
 	global $preset_results_title, $preset_referer_type, $preset_filter_all_url;
 	global $hide_columns, $admin_url;
 
-	$hide_columns = explode( ',', $hide_columns );
+	$hide_columns = explode( ',', (string) $hide_columns );
 
 	$Results->title = isset( $preset_results_title ) ? $preset_results_title : T_('Recent hits').get_manual_link( 'recent-hits-list' );
 

@@ -47,6 +47,8 @@ class CommentQuery extends SQL
 	var $dbtablename;
 	var $dbprefix;
 	var $dbIDname;
+	var $ymdhms_min;
+	var $ymdhms_max;
 
 
 	/**

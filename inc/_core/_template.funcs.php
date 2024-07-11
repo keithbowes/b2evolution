@@ -389,6 +389,38 @@ function header_redirect_from_email( $redirect_to, $status = false, $email_log_m
 }
 
 
+/* Gets when the blog was last modified */
+function get_last_modified()
+{
+	global $Blog, $Item;
+	if (is_object($Item))
+	{
+		global $DB;
+		$lc = $DB->get_var('SELECT comment_date from T_comments WHERE comment_item_ID=' . $Item->ID);
+		$lm = $Item->datemodified;
+
+		/* If possible, see if any comments are newer than the blog post */
+		if (is_object($Blog) && is_string($lc) && is_string($lm))
+		{
+			$lm = date2mysql(max(array(strtotime($lm), strtotime($lc))));
+		}
+		return $lm;
+	}
+	elseif (is_object($Blog))
+	{
+		global $DB;
+		return $DB->get_var('SELECT post_datemodified FROM T_items__item WHERE post_main_cat_ID IN ' .
+			'(SELECT cat_ID FROM T_categories WHERE cat_blog_ID=' . $Blog->ID . ') ' .
+			'ORDER BY UNIX_TIMESTAMP(post_datemodified) DESC LIMIT 1');
+	}
+	else
+	{
+		global $basepath;
+		return date2mysql(filemtime($basepath));
+	}
+}
+
+
 /**
  * Sends HTTP headers specifying the right kind of caching
  * @param string The type of caching to perform (one of cache, etag, nocache, noexpire)
@@ -425,6 +457,20 @@ function header_cache( $cache_type = 'cache', $timestamp = NULL )
 
 
 /**
+ * This is to "force" (strongly suggest) caching.
+ *
+ * WARNING: use this only for STATIC content that does NOT depend on the current user.
+ *
+ * @see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
+ */
+function header_noexpire()
+{
+	global $servertimenow;
+	header('Expires: '.gmdate('r', $servertimenow + 31536000)); // 86400*365 (1 year)
+}
+
+
+/**
  * Generate an etag to identify the version of the current page.
  * We use this primarily to make a difference between the same page that has been generated for anonymous users
  * and a version that has been generated for a specific user.
@@ -455,6 +501,17 @@ function gen_current_page_etag()
 	}
 
 	return '"'.md5(serialize(array('user' => $etag, 'last-modified' => get_last_modified()))).'"';
+}
+
+
+/**
+ * This adds the ETag header
+ *
+ * @param string ETag MUST be "quoted"
+ */
+function header_etag( $etag )
+{
+	header( 'ETag: '.$etag );
 }
 
 
@@ -1256,7 +1313,7 @@ function get_require_url( $lib_file, $relative_to = 'rsc_url', $subfolder = 'js'
 		$lib_url = url_add_param( $lib_url, 'v='.$version );
 	}
 
-	if( preg_match( '~^https://~', $ReqURL ) )
+	if( $ReqURL && preg_match( '~^https://~', $ReqURL ) )
 	{ // If base url is safe then fix all media urls to protocol-relative format:
 		$lib_url = preg_replace( '~^http://~', '//', $lib_url );
 	}
@@ -1920,6 +1977,2003 @@ function add_js_headline($headline)
 {
 	add_headline("<script>\n\t/* <![CDATA[ */\n\t\t"
 		.$headline."\n\t/* ]]> */\n\t</script>");
+}
+
+
+/**
+ * Add a Javascript footerline.
+ * This is an extra function, to provide consistent wrapping and allow to bundle it
+ * (i.e. create a bundle with all required JS files and these inline code snippets,
+ *  in the correct order).
+ * @param string Javascript
+ */
+function add_js_footerline($footerline)
+{
+	add_footerline("<script>\n\t/* <![CDATA[ */\n\t\t"
+		.$footerline."\n\t/* ]]> */\n\t</script>");
+}
+
+
+/**
+ * Add a CSS headline.
+ * This is an extra function, to provide consistent wrapping and allow to bundle it
+ * (i.e. create a bundle with all required JS files and these inline code snippets,
+ *  in the correct order).
+ * @param string CSS
+ */
+function add_css_headline($headline)
+{
+	add_headline("<style type=\"text/css\">\n\t".$headline."\n\t</style>");
+}
+
+
+/**
+ * Add a CSS footerline.
+ * This is an extra function, to provide consistent wrapping and allow to bundle it
+ * (i.e. create a bundle with all required CSS code snippets,
+ *  in the correct order).
+ * @param string CSS
+ */
+function add_css_footerline($footerline)
+{
+	add_footerline("<style type=\"text/css\">\n\t".$footerline."\n\t</style>");
+}
+
+
+/**
+ * Registers all the javascripts needed by the toolbar menu
+ *
+ * @deprecated because #evo_toolbar doesn't use js anymore, only css is enough
+ */
+function add_js_for_toolbar( $relative_to = 'rsc_url' )
+{
+	return true;
+}
+
+
+/**
+ * Registers headlines required by AJAX forms, but only if javascript forms are enabled in blog settings.
+ *
+ * @deprecated Because we don't need communication.js to work with AJAX forms
+ */
+function init_ajax_forms( $relative_to = 'blog' )
+{
+	/*global $Collection, $Blog;
+
+	if( !empty($Blog) && $Blog->get_setting('ajax_form_enabled') )
+	{
+		require_js_defer( 'communication.js', $relative_to );
+	}*/
+}
+
+
+/**
+ * Registers headlines required by comments forms
+ */
+function init_ratings_js( $relative_to = 'blog', $force_init = false )
+{
+	global $Item;
+
+	// fp> Note, the following test is good for $disp == 'single', not for 'posts'
+	if( $force_init || ( !empty($Item) && $Item->can_rate() ) )
+	{
+		require_js_defer( '#jquery#', $relative_to ); // dependency
+		require_js_defer( 'customized:jquery/raty/jquery.raty.min.js', $relative_to );
+		require_js_defer( 'src/evo_init_comment_rating.js', $relative_to );
+	}
+}
+
+
+/**
+ * Registers headlines required to a bubbletip above user login.
+ *
+ * @param string alias, url or filename (relative to rsc/css, rsc/js) for JS/CSS files
+ * @param string Library: 'bubbletip', 'popover'
+ */
+function init_bubbletip_js( $relative_to = 'rsc_url', $library = 'bubbletip' )
+{
+	if( ! check_setting( 'bubbletip' ) )
+	{ // If setting "bubbletip" is OFF for current case
+		return;
+	}
+
+	require_js_defer( '#jquery#', $relative_to );
+
+	switch( $library )
+	{
+		case 'popover':
+			// Use popover library of bootstrap
+			require_js_defer( 'build/popover.bmin.js', $relative_to );
+			break;
+
+		case 'bubbletip':
+		default:
+			// Use bubbletip plugin of jQuery
+			require_js_defer( 'customized:jquery/bubbletip/js/jquery.bubbletip.min.js', $relative_to );
+			require_js_defer( 'build/bubbletip.bmin.js', $relative_to );
+			require_css( 'customized:jquery/bubbletip/css/jquery.bubbletip.css', $relative_to );
+			break;
+	}
+}
+
+
+/**
+ * Registers headlines required to display a bubbletip to the right of user multi-field.
+ *
+ * @param string alias, url or filename (relative to rsc/css, rsc/js) for JS/CSS files
+ * @param string Library: 'bubbletip', 'popover'
+ */
+function init_userfields_js( $relative_to = 'rsc_url', $library = 'bubbletip' )
+{
+	// Load to autocomplete user fields with list type
+	require_js_defer( '#jqueryUI#', $relative_to );
+	require_css( '#jqueryUI_css#', $relative_to );
+
+	switch( $library )
+	{
+		case 'popover':
+			// Use popover library of bootstrap
+			require_js_defer( 'build/popover.bmin.js', $relative_to );
+			break;
+
+		case 'bubbletip':
+		default:
+			// Use bubbletip plugin of jQuery
+			require_js_defer( 'customized:jquery/bubbletip/js/jquery.bubbletip.min.js', $relative_to );
+			require_js_defer( 'build/bubbletip.bmin.js', $relative_to );
+			require_css( 'customized:jquery/bubbletip/css/jquery.bubbletip.css', $relative_to );
+			break;
+	}
+}
+
+
+/**
+ * Registers headlines required to display a bubbletip to the right of plugin help icon.
+ *
+ * @deprecated Use function init_popover_js()
+ *
+ * @param string alias, url or filename (relative to rsc/css, rsc/js) for JS/CSS files
+ * @param string Library: 'bubbletip', 'popover'
+ */
+function init_plugins_js( $relative_to = 'rsc_url', $library = 'bubbletip' )
+{
+	init_popover_js( $relative_to, $library );
+}
+
+
+/**
+ * Registers headlines required to display a bubbletip to the right of plugin, widget, custom fields help icon.
+ *
+ * @param string alias, url or filename (relative to rsc/css, rsc/js) for JS/CSS files
+ * @param string Library: 'bubbletip', 'popover'
+ */
+function init_popover_js( $relative_to = 'rsc_url', $library = 'bubbletip' )
+{
+	require_js_defer( '#jquery#', $relative_to );
+
+	switch( $library )
+	{
+		case 'popover':
+			// Use popover library of bootstrap
+			require_js_defer( 'build/popover.bmin.js', $relative_to );
+			break;
+
+		case 'bubbletip':
+		default:
+			// Use bubbletip plugin of jQuery
+			require_js_defer( 'customized:jquery/bubbletip/js/jquery.bubbletip.min.js', $relative_to );
+			require_js_defer( 'build/bubbletip.bmin.js', $relative_to );
+			require_css( 'customized:jquery/bubbletip/css/jquery.bubbletip.css', $relative_to );
+			break;
+	}
+}
+
+
+/**
+ * Registers headlines for initialization of datepicker inputs
+ */
+function init_datepicker_js( $relative_to = 'rsc_url' )
+{
+	require_js_defer( '#jqueryUI#', $relative_to );
+	require_css( '#jqueryUI_css#', $relative_to );
+
+	// We did not use json_encode here as it will escape the dateFormat:
+	expose_var_to_js( 'evo_init_datepicker', '{'
+				.'selector: ".form_date_input",'
+				.'config: {'
+					.'dateFormat: "'.jquery_datepicker_datefmt().'",'
+					.'monthNames: '.jquery_datepicker_month_names().','
+					.'dayNamesMin: '.jquery_datepicker_day_names().','
+					.'firstDay: '.locale_startofweek().'}'
+			.'}' );
+}
+
+
+/**
+ * Registers headlines for initialization of jQuery Tokeninput plugin
+ */
+function init_tokeninput_js( $relative_to = 'rsc_url' )
+{
+	require_js_defer( '#jquery#', $relative_to ); // dependency
+	require_js_defer( 'customized:jquery/tokeninput/js/jquery.tokeninput.js', $relative_to );
+	require_css( 'customized:jquery/tokeninput/css/jquery.token-input-facebook.css', $relative_to );
+}
+
+
+/**
+ * Registers headlines for initialization of functions to work with Results tables
+ */
+function init_results_js( $relative_to = 'rsc_url' )
+{
+	require_js_defer( '#jquery#', $relative_to ); // dependency
+	require_js_defer( 'results.js', $relative_to );
+}
+
+
+/**
+ * Registers headlines for initialization of functions to work with affixed Messages
+ */
+function init_affix_messages_js( $offset = NULL )
+{
+	global $display_mode, $site_Skin;
+
+	if( isset( $display_mode ) && $display_mode == 'js' )
+	{	// Don't use affixed Messages in JS mode from modal windows:
+		return;
+	}
+
+	if( empty( $offset ) && ! ( ( $offset === '0' ) || ( $offset === 0 ) ) )
+	{	// This should not include evobar and header height - those will be taken care of by the message affix JS script:
+		$offset = 10;
+	}
+
+	$site_header_fixed = 'false';
+	if( $site_Skin )
+	{	// Get fixed header setting to pass to messages affix JS script:
+		$site_header_fixed = $site_Skin->get_setting( 'fixed_header' ) == 1 ? 'true' : 'false';
+	}
+
+	add_js_headline( 'evo_affix_msg_offset = '.format_to_js( $offset ).'; evo_affix_fixed_header = '.format_to_js( $site_header_fixed ).';' );
+	require_js_defer( 'src/evo_init_affix_messages.js', 'blog' );
+}
+
+
+/**
+ * Registers headlines for initialization of functions to work a voting panel for comments
+ *
+ * @param boolean|string Is the file's path relative to the base path/url?
+ */
+function init_voting_comment_js( $relative_to = 'rsc_url' )
+{
+	global $Collection, $Blog, $b2evo_icons_type;
+
+	if( empty( $Blog ) || ! is_logged_in( false ) || ! $Blog->get_setting('allow_rating_comment_helpfulness') )
+	{	// If User is not logged OR Users cannot vote
+		return false;
+	}
+
+	require_js_defer( '#jquery#', $relative_to ); // dependency
+	require_js_defer( 'voting.js', $relative_to );
+
+	$js_config = array(
+		'action_url' => url_add_param( get_htsrv_url().'anon_async.php', array(
+					'action'           => 'voting',
+					'vote_type'        => 'comment',
+					'b2evo_icons_type' => $b2evo_icons_type
+			) ),
+		);
+
+	expose_var_to_js( 'evo_init_comment_voting_config', evo_json_encode( $js_config ) );
+}
+
+
+/**
+ * Registers headlines for initialization of functions to work a voting panel for items
+ *
+ * @param boolean|string Is the file's path relative to the base path/url?
+ */
+function init_voting_item_js( $relative_to = 'rsc_url' )
+{
+	global $Collection, $Blog, $b2evo_icons_type;
+
+	if( empty( $Blog ) || ! is_logged_in( false ) || ! $Blog->get_setting( 'voting_positive' ) )
+	{	// If User is not logged OR Users cannot vote:
+		return false;
+	}
+
+	require_js_defer( '#jquery#', $relative_to );
+	require_js_defer( 'voting.js', $relative_to );
+
+	$js_config = array(
+		'action_url' => url_add_param( get_htsrv_url().'anon_async.php', array(
+				'action'           => 'voting',
+				'vote_type'        => 'item',
+				'b2evo_icons_type' => $b2evo_icons_type
+			) ),
+		);
+
+	expose_var_to_js( 'evo_init_item_voting_config', evo_json_encode( $js_config ) );
+}
+
+
+/**
+ * Registers headlines for initialization of colorpicker inputs
+ */
+function init_colorpicker_js( $relative_to = 'rsc_url' )
+{
+	if( ! is_logged_in() )
+	{	// Colorpicker is initialized only for logged in users:
+		return;
+	}
+
+	global $current_User, $UserSettings;
+
+	require_js_defer( '#jquery#', $relative_to );
+	require_js_defer( 'ext:bootstrap/colorpicker/js/bootstrap-colorpicker.min.js', $relative_to );
+	require_css( 'ext:bootstrap/colorpicker/css/bootstrap-colorpicker.min.css', $relative_to );
+
+	// Get preselected colors from settings of current User:
+	$user_colors = $UserSettings->get( 'colorpicker', $current_User->ID );
+	if( empty( $user_colors ) )
+	{	// Use these default colors if user didn't selected any color yet:
+		$user_colors = array(
+			'black'   => '#000000',
+			'grey'    => '#999999',
+			'white'   => '#ffffff',
+			'red'     => '#FF0000',
+			'default' => '#777777',
+			'primary' => '#337ab7',
+			'success' => '#5cb85c',
+			'info'    => '#5bc0de',
+			'warning' => '#f0ad4e',
+			'danger'  => '#d9534f'
+		);
+	}
+	else
+	{	// Convert user colors to array:
+		$user_colors = explode( ';', $user_colors );
+	}
+
+	add_js_headline( 'jQuery( document ).ready( function() { evo_initialize_colorpicker_inputs() } );
+function evo_initialize_colorpicker_inputs()
+{
+	jQuery( ".form_color_input" ).each( function()
+	{
+		var predefined_colors = ["'.implode( '","', $user_colors ).'"];
+		var colored_input = jQuery( this );
+		colored_input.parent().colorpicker( {
+			format: jQuery( this ).hasClass( "form_color_transparent" ) ? false : "hex",
+			colorSelectors: predefined_colors
+		} )
+		.on( "changeColor", function()
+		{
+			if( typeof( parent.evo_customizer_update_style ) == "function" )
+			{	// Update style in designer customizer mode if it is enabled currently:
+				parent.evo_customizer_update_style( colored_input );
+			}
+		} )
+		.on( "hidePicker", function( e )
+		{	// Update predefined colors with new last selected:
+			var current_colors = e.color.predefinedColors;
+			var new_colors = current_colors.slice();
+			var new_color = e.color.toString();
+			var new_color_index = new_colors.indexOf( new_color );
+			if( new_color_index > -1 )
+			{	// Remove a duplicated color:
+				new_colors.splice( new_color_index, 1 );
+			}
+			new_colors.unshift( new_color );
+			new_colors.splice( 10, 1 );
+
+			if( new_colors.join( "" ) == current_colors.join( "" ) )
+			{	// Dont update if colors is not changed:
+				return;
+			}
+
+			// Reinitialize colorpickers with new preselected colors:
+			jQuery( ".form_color_input" ).each( function()
+			{
+				var colored_input = jQuery( this ).parent();
+				colored_input.colorpicker( "destroy" );
+				colored_input.colorpicker( {
+					format: jQuery( this ).hasClass( "form_color_transparent" ) ? false : "hex",
+					colorSelectors: new_colors
+				} );
+			} );
+
+			// Save new colors in settings for current User:
+			jQuery.ajax(
+			{
+				type: "POST",
+				url: htsrv_url + "anon_async.php",
+				data: {
+					"action": "colorpicker",
+					"colors": new_colors.join( ";" ),
+					"crumb_colorpicker": "'.get_crumb( 'colorpicker' ).'"
+				}
+			} );
+		} );
+	} );
+}' );
+}
+
+
+/**
+ * Registers headlines required to autocomplete the user logins
+ *
+ * @param string alias, url or filename (relative to rsc/css, rsc/js) for JS/CSS files
+ * @param string Library: 'hintbox', 'typeahead'
+ */
+function init_autocomplete_login_js( $relative_to = 'rsc_url', $library = 'hintbox' )
+{
+	global $Collection, $Blog;
+
+	require_js_defer( '#jquery#', $relative_to ); // dependency
+
+	switch( $library )
+	{
+		case 'typeahead':
+			// Use typeahead library of bootstrap
+			require_js_defer( '#bootstrap_typeahead#', $relative_to );
+			expose_var_to_js( 'evo_autocomplete_login_config', '{
+					url: "'.( isset( $Blog ) ? 'collections/'.$Blog->get( 'urlname' ).'/assignees' : 'users/logins' ).'",
+					selector: "input.autocomplete_login",
+				}' );
+			break;
+
+		case 'hintbox':
+		default:
+			// Use hintbox plugin of jQuery
+
+			// Add jQuery hintbox (autocompletion).
+			// Form 'username' field requires the following JS and CSS.
+			// fp> TODO: think about a way to bundle this with other JS on the page -- maybe always load hintbox in the backoffice
+			//     dh> Handle it via http://www.appelsiini.net/projects/lazyload ?
+			// dh> TODO: should probably also get ported to use jquery.ui.autocomplete (or its successor)
+			require_css( 'ext:jquery/hintbox/css/jquery.hintbox.css', $relative_to );
+			require_js( 'ext:jquery/hintbox/js/jquery.hintbox.min.js', $relative_to );
+			add_js_headline( 'jQuery( document ).on( "focus", "input.autocomplete_login", function()
+			{
+				var ajax_url = "";
+				if( jQuery( this ).hasClass( "only_assignees" ) )
+				{
+					ajax_url = restapi_url + "'.( isset( $Blog ) ? 'collections/'.$Blog->get( 'urlname' ).'/assignees' : 'users/logins' ).'";
+				}
+				else
+				{
+					ajax_url = restapi_url + "users/logins";
+				}
+				if( jQuery( this ).data( "status" ) )
+				{
+					ajax_url += "&status=" + jQuery( this ).data( "status" );
+				}
+				jQuery( this ).hintbox(
+				{
+					url: ajax_url,
+					matchHint: true,
+					autoDimentions: true,
+					json: true,
+				} );
+				'
+				// Don't submit a form by Enter when user is editing the owner fields
+				.get_prevent_key_enter_js( 'input.autocomplete_login' ).'
+			} );' );
+			break;
+	}
+}
+
+
+/**
+ * Registers headlines required to jqPlot charts
+ *
+ * @param string alias, url or filename (relative to rsc/css, rsc/js) for JS/CSS files
+ * @param boolean TRUE to print script tag on the page, FALSE to store in array to print then inside <head>
+ * @param string Version number to append at the end of requested url to avoid getting an old version from the cache
+ * @param string Position where the CSS files will be inserted, either 'headlines' (inside <head>) or 'footerlines' (before </body>)
+ */
+function init_jqplot_js( $relative_to = 'rsc_url', $output = false, $version = '#', $position = 'headlines' )
+{
+	require_js_defer( 'build/evo_jqplot.bmin.js', $relative_to, $output, $version, $position );
+	require_js_defer( 'src/evo_init_canvas_bar_chart.js', $relative_to, $output, $version, $position );
+	require_css_async( 'b2evo_jqplot.bmin.css', $relative_to, NULL, NULL, $version, $output, $position );
+}
+
+
+/**
+ * Initialize JavaScript variables for jQuery QueryBuilder plugin
+ */
+function init_querybuilder_js( $relative_to = 'rsc_url' )
+{
+	global $current_locale;
+
+	require_js_defer( '#jquery#', $relative_to ); // dependency
+	require_css( '#jqueryUI_css#', $relative_to ); // dependency for date picker
+	require_js_defer( 'ext:jquery/query-builder/js/doT.min.js', $relative_to ); // dependency
+	require_js_defer( 'ext:jquery/query-builder/js/jquery.extendext.min.js', $relative_to ); // dependency
+	require_js_defer( 'ext:jquery/query-builder/js/moment.js', $relative_to ); // dependency
+
+	require_js_defer( 'ext:jquery/query-builder/js/query-builder.min.js', $relative_to );
+	require_css( 'ext:jquery/query-builder/css/jquery.query-builder.default.css', $relative_to );
+
+	// Load language file if such file exists:
+	$query_builder_langs = array( 'ar', 'az', 'bg', 'cs', 'da', 'de', 'el', 'en', 'es', 'fa-IR', 'fr', 'he', 'it', 'nl', 'no', 'pl', 'pt-BR', 'pt-PT', 'ro', 'ru', 'sq', 'tr', 'ua', 'zh-CN' );
+	if( in_array( $current_locale, $query_builder_langs ) )
+	{	// Load lang by full locale name like "en-US":
+		require_js_defer( 'ext:jquery/query-builder/js/i18n/query-builder.'.$current_locale.'.js', $relative_to );
+	}
+	elseif( in_array( substr( $current_locale, 0, 2 ), $query_builder_langs ) )
+	{	// Load lang by locale code like "en":
+		require_js_defer( 'ext:jquery/query-builder/js/i18n/query-builder.'.substr( $current_locale, 0, 2 ).'.js', $relative_to );
+	}
+}
+
+
+/**
+ * Initialize Hotkeys library
+ */
+function init_hotkeys_js( $relative_to = 'rsc_url', $hotkeys = array(), $top_hotkeys = array() )
+{
+	require_js_defer( '#jquery#', $relative_to ); // dependency
+	require_js_defer( '#hotkeys#', $relative_to );
+
+	add_js_headline( 'var shortcut_keys = '.json_encode( $hotkeys ).';' );
+	add_js_headline( 'var top_shortcut_keys = '.json_encode( $top_hotkeys ).';' );
+
+	require_js_defer( 'ext:hotkeys/hotkeys.init.js', $relative_to );
+}
+
+
+/**
+ * Outputs the collected HTML HEAD lines.
+ * @see add_headline()
+ * @return string
+ */
+function include_headlines()
+{
+	global $headline_include_file, $headline_file_index, $headline_inline_code;
+
+	$all_headlines = array();
+	if( is_array( $headline_include_file ) )
+	{	// Include files:
+		// Sort because after dequeued bundled files we need to move main superbundled file on proper order:
+		ksort( $headline_include_file );
+		$all_headlines = $headline_include_file;
+		unset( $headline_include_file, $headline_file_index );
+	}
+	if( is_array( $headline_inline_code ) )
+	{	// Include inline codes:
+		$all_headlines = array_merge( $all_headlines, $headline_inline_code );
+		unset( $headline_inline_code );
+	}
+
+	if( ! empty( $all_headlines ) )
+	{	// Include headlines only if at least one headline is found in any group:
+		echo "\n\t<!-- headlines: -->\n\t".implode( "\n\t", $all_headlines );
+		echo "\n\n";
+	}
+}
+
+
+/**
+ * Outputs the collected translation lines before </body>
+ *
+ * yabs > Should this be expanded to similar functionality to headlines?
+ *
+ * @see add_js_translation()
+ */
+function include_footerlines()
+{
+	global $js_translations, $footerline_include_file, $footerline_file_index, $footerline_inline_code;
+
+	if( !empty( $js_translations ) )
+	{
+		$r = '';
+
+		foreach( $js_translations as $string => $translation )
+		{ // output each translation
+			if( $string != $translation )
+			{ // this is translated
+				$r .= '<div><span class="b2evo_t_string">'.$string.'</span><span class="b2evo_translation">'.$translation.'</span></div>'."\n";
+			}
+		}
+		if( $r )
+		{ // we have some translations
+			echo '<div id="b2evo_translations" style="display:none;">'."\n";
+			echo $r;
+			echo '</div>'."\n";
+		}
+	}
+
+	$all_footerlines = array();
+	if( is_array( $footerline_include_file ) )
+	{	// Include files:
+		$all_footerlines = $footerline_include_file;
+		// Sort because after dequeued bundled files we need to move main superbundled file on proper order:
+		ksort( $footerline_include_file );
+		unset( $footerline_include_file, $footerline_file_index );
+	}
+	if( is_array( $footerline_inline_code ) )
+	{	// Include inline codes:
+		$all_footerlines = array_merge( $all_footerlines, $footerline_inline_code );
+		unset( $footerline_inline_code );
+	}
+
+	if( ! empty( $all_footerlines ) )
+	{	// Include footerlines only if at least one footerline is found in any group:
+		echo "\n\t<!-- footerlines: -->\n\t".implode( "\n\t", $all_footerlines );
+		echo "\n\n";
+	}
+}
+
+
+/**
+ * Template tag.
+ */
+function app_version()
+{
+	global $app_version;
+	echo $app_version;
+}
+
+
+/**
+ * Displays an empty or a full bullet based on boolean
+ *
+ * @param boolean true for full bullet, false for empty bullet
+ */
+function bullet( $bool )
+{
+	if( $bool )
+		return get_icon( 'bullet_full', 'imgtag' );
+
+	return get_icon( 'bullet_empty', 'imgtag' );
+}
+
+
+/**
+ * Stub: Links to previous and next post in single post mode
+ */
+function item_prevnext_links( $params = array() )
+{
+	global $disp, $MainList;
+
+	if( ! isset( $MainList ) || ! $MainList->single_post || $disp == 'download' )
+	{	// Don't display the links in NOT single post mode and on download page:
+		return;
+	}
+
+	$params = array_merge( array( 'target_blog' => 'auto' ), $params );
+
+	$MainList->prevnext_item_links( $params );
+}
+
+
+/**
+ * Stub: Links to previous and next user in single user mode
+ */
+function user_prevnext_links( $params = array() )
+{
+	global $UserList, $AdminUI, $Skin;
+
+	$params = array_merge( array(
+			'template'     => '$prev$$back$$next$',
+			'block_start'  => '<table class="prevnext_user"><tr>',
+			'prev_start'   => '<td width="33%">',
+			'prev_end'     => '</td>',
+			'prev_no_user' => '<td width="33%">&nbsp;</td>',
+			'back_start'   => '<td width="33%" class="back_users_list">',
+			'back_end'     => '</td>',
+			'next_start'   => '<td width="33%" class="right">',
+			'next_end'     => '</td>',
+			'next_no_user' => '<td width="33%">&nbsp;</td>',
+			'block_end'    => '</tr></table>',
+			'user_tab'     => 'profile',
+		), $params );
+
+	if( !empty( $AdminUI ) )
+	{ // Set template from AdminUI
+		$user_navigation = $AdminUI->get_template( 'user_navigation' );
+	}
+	elseif( !empty( $Skin ) )
+	{ // Set template from Skin
+		$user_navigation = $Skin->get_template( 'user_navigation' );
+	}
+	if( !empty( $user_navigation ) && is_array( $user_navigation ) )
+	{
+		$params = array_merge( $params, $user_navigation );
+	}
+
+	if( isset($UserList) )
+	{
+		$UserList->prevnext_user_links( $params );
+	}
+}
+
+
+/**
+ * Stub
+ */
+function messages( $params = array() )
+{
+	global $Messages;
+
+	if( isset( $params['has_errors'] ) )
+	{
+		$params['has_errors'] = $Messages->has_errors();
+	}
+	$Messages->disp( $params['block_start'], $params['block_end'] );
+}
+
+
+/**
+ * Stub: Links to list pages:
+ *
+ * @param array Params
+ * @param object ItemList2, NULL to use global $MainList
+ */
+function mainlist_page_links( $params = array(), $ItemList2 = NULL )
+{
+	if( is_null( $ItemList2 ) )
+	{
+		global $MainList;
+		$ItemList2 = $MainList;
+	}
+
+	if( ! empty( $ItemList2 ) )
+	{
+		$ItemList2->page_links( $params );
+	}
+}
+
+
+/**
+ * Stub
+ *
+ * Sets $Item ion global scope
+ *
+ * @return Item
+ */
+function & mainlist_get_item()
+{
+	global $MainList, $featured_displayed_item_IDs;
+
+	if( isset( $MainList ) )
+	{
+		$Item = & $MainList->get_item();
+
+		if( $Item && in_array( $Item->ID, $featured_displayed_item_IDs ) )
+		{ // This post was already displayed as a Featured post, let's skip it and get the next one:
+			$Item = & mainlist_get_item();
+		}
+	}
+	else
+	{
+		$Item = NULL;
+	}
+
+	// Make this available globally:
+	$GLOBALS['Item'] = & $Item;
+
+	return $Item;
+}
+
+
+/**
+ * Stub
+ *
+ * @return boolean true if empty MainList
+ */
+function display_if_empty( $params = array() )
+{
+	global $MainList, $featured_displayed_item_IDs;
+
+	if( isset( $MainList ) && empty( $featured_displayed_item_IDs ) )
+	{
+		return $MainList->display_if_empty( $params );
+	}
+
+	return NULL;
+}
+
+
+/**
+ * Check if current page is a single Item's page
+ *
+ * @param integer|NULL ID of Item to be sure we currently see single page of the Item, NULL - to don't check
+ * @return boolean
+ */
+function is_single_page( $check_item_ID = NULL )
+{
+	global $disp, $MainList, $Item;
+
+	return ( $disp == 'single' || $disp == 'page' ) &&
+		( isset( $MainList ) && $MainList->single_post ) &&
+		( isset( $Item ) && $Item->ID > 0 ) &&
+		( $check_item_ID === NULL || $check_item_ID == $Item->ID );
+}
+
+
+/**
+ * Template tag for credits
+ *
+ * Note: You can limit (and even disable) the number of links being displayed here though the Admin interface:
+ * Blog Settings > Advanced > Software credits
+ *
+ * @param array
+ */
+function credits( $params = array() )
+{
+	/**
+	 * @var AbstractSettings
+	 */
+	global $global_Cache;
+	global $Collection, $Blog;
+
+	// Make sure we are not missing any param:
+	$params = array_merge( array(
+			'list_start'  => ' ',
+			'list_end'    => ' ',
+			'item_start'  => ' ',
+			'item_end'    => ' ',
+			'separator'   => ',',
+			'after_item'  => '#',
+		), $params );
+
+
+	$cred_links = $global_Cache->getx( 'creds' );
+	if( empty( $cred_links ) )
+	{	// Use basic default:
+		$cred_links = unserialize('a:2:{i:0;a:2:{i:0;s:24:"http://b2evolution.net/r";i:1;s:3:"CMS";}i:1;a:2:{i:0;s:36:"http://b2evolution.net/web-hosting/r";i:1;s:19:"quality web hosting";}}');
+	}
+
+	$max_credits = (empty($Blog) ? NULL : $Blog->get_setting( 'max_footer_credits' ));
+
+	display_list( $cred_links, $params['list_start'], $params['list_end'], $params['separator'], $params['item_start'], $params['item_end'], NULL, $max_credits );
+
+	return $max_credits;
+}
+
+
+/**
+ * Display rating as 5 stars
+ *
+ * @param integer Number of stars
+ * @param string Class name
+ */
+function star_rating( $stars, $class = 'not-used-any-more' )
+{
+	echo get_star_rating( $stars );
+}
+
+
+/**
+ * Display "powered by b2evolution" logo
+ */
+function powered_by( $params = array() )
+{
+	global $global_Cache, $rsc_uri, $Blog;
+
+	if( isset( $Blog ) &&
+	    ( $Blog instanceof Blog ) &&
+	    is_pro() &&
+	    $Blog->get_setting( 'powered_by_logos' ) )
+	{	// Don't display "Powered by b2evolution" logos if it is desabled on PRO version:
+		return;
+	}
+
+	// Make sure we are not missing any param:
+	$params = array_merge( array(
+			'block_start' => '<div class="powered_by">',
+			'block_end'   => '</div>',
+			'img_url'     => '$rsc$img/powered-by-b2evolution-120t.gif',
+			'img_width'   => '',
+			'img_height'  => '',
+		), $params );
+
+	echo $params['block_start'];
+
+	$img_url = str_replace( '$rsc$', $rsc_uri, $params['img_url'] );
+
+	$evo_links = $global_Cache->getx( 'evo_links' );
+	if( empty( $evo_links ) )
+	{	// Use basic default:
+		$evo_links = unserialize('a:1:{s:0:"";a:1:{i:0;a:3:{i:0;i:100;i:1;s:23:"http://b2evolution.net/";i:2;a:2:{i:0;a:2:{i:0;i:55;i:1;s:26:"powered by b2evolution CMS";}i:1;a:2:{i:0;i:100;i:1;s:29:"powered by an open-source CMS";}}}}}');
+	}
+
+	echo resolve_link_params( $evo_links, NULL, array(
+			'type'        => 'img',
+			'img_url'     => $img_url,
+			'img_width'   => $params['img_width'],
+			'img_height'  => $params['img_height'],
+			'title'       => 'b2evolution CMS',
+		) );
+
+	echo $params['block_end'];
+}
+
+
+
+/**
+ * DEPRECATED
+ */
+function bloginfo( $what )
+{
+	global $Collection, $Blog;
+	$Blog->disp( $what );
+}
+
+/**
+ * Display allowed tags for comments
+ * (Mainly provided for WP compatibility. Not recommended for use)
+ *
+ * @param string format
+ */
+function comment_allowed_tags( $format = 'htmlbody' )
+{
+	global $comment_allowed_tags;
+
+	echo format_to_output( $comment_allowed_tags, $format );
+}
+
+/**
+ * DEPRECATED
+ */
+function link_pages()
+{
+	echo '<!-- link_pages() is DEPRECATED -->';
+}
+
+
+/**
+ * Return a formatted percentage (should probably go to _misc.funcs)
+ */
+function percentage( $hit_count, $hit_total, $decimals = 1, $dec_point = '.' )
+{
+	$percentage = $hit_total > 0 ? $hit_count * 100 / $hit_total : 0;
+	return number_format( $percentage, $decimals, $dec_point, '' ).'&nbsp;%';
+}
+
+function addup_percentage( $hit_count, $hit_total, $decimals = 1, $dec_point = '.' )
+{
+	static $addup = 0;
+
+	$addup += $hit_count;
+	return number_format( $addup * 100 / $hit_total, $decimals, $dec_point, '' ).'&nbsp;%';
+}
+
+
+/**
+ * Check if the array given as the first param contains recursion
+ *
+ * @param array what to check
+ * @param array contains object which were already seen
+ * @return boolean true if contains recursion false otherwise
+ */
+function is_recursive( /*array*/ & $array, /*array*/ & $alreadySeen = array() )
+{
+    static $uniqueObject;
+    if( !$uniqueObject )
+    {
+        $uniqueObject = new stdClass;
+    }
+
+    // Set main array as already seen
+    $alreadySeen[] = & $array;
+
+    foreach( $array as & $item )
+    { // for each item in array
+        if( !is_array( $item ) )
+        { // if not array, we don't have to check it
+            continue;
+        }
+
+        // put the unique object into the end of the array
+        $item[] = $uniqueObject;
+        $recursionDetected = false;
+        foreach( $alreadySeen as $candidate )
+        {
+            if( end( $candidate ) === $uniqueObject )
+            { // In the end of an already scanned array is the same unique Obect, this means that recursion was detected
+                $recursionDetected = true;
+                break;
+            }
+        }
+
+        array_pop( $item );
+
+        if( $recursionDetected || is_recursive( $item, $alreadySeen ) )
+        { // Check until recursion detected or there are not more arrays
+            return true;
+        }
+    }
+
+    return false;
+}
+
+
+/**
+ * Display a form (like comment or contact form) through an ajax call
+ *
+ * @param array params
+ */
+function display_ajax_form( $params )
+{
+	global $rsc_url, $ajax_form_number, $required_js, $b2evo_icons_type;
+
+	if( is_recursive( $params ) )
+	{	// The params array contains recursion, don't try to encode, display error message instead
+		// We don't use translation because this situation should not really happen ( Probably it happesn with some wrong skin )
+		echo '<p style="color:red;font-weight:bold">'.T_( 'This section can\'t be displayed because wrong params were created by the skin.' ).'</p>';
+		return;
+	}
+
+	// Set icons type to display correct icons on bootstrap skins:
+	$params['b2evo_icons_type'] = $b2evo_icons_type;
+
+	if( ! empty( $required_js ) )
+	{	// Send all loaded JS files to ajax request in order to don't load them twice:
+		// yura: It was done because JS of bootstrap modal doesn't work when jquery JS file is loaded twice.
+		$params['required_js'] = $required_js;
+	}
+
+	if( ! isset( $params['b2evo_icons_type'] ) && isset( $b2evo_icons_type ) )
+	{	// Send current icons type to display proper icons on the loaded AJAX form:
+		$params['b2evo_icons_type'] = $b2evo_icons_type;
+	}
+
+	if( empty( $ajax_form_number ) )
+	{	// Set number for ajax form to use unique ID for each new form
+		$ajax_form_number = 0;
+	}
+	$ajax_form_number++;
+
+	echo '<div id="ajax_form_number_'.$ajax_form_number.'" class="section_requires_javascript">';
+
+	if( isset( $params['action'], $params['p'] ) && $params['action'] == 'get_comment_form' )
+	{	// Display anchor here even form is not loaded yet because it is used e.g. for reply links:
+		$comment_form_anchor = empty( $params['params']['comment_form_anchor'] ) ? 'form_p' : $params['params']['comment_form_anchor'];
+		echo '<a id="'.format_to_output( $comment_form_anchor.$params['p'], 'htmlattr' ).'"></a>';
+	}
+
+	// Display loader gif until the ajax call returns:
+	echo '<p class="ajax-loader"><span class="loader_img loader_ajax_form" title="'.T_('Loading...').'"></span><br />'.T_( 'Form is loading...' ).'</p>';
+	$ajax_form_config = array(
+			'form_number' => $ajax_form_number,
+			'json_params' => $params,
+			'load_ajax_form_on_page_load' => !empty( $params['params']['load_ajax_form_on_page_load'] ),
+		);
+	expose_var_to_js( 'ajax_form_'.$ajax_form_number, $ajax_form_config, 'evo_ajax_form_config' );
+	?>
+	<noscript>
+		<?php echo '<p>'.T_( 'This section can only be displayed by javascript enabled browsers.' ).'</p>'; ?>
+	</noscript>
+	<?php
+	echo '</div>';
+}
+
+
+/**
+ * Display login form
+ *
+ * @param array params
+ */
+function display_login_form( $params )
+{
+	global $Settings, $Plugins, $Session, $Collection, $Blog, $blog, $dummy_fields;
+	global $admin_url, $baseurl, $ReqHost, $redirect_to;
+
+	$params = array_merge( array(
+			'form_before' => '',
+			'form_after' => '',
+			'form_action' => '',
+			'form_name' => 'login_form',
+			'form_title' => '',
+			'form_layout' => '',
+			'form_class' => 'bComment',
+			'source' => 'inskin login form',
+			'inskin' => true,
+			'inskin_urls' => true, // Use urls of front-end
+			'login_required' => true,
+			'validate_required' => NULL,
+			'redirect_to' => '',
+			'return_to' => '',
+			'login' => '',
+			'action' => '',
+			'reqID' => '',
+			'sessID' => '',
+			'transmit_hashed_password' => false,
+			'get_widget_login_hidden_fields' => false,
+			'display_abort_link'  => true,
+			'abort_link_position' => 'above_form', // 'above_form', 'form_title'
+			'abort_link_text'     => T_('Abort login!'),
+			'login_button_text'     => T_('Log in!'),
+			'login_button_class'    => 'btn btn-success btn-lg',
+			'display_lostpass_link' => true,
+			'lostpass_link_text'    => T_('Lost your password?'),
+			'lostpass_link_class'   => '',
+			'display_reg_link'      => false, // Display registration link after login button
+			'reg_link_text'         => T_('Register').' &raquo;',
+			'reg_link_class'        => 'btn btn-primary btn-lg pull-right',
+		), $params );
+
+	$inskin = $params['inskin'];
+	$login = $params['login'];
+	$redirect_to = $params['redirect_to'];
+	$return_to = $params['return_to'];
+	$links = array();
+	$form_links = array();
+
+	if( $params['display_abort_link']
+		&& empty( $params['login_required'] )
+		&& $params['action'] != 'req_activate_email'
+		&& strpos( $return_to, $admin_url ) !== 0
+		&& strpos( $ReqHost.$return_to, $admin_url ) !== 0 )
+	{ // No login required, allow to pass through
+		// TODO: dh> validate return_to param?!
+		// check if return_to url requires logged in user
+		if( empty( $return_to ) || require_login( $return_to, true ) )
+		{ // logged in user require for return_to url
+			if( !empty( $blog ) )
+			{ // blog is set
+				if( empty( $Blog ) )
+				{
+					$BlogCache = & get_BlogCache();
+					$Collection = $Blog = $BlogCache->get_by_ID( $blog, false );
+				}
+				// set abort url to Blog url
+				$abort_url = $Blog->gen_blogurl();
+			}
+			else
+			{ // set abort login url to base url
+				$abort_url = $baseurl;
+			}
+		}
+		else
+		{ // logged in user isn't required for return_to url, set abort url to return_to
+			$abort_url = $return_to;
+		}
+		// Gets displayed as link to the location on the login form if no login is required
+		$abort_link = '<a href="'.htmlspecialchars( url_rel_to_same_host( $abort_url, $ReqHost ) ).'">'.$params['abort_link_text'].'</a>';
+		if( $params['abort_link_position'] == 'above_form' )
+		{ // Display an abort link under login form
+			$links[] = $abort_link;
+		}
+		elseif( $params['abort_link_position'] == 'form_title' )
+		{ // Display an abort link in form title block
+			$form_links[] = $abort_link;
+		}
+	}
+
+	if( ! $inskin && is_logged_in() )
+	{ // if we arrive here, but are logged in, provide an option to logout (e.g. during the email validation procedure)
+		$links[] = get_user_logout_link();
+	}
+
+	if( count( $links ) )
+	{
+		echo '<div class="evo_form__login_links">'
+				.'<div class="floatright">'.implode( ' &middot; ', $links ).'</div>'
+				.'<div class="clear"></div>'
+			.'</div>';
+	}
+
+	$form_links = count( $form_links ) ? '<span class="pull-right">'.implode( ' ', $form_links ).'</span>' : '';
+	echo str_replace( '$form_links$', $form_links, $params['form_before'] );
+
+	$Form = new Form( $params['form_action'] , $params['form_name'], 'post', $params['form_layout'] );
+
+	$Form->begin_form( $params['form_class'] );
+
+	$Form->add_crumb( 'loginform' );
+	$source = param( 'source', 'string', $params['source'].' login form' );
+	if( ! empty( $blog ) )
+	{
+		$Form->hidden( 'blog', $blog );
+	}
+	$Form->hidden( 'source', $source );
+	$Form->hidden( 'redirect_to', $redirect_to );
+	$Form->hidden( 'return_to', $return_to );
+	if( $inskin || $params['inskin_urls'] )
+	{ // inskin login form
+		$Form->hidden( 'inskin', true );
+		$separator = '<br />';
+	}
+	else
+	{ // basic login form
+
+		if( ! empty( $params['form_title'] ) )
+		{
+			echo '<h4>'.$params['form_title'].'</h4>';
+		}
+
+		$Form->hidden( 'validate_required', $params[ 'validate_required' ] );
+		if( isset( $params[ 'action' ],  $params[ 'reqID' ], $params[ 'sessID' ] ) &&  $params[ 'action' ] == 'activateacc_sec' )
+		{ // the user clicked the link from the "validate your account" email, but has not been logged in; pass on the relevant data:
+			$Form->hidden( 'action', 'activateacc_sec' );
+			$Form->hidden( 'reqID', $params[ 'reqID' ] );
+			$Form->hidden( 'sessID', $params[ 'sessID' ] );
+		}
+		$separator = '';
+	}
+
+	// check if should transmit hashed password
+	if( $params[ 'transmit_hashed_password' ] )
+	{ // used by JS-password encryption/hashing:
+		$pepper = $Session->get( 'core.pepper' );
+		if( empty( $pepper ) )
+		{ // Do not regenerate if already set because we want to reuse the previous salt on login screen reloads
+			// fp> Question: the comment implies that the salt is reset even on failed login attemps. Why that? I would only have reset it on successful login. Do experts recommend it this way?
+			// but if you kill the session you get a new salt anyway, so it's no big deal.
+			// At that point, why not reset the salt at every reload? (it may be good to keep it, but I think the reason should be documented here)
+			$pepper = generate_random_key(64);
+			$Session->set( 'core.pepper', $pepper, 86400 /* expire in 1 day */ );
+			$Session->dbsave(); // save now, in case there's an error later, and not saving it would prevent the user from logging in.
+		}
+		$Form->hidden( 'pepper', $pepper );
+		// Add container for the hashed password hidden inputs
+		echo '<div id="pwd_hashed_container"></div>'; // gets filled by JS
+	}
+
+	if( $inskin )
+	{
+		$Form->login_input( $dummy_fields['login'], $params['login'], 18, /* TRANS: noun */ T_('Login'), $separator.T_('Enter your username (or email address).'),
+					array( 'maxlength' => 255, 'required' => true ) );
+	}
+	else
+	{
+		$Form->login_input( $dummy_fields[ 'login' ], $params[ 'login' ], 18, '', '',
+					array( 'maxlength' => 255, 'required' => true, 'placeholder' => T_('Username (or email address)') ) );
+	}
+
+	if( $params['display_lostpass_link'] )
+	{	// Display a lost password link:
+		$lost_password_url = get_lostpassword_url( $redirect_to, '&amp;', $return_to );
+		if( ! empty( $login ) )
+		{	// Append login to the lost password form url:
+			$lost_password_url = url_add_param( $lost_password_url, $dummy_fields['login'].'='.rawurlencode( $login ) );
+		}
+		$lost_password_link = '<a href="'.$lost_password_url.'"'
+			.( empty( $params['lostpass_link_text'] ) ? '' : ' class="'.format_to_output( $params['lostpass_link_class'], 'htmlattr' ).'"' ).'>'
+			.$params['lostpass_link_text'].'</a>';
+	}
+	else
+	{	// Don't display a lost password link:
+		$lost_password_link = '';
+	}
+
+	if( $inskin )
+	{
+		$Form->begin_field();
+		$Form->password_input( $dummy_fields[ 'pwd' ], '', 18, T_('Password'), array( 'note' => $lost_password_link, 'maxlength' => 70, 'class' => 'input_text', 'required' => true ) );
+		$Form->end_field();
+	}
+	else
+	{
+		$Form->password_input( $dummy_fields[ 'pwd' ], '', 18, '', array( 'placeholder' => T_('Password'), 'note' => $lost_password_link, 'maxlength' => 70, 'class' => 'input_text', 'input_required' => 'required' ) );
+	}
+
+	// Allow a plugin to add fields/payload
+	$Plugins->trigger_event( 'DisplayLoginFormFieldset', array( 'Form' => & $Form ) );
+
+	// Display registration link after login button
+	$register_link = $params['display_reg_link'] ? get_user_register_link( '', '', $params['reg_link_text'], '#', true /*disp_when_logged_in*/, $redirect_to, $source, $params['reg_link_class'] ) : '';
+
+	// Submit button(s):
+	$submit_buttons = array( array( 'name' => 'login_action[login]', 'value' => $params['login_button_text'], 'class' => $params['login_button_class'], 'input_suffix' => $register_link ) );
+
+	$Form->buttons_input( $submit_buttons );
+
+	if( $inskin )
+	{
+		$before_register_link = '<div class="login_actions" style="text-align:right; margin: 1em 0 1ex"><strong>';
+		$after_register_link = '</strong></div>';
+		user_register_link( $before_register_link, $after_register_link, T_('No account yet? Register here').' &raquo;', '#', true /*disp_when_logged_in*/, $redirect_to, $source );
+	}
+	else
+	{
+		// Passthrough REQUEST data (when login is required after having POSTed something)
+		// (Exclusion of 'login_action', 'login', and 'action' has been removed. This should get handled via detection in Form (included_input_field_names),
+		//  and "action" is protected via crumbs)
+		$Form->hiddens_by_key( $_REQUEST, array( 'pwd_hashed', 'submit' ) );
+	}
+
+	$Form->end_form();
+
+	echo $params['form_after'];
+
+	display_login_js_handler( $params );
+}
+
+
+/**
+ * Display footer under login form
+ *
+ * @param array Params
+ */
+function display_login_form_footer( $params = array() )
+{
+	global $Hit;
+
+	$params = array_merge( array(
+			'login_link_class' => 'evo_login_dialog_standard_link',
+			'ip_address_class' => 'evo_login_dialog_footer text-muted',
+			'source'           => NULL,
+			'redirect_to'      => NULL,
+			'return_to'        => NULL,
+		), $params );
+
+	if( $params['source'] === NULL )
+	{	// Default source:
+		$params['source'] = param( 'source', 'string', 'inskin login form' );
+	}
+
+	if( $params['redirect_to'] === NULL )
+	{	// Default redirect URL:
+		$params['redirect_to'] = param( 'redirect_to', 'url', '' );
+	}
+
+	if( $params['return_to'] === NULL )
+	{	// Default return URL:
+		$params['return_to'] = param( 'return_to', 'url', '' );
+	}
+
+	echo '<div class="'.$params['login_link_class'].'">'
+			.'<a href="'.get_htsrv_url( 'login' ).'login.php?source='.rawurlencode( $params['source'] ).'&amp;redirect_to='.rawurlencode( $params['redirect_to'] ).'&amp;return_to='.rawurlencode( $params['return_to'] ).'">'
+				.T_('Use basic login form instead').' &raquo;'
+			.'</a>'
+		.'</div>';
+
+	echo '<div class="'.$params['ip_address_class'].'">'
+			.sprintf( T_('Your IP address: %s'), $Hit->IP )
+		.'</div>';
+}
+
+
+/**
+ * Display the login form js part, to get the user salt and encrypt the password
+ *
+ * @param array params
+ */
+function display_login_js_handler( $params )
+{
+	global $dummy_fields, $Session;
+
+	$params = array_merge( array( 'get_widget_login_hidden_fields' => false ), $params );
+
+	$login_handler_config = array(
+			'dummy_field_login'                     => $dummy_fields['login'],
+			'dummy_field_pwd'                       => $dummy_fields['pwd'],
+			'params_get_widget_login_hidden_fields' => $params['get_widget_login_hidden_fields'],
+			'params_transmit_hashed_password'       => $params['transmit_hashed_password'],
+			'session_ID'                            => $Session->ID,
+			'crumb_loginsalt'                       => get_crumb('loginsalt'),
+		);
+
+	expose_var_to_js( 'display_login_js_handler_config', json_encode( $login_handler_config ) );
+}
+
+
+/**
+ * Display lost password form
+ *
+ * @param string Login value
+ * @param array login form hidden params
+ * @param array Params
+ */
+function display_lostpassword_form( $login, $hidden_params, $params = array() )
+{
+	global $dummy_fields, $redirect_to, $Session;
+
+	$params = array_merge( array(
+			'form_before'     => '',
+			'form_after'      => '',
+			'form_action'     => get_htsrv_url( 'login' ).'login.php',
+			'form_name'       => 'lostpass_form',
+			'form_class'      => 'fform',
+			'form_template'   => NULL,
+			'inskin'          => true,
+			'inskin_urls'     => true,
+			'abort_link_text' => '',
+		), $params );
+
+	if( param( 'field_error', 'integer', 0 ) )
+	{ // Mark login field as error because it was on page before redirection
+		param_error( $dummy_fields['login'], '', '' );
+	}
+
+	$login_url = get_login_url( get_param( 'source' ), $redirect_to );
+
+	$form_links = array();
+	if( ! empty( $params['abort_link_text'] ) )
+	{ // A link to "close" the window
+		$form_links[] = '<a href="'.$login_url.'">'.$params['abort_link_text'].'</a>';
+	}
+
+	$form_links = count( $form_links ) ? '<span class="pull-right">'.implode( ' ', $form_links ).'</span>' : '';
+	echo str_replace( '$form_links$', $form_links, $params['form_before'] );
+
+	$Form = new Form( $params['form_action'], $params['form_name'], 'post', 'fieldset' );
+
+	if( ! empty( $params['form_template'] ) )
+	{ // Switch layout to template from array
+		$params['form_template']['formstart'] = str_replace( '$form_links$', $form_links, $params['form_template']['formstart'] );
+
+		$Form->switch_template_parts( $params['form_template'] );
+	}
+
+	$Form->begin_form( $params['form_class'] );
+
+	// Display hidden fields
+	$Form->add_crumb( 'lostpassform' );
+	$Form->hidden( 'action', 'resetpassword' );
+	foreach( $hidden_params as $key => $value )
+	{
+		$Form->hidden( $key, $value );
+	}
+
+	$Form->begin_fieldset();
+
+	if( $params['inskin'] )
+	{
+		$Form->text( $dummy_fields[ 'login' ], $login, 30, /* TRANS: noun */ T_('Login'), '', 255, 'input_text' );
+	}
+	else
+	{
+		$Form->text_input( $dummy_fields[ 'login' ], $login, 30, '', '', array( 'maxlength' => 255, 'placeholder' => T_('Username (or email address)'), 'input_required' => 'required' ) );
+	}
+
+	$Form->buttons_input( array( array( /* TRANS: Text for submit button to request an activation link by email */ 'value' => T_('Send me a recovery email!'), 'class' => 'btn-primary btn-lg' ) ) );
+
+	echo '<b>'.T_('How to reset your password:').'</b>';
+	echo '<ol>';
+	echo '<li>'.T_('Please enter your login (or email address) above.').'</li>';
+	echo '<li>'.T_('An email will be sent to your registered email address immediately.').'</li>';
+	echo '<li>'.T_('As soon as you receive the email, click on the link therein to reset your password.').'</li>';
+	echo '<li>'.T_('Your browser will open a page where you can set a new password.').'</li>';
+	echo '</ol>';
+	echo '<p class="red"><strong>'.T_('Important: for security reasons, you must do steps 1 and 4 on the same computer and same web browser. Do not close your browser in between.').'</strong></p>';
+
+	$login_link = '<a href="'.$login_url.'" class="floatleft">'.'&laquo; '.T_('Back to login form').'</a>';
+
+	if( $params['inskin'] )
+	{
+		echo '<div class="login_actions" style="text-align:right; margin: 1em 0 1ex"><strong>';
+		echo $login_link;
+		echo '</strong></div>';
+	}
+
+	$Form->end_fieldset();
+
+	$Form->end_form();
+
+	echo $params['form_after'];
+
+	if( ! $params['inskin'] )
+	{
+		echo '<div class="evo_form__login_links">';
+		echo $login_link;
+		echo '<div class="clear"></div>';
+		echo '</div>';
+	}
+}
+
+
+/**
+ * Display user activate info form content
+ *
+ * @param Object activateinfo Form
+ */
+function display_activateinfo( $params )
+{
+	global $current_User, $Settings, $UserSettings, $Plugins;
+	global $rsc_path, $rsc_url, $dummy_fields;
+
+	if( !is_logged_in() )
+	{ // if this happens, it means the code is not correct somewhere before this
+		debug_die( "You must log in to see this page." );
+	}
+
+	$params = array_merge( array(
+			'use_form_wrapper' => true,
+			'form_before'      => '',
+			'form_after'       => '',
+			'form_action'      => get_htsrv_url( 'login' ).'login.php',
+			'form_name'        => 'form_validatemail',
+			'form_class'       => 'fform',
+			'form_layout'      => 'fieldset',
+			'form_template'    => NULL,
+			'form_title'       => '',
+			'inskin'           => false,
+		), $params );
+
+	// init force request new email address param
+	$force_request = param( 'force_request', 'boolean', false );
+
+	// get last activation email timestamp from User Settings
+	$last_activation_email_date = $UserSettings->get( 'last_activation_email', $current_User->ID );
+
+	if( $force_request || empty( $last_activation_email_date ) )
+	{ // notification email was not sent yet, or user needs another one ( forced request )
+		echo $params['use_form_wrapper'] ? $params['form_before'] : '';
+
+		$Form = new Form( $params[ 'form_action' ], $params[ 'form_name' ], 'post', $params[ 'form_layout' ] );
+
+		if( ! empty( $params['form_template'] ) )
+		{ // Switch layout to template from array
+			$Form->switch_template_parts( $params['form_template'] );
+		}
+
+		$Form->begin_form( $params[ 'form_class' ] );
+
+		$Form->add_crumb( 'validateform' );
+		$Form->hidden( 'action', 'req_activate_email');
+		$Form->hidden( 'redirect_to', $params[ 'redirect_to' ] );
+		if( $params[ 'inskin' ] )
+		{
+			$Form->hidden( 'inskin', $params[ 'inskin' ] );
+			$Form->hidden( 'blog', $params[ 'blog' ] );
+		}
+		else
+		{ // Form title in basic form
+			echo '<h4>'.$params['form_title'].'</h4>';
+		}
+		$Form->hidden( 'req_activate_email_submit', 1 ); // to know if the form has been submitted
+
+		$Form->begin_fieldset();
+
+		echo '<ol>';
+		echo '<li>'.T_('Please confirm your email address below:').'</li>';
+		echo '</ol>';
+
+		// set email text input content only if this is not a forced request. This way the user may have bigger chance to write a correct email address.
+		$user_email = ( $force_request ? '' : $current_User->email );
+		$Form->email_input( $dummy_fields[ 'email' ], $user_email, 42, T_('Your email'), array( 'maxlength' => 255, 'class' => 'input_text', 'required' => true, 'input_required' => 'required' ) );
+		$Form->end_fieldset();
+
+		// Submit button:
+		$submit_button = array( array( 'name'=>'submit', 'value'=>T_('Send me a new activation email now!'), 'class'=>'btn-primary btn-lg' ) );
+
+		$Form->buttons_input($submit_button);
+
+		if( !$params[ 'inskin' ] )
+		{
+			$Plugins->trigger_event( 'DisplayValidateAccountFormFieldset', array( 'Form' => & $Form ) );
+		}
+
+		$Form->end_form();
+
+		echo $params['use_form_wrapper'] ? $params['form_after'] : '';
+
+		return;
+	}
+
+	// get notification email from general Settings
+	$notification_email = $Settings->get( 'notification_sender_email' );
+	// convert date to timestamp
+	$last_activation_email_ts = mysql2timestamp( $last_activation_email_date );
+	// get difference between local time and server time
+	$time_difference = $Settings->get('time_difference');
+	// get last activation email local date and time
+	$last_email_date = date( locale_datefmt(), $last_activation_email_ts + $time_difference );
+	$last_email_time = date( locale_shorttimefmt(), $last_activation_email_ts + $time_difference );
+	$user_email = $current_User->email;
+
+	echo $params['form_before'];
+
+	if( ! $params['inskin'] )
+	{
+		echo '<div class="'.$params['form_class'].'">';
+	}
+
+	echo '<ol start="1" class="expanded">';
+	$instruction =  sprintf( T_('Open your email account for %s and find a message we sent you on %s at %s with the following title:'), $user_email, $last_email_date, $last_email_time );
+	echo '<li>'.$instruction.'<br /><b>'.sprintf( T_('Activate your account: %s'), $current_User->login ).'</b>';
+	$request_validation_url = 'href="'.regenerate_url( '', 'force_request=1&validate_required=true&redirect_to='.rawurlencode( $params[ 'redirect_to' ] ) ).'"';
+	echo '<p>'.sprintf( T_('NOTE: If you don\'t find it, check your "Junk", "Spam" or "Unsolicited email" folders. If you really can\'t find it, <a %s>request a new activation email</a>.'), $request_validation_url ).'</p></li>';
+	echo '<li>'.sprintf( T_('Add us (%s) to your contacts to make sure you receive future email notifications, especially when someone sends you a private message.'), '<b><span class="nowrap">'.$notification_email.'</span></b>').'</li>';
+	echo '<li><b class="red">'.T_('Click on the activation link in the email.').'</b>';
+	echo '<p>'.T_('If this does not work, please copy/paste that link into the address bar of your browser.').'</p>';
+	echo '<p>'.sprintf( T_('If you need assistance, please send an email to %s'), '<b><a href="mailto:"'.$notification_email.'"><span class="nowrap">'.$notification_email.'</span></a></b>' ).'</p></li>';
+	echo '</ol>';
+
+	if( ( strpos( $user_email, '@hotmail.' ) || strpos( $user_email, '@live.' ) || strpos( $user_email, '@msn.' ) )
+		&& file_exists( $rsc_path.'img/login_help/hotmail-validation.png' ) )
+	{ // The user is on hotmail and we have a help screen to show him: (needs to be localized and include correct site name)
+		echo '<div class="center" style="margin: 2em auto"><img src="'.$rsc_url.'img/login_help/hotmail-validation.png" /></div>';
+	}
+	elseif( ( strpos( $user_email, '@gmail.com' ) || strpos( $user_email, '@googlemail.com' ) )
+		&& file_exists( $rsc_path.'img/login_help/gmail-validation.png' ) )
+	{ // The user is on hotmail and we have a help screen to show him: (needs to be localized and include correct site name)
+		echo '<div class="center" style="margin: 2em auto"><img src="'.$rsc_url.'img/login_help/gmail-validation.png" /></div>';
+	}
+
+	if( ! $params['inskin'] )
+	{
+		echo '</div>';
+	}
+
+	echo $params['form_after'];
+
+	if( $current_User->grp_ID == 1 )
+	{ // allow admin users to validate themselves by a single click:
+		global $Session, $redirect_to;
+
+		if( empty( $redirect_to ) )
+		{ // Set where to redirect
+			$redirect_to = regenerate_url();
+		}
+
+		echo $params['use_form_wrapper'] ? $params['form_before'] : '';
+
+		$Form = new Form( get_htsrv_url( 'login' ).'login.php', 'form_validatemail', 'post', 'fieldset' );
+
+		if( ! empty( $params['form_template'] ) )
+		{ // Switch layout to template from array
+			$Form->switch_template_parts( $params['form_template'] );
+		}
+
+		$Form->begin_form( 'evo_form__login' );
+
+		$Form->add_crumb( 'validateform' );
+		$Form->hidden( 'action', 'activateacc_sec' );
+		$Form->hidden( 'redirect_to', url_rel_to_same_host( $redirect_to, get_htsrv_url( 'login' ) ) );
+		$Form->hidden( 'reqID', 1 );
+		$Form->hidden( 'sessID', $Session->ID );
+
+		echo '<p>'.sprintf( T_('Since you are an admin user, you can activate your account (%s) by a single click.' ), $current_User->email ).'</p>';
+		// TODO: the form submit value is too wide (in Konqueror and most probably in IE!)
+		$Form->end_form( array( array(
+				'name'  => 'form_validatemail_admin_submit',
+				'value' => T_('Activate my account!'),
+				'class' => 'ActionButton btn btn-primary'
+			) ) ); // display hidden fields etc
+
+		echo $params['use_form_wrapper'] ? $params['form_after'] : '';
+	}
+
+	echo '<div class="evo_form__login_links floatright">';
+	user_logout_link();
+	echo '</div>';
+}
+
+
+/*
+ * Display javascript password strength indicator bar
+ *
+ * @param array Params
+ */
+function display_password_indicator( $params = array() )
+{
+	global $Settings, $Collection, $Blog, $rsc_url, $disp, $dummy_fields;
+
+	$password_indicator_config = array_merge( array(
+			'pass1_id'    => $dummy_fields[ 'pass1' ],
+			'pass2_id'    => $dummy_fields[ 'pass2' ],
+			'login_id'    => $dummy_fields[ 'login' ],
+			'email_id'    => $dummy_fields[ 'email' ],
+			'field_width' => NULL, // Use current field width
+			'disp_status' => true,
+			'disp_time'   => false,
+			'blacklist'   => array( 'b2evo', 'b2evolution' ), // Identify the password as "weak" if it includes any of these words
+			'rsc_url'     => force_https_url( $rsc_url, 'login'),
+			'msg_status_very_weak' => format_to_output( T_('Very weak'), 'htmlattr' ),
+			'msg_status_weak'      => format_to_output( T_('Weak'), 'htmlattr' ),
+			'msg_status_soso'      => format_to_output( T_('So-so'), 'htmlattr' ),
+			'msg_status_good'      => format_to_output( T_('Good'), 'htmlattr' ),
+			'msg_status_great'     => format_to_output( T_('Great'), 'htmlattr' ),
+			'msg_est_crack_time'   => T_('Estimated crack time'),
+			'msg_illegal_char'     => sprintf( TS_('Password cannot contain the following characters: %s'), '<code><</code> <code>></code> <code>&</code>' ),
+			'msg_min_pwd_len'      => sprintf( TS_('The minimum password length is %d characters.'), $Settings->get( 'user_minpwdlen' ) ),
+			'msg_pwd_not_matching' => TS_('The second password is different from the first.'),
+			'min_pwd_len'          => (int) $Settings->get( 'user_minpwdlen' ),
+			'error_icon'           => get_icon( 'xross' ),
+		), $params );
+
+	expose_var_to_js( 'evo_init_password_indicator_config', evo_json_encode( $password_indicator_config ) );
+}
+
+
+/*
+ * Display javascript code to edit password
+ *
+ * @param array Params
+ */
+function display_password_js_edit()
+{
+	global $Settings;
+
+	$password_edit_config = array(
+			'user_minpwdlen' => intval( $Settings->get('user_minpwdlen') ),
+			'msg_pwd_trim_warning' => T_('The leading and trailing spaces will be trimmed.'),
+		);
+
+	expose_var_to_js( 'evo_init_password_edit_config', evo_json_encode( $password_edit_config ) );
+}
+
+
+/*
+ * Display javascript login validator
+ *
+ * @param array Params
+ */
+function display_login_validator( $params = array() )
+{
+	global $rsc_url, $dummy_fields;
+
+	$login_validator_config = array(
+			'login_id'             => $dummy_fields[ 'login' ],
+			'rsc_url'              => $rsc_url,
+			'login_htsrv_url'      => get_htsrv_url( 'login' ),
+			'login_icon_load'      => '<img src="'.$rsc_url.'img/ajax-loader.gif" alt="'.T_('Loading...').'" title="'.T_('Loading...').'" style="margin:2px 0 0 5px" align="top" />',
+			'login_icon_available' => get_icon( 'allowback', 'imgtag', array( 'title' => T_('This username is available.') ) ),
+			'login_icon_exists'    => get_icon( 'xross', 'imgtag', array( 'title' => T_('This username is already in use. Please choose another one.') ) ),
+			'login_icon_error'     => get_icon( 'xross', 'imgtag', array( 'title' => '$error_msg$' ) ),
+			'login_text_empty'     => T_('Choose a username'),
+			'login_text_available' => T_('This username is available.'),
+			'login_text_exists'    => T_('This username is already in use. Please choose another one.'),
+		);
+
+	expose_var_to_js( 'evo_init_login_validator_config', evo_json_encode( $login_validator_config ) );
+}
+
+
+/*
+ * Display javascript to quick edit field by AJAX
+ * Used to edit fields such as 'order' by one click on value in table list
+ *
+ * @param array Params
+ */
+function init_field_editor_js( $params = array() )
+{
+	// Make sure we are not missing any param:
+	$params = array_merge( array(
+			'field_prefix' => 'order-',
+			'action_url'   => '',
+			'question'     => TS_("Do you want discard your changes for this order field?"),
+			'relative_to'  => 'rsc_url',
+		), $params );
+
+	require_js_defer( '#jquery#', $params['relative_to'] ); // dependency
+
+	add_js_headline( 'jQuery( document ).on( "click", "[id^='.$params['field_prefix'].']", function()
+{
+	if( jQuery( this ).find( "input" ).length > 0 )
+	{ // This order field is already editing now
+		return false;
+	}
+
+	// Get current value and wrapper if value is stored in <span>:
+	var value = jQuery( this ).html();
+	var wrapper = false;
+	if( jQuery( this ).find( "span" ).length > 0 )
+	{
+		wrapper = jQuery( this ).find( "span" );
+		value = wrapper.html();
+	}
+
+	// Create <input> to edit order field
+	var input = document.createElement( "input" )
+	var $input = jQuery( input );
+	$input.val( value );
+	$input.css( {
+		width: jQuery( this ).width(),
+		height: jQuery( this ).height(),
+		"line-height": jQuery( this ).height() + "px",
+		padding: "0",
+		"text-align": "center",
+		"vertical-align": "bottom",
+	} );
+
+	// Save current value
+	jQuery( this ).attr( "rel", value );
+
+	// Replace static value with <input>:
+	if( wrapper === false )
+	{
+		jQuery( this ).html( "" );
+	}
+	else
+	{
+		wrapper.hide();
+	}
+	jQuery( this ).append( $input );
+	$input.focus();
+
+	// Bind events for <input>
+	$input.bind( "keydown", function( e )
+	{
+		var key = e.keyCode;
+		var parent_obj = jQuery( this ).parent();
+		if( key == 27 )
+		{ // "Esc" key
+			if( wrapper === false )
+			{
+				parent_obj.html( parent_obj.attr( "rel" ) );
+			}
+			else
+			{
+				parent_obj.find( "input" ).remove();
+				wrapper.show();
+			}
+		}
+		else if( key == 13 )
+		{ // "Enter" key
+			results_ajax_load( jQuery( this ), "'.$params['action_url'].'" + parent_obj.attr( "id" ) + "&new_value=" + jQuery( this ).val() );
+		}
+	} );
+
+	$input.bind( "blur", function()
+	{
+		var revert_changes = false;
+
+		var parent_obj = jQuery( this ).parent();
+		if( parent_obj.attr( "rel" ) != jQuery( this ).val() )
+		{ // Value was changed, ask about saving
+			if( confirm( "'.$params['question'].'" ) )
+			{
+				revert_changes = true;
+			}
+		}
+		else
+		{
+			revert_changes = true;
+		}
+
+		if( revert_changes )
+		{ // Revert the changed value
+			if( wrapper === false )
+			{
+				parent_obj.html( parent_obj.attr( "rel" ) );
+			}
+			else
+			{
+				parent_obj.find( "input" ).remove();
+				wrapper.show();
+			}
+		}
+	} );
+
+	return false;
+} );' );
+}
+
+
+/**
+ * Registers headlines for initialization of functions to autocomplete usernames in textarea
+ */
+function init_autocomplete_usernames_js( $relative_to = 'rsc_url' )
+{
+	global $Collection, $Blog;
+
+	if( ! empty( $Blog ) )
+	{	// Set global blog ID for textcomplete(Used to sort users by collection members and assignees):
+		add_js_headline( 'var blog = '.$Blog->ID );
+	}
+	require_js_defer( '#jquery#', $relative_to );
+	require_js_defer( 'build/textcomplete.bmin.js', $relative_to );
+}
+
+
+/**
+ * Get JS code to prevent event of the key "Enter" for selected elements,
+ * Used to stop form submitting by enter on some input fields
+ *
+ * @param string Selection for jQuery selector
+ */
+function get_prevent_key_enter_js( $jquery_selection )
+{
+	if( empty( $jquery_selection ) )
+	{ // jQuery selection must be filled
+		return '';
+	}
+
+	return 'jQuery( "'.$jquery_selection.'" ).keypress( function( e ) { if( e.keyCode == 13 ) return false; } );';
+}
+
+
+/**
+ * Initialize CSS and JS to use font-awesome icons
+ *
+ * @param string Icons type:
+ *               - 'fontawesome' - Use only font-awesome icons
+ *               - 'fontawesome-glyphicons' - Use font-awesome icons as a priority over the glyphicons
+ * @param boolean|string 'relative' or true (relative to <base>) or 'rsc_url' (relative to $rsc_url) or 'blog' (relative to current blog URL -- may be subdomain or custom domain)
+ * @param boolean TRUE - to require css file, FALSE - is used when css file is already loaded inside superbundle file
+ */
+function init_fontawesome_icons( $icons_type = 'fontawesome', $relative_to = 'rsc_url', $require_files = true )
+{
+	global $b2evo_icons_type;
+
+	// Use font-awesome icons, @see get_icon()
+	$b2evo_icons_type = $icons_type;
+
+	if( $require_files )
+	{	// Load main CSS file of font-awesome icons
+		require_css( '#fontawesome#', $relative_to );
+	}
+}
+
+
+/**
+ * Get rating stars template
+ *
+ * @param float Rating value, e-g: 2 - display 2 active stars of default 5, 4.33 - display 4 active stars and 5 star is filled for 33%
+ * @param integer Total number of stars
+ * @param array Additional parameters
+ * @return string HTML of stars
+ */
+function get_star_rating( $value, $stars_num = 5, $params = array() )
+{
+	global $b2evo_icons_type;
+
+	if( isset( $b2evo_icons_type ) && strpos( $b2evo_icons_type, 'fontawesome' ) !== false )
+	{	// Use font-awesome stars if it is allowed for current skin:
+		$icon_type = 'fa';
+		$default_params = array(
+			'stars_before'       => '<span class="evo_stars">',
+			'stars_star_full'    => '<i class="fa fa-star"></i>',
+			'stars_star_percent' => '<i class="fa fa-star evo_star_percent"><i class="fa fa-star" style="width:$percent$"></i></i>', // $percent$ is replaced with values like 10%, 67%
+			'stars_star_empty'   => '<i class="fa fa-star evo_star_empty"></i>',
+			'stars_after'        => '</span>',
+		);
+	}
+	else
+	{	// Use image stars for v5 skins:
+		$icon_type = 'img';
+		$default_params = array(
+			'stars_before'       => '<span class="evo_stars_img" style="width:$stars_width$px">',
+			'stars_star_full'    => '<i>*</i>',
+			'stars_star_percent' => '<i class="evo_stars_img_empty"><i style="width:$percent$">%</i></i>', // $percent$ is replaced with values like 10%, 67%
+			'stars_star_empty'   => '<i class="evo_stars_img_empty">-</i>',
+			'stars_after'        => '</span>',
+		);
+	}
+
+	$params = array_merge( $default_params, $params );
+
+	if( ! is_numeric( $stars_num ) )
+	{	// Fix for old function where second param was a string:
+		$stars_num = 5;
+	}
+
+	$stars_num = intval( $stars_num );
+
+	if( $stars_num < 1 )
+	{	// Nothing to display:
+		return '';
+	}
+
+	if( $icon_type == 'fa' )
+	{
+		$stars_template = $params['stars_before'];
+	}
+	else
+	{	// Image icons must have a specific width depending on number of stars:
+		// (16px is width of one image star icon)
+		$stars_template = str_replace( '$stars_width$', $stars_num * 16, $params['stars_before'] );
+	}
+
+	$full_stars_max = floor( $value );
+	$percents = round( ( $value - $full_stars_max ) * 100 );
+	for( $s = 1; $s <= $stars_num; $s++ )
+	{
+		if( $s == $full_stars_max + 1 && $percents > 0 )
+		{	// Percent star:
+			$stars_template .= str_replace( '$percent$', $percents.'%', $params['stars_star_percent'] );
+		}
+		elseif( $s > $full_stars_max )
+		{	// Empty star:
+			$stars_template .= $params['stars_star_empty'];
+		}
+		else
+		{	// Full star:
+			$stars_template .= $params['stars_star_full'];
+		}
+	}
+
+	$stars_template .= $params['stars_after'];
+
+	return $stars_template;
 }
 
 /**

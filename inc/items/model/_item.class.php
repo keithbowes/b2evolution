@@ -354,6 +354,11 @@ class Item extends ItemLight
 
 	var $is_locked = FALSE;
 
+	/* No dynamic */
+	var $has_proposed_change = FALSE;
+	var $orders_per_coll;
+	var $switchable_params;
+
 	/**
 	 * Constructor
 	 *
@@ -13877,7 +13882,7 @@ class Item extends ItemLight
 			return;
 		}
 
-		$item_user_tags = trim( $this->get_setting( 'user_tags' ), ' ,' );
+		$item_user_tags = trim( (string) $this->get_setting( 'user_tags' ), ' ,' );
 		if( empty( $item_user_tags ) )
 		{	// This Item has no tags for users:
 			return;

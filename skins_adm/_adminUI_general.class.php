@@ -158,6 +158,7 @@ class AdminUI_general extends Menu
 	 *
 	 */
 	var $page_manual_link = '';
+	var $page_manual_slug;
 
 	var $mode;
 	var $displayed_sub_begin;

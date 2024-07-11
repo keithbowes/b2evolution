@@ -38,6 +38,10 @@ class webmention_plugin extends Plugin
 	var $group = 'ping';
 	var $number_of_installs = 1;
 
+	/* No dynamic */
+	var $ping_service_process_message;
+	var $ping_service_setting_title;
+
 
 	/**
 	 * Init

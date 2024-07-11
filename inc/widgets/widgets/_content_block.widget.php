@@ -442,9 +442,9 @@ class content_block_Widget extends ComponentWidget
 
 				default:
 					// Get Item by ID or fallback by slug:
-					if( ! ( $this->widget_Item = & $ItemCache->get_by_ID( $this->disp_params['item_ID'], false, false ) ) )
+					if( ! ( $this->widget_Item = & $ItemCache->get_by_ID( @$this->disp_params['item_ID'], false, false ) ) )
 					{	// Try to get item by slug if it is not found by ID:
-						$this->widget_Item = & $ItemCache->get_by_urltitle( trim( $this->disp_params['item_slug'] ), false, false );
+						$this->widget_Item = & $ItemCache->get_by_urltitle( trim( (string) @$this->disp_params['item_slug'] ), false, false );
 					}
 			}
 

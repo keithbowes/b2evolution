@@ -139,7 +139,7 @@ class ItemType extends DataObject
 			$this->use_meta_keywds = $db_row->ityp_use_meta_keywds;
 			$this->use_tags = $db_row->ityp_use_tags;
 			$this->allow_featured = $db_row->ityp_allow_featured;
-			$this->allow_switchable = $db_row->ityp_allow_switchable;
+			$this->allow_switchable = @$db_row->ityp_allow_switchable;
 			$this->use_country = $db_row->ityp_use_country;
 			$this->use_region = $db_row->ityp_use_region;
 			$this->use_sub_region = $db_row->ityp_use_sub_region;

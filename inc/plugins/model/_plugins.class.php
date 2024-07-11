@@ -141,6 +141,10 @@ class Plugins
 	 */
 	var $plugin_errors = array();
 
+	/* No dynamic */
+	var $log_register;
+	var $captcha_data;
+
 
 	/**
 	 * Constructor. Sets {@link $plugins_path} and load events.
@@ -2167,7 +2171,7 @@ class Plugins
 
 		if( ! is_array( $current_renderers ) )
 		{
-			$current_renderers = explode( '.', $current_renderers );
+			$current_renderers = explode( '.', (string) $current_renderers );
 		}
 
 		$setting_Blog = NULL;

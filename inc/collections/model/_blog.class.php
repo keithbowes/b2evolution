@@ -206,6 +206,11 @@ class Blog extends DataObject
 	 */
 	var $locales = NULL;
 
+	/* No dynamic */
+	var $widget_containers;
+	var $enabled_item_types;
+	var $used_item_types;
+
 
 	/**
 	 * Constructor
@@ -6816,7 +6821,7 @@ class Blog extends DataObject
 	 */
 	function get_msgform_additional_fields()
 	{
-		$msgform_additional_fields = trim( $this->get_setting( 'msgform_additional_fields' ) );
+		$msgform_additional_fields = trim( (string) $this->get_setting( 'msgform_additional_fields' ) );
 
 		$saved_additional_fields = array();
 

@@ -130,7 +130,7 @@ class subcontainer_row_Widget extends ComponentWidget
 	/**
 	 * Update the DB based on previously recorded changes
 	 */
-	function dbupdate()
+	function dbupdate( $auto_track_modification = true )
 	{
 		global $DB;
 

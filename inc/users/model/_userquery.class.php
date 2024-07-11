@@ -29,6 +29,11 @@ class UserQuery extends FilterSQL
 	 */
 	var $keywords_fields = 'user_login, user_firstname, user_lastname, user_nickname';
 
+	/* No dynamic */
+	var $dbtablename;
+	var $dbprefix;
+	var $dbIDname;
+
 	/**
 	 * Constructor.
 	 *
@@ -389,11 +394,11 @@ class UserQuery extends FilterSQL
 	 */
 	function where_tag( $user_tag = NULL, $not_user_tag = NULL)
 	{
-		if( trim( $user_tag ) !== '' )
+		if( trim( (string) $user_tag ) !== '' )
 		{
 			$this->add_filter_rule( 'tags', $user_tag, 'user_tagged' );
 		}
-		if( trim( $not_user_tag ) !== '' )
+		if( trim( (string) $not_user_tag ) !== '' )
 		{
 			$this->add_filter_rule( 'tags', $not_user_tag, 'user_not_tagged' );
 		}

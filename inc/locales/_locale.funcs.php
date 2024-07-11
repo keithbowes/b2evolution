@@ -239,7 +239,7 @@ if( isset( $use_l10n ) && $use_l10n )
 		// parser that will extract T_() TS_() NT_() etc string and create a normalized potfile.
 		// Actually it sgould create several potfiles. One for general use, one for admin, one for install, etc.
 		// That way translators can concentrate on the most essential stuff first.
-		$search_string = str_replace( array("\r\n", "\r"), "\n", $string );
+		$search_string = str_replace( array("\r\n", "\r"), "\n", (string) $string );
 
 		if( ! empty( $params['add_transarray'] ) && isset( ${$add_transarray_var}[ $messages ][ $search_string ] ) )
 		{ // If the string has been translated:

@@ -84,6 +84,10 @@ class Table extends Widget
 	 */
 	var $current_colselect_preset = NULL;
 
+	/* No dynamic */
+	var $cols;
+	var $Form;
+
 	/**
 	 * Constructor
 	 *

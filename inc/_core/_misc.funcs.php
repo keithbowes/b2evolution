@@ -1792,6 +1792,7 @@ function mysql2date( $dateformatstring, $mysqlstring, $useGM = false )
  * @param integer UNIX timestamp
  * @param boolean true to use GM time
  */
+require_once $inc_path.'/_init_base.inc.php';
 function date_i18n( $dateformatstring, $unixtimestamp, $useGM = false )
 {
 	global $month, $month_abbrev, $weekday, $weekday_abbrev, $weekday_letter;
@@ -6130,7 +6131,7 @@ function format_french_phone( $phone )
 function get_manual_url( $topic )
 {
 	// fp> TODO: this below is a temmporary hack while we work on the new manual:
-	return 'http://b2evolution.net/man/'.str_replace( '_', '-', strtolower( rawurlencode( $topic ) ) );
+	return 'http://b2evolution.net/man/'.str_replace( '_', '-', strtolower( rawurlencode( (string) $topic ) ) );
 }
 
 
@@ -10557,12 +10558,12 @@ function clear_ids_list( $ids_list, $separator = ',' )
 		return $ids_list;
 	}
 
-	if( strpos( $ids_list, '-' ) === 0 )
+	if( isset($ids_list) && strpos( $ids_list, '-' ) === 0 )
 	{	// Remove first '-' char from start, which is used for exluding list:
 		$ids_list = substr( $ids_list, 1 );
 	}
 
-	$ids_list = explode( $separator, $ids_list );
+	$ids_list = explode( $separator, (string) $ids_list );
 
 	foreach( $ids_list as $i => $ID )
 	{
@@ -10572,7 +10573,7 @@ function clear_ids_list( $ids_list, $separator = ',' )
 		}
 	}
 
-	return implode( $separator, $ids_list );
+	return implode( $separator, (array) $ids_list );
 }
 
 

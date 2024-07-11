@@ -140,6 +140,9 @@ class ItemLight extends DataObject
 	var $datestart;
 	var $objtype;
 
+	/* No dynamic */
+	var $coll_to_cat;
+
 
 	/**
 	 * Constructor

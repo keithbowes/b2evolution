@@ -1425,7 +1425,7 @@ class ItemQuery extends SQL
 //		}
 //		$order_clause = implode( ',', $orderby_fields );
 
-		if( strpos( $this->itemtype_usage, '*featured*' ) !== false )
+		if( $this->itemtype_usage && strpos( $this->itemtype_usage, '*featured*' ) !== false )
 		{	// If we get featured posts together with other post types(like intro) then we should order featured posts below not featured posts:
 			$order_clause = trim( 'post_featured, '.$order_clause, ', ' );
 		}

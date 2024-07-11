@@ -512,22 +512,25 @@ class Skin extends DataObject
 		// Store content of widgets to var in order to display them in container wrapper:
 		$container_widgets_content = ob_get_clean();
 
-		if( $container_params['container_display_if_empty'] || ! empty( $Widget_array ) )
-		{	// Display container wrapper with widgets content if it is not empty or we should display it anyway:
+		if (is_array($container_params))
+		{
+			if( $container_params['container_display_if_empty'] || ! empty( $Widget_array ) )
+			{	// Display container wrapper with widgets content if it is not empty or we should display it anyway:
 
-			// Display start of container wrapper:
-			echo $container_params['container_start'];
+				// Display start of container wrapper:
+				echo $container_params['container_start'];
 
-			// Display widgets of the container:
-			echo $container_widgets_content;
+				// Display widgets of the container:
+				echo $container_widgets_content;
 
-			if( empty( $Widget_array ) && is_logged_in() && $Session->get( 'designer_mode_'.$Blog->ID ) )
-			{	// Display text for empty container on designer mode:
-				echo '<div class="red">'.T_('Empty Container').'</div>';
+				if( empty( $Widget_array ) && is_logged_in() && $Session->get( 'designer_mode_'.$Blog->ID ) )
+				{	// Display text for empty container on designer mode:
+					echo '<div class="red">'.T_('Empty Container').'</div>';
+				}
+
+				// Display end of container wrapper:
+				echo $container_params['container_end'];
 			}
-
-			// Display end of container wrapper:
-			echo $container_params['container_end'];
 		}
 
 		$Timer->pause( $timer_name );
@@ -751,7 +754,7 @@ class Skin extends DataObject
 	 *
 	 * @param array Container data: 0 - name, 1 - order
 	 * @param array Container data: 0 - name, 1 - order
-	 * @return boolean
+	 * @return integer
 	 */
 	function sort_containers( $a_container, $b_container )
 	{
@@ -759,7 +762,9 @@ class Skin extends DataObject
 		$a_container_order = isset( $a_container[1] ) ? $a_container[1] : 0;
 		$b_container_order = isset( $b_container[1] ) ? $b_container[1] : 0;
 
-		return $a_container_order > $b_container_order;
+		if ($a_container_order == $b_container_order)
+			return 0;
+		return ($a_container_order > $b_container_order) ? 1 : - 1;
 	}
 
 

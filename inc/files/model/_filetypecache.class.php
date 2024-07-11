@@ -25,6 +25,9 @@ class FiletypeCache extends DataObjectCache
 {
 	var $extension_cache = array();
 
+	/* No dynamic */
+	var $mimetype_cache;
+
 	/**
 	 * Constructor
 	 */

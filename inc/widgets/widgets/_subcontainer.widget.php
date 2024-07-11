@@ -71,7 +71,7 @@ class subcontainer_Widget extends ComponentWidget
 	 */
 	function get_short_desc()
 	{
-		return format_to_output( $this->disp_params['title'] );
+		return format_to_output( @$this->disp_params['title'] );
 	}
 
 
@@ -121,7 +121,7 @@ class subcontainer_Widget extends ComponentWidget
 	/**
 	 * Update the DB based on previously recorded changes
 	 */
-	function dbupdate()
+	function dbupdate( $auto_track_modification = true )
 	{
 		global $DB;
 

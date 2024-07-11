@@ -182,6 +182,16 @@ class Form extends Widget
 	var $radio_oneline_end;
 	var $existing_hiddens;
 
+	/* No dynamic */
+	var $bottom_note_format;
+	var $current_group_ID;
+	var $current_group_item_num;
+	var $btn_primary_is_used;
+	var $is_lined_fields;
+	var $tab_pane_open;
+	var $tab_pane_close;
+	var $possible_hiddens_from_action;
+
 
 	/**
 	 * Constructor
@@ -212,7 +222,7 @@ class Form extends Widget
 
 		// Add any GET params from $form_action as hidden inputs (GET forms only)
 		// Otherwise those params would be overwritten by the form submit and lost.
-		if( strpos( $this->form_action, '?' ) !== false && $this->form_method == 'get' )
+		if( isset($this->form_action) && strpos( $this->form_action, '?' ) !== false && $this->form_method == 'get' )
 		{
 			$pos_args = strpos( $this->form_action, '?' );
 			$query_str = substr( $this->form_action, $pos_args + 1 );

@@ -50,6 +50,10 @@ class UserList extends DataObjectList2
 	 */
 	var $exclude_users = NULL;
 
+	/* No dynamic */
+	var $filterset_name;
+	var $preset_filters;
+
 	/**
 	 * Constructor
 	 *

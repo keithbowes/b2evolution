@@ -74,7 +74,7 @@ function render_template( $template, & $params, $objects = array(), & $used_temp
 
 			foreach( $param_strings as $param_string )
 			{
-				if( empty( $param_string ) || ctype_space( $param_string ) )
+				if( empty( $param_string ) || function_exists('ctype_space') && ctype_space( $param_string ) )
 				{	// Nothing here, ignore:
 					continue;
 				}
@@ -145,7 +145,7 @@ function get_template_tag_params_from_string( $tag_param_strings, $default_param
 	// Process each param individually:
 	foreach( $tag_param_strings as $tag_param_string )
 	{
-		if( empty( $tag_param_string ) || ctype_space( $tag_param_string) )
+		if( empty( $tag_param_string ) || function_exists('ctype_space') && ctype_space( $tag_param_string) )
 		{
 			continue;
 		}

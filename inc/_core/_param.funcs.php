@@ -2248,7 +2248,7 @@ function get_param_urlencoded($var, $value, $glue = '&amp;')
 	}
 	else
 	{ // not an array : normal formatting
-		return rawurlencode($var).'='.rawurlencode($value);
+		return rawurlencode($var).'='.rawurlencode((string) $value);
 	}
 }
 

@@ -979,15 +979,17 @@ function display_system_check( $params )
 	}
 
 
-	// allow_url_include? (since PHP 5.2, supercedes allow_url_fopen for require()/include())
-	init_system_check( 'PHP allow_url_include', $system_stats['php_allow_url_include'] ?  T_('On') : T_('Off') );
-	if( $system_stats['php_allow_url_include'] )
+	if (array_key_exists('php_allow_url_include', $system_stats))
 	{
-		disp_system_check( 'warning', $facilitate_exploits.' '.sprintf( $change_ini, 'allow_url_include = Off' )  );
-	}
-	else
-	{
-		disp_system_check( 'ok' );
+		init_system_check( 'PHP allow_url_include', $system_stats['php_allow_url_include'] ?  T_('On') : T_('Off') );
+		if( $system_stats['php_allow_url_include'] )
+		{
+			disp_system_check( 'warning', $facilitate_exploits.' '.sprintf( $change_ini, 'allow_url_include = Off' )  );
+		}
+		else
+		{
+			disp_system_check( 'ok' );
+		}
 	}
 
 

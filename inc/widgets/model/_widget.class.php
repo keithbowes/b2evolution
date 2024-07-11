@@ -813,7 +813,7 @@ class ComponentWidget extends DataObject
 		$widget_ID = ( !empty($params[ 'widget_ID' ]) ? $params[ 'widget_ID' ] : 'widget_'.$this->type.'_'.$this->code.'_'.$this->ID );
 
 		// Replace the values:
-		$this->disp_params = str_replace( array( '$wi_ID$', '$wi_class$' ), array( $widget_ID, $widget_css_class ), $params );
+		$this->disp_params = @str_replace( array( '$wi_ID$', '$wi_class$' ), array( $widget_ID, $widget_css_class ), $params );
 	}
 
 
@@ -1173,7 +1173,7 @@ class ComponentWidget extends DataObject
 			$title = & $this->disp_params['title'];
 		}
 
-		if( $this->disp_params['block_display_title'] && !empty( $title ) )
+		if( @$this->disp_params['block_display_title'] && !empty( $title ) )
 		{
 			$r = $this->disp_params['block_title_start'];
 			if( ! isset( $this->disp_params['hide_header_title'] ) )

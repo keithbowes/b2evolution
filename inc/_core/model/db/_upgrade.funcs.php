@@ -420,7 +420,7 @@ function db_delta( $queries, $exclude_types = array(), $execute = false )
 			foreach( $indices as $k => $index )
 			{
 				$pattern = $index_pattern;
-				if( ! preg_match( '~^\w+\s+[^(]~', $index['create_definition'], $match ) )
+				if($match && ! preg_match( '~^\w+\s+[^(]~', $index['create_definition'], $match ) )
 				{ // no key name given, make the name part optional, if it's the default one:
 					// (Default key name seems to be the first column, eventually with "_\d+"-suffix)
 					$auto_key = db_delta_remove_quotes(strtoupper($index['col_names'][0]));
@@ -440,7 +440,7 @@ function db_delta( $queries, $exclude_types = array(), $execute = false )
 				$pattern .= '\s*\(\s*'.$index_columns.'\s*\)';
 
 				#pre_dump( '~'.$pattern.'~i', trim($index['create_definition']) );
-				if( preg_match( '~'.$pattern.'~i', trim($index['create_definition']) ) )
+				if( $index['create_definition'] && preg_match( '~'.$pattern.'~i', trim($index['create_definition']) ) )
 				{ // This index already exists: remove the index from our indices to create
 					unset($indices[$k]);
 					unset($obsolete_indices[$index_name]);

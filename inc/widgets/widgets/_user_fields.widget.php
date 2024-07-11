@@ -61,7 +61,7 @@ class user_fields_Widget extends ComponentWidget
 	 */
 	function get_short_desc()
 	{
-		return format_to_output( $this->disp_params['title'] );
+		return format_to_output( @$this->disp_params['title'] );
 	}
 
 
