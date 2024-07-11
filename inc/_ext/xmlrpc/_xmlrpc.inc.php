@@ -2339,7 +2339,7 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 				}
 				// be tolerant to line endings, and extra empty lines
 				$ar = preg_split("/\r?\n/", trim(substr($data, 0, $pos)));
-				foreach($ar as $line)
+				foreach( $ar as $key => $line )
 				{
 					// take care of multi-line headers and cookies
 					$arr = explode(':',$line,2);
@@ -2898,7 +2898,7 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 				echo "$key => $val<br />";
 				if($key == 'array')
 				{
-					foreach ($val as $key2 => $val2)
+					foreach( $val as $key2 => $val2 )
 					{
 						echo "-- $key2 => $val2<br />";
 					}
@@ -3044,9 +3044,10 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 			// add check? slower, but helps to avoid recursion in serializing broken xmlrpcvals...
 			//if (is_object($o) && (get_class($o) == 'xmlrpcval' || is_subclass_of($o, 'xmlrpcval')))
 			//{
-				reset($this->me);
-				$typ = key($this->me);
-				$val = current($this->me);
+				reset( $this->me );
+				$typ = key( $this->me );
+				$val = current( $this->me );
+				next( $this->me );
 				return '<value>' . $this->serializedata($typ, $val, $charset_encoding) . "</value>\n";
 			//}
 		}
@@ -3059,8 +3060,9 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 			//{
 				$ar=$o->me;
 				reset($ar);
-				$typ = key($ar);
-				$val = current($ar);
+				$typ = key( $this->me );
+				$val = current( $this->me );
+				next( $this->me );
 				return '<value>' . $this->serializedata($typ, $val) . "</value>\n";
 			//}
 		}
@@ -3107,7 +3109,22 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 		*/
 		function structeach()
 		{
-			return current($this->me['struct']);
+			$key = key( $this->me['struct'] );
+			$value = current( $this->me['struct'] );
+
+			if( ! is_null( $key ) )
+			{
+				next( $this->me['struct'] );
+				return array(
+					0 => $key,
+					1 => $value,
+					'key' => $key,
+					'value' => $value );
+			}
+			else
+			{
+				return FALSE;
+			}
 		}
 
 		// DEPRECATED! this code looks like it is very fragile and has not been fixed
@@ -3116,8 +3133,9 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 		{
 			// UNSTABLE
 			reset($this->me);
-			$a = key($this->me);
-			$b = current($this->me);
+			$a = key( $this->me );
+			$b = current( $this->me );
+			next( $this->me );
 			// contributed by I Sofer, 2001-03-24
 			// add support for nested arrays to scalarval
 			// i've created a new method here, so as to
@@ -3125,7 +3143,7 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 
 			if(is_array($b))
 			{
-				foreach ($b as $id => $cont)
+				foreach( $b as $id => $cont )
 				{
 					$b[$id] = $cont->scalarval();
 				}
@@ -3135,11 +3153,11 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 			if(is_object($b))
 			{
 				$t = get_object_vars($b);
-				foreach ($t as $id => $cont)
+				foreach( $t as $id => $cont )
 				{
 					$t[$id] = $cont->scalarval();
 				}
-				foreach($t as $id => $cont)
+				foreach( $t as $id => $cont )
 				{
 					@$b->$id = $cont;
 				}
@@ -3156,7 +3174,9 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 		function scalarval()
 		{
 			reset($this->me);
-			return current($this->me);
+			$b = current( $this->me );
+			next( $this->me );
+			return $b;
 		}
 
 		/**
@@ -3168,7 +3188,8 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 		function scalartyp()
 		{
 			reset($this->me);
-			$a = key($this->me);
+			$a = key( $this->me );
+			next( $this->me );
 			if($a==$GLOBALS['xmlrpcI4'])
 			{
 				$a=$GLOBALS['xmlrpcInt'];
@@ -3302,8 +3323,9 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 				if (in_array('extension_api', $options))
 				{
 					reset($xmlrpc_val->me);
-					$typ = key($xmlrpc_val->me);
-					$val = current($xmlrpc_val->me);
+					$typ = key( $xmlrpc_val->me );
+					$val = current( $xmlrpc_val->me );
+					next( $xmlrpc_val->me );
 					switch ($typ)
 					{
 						case 'dateTime.iso8601':
@@ -3476,7 +3498,7 @@ xmlrpc_encode_entitites($this->errstr, $GLOBALS['xmlrpc_internalencoding'], $cha
 				{
 					$arr = array();
 					reset($php_val);
-					foreach ($php_val as $k => $v)
+					foreach( $php_val as $k => $v )
 					{
 						$arr[$k] = php_xmlrpc_encode($v, $options);
 					}

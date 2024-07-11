@@ -43,7 +43,8 @@ if (empty($blocks) || !is_array($blocks['main']))
 $r = $blocks['main'];
 $ret['registered'] = 'yes';
 
-foreach ($contacts as $key => $val)
+foreach( $contacts as $key => $val )
+{
 	if (isset($r[$key]))
 		{
 		if (is_array($r[$key]))
@@ -55,6 +56,7 @@ foreach ($contacts as $key => $val)
 		if (isset($blocks[$blk])) $ret[$val] = $blocks[$blk];
 		unset($r[$key]);
 		}
+}
 
 if ($main) $ret[$main] = $r;
 
@@ -74,7 +76,7 @@ $blocks = false;
 $gkey = 'main';
 $dend = false;
 
-foreach ($rawdata as $key => $val)
+foreach( $rawdata as $key => $val )
 	{
 	$val=trim($val);
 
@@ -155,7 +157,7 @@ if (!$items)
 				'Name Server:' => 'domain.nserver.',
 				'Nameservers:' => 'domain.nserver.',
 				'Maintainer:' => 'domain.referer',
-				 
+
 				'Domain Registration Date:' => 'domain.created',
 				'Domain Create Date:' => 'domain.created',
 				'Domain Expiration Date:' => 'domain.expires',
@@ -166,7 +168,7 @@ if (!$items)
 				'Created On:' => 'domain.created',
                 'Last Updated On:' => 'domain.changed',
                 'Expiration Date:' => 'domain.expires',
-				 
+
 				'Registrant ID:' => 'owner.handle',
 				'Registrant Name:' => 'owner.name',
 				'Registrant Organization:' => 'owner.organization',
@@ -323,7 +325,7 @@ if (!$items)
 				'Billing FAX:' => 'billing.fax',
 				'Billing Email:' => 'billing.email',
 				'Billing E-mail:' => 'billing.email',
-				
+
 				'Zone ID:' => 'zone.handle',
                 'Zone Organization:' => 'zone.organization',
                 'Zone Name:' => 'zone.name',
@@ -341,7 +343,7 @@ if (!$items)
 $r = array();
 $disok = true;
 
-foreach ($rawdata as $key => $val)
+foreach( $rawdata as $key => $val )
 	{
 	if (trim($val) != '')
 		{
@@ -354,7 +356,7 @@ foreach ($rawdata as $key => $val)
 
 		$disok = false;
 
-		foreach ($items as $key => $val)
+		foreach( $items as $match => $field )
 			{
 			$pos = strpos($val,$match);
 
@@ -411,8 +413,7 @@ function get_blocks ( $rawdata, $items, $partial_match = false, $def_block = fal
 
 $r = array();
 $endtag = '';
-
-foreach ($rawdata as $key => $val)
+foreach( $rawdata as $key => $val )
 	{
 	$val = trim($val);
 	if ($val == '') continue;
@@ -462,7 +463,7 @@ foreach ($rawdata as $key => $val)
 
 	// Block found, get data ...
 
-	foreach ($rawdata as $key => $val)
+	foreach( $rawdata as $key => $val )
 		{
 		$val = trim($val);
 
@@ -547,10 +548,10 @@ if (isset($array['tech']))
 
 if (isset($array['zone']))
 	$array['zone'] = get_contact($array['zone'], $extra_items, $has_org);
-			
+
 if (isset($array['admin']))
 	$array['admin'] = get_contact($array['admin'], $extra_items, $has_org);
-		
+
 if (isset($array['owner']))
 	$array['owner'] = get_contact($array['owner'], $extra_items, $has_org);
 
@@ -608,7 +609,7 @@ if ($extra_items)
 	$items = $extra_items;
 	}
 
-foreach ($array as $key => $val)
+foreach( $array as $key => $val )
 	{
 	$ok=true;
 
@@ -616,7 +617,7 @@ foreach ($array as $key => $val)
 		{
 		$ok = false;
 
-		foreach ($items as $key => $val)
+		foreach( $items as $match => $field )
 			{
 			$pos = strpos(strtolower($val),$match);
 
@@ -715,7 +716,7 @@ if ($has_org && count($array)>0)
 
 if (isset($r['name']) && is_array($r['name']))
 	{
-	$r['name'] = implode($r['name'],' ');
+	$r['name'] = implode(' ',$r['name']);
 	}
 
 if (!empty($array))
@@ -829,7 +830,7 @@ while (!$ok)
 	{
 	$ok = true;
 
-	foreach ($res as $key => $val)
+	foreach( $res as $key => $val )
 		{
 		if ($val == '' || $key == '') continue;
 

@@ -7,14 +7,13 @@
  *
  * @license GNU GPL v2 - {@link http://b2evolution.net/about/gnu-gpl-license}
  *
- * @copyright (c)2003-2018 by Francois Planque - {@link http://fplanque.com/}
+ * @copyright (c)2003-2020 by Francois Planque - {@link http://fplanque.com/}
  *
  * @package evocore
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 
 load_class( 'widgets/model/_widget.class.php', 'ComponentWidget' );
-init_jqplot_js();
 
 /**
  * coll_activity_stats_Widget Class.
@@ -137,7 +136,7 @@ class coll_activity_stats_Widget extends ComponentWidget
 	{
 		parent::init_display( $params );
 
-		$this->disp_params['block_body_start'] = '<div">';
+		$this->disp_params['block_body_start'] = '<div>';
 		$this->disp_params['block_body_end'] = '</div>';
 	}
 
@@ -268,11 +267,18 @@ class coll_activity_stats_Widget extends ComponentWidget
 
 		echo $this->disp_params['block_body_start'];
 
-		CanvasBarsChart( $chart );
+		CanvasBarsChart( $chart, 'resize_coll_activity_stat_widget', 'activity_stats_widget_'.$this->ID );
 
 		echo $this->disp_params['block_body_end'];
 
 		echo $this->disp_params['block_end'];
+
+		$coll_activity_stats_config = array(
+				'time_period' => $this->disp_params['time_period'],
+			);
+
+		init_jqplot_js( 'blog', false, '#', 'footerlines' );
+		expose_var_to_js( 'coll_activity_stats_widget_config', evo_json_encode( $coll_activity_stats_config ) );
 
 		return true;
 	}

@@ -43,7 +43,7 @@ class nu_handler
                   'handle' => 'Record ID:'
 		              );
 
-		foreach ($data_str['rawdata'] as $key => $val)
+		foreach( $data_str['rawdata'] as $key => $val )
 			{
 			$val = trim($val);
 
@@ -51,7 +51,7 @@ class nu_handler
 				{
 				if ($val == 'Domain servers in listed order:')
 					{
-					foreach ($data_str['rawdata'] as $key => $val)
+					foreach( $data_str['rawdata'] as $key => $val )
 						{
 						$val = trim($val);
 						if ($val == '')
@@ -61,7 +61,7 @@ class nu_handler
 					break;
 					}
 
-				foreach($items as $field => $match)
+				foreach( $items as $field => $match )
 				if (strstr($val, $match))
 					{
 					$r['regrinfo']['domain'][$field] = trim(substr($val, strlen($match)));

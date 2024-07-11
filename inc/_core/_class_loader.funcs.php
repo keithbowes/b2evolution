@@ -49,7 +49,7 @@ spl_autoload_register( 'evocms_autoload_class' );
 
 /**
  * In PHP4, this immediately loaded the class. In PHP5, it's smarter than that:
- * It only registers the class & file name so that PHP can later load the class 
+ * It only registers the class & file name so that PHP can later load the class
  * IF and ONLY IF the class is actually needed during execution.
  */
 function load_class( $class_path, $classname )

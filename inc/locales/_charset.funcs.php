@@ -7,7 +7,7 @@
  *
  * @license GNU GPL v2 - {@link http://b2evolution.net/about/gnu-gpl-license}
  *
- * @copyright (c)2003-2018 by Francois Planque - {@link http://fplanque.com/}
+ * @copyright (c)2003-2020 by Francois Planque - {@link http://fplanque.com/}
  * Parts of this file are copyright (c)2004-2006 by Daniel HAHLER - {@link http://daniel.hahler.de/}.
  *
  * @package evocore
@@ -88,9 +88,10 @@ function evo_iconv_transliterate( $str, $post_locale = NULL )
  * @param string Input string to operate on
  * @param NULL|string The post locale or NULL if there is no specific locale.
  *                    Gets passed to evo_iconv_transliterate().
+ * @param boolean Accept period '.' as valid character
  * @return string The input string with replaced chars.
  */
-function replace_special_chars( $str, $post_locale = NULL )
+function replace_special_chars( $str, $post_locale = NULL, $accept_period = false, $separator = '-' )
 {
 	global $evo_charset, $default_locale, $current_locale, $locales;
 
@@ -152,17 +153,24 @@ function replace_special_chars( $str, $post_locale = NULL )
 	// Replace HTML entities
 	$newstr = htmlentities( $newstr, ENT_NOQUOTES, $newstr_charset );
 
-	// Handle special entities (e.g., use "-" instead of "a" for "&"):
+	// Handle special entities (e.g., use $separator instead of "a" for "&"):
 	$newstr = str_replace(
 		array( '&amp;', '&laquo;', '&raquo;' ),
-		'-',
+		$separator,
 		$newstr );
 
 
 	// Keep only one char in entities!
 	$newstr = preg_replace( '/&(.).+?;/', '$1', $newstr );
 	// Replace non acceptable chars
-	$newstr = preg_replace( '/[^A-Za-z0-9_]+/', '-', $newstr );
+	if( $accept_period )
+	{
+		$newstr = preg_replace( '/[^A-Za-z0-9_\.]+/', $separator, $newstr );
+	}
+	else
+	{
+		$newstr = preg_replace( '/[^A-Za-z0-9_]+/', $separator, $newstr );
+	}
 	// Remove '-' at start and end:
 	$newstr = preg_replace( '/^-+/', '', $newstr );
 	$newstr = preg_replace( '/-+$/', '', $newstr );

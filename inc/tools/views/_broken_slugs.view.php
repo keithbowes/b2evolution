@@ -7,12 +7,14 @@
  *
  * @license GNU GPL v2 - {@link http://b2evolution.net/about/gnu-gpl-license}
  *
- * @copyright (c)2003-2018 by Francois Planque - {@link http://fplanque.com/}.
+ * @copyright (c)2003-2020 by Francois Planque - {@link http://fplanque.com/}.
  * Parts of this file are copyright (c)2005 by Daniel HAHLER - {@link http://thequod.de/contact}.
  *
  * @package admin
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
+
+global $admin_url;
 
 memorize_param( 'action', 'string', '', 'find_broken_slugs' );
 
@@ -55,12 +57,14 @@ $Results->display( array(
 		'page_url' => regenerate_url( 'blog,ctrl,action,results_'.$Results->param_prefix.'page', 'action='.param_action().'&amp;'.url_crumb( 'tools' ) )
 	) );
 
-if( ( $current_User->check_perm('options', 'edit', true) ) && ( $Results->get_num_rows() ) )
+if( ( check_user_perm('options', 'edit', false) ) && ( $Results->get_num_rows() ) )
 { // display Delete link
 	global $DB;
 	$slug_IDs = $DB->get_col( $SQL->get() );
 
-	echo '<p>[<a href="'.regenerate_url( 'action', 'action=del_broken_slugs&amp;slugs='.implode( ',', $slug_IDs ).'&amp;'.url_crumb( 'tools' ) ).'">'.T_( 'Delete these slugs' ).'</a>]</p>';
+	echo '<p><a href="'.regenerate_url( 'action', 'action=del_broken_slugs&amp;slugs='.implode( ',', $slug_IDs ).'&amp;'.url_crumb( 'tools' ) ).'" class="btn btn-danger">'.T_( 'Delete these slugs' ).'</a></p>';
 }
 
+// Display buttton to back to tools menu:
+echo '<p><a href="'.$admin_url.'?ctrl=tools" class="btn btn-primary">'.T_('Back to tools menu').'</a></p>';
 ?>

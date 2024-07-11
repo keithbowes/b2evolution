@@ -4,7 +4,7 @@
  *
  * b2evolution - {@link http://b2evolution.net/}
  * Released under GNU GPL License - {@link http://b2evolution.net/about/gnu-gpl-license}
- * @copyright (c)2003-2018 by Francois Planque - {@link http://fplanque.com/}
+ * @copyright (c)2003-2020 by Francois Planque - {@link http://fplanque.com/}
  *
  * @package plugins
  */
@@ -25,7 +25,7 @@ class videoplug_plugin extends Plugin
 	var $group = 'rendering';
 	var $short_desc;
 	var $long_desc;
-	var $version = '6.9.7';
+	var $version = '7.2.5';
 	var $number_of_installs = 1;
 
 
@@ -36,6 +36,33 @@ class videoplug_plugin extends Plugin
 	{
 		$this->short_desc = T_('Video plug for a few popular video sites.');
 		$this->long_desc = T_('This plugin allows to quickly embed (plug) a video from a video hosting site such as YouTube, Vimeo, DailyMotion and Facebook. Use it through the toolbar or directly by entering a shortcode like [video:youtube:123xyz] or [video:vimeo:123xyz] into your post, where 123xyz is the ID of the video.');
+	}
+
+
+	/**
+	 * Define the GLOBAL settings of the plugin here. These can then be edited in the backoffice in System > Plugins.
+	 *
+	 * @param array Associative array of parameters (since v1.9).
+	 *    'for_editing': true, if the settings get queried for editing;
+	 *                   false, if they get queried for instantiating {@link Plugin::$Settings}.
+	 * @return array see {@link Plugin::GetDefaultSettings()}.
+	 * The array to be returned should define the names of the settings as keys (max length is 30 chars)
+	 * and assign an array with the following keys to them (only 'label' is required):
+	 */
+	function GetDefaultSettings( & $params )
+	{
+		return array(
+			'youtube_load' => array(
+				'label' => 'YouTube',
+				'type' => 'radio',
+				'options' => array(
+					array( 'standard', T_('Standard').' <code>&lt;iframe&gt;</code>' ),
+					array( 'lazyload', T_('Lazy-Load') ),
+				),
+				'field_lines' => true,
+				'defaultvalue' => 'standard',
+			),
+		);
 	}
 
 
@@ -64,6 +91,48 @@ class videoplug_plugin extends Plugin
 					'defaultvalue' => '56.25%',
 				),
 			);
+	}
+
+
+	/**
+	 * Define here default collection/blog settings that are to be made available in the backoffice.
+	 *
+	 * @param array Associative array of parameters.
+	 * @return array See {@link Plugin::GetDefaultSettings()}.
+	 */
+	function get_coll_setting_definitions( & $params )
+	{
+		return array_merge( parent::get_coll_setting_definitions( $params ),
+			array(
+				'replace_url_post' => array(
+						'label' => T_('Replace full video URLs found in posts' ),
+						'type' => 'checkbox',
+						'defaultvalue' => 1,
+					),
+				'replace_url_comment' => array(
+						'label' => T_('Replace full video URLs found in comments' ),
+						'type' => 'checkbox',
+						'defaultvalue' => 1,
+					),
+			)
+		);
+	}
+
+
+	/**
+	 * Event handler: Called at the beginning of the skin's HTML HEAD section.
+	 *
+	 * Use this to add any HTML HEAD lines (like CSS styles or links to resource files (CSS, JavaScript, ..)).
+	 *
+	 * @param array Associative array of parameters
+	 */
+	function SkinBeginHtmlHead( & $params )
+	{
+		$this->require_css( 'css/videoplug.min.css' );
+		// Initialize config for video plugin:
+		expose_var_to_js( 'evo_plugin_videoplug_config', array(
+			'youtube_lazyload_selector' => '.evo_youtube[data-embed]',
+		) );
 	}
 
 
@@ -98,14 +167,118 @@ class videoplug_plugin extends Plugin
 			return;
 		}
 
+		if( ! empty( $setting_Blog ) && (
+		      ( $this->get_coll_setting( 'replace_url_comment', $setting_Blog ) && ! empty( $params['Comment'] ) && $params['Comment'] instanceof Comment ) ||
+		      ( $this->get_coll_setting( 'replace_url_post', $setting_Blog ) && ! empty( $params['Item'] ) && $params['Item'] instanceof Item )
+		  ) )
+		{	// Render full video URLs in post or comment content:
+			$content = replace_outside_code_and_short_tags( '#(<a[^>]+href=")?(https?://(.+\.)?(youtube.com|youtu.be|dailymotion.com|vimeo.com|facebook.com|wistia.com)([^"\s\n\r<]+))("[^>]*>(.+?)</a>)?#i',
+				array( $this, 'parse_video_url_callback' ), $content, 'replace_content', 'preg_callback' );
+		}
+
 		// Move short tag outside of paragraph:
-		$content = move_short_tags( $content, '/\[video:(youtube|dailymotion|vimeo|facebook):?[^\[\]]*\]/i' );
+		$content = move_short_tags( $content, '/\[video:(youtube|dailymotion|vimeo|facebook|wistia):?[^\[\]]*\]/i' );
 
 		// Replace video tags with html code:
-		$content = replace_content_outcode( '#\[video:(youtube|dailymotion|vimeo|facebook|google|livevideo|ifilm):([^:\[\]\\\/]*|https?:\/\/.*\.facebook\.com\/[^:]*):?(\d+%?)?:?(\d+%?)?\]#',
+		$content = replace_outside_code_tags( '#\[video:(youtube|dailymotion|vimeo|facebook|wistia|google|livevideo|ifilm):([^:\[\]\\\/]*|https?:\/\/.*\.facebook\.com\/[^:]*):?(\d+%?)?:?(\d+%?)?:?([^:\[\]\\\/]*)\]#',
 			array( $this, 'parse_video_tag_callback' ), $content, 'replace_content', 'preg_callback' );
 
 		return true;
+	}
+
+
+	/**
+	 * Callback function to build HTML video code from video URL or link tag <a> with video URL
+	 *
+	 * @param array Matches:
+	 *              0 - Full video URL or full link tag <a>
+	 *              1 - Start part of <a> tag, or empty string when simple URL without <a> tag
+	 *              2 - Full URL
+	 *              3 - domain prefix like "www." or "www.subdomain." or empty
+	 *              4 - Domain: youtube.com, youtu.be, dailymotion.com, vimeo.com, facebook.com, wistia.com
+	 *              5 - Part of video URL after domain
+	 *              6 - End part of <a> tag, or not defined when simple URL without <a> tag
+	 *              7 - Text of <a> tag, or not defined when simple URL without <a> tag
+	 * @return string HTML video code
+	 */
+	function parse_video_url_callback( $m )
+	{
+		if( isset( $m[7] ) && $m[7] != $m[2] )
+		{	// Skip if link text is different than URL(e.g. <a href="https://youtu.be/abc123">Click to see Video!</a>):
+			return $m[0];
+		}
+
+		// Try to extract video code from URL depending on video server:
+		switch( $m[4] )
+		{
+			case 'youtube.com':
+			case 'youtu.be':
+				if( preg_match( '#(^/(embed/)?|[\?&]v=)([^&=\?]+)(&|$)#', $m[5], $code ) )
+				{
+					if( $this->get_setting( 'youtube_load' ) == 'standard' )
+					{	// Use standard loading with iframe:
+						$video_block = '<iframe id="ytplayer" type="text/html" src="//www.youtube.com/embed/'.$code[3].'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+					}
+					else
+					{	// Use Lazy-loading:
+						$video_block = '<div class="evo_youtube" data-embed="'.$code[3].'"><div class="evo_youtube__play_button"></div></div>';
+					}
+				}
+				break;
+
+			case 'dailymotion.com':
+				if( preg_match( '#^/video/(.+)$#', $m[5], $code ) )
+				{
+					$video_block = '<iframe src="//www.dailymotion.com/embed/video/'.$code[1].'" frameborder="0" allowfullscreen></iframe>';
+				}
+				break;
+
+			case 'vimeo.com':
+				if( preg_match( '#^/(.+)$#', $m[5], $code ) )
+				{
+					$video_block = '<iframe src="//player.vimeo.com/video/'.$code[1].'" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+				}
+				break;
+
+			case 'facebook.com':
+				if( preg_match( '#(/videos/|[\?&]v=)(\d+)(/|$)#', $m[5], $code ) )
+				{
+					$video_block = '<iframe src="https://www.facebook.com/plugins/video.php?href='.urlencode( $m[2] ).'" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>';
+				}
+				break;
+
+			case 'wistia.com':
+				if( preg_match( '#/medias/([a-z0-9]+)$#', $m[5], $code ) )
+				{
+					$video_block = '<script src="https://fast.wistia.com/embed/medias/'.$code[1].'.jsonp" async></script>'
+						.'<script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>'
+						.'<div class="wistia_responsive_padding">'
+							.'<div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">'
+								.'<span class="wistia_embed wistia_async_'.$code[1].' popover=true popoverAnimateThumbnail=true videoFoam=true" style="display:inline-block;height:100%;position:relative;width:100%"> </span>'
+							.'</div>'
+						.'</div>';
+				}
+				break;
+		}
+
+		if( ! isset( $video_block ) )
+		{	// No found correct video code in the URL:
+			return $m[0];
+		}
+
+		$style = '';
+
+		if( ! empty( $this->video_width ) )
+		{	// Set width depending on what units are used:
+			$style .= 'width:'.( strpos( $this->video_width, '%' ) === false ? $this->video_width.'px' : $this->video_width ).';';
+		}
+
+		if( ! empty( $this->video_height ) )
+		{	// Set height depending on what units are used:
+			$style .= 'padding-bottom:'.( strpos( $this->video_height, '%' ) === false ? '0;height:'.$this->video_height.'px' : $this->video_height );
+		}
+
+		return '<div class="videoblock"'.( $style == '' ? '' : ' style="'.$style.'"' ).'>'.$video_block.'</div>';
 	}
 
 
@@ -114,10 +287,11 @@ class videoplug_plugin extends Plugin
 	 *
 	 * @param array Matches:
 	 *              0 - Full video tag
-	 *              1 - Video type: youtube, dailymotion, vimeo, facebook, google, livevideo, ifilm
+	 *              1 - Video type: youtube, dailymotion, vimeo, facebook, wistia, google, livevideo, ifilm
 	 *              2 - Video code/key
 	 *              3 - Width
 	 *              4 - Height
+	 *              5 - Extra params
 	 * @return string HTML video code
 	 */
 	function parse_video_tag_callback( $m )
@@ -125,7 +299,7 @@ class videoplug_plugin extends Plugin
 		switch( $m[1] )
 		{
 			case 'youtube':
-				$video_block = '<iframe id="ytplayer" type="text/html" src="//www.youtube.com/embed/'.$m[2].'" allowfullscreen="allowfullscreen" frameborder="0"></iframe>';
+				$video_block = '<iframe id="ytplayer" type="text/html" src="//www.youtube.com/embed/'.$m[2].( ! empty( $m[5] )? '?'.$m[5] : '' ).'" allowfullscreen="allowfullscreen" frameborder="0"></iframe>';
 				break;
 
 			case 'dailymotion':
@@ -138,6 +312,16 @@ class videoplug_plugin extends Plugin
 
 			case 'facebook':
 				$video_block = '<iframe src="https://www.facebook.com/plugins/video.php?href='.urlencode( $m[2] ).'" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>';
+				break;
+
+			case 'wistia':
+				$video_block = '<script src="https://fast.wistia.com/embed/medias/'.$m[2].'.jsonp" async></script>'
+					.'<script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>'
+					.'<div class="wistia_responsive_padding">'
+						.'<div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">'
+							.'<span class="wistia_embed wistia_async_'.$m[2].' popover=true popoverAnimateThumbnail=true videoFoam=true" style="display:inline-block;height:100%;position:relative;width:100%"> </span>'
+						.'</div>'
+					.'</div>';
 				break;
 
 			default: // google, livevideo, ifilm:
@@ -304,14 +488,16 @@ class videoplug_plugin extends Plugin
 		echo '<input type="button" id="video_vimeo" title="'.T_('Insert vimeo video').'" class="'.$this->get_template( 'toolbar_button_class' ).'" data-func="videotag|vimeo|'.$params['js_prefix'].'" value="Vimeo" />';
 		echo '<input type="button" id="video_dailymotion" title="'.T_('Insert DailyMotion video').'" class="'.$this->get_template( 'toolbar_button_class' ).'" data-func="videotag|dailymotion|'.$params['js_prefix'].'" value="DailyMotion" />';
 		echo '<input type="button" id="video_facebook" title="'.T_('Insert Facebook video').'" class="'.$this->get_template( 'toolbar_button_class' ).'" data-func="videotag|facebook|'.$params['js_prefix'].'" value="Facebook" />';
+		echo '<input type="button" id="video_wistia" title="'.T_('Insert Wistia video').'" class="'.$this->get_template( 'toolbar_button_class' ).'" data-func="videotag|wistia|'.$params['js_prefix'].'" value="Wistia" />';
 		echo $this->get_template( 'toolbar_group_after' );
 
 		echo $this->get_template( 'toolbar_after' );
 
 		// Load js to work with textarea
-		require_js( 'functions.js', 'blog', true, true );
+		require_js_defer( 'functions.js', 'blog', true );
 
 		?><script type="text/javascript">
+			//<![CDATA[
 			function videotag( tag, prefix )
 			{
 				while( 1 )
@@ -330,8 +516,8 @@ class videoplug_plugin extends Plugin
 					{
 						case 'youtube':
 							// Allow HD video code with ?hd=1 at the end
-							regexp_ID = /^[a-z0-9_?=-]+$/i;
-							regexp_URL = /^.+(video\/|\/watch\?v=|embed\/|\/)([a-z0-9_?=-]+)(&.+)?$/i;
+							regexp_ID = /^[a-z0-9_-]+$/i;
+							regexp_URL = /^(.+youtube(?:-nocookie)?\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|.+youtu\.be\/)([a-z0-9_-]{11})((?:\?|&).*)?/i;
 							break;
 
 						case 'dailymotion':
@@ -347,6 +533,11 @@ class videoplug_plugin extends Plugin
 						case 'facebook':
 							regexp_ID = /^https:\/\/.+\.facebook\.com\/.+/i;
 							regexp_URL = /^((https:\/\/.+\.facebook\.com\/.+))$/i;
+							break;
+
+						case 'wistia':
+							regexp_ID = /^[a-z0-9]+$/i;
+							regexp_URL = /^(.+\/medias\/)?([a-z0-9]+)$/i;
 							break;
 
 						default:
@@ -365,7 +556,22 @@ class videoplug_plugin extends Plugin
 							if( video_ID.match( regexp_URL ) )
 							{	// Valid video URL
 								// Extract ID from URL:
-								video_ID = video_ID.replace( regexp_URL, '$2' );
+								if( tag == 'youtube' )
+								{
+									var params = video_ID.replace( regexp_URL, '$3' ).trim();
+									params = params.replace( /^[&\?]/, '' );
+									params = params.replace( /&$/, '' );
+									params = params.replace( /rel=\d+&?/, '' ); // remove rel=
+									video_ID = video_ID.replace( regexp_URL, '$2' );
+									if( params.length )
+									{
+										video_ID = video_ID + ':::' + params;
+									}
+								}
+								else
+								{
+									video_ID = video_ID.replace( regexp_URL, '$2' );
+								}
 								break;
 							}
 							else

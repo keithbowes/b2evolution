@@ -18,7 +18,7 @@
  *
  * @license GNU GPL v2 - {@link http://b2evolution.net/about/gnu-gpl-license}
  *
- * @copyright (c)2003-2018 by Francois Planque - {@link http://fplanque.com/}.
+ * @copyright (c)2003-2020 by Francois Planque - {@link http://fplanque.com/}.
  * Parts of this file are copyright (c)2004-2005 by Daniel HAHLER - {@link http://thequod.de/contact}.
  * Credits go to the WordPress team (@link http://wordpress.org), where I got the basic
  * import-mt.php script with most of the core functions. Thank you!
@@ -27,11 +27,11 @@
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 
-global $dispatcher;
+global $admin_url;
 
 // Check permission:
-$current_User->check_perm( 'admin', 'normal', true );
-$current_User->check_perm( 'options', 'edit', true );
+check_user_perm( 'admin', 'normal', true );
+check_user_perm( 'options', 'edit', true );
 
 /**
  * @const IMPORT_SRC_DIR directory where to be imported files get searched for.
@@ -71,6 +71,14 @@ else
 	@ini_set( 'magic_quotes_runtime', 0 );
 }
 
+if( param( 'default_blog', 'integer', 0 ) > 0 )
+{	// Save last import collection in Session:
+	$Session->set( 'last_import_coll_ID', get_param( 'default_blog' ) );
+
+	// Save last used import controller in Session:
+	$Session->set( 'last_import_controller_'.get_param( 'default_blog' ), 'mt' );
+}
+
 // TODO: $io_charset !!
 $head = <<<EOB
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -88,13 +96,13 @@ if( is_file( $adminskins_path.'legacy/rsc/css/custom.css' ) )
 	$head .= '<link href="'.$adminskins_url.'legacy/rsc/css/custom.css" rel="alternate stylesheet" type="text/css" title="Custom" />';
 }
 $head .= <<<EOB
-<script type="text/javascript" src="{$rsc_url}js/styleswitcher.js?v=2"></script>
+<script src="{$rsc_url}js/styleswitcher.js?v=2"></script>
 </head>
 <body>
 <div id="header">
 	<div id="headinfo">
 		<span style="font-size:150%; font-weight:bold">Movable Type to b2evolution importer</span>
-		[<a href="{$dispatcher}?ctrl=tools">Back to b2evolution</a>]
+		[<a href="{$admin_url}?ctrl=tools">Back to b2evolution</a>]
 	</div>
 EOB;
 
@@ -132,7 +140,7 @@ param( 'import_mode', 'string', 'normal' );
 	foreach( array( 'easy', 'normal', 'expert' ) as $tab )
 	{
 		echo ( $tab == $import_mode ) ? '<li class="current">' : '<li>';
-		echo '<a href="'.$dispatcher.'?ctrl=mtimport&amp;import_mode='.$tab.( !empty($exportedfile) ? '&amp;exportedfile='.$exportedfile : '' ).'">'.ucwords($tab).'</a></li>';
+		echo '<a href="'.$admin_url.'?ctrl=mtimport&amp;import_mode='.$tab.( !empty($exportedfile) ? '&amp;exportedfile='.$exportedfile : '' ).'">'.ucwords($tab).'</a></li>';
 	}
 ?></ul>
 </div>
@@ -210,7 +218,7 @@ param( 'import_mode', 'string', 'normal' );
 			echo '['.$exportedfile.'].';
 			if( '' == MTEXPORT )
 			{
-				?> [<a href="<?php echo $dispatcher ?>?ctrl=mtimport&amp;import_mode=<?php echo $import_mode ?>">choose another export-file</a>]<?php
+				?> [<a href="<?php echo $admin_url; ?>?ctrl=mtimport&amp;import_mode=<?php echo $import_mode ?>">choose another export-file</a>]<?php
 			} ?></p>
 
 		<p>This file contains <?php echo count( $posts ) ?> post(s) from <?php echo count( $authors ) ?> author(s) in <?php echo count( $categories ) ?> category(ies).</p>
@@ -231,7 +239,7 @@ param( 'import_mode', 'string', 'normal' );
 
 
 		<div class="panelblock">
-		<form class="fform" action="<?php echo $dispatcher ?>" method="post">
+		<form class="fform" action="<?php echo $admin_url; ?>" method="post">
 			<input type="hidden" name="ctrl" value="mtimport" />
 			<input type="hidden" name="action" value="import" />
 		<?php
@@ -334,9 +342,9 @@ param( 'import_mode', 'string', 'normal' );
 			form_text( 'default_password', $default_password, 20, 'Password for new users', 'this will be the password for users created during migration (default is "changeme")', 30 , '', 'password' );
 			form_text( 'default_password2', $default_password, 20, 'Confirm password', 'please confirm the password', 30 , '', 'password' );
 			$GroupCache = & get_GroupCache();
-			form_select_object( 'default_usergroup', $Settings->get('newusers_grp_ID'), $GroupCache, T_('User group') );
+			form_select_object( 'default_usergroup', $Settings->get('newusers_grp_ID'), $GroupCache, 'User group' );
 			$field_note = '[0 - 10]';
-			form_text( 'default_userlevel', $Settings->get('newusers_level'), 2, T_('Level'), $field_note, 2 );
+			form_text( 'default_userlevel', $Settings->get('newusers_level'), 2, 'Level', $field_note, 2 );
 			?>
 		</fieldset>
 
@@ -380,7 +388,7 @@ param( 'import_mode', 'string', 'normal' );
 		<fieldset><legend>Post/Entry defaults</legend>
 			<?php
 			form_checkbox( 'default_convert_breaks', $default_convert_breaks, 'Convert-Breaks default', 'will be used for posts with empty CONVERT BREAKS or "__default__"' );
-			form_select( 'post_locale', $Settings->get('default_locale'), 'locale_options', T_('Default locale'), 'Locale for posts.' );
+			form_select( 'post_locale', $Settings->get('default_locale'), 'locale_options', 'Default locale', 'Locale for posts.' );
 			form_checkbox( 'convert_html_tags', $convert_html_tags, 'Convert ugly HTML', 'this will lowercase all html tags and add a XHTML compliant closing tag to &lt;br&gt;, &lt;img&gt;, &lt;hr&gt; (you\'ll get notes)' );
 
 			if( $import_mode != 'easy' )
@@ -430,7 +438,7 @@ param( 'import_mode', 'string', 'normal' );
 				$i++;
 			}
 
-			echo '<p class="center"><a id="imgurls" href="<?php echo $dispatcher ?>?ctrl=mtimport&amp;tab=import&amp;singleimgurls='.( $singleimgurls ? '0' : '1' );
+			echo '<p class="center"><a id="imgurls" href="<?php echo $admin_url; ?>?ctrl=mtimport&amp;tab=import&amp;singleimgurls='.( $singleimgurls ? '0' : '1' );
 			if( !empty($exportedfile) ) echo '&amp;exportedfile='.$exportedfile;
 			echo '">'.( $singleimgurls ? 'hide img urls only used once' : 'show also img urls only used once').'</a></p>';
 
@@ -558,7 +566,7 @@ param( 'import_mode', 'string', 'normal' );
 				$blog_id = ($cat == '#DEFAULTBLOG#') ? $default_blog : $match[1];
 				// remember the name to create it when posts get inserted
 				// fp>dh: please use param() instead of $_POST[] (everywhere)
-				$catsmapped[ $categories[$i_cat] ] = array( 'blogid', $blog_id, remove_magic_quotes( $_POST['catmap_name'][$i_cat]) );
+				$catsmapped[ $categories[$i_cat] ] = array( 'blogid', $blog_id, $_POST['catmap_name'][$i_cat] );
 			}
 			else
 			{
@@ -631,8 +639,8 @@ param( 'import_mode', 'string', 'normal' );
 		{
 			if( !empty($replace) )
 			{
-				$urlsearch[] = remove_magic_quotes($_POST['url_search'][$i]);
-				$urlreplace[] = remove_magic_quotes( $replace );
+				$urlsearch[] = $_POST['url_search'][$i];
+				$urlreplace[] = $replace;
 			}
 			$i++;
 		}
@@ -658,7 +666,7 @@ param( 'import_mode', 'string', 'normal' );
 			}
 			elseif( $select == '#CREATENEW#' )
 			{
-				$usersmapped[ $mtauthor ] = array( 'createnew', remove_magic_quotes( $_POST['user_name'][$i_user] ) );
+				$usersmapped[ $mtauthor ] = array( 'createnew', $_POST['user_name'][$i_user] );
 			}
 			elseif( preg_match( '#\d+#', $select, $match ) )
 			{
@@ -1148,7 +1156,7 @@ param( 'import_mode', 'string', 'normal' );
 		if( $simulate )
 		{
 			echo '
-			<form action="'.$dispatcher.'" method="post">
+			<form action="'.$admin_url.'" method="post">
 			<input type="hidden" name="ctrl" value="mtimport" />
 			<p>
 			<strong>This was only simulated..</strong>
@@ -1252,7 +1260,7 @@ function fieldset_cats()
 		<?php
 			if( count( $ChapterCache->cache ) )
 			{
-				echo T_('Select main category in target blog and optionally check additional categories').':';
+				echo 'Select main category in target blog and optionally check additional categories'.':';
 			}
 			else
 			{
@@ -1279,7 +1287,7 @@ function fieldset_cats()
 
 			if( get_allow_cross_posting() >= 1 )
 			{ // We allow cross posting, display checkbox:
-				$r .= '<input type="checkbox" name="post_extracats[]" class="checkbox" title="'.format_to_output( T_('Select as an additionnal category'), 'htmlattr' ).'" value="'.$Chapter->ID.'"';
+				$r .= '<input type="checkbox" name="post_extracats[]" class="checkbox" title="'.format_to_output( 'Select as an additionnal category', 'htmlattr' ).'" value="'.$Chapter->ID.'"';
 				$r .= ' />';
 			}
 
@@ -1290,7 +1298,7 @@ function fieldset_cats()
 				{	// Assign default cat for new post
 					$default_main_cat = $Chapter->ID;
 				}
-				$r .= ' <input type="radio" name="post_category" class="checkbox" title="'.format_to_output( T_('Select as MAIN category'), 'htmlattr' ).'" value="'.$Chapter->ID.'"';
+				$r .= ' <input type="radio" name="post_category" class="checkbox" title="'.format_to_output( 'Select as MAIN category', 'htmlattr' ).'" value="'.$Chapter->ID.'"';
 				if( ($Chapter->ID == $postdata["Category"]) || ($Chapter->ID == $default_main_cat))
 					$r .= ' checked="checked"';
 				$r .= ' />';
@@ -1319,7 +1327,7 @@ function fieldset_cats()
 		{ // run recursively through the cats
 			$current_blog_ID = $i_blog->blog_ID;
 			if( ! blog_has_cats( $current_blog_ID ) ) continue;
-			#if( ! $current_User->check_perm( 'blog_post_statuses', 'any', false, $current_blog_ID ) ) continue;
+			#if( ! check_user_perm( 'blog_post_statuses', 'any', false, $current_blog_ID ) ) continue;
 			echo "<h4>".$i_blog->blog_name."</h4>\n";
 			echo $ChapterCache->recurse( $callbacks, $current_blog_ID, NULL, 0, 0, array( 'sorted' => true) );
 		}
@@ -1398,7 +1406,7 @@ function import_data_extract_authors_cats()
 	global $categories_countprim;
 	global $importdata;
 	global $import_mode;
-	global $dispatcher;
+	global $admin_url;
 
 	$fp = fopen( $exportedfile, 'rb');
 //slamp_080609_begin: to avoid warning when importing file with 0 bytes of data
@@ -1413,7 +1421,7 @@ function import_data_extract_authors_cats()
 	fclose($fp);
 	if( !preg_match( '/^[-\s]*AUTHOR: /', $buffer ) )
 	{
-		dieerror("The file [$exportedfile] does not seem to be a MT exported file.. ".'[<a href="'.$dispatcher.'?ctrl=mtimport&amp;import_mode='.$import_mode.'">choose another export-file</a>]');
+		dieerror("The file [$exportedfile] does not seem to be a MT exported file.. ".'[<a href="'.$admin_url.'?ctrl=mtimport&amp;import_mode='.$import_mode.'">choose another export-file</a>]');
 	}
 
 	$importdata = preg_replace( "/\r?\n|\r/", "\n", $buffer );
@@ -1597,7 +1605,7 @@ function debug_dump( $var, $title = '' )
 
 function chooseexportfile()
 {
-	global $exportedfile, $import_mode, $dispatcher;
+	global $exportedfile, $import_mode, $admin_url;
 
 	// Go through directory:
 	$this_dir = dir( IMPORT_SRC_DIR );
@@ -1615,7 +1623,7 @@ function chooseexportfile()
 	if( $r )
 	{
 		?>
-		<form action="<?php echo $dispatcher ?>" class="center">
+		<form action="<?php echo $admin_url ?>" class="center">
 			<p>First, choose a file to import (.TXT files from the b2evolution base directory):</p>
 			<select name="exportedfile" onChange="submit()">
 				<?php echo $r ?>
@@ -1651,7 +1659,7 @@ function ripline( $prefix, &$haystack )
 
 function tidypostdata( $string )
 {
-	return str_replace( array('&quot;', '&#039;', '&lt;', '&gt;'), array('"', "'", '<', '>'), remove_magic_quotes( $string ) );
+	return str_replace( array('&quot;', '&#039;', '&lt;', '&gt;'), array('"', "'", '<', '>'), $string );
 }
 
 ?>

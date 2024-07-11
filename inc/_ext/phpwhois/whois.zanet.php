@@ -50,7 +50,7 @@ class zanet_handler
 
 		$rawdata = array();
 
-		foreach ($data_str['rawdata'] as $key => $line)
+		foreach( $data_str['rawdata'] as $key => $line )
 			{
 			if (strpos($line, ' Contact ') !== false)
 				{

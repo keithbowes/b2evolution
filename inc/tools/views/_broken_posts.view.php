@@ -7,12 +7,14 @@
  *
  * @license GNU GPL v2 - {@link http://b2evolution.net/about/gnu-gpl-license}
  *
- * @copyright (c)2003-2018 by Francois Planque - {@link http://fplanque.com/}.
+ * @copyright (c)2003-2020 by Francois Planque - {@link http://fplanque.com/}.
  * Parts of this file are copyright (c)2005 by Daniel HAHLER - {@link http://thequod.de/contact}.
  *
  * @package admin
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
+
+global $admin_url;
 
 $SQL = new SQL();
 
@@ -43,9 +45,9 @@ $Results->cols[] = array(
  */
 function broken_post_edit_link( $post_ID, $post_title )
 {
-	global $current_User, $blog;
+	global $blog;
 
-	if( ! $current_User->check_perm( 'blogs', 'editall' ) )
+	if( ! check_user_perm( 'blogs', 'editall' ) )
 	{ // User has no permission, Display only post title as text
 		return $post_title;
 	}
@@ -90,13 +92,15 @@ $Results->display( array(
 		'page_url' => regenerate_url( 'blog,ctrl,action,results_'.$Results->param_prefix.'page', 'action='.param_action().'&amp;'.url_crumb( 'tools' ) )
 	) );
 
-if( ( $current_User->check_perm('options', 'edit', true) ) && ( $Results->get_num_rows() ) )
+if( ( check_user_perm('options', 'edit', false) ) && ( $Results->get_num_rows() ) )
 { // display Delete link
 	global $DB;
 	$post_IDs = $DB->get_col( $SQL->get() );
 
-	echo '<p>[<a href="'.regenerate_url( 'action', 'action=del_broken_posts&amp;posts='.implode( ',', $post_IDs ).'&amp;'.url_crumb( 'tools' ) ).'">'
-		.T_( 'Delete these posts' ).'</a>]</p>';
+	echo '<p><a href="'.regenerate_url( 'action', 'action=del_broken_posts&amp;posts='.implode( ',', $post_IDs ).'&amp;'.url_crumb( 'tools' ) ).'" class="btn btn-danger">'
+		.T_( 'Delete these posts' ).'</a></p>';
 }
 
+// Display buttton to back to tools menu:
+echo '<p><a href="'.$admin_url.'?ctrl=tools" class="btn btn-primary">'.T_('Back to tools menu').'</a></p>';
 ?>
