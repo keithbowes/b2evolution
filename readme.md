@@ -32,7 +32,7 @@ This is [a fork](https://github.com/keithbowes/b2evolution) of the [upstream pro
     - [ ] Polls
     - [ ] SVN client (replace with a Git client?)
     - [ ] WHOIS
-    …
+    - …
 
 The original goal was to remove the bloat from the ever expanding upstream project, but now that it's been discontinued, that seems less urgent, but there are definitely some things I'd like to remove. 
 
