@@ -11,27 +11,27 @@ This is [a fork](https://github.com/keithbowes/b2evolution) of the [upstream pro
 
 - [X] Sort categories alphabetically rather than based on ID.
 - [X] Restore xg.php for translations.
-- [] Remove automatic updating (just download and extract the tarball).
-- [] Remove the v5 skin templates.
-- [] Remove things marked deprecated or obsolete.
-- [] Backport the accessibility improvements from my EdK skin.
-- [] Remove hacks for old versions of PHP.
-- [] Remove antispam support (there are plugins that can be used for that).
-- [] Remove support for trackbacks, pingbacks, and linkbacks. Only the standard WebMention should be supported.
-- [] Remove Avatar support. There are plugins that can do that.
-- [] Remove nonfunctional plugins.
-- [] Remove support for versioned posts. That just wastes database space.
-- [] Remove non-HTTP caching. That wastes disk space for no good reason.
-- [] Remove support for (X)HTML comments. Only Markdown should be supported.
-- [] Replace any remaining XHTML with HTML5.
-- [] Rework plugins not to use sessions.
-- [] Remove sessions support. This really uses up database space and can lead to a site being unavailable.
-- [] Remove support for non-blogging features:
-    - [] Forums
-    - [] Email campaigns
-    - [] Polls
-    - [] SVN client (replace with a Git client?)
-    - [] WHOIS
+- [ ] Remove automatic updating (just download and extract the tarball).
+- [ ] Remove the v5 skin templates.
+- [ ] Remove things marked deprecated or obsolete.
+- [ ] Backport the accessibility improvements from my EdK skin.
+- [ ] Remove hacks for old versions of PHP.
+- [ ] Remove antispam support (there are plugins that can be used for that).
+- [ ] Remove support for trackbacks, pingbacks, and linkbacks. Only the standard WebMention should be supported.
+- [ ] Remove Avatar support. There are plugins that can do that.
+- [ ] Remove nonfunctional plugins.
+- [ ] Remove support for versioned posts. That just wastes database space.
+- [ ] Remove non-HTTP caching. That wastes disk space for no good reason.
+- [ ] Remove support for (X)HTML comments. Only Markdown should be supported.
+- [ ] Replace any remaining XHTML with HTML5.
+- [ ] Rework plugins not to use sessions.
+- [ ] Remove sessions support. This really uses up database space and can lead to a site being unavailable.
+- [ ] Remove support for non-blogging features:
+    - [ ] Forums
+    - [ ] Email campaigns
+    - [ ] Polls
+    - [ ] SVN client (replace with a Git client?)
+    - [ ] WHOIS
     …
 
 The original goal was to remove the bloat from the ever expanding upstream project, but now that it's been discontinued, that seems less urgent, but there are definitely some things I'd like to remove. 
