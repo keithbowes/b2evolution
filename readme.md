@@ -7,7 +7,7 @@ This is b2evolution version **7.2.5-stable**.
 
 ## Objectives
 
-This is [a fork](https://github.com/keithbowes/b2evolution) of the [upstream project](https://github.com/b2evolution/b2evolution), focusing on a small project used for blogs and CMSes.  The primary changes in this fork are:
+This is [a fork](https://github.com/keithbowes/b2evolution) of the [upstream project](https://github.com/b2evolution/b2evolution), focusing on a small project used for blogs and CMSes.  The primary goals this fork are:
 
 - [X] Sort categories alphabetically rather than based on ID.
 - [X] Restore xg.php for translations.
