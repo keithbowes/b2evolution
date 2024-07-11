@@ -5,14 +5,36 @@
 This is b2evolution, a modern, object-oriented blogging system.
 This is b2evolution version **7.2.5-stable**.
 
-## Differences to upstream
+## Objectives
 
-This is [a fork](https://github.com/keithbowes/b2evolution) of the [upstream project](https://github.com/b2evolution/b2evolution).  The primary changes in this fork are:
+This is [a fork](https://github.com/keithbowes/b2evolution) of the [upstream project](https://github.com/b2evolution/b2evolution), focusing on a small project used for blogs and CMSes.  The primary changes in this fork are:
 
-1.  Sorting of categories.  Categories are sorted alphabetically rather than based on ID.
-2.  I still use xg.php (where upstream seems to have settled for xgmac.sh and completely removed xg.php), though I've made several changes.
+- [X] Sort categories alphabetically rather than based on ID.
+- [X] Restore xg.php for translations.
+- [] Remove automatic updating (just download and extract the tarball).
+- [] Remove the v5 skin templates.
+- [] Remove things marked deprecated or obsolete.
+- [] Backport the accessibility improvements from my EdK skin.
+- [] Remove hacks for old versions of PHP.
+- [] Remove antispam support (there are plugins that can be used for that).
+- [] Remove support for trackbacks, pingbacks, and linkbacks. Only the standard WebMention should be supported.
+- [] Remove Avatar support. There are plugins that can do that.
+- [] Remove nonfunctional plugins.
+- [] Remove support for versioned posts. That just wastes database space.
+- [] Remove non-HTTP caching. That wastes disk space for no good reason.
+- [] Remove support for (X)HTML comments. Only Markdown should be supported.
+- [] Replace any remaining XHTML with HTML5.
+- [] Rework plugins not to use sessions.
+- [] Remove sessions support. This really uses up database space and can lead to a site being unavailable.
+- [] Remove support for non-blogging features:
+    - [] Forums
+    - [] Email campaigns
+    - [] Polls
+    - [] SVN client (replace with a Git client?)
+    - [] WHOIS
+    …
 
-I'm currently working on putting the bloated system on a diet, to return to simple days of it being a blogging system that didn't take up most of the space my host gives me.  If you want a full CMS, you should perhaps use the upstream system instead.
+The original goal was to remove the bloat from the ever expanding upstream project, but now that it's been discontinued, that seems less urgent, but there are definitely some things I'd like to remove. 
 
 ## Requirements
 
@@ -31,9 +53,9 @@ This will install the **latest** GitHub release of b2evolution (which may be a b
 
 You can download releases from Github:
 
-- <https://github.com/keithbowes/b2evolution>
-- https://github.com/b2evolution/b2evolution/releases
-- https://b2evolution.net/downloads/
+- <https://github.com/keithbowes/b2evolution> - This fork
+- https://github.com/b2evolution/b2evolution/releases - Upstream (abandoned)
+- https://b2evolution.net/downloads/ - Project website
 
 ## Installation
 
